@@ -43,7 +43,6 @@ build/
 tmp/
 node_modules/
 .vscode/
-dist/
 
 .DS_Store
 scripts/Testing/
