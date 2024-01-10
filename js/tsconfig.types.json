@@ -1,0 +1,14 @@
+// We use this config when generating the type definitions for the source code
+// This file is needed because we cannot override the "include" file list through the CLI
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

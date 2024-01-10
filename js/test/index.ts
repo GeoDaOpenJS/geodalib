@@ -1,0 +1,17 @@
+
+
+import './operations/buffer.test';
+import './operations/count.test';
+import './operations/join-crosses.test';
+import './operations/join-equals.test';
+import './operations/join-intersects.test';
+import './operations/join-overlaps.test';
+import './operations/join-touches.test';
+import './operations/join-within.test';
+import './operations/parallel-join-utils.test';
+import './operations/union.test';
+import './operations/centroids.test';
+import './features/geometry.test';
+import './statistics/local-moran.test';
+import './weights/nearest-neighbors.test';
+import './weights/distance-based-neighbors.test';
