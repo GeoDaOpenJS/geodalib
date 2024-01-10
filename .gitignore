@@ -1,0 +1,51 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+cmake-build-debug/
+cmake-build-release/
+.idea/
+.vscode/
+build/
+tmp/
+node_modules/
+.vscode/
+
+.DS_Store
+scripts/Testing/
+yarn-error.log
+
+# Ignore yarn files as suggested here
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+**/.pnp.*
+**/.yarn/*
+js/wasm/geoda.wasm

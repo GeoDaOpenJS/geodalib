@@ -1,0 +1,59 @@
+{
+  "name": "geoda-wasm",
+  "description": "GeoDa WASM module",
+  "version": "0.0.1",
+  "author": "Xun Li",
+  "sideEffects": false,
+  "type": "module",
+  "types": "dist/src/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build-js": "yarn build-types && node --loader esbuild-register/loader -r esbuild-register build-config/build.ts",
+    "build": "yarn clean && yarn wasm && yarn build-js",
+    "clean": "rimraf dist/",
+    "lint": "eslint --max-warnings 0 .",
+    "typecheck": "./node_modules/.bin/tsc",
+    "test": "node --loader esbuild-register/loader -r esbuild-register test/index.ts",
+    "build-types": "./node_modules/.bin/tsc --project tsconfig.types.json && mkdir dist/wasm && cp wasm/index.d.ts dist/wasm",
+    "wasm": "../wasm/build-wasm.sh ./wasm"
+  },
+  "devDependencies": {
+    "@loaders.gl/arrow": "^4.1.0-alpha.4",
+    "@loaders.gl/schema": "^4.1.0-alpha.4",
+    "@types/eslint": "^8.37.0",
+    "@types/geojson": "^7946.0.10",
+    "@types/tape": "^4.13.4",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "esbuild": "0.17.15",
+    "esbuild-plugin-copy": "^2.1.1",
+    "esbuild-register": "^3.4.2",
+    "eslint": "~8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.4",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-license-header": "^0.6.0",
+    "eslint-plugin-markdown": "^3.0.0",
+    "eslint-plugin-no-only-tests": "^3.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.7",
+    "rimraf": "^4.4.1",
+    "tape": "^5.6.3",
+    "typescript": "^5.0.3"
+  },
+  "volta": {
+    "node": "18.19.0",
+    "yarn": "4.0.0"
+  },
+  "nx": {
+    "tags": [
+      "type:lib",
+      "scope:common"
+    ]
+  }
+}
