@@ -10,6 +10,7 @@
 #include "./statistics/local-statistics.h"
 #include "./weights/distance-weights.h"
 #include "./weights/nearest-neighbors.h"
+#include "./mapping/mapping.h"
 
 template <typename T>
 emscripten::class_<std::vector<T>> register_vector_with_smart_ptrs(const char* name) {
@@ -83,5 +84,7 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::function("getDistanceWeights", &geoda::distance_weights);
   emscripten::function("getDistanceThresholds", &geoda::get_distance_thresholds);
   emscripten::function("localMoran", &geoda::local_moran);
+
+  emscripten::function("quantileBreaks", &geoda::quantilebreaks);
 }
 #endif

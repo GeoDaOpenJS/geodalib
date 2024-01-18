@@ -1,5 +1,3 @@
-
-
 import {VectorDouble} from '../../wasm';
 import {initWASM} from '../init';
 

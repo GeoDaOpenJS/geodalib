@@ -9,6 +9,7 @@ set (GEODA_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/statistics/local-statistics.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/nearest-neighbors.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/distance-weights.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/mapping/mapping.cpp
     PARENT_SCOPE)
 
 set (GEODA_HEADER_FILES
@@ -18,4 +19,5 @@ set (GEODA_HEADER_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/statistics/local-statistics.h
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/nearest-neighbors.h
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/distance-weights.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/mapping/mapping.h
     PARENT_SCOPE)

@@ -1,5 +1,3 @@
-
-
 export type {CustomEmbindModule as GeoDaInterface} from '../wasm';
 
 export {
@@ -24,3 +22,4 @@ export type {LocalMoranResultType} from './statistics/local-moran';
 export {localMoran} from './statistics/local-moran';
 
 export type {GeometryInput as SpatialJoinInput} from './features/geometry';
+export {quantileBreaks} from './mapping/quantile';
