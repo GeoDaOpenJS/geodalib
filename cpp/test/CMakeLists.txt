@@ -31,6 +31,7 @@ else()
     target_include_directories(runUnitTests PUBLIC ${BOOST_SRC_DIR})
 endif()
 
+# find_package(Arrow REQUIRED)
 
 target_include_directories(runUnitTests PUBLIC
     ${gtest_SOURCE_DIR}/include
@@ -38,6 +39,7 @@ target_include_directories(runUnitTests PUBLIC
     ${CMAKE_SOURCE_DIR}/src)
 
 target_link_libraries(runUnitTests
+    # Arrow::arrow_static
     gtest
     gtest_main)
 

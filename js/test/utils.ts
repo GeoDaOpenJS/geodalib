@@ -1,5 +1,7 @@
-
-
+/**
+ * Reduces the precision of a number to the given number of decimal places.
+ *
+ */
 export function reducePrecision(o: unknown, precision = 14): unknown {
   if (!o) return o;
   if (Array.isArray(o)) {
