@@ -218,7 +218,7 @@ export interface CustomEmbindModule {
 
   getDistanceThresholds(arg0: GeometryCollection, arg1: boolean): VectorDouble;
 
-  quantileBreaks(arg0: number, arg1: VectorDouble, arg2?: UnsignedInt): VectorDouble;
+  quantileBreaks(arg0: number, arg1: VectorDouble, arg2?: VectorInt): VectorDouble;
   localMoran(arg0: VectorDouble, arg1: VecVecUInt, arg2: UnsignedInt): LisaResult;
   GeometryCollection: typeof GeometryCollection;
   PolygonCollection: typeof PolygonCollection;
