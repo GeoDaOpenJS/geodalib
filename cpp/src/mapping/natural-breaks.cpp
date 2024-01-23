@@ -33,9 +33,61 @@ void create_unique_val_mapping(std::vector<UniqueValElem>& uv_mapping, const std
   }
 }
 
+/** Assume that b.size() <= N-1 */
+void pick_rand_breaks(std::vector<int>& b, int N, boost::uniform_01<boost::mt19937>& X) {
+  int num_breaks = b.size();
+  if (num_breaks > N - 1) return;
+
+  std::set<int> s;
+  while (s.size() != num_breaks) {
+    s.insert(1 + (N - 1) * X());
+  }
+  int cnt = 0;
+  for (std::set<int>::iterator it = s.begin(); it != s.end(); it++) {
+    b[cnt++] = *it;
+  }
+  std::sort(b.begin(), b.end());
+}
+
+// translate unique value breaks into normal breaks given unique value mapping
+void unique_to_normal_breaks(const std::vector<int>& u_val_breaks, const std::vector<UniqueValElem>& u_val_mapping,
+                             std::vector<int>& n_breaks) {
+  if (n_breaks.size() != u_val_breaks.size()) {
+    n_breaks.resize(u_val_breaks.size());
+  }
+  for (int i = 0, iend = u_val_breaks.size(); i < iend; i++) {
+    n_breaks[i] = u_val_mapping[u_val_breaks[i]].first;
+  }
+}
+
+/** Assume input b and v is sorted.  If not, can sort
+ with std::sort(v.begin(), v.end())
+ We assume that b and v are sorted in ascending order and are
+ valid (ie, no break indicies out of range and all categories
+ have at least one value.
+ gssd is the global sum of squared differences from the mean */
+double calc_gvf(const std::vector<int>& b, const std::vector<double>& v, double gssd) {
+  int N = v.size();
+  int num_cats = b.size() + 1;
+  double tssd = 0;  // total sum of local sums of squared differences
+  for (int i = 0; i < num_cats; i++) {
+    int s = (i == 0) ? 0 : b[i - 1];
+    int t = (i == num_cats - 1) ? N : b[i];
+
+    double m = 0;    // local mean
+    double ssd = 0;  // local sum of squared differences (variance)
+    for (int j = s; j < t; j++) m += v[j];
+    m /= (t - s);
+    for (int j = s; j < t; j++) ssd += (v[j] - m) * (v[j] - m);
+    tssd += ssd;
+  }
+
+  return 1 - (tssd / gssd);
+}
+
 // implementation of natural breaks
 std::vector<double> geoda::natural_breaks(int num_cats, const std::vector<double>& data,
-                                          const std::vector<bool>& _undef) {
+                                          const std::vector<int>& _undef) {
   int num_obs = data.size();
   std::vector<bool> undef(num_obs, 0);
 
@@ -99,7 +151,7 @@ std::vector<double> geoda::natural_breaks(int num_cats, const std::vector<double
   if (perms < 10) perms = 10;
   if (perms > 10000) perms = 10000;
 
-  boost::mt19937 rng(GdaConst::gda_user_seed);
+  boost::mt19937 rng(geoda::USER_SEED);
   boost::uniform_01<boost::mt19937> X(rng);
 
   for (int i = 0; i < perms; i++) {

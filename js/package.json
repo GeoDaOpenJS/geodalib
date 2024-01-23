@@ -20,7 +20,7 @@
     "test": "node --loader esbuild-register/loader -r esbuild-register test/index.ts",
     "prepublishOnly": "yarn build && yarn test",
     "build-types": "tsc --project tsconfig.types.json && mkdir dist/wasm && cp wasm/index.d.ts dist/wasm",
-    "wasm": "yarn build-wasm && yarn build-wasm-types",
+    "wasm": "yarn build-wasm",
     "build-wasm": "../cpp/scripts/build-wasm.sh ./wasm",
     "build-wasm-types": "tsembind wasm/index.cjs > wasm/index.d.ts && prettier --write wasm/index.d.ts"
   },

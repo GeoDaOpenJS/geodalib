@@ -49,7 +49,7 @@ std::vector<double> geoda::quantile_breaks(int num_cats, const std::vector<doubl
 
   std::vector<double> breaks(num_cats - 1);
   for (int i = 0, iend = breaks.size(); i < iend; i++) {
-    breaks[i] = geoda::percentile(((i + 1.0) * 100.0) / (static_cast<double>(num_cats), var);
+    breaks[i] = geoda::percentile(((i + 1.0) * 100.0) / static_cast<double>(num_cats), var);
   }
   return breaks;
 }
