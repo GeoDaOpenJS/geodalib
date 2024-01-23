@@ -2,6 +2,7 @@
 #define GEODA_MAPPING_H
 #include <limits>
 #include <vector>
+#include <utility>
 
 typedef std::pair<double, int> dbl_int_pair_type;
 typedef std::vector<dbl_int_pair_type> dbl_int_pair_vec_type;
@@ -17,9 +18,9 @@ double percentile(double x, const dbl_int_pair_vec_type& v);
 
 // std::vector<std::vector<double> > standardize_mad(const std::vector<std::vector<double> >& data);
 
-// std::vector<double> naturalbreaks(int k, const std::vector<double>& data, const std::vector<bool>& undefs);
+std::vector<double> naturalbreaks(int k, const std::vector<double>& data, const std::vector<bool>& undefs);
 
-std::vector<double> quantilebreaks(int k, const std::vector<double>& data, const std::vector<int>& undefs);
+std::vector<double> quantile_breaks(int k, const std::vector<double>& data, const std::vector<int>& undefs);
 
 // std::vector<double> hinge15breaks(const std::vector<double>& data, const std::vector<bool>& undefs);
 

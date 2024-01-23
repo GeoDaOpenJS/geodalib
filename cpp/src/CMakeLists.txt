@@ -9,7 +9,8 @@ set (GEODA_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/statistics/local-statistics.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/nearest-neighbors.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/distance-weights.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/mapping/mapping.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/mapping/quantile-breaks.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/mapping/natural-breaks.cpp
     PARENT_SCOPE)
 
 set (GEODA_HEADER_FILES

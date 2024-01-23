@@ -13,6 +13,7 @@ Install Emscripten and Boost
 ```
 brew install emscripten
 brew install boost
+brew install cpplint
 ```
 
 #### Ubuntu
@@ -21,6 +22,8 @@ On Ubuntu, the “Build Essential Tools” needs to be installed
 ```
 sudo apt-get update
 sudo apt-get install build-essential
+sudo apt-get libboost-all-dev python-pip
+pip install cpplint
 ```
 
 ### Run Tests
