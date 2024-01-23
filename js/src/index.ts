@@ -23,3 +23,4 @@ export {localMoran} from './statistics/local-moran';
 
 export type {GeometryInput as SpatialJoinInput} from './features/geometry';
 export {quantileBreaks} from './mapping/quantile';
+export {naturalBreaks} from './mapping/natural-breaks';
