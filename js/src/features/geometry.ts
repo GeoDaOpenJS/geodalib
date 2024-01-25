@@ -1,5 +1,3 @@
-
-
 import {Feature, Geometry, Position} from 'geojson';
 
 import {

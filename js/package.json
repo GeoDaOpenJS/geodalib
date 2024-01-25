@@ -25,11 +25,13 @@
     "build-wasm-types": "tsembind wasm/index.cjs > wasm/index.d.ts && prettier --write wasm/index.d.ts"
   },
   "devDependencies": {
+    "@loaders.gl/schema": "^4.0.4",
     "@types/eslint": "^8.37.0",
     "@types/geojson": "^7946.0.10",
     "@types/tape": "^4.13.4",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
+    "apache-arrow": "^13.0.0",
     "esbuild": "0.17.15",
     "esbuild-plugin-copy": "^2.1.1",
     "esbuild-register": "^3.4.2",
