@@ -10,6 +10,7 @@ import './operations/parallel-join-utils.test';
 import './operations/union.test';
 import './operations/centroids.test';
 import './features/geometry.test';
+import './features/arrow-geometry.test';
 import './statistics/local-moran.test';
 import './weights/nearest-neighbors.test';
 import './weights/distance-based-neighbors.test';

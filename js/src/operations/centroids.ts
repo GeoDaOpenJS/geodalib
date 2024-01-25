@@ -1,5 +1,4 @@
 
-import {Vector} from 'apache-arrow';
 import {Feature, MultiPolygon, Polygon, Point} from 'geojson';
 
 import {getPolygonCollection, getLineCollection, getPointCollection} from '../features/geometry';
@@ -113,22 +112,22 @@ export function getGeojsonCentroids(features: Array<Feature | null>): Array<Arra
 }
 
 // get centroids from geoarrow column
-export function getGeoArrowCentroids(geomeColumn: ArrowColumn, chunkIndexes: number[]): Array<Array<number>> {
-  const wasm = getWASM();
-  if (!wasm) return [];
+// export function getGeoArrowCentroids(geomeColumn: ArrowColumn, chunkIndexes: number[]): Array<Array<number>> {
+//   const wasm = getWASM();
+//   if (!wasm) return [];
 
-  const numChunks = chunkIndexes.length;
-  const centroids: Array<Array<number>> = [];
-  for (let i = 0; i < numChunks; ++i) {
-    const chunkIndex = chunkIndexes[i];
-    const chunk = geomeColumn.get(chunkIndex);
-    const geom = getPolygonCollection(chunk, wasm);
-    const coords = wasm.getCentroids(geom);
-    geom.delete();
-    const numPoints = coords.size();
-    for (let j = 0; j < numPoints; ++j) {
-      centroids.push([coords.get(j).get(0), coords.get(j).get(1)]);
-    }
-  }
-  return centroids;
-}
+//   const numChunks = chunkIndexes.length;
+//   const centroids: Array<Array<number>> = [];
+//   for (let i = 0; i < numChunks; ++i) {
+//     const chunkIndex = chunkIndexes[i];
+//     const chunk = geomeColumn.get(chunkIndex);
+//     const geom = getPolygonCollection(chunk, wasm);
+//     const coords = wasm.getCentroids(geom);
+//     geom.delete();
+//     const numPoints = coords.size();
+//     for (let j = 0; j < numPoints; ++j) {
+//       centroids.push([coords.get(j).get(0), coords.get(j).get(1)]);
+//     }
+//   }
+//   return centroids;
+// }

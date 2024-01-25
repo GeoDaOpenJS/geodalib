@@ -41,6 +41,13 @@ export class PolygonCollection extends GeometryCollection {
   delete(): void;
 }
 
+/**
+ * @param xs VectorDouble Array of x coordinates
+ * @param ys VectorDouble Array of y coordinates
+ * @param parts VectorUInt Array of indices into xs/ys where each part starts
+ * @param sizes VectorUInt Array of number of parts for each feature
+ * @param convertToUTM boolean Whether to convert to UTM
+ */
 export class LineCollection extends GeometryCollection {
   constructor(
     xs: VectorDouble,
@@ -217,7 +224,12 @@ export interface CustomEmbindModule {
     arg2: SpatialJoinType
   ): VecVecUInt;
 
-  getCentroids(arg0: GeometryCollection): VecVecDouble;
+  /**
+   * Get centroids from geometry collection e.g. pointCollection, lineCollection, polygonCollection
+   * @param geometryCollection
+   * @returns VecVecDouble Array of x, y coordinates [[x, y], [x, y], ...]
+   */
+  getCentroids(geometryCollection: GeometryCollection): VecVecDouble;
 
   getNearestNeighbors(arg0: GeometryCollection, arg1: UnsignedInt): VecVecUInt;
 

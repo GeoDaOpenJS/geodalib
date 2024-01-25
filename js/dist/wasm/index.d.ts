@@ -28,13 +28,13 @@ export class GeometryCollection {
 
 export class PolygonCollection extends GeometryCollection {
   constructor(
-    arg0: VectorDouble,
-    arg1: VectorDouble,
-    arg2: VectorUInt,
-    arg3: VectorUInt,
-    arg4: VectorUInt,
-    arg5: boolean,
-    arg6: boolean
+    xs: VectorDouble,
+    ys: VectorDouble,
+    parts: VectorUInt,
+    holes: VectorUInt,
+    sizes: VectorUInt,
+    fixPolygon: boolean,
+    convertToUTM: boolean
   );
 
   buffer(arg0: UnsignedLong, arg1: Double, arg2: Int): Polygon;
@@ -43,24 +43,31 @@ export class PolygonCollection extends GeometryCollection {
 
 export class LineCollection extends GeometryCollection {
   constructor(
-    arg0: VectorDouble,
-    arg1: VectorDouble,
-    arg2: VectorUInt,
-    arg3: VectorUInt,
-    arg4: boolean
+    xs: VectorDouble,
+    ys: VectorDouble,
+    parts: VectorUInt,
+    sizes: VectorUInt,
+    convertToUTM: boolean
   );
 
   buffer(arg0: UnsignedLong, arg1: Double, arg2: Int): Polygon;
   delete(): void;
 }
 
+/**
+ * @param xs VectorDouble Array of x coordinates
+ * @param ys VectorDouble Array of y coordinates
+ * @param parts VectorUInt Array of indices into xs/ys where each part starts
+ * @param sizes VectorUInt Array of number of parts for each feature
+ * @param convertToUTM boolean Whether to convert to UTM
+ */
 export class PointCollection extends GeometryCollection {
   constructor(
-    arg0: VectorDouble,
-    arg1: VectorDouble,
-    arg2: VectorUInt,
-    arg3: VectorUInt,
-    arg4: boolean
+    xs: VectorDouble,
+    ys: VectorDouble,
+    parts: VectorUInt,
+    sizes: VectorUInt,
+    convertToUTM: boolean
   );
 
   buffer(arg0: UnsignedLong, arg1: Double, arg2: Int): Polygon;
@@ -210,7 +217,12 @@ export interface CustomEmbindModule {
     arg2: SpatialJoinType
   ): VecVecUInt;
 
-  getCentroids(arg0: GeometryCollection): VecVecDouble;
+  /**
+   * Get centroids from geometry collection e.g. pointCollection, lineCollection, polygonCollection
+   * @param geometryCollection
+   * @returns VecVecDouble Array of x, y coordinates [[x, y], [x, y], ...]
+   */
+  getCentroids(geometryCollection: GeometryCollection): VecVecDouble;
 
   getNearestNeighbors(arg0: GeometryCollection, arg1: UnsignedInt): VecVecUInt;
 
