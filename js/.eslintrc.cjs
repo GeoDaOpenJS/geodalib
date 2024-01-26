@@ -3,7 +3,7 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
-  ignorePatterns: ['wasm', 'dist', 'node_modules'],
+  ignorePatterns: ['wasm', 'dist', 'node_modules', 'build-config', 'config'],
   env: {
     es6: true
   },

@@ -85,6 +85,7 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::function("getDistanceThresholds", &geoda::get_distance_thresholds);
   emscripten::function("localMoran", &geoda::local_moran);
 
-  emscripten::function("quantileBreaks", &geoda::quantilebreaks);
+  emscripten::function("quantileBreaks", &geoda::quantile_breaks);
+  emscripten::function("naturalBreaks", &geoda::natural_breaks);
 }
 #endif

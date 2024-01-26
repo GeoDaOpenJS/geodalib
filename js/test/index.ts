@@ -14,3 +14,4 @@ import './statistics/local-moran.test';
 import './weights/nearest-neighbors.test';
 import './weights/distance-based-neighbors.test';
 import './mapping/quantile.test';
+import './mapping/natural-breaks.test';
