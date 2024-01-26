@@ -1,5 +1,3 @@
-
-
 import {
   Feature,
   Polygon,

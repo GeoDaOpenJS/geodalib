@@ -1,5 +1,3 @@
-
-
 import {Feature, Polygon, MultiLineString, LineString, Point, MultiPoint} from 'geojson';
 import test from 'tape';
 

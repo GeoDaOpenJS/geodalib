@@ -1,5 +1,3 @@
-
-
 import {DistanceUnit} from './weights/distance-based-neighbors';
 
 export const earthRadius = 6371008.8;

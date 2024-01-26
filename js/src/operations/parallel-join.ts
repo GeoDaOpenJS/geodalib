@@ -1,5 +1,3 @@
-
-
 import {SpatialJoinType, SpatialJoinResult} from './join';
 import {SpatialJoinWorkerOutput} from './join-worker';
 import {prepareParallelSpatialJoin, processJoinResultsFromWorker} from './parallel-join-utils';

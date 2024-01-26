@@ -1,4 +1,3 @@
-
 import {Feature, MultiPolygon, Polygon, Point} from 'geojson';
 
 import {getPolygonCollection, getLineCollection, getPointCollection} from '../features/geometry';

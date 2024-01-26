@@ -1,5 +1,3 @@
-
-
 import {Feature, Polygon, MultiPolygon} from 'geojson';
 
 import {CustomEmbindModule} from '../../wasm';

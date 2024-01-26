@@ -1,5 +1,3 @@
-
-
 import test from 'tape';
 
 import {localMoran} from '../../src/statistics/local-moran';

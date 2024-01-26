@@ -1,5 +1,3 @@
-
-
 import esbuild from 'esbuild';
 import {copy as copyPlugin} from 'esbuild-plugin-copy';
 import {existsSync} from 'fs';

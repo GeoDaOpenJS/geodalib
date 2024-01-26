@@ -1,5 +1,3 @@
-
-
 import {Feature, Point} from 'geojson';
 import test from 'tape';
 

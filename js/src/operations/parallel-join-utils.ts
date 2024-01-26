@@ -1,5 +1,3 @@
-
-
 import {SpatialJoinResult, SpatialJoinType} from './join';
 import {SpatialJoinWorkerInput} from './join-worker';
 import {GeometryInput} from '../features/geometry';

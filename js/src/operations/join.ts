@@ -1,5 +1,3 @@
-
-
 import {CustomEmbindModule} from '../../wasm';
 import {GeometryInput, getGeometryCollection} from '../features/geometry';
 import {initWASM} from '../init';

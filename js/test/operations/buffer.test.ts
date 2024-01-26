@@ -1,5 +1,3 @@
-
-
 import test from 'tape';
 
 import {initWASM, setWASM} from '../../src/init';

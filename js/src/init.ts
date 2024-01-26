@@ -1,5 +1,3 @@
-
-
 import type {CustomEmbindModule} from '../wasm';
 // @ts-expect-error - TS doesn't seem to like .cjs working alongside .d.ts
 import geodaAny from '../wasm/index.cjs';

@@ -1,5 +1,3 @@
-
-
 import {Feature} from 'geojson';
 
 import {getGeometryCollection} from '../features/geometry';

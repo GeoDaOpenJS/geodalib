@@ -1,5 +1,3 @@
-
-
 import {Feature, Polygon, Point, MultiPoint, LineString} from 'geojson';
 
 export const polygons: Feature<Polygon>[] = [

@@ -1,5 +1,3 @@
-
-
 import {Polygon, MultiPolygon, Point, Feature} from 'geojson';
 
 import {
