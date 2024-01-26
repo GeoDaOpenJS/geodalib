@@ -1,7 +1,12 @@
+import {BinaryFeatureCollection} from '@loaders.gl/schema';
 import {Feature} from 'geojson';
 
+import {
+  BinaryGeometryType,
+  getGeometryCollectionFromBinaryGeometries
+} from '../features/binary-geometry';
 import {getGeometryCollection} from '../features/geometry';
-import {initWASM} from '../init';
+import {getWASM, initWASM} from '../init';
 
 type NearestNeighborsInput = {
   k: number;
@@ -38,6 +43,44 @@ export async function getNearestNeighbors({
     const result = wasmInstance.getNearestNeighbors(geomCollection, k);
     for (let i = 0; i < n; ++i) {
       const nbrs = result.get(i);
+      const nbrIndices: number[] = Array(nbrs.size());
+      for (let j = 0, nbrSize = nbrs.size(); j < nbrSize; ++j) {
+        nbrIndices[j] = nbrs.get(j);
+      }
+      neighbors[i] = nbrIndices;
+    }
+  }
+
+  return neighbors;
+}
+
+type NearestNeighborsFromBinaryGeometriesProps = {
+  k: number;
+  binaryGeometryType: BinaryGeometryType;
+  binaryGeometries: BinaryFeatureCollection[];
+};
+
+export async function getNearestNeighborsFromBinaryGeometries({
+  k,
+  binaryGeometryType,
+  binaryGeometries
+}: NearestNeighborsFromBinaryGeometriesProps): Promise<number[][]> {
+  if (!binaryGeometries || binaryGeometries.length === 0) {
+    return [];
+  }
+
+  const neighbors: number[][] = [];
+
+  const geomCollection = await getGeometryCollectionFromBinaryGeometries(
+    binaryGeometryType,
+    binaryGeometries
+  );
+
+  if (geomCollection) {
+    const wasmInstance = await getWASM();
+    const result = wasmInstance?.getNearestNeighbors(geomCollection, k);
+    for (let i = 0; i < (result?.size() ?? 0); ++i) {
+      const nbrs = result?.get(i);
       const nbrIndices: number[] = Array(nbrs.size());
       for (let j = 0, nbrSize = nbrs.size(); j < nbrSize; ++j) {
         nbrIndices[j] = nbrs.get(j);

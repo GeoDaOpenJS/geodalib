@@ -9,37 +9,34 @@ import {
 } from '../../wasm';
 import {initWASM} from '../init';
 
-export type GeoArrowEncoding =
-  | 'geoarrow.multipolygon'
-  | 'geoarrow.polygon'
-  | 'geoarrow.multilinestring'
-  | 'geoarrow.linestring'
-  | 'geoarrow.multipoint'
-  | 'geoarrow.point'
-  | 'geoarrow.wkb'
-  | 'geoarrow.wkt';
+/**
+ * BinaryGeometryType, it is the same as DeckGlGeoTypes in kepler.gl/layers
+ * @typedef {Object} BinaryGeometryType
+ */
+export type BinaryGeometryType = {
+  point: boolean;
+  line: boolean;
+  polygon: boolean;
+};
 
 /**
  * create geoda.GeometryCollection from dataToFeatures[] in GeojsonLayer
  *
  */
-export async function getGeoDaGeometriesFromArrow(
-  geometryEncoding: GeoArrowEncoding,
+export async function getGeometryCollectionFromBinaryGeometries(
+  geometryType: BinaryGeometryType,
   binaryFeaturesChunks: BinaryFeatureCollection[]
 ): Promise<GeometryCollection | null> {
   const wasm = await initWASM();
   if (!wasm) return null;
 
-  if (geometryEncoding === 'geoarrow.multipolygon' || geometryEncoding === 'geoarrow.polygon') {
+  if (geometryType.point) {
     const polygonsArray = binaryFeaturesChunks.map(chunk => chunk.polygons);
     return createPolygonCollectionFromBinaryFeatures(polygonsArray, wasm);
-  } else if (
-    geometryEncoding === 'geoarrow.multilinestring' ||
-    geometryEncoding === 'geoarrow.linestring'
-  ) {
+  } else if (geometryType.line) {
     const linesArray = binaryFeaturesChunks.map(chunk => chunk.lines);
     return createLineCollectionFromBinaryFeatures(linesArray, wasm);
-  } else if (geometryEncoding === 'geoarrow.multipoint' || geometryEncoding === 'geoarrow.point') {
+  } else if (geometryType.polygon) {
     const pointsArray = binaryFeaturesChunks.map(chunk => chunk.points);
     return createPointCollectionFromBinaryFeatures(pointsArray, wasm);
   }
@@ -123,7 +120,7 @@ export function createLineCollectionFromBinaryFeatures(
         ys.push_back(coords[i + 1]);
       }
       // parts is geomOffsets: store the point index of each part
-      // get sizes from featureIds: store number of parts for each line/multiline 
+      // get sizes from featureIds: store number of parts for each line/multiline
       let numParts = 0;
       for (let i = 0; i < geomOffsets.length - 1; i++) {
         const startPointIndex = geomOffsets[i];
