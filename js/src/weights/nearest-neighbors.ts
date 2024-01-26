@@ -8,6 +8,9 @@ import {
 import {getGeometryCollection} from '../features/geometry';
 import {getWASM, initWASM} from '../init';
 
+/**
+ * Type of Nearest Neighbors input arguments.
+ */
 type NearestNeighborsInput = {
   k: number;
   geometries?: Feature[];
@@ -17,6 +20,11 @@ type NearestNeighborsInput = {
   };
 };
 
+/**
+ * Calculates the nearest neighbors for a given set of geometries or latitude/longitude arrays.
+ * @param {NearestNeighborsInput} input - The input parameters.
+ * @returns {Promise<number[][]>} - The nearest neighbors as an array of indices.
+ */
 export async function getNearestNeighbors({
   k,
   geometries,
@@ -54,12 +62,20 @@ export async function getNearestNeighbors({
   return neighbors;
 }
 
+/**
+ * Type of Nearest Neighbors from binary geometries arguments.
+ */
 type NearestNeighborsFromBinaryGeometriesProps = {
   k: number;
   binaryGeometryType: BinaryGeometryType;
   binaryGeometries: BinaryFeatureCollection[];
 };
 
+/**
+ * Calculates the nearest neighbors for a given set of geometries or latitude/longitude arrays.
+ * @param {NearestNeighborsFromBinaryGeometriesProps} input - The input parameters.
+ * @returns {Promise<number[][]>} - The nearest neighbors as an array of indices.
+ */
 export async function getNearestNeighborsFromBinaryGeometries({
   k,
   binaryGeometryType,
@@ -71,16 +87,17 @@ export async function getNearestNeighborsFromBinaryGeometries({
 
   const neighbors: number[][] = [];
 
+  const wasmInstance = await initWASM();
   const geomCollection = await getGeometryCollectionFromBinaryGeometries(
     binaryGeometryType,
-    binaryGeometries
+    binaryGeometries,
+    wasmInstance
   );
 
   if (geomCollection) {
-    const wasmInstance = await getWASM();
-    const result = wasmInstance?.getNearestNeighbors(geomCollection, k);
-    for (let i = 0; i < (result?.size() ?? 0); ++i) {
-      const nbrs = result?.get(i);
+    const result = wasmInstance.getNearestNeighbors(geomCollection, k);
+    for (let i = 0; i < result.size(); ++i) {
+      const nbrs = result.get(i);
       const nbrIndices: number[] = Array(nbrs.size());
       for (let j = 0, nbrSize = nbrs.size(); j < nbrSize; ++j) {
         nbrIndices[j] = nbrs.get(j);

@@ -23,21 +23,21 @@ test('Test createPointCollectionFromBinaryFeatures(), simple points', async t =>
       points: {
         ...getBinaryGeometryTemplate(),
         type: 'Point',
-        globalFeatureIds: {value: new Uint32Array([0, 1]), size: 2},
+        globalFeatureIds: {value: new Uint32Array([0, 1]), size: 1},
         positions: {value: new Float64Array([1, 1, 2, 2]), size: 2},
         properties: [{index: 0}, {index: 1}],
-        featureIds: {value: new Uint32Array([0, 1]), size: 2}
+        featureIds: {value: new Uint32Array([0, 1]), size: 1}
       },
       lines: {
         ...getBinaryGeometryTemplate(),
         type: 'LineString',
-        pathIndices: {value: new Uint16Array(0), size: 0}
+        pathIndices: {value: new Uint16Array(0), size: 1}
       },
       polygons: {
         ...getBinaryGeometryTemplate(),
         type: 'Polygon',
-        polygonIndices: {value: new Uint16Array(0), size: 0},
-        primitivePolygonIndices: {value: new Uint16Array(0), size: 0}
+        polygonIndices: {value: new Uint16Array(0), size: 1},
+        primitivePolygonIndices: {value: new Uint16Array(0), size: 1}
       }
     }
   ];
@@ -78,10 +78,10 @@ test('Test createPointCollectionFromBinaryFeatures(), multi-point features', asy
       points: {
         ...getBinaryGeometryTemplate(),
         type: 'Point',
-        globalFeatureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 2},
-        positions: {value: new Float64Array([1, 1, 2, 2, 3, 3, 4, 4]), size: 4},
+        globalFeatureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 1},
+        positions: {value: new Float64Array([1, 1, 2, 2, 3, 3, 4, 4]), size: 1},
         properties: [{index: 0}, {index: 1}],
-        featureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 2}
+        featureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 1}
       },
       lines: {
         ...getBinaryGeometryTemplate(),
@@ -138,11 +138,11 @@ test('Test createLineCollectionFromBinaryFeatures(), simple lines', async t => {
       lines: {
         ...getBinaryGeometryTemplate(),
         type: 'LineString',
-        globalFeatureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 2},
-        positions: {value: new Float64Array([0, 0, 1, 1, 2, 2, 3, 3]), size: 4},
+        globalFeatureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 1},
+        positions: {value: new Float64Array([0, 0, 1, 1, 2, 2, 3, 3]), size: 2},
         properties: [{index: 0}, {index: 1}],
-        featureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 2},
-        pathIndices: {value: new Int32Array([0, 2, 4]), size: 3}
+        featureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 1},
+        pathIndices: {value: new Int32Array([0, 2, 4]), size: 1}
       },
       polygons: {
         ...getBinaryGeometryTemplate(),

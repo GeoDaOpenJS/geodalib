@@ -25,20 +25,20 @@ export type BinaryGeometryType = {
  */
 export async function getGeometryCollectionFromBinaryGeometries(
   geometryType: BinaryGeometryType,
-  binaryFeaturesChunks: BinaryFeatureCollection[]
+  binaryFeaturesChunks: BinaryFeatureCollection[],
+  wasm: CustomEmbindModule
 ): Promise<GeometryCollection | null> {
-  const wasm = await initWASM();
   if (!wasm) return null;
 
   if (geometryType.point) {
-    const polygonsArray = binaryFeaturesChunks.map(chunk => chunk.polygons);
-    return createPolygonCollectionFromBinaryFeatures(polygonsArray, wasm);
+    const pointsArray = binaryFeaturesChunks.map(chunk => chunk.points);
+    return createPointCollectionFromBinaryFeatures(pointsArray, wasm);
   } else if (geometryType.line) {
     const linesArray = binaryFeaturesChunks.map(chunk => chunk.lines);
     return createLineCollectionFromBinaryFeatures(linesArray, wasm);
   } else if (geometryType.polygon) {
-    const pointsArray = binaryFeaturesChunks.map(chunk => chunk.points);
-    return createPointCollectionFromBinaryFeatures(pointsArray, wasm);
+    const polygonsArray = binaryFeaturesChunks.map(chunk => chunk.polygons);
+    return createPolygonCollectionFromBinaryFeatures(polygonsArray, wasm);
   }
   return null;
 }
