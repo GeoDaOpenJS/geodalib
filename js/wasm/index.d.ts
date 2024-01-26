@@ -239,6 +239,12 @@ export interface CustomEmbindModule {
 
   quantileBreaks(k: number, data: VectorDouble, undefs?: VectorInt): VectorDouble;
 
+  /**
+   * Natural Jenks breaks classification 
+   * @param k number of breaks
+   * @param data the values to be classified into k classes
+   * @param undefs the indices of data that are undefined 
+   */
   naturalBreaks(k: number, data: VectorDouble, undefs?: VectorInt): VectorDouble;
 
   localMoran(arg0: VectorDouble, arg1: VecVecUInt, arg2: UnsignedInt): LisaResult;
