@@ -283,7 +283,7 @@ test('Test createPolygonCollectionFromBinaryFeatures(), simple polygons', async 
   // function to check if the returned value is correct
   const centroids = wasmInstance?.getCentroids(polygons);
 
-  t.equal(centroids?.size(), 2, 'should return correct size of centroids');
+  t.equal(centroids.size(), 2, 'should return correct size of centroids');
 
   const expectedCentroids = [
     [0.5, 0.5],

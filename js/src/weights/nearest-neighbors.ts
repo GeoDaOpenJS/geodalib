@@ -6,7 +6,7 @@ import {
   getGeometryCollectionFromBinaryGeometries
 } from '../features/binary-geometry';
 import {getGeometryCollection} from '../features/geometry';
-import {getWASM, initWASM} from '../init';
+import {initWASM} from '../init';
 
 /**
  * Type of Nearest Neighbors input arguments.

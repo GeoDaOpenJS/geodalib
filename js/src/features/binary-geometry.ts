@@ -7,7 +7,6 @@ import {
   LineCollection,
   GeometryCollection
 } from '../../wasm';
-import {initWASM} from '../init';
 
 /**
  * BinaryGeometryType, it is the same as DeckGlGeoTypes in kepler.gl/layers
@@ -196,10 +195,7 @@ export function createPolygonCollectionFromBinaryFeatures(
           numParts += 1;
         }
         // eslint-disable-next-line max-depth
-        if (
-          startIdx > 0 &&
-          polygons.featureIds.value[endIdx] !== polygons.featureIds.value[endIdx - 1]
-        ) {
+        if (polygons.featureIds.value[endIdx] !== polygons.featureIds.value[endIdx - 1]) {
           sizes.push_back(numParts);
           numParts = 0;
         }
