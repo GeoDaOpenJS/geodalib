@@ -1,16 +1,16 @@
+#include "geometry/geometry.h"
+
 #include <algorithm>
-#include <sstream>
-#include <vector>
 #include <boost/geometry/algorithms/buffer.hpp>
 #include <boost/geometry/io/wkt/write.hpp>
+#include <sstream>
+#include <vector>
 
 #include "utils/UTM.h"
-#include "geometry/geometry.h"
 
 using namespace geoda;
 
 void Polygon::add(const std::vector<double>& in_x, const std::vector<double>& in_y, bool is_hole) {
-  // assert: the size of in_x and in_y should be equal.
   if (in_x.size() == in_y.size()) {
     parts.push_back(parts.empty() ? 0 : x.size());
     std::copy(in_x.begin(), in_x.end(), std::back_inserter(x));
@@ -20,7 +20,6 @@ void Polygon::add(const std::vector<double>& in_x, const std::vector<double>& in
 }
 
 void Line::add(const std::vector<double>& in_x, const std::vector<double>& in_y) {
-  // assert: the size of in_x and in_y should be equal.
   if (in_x.size() == in_y.size()) {
     parts.push_back(parts.empty() ? 0 : x.size());
     std::copy(in_x.begin(), in_x.end(), std::back_inserter(x));
@@ -62,7 +61,6 @@ PolygonCollection::PolygonCollection(const std::vector<double>& in_x, const std:
   utm_zones.resize(num_polys);
 
   for (int i = 0; i < num_polys; ++i) {
-    // extract and create multipolygon_type
     multipolygon_type boost_mp;
     int num_parts = sizes[i];
     int inner_parts = 0;
@@ -106,6 +104,78 @@ PolygonCollection::PolygonCollection(const std::vector<double>& in_x, const std:
     }
     polygons.push_back(boost_mp);
   }
+}
+
+void PolygonCollection::get_polygon(size_t polygon_index, Polygon& poly) {
+  int num_parts = sizes[polygon_index];
+
+  // get offset_part for the i-th polygon
+  int part_index = 0;
+  for (int i = 0; i < polygon_index; ++i) {
+    int offset_part = num_parts == 0 ? 1 : sizes[i];
+    part_index += offset_part;
+  }
+
+  double north, east;
+
+  for (int j = part_index; j < part_index + num_parts; ++j) {
+    int start = parts[j];
+    int end = j == parts.size() - 1 ? x.size() : parts[j + 1];
+    for (int k = start; k < end; ++k) {
+      double lat = y[k], lng = x[k];
+      if (convert_to_UTM) {
+        ConvertToUTM(polygon_index, lat, lng, north, east);
+        lat = north;
+        lng = east;
+      }
+      poly.x.push_back(lng);
+      poly.y.push_back(lat);
+    }
+    poly.parts.push_back(poly.parts.empty() ? 0 : poly.x.size());
+    poly.holes.push_back(holes[j]);
+  }
+}
+
+int PolygonCollection::get_part(size_t polygon_index, size_t part_index) const {
+  int part_offset = 0;
+  for (int i = 0; i < polygon_index; ++i) {
+    // an empty polygon (num_parts==0) should offset 1
+    int number_parts = sizes[i] == 0 ? 1 : sizes[i];
+    part_offset += number_parts;
+  }
+  return parts[part_offset + part_index];
+}
+
+point_type PolygonCollection::get_point(size_t polygon_index, size_t point_index) const {
+  point_type pt;
+  int num_parts = sizes[polygon_index];
+  int part_offset = 0;
+  for (int i = 0; i < polygon_index; ++i) {
+    // an empty polygon (num_parts==0) should offset 1
+    int offset_part = sizes[i] == 0 ? 1 : sizes[i];
+    part_offset += offset_part;
+  }
+  int start = parts[part_offset];
+  int k = point_index + start;
+  double lat = y[k], lng = x[k];
+  pt.set<0>(lng);
+  pt.set<1>(lat);
+  return pt;
+}
+
+size_t PolygonCollection::get_num_parts(size_t polygon_index) const { return sizes[polygon_index]; }
+
+size_t PolygonCollection::get_num_points(size_t polygon_index) const {
+  int num_parts = sizes[polygon_index];
+  int part_offset = 0;
+  for (int i = 0; i < polygon_index; ++i) {
+    // an empty polygon (num_parts==0) should offset 1
+    int offset_part = sizes[i] == 0 ? 1 : sizes[i];
+    part_offset += offset_part;
+  }
+  int start = parts[part_offset];
+  int end = part_offset + num_parts >= parts.size() ? x.size() : parts[part_offset + num_parts];
+  return end - start;
 }
 
 std::vector<std::vector<double>> PolygonCollection::get_centroids() const {

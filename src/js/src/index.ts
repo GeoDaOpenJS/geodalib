@@ -8,6 +8,7 @@ export {
 } from './init';
 
 export {getNearestNeighborsFromBinaryGeometries} from './weights/nearest-neighbors';
+export {getContiguityNeighborsFromBinaryGeometries} from './weights/contiguity-neighbors';
 export * from './weights/weights-stats';
 
 export type {LocalMoranResult as LocalMoranResultType} from './sa/local-moran';

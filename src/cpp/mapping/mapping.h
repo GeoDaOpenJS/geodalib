@@ -21,14 +21,37 @@ double percentile(double x, const dbl_int_pair_vec_type& v);
 
 // std::vector<std::vector<double> > standardize_mad(const std::vector<std::vector<double> >& data);
 
+/**
+ * @brief Compute natural breaks for a given data set and number of classes
+ * 
+ * @param k The number of classes/categroies
+ * @param data The data values
+ * @param undefs The flags indicating which data value is undefined
+ * @return std::vector<double> The values of natural breaks
+ */
 std::vector<double> natural_breaks(int k, const std::vector<double>& data, const std::vector<int>& undefs);
 
+/**
+ * @brief Compute quantile breaks for a given data set and number of classes
+ * 
+ * @param k The number of classes/categroies
+ * @param data The data values
+ * @param undefs The flags indicating which data value is undefined
+ * @return std::vector<double> The values of quantile breaks
+ */
 std::vector<double> quantile_breaks(int k, const std::vector<double>& data, const std::vector<int>& undefs);
 
 // std::vector<double> hinge15breaks(const std::vector<double>& data, const std::vector<bool>& undefs);
 
 // std::vector<double> hinge30breaks(const std::vector<double>& data, const std::vector<bool>& undefs);
 
+/**
+ * @brief Compute percentile breaks for a given data set
+ * 
+ * @param data The data values
+ * @param undefs The flags indicating which data value is undefined
+ * @return std::vector<double> The values of percentile breaks
+ */
 std::vector<double> percentilebreaks(const std::vector<double>& data, const std::vector<bool>& undefs);
 
 // std::vector<double> stddevbreaks(const std::vector<double>& data, const std::vector<bool>& undefs);

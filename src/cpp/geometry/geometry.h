@@ -111,12 +111,30 @@ class GeometryCollection {
   virtual ShapeType get_type() const = 0;
   virtual std::vector<std::vector<double>> get_centroids() const = 0;
   virtual point_type get_centroid(size_t i) const = 0;
+
+  virtual int get_part(size_t geom_index, size_t part_index) const { throw; }
+  virtual point_type get_point(size_t geom_index, size_t point_index) const { throw; }
+  virtual size_t get_num_parts(size_t geom_index) const { throw; }
+  virtual size_t get_num_points(size_t geom_index) const { throw; }
 };
 
+/**
+ * @brief PointCollection class for Point or MultiPoint shape type
+ *
+ */
 class PointCollection : public GeometryCollection {
  public:
   std::vector<multipoint_type> points;
 
+  /**
+   * @brief Construct a new Point Collection object
+   *
+   * @param x The x coordinates
+   * @param y  The y coordinates
+   * @param parts The array of part index for each point geometry
+   * @param sizes  The array of size (how many parts) of each point geometry
+   * @param convert_to_UTM If true, convert the coordinates to UTM in the unit of meters
+   */
   PointCollection(const std::vector<double>& x, const std::vector<double>& y, const std::vector<unsigned int>& parts,
                   const std::vector<unsigned int>& sizes, bool convert_to_UTM = false);
 
@@ -134,9 +152,7 @@ class PointCollection : public GeometryCollection {
     return pt;
   }
 
-  multipoint_type get_point(size_t i) const override {
-    return points[i];
-  };
+  multipoint_type get_point(size_t i) const override { return points[i]; }
 };
 
 class LineCollection : public GeometryCollection {
@@ -160,9 +176,7 @@ class LineCollection : public GeometryCollection {
     return pt;
   }
 
-  multiline_type get_line(size_t i) const override {
-    return lines[i];
-  };
+  multiline_type get_line(size_t i) const override { return lines[i]; }
 };
 
 class PolygonCollection : public GeometryCollection {
@@ -188,9 +202,17 @@ class PolygonCollection : public GeometryCollection {
     return pt;
   }
 
-  multipolygon_type get_polygon(size_t i) const override {
-    return polygons[i];
-  };
+  multipolygon_type get_polygon(size_t i) const override { return polygons[i]; }
+
+  void get_polygon(size_t polygon_index, Polygon& poly);
+
+  int get_part(size_t geom_index, size_t part_index) const override;
+
+  point_type get_point(size_t geom_index, size_t point_index) const override;
+
+  size_t get_num_parts(size_t geom_index) const override;
+
+  size_t get_num_points(size_t geom_index) const override;
 };
 
 }  // namespace geoda

@@ -71,6 +71,9 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::function("getNearestNeighbors", &geoda::knearest_neighbors);
   emscripten::function("getDistanceWeights", &geoda::distance_weights);
   emscripten::function("getDistanceThresholds", &geoda::get_distance_thresholds);
+  emscripten::function("getPolygonContiguityWeights", &geoda::polygon_contiguity_weights);
+  emscripten::function("getPointContiguityWeights", &geoda::point_contiguity_weights);
+
   emscripten::function("localMoran", &geoda::local_moran);
 
   emscripten::function("quantileBreaks", &geoda::quantile_breaks);
