@@ -223,6 +223,38 @@ export class LisaResult {
 
 export interface GeoDaModule {
   /**
+   * get the contiguity neighbors using the centroids of a collection of geometries
+   * @param geometries
+   * @param isQueen
+   * @param precisionThreshold
+   * @param orderOfContiguity
+   * @param includeLowerOrder
+   */
+  getPointContiguityWeights(
+    geometries: GeometryCollection,
+    isQueen: boolean,
+    precisionThreshold: number,
+    orderOfContiguity: number,
+    includeLowerOrder: boolean
+  ): VecVecUInt;
+
+  /**
+   * get the contiguity neighbors of a collection of polygons
+   * @param geometries
+   * @param isQueen
+   * @param precisionThreshold
+   * @param orderOfContiguity
+   * @param includeLowerOrder
+   */
+  getPolygonContiguityWeights(
+    geometries: GeometryCollection,
+    isQueen: boolean,
+    precisionThreshold: number,
+    orderOfContiguity: number,
+    includeLowerOrder: boolean
+  ): VecVecUInt;
+
+  /**
    * get the nearest neighbors of a collection of geometries
    * @param geometries the collection of geometries
    * @param k the number of nearest neighbors
@@ -249,7 +281,7 @@ export interface GeoDaModule {
   getDistanceThresholds(geometries: GeometryCollection, isMile: boolean): VectorDouble;
 
   /**
-   * 
+   *
    * @param k the number of breaks
    * @param data the values to be classified into k classes
    * @param undefs the indices of data that are undefined
