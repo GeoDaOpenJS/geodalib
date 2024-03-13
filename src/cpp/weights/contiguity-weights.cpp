@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <iostream>
 #include <set>
 #include <stack>
 #include <vector>
@@ -115,8 +116,7 @@ std::vector<std::vector<unsigned int>> geoda::polygon_contiguity_weights(const g
                                                                          bool include_lower_order) {
   // # of records of geometry
   unsigned int gRecords = geoms.size();
-
-  geoda::GalElement* gal = new geoda::GalElement[gRecords];
+ 
   // bounding box for the entire map
   // partition constructed on lower(x) and upper(x) for each polygon
   geoda::BasePartition gMinX, gMaxX;
@@ -170,7 +170,8 @@ std::vector<std::vector<unsigned int>> geoda::polygon_contiguity_weights(const g
   } while (total == 0);
 
   int curr;
-  std::stack<int> neighbors, related;
+  std::vector<std::set<int>> nbr_map(gRecords);
+  std::stack<unsigned int> neighbors, related;
 
   for (int step = 0; step < gMinX.Cells(); ++step) {
     // include all elements from xmin[step]
@@ -184,7 +185,7 @@ std::vector<std::vector<unsigned int>> geoda::polygon_contiguity_weights(const g
 
       // form a list of neighbors: TODO, find the potential nearest neighbors
       for (int cell = gYPartition->lowest(curr); cell <= gYPartition->upmost(curr); ++cell) {
-        int potential = gYPartition->first(cell);
+        unsigned int potential = gYPartition->first(cell);
         while (potential != geoda::EMPTY_COUNT) {
           if (potential != curr) {
             neighbors.push(potential);
@@ -195,7 +196,7 @@ std::vector<std::vector<unsigned int>> geoda::polygon_contiguity_weights(const g
 
       // test each potential neighbor
       while (!neighbors.empty()) {
-        int nbr = neighbors.top();
+        unsigned int nbr = neighbors.top();
         neighbors.pop();
         // check if the bbox of geoms[curr] and geoms[nbr] are intersect
         box_type curr_bbox, nbr_bbox;
@@ -211,14 +212,11 @@ std::vector<std::vector<unsigned int>> geoda::polygon_contiguity_weights(const g
         }
       }
 
-      size_t sz = related.size();
-
-      if (sz > 0) {
-        gal[curr].SetSizeNbrs(sz);
-        for (size_t i = 0; i < sz; ++i) {
-          gal[curr].SetNbr(i, related.top());
-          related.pop();
-        }
+      while (!related.empty()) {
+        unsigned int nbr = related.top();
+        nbr_map[curr].insert(nbr);
+        nbr_map[nbr].insert(curr);
+        related.pop();
       }
 
       // remove from the partition
@@ -229,33 +227,23 @@ std::vector<std::vector<unsigned int>> geoda::polygon_contiguity_weights(const g
   if (gYPartition) delete gYPartition;
   gYPartition = NULL;
 
-  std::vector<std::set<int>> nbr_map(gRecords);
-  // MakeFull(gal, gRecords);
+  // Create gal from nbr_map
+  geoda::GalElement* gal = new geoda::GalElement[gRecords];
   for (size_t i = 0; i < gRecords; ++i) {
-    for (size_t j = 0, sz = gal[i].Size(); j < sz; ++j) {
-      nbr_map[i].insert(gal[i][j]);
-      nbr_map[gal[i][j]].insert(i);
-    }
-  }
-  for (size_t i = 0; i < gRecords; ++i) {
-    if (gal[i].Size() == nbr_map[i].size()) {
-      gal[i].ReverseNbrs();
-      continue;
-    }
-    gal[i].SetSizeNbrs(nbr_map[i].size());
+    size_t nbr_sz = nbr_map[i].size();
+    gal[i].SetSizeNbrs(nbr_sz);
     size_t cnt = 0;
     for (std::set<int>::iterator it = nbr_map[i].begin(); it != nbr_map[i].end(); ++it) {
       gal[i].SetNbr(cnt++, *it);
     }
-    gal[i].SortNbrs();
-    gal[i].ReverseNbrs();
+    // gal[i].SortNbrs();
+    // gal[i].ReverseNbrs();
   }
 
   // make higher order contiguity
   if (order_contiguity > 1) {
     make_higher_ord_contiguity(order_contiguity, gRecords, gal, include_lower_order);
   }
-
   // convert GalElement to std::vector<std::vector<unsigned int>>
   std::vector<std::vector<unsigned int>> result_vec(gRecords);
   for (size_t i = 0; i < gRecords; ++i) {

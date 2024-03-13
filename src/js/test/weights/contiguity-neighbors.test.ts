@@ -41,7 +41,7 @@ test('Test getContiguityNeighborsFromBinaryGeometries()', async t => {
   ];
 
   const isQueen = true;
-  const useCentroids = true;
+  const useCentroids = false;
   const result = await getContiguityNeighborsFromBinaryGeometries({
     binaryGeometryType,
     binaryGeometries,

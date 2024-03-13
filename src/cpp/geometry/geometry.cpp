@@ -143,7 +143,7 @@ int PolygonCollection::get_part(size_t polygon_index, size_t part_index) const {
     int number_parts = sizes[i] == 0 ? 1 : sizes[i];
     part_offset += number_parts;
   }
-  return parts[part_offset + part_index];
+  return parts[part_offset + part_index] - parts[part_offset];
 }
 
 point_type PolygonCollection::get_point(size_t polygon_index, size_t point_index) const {

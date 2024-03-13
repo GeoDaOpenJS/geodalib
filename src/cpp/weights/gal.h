@@ -196,7 +196,6 @@ class GalElement {
   std::map<unsigned int, int> nbrLookup;  // nbr_id, idx_in_nbrWeight
   int idx;
 
- private:
   std::vector<unsigned int> nbr;
   std::vector<double> nbrWeight;
 };
