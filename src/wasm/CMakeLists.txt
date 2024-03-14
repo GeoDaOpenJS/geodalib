@@ -1,6 +1,7 @@
 
 set (WASM_SOURCE_FILES
         ${GEODA_SOURCE_FILES}
+        ${CLAPACK_SRC}
         wasm.cpp)
 
 if(USE_EMCC)
@@ -26,4 +27,4 @@ add_executable(geoda ${WASM_SOURCE_FILES})
 target_compile_definitions(geoda PRIVATE __EMCC__=1)
 target_compile_definitions(geoda PRIVATE EMCC_DEBUG=0)
 
-target_include_directories(geoda PUBLIC ${CMAKE_SOURCE_DIR}/cpp)
+target_include_directories(geoda PUBLIC ${CMAKE_SOURCE_DIR}/cpp ${CLAPACK_SRC_DIR}/INCLUDE)

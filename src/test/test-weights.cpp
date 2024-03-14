@@ -42,6 +42,6 @@ TEST(WEIGHTS, MULTIPOLYGON_CONTIGUITY_WEIGHTS) {
 }
 
 TEST(REGRESSION, TEST_REGRESSION) {
-  float r = dot_product();
-  EXPECT_FLOAT_EQ(r, 0.0);
+  double r = dot_product();
+  EXPECT_FLOAT_EQ(r, 32.0);
 }

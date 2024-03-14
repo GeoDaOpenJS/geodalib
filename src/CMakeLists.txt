@@ -124,6 +124,7 @@ file(GLOB CLAPACK_SRC
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dnrm2.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/drot.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dscal.c
+    ${CLAPACK_SRC_DIR}/BLAS/SRC/ddot.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dswap.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dtrmm.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dtrmv.c

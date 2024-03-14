@@ -8,6 +8,7 @@
 #include "sa/lisa.h"
 #include "weights/weights.h"
 #include "mapping/mapping.h"
+#include "regression/regression.h"
 
 template <typename T>
 emscripten::class_<std::vector<T>> register_vector_with_smart_ptrs(const char* name) {
@@ -78,5 +79,7 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
 
   emscripten::function("quantileBreaks", &geoda::quantile_breaks);
   emscripten::function("naturalBreaks", &geoda::natural_breaks);
+
+  emscripten::function("dotProduct", &dot_product);
 }
 #endif

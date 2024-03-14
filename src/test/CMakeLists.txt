@@ -13,7 +13,6 @@ target_include_directories(runUnitTests PUBLIC
     ${gmock_SOURCE_DIR}/include
     ${BOOST_SRC_DIR}
     ${CLAPACK_SRC_DIR}/INCLUDE
-    ${CLAPACK_SRC_DIR}/F2CLIBS/libf2c/fio.h
     ${CMAKE_SOURCE_DIR}/src)
 
 target_link_libraries(runUnitTests
