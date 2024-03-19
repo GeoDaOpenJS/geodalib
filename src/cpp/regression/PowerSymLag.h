@@ -2,7 +2,7 @@
  * GeoDa TM, Copyright (C) 2011-2015 by Luc Anselin - all rights reserved
  *
  * This file is part of GeoDa.
- * 
+ *
  * GeoDa is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,48 +20,48 @@
 #ifndef __GEODA_CENTER_POWER_SYM_LAG_H__
 #define __GEODA_CENTER_POWER_SYM_LAG_H__
 
-class PowerSymLag  {
-public :
-    PowerSymLag(const Iterator<WMap> matrix, const INDEX vsize);
-    VALUE Init();
-    void AdvanceLag();
+#include "lite2.h"
+#include "PowerLag.h"
 
-    VALUE SparseRowLag();
-    VALUE SparseColumnLag();
-    VALUE DenseRowLag()  {
-        LastWasRow= 1;
-        RowMultiply(RowLag(), mt, Row);
-        return Product(Row(), RowLag());
+class PowerSymLag {
+ public:
+  PowerSymLag(const Iterator<WMap> matrix, const INDEX vsize);
+  VALUE Init();
+  void AdvanceLag();
+
+  VALUE SparseRowLag();
+  VALUE SparseColumnLag();
+  VALUE DenseRowLag() {
+    LastWasRow = 1;
+    RowMultiply(RowLag(), mt, Row);
+    return Product(Row(), RowLag());
+  };
+
+  VALUE DenseColumnLag() {
+    LastWasRow = 0;
+    AdvanceLag();
+    return Product(RowLag(), RowLag());
+  };
+
+  VALUE ComputeLag() {
+    if (NonZero.count() < LongLength)  // do sparse lag
+      return LastWasRow ? SparseColumnLag() : SparseRowLag();
+    if (!LongInit) {
+      if (LastWasRow) return SparseColumnLag();  // last time do sparse
+      for (INDEX cnt = 0; cnt < Dim; ++cnt)
+        if (OrderLag[cnt] != LastOrder) RowLag[cnt] = 0;
+      LongInit = 1;
     };
+    return LastWasRow ? DenseColumnLag() : DenseRowLag();
+  };
 
-    VALUE DenseColumnLag()  {
-        LastWasRow= 0;
-        AdvanceLag();
-        return Product(RowLag(), RowLag());
-    };
-
-    VALUE ComputeLag()  {
-        if (NonZero.count() < LongLength)    // do sparse lag
-            return LastWasRow ? SparseColumnLag() : SparseRowLag();
-        if (!LongInit)  {
-            if (LastWasRow) return SparseColumnLag();  // last time do sparse
-            for (INDEX cnt= 0; cnt < Dim; ++cnt)
-                if (OrderLag[cnt] != LastOrder)
-                    RowLag[cnt]= 0;
-            LongInit= 1;
-        };
-        return LastWasRow ? DenseColumnLag() : DenseRowLag();
-    };
-
-private :
-        WVector           RowLag, Row;
-    Vector<INDEX>     NonZero;
-    Vector<unsigned char>      OrderLag, Order;
-    bool              LastWasRow, LongInit;
-    INDEX             LastOrder, Dim, LongLength;
-    Iterator<WMap>    mt;
+ private:
+  WVector RowLag, Row;
+  Vector<INDEX> NonZero;
+  Vector<unsigned char> OrderLag, Order;
+  bool LastWasRow, LongInit;
+  INDEX LastOrder, Dim, LongLength;
+  Iterator<WMap> mt;
 };
 
 #endif
-
-

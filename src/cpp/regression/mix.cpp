@@ -1,18 +1,17 @@
+#include "regression/mix.h"
+
 #include <blaswrap.h>
 #include <f2c.h>
 
-#include "regression/mix.h"
 #include "regression/dense-vector.h"
 #include "regression/lite2.h"
 #include "regression/reg-utils.h"
-
 
 extern "C" int dgesvd_(char *jobu, char *jobvt, integer *m, integer *n, doublereal *a, integer *lda, doublereal *s,
                        doublereal *u, integer *ldu, doublereal *vt, integer *ldvt, doublereal *work, integer *lwork,
                        integer *info);
 extern "C" int dspev_(char *jobz, char *uplo, integer *n, doublereal *ap, doublereal *w, doublereal *z__, integer *ldz,
                       doublereal *work, integer *info);
-
 
 // standard normal cumulative distribution function
 double nc(double x) {
@@ -613,8 +612,7 @@ double MC_Condition_Number(double **X, int dim, int expl) {
     double max = s[expl - 1], min = s[0];
     return sqrt(max / min);
   } else {
-    //	cerr << "error in computing eigenvalues" << std::endl;
-    wxMessageBox("error in computing eigenvalues");
+    std::cerr << "error in computing eigenvalues" << std::endl;
     return -999;
   }
 }

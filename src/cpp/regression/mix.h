@@ -7,8 +7,6 @@
 #include <iostream>
 #include <utility>
 
-using namespace std;
-
 const double ML_SMALL = 1.0e-14;
 const double GoldenRatio = (sqrt((double)5) - 1) / 2, GoldenToo = 1 - GoldenRatio;
 const double TOLERANCE = 1.0e-14;
@@ -101,7 +99,7 @@ void HeapSort(T *start, const int size) {
 // uses dictionary (array of pairs sorted in the in creasing order of key) to find
 // value for the matching key
 template <class K, class W>
-W Find(pair<K, W> *start, const int size, const K &key) {
+W Find(std::pair<K, W> *start, const int size, const K &key) {
   int mid = size / 2;
   int lower = 0, upper = size - 1;
   while (start[mid].first != key) {

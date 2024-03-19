@@ -31,6 +31,37 @@ file(GLOB CLAPACK_SRC
     ${CLAPACK_SRC_DIR}/SRC/dgebrd.c
     ${CLAPACK_SRC_DIR}/SRC/ilaenv.c
     ${CLAPACK_SRC_DIR}/SRC/dgelss.c
+    ${CLAPACK_SRC_DIR}/SRC/dgebak.c
+    ${CLAPACK_SRC_DIR}/SRC/dgebal.c
+    ${CLAPACK_SRC_DIR}/SRC/dgehd2.c
+    ${CLAPACK_SRC_DIR}/SRC/dgehrd.c
+    ${CLAPACK_SRC_DIR}/SRC/dgeev.c
+    ${CLAPACK_SRC_DIR}/SRC/dgesv.c
+    ${CLAPACK_SRC_DIR}/SRC/dgetf2.c
+    ${CLAPACK_SRC_DIR}/SRC/dhseqr.c
+    ${CLAPACK_SRC_DIR}/SRC/dlahqr.c
+    ${CLAPACK_SRC_DIR}/SRC/dlahr2.c
+    ${CLAPACK_SRC_DIR}/SRC/dlanv2.c
+    ${CLAPACK_SRC_DIR}/SRC/dlaqr0.c
+    ${CLAPACK_SRC_DIR}/SRC/dlaqr1.c
+    ${CLAPACK_SRC_DIR}/SRC/dlaqr2.c
+    ${CLAPACK_SRC_DIR}/SRC/dlaqr3.c
+    ${CLAPACK_SRC_DIR}/SRC/dlaqr4.c
+    ${CLAPACK_SRC_DIR}/SRC/dlaqr5.c
+    ${CLAPACK_SRC_DIR}/SRC/dlaswp.c
+    ${CLAPACK_SRC_DIR}/SRC/dorghr.c
+    ${CLAPACK_SRC_DIR}/SRC/dormhr.c
+    ${CLAPACK_SRC_DIR}/SRC/dspev.c
+    ${CLAPACK_SRC_DIR}/SRC/dlansp.c
+    ${CLAPACK_SRC_DIR}/SRC/dopgtr.c
+    ${CLAPACK_SRC_DIR}/SRC/dorg2l.c
+    ${CLAPACK_SRC_DIR}/SRC/dsptrd.c
+    ${CLAPACK_SRC_DIR}/SRC/dsteqr.c
+    ${CLAPACK_SRC_DIR}/SRC/dlae2.c
+    ${CLAPACK_SRC_DIR}/SRC/dlaev2.c
+    ${CLAPACK_SRC_DIR}/SRC/dlanst.c
+    ${CLAPACK_SRC_DIR}/SRC/dgetrs.c
+    ${CLAPACK_SRC_DIR}/SRC/dgetrf.c
     ${CLAPACK_SRC_DIR}/SRC/dgebd2.c
     ${CLAPACK_SRC_DIR}/SRC/dgelqf.c
     ${CLAPACK_SRC_DIR}/SRC/dgeqrf.c
@@ -48,9 +79,11 @@ file(GLOB CLAPACK_SRC
     ${CLAPACK_SRC_DIR}/SRC/dbdsqr.c
     ${CLAPACK_SRC_DIR}/SRC/dlaba.c
     ${CLAPACK_SRC_DIR}/SRC/dlacpy.c
+    ${CLAPACK_SRC_DIR}/SRC/dladiv.c
     ${CLAPACK_SRC_DIR}/SRC/dlabad.c
     ${CLAPACK_SRC_DIR}/INSTALL/dlamch.c
     ${CLAPACK_SRC_DIR}/SRC/dlange.c
+    ${CLAPACK_SRC_DIR}/SRC/dlaln2.c
     ${CLAPACK_SRC_DIR}/SRC/dlarf.c
     ${CLAPACK_SRC_DIR}/SRC/dlarfb.c
     ${CLAPACK_SRC_DIR}/SRC/dlarfg.c
@@ -64,6 +97,9 @@ file(GLOB CLAPACK_SRC
     ${CLAPACK_SRC_DIR}/SRC/dlasr.c
     ${CLAPACK_SRC_DIR}/SRC/dlasq.c
     ${CLAPACK_SRC_DIR}/SRC/dlasv2.c
+    ${CLAPACK_SRC_DIR}/SRC/dlaexc.c
+    ${CLAPACK_SRC_DIR}/SRC/dlarfx.c
+    ${CLAPACK_SRC_DIR}/SRC/dlasy2.c
     ${CLAPACK_SRC_DIR}/SRC/dorgbr.c
     ${CLAPACK_SRC_DIR}/SRC/dorgl2.c
     ${CLAPACK_SRC_DIR}/SRC/dorgqr.c
@@ -83,6 +119,9 @@ file(GLOB CLAPACK_SRC
     ${CLAPACK_SRC_DIR}/SRC/dorg2r.c
     ${CLAPACK_SRC_DIR}/SRC/dorm2r.c
     ${CLAPACK_SRC_DIR}/SRC/dorml2.c
+    ${CLAPACK_SRC_DIR}/SRC/dsterf.c
+    ${CLAPACK_SRC_DIR}/SRC/dtrevc.c
+    ${CLAPACK_SRC_DIR}/SRC/dtrexc.c
     ${CLAPACK_SRC_DIR}/SRC/ieeeck.c
     ${CLAPACK_SRC_DIR}/SRC/iladlc.c
     ${CLAPACK_SRC_DIR}/SRC/iladlr.c
@@ -116,8 +155,10 @@ file(GLOB CLAPACK_SRC
     ${CLAPACK_SRC_DIR}/F2CLIBS/libf2c/fmtlib.c
     ${CLAPACK_SRC_DIR}/F2CLIBS/libf2c/wref.c
     ${CLAPACK_SRC_DIR}/F2CLIBS/libf2c/ctype.c
+    ${CLAPACK_SRC_DIR}/BLAS/SRC/daxpy.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dcopy.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dgemm.c
+    ${CLAPACK_SRC_DIR}/BLAS/SRC/idamax.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/lsame.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dgemv.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dger.c
@@ -126,9 +167,11 @@ file(GLOB CLAPACK_SRC
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dscal.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/ddot.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dswap.c
+    ${CLAPACK_SRC_DIR}/BLAS/SRC/dspmv.c
+    ${CLAPACK_SRC_DIR}/BLAS/SRC/dspr2.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dtrmm.c
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dtrmv.c
-    ${CLAPACK_SRC_DIR}/BLAS/SRC/dtrmv.c
+    ${CLAPACK_SRC_DIR}/BLAS/SRC/dtrsm.c
 )
 
 # print out CLAPACK_SRC_DIR

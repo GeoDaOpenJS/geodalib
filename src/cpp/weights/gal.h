@@ -7,7 +7,6 @@
 #include <vector>
 #include <algorithm>
 
-#include "geometry/geometry.h"
 #include "weights/weights.h"
 
 

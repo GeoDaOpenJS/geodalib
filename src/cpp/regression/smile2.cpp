@@ -1,11 +1,11 @@
-#include <map>
 #include <boost/unordered_map.hpp>
+#include <map>
 
-#include "regression/ML_im.h"
-#include "regression/mix.h"
 #include "regression/DiagnosticReport.h"
-#include "regression/reg-utils.h"
+#include "regression/ML_im.h"
 #include "regression/lite2.h"
+#include "regression/mix.h"
+#include "regression/reg-utils.h"
 #include "weights/gal.h"
 
 void Lag(DenseVector &lag, const DenseVector &x, GalElement *g) {
@@ -13,7 +13,6 @@ void Lag(DenseVector &lag, const DenseVector &x, GalElement *g) {
 }
 
 void MakeFastLookupMat(GalElement *g, int dim, std::vector<std::set<int> > &g_lookup) {
-  using namespace std;
   g_lookup.resize(dim);
   for (int cnt = 0; cnt < dim; ++cnt) {
     for (int cp = 0; cp < g[cnt].Size(); ++cp) {
@@ -27,7 +26,6 @@ double T(GalElement *g, int dim) {
   // = tr(W'W) + tr(WW)
   // = w'_ij*w_ji + w_ij*w_ji
 
-  using namespace std;
   double sum = 0;
 
   int i = 0, j = 0;
@@ -225,7 +223,6 @@ double Compute_MoranZ(GalElement *g,
                       double **D,      // inverse([X'X]), size k by k
                       DenseVector *X,  // size n by k, including constant term
                       int n, int k, const double moranI) {
-  using namespace std;
   SparseMatrix W(g, n);
   W.rowStandardize();
 
@@ -463,7 +460,7 @@ extern double mic(const DenseVector &resid, const DenseVector &residW, const dou
                   const double trace2);
 extern void cg(const SparseMatrix &m, const double rho, const DenseVector &rhs, DenseVector &sol);
 
-extern void run1(SparseMatrix &w, const double rr, double &trace, double &trace2, double &frobenius, wxGauge *p_bar,
+extern void run1(SparseMatrix &w, const double rr, double &trace, double &trace2, double &frobenius,
                  double p_bar_min_fraction, double p_bar_max_fraction);
 
 bool SymMatInverse(double **mt, const int dim);
@@ -483,12 +480,8 @@ void DevFromMean(int nObs, double *RawData) {
 // yuntien: August 2005
 // Regression
 bool classicalRegression(GalElement *g, int num_obs, double *Y, int dim, double **X, int expl, DiagnosticReport *dr,
-                         bool InclConstant, bool m_moranz, wxGauge *gauge, bool do_white_test) {
+                         bool InclConstant, bool m_moranz, bool do_white_test) {
   int g_rng = 100;
-  if (gauge) {
-    g_rng = gauge->GetRange();
-    gauge->SetValue(0);
-  }
 
   double df = (dim - expl);
   DenseVector y(Y, dim, false), ols(expl);
@@ -508,7 +501,6 @@ bool classicalRegression(GalElement *g, int num_obs, double *Y, int dim, double 
 
   // Compute OLS
   if (!ordinaryLS(y, x, cov, resid, ols)) return false;
-  if (gauge) gauge->SetValue(g_rng / 3);
 
   // store the coefficients into the results
   double ee = product(resid, resid, dim);
@@ -580,7 +572,6 @@ bool classicalRegression(GalElement *g, int num_obs, double *Y, int dim, double 
       dr->SetMoranI(2, 2.0 * (1.0 - nc(fabs(MoranZ))));
     }
   }
-  if (gauge) gauge->SetValue((2 * g_rng) / 3);
   release(&D);
 
   double const sigma2ml = ee / dim;
@@ -671,13 +662,12 @@ bool classicalRegression(GalElement *g, int num_obs, double *Y, int dim, double 
 
   release(&cov);
   release(&x);
-  if (gauge) gauge->SetValue(g_rng);
 
   return true;
 }
 
 bool spatialLagRegression(GalElement *g, int num_obs, double *Y, int dim, double **X, int deps, DiagnosticReport *dr,
-                          bool InclConstant, wxGauge *p_bar) {
+                          bool InclConstant) {
   typedef double *double_ptr_type;
   const int n = dim;
   DenseVector y(Y, dim, false), *x = new DenseVector[deps];
@@ -686,7 +676,7 @@ bool spatialLagRegression(GalElement *g, int num_obs, double *Y, int dim, double
 
   double LogLike = 0, initRho = 0;
 
-  initRho = SimulationLag(g, num_obs, 41, 0.31, Y, X, deps, !InclConstant, &LogLike, p_bar, 0, 0.1);
+  initRho = SimulationLag(g, num_obs, 41, 0.31, Y, X, deps, !InclConstant, &LogLike, 0, 0.1);
   SparseMatrix orig(g, dim);
 
   double **cov = new double *[deps];
@@ -714,13 +704,13 @@ bool spatialLagRegression(GalElement *g, int num_obs, double *Y, int dim, double
 
   double trace, trace2, fr;
 
-  run1(orig, initRho, trace, trace2, fr, p_bar, 0.1, 0.55);
+  run1(orig, initRho, trace, trace2, fr, 0.1, 0.55);
   // correction for rho:  m
   // final rho: finRho
   double m = mic(r, rw, initRho, trace, trace2);
   double finRho = initRho - m;
 
-  run1(orig, finRho, trace, trace2, fr, p_bar, 0.55, 1);
+  run1(orig, finRho, trace, trace2, fr, 0.55, 1);
 
   // approximate computational error: m
   m = mic(r, rw, finRho, trace, trace2);
@@ -888,7 +878,7 @@ double mie(const DenseVector &rsd, const DenseVector &lag_resid, const double tr
            const DenseVector &y, const DenseVector *X, const SparseMatrix &w, const int vars, const double lambda);
 
 bool spatialErrorRegression(GalElement *g, int num_obs, double *Y, int dim, double **XX, int deps, DiagnosticReport *rr,
-                            bool InclConstant, wxGauge *p_bar) {
+                            bool InclConstant) {
   typedef double *double_ptr_type;
   DenseVector y(Y, dim, false), *X = new DenseVector[deps];
   int cnt = 0, row = 0, column = 0;

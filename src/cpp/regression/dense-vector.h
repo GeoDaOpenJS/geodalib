@@ -2,6 +2,7 @@
 #define __GEODA_CENTER_DENSE_VECTOR_H__
 
 #include <algorithm>
+#include "regression/mix.h"
 
 class DenseVector {
  public:

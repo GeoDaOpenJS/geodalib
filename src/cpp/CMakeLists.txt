@@ -6,6 +6,16 @@ set (GEODA_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/quantile-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/natural-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/regression/linear-regression.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/regression/dense-vector.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/regression/mix.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/regression/diagnostic-report.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/regression/ML_im.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/regression/PowerLag.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/regression/PowerSymLag.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/regression/SparseVector.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/regression/SparseMatrix.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/regression/SparseRow.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/regression/Weights.cpp
     PARENT_SCOPE)
 
 set (GEODA_HEADER_FILES

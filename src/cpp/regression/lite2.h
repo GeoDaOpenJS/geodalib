@@ -557,7 +557,7 @@ inline void Destroy(Iterator<T> it) {
 }
 
 template <class X>
-inline void CopyInput(Vector<X> &dest, const std::vector<long> &nbl, INDEX size) {
+inline void CopyInput(Vector<X> &dest, const std::vector<unsigned int> &nbl, INDEX size) {
   X v;
   for (INDEX i = 0; i < size; i++) {
     v = nbl[i];
@@ -566,7 +566,7 @@ inline void CopyInput(Vector<X> &dest, const std::vector<long> &nbl, INDEX size)
 }
 
 template <class X>
-inline void CopyInput(Vector<X> &dest, const std::vector<long> &nbl, const std::vector<double> &wtl, INDEX size) {
+inline void CopyInput(Vector<X> &dest, const std::vector<unsigned int> &nbl, const std::vector<double> &wtl, INDEX size) {
   X v;
   for (INDEX i = 0; i < size; i++) {
     v = pairstruct<INDEX, VALUE>(nbl[i], wtl[i]);
