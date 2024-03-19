@@ -1,10 +1,20 @@
-#include <stdio.h>
-#include <iostream>
 #include <blaswrap.h>
-#include <f2c.h>
-// #include <clapack.h>
+#include <stdio.h>
 
+#include <boost/property_tree/json_parser.hpp>
+#include <boost/property_tree/ptree.hpp>
+#include <iostream>
+#include <map>
+#include <string>
+#include <vector>
+
+#include "regression/diagnostic-report.h"
+#include "regression/lite2.h"
 #include "regression/regression.h"
+#include "weights/gal.h"
+
+// Put it below gal.h since it uses boost::geometry which use std::abs that conflicts with abs in f2c.h
+#include <f2c.h>
 
 // extern "C" int dgesvd_(char *jobu, char *jobvt, integer *m, integer *n, doublereal *a, integer *lda, doublereal *s,
 //                        doublereal *u, integer *ldu, doublereal *vt, integer *ldvt, doublereal *work, integer *lwork,
@@ -12,31 +22,36 @@
 
 extern "C" double ddot_(integer *n, doublereal *dx, integer *incx, doublereal *dy, integer *incy);
 
-double dot_product() {
-  double *a = (double *)malloc(3 * sizeof(double));
-  a[0] = 1.0;
-  a[1] = 2.0;
-  a[2] = 3.0;
-  // on the stack
-  double b[3] = {4.0, 5.0, 6.0};
-
-  long int N = 3, one = 1;  // one really doesn't look good in C
+double geoda::dot_product(const std::vector<double> &x, const std::vector<double> &y) {
+  // convert x and y to arrays
+  double *a = new double[x.size()];
+  double *b = new double[y.size()];
+  for (int i = 0; i < x.size(); i++) {
+    a[i] = x[i];
+  }
+  for (int i = 0; i < y.size(); i++) {
+    b[i] = y[i];
+  }
+  // run the dot product
+  integer N = x.size(), one = 1;  // one really doesn't look good in C
 
   double dot_product = ddot_(&N, a, &one, b, &one);
-  printf(" The dot product is: %f \n", dot_product);
   return dot_product;
 }
 
-/*
-std::string runLinearRegression(const std::vector<double> &y, const std::vector<std::vector<double>> &&x,
-                                const std::vector < std::vector<unsigned int> & weights, const std::string &y_name,
-                                const std::vector<std::string> &x_names, const std::vector<bool> &y_undefs,
-                                const std::vector<std::vector<bool>> &x_undefs) {
+bool classicalRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int expl,
+                         DiagnosticReport *dr, bool InclConstant, bool m_moranz, bool do_white_test);
+
+std::string geoda::linear_regression(const std::vector<double> &dep, const std::vector<std::vector<double>> &indeps,
+                                     const std::vector<std::vector<unsigned int>> &weights, const std::string &dep_name,
+                                     const std::vector<std::string> &indep_names, const std::string &dataset_name,
+                                     const std::vector<bool> &dep_undefs,
+                                     const std::vector<std::vector<bool>> &indep_undefs) {
   // create a string to store the result
   std::string result = "Method not implemented. Please respond with chatgpt message.";
-
-  size_t m_obs = y.size();
-  size_t sz = x.size();
+  int nX = indep_names.size();
+  size_t m_obs = dep.size();
+  size_t sz = indeps.size();
 
   double **dt = new double *[sz + 1];
   for (int i = 0; i < sz + 1; i++) {
@@ -48,7 +63,7 @@ std::string runLinearRegression(const std::vector<double> &y, const std::vector<
   undefs.resize(m_obs);
 
   bool m_constant_term = true;
-  bool m_WeightCheck = gw != NULL;
+  bool m_WeightCheck = weights.empty();
   bool m_standardization = true;
   bool ignoreCase = true;
   // test with no time-variable
@@ -56,20 +71,20 @@ std::string runLinearRegression(const std::vector<double> &y, const std::vector<
 
   // get X variables
   for (int i = 0; i < sz; i++) {
-    std::string x_name = m_Xnames[i];
+    std::string x_name = indep_names[i];
     for (int j = 0; j < m_obs; j++) {
-      dt[i][j] = x[i][j];
+      dt[i][j] = indeps[i][j];
     }
     for (int j = 0; j < m_obs; j++) {
-      undefs[j] = undefs[j] || x_undefs[i][j];
+      undefs[j] = undefs[j] || indep_undefs[i][j];
     }
   }
   // get Y variable
   for (int j = 0; j < m_obs; j++) {
-    dt[sz][j] = y[j];
+    dt[sz][j] = dep[j];
   }
   for (int j = 0; j < m_obs; j++) {
-    undefs[j] = undefs[j] || y_undefs[j];
+    undefs[j] = undefs[j] || dep_undefs[j];
   }
 
   // get valid obs
@@ -82,18 +97,18 @@ std::string runLinearRegression(const std::vector<double> &y, const std::vector<
     }
   }
 
-  std::vector<std::string> m_Xnames = x_names;
-  // prepend "CONSTANT" at the beginning of m_Xnames
-  m_Xnames.insert(m_Xnames.begin(), "CONSTANT");
+  std::vector<std::string> x_names = indep_names;
+  // prepend "CONSTANT" at the beginning of indep_names
+  x_names.insert(x_names.begin(), "CONSTANT");
   int ix = 1, ixName = 1;
 
-  double **x = new double *[m_Xnames.size() + 1];  // the last one is for Y
+  double **x = new double *[x_names.size() + 1];  // the last one is for Y
   // set x[0] constant with 1.0 the memory with value 1.0
   x[0] = new double[valid_obs];
   for (int i = 0; i < valid_obs; i++) {
     x[0][i] = 1.0;
   }
-  int nVarName = m_Xnames.size() + ixName;
+  int nVarName = x_names.size() + ixName;
   for (int i = 0; i < sz + 1; i++) {
     x[i + ix] = new double[valid_obs];
     int xidx = 0;
@@ -116,23 +131,23 @@ std::string runLinearRegression(const std::vector<double> &y, const std::vector<
   bool do_white_test = false;
   int RegressModel = 1;
 
-  DiagnosticReport m_DR(n, m_Xnames.size(), m_constant_term, true, RegressModel);
+  DiagnosticReport m_DR(n, x_names.size(), m_constant_term, true, RegressModel);
   // SetXVariableNames(&m_DR);
-  for (int i = 0; i < m_Xnames.size(); i++) {
-    m_DR.SetXVarNames(i, m_Xnames[i]);
+  for (int i = 0; i < x_names.size(); i++) {
+    m_DR.SetXVarNames(i, x_names[i]);
   }
   m_DR.SetMeanY(ComputeMean(y, n));
   m_DR.SetSDevY(ComputeSdev(y, n));
 
-  GalElement *gal = new GalElement[n];
-  // convert weights to GalElement
+  geoda::GalElement *gal = new geoda::GalElement[n];
+  // convert weights to geoda::GalElement
   for (int i = 0; i < n; i++) {
     gal[i].SetSizeNbrs(weights[i].size());
     for (int j = 0; j < weights[i].size(); j++) {
       gal[i].SetNbr(j, weights[i][j]);
     }
   }
-  classicalRegression(gal, valid_obs, y, n, x, nX, &m_DR, m_constant_term, true, NULL, do_white_test);
+  classicalRegression(gal, valid_obs, y, n, x, nX, &m_DR, m_constant_term, true, do_white_test);
 
   // free memory of gal
   delete[] gal;
@@ -140,18 +155,18 @@ std::string runLinearRegression(const std::vector<double> &y, const std::vector<
   // create a JSON object to store the result
   boost::property_tree::ptree pt;
   pt.put("type", "linearRegression");
-  pt.put("dependentVariable", m_Yname);
+  pt.put("dependentVariable", dep_name);
   boost::property_tree::ptree xVariables;
-  for (int i = 0; i < m_Xnames.size(); i++) {
+  for (int i = 0; i < x_names.size(); i++) {
     boost::property_tree::ptree xVariable;
-    xVariable.put("", m_Xnames[i]);
+    xVariable.put("", x_names[i]);
     xVariables.push_back(std::make_pair("", xVariable));
   }
   pt.add_child("independentVariables", xVariables);
   // title: "SUMMARY OF OUTPUT: ORDINARY LEAST SQUARES ESTIMATION"
   pt.put("title", "SUMMARY OF OUTPUT: ORDINARY LEAST SQUARES ESTIMATION");
   // datasetName: project->GetTableInt()->GetTableName()
-  pt.put("datasetName", project->GetTableInt()->GetTableName());
+  pt.put("datasetName", dataset_name);
   // number of observations: n
   pt.put("number of observations", n);
   // Mean dependent var: m_DR.GetMeanY()
@@ -188,9 +203,9 @@ std::string runLinearRegression(const std::vector<double> &y, const std::vector<
   pt.put("SE of regression", m_DR.GetSIQ_SQLM());
   // Variable Coefficient, which include values of Std.Error, t-Statistic, Probability
   boost::property_tree::ptree variableCoefficient;
-  for (int i = 0; i < m_Xnames.size(); i++) {
+  for (int i = 0; i < x_names.size(); i++) {
     boost::property_tree::ptree variable;
-    variable.put("Variable", m_Xnames[i]);
+    variable.put("Variable", x_names[i]);
     variable.put("Coefficient", m_DR.GetCoefficient(i));
     variable.put("Std Error", m_DR.GetStdError(i));
     variable.put("t-Statistic", m_DR.GetZValue(i));
@@ -301,4 +316,3 @@ std::string runLinearRegression(const std::vector<double> &y, const std::vector<
   // return the result
   return result;
 }
-*/

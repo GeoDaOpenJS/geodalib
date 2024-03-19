@@ -42,6 +42,8 @@ TEST(WEIGHTS, MULTIPOLYGON_CONTIGUITY_WEIGHTS) {
 }
 
 TEST(REGRESSION, TEST_REGRESSION) {
-  double r = dot_product();
+  const std::vector<double> x = {1, 2, 3};
+  const std::vector<double> y = {4, 5, 6};
+  double r = geoda::dot_product(x, y);
   EXPECT_FLOAT_EQ(r, 32.0);
 }

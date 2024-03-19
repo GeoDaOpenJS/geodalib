@@ -1,1 +1,1 @@
-export declare function runLinearRegression(): Promise<number>;
+export declare function dotProduct(x: number[], y: number[]): Promise<number>;

@@ -80,6 +80,6 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::function("quantileBreaks", &geoda::quantile_breaks);
   emscripten::function("naturalBreaks", &geoda::natural_breaks);
 
-  emscripten::function("dotProduct", &dot_product);
+  emscripten::function("dotProduct", &geoda::dot_product);
 }
 #endif

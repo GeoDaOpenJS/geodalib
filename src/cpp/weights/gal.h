@@ -1,20 +1,19 @@
 #ifndef GEODA_GAL_WEIGHT_H
 #define GEODA_GAL_WEIGHT_H
 
+#include <algorithm>
 #include <functional>
 #include <map>
 #include <set>
 #include <vector>
-#include <algorithm>
 
 #include "weights/weights.h"
-
 
 namespace geoda {
 
 /**
  * @brief The weights structure to represent who is the neighbor of whom
- * 
+ *
  */
 class GalElement {
  public:
@@ -25,9 +24,7 @@ class GalElement {
 
   virtual ~GalElement() {}
 
-  virtual size_t Size() const {
-    return nbr.size();
-  }
+  virtual size_t Size() const { return nbr.size(); }
 
   virtual const std::vector<unsigned int>& GetNbrs() const { return nbr; }
 
@@ -130,6 +127,61 @@ class GalElement {
     }
     if (sz > 1) {
       lag /= sz;
+    }
+    return lag;
+  }
+
+  double SpatialLag(const double* x, bool is_binary = true, int self_id = -1) const {
+    double lag = 0;
+    size_t sz = Size();
+
+    if (is_binary) {
+      if (self_id < 0) {
+        for (size_t i = 0; i < sz; ++i) lag += x[nbr[i]];
+        if (sz > 1) lag /= (double)sz;
+      } else {
+        // for case of using kernel weights with diagonal
+        int n_nbrs = 0;
+        for (size_t i = 0; i < nbr.size(); ++i) {
+          if (nbr[i] != self_id) {
+            lag += x[nbr[i]];
+            n_nbrs += 1;
+          }
+        }
+        if (n_nbrs > 0) lag /= (double)n_nbrs;
+      }
+    } else {
+      double sumW = 0;
+      if (self_id < 0) {
+        for (size_t i = 0; i < sz; ++i) {
+          sumW += nbrWeight[i];
+        }
+
+        if (sumW == 0)
+          lag = 0;
+        else {
+          for (size_t i = 0; i < sz; ++i) {
+            lag += x[nbr[i]] * nbrWeight[i] / sumW;
+          }
+        }
+      } else {
+        // for case of using kernel weights with diagonal
+        for (size_t i = 0; i < sz; ++i) {
+          if (nbr[i] != self_id) {  // exclude self-neighbor
+            sumW += nbrWeight[i];
+          }
+        }
+
+        if (sumW == 0)
+          lag = 0;
+        else {
+          for (size_t i = 0; i < sz; ++i) {
+            if (nbr[i] != self_id) {  // exclude self-neighbor
+              lag += x[nbr[i]] * nbrWeight[i] / sumW;
+            }
+          }
+        }
+      }
     }
     return lag;
   }

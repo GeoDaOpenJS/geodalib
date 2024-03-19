@@ -16,6 +16,7 @@ set (GEODA_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/regression/SparseMatrix.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/regression/SparseRow.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/regression/Weights.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/regression/smile2.cpp
     PARENT_SCOPE)
 
 set (GEODA_HEADER_FILES

@@ -1,18 +1,21 @@
-#include <boost/unordered_map.hpp>
 #include <map>
 
-#include "regression/DiagnosticReport.h"
+#include <boost/unordered_map.hpp>
+
+#include "regression/diagnostic-report.h"
 #include "regression/ML_im.h"
 #include "regression/lite2.h"
 #include "regression/mix.h"
 #include "regression/reg-utils.h"
 #include "weights/gal.h"
 
-void Lag(DenseVector &lag, const DenseVector &x, GalElement *g) {
-  for (int cnt = 0; cnt < x.getSize(); ++cnt) lag.setAt(cnt, g[cnt].SpatialLag(x.getThis(), false, cnt));
+void Lag(DenseVector &lag, const DenseVector &x, geoda::GalElement *g) {
+  for (int cnt = 0; cnt < x.getSize(); ++cnt) {
+    lag.setAt(cnt, g[cnt].SpatialLag(x.getThis(), false, cnt));
+  }
 }
 
-void MakeFastLookupMat(GalElement *g, int dim, std::vector<std::set<int> > &g_lookup) {
+void MakeFastLookupMat(geoda::GalElement *g, int dim, std::vector<std::set<int> > &g_lookup) {
   g_lookup.resize(dim);
   for (int cnt = 0; cnt < dim; ++cnt) {
     for (int cp = 0; cp < g[cnt].Size(); ++cp) {
@@ -21,7 +24,7 @@ void MakeFastLookupMat(GalElement *g, int dim, std::vector<std::set<int> > &g_lo
   }
 }
 
-double T(GalElement *g, int dim) {
+double T(geoda::GalElement *g, int dim) {
   // tr(W'W+WW)
   // = tr(W'W) + tr(WW)
   // = w'_ij*w_ji + w_ij*w_ji
@@ -83,7 +86,7 @@ double T(GalElement *g, int dim) {
 // algorithm is correct of g is symmetric, but incorrect otherwise.
 // The computation for trace WW was the problem, and is corrected with
 // the new version of T above.
-// double T(const GalElement *g, int dim)
+// double T(const geoda::GalElement *g, int dim)
 //{
 //   double	sum = 0;
 //    int cnt = 0, cp = 0;
@@ -97,7 +100,7 @@ double T(GalElement *g, int dim) {
 //
 // Performs spatial LAG test specification: computes RS statistic
 //
-void Compute_RSLmLag(GalElement *g, double **cov, DenseVector y, DenseVector *x, DenseVector ols, double *resid,
+void Compute_RSLmLag(geoda::GalElement *g, double **cov, DenseVector y, DenseVector *x, DenseVector ols, double *resid,
                      int dim, int expl, double *rst,
                      double t)  // t = T(g, dim, g_lookup)
 {
@@ -136,7 +139,7 @@ void Compute_RSLmLag(GalElement *g, double **cov, DenseVector y, DenseVector *x,
 //
 // Performs Lag Robus test specification: computes RS statistic
 //
-void Compute_RSLmLagRobust(GalElement *g, double **cov, DenseVector y, DenseVector *x, DenseVector ols, double *resid,
+void Compute_RSLmLagRobust(geoda::GalElement *g, double **cov, DenseVector y, DenseVector *x, DenseVector ols, double *resid,
                            int dim, int expl, double *rst,
                            double T21)  // T21 = T(g, dim, g_lookup)
 {
@@ -180,7 +183,7 @@ void Compute_RSLmLagRobust(GalElement *g, double **cov, DenseVector y, DenseVect
   return;
 }
 
-void Compute_MoranI(GalElement *g, double *resid, int dim, double *rst) {
+void Compute_MoranI(geoda::GalElement *g, double *resid, int dim, double *rst) {
   double const ee = norm(resid, dim);
   double const sigma2 = ee / (dim);
   DenseVector re(resid, dim, false);
@@ -203,23 +206,22 @@ void Compute_MoranI(GalElement *g, double *resid, int dim, double *rst) {
   rst[1] = M_stat;
 }
 
-void ReportDenseVector(const wxString ttl, DenseVector *X, int n, int k) {
+void ReportDenseVector(const std::string ttl, DenseVector *X, int n, int k) {
   char buf[222];
-  wxString msg = ttl + ":\n";
+  std::string msg = ttl + ":\n";
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < k; j++) {
       sprintf(buf, "(%f)", X[j].getValue(i));
-      msg += wxString::Format("%s", buf);
+      msg += std::string(buf);
     }
     sprintf(buf, "\n");
-    msg += wxString::Format("%s", buf);
+    msg += std::string(buf);
   }
-  wxMessageBox(msg);
 }
 
 extern bool SymMatInverse(double **mt, const int dim);
 
-double Compute_MoranZ(GalElement *g,
+double Compute_MoranZ(geoda::GalElement *g,
                       double **D,      // inverse([X'X]), size k by k
                       DenseVector *X,  // size n by k, including constant term
                       int n, int k, const double moranI) {
@@ -345,7 +347,7 @@ double Compute_MoranZ(GalElement *g,
 //
 // Performs spatial error test specification: computes RS statistic
 // t =  tr[(W'+W)*W]
-void Compute_RSLmError(GalElement *g, double *resid, int dim, double *rst, double t) {
+void Compute_RSLmError(geoda::GalElement *g, double *resid, int dim, double *rst, double t) {
   double const ee = norm(resid, dim);
   double const sigma2 = ee / (dim);
 
@@ -365,7 +367,7 @@ void Compute_RSLmError(GalElement *g, double *resid, int dim, double *rst, doubl
   return;
 }
 
-void Compute_RSLmErrorRobust(GalElement *g, double **cov, DenseVector y, DenseVector *x, DenseVector ols, double *resid,
+void Compute_RSLmErrorRobust(geoda::GalElement *g, double **cov, DenseVector y, DenseVector *x, DenseVector ols, double *resid,
                              int dim, int expl, double *rst,
                              double T21)  // T21 = T(g, dim, g_lookup) tr[(W'+W)*W]
 {
@@ -408,7 +410,7 @@ void Compute_RSLmErrorRobust(GalElement *g, double **cov, DenseVector y, DenseVe
   rst[1] = RS_stat;
 }
 
-void Compute_RSLmSarma(GalElement *g, double **cov, DenseVector y, DenseVector *x, DenseVector ols, double *resid,
+void Compute_RSLmSarma(geoda::GalElement *g, double **cov, DenseVector y, DenseVector *x, DenseVector ols, double *resid,
                        int dim, int expl, double *rst, double T21) {
   double *Y = y.getThis();
   double const ee = norm(resid, dim);
@@ -479,7 +481,7 @@ void DevFromMean(int nObs, double *RawData) {
 
 // yuntien: August 2005
 // Regression
-bool classicalRegression(GalElement *g, int num_obs, double *Y, int dim, double **X, int expl, DiagnosticReport *dr,
+bool classicalRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int expl, DiagnosticReport *dr,
                          bool InclConstant, bool m_moranz, bool do_white_test) {
   int g_rng = 100;
 
@@ -666,7 +668,7 @@ bool classicalRegression(GalElement *g, int num_obs, double *Y, int dim, double 
   return true;
 }
 
-bool spatialLagRegression(GalElement *g, int num_obs, double *Y, int dim, double **X, int deps, DiagnosticReport *dr,
+bool spatialLagRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int deps, DiagnosticReport *dr,
                           bool InclConstant) {
   typedef double *double_ptr_type;
   const int n = dim;
@@ -877,7 +879,7 @@ void residual(const DenseVector &rhs, const DenseVector *X, const DenseVector &o
 double mie(const DenseVector &rsd, const DenseVector &lag_resid, const double trace, const double trace2,
            const DenseVector &y, const DenseVector *X, const SparseMatrix &w, const int vars, const double lambda);
 
-bool spatialErrorRegression(GalElement *g, int num_obs, double *Y, int dim, double **XX, int deps, DiagnosticReport *rr,
+bool spatialErrorRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **XX, int deps, DiagnosticReport *rr,
                             bool InclConstant) {
   typedef double *double_ptr_type;
   DenseVector y(Y, dim, false), *X = new DenseVector[deps];
@@ -888,7 +890,7 @@ bool spatialErrorRegression(GalElement *g, int num_obs, double *Y, int dim, doub
   const int n = dim;
 
   double LogLike = 0, initLambda = 0;
-  initLambda = SimulationError(g, num_obs, 100, 0.31, Y, XX, deps, beta, !InclConstant, &LogLike, p_bar, 0.0, 0.1);
+  initLambda = SimulationError(g, num_obs, 100, 0.31, Y, XX, deps, beta, !InclConstant, &LogLike, 0.0, 0.1);
   release(&beta);
 
   double **cov = new double *[deps], *e_ols = new double[n];
@@ -921,7 +923,7 @@ bool spatialErrorRegression(GalElement *g, int num_obs, double *Y, int dim, doub
   double sigma2 = rsd.norm() / dim;
 
   orig.makeStdSymmetric();
-  run1(orig, initLambda, trace, trace2, fr, p_bar, 0.1, 0.55);
+  run1(orig, initLambda, trace, trace2, fr, 0.1, 0.55);
   orig.makeRowStd();
 
   // correction for lambda: m
@@ -931,7 +933,7 @@ bool spatialErrorRegression(GalElement *g, int num_obs, double *Y, int dim, doub
 
   orig.makeStdSymmetric();
 
-  run1(orig, lambda, trace, trace2, fr, p_bar, 0.55, 1);
+  run1(orig, lambda, trace, trace2, fr, 0.55, 1);
   orig.makeRowStd();
 
   EGLS(lambda, y, X, orig, egls);

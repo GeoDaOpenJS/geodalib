@@ -305,7 +305,7 @@ export interface GeoDaModule {
   localMoran(data: VectorDouble, neighbors: VecVecUInt, permuations: UnsignedInt): LisaResult;
 
   // test
-  dotProduct(): number;
+  dotProduct(x: VectorDouble, y: VectorDouble): number;
 
   GeometryCollection: typeof GeometryCollection;
   PolygonCollection: typeof PolygonCollection;
