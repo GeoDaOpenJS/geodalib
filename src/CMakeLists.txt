@@ -174,6 +174,11 @@ file(GLOB CLAPACK_SRC
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dtrsm.c
 )
 
+# prepend line '#include <stdio.h>' at the beginning of file ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h
+file(READ ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h F2C_H_CONTENT)
+file(WRITE ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h "#include <stdio.h>\n${F2C_H_CONTENT}")
+
+
 # print out CLAPACK_SRC_DIR
 message(STATUS "CLAPACK_SRC_DIR: ${CLAPACK_SRC_DIR}")
 
