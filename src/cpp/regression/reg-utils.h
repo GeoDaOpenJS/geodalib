@@ -3,7 +3,6 @@
 #define REG_UTILS_H
 
 #include "regression/dense-vector.h"
-// #include "weights/gal.h"
 #include "regression/diagnostic-report.h"
 
 #define geoda_sqr(x) ((x) * (x))
@@ -35,6 +34,8 @@ extern double MC_Condition_Number(double **, int, int);
 extern double *BP_Test(double *resid, int obs, double **X, int expl, bool InclConst);
 extern double *WhiteTest(int obs, int nvar, double *resid, double **X, bool InclConstant);
 
+// bool classicalRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int expl,
+//                          DiagnosticReport *dr, bool InclConstant, bool m_moranz, bool do_white_test);
 // bool classicalRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int expl,
 //                          DiagnosticReport *dr, bool InclConstant, bool m_moranz, bool do_white_test);
 #endif  // REG_UTILS_H

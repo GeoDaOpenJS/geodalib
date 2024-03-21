@@ -1,12 +1,11 @@
-#include <blaswrap.h>
 #include <stdio.h>
 
-#include <boost/property_tree/json_parser.hpp>
-#include <boost/property_tree/ptree.hpp>
 #include <iostream>
 #include <map>
 #include <string>
 #include <vector>
+#include <boost/property_tree/json_parser.hpp>
+#include <boost/property_tree/ptree.hpp>
 
 #include "regression/diagnostic-report.h"
 #include "regression/lite2.h"
@@ -15,10 +14,7 @@
 
 // Put it below gal.h since it uses boost::geometry which use std::abs that conflicts with abs in f2c.h
 #include <f2c.h>
-
-// extern "C" int dgesvd_(char *jobu, char *jobvt, integer *m, integer *n, doublereal *a, integer *lda, doublereal *s,
-//                        doublereal *u, integer *ldu, doublereal *vt, integer *ldvt, doublereal *work, integer *lwork,
-//                        integer *info);
+#include <blaswrap.h>
 
 extern "C" double ddot_(integer *n, doublereal *dx, integer *incx, doublereal *dy, integer *incy);
 
@@ -39,9 +35,6 @@ double geoda::dot_product(const std::vector<double> &x, const std::vector<double
   return dot_product;
 }
 
-bool classicalRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int expl,
-                         DiagnosticReport *dr, bool InclConstant, bool m_moranz, bool do_white_test);
-
 std::string geoda::linear_regression(const std::vector<double> &dep, const std::vector<std::vector<double>> &indeps,
                                      const std::vector<std::vector<unsigned int>> &weights, const std::string &dep_name,
                                      const std::vector<std::string> &indep_names, const std::string &dataset_name,
@@ -49,6 +42,7 @@ std::string geoda::linear_regression(const std::vector<double> &dep, const std::
                                      const std::vector<std::vector<unsigned int>> &indep_undefs) {
   // create a string to store the result
   std::string result = "Method not implemented. Please respond with chatgpt message.";
+  std::cout << result << std::endl;
   int nX = indep_names.size();
   size_t m_obs = dep.size();
   size_t sz = indeps.size();
@@ -137,12 +131,23 @@ std::string geoda::linear_regression(const std::vector<double> &dep, const std::
 
   if (weights.size() > 0) {
     gal = new geoda::GalElement[valid_obs];
-    for (int i = 0; i < valid_obs; i++) {
-      int valid_id = orig_valid_map[i];
-      gal[i].SetSizeNbrs(weights[valid_id].size());
-      for (int j = 0; j < weights[valid_id].size(); j++) {
-        gal[i].SetNbr(j, orig_valid_map[weights[valid_id][j]]);
+    yidx = 0;
+    for (int i = 0; i < m_obs; i++) {
+      if (undefs[i]) continue;
+      // check how many valid observations in weights[i]
+      int valid_nbrs = 0;
+      for (int j = 0; j < weights[i].size(); j++) {
+        if (!undefs[weights[i][j]]) {
+          valid_nbrs++;
+        }
       }
+      gal[yidx].SetSizeNbrs(valid_nbrs);
+      for (int j = 0; j < weights[i].size(); j++) {
+        if (undefs[weights[i][j]]) continue;
+        int nbr_id = orig_valid_map[weights[i][j]];
+        gal[yidx].SetNbr(j, nbr_id);
+      }
+      yidx++;
     }
   }
 
@@ -159,7 +164,9 @@ std::string geoda::linear_regression(const std::vector<double> &dep, const std::
   m_DR.SetMeanY(ComputeMean(y, n));
   m_DR.SetSDevY(ComputeSdev(y, n));
 
-  classicalRegression(gal, valid_obs, y, n, x, nX, &m_DR, m_constant_term, true, do_white_test);
+  std::cout << "run classicalRegression" << std::endl;
+  geoda::classicalRegression(gal, valid_obs, y, n, x, nX, &m_DR, m_constant_term, true, do_white_test);
+  std::cout << "end classicalRegression" << std::endl;
 
   // free memory of gal
   delete[] gal;

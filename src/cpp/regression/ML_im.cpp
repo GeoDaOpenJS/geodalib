@@ -4,10 +4,12 @@ test functionality for solving sparse polynomial problem
 The IDE project should also include SLStream.cpp
  */
 
+#include "regression/ML_im.h"
 
+#include <blaswrap.h>
+#include <f2c.h>
 #include <time.h>
 
-#include "regression/ML_im.h"
 #include "regression/PowerLag.h"
 #include "regression/Weights.h"
 #include "regression/lite2.h"
@@ -15,9 +17,9 @@ The IDE project should also include SLStream.cpp
 #include "regression/polym.h"
 #include "regression/reg-utils.h"
 
-#include <blaswrap.h>
-#include <f2c.h>
-
+// extern "C" {
+//   #include <clapack.h>
+// }
 extern "C" int dgesvd_(char *jobu, char *jobvt, integer *m, integer *n, doublereal *a, integer *lda, doublereal *s,
                        doublereal *u, integer *ldu, doublereal *vt, integer *ldvt, doublereal *work, integer *lwork,
                        integer *info);
@@ -312,7 +314,7 @@ bool EasyMatInverse(Iterator<WVector> mt) {
     } else {
       mt[0][0] = 1 / mt[0][0];  // compute inverse
     }
-  } else {                        // dim == 2
+  } else {  // dim == 2
     VALUE det = mt[0][0] * mt[1][1] - mt[1][0] * mt[0][1];
     if (fabs(det) < SL_SMALL) {
       return false;
@@ -953,12 +955,6 @@ VALUE Converge(const VALUE left, const VALUE middle, const VALUE right, WVector 
   return xn;
 }
 
-#include "DenseMatrix.h"
-#include "dense-vector.h"
-#include "SparseMatrix.h"
-#include "SparseVector.h"
-
-
 inline void skipTillNumber(std::ifstream &f) {
   char ch;
   while (f >> ch)
@@ -1035,12 +1031,12 @@ void extract(const DenseVector &v, const double *scale, const int row, double &t
 bool EasyMatInverse(double **mt, const int dim) {
   if (dim == 0) return false;
   if (dim == 1) {
-    if (fabs(mt[0][0]) < ML_SMALL) { 
+    if (fabs(mt[0][0]) < ML_SMALL) {
       return false;
     } else {
       mt[0][0] = 1.0 / mt[0][0];  // compute inverse
     }
-  } else {                          // dim == 2
+  } else {  // dim == 2
     double det = mt[0][0] * mt[1][1] - mt[1][0] * mt[0][1];
     if (fabs(det) < ML_SMALL) {
       return false;
@@ -1147,10 +1143,11 @@ bool SymMatInverse(double **mt, const int dim) {
   // use __WXMAC__ to call vecLib format
   // #ifdef WORDS_BIGENDIAN
   // #ifdef __WXMAC__
-  dgesv_(&n, &nrhs, a, &lda, ipiv, b, &ldb, &info);
+  // dgesv_(&n, &nrhs, a, &lda, ipiv, b, &ldb, &info);
   // #else
-  //	dgesv_((integer*)&n, (integer*)&nrhs, (doublereal*)a, (integer*)&lda, (integer*)ipiv, (doublereal*)b,
-  //(integer*)&ldb, (integer*)&info); #endif
+  dgesv_((integer *)&n, (integer *)&nrhs, (doublereal *)a, (integer *)&lda, (integer *)ipiv, (doublereal *)b,
+         (integer *)&ldb, (integer *)&info);
+  // #endif
 
   if (!info) {
     for (i = 0; i < dim; i++) {
@@ -1313,6 +1310,7 @@ bool ordinaryLS(DenseVector &y, DenseVector *X, double **&cov, double *resid, De
     }
   }
 
+  std::cout << "run dgesvd_" << std::endl;
 // use __WXMAC__ to call vecLib
 // #ifdef WORDS_BIGENDIAN
 #ifdef __WXMAC__MMM
@@ -1322,6 +1320,7 @@ bool ordinaryLS(DenseVector &y, DenseVector *X, double **&cov, double *resid, De
           (doublereal *)u, (integer *)&ldu, (doublereal *)vt, (integer *)&ldvt, (doublereal *)work, (integer *)&lwork,
           (integer *)&info);
 #endif
+  std::cout << "end dgesvd_" << std::endl;
 
   if (!info) {
     // (X'X)^(-1) = VW^(-2)V'
@@ -1441,8 +1440,8 @@ double LcPrime(const DenseVector &v, const double *residW, const SparseMatrix &w
   return pp;
 }
 
-void run1(SparseMatrix &w, const double rr, double &trace, double &trace2, double &frobenius, 
-          double p_bar_min_fraction, double p_bar_max_fraction) {
+void run1(SparseMatrix &w, const double rr, double &trace, double &trace2, double &frobenius, double p_bar_min_fraction,
+          double p_bar_max_fraction) {
   const int LIMIT = 50;
   const double EPS = 1.0e-14;
   const int dim = w.dim();
@@ -1458,14 +1457,14 @@ void run1(SparseMatrix &w, const double rr, double &trace, double &trace2, doubl
   int g_min, g_max, prev_g_val;
   int cur_g_val, g_val_init, g_val_final, g_val_range;
   int loop_min = 0, loop_max = max(0, dim - 1);
-//   if (true) {
-//     g_min = 0;
-//     g_val_init = p_bar_min_fraction * g_max;
-//     g_val_final = p_bar_max_fraction * g_max;
-//     g_val_range = g_val_final - g_val_init;
-//     prev_g_val = g_val_init;
-//     cur_g_val = prev_g_val;
-//   }
+  //   if (true) {
+  //     g_min = 0;
+  //     g_val_init = p_bar_min_fraction * g_max;
+  //     g_val_final = p_bar_max_fraction * g_max;
+  //     g_val_range = g_val_final - g_val_init;
+  //     prev_g_val = g_val_init;
+  //     cur_g_val = prev_g_val;
+  //   }
   for (int ix = 0; ix < dim; ++ix) {
     // if (true) {
     //   cur_g_val = (ix * g_val_range) / loop_max + g_val_init;
@@ -1509,10 +1508,10 @@ void run1(SparseMatrix &w, const double rr, double &trace, double &trace2, doubl
     gs1 += s1;
     gs2 += s2;
   }
-//   if (p_bar) {
-//     p_bar->SetValue(g_val_final);
-//     p_bar->Update();
-//   }
+  //   if (p_bar) {
+  //     p_bar->SetValue(g_val_final);
+  //     p_bar->Update();
+  //   }
 }
 
 /*   ECL
@@ -1645,7 +1644,7 @@ VALUE SmallGoldenSectionLag(const VALUE left, const VALUE middle, const VALUE ri
 }
 
 double SmallSimulationLag(Weights &W, int num_obs, const double rho, double *my_Y, double **my_X, const int deps,
-                          bool InclConstant, double *LogLik, bool asym,  double p_bar_min_fraction,
+                          bool InclConstant, double *LogLik, bool asym, double p_bar_min_fraction,
                           double p_bar_max_fraction) {
   W.Transform(W_MAT);  // makes sure it is properly formated
   const int dim = W.dim();
@@ -1682,8 +1681,8 @@ double SmallSimulationLag(Weights &W, int num_obs, const double rho, double *my_
     // use dspev_
 
     char jobz = 'N', uplo = 'U';
-    long int n = dim;
-    long int ldz = dim, lwork = 3 * dim, info = 0;
+    int n = dim;
+    int ldz = dim, lwork = 3 * dim, info = 0;
     double *a = new double[dim * (dim + 1) / 2];
     double *z = NULL;
     double *work = new double[lwork];
@@ -1693,13 +1692,13 @@ double SmallSimulationLag(Weights &W, int num_obs, const double rho, double *my_
       }
     }
 
-    // use __WXMAC__ to call vecLib
-    // #ifdef WORDS_BIGENDIAN
-    // #ifdef __WXMAC__
+// use __WXMAC__ to call vecLib
+#ifdef __WXMAC__
     dspev_(&jobz, &uplo, &n, a, s, z, &ldz, work, &info);
-    // #else
-    //		dspev_(&jobz, &uplo, (integer*)&n, (doublereal*)a, (doublereal*)s, (doublereal*)z, (integer*)&ldz,
-    //(doublereal*)work, (integer*)&info); #endif
+#else
+    dspev_(&jobz, &uplo, (integer *)&n, (doublereal *)a, (doublereal *)s, (doublereal *)z, (integer *)&ldz,
+           (doublereal *)work, (integer *)&info);
+#endif
 
     if (!info) {
       // eigenvalues are in s
@@ -1726,14 +1725,14 @@ double SmallSimulationLag(Weights &W, int num_obs, const double rho, double *my_
       }
     }
 
-    // use __WXMAC__ to call vecLib
-    // #ifdef WORDS_BIGENDIAN
-    // #ifdef __WXMAC__
+// use __WXMAC__ to call vecLib
+#ifdef __WXMAC__
     dgeev_(&jobvl, &jobvr, &n, a, &lda, wr, wi, vl, &ldvl, vr, &ldvr, work, &lwork, &info);
-    // #else
-    //		dgeev_(&jobvl, &jobvr, (integer*)&n, (doublereal*)a, (integer*)&lda, (doublereal*)wr, (doublereal*)wi,
-    //(doublereal*)vl, (integer*)&ldvl, (doublereal*)vr, (integer*)&ldvr, (doublereal*)work, (integer*)&lwork,
-    //(integer*)&info); #endif
+#else
+    dgeev_(&jobvl, &jobvr, (integer *)&n, (doublereal *)a, (integer *)&lda, (doublereal *)wr, (doublereal *)wi,
+           (doublereal *)vl, (integer *)&ldvl, (doublereal *)vr, (integer *)&ldvr, (doublereal *)work,
+           (integer *)&lwork, (integer *)&info);
+#endif
 
     if (!info) {
       // eigenvalues are in wr and wi
@@ -1770,8 +1769,8 @@ double SmallSimulationLag(Weights &W, int num_obs, const double rho, double *my_
 }
 
 double SimulationLag(const geoda::GalElement *weight, int num_obs, int Precision, const double rho, double *my_Y,
-                     double **my_X, const int deps, bool InclConstant, double *LogLik, 
-                     double p_bar_min_fraction, double p_bar_max_fraction) {
+                     double **my_X, const int deps, bool InclConstant, double *LogLik, double p_bar_min_fraction,
+                     double p_bar_max_fraction) {
   Weights W(weight, num_obs);  // read the weights matrix
 
   if (W.dim() < SMALL_DIM)
@@ -2016,8 +2015,8 @@ VALUE SmallGoldenSectionError(const VALUE left, const VALUE middle, const VALUE 
 }
 
 double SmallSimulationError(Weights &W, const double rho, const double *my_Y, double **my_X, const int deps,
-                            double *&beta, bool InclConstant, double *LogLik, bool asym, 
-                            double p_bar_min_fraction, double p_bar_max_fraction) {
+                            double *&beta, bool InclConstant, double *LogLik, bool asym, double p_bar_min_fraction,
+                            double p_bar_max_fraction) {
   W.Transform(W_MAT);  // makes sure it is formated
   const int dim = W.dim();
   int expl = 0, cnt = 0;
@@ -2152,9 +2151,9 @@ double SmallSimulationError(Weights &W, const double rho, const double *my_Y, do
   return lambdaEstimate;
 }
 
-double SimulationError(const geoda::GalElement *my_gal, int num_obs, int Precision, const double rho, const double *my_Y,
-                       double **my_X, const int deps, double *&beta, bool InclConstant, double *LogLik, 
-                       double p_bar_min_fraction, double p_bar_max_fraction) {
+double SimulationError(const geoda::GalElement *my_gal, int num_obs, int Precision, const double rho,
+                       const double *my_Y, double **my_X, const int deps, double *&beta, bool InclConstant,
+                       double *LogLik, double p_bar_min_fraction, double p_bar_max_fraction) {
   Weights W(my_gal, num_obs);
   const int dim = W.dim();
   if (dim < SMALL_DIM)

@@ -33,6 +33,49 @@ export type LinearRegressionProps = {
   yUndefs?: number[];
 };
 
+export type LinearRegressionResult = {
+  type: 'linearRegression';
+  dependentVariable: string;
+  independentVariables: string[];
+  title: string;
+  datasetName: string;
+  'number of observations': number;
+  'Mean dependent var': number;
+  'Number of Variables': number;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  SD_dependent_var: number;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  Degrees_of_Freedom: number;
+  'R-squared': number;
+  'Adjusted R-squared': number;
+  'F-statistic': number;
+  'Prob(F-statistic)': number;
+  'Log likelihood': number;
+  'Sum squared residual': number;
+  'Sigma-square': number;
+  'Akaike info criterion': number;
+  'SE of regression': number;
+  'Schwarz criterion': number;
+  'Variable Coefficients': {
+    [key: string]: {
+      coefficient: number;
+      stdError: number;
+      tStatistic: number;
+      prob: number;
+    };
+  };
+  'Condition Number': number;
+  'REGRESSION DIAGNOSTICS': {
+    'MULTICOLLINEARITY CONDITION NUMBER': number;
+    'TEST ON NORMALITY OF ERRORS': {
+      Test: 'Jarque-Bera';
+      'Jarque-Bera DF': number;
+      'Jarque-Bera Value': number;
+      'Jarque-Bera Probability': number;
+    };
+  };
+};
+
 // eslint-disable-next-line max-statements, complexity
 export async function linearRegression({
   x,
@@ -43,7 +86,7 @@ export async function linearRegression({
   datasetName,
   xUndefs,
   yUndefs
-}: LinearRegressionProps): Promise<string> {
+}: LinearRegressionProps): Promise<LinearRegressionResult> {
   const wasmInstance = await initWASM();
   // Create a new vector of doubles
   const wasmY = new wasmInstance.VectorDouble();
@@ -78,7 +121,7 @@ export async function linearRegression({
     wasmXNames.set(i, xNames[i]);
   }
   // Create a new VectorInt for yUndefs
-  const wasmYUndefs = new wasmInstance.VectorInt();
+  const wasmYUndefs = new wasmInstance.VectorUInt();
   if (yUndefs) {
     wasmYUndefs.resize(yUndefs.length, 0);
     for (let i = 0; i < yUndefs.length; ++i) {
@@ -86,9 +129,9 @@ export async function linearRegression({
     }
   }
   // Create a new VecVecInt for xUndefs
-  const wasmXUndefs = new wasmInstance.VecVecInt();
+  const wasmXUndefs = new wasmInstance.VecVecUInt();
   if (xUndefs) {
-    wasmXUndefs.resize(xUndefs.length, new wasmInstance.VectorInt());
+    wasmXUndefs.resize(xUndefs.length, new wasmInstance.VectorUInt());
     for (let i = 0; i < xUndefs.length; ++i) {
       wasmXUndefs.get(i).resize(xUndefs[i].length, 0);
       for (let j = 0; j < xUndefs[i].length; ++j) {
@@ -108,5 +151,8 @@ export async function linearRegression({
     wasmXUndefs
   );
 
-  return result;
+  // Convert the result to a JSON object
+  const regResult = JSON.parse(result);
+
+  return regResult;
 }

@@ -23,9 +23,10 @@ TEST(REGRESSION, LINEAR_REGRESSION) {
     const std::string y_name = "y";
     const std::vector<std::string> x_names = {"x1", "x2"};
     const std::string dataset_name = "test";
-    const std::vector<bool> y_undefs = {false, false, false};
-    const std::vector<std::vector<bool>> x_undefs = {{false, false, false}, {false, false, false}};
-    std::string result = geoda::linear_regression(dep, indeps, weights, y_name, x_names, dataset_name, y_undefs, x_undefs);
+    const std::vector<unsigned int> y_undefs;
+    const std::vector<std::vector<unsigned int>> x_undefs;
+    std::string result =
+        geoda::linear_regression(dep, indeps, weights, y_name, x_names, dataset_name, y_undefs, x_undefs);
 
     // parse the result using boost::property_tree into a json object
     boost::property_tree::ptree pt;

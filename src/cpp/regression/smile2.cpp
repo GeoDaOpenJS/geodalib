@@ -7,6 +7,7 @@
 #include "regression/lite2.h"
 #include "regression/mix.h"
 #include "regression/reg-utils.h"
+#include "regression/regression.h"
 #include "weights/gal.h"
 
 void Lag(DenseVector &lag, const DenseVector &x, geoda::GalElement *g) {
@@ -481,7 +482,7 @@ void DevFromMean(int nObs, double *RawData) {
 
 // yuntien: August 2005
 // Regression
-bool classicalRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int expl, DiagnosticReport *dr,
+bool geoda::classicalRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int expl, DiagnosticReport *dr,
                          bool InclConstant, bool m_moranz, bool do_white_test) {
   int g_rng = 100;
 
@@ -502,6 +503,7 @@ bool classicalRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, 
   double *resid = new double[dim];
 
   // Compute OLS
+  std::cout << "Computing OLS" << std::endl;
   if (!ordinaryLS(y, x, cov, resid, ols)) return false;
 
   // store the coefficients into the results

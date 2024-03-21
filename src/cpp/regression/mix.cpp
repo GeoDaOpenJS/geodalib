@@ -7,6 +7,10 @@
 #include "regression/lite2.h"
 #include "regression/reg-utils.h"
 
+// extern "C" {
+// #include <clapack.h>
+// }
+
 extern "C" int dgesvd_(char *jobu, char *jobvt, integer *m, integer *n, doublereal *a, integer *lda, doublereal *s,
                        doublereal *u, integer *ldu, doublereal *vt, integer *ldvt, doublereal *work, integer *lwork,
                        integer *info);

@@ -177,15 +177,17 @@ file(GLOB CLAPACK_SRC
     ${CLAPACK_SRC_DIR}/BLAS/SRC/dtrsm.c
 )
 
-# prepend line '#include <stdio.h>' at the beginning of file ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h
+# check if the first line of file ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h is '#include <stdio.h>'
 file(READ ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h F2C_H_CONTENT)
-file(WRITE ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h "#include <stdio.h>\n${F2C_H_CONTENT}")
+if (NOT F2C_H_CONTENT MATCHES "#include <stdio.h>")
+    message(STATUS "prepend line '#include <stdio.h>' at the beginning of file ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h")
+    # prepend line '#include <stdio.h>' at the beginning of file ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h
+    file(READ ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h F2C_H_CONTENT)
+    file(WRITE ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h "#include <stdio.h>\n${F2C_H_CONTENT}")
+endif()
 
-# suppress all warnings from clapack c files only
-add_compile_options(
-  $<$<COMPILE_LANGUAGE:C>:>
-  -W
-)
+# replace "void s_copy" with "integer s_copy" in file ${CLAPACK_SRC_DIR}/F2CLIBS/libf2c/s_copy.c
+
 
 # print out CLAPACK_SRC_DIR
 message(STATUS "CLAPACK_SRC_DIR: ${CLAPACK_SRC_DIR}")

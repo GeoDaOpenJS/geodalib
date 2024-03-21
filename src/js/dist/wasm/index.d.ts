@@ -208,6 +208,22 @@ export class VectorPolygon {
   delete(): void;
 }
 
+
+export class VectorString {
+  constructor();
+
+  push_back(arg0: string): void;
+
+  resize(arg0: UnsignedLong, arg1: string): void;
+
+  size(): UnsignedLong;
+
+  get(arg0: UnsignedLong): string;
+
+  set(arg0: UnsignedLong, arg1: string): boolean;
+  delete(): void;
+}
+
 export class LisaResult {
   isValid(): boolean;
 
@@ -304,8 +320,30 @@ export interface GeoDaModule {
    */
   localMoran(data: VectorDouble, neighbors: VecVecUInt, permuations: UnsignedInt): LisaResult;
 
-  // test
+  // test for dotProduct
   dotProduct(x: VectorDouble, y: VectorDouble): number;
+ 
+  /**
+   * 
+   * @param dep The values of the dependent variable
+   * @param indeps The values of the independent variables, it's a 2D array
+   * @param weights The spatial weights represented as a 2D array and each row shows the neighbors of the corresponding observation
+   * @param depName The name of the dependent variable
+   * @param indepNames The names of the independent variables
+   * @param datasetName The name of the dataset
+   * @param depUndefs The 0/1 array indicating the undefined values of the dependent variable
+   * @param indepUndefs The 2D array of 0/1 indicating the undefined values of the independent variables
+   */
+  linearRegression(
+    dep: VectorDouble,
+    indeps: VecVecDouble,
+    weights: VecVecUInt,
+    depName: string,
+    indepNames: VectorString,
+    datasetName: string,
+    depUndefs: VectorUInt,
+    indepUndefs: VecVecUInt
+  ): string;
 
   GeometryCollection: typeof GeometryCollection;
   PolygonCollection: typeof PolygonCollection;
@@ -319,6 +357,7 @@ export interface GeoDaModule {
   VectorDouble: typeof VectorDouble;
   VecVecDouble: typeof VecVecDouble;
   VectorPolygon: typeof VectorPolygon;
+  VectorString: typeof VectorString;
   LisaResult: typeof LisaResult;
 }
 declare function factory(): Promise<GeoDaModule>;

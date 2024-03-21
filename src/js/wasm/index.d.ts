@@ -322,14 +322,25 @@ export interface GeoDaModule {
 
   // test for dotProduct
   dotProduct(x: VectorDouble, y: VectorDouble): number;
-
+ 
+  /**
+   * 
+   * @param dep The values of the dependent variable
+   * @param indeps The values of the independent variables, it's a 2D array
+   * @param weights The spatial weights represented as a 2D array and each row shows the neighbors of the corresponding observation
+   * @param depName The name of the dependent variable
+   * @param indepNames The names of the independent variables
+   * @param datasetName The name of the dataset
+   * @param depUndefs The 0/1 array indicating the undefined values of the dependent variable
+   * @param indepUndefs The 2D array of 0/1 indicating the undefined values of the independent variables
+   */
   linearRegression(
     dep: VectorDouble,
     indeps: VecVecDouble,
     weights: VecVecUInt,
     depName: string,
     indepNames: VectorString,
-    datasetname: string,
+    datasetName: string,
     depUndefs: VectorUInt,
     indepUndefs: VecVecUInt
   ): string;
