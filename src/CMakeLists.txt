@@ -10,12 +10,15 @@ set(CMAKE_VERBOSE_MAKEFILE on)
 set(CMAKE_CXX_STANDARD 14)
 # allow compile C code
 set(CMAKE_C_STANDARD 99)
-# set CMAKE_C_COMPILE_OBJECT for CLAPACK
-set(CMAKE_C_COMPILE_OBJECT "<CMAKE_C_COMPILER> <DEFINES> <INCLUDES> <FLAGS> -o <OBJECT> -c <SOURCE>")
+# set CMAKE_C_COMPILE_OBJECT for CLAPACK, add -w to suppress all warnings from clapack
+set(CMAKE_C_COMPILE_OBJECT "<CMAKE_C_COMPILER> <DEFINES> <INCLUDES> <FLAGS> -w -o <OBJECT> -c <SOURCE>")
 
 # sources
 include_directories(${CMAKE_SOURCE_DIR}/cpp)
 add_subdirectory(cpp)
+
+# add compile definitions to avoid BOOST deprecated functions BOOST_NO_CXX98_FUNCTION_BASE
+add_compile_definitions(BOOST_NO_CXX98_FUNCTION_BASE)
 
 # library
 include(FetchContent)
@@ -178,6 +181,11 @@ file(GLOB CLAPACK_SRC
 file(READ ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h F2C_H_CONTENT)
 file(WRITE ${CLAPACK_SRC_DIR}/INCLUDE/f2c.h "#include <stdio.h>\n${F2C_H_CONTENT}")
 
+# suppress all warnings from clapack c files only
+add_compile_options(
+  $<$<COMPILE_LANGUAGE:C>:>
+  -W
+)
 
 # print out CLAPACK_SRC_DIR
 message(STATUS "CLAPACK_SRC_DIR: ${CLAPACK_SRC_DIR}")

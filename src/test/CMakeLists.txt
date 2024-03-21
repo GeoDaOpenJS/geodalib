@@ -1,6 +1,7 @@
 set(TEST_SOURCE_FILES
     ${GEODA_SOURCE_FILES}
     ${CLAPACK_SRC}
+    test-regression.cpp
     test-weights.cpp)
 
 add_executable(runUnitTests ${TEST_SOURCE_FILES})

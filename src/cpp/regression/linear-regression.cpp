@@ -126,6 +126,16 @@ std::string geoda::linear_regression(const std::vector<double> &dep, const std::
   for (int j = 0; j < sz + 1; j++) delete[] dt[j];
   delete[] dt;
 
+  // convert weights to geoda::GalElement
+  geoda::GalElement *gal = new geoda::GalElement[valid_obs];
+  for (int i = 0; i < valid_obs; i++) {
+    int valid_id = orig_valid_map[i];
+    gal[i].SetSizeNbrs(weights[valid_id].size());
+    for (int j = 0; j < weights[valid_id].size(); j++) {
+      gal[i].SetNbr(j, orig_valid_map[weights[valid_id][j]]);
+    }
+  }
+
   // run linear regression
   const int n = valid_obs;
   bool do_white_test = false;
@@ -139,14 +149,6 @@ std::string geoda::linear_regression(const std::vector<double> &dep, const std::
   m_DR.SetMeanY(ComputeMean(y, n));
   m_DR.SetSDevY(ComputeSdev(y, n));
 
-  geoda::GalElement *gal = new geoda::GalElement[n];
-  // convert weights to geoda::GalElement
-  for (int i = 0; i < n; i++) {
-    gal[i].SetSizeNbrs(weights[i].size());
-    for (int j = 0; j < weights[i].size(); j++) {
-      gal[i].SetNbr(j, weights[i][j]);
-    }
-  }
   classicalRegression(gal, valid_obs, y, n, x, nX, &m_DR, m_constant_term, true, do_white_test);
 
   // free memory of gal

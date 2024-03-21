@@ -3,7 +3,6 @@
 
 #include "test/data.h"
 #include "weights/weights.h"
-#include "regression/regression.h"
 
 using namespace testing;
 
@@ -39,11 +38,4 @@ TEST(WEIGHTS, MULTIPOLYGON_CONTIGUITY_WEIGHTS) {
 
   EXPECT_THAT(nbrs[0], ElementsAre(1));
   EXPECT_THAT(nbrs[1], ElementsAre(0));
-}
-
-TEST(REGRESSION, TEST_REGRESSION) {
-  const std::vector<double> x = {1, 2, 3};
-  const std::vector<double> y = {4, 5, 6};
-  double r = geoda::dot_product(x, y);
-  EXPECT_FLOAT_EQ(r, 32.0);
 }
