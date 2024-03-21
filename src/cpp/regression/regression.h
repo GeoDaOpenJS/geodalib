@@ -22,8 +22,8 @@ double dot_product(const std::vector<double> &x, const std::vector<double> &y);
 std::string linear_regression(const std::vector<double> &dep, const std::vector<std::vector<double>> &indeps,
                               const std::vector<std::vector<unsigned int>> &weights, const std::string &y_name,
                               const std::vector<std::string> &x_names, const std::string& dataset_name, 
-                              const std::vector<bool> &y_undefs,
-                              const std::vector<std::vector<bool>> &x_undefs);
+                              const std::vector<unsigned int> &y_undefs,
+                              const std::vector<std::vector<unsigned int>> &x_undefs);
 };  // namespace geoda
 
 #endif  // REGRESSION_H

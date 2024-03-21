@@ -32,6 +32,7 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::register_vector<std::vector<int>>("VecVecInt");
   emscripten::register_vector<double>("VectorDouble");
   emscripten::register_vector<std::vector<double>>("VecVecDouble");
+  emscripten::register_vector<std::string>("VectorString");
 
   emscripten::class_<geoda::GeometryCollection>("GeometryCollection");
   emscripten::class_<geoda::PolygonCollection, emscripten::base<geoda::GeometryCollection>>("PolygonCollection")
@@ -81,5 +82,6 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::function("naturalBreaks", &geoda::natural_breaks);
 
   emscripten::function("dotProduct", &geoda::dot_product);
+  emscripten::function("linearRegression", &geoda::linear_regression);
 }
 #endif

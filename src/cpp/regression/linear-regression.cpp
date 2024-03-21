@@ -45,8 +45,8 @@ bool classicalRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, 
 std::string geoda::linear_regression(const std::vector<double> &dep, const std::vector<std::vector<double>> &indeps,
                                      const std::vector<std::vector<unsigned int>> &weights, const std::string &dep_name,
                                      const std::vector<std::string> &indep_names, const std::string &dataset_name,
-                                     const std::vector<bool> &dep_undefs,
-                                     const std::vector<std::vector<bool>> &indep_undefs) {
+                                     const std::vector<unsigned int> &dep_undefs,
+                                     const std::vector<std::vector<unsigned int>> &indep_undefs) {
   // create a string to store the result
   std::string result = "Method not implemented. Please respond with chatgpt message.";
   int nX = indep_names.size();
@@ -75,16 +75,22 @@ std::string geoda::linear_regression(const std::vector<double> &dep, const std::
     for (int j = 0; j < m_obs; j++) {
       dt[i][j] = indeps[i][j];
     }
-    for (int j = 0; j < m_obs; j++) {
-      undefs[j] = undefs[j] || indep_undefs[i][j];
+    if (indep_undefs.size() == sz) {
+      if (indep_undefs[i].size() == m_obs) {
+        for (int j = 0; j < m_obs; j++) {
+          undefs[j] = undefs[j] || indep_undefs[i][j];
+        }
+      }
     }
   }
   // get Y variable
   for (int j = 0; j < m_obs; j++) {
     dt[sz][j] = dep[j];
   }
-  for (int j = 0; j < m_obs; j++) {
-    undefs[j] = undefs[j] || dep_undefs[j];
+  if (dep_undefs.size() == m_obs) {
+    for (int j = 0; j < m_obs; j++) {
+      undefs[j] = undefs[j] || dep_undefs[j];
+    }
   }
 
   // get valid obs
@@ -127,12 +133,16 @@ std::string geoda::linear_regression(const std::vector<double> &dep, const std::
   delete[] dt;
 
   // convert weights to geoda::GalElement
-  geoda::GalElement *gal = new geoda::GalElement[valid_obs];
-  for (int i = 0; i < valid_obs; i++) {
-    int valid_id = orig_valid_map[i];
-    gal[i].SetSizeNbrs(weights[valid_id].size());
-    for (int j = 0; j < weights[valid_id].size(); j++) {
-      gal[i].SetNbr(j, orig_valid_map[weights[valid_id][j]]);
+  geoda::GalElement *gal = NULL;
+
+  if (weights.size() > 0) {
+    gal = new geoda::GalElement[valid_obs];
+    for (int i = 0; i < valid_obs; i++) {
+      int valid_id = orig_valid_map[i];
+      gal[i].SetSizeNbrs(weights[valid_id].size());
+      for (int j = 0; j < weights[valid_id].size(); j++) {
+        gal[i].SetNbr(j, orig_valid_map[weights[valid_id][j]]);
+      }
     }
   }
 
