@@ -503,7 +503,6 @@ bool geoda::classicalRegression(geoda::GalElement *g, int num_obs, double *Y, in
   double *resid = new double[dim];
 
   // Compute OLS
-  std::cout << "Computing OLS" << std::endl;
   if (!ordinaryLS(y, x, cov, resid, ols)) return false;
 
   // store the coefficients into the results

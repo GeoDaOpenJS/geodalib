@@ -1310,7 +1310,6 @@ bool ordinaryLS(DenseVector &y, DenseVector *X, double **&cov, double *resid, De
     }
   }
 
-  std::cout << "run dgesvd_" << std::endl;
 // use __WXMAC__ to call vecLib
 // #ifdef WORDS_BIGENDIAN
 #ifdef __WXMAC__MMM
@@ -1320,7 +1319,6 @@ bool ordinaryLS(DenseVector &y, DenseVector *X, double **&cov, double *resid, De
           (doublereal *)u, (integer *)&ldu, (doublereal *)vt, (integer *)&ldvt, (doublereal *)work, (integer *)&lwork,
           (integer *)&info);
 #endif
-  std::cout << "end dgesvd_" << std::endl;
 
   if (!info) {
     // (X'X)^(-1) = VW^(-2)V'
@@ -1559,7 +1557,6 @@ VALUE ECL(WVector &resid, WVector &residW, const VALUE rho, const double *wr, co
     ji = -rho * (ji * (1.0 - rho * wr[cnt]) + wi[cnt] * (1.0 - rho * jr));
   }
   jr = log(jr);
-  std::cout << ji << std::endl;
   WVector tmp;
   tmp.reset();
   tmp.copy(residW());  // copy residiual of wy on X
@@ -1888,7 +1885,6 @@ VALUE SmallErrorLogLikelihood(Iterator<WVector> X, Iterator<WVector> lagX, WIter
     ji = -lambda * (ji * (1.0 - lambda * wr[cnt]) + wi[cnt] * (1.0 - lambda * jr));
   }
   jr = log(jr);
-  std::cout << ji << std::endl;
   WMatrix XminusLambdaLagX(X.count());
   WVector YminusLambdaLagY(y.count());
 

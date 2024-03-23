@@ -26,6 +26,7 @@ export type LinearRegressionProps = {
   x: number[][];
   y: number[];
   weights?: number[][];
+  weightsId?: string;
   xNames: string[];
   yName: string;
   datasetName: string;
@@ -152,7 +153,13 @@ export async function linearRegression({
   );
 
   // Convert the result to a JSON object
-  const regResult = JSON.parse(result);
+  // const regResult = JSON.parse(result);
 
-  return regResult;
+  // @ts-expect-error FIX
+  return {
+    type: 'linearRegression',
+    dependentVariable: 'dd',
+    independentVariables: ['dd'],
+    title: result
+  };
 }

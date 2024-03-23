@@ -3,6 +3,7 @@ export type LinearRegressionProps = {
     x: number[][];
     y: number[];
     weights?: number[][];
+    weightsId?: string;
     xNames: string[];
     yName: string;
     datasetName: string;
