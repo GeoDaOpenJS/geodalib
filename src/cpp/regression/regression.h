@@ -27,11 +27,11 @@ bool classicalRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, 
  *
  *
  */
-std::string linear_regression(const std::vector<double> &dep, const std::vector<std::vector<double>> &indeps,
-                              const std::vector<std::vector<unsigned int>> &weights, const std::string &y_name,
-                              const std::vector<std::string> &x_names, const std::string &dataset_name,
-                              const std::vector<unsigned int> &y_undefs,
-                              const std::vector<std::vector<unsigned int>> &x_undefs);
+DiagnosticReport linear_regression(const std::vector<double> &dep, const std::vector<std::vector<double>> &indeps,
+                                   const std::vector<std::vector<unsigned int>> &weights, const std::string &y_name,
+                                   const std::vector<std::string> &x_names, const std::string &dataset_name,
+                                   const std::vector<unsigned int> &y_undefs,
+                                   const std::vector<std::vector<unsigned int>> &x_undefs);
 };  // namespace geoda
 
 #endif  // REGRESSION_H

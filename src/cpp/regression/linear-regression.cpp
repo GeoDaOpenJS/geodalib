@@ -35,11 +35,12 @@ double geoda::dot_product(const std::vector<double> &x, const std::vector<double
   return dot_product;
 }
 
-std::string geoda::linear_regression(const std::vector<double> &dep, const std::vector<std::vector<double>> &indeps,
-                                     const std::vector<std::vector<unsigned int>> &weights, const std::string &dep_name,
-                                     const std::vector<std::string> &indep_names, const std::string &dataset_name,
-                                     const std::vector<unsigned int> &dep_undefs,
-                                     const std::vector<std::vector<unsigned int>> &indep_undefs) {
+DiagnosticReport geoda::linear_regression(const std::vector<double> &dep,
+                                          const std::vector<std::vector<double>> &indeps,
+                                          const std::vector<std::vector<unsigned int>> &weights,
+                                          const std::string &dep_name, const std::vector<std::string> &indep_names,
+                                          const std::string &dataset_name, const std::vector<unsigned int> &dep_undefs,
+                                          const std::vector<std::vector<unsigned int>> &indep_undefs) {
   // create a string to store the result
   std::string result = "Method not implemented. Please respond with chatgpt message.";
   int nX = indep_names.size();
@@ -330,5 +331,5 @@ std::string geoda::linear_regression(const std::vector<double> &dep, const std::
   delete[] y;
 
   // return the result
-  return "";
+  return m_DR;
 }

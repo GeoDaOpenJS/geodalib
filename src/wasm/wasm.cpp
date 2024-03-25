@@ -8,6 +8,7 @@
 #include "sa/lisa.h"
 #include "weights/weights.h"
 #include "mapping/mapping.h"
+#include "regression/diagnostic-report.h"
 #include "regression/regression.h"
 
 template <typename T>
@@ -80,6 +81,59 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
 
   emscripten::function("quantileBreaks", &geoda::quantile_breaks);
   emscripten::function("naturalBreaks", &geoda::natural_breaks);
+
+  emscripten::class_<DiagnosticReport>("DiagnosticReport")
+      .smart_ptr<std::shared_ptr<DiagnosticReport>>("DiagnosticReport");
+      .function("GetNoObservation", &DiagnosticReport::GetNoObservation)
+      .function("GetNoVariable", &DiagnosticReport::GetNoVariable)
+      .function("IncludeConstant", &DiagnosticReport::IncludeConstant)
+      .function("GetXVarName", &DiagnosticReport::GetXVarName)
+      .function("GetCoefficients", &DiagnosticReport::GetCoefficientsVec)
+      .function("GetCoefficient", &DiagnosticReport::GetCoefficient)
+      .function("GetStdErrors", &DiagnosticReport::GetStdErrorsVec)
+      .function("GetStdError", &DiagnosticReport::GetStdError)
+      .function("GetZValues", &DiagnosticReport::GetZValuesVec)
+      .function("GetZValue", &DiagnosticReport::GetZValue)
+      .function("GetProbabilities", &DiagnosticReport::GetProbabilitiesVec)
+      .function("GetProbability", &DiagnosticReport::GetProbability)
+      .function("GetRho", &DiagnosticReport::GetRhoVec)
+      .function("GetLambda", &DiagnosticReport::GetLambdaVec)
+      .function("GetR2", &DiagnosticReport::GetR2)
+      .function("GetR2_adjust", &DiagnosticReport::GetR2_adjust)
+      .function("GetR2_buse", &DiagnosticReport::GetR2_buse)
+      .function("GetLIK", &DiagnosticReport::GetLIK)
+      .function("GetAIC", &DiagnosticReport::GetAIC)
+      .function("GetOLS_SC", &DiagnosticReport::GetOLS_SC)
+      .function("GetRSS", &DiagnosticReport::GetRSS)
+      .function("GetFtest", &DiagnosticReport::GetFtest)
+      .function("GetFtestProb", &DiagnosticReport::GetFtestProb)
+      .function("GetSIQ_SQ", &DiagnosticReport::GetSIQ_SQ)
+      .function("GetSIQ_SQLM", &DiagnosticReport::GetSIQ_SQLM)
+      .function("GetConditionNumber", &DiagnosticReport::GetConditionNumber)
+      .function("GetJBtest", &DiagnosticReport::GetJBtestVec)
+      .function("GetBPtest", &DiagnosticReport::GetBPtestVec)
+      .function("GetSpatialBPtest", &DiagnosticReport::GetSpatialBPtestVec)
+      .function("GetKBtest", &DiagnosticReport::GetKBtestVec)
+      .function("GetWhitetest", &DiagnosticReport::GetWhitetestVec)
+      .function("GetMoranI", &DiagnosticReport::GetMoranIVec)
+      .function("GetLMLAG", &DiagnosticReport::GetLMLAGVec)
+      .function("GetLMLAGRob", &DiagnosticReport::GetLMLAGRobVec)
+      .function("GetLMERR", &DiagnosticReport::GetLMERRVec)
+      .function("GetLMERRRob", &DiagnosticReport::GetLMERRRobVec)
+      .function("GetLMSarma", &DiagnosticReport::GetLMSarmaVec)
+      .function("GetKelRobin", &DiagnosticReport::GetKelRobinVec)
+      .function("GetResidual", &DiagnosticReport::GetResidualVec)
+      .function("GetCovariance", &DiagnosticReport::GetCovarianceVec)
+      .function("GetCovariance", &DiagnosticReport::GetCovariance)
+      .function("GetEigVal", &DiagnosticReport::GetEigValVec)
+      .function("GetYHAT", &DiagnosticReport::GetYHATVec)
+      .function("GetPredError", &DiagnosticReport::GetPredErrorVec)
+      .function("GetLRTest", &DiagnosticReport::GetLRTestVec)
+      .function("GetLMTest", &DiagnosticReport::GetLMTestVec)
+      .function("GetLRTest_CF", &DiagnosticReport::GetLRTest_CFVec)
+      .function("GetWaldTest", &DiagnosticReport::GetWaldTestVec)
+      .function("GetMeanY", &DiagnosticReport::GetMeanY)
+      .function("GetSDevY", &DiagnosticReport::GetSDevY);
 
   emscripten::function("dotProduct", &geoda::dot_product);
   emscripten::function("linearRegression", &geoda::linear_regression);
