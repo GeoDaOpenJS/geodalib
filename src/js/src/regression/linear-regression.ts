@@ -345,7 +345,7 @@ export function printLinearRegressionResult(regressionReport: LinearRegressionRe
   output += `Test\tKoenker-Bassett DF\tKoenker-Bassett Value\tKoenker-Bassett Probability\n`;
   const kbTest = regressionReport['DIAGNOSTICS FOR HETEROSKEDASTICITY']['KOENKER-Bassett TEST'];
   output += `${kbTest.Test}\t${kbTest['Koenker-Bassett DF']}\t${kbTest['Koenker-Bassett Value']}\t${kbTest['Koenker-Bassett Probability']}\n\n`;
-  if (!regressionReport.weightsId) {
+  if (regressionReport.weightsId) {
     output += `DIAGNOSTICS FOR SPATIAL DEPENDENCE\n`;
     output += `Moran's I (error):\n`;
     output += `Test\tMoran's I (error)\tMoran’s I (error) Z\tMoran’s I (error) Probability\n`;
@@ -374,7 +374,10 @@ export function printLinearRegressionResult(regressionReport: LinearRegressionRe
     const lmSarma =
       regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Lagrange Multiplier (SARMA)'];
     output += `${lmSarma.Test}\t${lmSarma['Lagrange Multiplier (SARMA) DF']}\t${lmSarma['Lagrange Multiplier (SARMA) Value']}\t${lmSarma['Lagrange Multiplier (SARMA) Probability']}\n`;
-  } 
+    output += `Based on the spatial diagnostics, the recommended model is: ${selectSpatialModel(
+      regressionReport
+    )}\n`;
+  }
   return output;
 }
 
@@ -521,7 +524,77 @@ export function printLinearRegressionResultUsingMarkdown(
     )} | ${printNumber(lmSarma['Lagrange Multiplier (SARMA) Value'])} | ${printNumber(
       lmSarma['Lagrange Multiplier (SARMA) Probability']
     )}\n`;
+
+    output += `&nbsp;  \n`;
+    output += `&nbsp;  \n`;
+    output += `Based on the spatial diagnostics, the recommended model is: ${selectSpatialModel(
+      regressionReport
+    )}\n`;
   }
 
   return output;
+}
+
+/**
+ * function to check which spatail model should be used based on spatial diagnostics
+ */
+// eslint-disable-next-line complexity
+export function selectSpatialModel(regressionReport: LinearRegressionResult): string {
+  let model = 'OLS Model';
+  if (regressionReport.weightsId) {
+    // check the probability of Lagrange Multiplier (lag), and Lagrange Multiplier (error)
+    const lmLag =
+      regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Lagrange Multiplier (lag)'];
+    const lmError =
+      regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Lagrange Multiplier (error)'];
+
+    // if both of them are significant, check the probability of Robust LM (lag) and Robust LM (error)
+    if (
+      lmLag['Lagrange Multiplier (lag) Probability'] <= 0.05 &&
+      lmError['Lagrange Multiplier (error) Probability'] <= 0.05
+    ) {
+      const lmLagRob = regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Robust LM (lag)'];
+      const lmErrorRob =
+        regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Robust LM (error)'];
+      if (
+        lmLagRob['Robust LM (lag) Probability'] <= 0.05 &&
+        lmErrorRob['Robust LM (error) Probability'] <= 0.05
+      ) {
+        // if both of them are significant, return the model that has the smaller probability
+        // eslint-disable-next-line max-depth
+        if (
+          lmLag['Lagrange Multiplier (lag) Probability'] <
+          lmError['Lagrange Multiplier (error) Probability']
+        ) {
+          model = 'Spatial Lag Model';
+        } else {
+          model = 'Spatial Error Model';
+        }
+      } else if (lmLagRob['Robust LM (lag) Probability'] <= 0.05) {
+        model = 'Spatial Lag Model';
+      } else if (lmErrorRob['Robust LM (error) Probability'] <= 0.05) {
+        model = 'Spatial Error Model';
+      } else {
+        // if none of them is significant, return the lmLag or lmError model which has smaller probability
+        // eslint-disable-next-line max-depth
+        if (
+          lmLag['Lagrange Multiplier (lag) Probability'] <
+          lmError['Lagrange Multiplier (error) Probability']
+        ) {
+          model = 'Spatial Lag Model';
+        } else {
+          model = 'Spatial Error Model';
+        }
+      }
+    } else if (lmLag['Lagrange Multiplier (lag) Probability'] <= 0.05) {
+      //  if one of them is significant, return the model that is significant
+      model = 'Spatial Lag Model';
+    } else if (lmError['Lagrange Multiplier (error) Probability'] <= 0.05) {
+      model = 'Spatial Error Model';
+    } else {
+      // if none of them is significant (larger than 0.05), set model to OLS and return
+      model = 'OLS Model';
+    }
+  }
+  return model;
 }
