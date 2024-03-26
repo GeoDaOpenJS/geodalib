@@ -10,27 +10,28 @@
  *
  * @return geoda::PolygonCollection
  */
-geoda::PolygonCollection TEST_POLYGON_COLLECTION(std::vector<double>{0, 0, 1, 1, 0, 1, 1, 2, 2, 1},
-                                                 std::vector<double>{0, 1, 1, 0, 0, 1, 2, 2, 1, 1},
-                                                 std::vector<unsigned int>{0, 5}, std::vector<unsigned int>{0, 0},
-                                                 std::vector<unsigned int>{1, 1});
+static geoda::PolygonCollection TEST_POLYGON_COLLECTION(std::vector<double>{0, 0, 1, 1, 0, 1, 1, 2, 2, 1},
+                                                        std::vector<double>{0, 1, 1, 0, 0, 1, 2, 2, 1, 1},
+                                                        std::vector<unsigned int>{0, 5},
+                                                        std::vector<unsigned int>{0, 0},
+                                                        std::vector<unsigned int>{1, 1});
 
 /**
  * @brief Three points
  *
  * @return geoda::PointCollection
  */
-geoda::PointCollection TEST_POINT_COLLECTION(std::vector<double>{0, 1, 2}, std::vector<double>{0, 1, 2},
-                                             std::vector<unsigned int>{0, 1, 2}, std::vector<unsigned int>{1, 1, 1});
+static geoda::PointCollection TEST_POINT_COLLECTION(std::vector<double>{0, 1, 2}, std::vector<double>{0, 1, 2},
+                                                    std::vector<unsigned int>{0, 1, 2},
+                                                    std::vector<unsigned int>{1, 1, 1});
 
 /**
  * @brief Two multi-polygons sharing a common node
  *
  * @return geoda::PolygonCollection
  */
-geoda::PolygonCollection TEST_MULTIPOLYGON_COLLECTION(std::vector<double>{0, 0, 1, 1, 0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2},
-                                                      std::vector<double>{0, 1, 1, 0, 0, 1, 2, 2, 1, 1, 2, 3, 3, 2, 2},
-                                                      std::vector<unsigned int>{0, 5, 10},
-                                                      std::vector<unsigned int>{0, 0, 0},
-                                                      std::vector<unsigned int>{2, 1});
+static geoda::PolygonCollection TEST_MULTIPOLYGON_COLLECTION(
+    std::vector<double>{0, 0, 1, 1, 0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2},
+    std::vector<double>{0, 1, 1, 0, 0, 1, 2, 2, 1, 1, 2, 3, 3, 2, 2}, std::vector<unsigned int>{0, 5, 10},
+    std::vector<unsigned int>{0, 0, 0}, std::vector<unsigned int>{2, 1});
 #endif  // DATA_H

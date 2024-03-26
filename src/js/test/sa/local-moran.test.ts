@@ -26,4 +26,5 @@ test('Test localMoran()', async t => {
     ]
   );
   t.deepEqual(result.clusters, [2, 2, 5, 1, 1, 1]);
+  t.end();
 });

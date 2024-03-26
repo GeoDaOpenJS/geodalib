@@ -10,4 +10,5 @@ test('Test naturalBreaks()', async t => {
   const result = await naturalBreaks(k, data);
 
   t.deepEqual(reducePrecision(result), [4, 7]);
+  t.end();
 });

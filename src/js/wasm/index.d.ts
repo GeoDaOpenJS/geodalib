@@ -208,6 +208,21 @@ export class VectorPolygon {
   delete(): void;
 }
 
+export class VectorString {
+  constructor();
+
+  push_back(arg0: string): void;
+
+  resize(arg0: UnsignedLong, arg1: string): void;
+
+  size(): UnsignedLong;
+
+  get(arg0: UnsignedLong): string;
+
+  set(arg0: UnsignedLong, arg1: string): boolean;
+  delete(): void;
+}
+
 export class LisaResult {
   isValid(): boolean;
 
@@ -219,6 +234,47 @@ export class LisaResult {
 
   getLisaValues(): VectorDouble;
   delete(): void;
+}
+
+/**
+ * Class for the diagnostic report of regression analysis
+ */
+export class DiagnosticReport {
+  delete(): void;
+  GetNoObservation(): number;
+  GetNoVariable(): number;
+  IncludeConstant(): boolean;
+  GetXVarName(i: number): string;
+  GetCoefficient(i: number): Double;
+  GetStdError(i: number): Double;
+  GetZValue(i: number): Double;
+  GetProbability(i: number): Double;
+  GetR2(): number;
+  GetR2_adjust(): number;
+  GetR2_buse(): number;
+  GetLIK(): number;
+  GetAIC(): number;
+  GetOLS_SC(): number;
+  GetRSS(): number;
+  GetFtest(): number;
+  GetFtestProb(): number;
+  GetSIQ_SQ(): number;
+  GetSIQ_SQLM(): number;
+  GetConditionNumber(): number;
+  GetJBtest(i: number): Double;
+  GetBPtest(i: number): Double;
+  GetSpatialBPtest(i: number): Double;
+  GetKBtest(i: number): Double;
+  GetWhitetest(i: number): Double;
+  GetMoranI(i: number): Double;
+  GetLMLAG(i: number): Double;
+  GetLMLAGRob(i: number): Double;
+  GetLMERR(i: number): Double;
+  GetLMERRRob(i: number): Double;
+  GetLMSarma(i: number): Double;
+  GetKelRobin(i: number): Double;
+  GetMeanY(): number;
+  GetSDevY(): number;
 }
 
 export interface GeoDaModule {
@@ -304,6 +360,31 @@ export interface GeoDaModule {
    */
   localMoran(data: VectorDouble, neighbors: VecVecUInt, permuations: UnsignedInt): LisaResult;
 
+  // test for dotProduct
+  dotProduct(x: VectorDouble, y: VectorDouble): number;
+
+  /**
+   *
+   * @param dep The values of the dependent variable
+   * @param indeps The values of the independent variables, it's a 2D array
+   * @param weights The spatial weights represented as a 2D array and each row shows the neighbors of the corresponding observation
+   * @param depName The name of the dependent variable
+   * @param indepNames The names of the independent variables
+   * @param datasetName The name of the dataset
+   * @param depUndefs The 0/1 array indicating the undefined values of the dependent variable
+   * @param indepUndefs The 2D array of 0/1 indicating the undefined values of the independent variables
+   */
+  linearRegression(
+    dep: VectorDouble,
+    indeps: VecVecDouble,
+    weights: VecVecUInt,
+    depName: string,
+    indepNames: VectorString,
+    datasetName: string,
+    depUndefs: VectorUInt,
+    indepUndefs: VecVecUInt
+  ): DiagnosticReport;
+
   GeometryCollection: typeof GeometryCollection;
   PolygonCollection: typeof PolygonCollection;
   LineCollection: typeof LineCollection;
@@ -316,7 +397,9 @@ export interface GeoDaModule {
   VectorDouble: typeof VectorDouble;
   VecVecDouble: typeof VecVecDouble;
   VectorPolygon: typeof VectorPolygon;
+  VectorString: typeof VectorString;
   LisaResult: typeof LisaResult;
+  DiagnosticReport: typeof DiagnosticReport;
 }
 declare function factory(): Promise<GeoDaModule>;
 export default factory;

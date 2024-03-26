@@ -8,3 +8,5 @@ export { localMoran } from './sa/local-moran';
 export { createPointCollectionFromBinaryFeatures as createGeoDaPointsFromBinaryFeatures } from './geometry/binary-geometry';
 export { quantileBreaks } from './mapping/quantile';
 export { naturalBreaks } from './mapping/natural-breaks';
+export { linearRegression, printLinearRegressionResult, printLinearRegressionResultUsingMarkdown } from './regression/linear-regression';
+export type { LinearRegressionProps, LinearRegressionResult } from './regression/linear-regression';
