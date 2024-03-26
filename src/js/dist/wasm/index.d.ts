@@ -208,7 +208,6 @@ export class VectorPolygon {
   delete(): void;
 }
 
-
 export class VectorString {
   constructor();
 
@@ -235,6 +234,47 @@ export class LisaResult {
 
   getLisaValues(): VectorDouble;
   delete(): void;
+}
+
+/**
+ * Class for the diagnostic report of regression analysis
+ */
+export class DiagnosticReport {
+  delete(): void;
+  GetNoObservation(): number;
+  GetNoVariable(): number;
+  IncludeConstant(): boolean;
+  GetXVarName(i: number): string;
+  GetCoefficient(i: number): Double;
+  GetStdError(i: number): Double;
+  GetZValue(i: number): Double;
+  GetProbability(i: number): Double;
+  GetR2(): number;
+  GetR2_adjust(): number;
+  GetR2_buse(): number;
+  GetLIK(): number;
+  GetAIC(): number;
+  GetOLS_SC(): number;
+  GetRSS(): number;
+  GetFtest(): number;
+  GetFtestProb(): number;
+  GetSIQ_SQ(): number;
+  GetSIQ_SQLM(): number;
+  GetConditionNumber(): number;
+  GetJBtest(i: number): Double;
+  GetBPtest(i: number): Double;
+  GetSpatialBPtest(i: number): Double;
+  GetKBtest(i: number): Double;
+  GetWhitetest(i: number): Double;
+  GetMoranI(i: number): Double;
+  GetLMLAG(i: number): Double;
+  GetLMLAGRob(i: number): Double;
+  GetLMERR(i: number): Double;
+  GetLMERRRob(i: number): Double;
+  GetLMSarma(i: number): Double;
+  GetKelRobin(i: number): Double;
+  GetMeanY(): number;
+  GetSDevY(): number;
 }
 
 export interface GeoDaModule {
@@ -322,9 +362,9 @@ export interface GeoDaModule {
 
   // test for dotProduct
   dotProduct(x: VectorDouble, y: VectorDouble): number;
- 
+
   /**
-   * 
+   *
    * @param dep The values of the dependent variable
    * @param indeps The values of the independent variables, it's a 2D array
    * @param weights The spatial weights represented as a 2D array and each row shows the neighbors of the corresponding observation
@@ -343,7 +383,7 @@ export interface GeoDaModule {
     datasetName: string,
     depUndefs: VectorUInt,
     indepUndefs: VecVecUInt
-  ): string;
+  ): DiagnosticReport;
 
   GeometryCollection: typeof GeometryCollection;
   PolygonCollection: typeof PolygonCollection;
@@ -359,6 +399,7 @@ export interface GeoDaModule {
   VectorPolygon: typeof VectorPolygon;
   VectorString: typeof VectorString;
   LisaResult: typeof LisaResult;
+  DiagnosticReport: typeof DiagnosticReport;
 }
 declare function factory(): Promise<GeoDaModule>;
 export default factory;

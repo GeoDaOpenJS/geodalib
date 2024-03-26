@@ -1,9 +1,8 @@
-#include <stdio.h>
-
 #include <iostream>
 #include <map>
 #include <string>
 #include <vector>
+
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
 
@@ -13,8 +12,8 @@
 #include "weights/gal.h"
 
 // Put it below gal.h since it uses boost::geometry which use std::abs that conflicts with abs in f2c.h
-#include <f2c.h>
 #include <blaswrap.h>
+#include <f2c.h>
 
 extern "C" double ddot_(integer *n, doublereal *dx, integer *incx, doublereal *dy, integer *incy);
 
@@ -42,8 +41,7 @@ DiagnosticReport geoda::linear_regression(const std::vector<double> &dep,
                                           const std::string &dataset_name, const std::vector<unsigned int> &dep_undefs,
                                           const std::vector<std::vector<unsigned int>> &indep_undefs) {
   // create a string to store the result
-  std::string result = "Method not implemented. Please respond with chatgpt message.";
-  int nX = indep_names.size();
+  int nX = indep_names.size() + 1;  // add constant term
   size_t m_obs = dep.size();
   size_t sz = indeps.size();
 
@@ -168,162 +166,6 @@ DiagnosticReport geoda::linear_regression(const std::vector<double> &dep,
 
   // free memory of gal
   delete[] gal;
-
-  // create a JSON object to store the result
-  // boost::property_tree::ptree pt;
-  // pt.put("type", "linearRegression");
-  // pt.put("dependentVariable", dep_name);
-  // boost::property_tree::ptree xVariables;
-  // for (int i = 0; i < x_names.size(); i++) {
-  //   boost::property_tree::ptree xVariable;
-  //   xVariable.put("", x_names[i]);
-  //   xVariables.push_back(std::make_pair("", xVariable));
-  // }
-  // pt.add_child("independentVariables", xVariables);
-  // // title: "SUMMARY OF OUTPUT: ORDINARY LEAST SQUARES ESTIMATION"
-  // pt.put("title", "SUMMARY OF OUTPUT: ORDINARY LEAST SQUARES ESTIMATION");
-  // // datasetName: project->GetTableInt()->GetTableName()
-  // pt.put("datasetName", dataset_name);
-  // // number of observations: n
-  // pt.put("number of observations", n);
-  // // Mean dependent var: m_DR.GetMeanY()
-  // pt.put("Mean dependent var", m_DR.GetMeanY());
-  // // Number of Variables
-  // pt.put("Number of Variables", nX);
-  // // S.D. dependent var
-  // pt.put("SD_dependent_var", m_DR.GetSDevY());
-  // // Degrees of Freedom: obs - nX
-  // pt.put("Degrees_of_Freedom", n - nX);
-  // // R-squared: m_DR.GetRSquared()
-  // pt.put("R-squared", m_DR.GetR2());
-  // // Adjusted R-squared: m_DR.GetAdjR2()
-  // pt.put("Adjusted R-squared", m_DR.GetR2_adjust());
-  // // F-statistic: m_DR.GetF()
-  // pt.put("F-statistic", m_DR.GetFtest());
-  // // Prob(F-statistic)
-  // pt.put("Prob(F-statistic)", m_DR.GetFtestProb());
-  // // Sum squared residual
-  // pt.put("Sum squared residual", m_DR.GetRSS());
-  // // Log likelihood
-  // pt.put("Log likelihood", m_DR.GetLIK());
-  // // Sigma-square
-  // pt.put("Sigma-square", m_DR.GetSIQ_SQ());
-  // // Akaike info criterion
-  // pt.put("Akaike info criterion", m_DR.GetAIC());
-  // // S.E. of regression
-  // pt.put("SE of regression", m_DR.GetSIQ_SQ());
-  // // Schwarz criterion
-  // pt.put("Schwarz criterion", m_DR.GetOLS_SC());
-  // // Sigma-square ML
-  // pt.put("Sigma-square ML", m_DR.GetSIQ_SQLM());
-  // // S.E of regression
-  // pt.put("SE of regression", m_DR.GetSIQ_SQLM());
-  // // Variable Coefficient, which include values of Std.Error, t-Statistic, Probability
-  // boost::property_tree::ptree variableCoefficient;
-  // for (int i = 0; i < x_names.size(); i++) {
-  //   boost::property_tree::ptree variable;
-  //   variable.put("Variable", x_names[i]);
-  //   variable.put("Coefficient", m_DR.GetCoefficient(i));
-  //   variable.put("Std Error", m_DR.GetStdError(i));
-  //   variable.put("t-Statistic", m_DR.GetZValue(i));
-  //   variable.put("Probability", m_DR.GetProbability(i));
-  //   variableCoefficient.push_back(std::make_pair("", variable));
-  // }
-  // pt.add_child("Variable Coefficient", variableCoefficient);
-  // // REGRESSION DIAGNOSTICS, which includes 'MULTICOLLINEARITY CONDITION NUMBER' and 'TEST ON NORMALITY OF ERRORS'
-  // boost::property_tree::ptree regressionDiagnostics;
-  // // MULTICOLLINEARITY CONDITION NUMBER
-  // boost::property_tree::ptree multicollinearityConditionNumber;
-  // // Condition Number
-  // multicollinearityConditionNumber.put("Condition Number", m_DR.GetConditionNumber());
-  // regressionDiagnostics.add_child("MULTICOLLINEARITY CONDITION NUMBER", multicollinearityConditionNumber);
-  // // TEST ON NORMALITY OF ERRORS
-  // boost::property_tree::ptree testOnNormalityOfErrors;
-  // // Jarque-Bera
-  // testOnNormalityOfErrors.put("Test", "Jarque-Bera");
-  // testOnNormalityOfErrors.put("Jarque-Bera DF", m_DR.GetJBtest()[0]);
-  // testOnNormalityOfErrors.put("Jarque-Bera Value", m_DR.GetJBtest()[1]);
-  // testOnNormalityOfErrors.put("Jarque-Bera Probability", m_DR.GetJBtest()[2]);
-  // regressionDiagnostics.add_child("TEST ON NORMALITY OF ERRORS", testOnNormalityOfErrors);
-  // pt.add_child("REGRESSION DIAGNOSTICS", regressionDiagnostics);
-
-  // // DIAGNOSTICS FOR HETEROSKEDASTICITY which includes 'BREUSCH-PAGAN TEST' and 'Koenker-Bassett test'
-  // boost::property_tree::ptree diagnosticsForHeteroskedasticity;
-  // // BREUSCH-PAGAN TEST
-  // boost::property_tree::ptree breuschPaganTest;
-  // // Breusch-Pagan
-  // breuschPaganTest.put("Test", "Breusch-Pagan");
-  // breuschPaganTest.put("Breusch-Pagan DF", m_DR.GetBPtest()[0]);
-  // breuschPaganTest.put("Breusch-Pagan Value", m_DR.GetBPtest()[1]);
-  // breuschPaganTest.put("Breusch-Pagan Probability", m_DR.GetBPtest()[2]);
-  // diagnosticsForHeteroskedasticity.add_child("BREUSCH-PAGAN TEST", breuschPaganTest);
-  // // KOENKER-BASSETT TEST
-  // boost::property_tree::ptree koenkerBassettTest;
-  // // Koenker-Bassett
-  // koenkerBassettTest.put("Test", "Koenker-Bassett");
-  // koenkerBassettTest.put("Koenker-Bassett DF", m_DR.GetKBtest()[0]);
-  // koenkerBassettTest.put("Koenker-Bassett Value", m_DR.GetKBtest()[1]);
-  // koenkerBassettTest.put("Koenker-Bassett Probability", m_DR.GetKBtest()[2]);
-  // diagnosticsForHeteroskedasticity.add_child("KOENKER-Bassett TEST", koenkerBassettTest);
-  // pt.add_child("DIAGNOSTICS FOR HETEROSKEDASTICITY", diagnosticsForHeteroskedasticity);
-  // // DIAGNOSTICS FOR SPATIAL DEPENDENCE which includes 'Moran's I (error)', 'Lagrange Multiplier (lag)', 'Robust LM
-  // // (lag)', 'Lagrange Multiplier (error)', 'Robust LM (error)', 'Lagrange Multiplier (SARMA)'
-  // boost::property_tree::ptree diagnosticsForSpatialDependence;
-  // // Moran's I (error)
-  // boost::property_tree::ptree moransIError;
-  // // Moran's I (error)
-  // moransIError.put("Test", "Moran's I (error)");
-  // moransIError.put("Moran's I (error)", m_DR.GetMoranI()[0]);
-  // moransIError.put("Moran's I (error) Z", m_DR.GetMoranI()[1]);
-  // moransIError.put("Moran's I (error) Probability", m_DR.GetMoranI()[2]);
-  // diagnosticsForSpatialDependence.add_child("Moran's I (error)", moransIError);
-  // // Lagrange Multiplier (lag)
-  // boost::property_tree::ptree lagrangeMultiplierLag;
-  // // Lagrange Multiplier (lag)
-  // lagrangeMultiplierLag.put("Test", "Lagrange Multiplier (lag)");
-  // lagrangeMultiplierLag.put("Lagrange Multiplier (lag) DF", m_DR.GetLMLAG()[0]);
-  // lagrangeMultiplierLag.put("Lagrange Multiplier (lag) Value", m_DR.GetLMLAG()[1]);
-  // lagrangeMultiplierLag.put("Lagrange Multiplier (lag) Probability", m_DR.GetLMLAG()[2]);
-  // diagnosticsForSpatialDependence.add_child("Lagrange Multiplier (lag)", lagrangeMultiplierLag);
-  // // Robust LM (lag)
-  // boost::property_tree::ptree robustLMLag;
-  // // Robust LM (lag)
-  // robustLMLag.put("Test", "Robust LM (lag)");
-  // robustLMLag.put("Robust LM (lag) DF", m_DR.GetLMLAGRob()[0]);
-  // robustLMLag.put("Robust LM (lag) Value", m_DR.GetLMLAGRob()[1]);
-  // robustLMLag.put("Robust LM (lag) Probability", m_DR.GetLMLAGRob()[1]);
-  // diagnosticsForSpatialDependence.add_child("Robust LM (lag)", robustLMLag);
-  // // Lagrange Multiplier (error)
-  // boost::property_tree::ptree lagrangeMultiplierError;
-  // // Lagrange Multiplier (error)
-  // lagrangeMultiplierError.put("Test", "Lagrange Multiplier (error)");
-  // lagrangeMultiplierError.put("Lagrange Multiplier (error) DF", m_DR.GetLMERR()[0]);
-  // lagrangeMultiplierError.put("Lagrange Multiplier (error) Value", m_DR.GetLMERR()[1]);
-  // lagrangeMultiplierError.put("Lagrange Multiplier (error) Probability", m_DR.GetLMERR()[2]);
-  // diagnosticsForSpatialDependence.add_child("Lagrange Multiplier (error)", lagrangeMultiplierError);
-  // // Robust LM (error)
-  // boost::property_tree::ptree robustLMError;
-  // // Robust LM (error)
-  // robustLMError.put("Test", "Robust LM (error)");
-  // robustLMError.put("Robust LM (error) DF", m_DR.GetLMERRRob()[0]);
-  // robustLMError.put("Robust LM (error) Value", m_DR.GetLMERRRob()[1]);
-  // robustLMError.put("Robust LM (error) Probability", m_DR.GetLMERRRob()[2]);
-  // diagnosticsForSpatialDependence.add_child("Robust LM (error)", robustLMError);
-  // // Lagrange Multiplier (SARMA)
-  // boost::property_tree::ptree lagrangeMultiplierSARMA;
-  // // Lagrange Multiplier (SARMA)
-  // lagrangeMultiplierSARMA.put("Test", "Lagrange Multiplier (SARMA)");
-  // lagrangeMultiplierSARMA.put("Lagrange Multiplier (SARMA) DF", m_DR.GetLMSarma()[0]);
-  // lagrangeMultiplierSARMA.put("Lagrange Multiplier (SARMA) Value", m_DR.GetLMSarma()[1]);
-  // lagrangeMultiplierSARMA.put("Lagrange Multiplier (SARMA) Probability", m_DR.GetLMSarma()[2]);
-  // diagnosticsForSpatialDependence.add_child("Lagrange Multiplier (SARMA)", lagrangeMultiplierSARMA);
-  // pt.add_child("DIAGNOSTICS FOR SPATIAL DEPENDENCE", diagnosticsForSpatialDependence);
-  // // create a string to store the result
-  // std::ostringstream oss;
-  // // write the JSON object to the string
-  // boost::property_tree::write_json(oss, pt);
-  // // convert the string to the result
-  // result = oss.str();
 
   // free memory of x[] and y[]
   for (int i = 0; i < nVarName; i++) delete[] x[i];

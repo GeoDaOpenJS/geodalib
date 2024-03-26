@@ -3891,5 +3891,5 @@ TEST(REGRESSION, LINEAR_REGRESSION_1) {
 
     // check the result
     // type should be "linearRegression"
-    EXPECT_EQ(m_DR.GetSDevY(), 5.64881);
+    EXPECT_EQ(m_DR.GetSDevY(), 5.6488060776177891);
 }

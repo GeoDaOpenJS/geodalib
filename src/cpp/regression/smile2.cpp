@@ -484,8 +484,6 @@ void DevFromMean(int nObs, double *RawData) {
 // Regression
 bool geoda::classicalRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int expl, DiagnosticReport *dr,
                          bool InclConstant, bool m_moranz, bool do_white_test) {
-  int g_rng = 100;
-
   double df = (dim - expl);
   DenseVector y(Y, dim, false), ols(expl);
   DenseVector *x = new DenseVector[expl + 1];

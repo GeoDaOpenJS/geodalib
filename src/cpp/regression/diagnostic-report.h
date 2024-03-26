@@ -2,8 +2,8 @@
 #ifndef __GEODA_CENTER_DIAGNOSTIC_REPORT_H__
 #define __GEODA_CENTER_DIAGNOSTIC_REPORT_H__
 
-#include <vector>
 #include <string>
+#include <vector>
 
 class DiagnosticReport {
  public:
@@ -14,56 +14,16 @@ class DiagnosticReport {
   int GetNoVariable() { return nVar; }
   bool IncludeConstant() { return inclConstant; }
   std::string GetXVarName(int i) { return varNames[i]; }
-
-  std::vector<double> GetCoefficientsVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> coeff_vec(coeff, coeff + nVar);
-    return coeff_vec;
-  }
   double* GetCoefficients() { return coeff; }
   double GetCoefficient(int i) { return coeff[i]; }
-
-  std::vector<double> GetStdErrorsVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> sterr_vec(sterr, sterr + nVar);
-    return sterr_vec;
-  }
   double* GetStdErrors() { return sterr; }
-
   double GetStdError(int i) { return sterr[i]; }
-
-  std::vector<double> GetZValuesVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> stats_vec(stats, stats + nVar);
-    return stats_vec;
-  }
   double* GetZValues() { return stats; }
-
   double GetZValue(int i) { return stats[i]; }
-
-  std::vector<double> GetProbabilitiesVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> probs_vec(probs, probs + nVar);
-    return probs_vec;
-  }
   double* GetProbabilities() { return probs; }
-
   double GetProbability(int i) { return probs[i]; }
-
-  std::vector<double> GetRhoVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> rho_vec(rho, rho + 4);
-    return rho_vec;
-  }
   double* GetRho() { return rho; }
-
-  std::vector<double> GetLambdaVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> lambda_vec(lambda, lambda + 4);
-    return lambda_vec;
-  }
   double* GetLambda() { return lambda; }
-
   double GetR2() { return r2; }
   double GetR2_adjust() { return r2_a; }
   double GetR2_buse() { return r2_buse; }
@@ -77,139 +37,41 @@ class DiagnosticReport {
   double GetSIQ_SQLM() { return sig_sqlm; }
   double GetConditionNumber() { return condnumber; }
 
-  std::vector<double> GetJBtestVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> jbtest_vec(jbtest, jbtest + 3);
-    return jbtest_vec;
-  }
+  double GetJBtestValue(int i) { return jbtest[i]; }
   double* GetJBtest() { return jbtest; }
-  std::vector<double> GetBPtestVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> bptest_vec(bptest, bptest + 3);
-    return bptest_vec;
-  }
+  double GetBPtestValue(int i) { return bptest[i]; }
   double* GetBPtest() { return bptest; }
-  std::vector<double> GetSpatialBPtestVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> sbptest_vec(sbptest, sbptest + 3);
-    return sbptest_vec;
-  }
+  double GetSpatialBPtestValue(int i) { return sbptest[i]; }
   double* GetSpatialBPtest() { return sbptest; }
-  std::vector<double> GetKBtestVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> kbtest_vec(kbtest, kbtest + 3);
-    return kbtest_vec;
-  }
+  double GetKBtestValue(int i) { return kbtest[i]; }
   double* GetKBtest() { return kbtest; }
-  std::vector<double> GetWhitetestVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> white_vec(white, white + 3);
-    return white_vec;
-  }
   double* GetWhitetest() { return white; }
-  std::vector<double> GetMoranIVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> moranI_vec(moranI, moranI + 3);
-    return moranI_vec;
-  }
+  double GetMoranIValue(int i) { return moranI[i]; }
   double* GetMoranI() { return moranI; }
-  std::vector<double> GetLMLAGVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> lmlag_vec(lmlag, lmlag + 3);
-    return lmlag_vec;
-  }
+  double GetLMLAGValue(int i) { return lmlag[i]; }
   double* GetLMLAG() { return lmlag; }
-  std::vector<double> GetLMLAGRobVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> lmlagr_vec(lmlagr, lmlagr + 3);
-    return lmlagr_vec;
-  }
+  double GetLMLAGRobValue(int i) { return lmlagr[i]; }
   double* GetLMLAGRob() { return lmlagr; }
-  std::vector<double> GetLMERRVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> lmerr_vec(lmerr, lmerr + 3);
-    return lmerr_vec;
-  }
+  double GetLMERRValue(int i) { return lmerr[i]; }
   double* GetLMERR() { return lmerr; }
-  std::vector<double> GetLMERRRobVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> lmerrr_vec(lmerrr, lmerrr + 3);
-    return lmerrr_vec;
-  }
+  double GetLMERRRobValue(int i) { return lmerrr[i]; }
   double* GetLMERRRob() { return lmerrr; }
-  std::vector<double> GetLMSarmaVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> lmsarma_vec(lmsarma, lmsarma + 3);
-    return lmsarma_vec;
-  }
+  double GetLMSarmaValue(int i) { return lmsarma[i]; }
   double* GetLMSarma() { return lmsarma; }
-  std::vector<double> GetKelRobinVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> kelrob_vec(kelrob, kelrob + 3);
-    return kelrob_vec;
-  }
+  double GetKelRobinValue(int i) { return kelrob[i]; }
   double* GetKelRobin() { return kelrob; }
-  std::vector<double> GetResidualVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> resid_vec(resid, resid + nObs);
-    return resid_vec;
-  }
   double* GetResidual() { return resid; }
-  std::vector<std::vector<double>> GetCovarianceVec() { 
-    // convert double** to std::vector<std::vector<double>>
-    std::vector<std::vector<double>> cov_vec;
-    for (int i = 0; i < nVar; i++) {
-      std::vector<double> cov_row(cov[i], cov[i] + nVar);
-      cov_vec.push_back(cov_row);
-    }
-    return cov_vec;
-  }
   double** GetCovariance() { return cov; }
   double GetCovariance(int i, int j) { return cov[i][j]; }
-  std::vector<double> GetEigValVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> eigval_vec(eigval, eigval + nVar);
-    return eigval_vec;
-  }
   double* GetEigVal() { return eigval; }
-  std::vector<double> GetYHATVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> yhat_vec(yhat, yhat + nObs);
-    return yhat_vec;
-  }
   double* GetYHAT() { return yhat; }
-  std::vector<double> GetPredErrorVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> prederr_vec(prederr, prederr + nObs);
-    return prederr_vec;
-  }
   double* GetPredError() { return prederr; }
-  std::vector<double> GetLRTestVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> lr_test_vec(lr_test, lr_test + 3);
-    return lr_test_vec;
-  }
   /// Likelihood Ratio Test for spatial lag/error dependence
   double* GetLRTest() { return lr_test; }
-  std::vector<double> GetLMTestVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> lm_test_vec(lm_test, lm_test + 3);
-    return lm_test_vec;
-  }
   /// Lagrange Multiplier test for spatial lag/error dep
   double* GetLMTest() { return lm_test; }
-  std::vector<double> GetLRTest_CFVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> lrcf_test_vec(lrcf_test, lrcf_test + 3);
-    return lrcf_test_vec;
-  }
   /// Test on common factor hyphothesis
   double* GetLRTest_CF() { return lrcf_test; }
-  std::vector<double> GetWaldTestVec() { 
-    // convert double* to std::vector<double>
-    std::vector<double> wald_test_vec(wald_test, wald_test + 3);
-    return wald_test_vec;
-  }
   double* GetWaldTest() { return wald_test; }
   double GetMeanY() { return mean_Y; }
   double GetSDevY() { return sdev_Y; }

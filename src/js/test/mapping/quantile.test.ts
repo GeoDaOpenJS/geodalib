@@ -10,4 +10,5 @@ test('Test quantileBreaks()', async t => {
   const result = await quantileBreaks(k, data);
 
   t.deepEqual(reducePrecision(result), [3.5, 6.5]);
+  t.end();
 });
