@@ -213,7 +213,7 @@ export async function linearRegression({
     type: 'linearRegression',
     dependentVariable: yName,
     independentVariables: xNames,
-    title: 'SUMMARY OF OUTPUT: ORDINARY LEAST SQUARES ESTIMATION',
+    title: 'ORDINARY LEAST SQUARES ESTIMATION',
     datasetName,
     'Number of Observations': regReport.GetNoObservation(),
     'Mean Dependent Var': regReport.GetMeanY(),
@@ -297,4 +297,214 @@ export async function linearRegression({
   };
 
   return result;
+}
+
+// eslint-disable-next-line max-statements
+export function printLinearRegressionResult(regressionReport: LinearRegressionResult): string {
+  // print the regression report using GeoDa's format
+  let output = '';
+  output += `Dependent Variable: ${regressionReport.dependentVariable}\n`;
+  output += `No. Observations: ${regressionReport['Number of Observations']}\n`;
+  output += `Df: ${regressionReport['Degrees of Freedom']}\n`;
+  output += `Df Residuals: ${regressionReport['Degrees of Freedom']}\n`;
+  output += `R-squared: ${regressionReport['R-squared']}\n`;
+  output += `Adj. R-squared: ${regressionReport['Adjusted R-squared']}\n`;
+  output += `F-statistic: ${regressionReport['F-statistic']}\n`;
+  output += `Prob(F-statistic): ${regressionReport['Prob(F-statistic)']}\n`;
+  output += `Log-Likelihood: ${regressionReport['Log Likelihood']}\n`;
+  output += `AIC: ${regressionReport['Akaike Info Criterion']}\n`;
+  output += `BIC: ${regressionReport['Schwarz Criterion']}\n`;
+  output += `Sum squared residual: ${regressionReport['Sum Squared Residual']}\n`;
+  output += `Sigma-square: ${regressionReport['Sigma-Square']}\n`;
+  output += `SE of regression: ${regressionReport['SE of Regression']}\n\n`;
+  output += `Variable Coefficients:\n`;
+  output += `Variable\tCoefficient\tStd. Error\tt-Statistic\tProbability\n`;
+  for (const coefficient of regressionReport['Variable Coefficients']) {
+    output += `${coefficient.Variable}\t${coefficient.Coefficient}\t${coefficient['Std Error']}\t${coefficient['t-Statistic']}\t${coefficient.Probability}\n`;
+  }
+  output += `\n\n#REGRESSION DIAGNOSTICS*\n`;
+  output += `Multicollinearity Condition Number: ${regressionReport['REGRESSION DIAGNOSTICS']['MULTICOLLINEARITY CONDITION NUMBER']}\n`;
+  output += `Test on Normality of Errors:\n`;
+  output += `Test\tJarque-Bera DF\tJarque-Bera Value\tJarque-Bera Probability\n`;
+  const normalityTest = regressionReport['REGRESSION DIAGNOSTICS']['TEST ON NORMALITY OF ERRORS'];
+  output += `${normalityTest.Test}\t${normalityTest['Jarque-Bera DF']}\t${normalityTest['Jarque-Bera Value']}\t${normalityTest['Jarque-Bera Probability']}\n\n`;
+  output += `DIAGNOSTICS FOR HETEROSKEDASTICITY\n`;
+  output += `Breusch-Pagan Test:\n`;
+  output += `Test\tBreusch-Pagan DF\tBreusch-Pagan Value\tBreusch-Pagan Probability\n`;
+  const bpTest = regressionReport['DIAGNOSTICS FOR HETEROSKEDASTICITY']['BREUSCH-PAGAN TEST'];
+  output += `${bpTest.Test}\t${bpTest['Breusch-Pagan DF']}\t${bpTest['Breusch-Pagan Value']}\t${bpTest['Breusch-Pagan Probability']}\n`;
+  output += `Koenker-Bassett Test:\n`;
+  output += `Test\tKoenker-Bassett DF\tKoenker-Bassett Value\tKoenker-Bassett Probability\n`;
+  const kbTest = regressionReport['DIAGNOSTICS FOR HETEROSKEDASTICITY']['KOENKER-Bassett TEST'];
+  output += `${kbTest.Test}\t${kbTest['Koenker-Bassett DF']}\t${kbTest['Koenker-Bassett Value']}\t${kbTest['Koenker-Bassett Probability']}\n\n`;
+  output += `DIAGNOSTICS FOR SPATIAL DEPENDENCE\n`;
+  output += `Moran's I (error):\n`;
+  output += `Test\tMoran's I (error)\tMoran’s I (error) Z\tMoran’s I (error) Probability\n`;
+  const moranI = regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']["Moran's I (error)"];
+  output += `${moranI.Test}\t${moranI["Moran's I (error)"]}\t${moranI['Moran’s I (error) Z']}\t${moranI['Moran’s I (error) Probability']}\n`;
+  output += `Lagrange Multiplier (lag):\n`;
+  output += `Test\tLagrange Multiplier (lag) DF\tLagrange Multiplier (lag) Value\tLagrange Multiplier (lag) Probability\n`;
+  const lmLag = regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Lagrange Multiplier (lag)'];
+  output += `${lmLag.Test}\t${lmLag['Lagrange Multiplier (lag) DF']}\t${lmLag['Lagrange Multiplier (lag) Value']}\t${lmLag['Lagrange Multiplier (lag) Probability']}\n`;
+  output += `Robust LM (lag):\n`;
+  output += `Test\tRobust LM (lag) DF\tRobust LM (lag) Value\tRobust LM (lag) Probability\n`;
+  const lmLagRob = regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Robust LM (lag)'];
+  output += `${lmLagRob.Test}\t${lmLagRob['Robust LM (lag) DF']}\t${lmLagRob['Robust LM (lag) Value']}\t${lmLagRob['Robust LM (lag) Probability']}\n`;
+  output += `Lagrange Multiplier (error):\n`;
+  output += `Test\tLagrange Multiplier (error) DF\tLagrange Multiplier (error) Value\tLagrange Multiplier (error) Probability\n`;
+  const lmError =
+    regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Lagrange Multiplier (error)'];
+  output += `${lmError.Test}\t${lmError['Lagrange Multiplier (error) DF']}\t${lmError['Lagrange Multiplier (error) Value']}\t${lmError['Lagrange Multiplier (error) Probability']}\n`;
+  output += `Robust LM (error):\n`;
+  output += `Test\tRobust LM (error) DF\tRobust LM (error) Value\tRobust LM (error) Probability\n`;
+  const lmErrorRob = regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Robust LM (error)'];
+  output += `${lmErrorRob.Test}\t${lmErrorRob['Robust LM (error) DF']}\t${lmErrorRob['Robust LM (error) Value']}\t${lmErrorRob['Robust LM (error) Probability']}\n`;
+  output += `Lagrange Multiplier (SARMA):\n`;
+  output += `Test\tLagrange Multiplier (SARMA) DF\tLagrange Multiplier (SARMA) Value\tLagrange Multiplier (SARMA) Probability\n`;
+  const lmSarma =
+    regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Lagrange Multiplier (SARMA)'];
+  output += `${lmSarma.Test}\t${lmSarma['Lagrange Multiplier (SARMA) DF']}\t${lmSarma['Lagrange Multiplier (SARMA) Value']}\t${lmSarma['Lagrange Multiplier (SARMA) Probability']}\n`;
+  return output;
+}
+
+// function to print number with 4 decimal places
+function printNumber(num: number): string {
+  // if num is float and has more than 4 decimal places, round it to 4 decimal places; otherwise return the number as is
+  const numStr = num.toString();
+  if (numStr.includes('.')) {
+    const decimalPlaces = numStr.split('.')[1].length;
+    if (decimalPlaces > 4) {
+      return num.toFixed(4);
+    }
+  }
+  return num.toString();
+}
+
+// eslint-disable-next-line max-statements
+export function printLinearRegressionResultUsingMarkdown(
+  regressionReport: LinearRegressionResult
+): string {
+  // print the linearRegression result in GeoDa's format using Markdown
+  let output = '';
+  output += '|  |  |  |  |\n';
+  output += '|---|---|---|---|\n';
+  output += `|Dependent Variable |${
+    regressionReport.dependentVariable
+  }| No. Observations |${printNumber(regressionReport['Number of Observations'])}|\n`;
+  output += `|Mean Dependent Var | ${printNumber(
+    regressionReport['Mean Dependent Var']
+  )}| Number of Variables | ${regressionReport['Number of Variables']} |\n`;
+  output += `|S.D. dependent var| ${printNumber(
+    regressionReport['SD Dependent Var']
+  )}| Degrees of Freedom | ${regressionReport['Degrees of Freedom']} |\n`;
+
+  output += `&nbsp;  \n`;
+  output += '|  |  |  |  |\n';
+  output += `|R-squared| ${printNumber(regressionReport['R-squared'])}| F-statistic | ${printNumber(
+    regressionReport['F-statistic']
+  )}|\n`;
+  output += `|Adj. R-squared| ${printNumber(
+    regressionReport['Adjusted R-squared']
+  )}| Prob(F-statistic)| ${printNumber(regressionReport['Prob(F-statistic)'])}|\n`;
+  output += `|Sum squared residual| ${printNumber(
+    regressionReport['Sum Squared Residual']
+  )}|Log-Likelihood| ${printNumber(regressionReport['Log Likelihood'])}|\n`;
+  output += `|Sigma-square| ${printNumber(regressionReport['Sigma-Square'])}|AIC| ${printNumber(
+    regressionReport['Akaike Info Criterion']
+  )}|\n`;
+  output += `|S.E. of regression| ${printNumber(
+    regressionReport['SE of Regression']
+  )}|Schwarz Criterion| ${printNumber(regressionReport['Schwarz Criterion'])}|\n`;
+  output += `|Sigma-square ML| ${printNumber(Math.sqrt(regressionReport['Sigma-Square ML']))}|||\n`;
+  output += `|S.E. of regression ML| ${printNumber(
+    Math.sqrt(regressionReport['Sigma-Square ML'])
+  )}|||\n`;
+
+  output += `&nbsp;  \n`;
+  output += `Variable Coefficients: \n\n`;
+  output += `| Variable | Coefficient | Std. Error | t-Statistic | Probability |\n`;
+  output += `|---------|-------------|------------|-------------|-------------|\n`;
+  for (const coefficient of regressionReport['Variable Coefficients']) {
+    output += `${coefficient.Variable} | ${printNumber(coefficient.Coefficient)} | ${printNumber(
+      coefficient['Std Error']
+    )} | ${printNumber(coefficient['t-Statistic'])} | ${printNumber(coefficient.Probability)}\n`;
+  }
+  output += `&nbsp;  \n`;
+  output += `\nREGRESSION DIAGNOSTICS\n`;
+  output += `&nbsp;  \n`;
+  output += `&nbsp;  \n`;
+  output += `Multicollinearity Condition Number: ${printNumber(
+    regressionReport['REGRESSION DIAGNOSTICS']['MULTICOLLINEARITY CONDITION NUMBER']
+  )}\n\n`;
+  output += `Test on Normality of Errors:\n\n`;
+  output += `Test&nbsp;&nbsp; | DF&nbsp;&nbsp; | Value | Probability\n`;
+  output += `-----|:----------------:|-------------------| -----------------------:\n`;
+  const normalityTest = regressionReport['REGRESSION DIAGNOSTICS']['TEST ON NORMALITY OF ERRORS'];
+  output += `${normalityTest.Test} | ${printNumber(
+    normalityTest['Jarque-Bera DF']
+  )} | ${printNumber(normalityTest['Jarque-Bera Value'])} | ${printNumber(
+    normalityTest['Jarque-Bera Probability']
+  )}\n\n`;
+  output += `&nbsp;  \n`;
+  output += `&nbsp;  \n`;
+  output += `DIAGNOSTICS FOR HETEROSKEDASTICITY`;
+  output += `&nbsp;  \n`;
+  output += `RANDOM COEFFICIENTS\n`;
+  output += `Test:\n\n`;
+  output += `Test | DF | Value | Probability\n`;
+  output += `-----|:----------------:|-------------------| -----------------------:\n`;
+  const bpTest = regressionReport['DIAGNOSTICS FOR HETEROSKEDASTICITY']['BREUSCH-PAGAN TEST'];
+  output += `${bpTest.Test} | ${printNumber(bpTest['Breusch-Pagan DF'])} | ${printNumber(
+    bpTest['Breusch-Pagan Value']
+  )} | ${printNumber(bpTest['Breusch-Pagan Probability'])}\n`;
+  const kbTest = regressionReport['DIAGNOSTICS FOR HETEROSKEDASTICITY']['KOENKER-Bassett TEST'];
+  output += `${kbTest.Test} | ${printNumber(kbTest['Koenker-Bassett DF'])} | ${printNumber(
+    kbTest['Koenker-Bassett Value']
+  )} | ${printNumber(kbTest['Koenker-Bassett Probability'])}\n`;
+
+  output += `&nbsp;  \n`;
+  output += `&nbsp;  \n`;
+  output += `DIAGNOSTICS FOR SPATIAL DEPENDENCE\n\n`;
+  output += `Test | MI/DF | Value | Probability\n`;
+  output += `-----|-------|-------|------------\n`;
+
+  const moranI = regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']["Moran's I (error)"];
+  output += `${moranI.Test} | ${printNumber(moranI["Moran's I (error)"])} | ${printNumber(
+    moranI['Moran’s I (error) Z']
+  )} | ${printNumber(moranI['Moran’s I (error) Probability'])}\n`;
+
+  const lmLag = regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Lagrange Multiplier (lag)'];
+  output += `${lmLag.Test} | ${printNumber(lmLag['Lagrange Multiplier (lag) DF'])} | ${printNumber(
+    lmLag['Lagrange Multiplier (lag) Value']
+  )} | ${printNumber(lmLag['Lagrange Multiplier (lag) Probability'])}\n`;
+
+  const lmLagRob = regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Robust LM (lag)'];
+  output += `${lmLagRob.Test} | ${printNumber(lmLagRob['Robust LM (lag) DF'])} | ${printNumber(
+    lmLagRob['Robust LM (lag) Value']
+  )} | ${printNumber(lmLagRob['Robust LM (lag) Probability'])}\n`;
+
+  const lmError =
+    regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Lagrange Multiplier (error)'];
+  output += `${lmError.Test} | ${printNumber(
+    lmError['Lagrange Multiplier (error) DF']
+  )} | ${printNumber(lmError['Lagrange Multiplier (error) Value'])} | ${printNumber(
+    lmError['Lagrange Multiplier (error) Probability']
+  )}\n`;
+
+  const lmErrorRob = regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Robust LM (error)'];
+  output += `${lmErrorRob.Test} | ${printNumber(
+    lmErrorRob['Robust LM (error) DF']
+  )} | ${printNumber(lmErrorRob['Robust LM (error) Value'])} | ${printNumber(
+    lmErrorRob['Robust LM (error) Probability']
+  )}\n`;
+
+  const lmSarma =
+    regressionReport['DIAGNOSTICS FOR SPATIAL DEPENDENCE']['Lagrange Multiplier (SARMA)'];
+  output += `${lmSarma.Test} | ${printNumber(
+    lmSarma['Lagrange Multiplier (SARMA) DF']
+  )} | ${printNumber(lmSarma['Lagrange Multiplier (SARMA) Value'])} | ${printNumber(
+    lmSarma['Lagrange Multiplier (SARMA) Probability']
+  )}\n`;
+
+  return output;
 }

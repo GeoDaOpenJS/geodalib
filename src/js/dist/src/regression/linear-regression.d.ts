@@ -102,3 +102,4 @@ export type LinearRegressionResult = {
     };
 };
 export declare function linearRegression({ x, y, weights, xNames, yName, datasetName, xUndefs, yUndefs }: LinearRegressionProps): Promise<LinearRegressionResult>;
+export declare function printLinearRegressionResult(regressionReport: LinearRegressionResult): string;

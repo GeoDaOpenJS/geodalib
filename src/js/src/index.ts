@@ -18,5 +18,9 @@ export {createPointCollectionFromBinaryFeatures as createGeoDaPointsFromBinaryFe
 export {quantileBreaks} from './mapping/quantile';
 export {naturalBreaks} from './mapping/natural-breaks';
 
-export {linearRegression} from './regression/linear-regression';
+export {
+  linearRegression,
+  printLinearRegressionResult,
+  printLinearRegressionResultUsingMarkdown
+} from './regression/linear-regression';
 export type {LinearRegressionProps, LinearRegressionResult} from './regression/linear-regression';
