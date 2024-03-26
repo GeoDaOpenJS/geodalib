@@ -16,6 +16,7 @@ export type LinearRegressionResult = {
     independentVariables: string[];
     title: string;
     datasetName: string;
+    weightsId?: string;
     'Number of Observations': number;
     'Mean Dependent Var': number;
     'Number of Variables': number;
@@ -101,5 +102,6 @@ export type LinearRegressionResult = {
         };
     };
 };
-export declare function linearRegression({ x, y, weights, xNames, yName, datasetName, xUndefs, yUndefs }: LinearRegressionProps): Promise<LinearRegressionResult>;
+export declare function linearRegression({ x, y, weightsId, weights, xNames, yName, datasetName, xUndefs, yUndefs }: LinearRegressionProps): Promise<LinearRegressionResult>;
 export declare function printLinearRegressionResult(regressionReport: LinearRegressionResult): string;
+export declare function printLinearRegressionResultUsingMarkdown(regressionReport: LinearRegressionResult): string;
