@@ -64,14 +64,21 @@ std::vector<double> percentile_breaks(const std::vector<double>& data, const std
 /**
  * @brief  Compute equal interval breaks for a given data set and number of classes
  *
- * @param k
- * @param data
- * @param undefs
- * @return std::vector<double>
+ * @param k The number of classes
+ * @param data The data values
+ * @param undefs The flags indicating which data value is undefined
+ * @return std::vector<double> The values of equal interval breaks
  */
 std::vector<double> equal_interval_breaks(int k, const std::vector<double>& data, const std::vector<int>& undefs);
 
-// std::vector<double> stddevbreaks(const std::vector<double>& data, const std::vector<bool>& undefs);
+/**
+ * @brief Compute standard deviation breaks for a given data set
+ * 
+ * @param data The data values
+ * @param undefs The flags indicating which data value is undefined
+ * @return std::vector<double> The values of standard deviation breaks
+ */
+std::vector<double> std_dev_breaks(const std::vector<double>& data, const std::vector<int>& undefs);
 
 // void transform_inplace(std::vector<double>& vals, const std::string& method);
 

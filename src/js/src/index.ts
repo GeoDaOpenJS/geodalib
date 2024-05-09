@@ -23,6 +23,7 @@ export * from './mapping/natural-breaks';
 export * from './mapping/equal-interval-breaks';
 export * from './mapping/percentile-breaks';
 export * from './mapping/box-breaks';
+export * from './mapping/stddev-breaks';
 
 export {
   linearRegression,
