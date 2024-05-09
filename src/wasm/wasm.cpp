@@ -81,6 +81,7 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
 
   emscripten::function("quantileBreaks", &geoda::quantile_breaks);
   emscripten::function("naturalBreaks", &geoda::natural_breaks);
+  emscripten::function("equalIntervalBreaks", &geoda::equal_interval_breaks);
 
   emscripten::class_<DiagnosticReport>("DiagnosticReport")
       .function("GetNoObservation", &DiagnosticReport::GetNoObservation)

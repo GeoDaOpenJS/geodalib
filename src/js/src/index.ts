@@ -13,10 +13,13 @@ export * from './weights/weights-stats';
 
 export type {LocalMoranResult as LocalMoranResultType} from './sa/local-moran';
 export {localMoran} from './sa/local-moran';
+export * from './sa/spatial-lag';
+export * from './sa/rates';
 
 export {createPointCollectionFromBinaryFeatures as createGeoDaPointsFromBinaryFeatures} from './geometry/binary-geometry';
 export {quantileBreaks} from './mapping/quantile';
 export {naturalBreaks} from './mapping/natural-breaks';
+export {equalIntervalBreaks} from './mapping/equal-interval-breaks';
 
 export {
   linearRegression,

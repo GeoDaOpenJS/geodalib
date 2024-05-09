@@ -105,3 +105,7 @@ export type LinearRegressionResult = {
 export declare function linearRegression({ x, y, weightsId, weights, xNames, yName, datasetName, xUndefs, yUndefs }: LinearRegressionProps): Promise<LinearRegressionResult>;
 export declare function printLinearRegressionResult(regressionReport: LinearRegressionResult): string;
 export declare function printLinearRegressionResultUsingMarkdown(regressionReport: LinearRegressionResult): string;
+/**
+ * function to check which spatail model should be used based on spatial diagnostics
+ */
+export declare function selectSpatialModel(regressionReport: LinearRegressionResult): string;

@@ -353,6 +353,14 @@ export interface GeoDaModule {
   naturalBreaks(k: number, data: VectorDouble, undefs?: VectorInt): VectorDouble;
 
   /**
+   * Equal interval breaks classification 
+   * @param k number of breaks
+   * @param data the values to be classified into k classes
+   * @param undefs the flags of undefined values
+   */
+  equalIntervalBreaks(k: number, data: VectorDouble, undefs?: VectorInt): VectorDouble;
+  
+  /**
    * Local Moran statistics
    * @param data the data values
    * @param neighbors the spatial weights matrix that represents neighbor indices: [[1, 2], [0, 2], [0, 1],...]

@@ -1,10 +1,9 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
+#include <iostream>
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
-#include <iostream>
-
 
 #include "regression/diagnostic-report.h"
 #include "regression/regression.h"
