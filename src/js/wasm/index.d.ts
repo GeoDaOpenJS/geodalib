@@ -359,7 +359,14 @@ export interface GeoDaModule {
    * @param undefs the flags of undefined values
    */
   equalIntervalBreaks(k: number, data: VectorDouble, undefs?: VectorInt): VectorDouble;
-  
+
+  /**
+   * Percentile breaks classification: <1%, 1-10%, 10-50%, 50-90%, 90-99%, >99%
+   * @param data the values to be classified
+   * @param undefs the flags of undefined values
+   */
+  percentileBreaks(data: VectorDouble, undefs?: VectorInt): VectorDouble;
+
   /**
    * Local Moran statistics
    * @param data the data values

@@ -5,4 +5,5 @@ import './weights/nearest-neighbors.test';
 import './mapping/quantile.test';
 import './mapping/natural-breaks.test';
 import './mapping/equal-interval-breaks.test';
+import './mapping/percentile-breaks.test';
 import './regression/linear-regression.test';

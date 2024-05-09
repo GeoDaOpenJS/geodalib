@@ -52,7 +52,7 @@ std::vector<double> quantile_breaks(int k, const std::vector<double>& data, cons
  * @param undefs The flags indicating which data value is undefined
  * @return std::vector<double> The values of percentile breaks
  */
-std::vector<double> percentile_breaks(const std::vector<double>& data, const std::vector<bool>& undefs);
+std::vector<double> percentile_breaks(const std::vector<double>& data, const std::vector<int>& undefs);
 
 /**
  * @brief  Compute equal interval breaks for a given data set and number of classes
