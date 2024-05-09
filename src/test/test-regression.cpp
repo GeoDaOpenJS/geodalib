@@ -20,13 +20,14 @@ TEST(REGRESSION, LINEAR_REGRESSION) {
     const std::vector<double> dep = {1, 2, 3};
     const std::vector<std::vector<double>> indeps = {{1, 2, 3}, {1, 2, 3}};
     const std::vector<std::vector<unsigned int>> weights = {{1, 2}, {0, 2}, {0, 1}};
+    const std::vector<std::vector<double>> weights_values;
     const std::string y_name = "y";
     const std::vector<std::string> x_names = {"x1", "x2"};
     const std::string dataset_name = "test";
     const std::vector<unsigned int> y_undefs;
     const std::vector<std::vector<unsigned int>> x_undefs;
     DiagnosticReport m_DR =
-        geoda::linear_regression(dep, indeps, weights, y_name, x_names, dataset_name, y_undefs, x_undefs);
+        geoda::ols(dep, indeps, weights, weights_values, y_name, x_names, dataset_name, y_undefs, x_undefs);
 
     // check the result
     // "number of observations" should be 3
@@ -3880,13 +3881,14 @@ TEST(REGRESSION, LINEAR_REGRESSION_1) {
         {1619, 1662, 1672, 1691},
         {1166, 1247, 1341, 3074},
         {118, 132, 161, 182, 190, 211, 232, 279, 308, 317}};
+    const std::vector<std::vector<double>> weights_values;
     const std::string y_name = "y";
     const std::vector<std::string> x_names = {"x1", "x2"};
     const std::string dataset_name = "test";
     const std::vector<unsigned int> y_undefs;
     const std::vector<std::vector<unsigned int>> x_undefs;
     DiagnosticReport m_DR =
-        geoda::linear_regression(dep, indeps, weights, y_name, x_names, dataset_name, y_undefs, x_undefs);
+        geoda::ols(dep, indeps, weights, weights_values, y_name, x_names, dataset_name, y_undefs, x_undefs);
 
     // check the result
     // type should be "linearRegression"

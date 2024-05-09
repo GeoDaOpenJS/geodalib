@@ -1,14 +1,14 @@
+#include "regression/regression.h"
+
+#include <boost/property_tree/json_parser.hpp>
+#include <boost/property_tree/ptree.hpp>
 #include <iostream>
 #include <map>
 #include <string>
 #include <vector>
 
-#include <boost/property_tree/json_parser.hpp>
-#include <boost/property_tree/ptree.hpp>
-
 #include "regression/diagnostic-report.h"
 #include "regression/lite2.h"
-#include "regression/regression.h"
 #include "weights/gal.h"
 
 // Put it below gal.h since it uses boost::geometry which use std::abs that conflicts with abs in f2c.h
@@ -34,9 +34,43 @@ double geoda::dot_product(const std::vector<double> &x, const std::vector<double
   return dot_product;
 }
 
-DiagnosticReport geoda::linear_regression(const std::vector<double> &dep,
+DiagnosticReport geoda::ols(const std::vector<double> &dep, const std::vector<std::vector<double>> &indeps,
+                            const std::vector<std::vector<unsigned int>> &weights,
+                            const std::vector<std::vector<double>> &weights_values, const std::string &dep_name,
+                            const std::vector<std::string> &indep_names, const std::string &dataset_name,
+                            const std::vector<unsigned int> &dep_undefs,
+                            const std::vector<std::vector<unsigned int>> &indep_undefs) {
+  // run the regression_helper with the classic regression model
+  return geoda::regression_helper(geoda::RegressionModel::OLS, dep, indeps, weights, weights_values, dep_name,
+                                  indep_names, dataset_name, dep_undefs, indep_undefs);
+}
+
+DiagnosticReport geoda::spatial_lag(const std::vector<double> &dep, const std::vector<std::vector<double>> &indeps,
+                                    const std::vector<std::vector<unsigned int>> &weights,
+                                    const std::vector<std::vector<double>> &weights_values, const std::string &dep_name,
+                                    const std::vector<std::string> &indep_names, const std::string &dataset_name,
+                                    const std::vector<unsigned int> &dep_undefs,
+                                    const std::vector<std::vector<unsigned int>> &indep_undefs) {
+  // run the regression_helper with the spatial lag model
+  return geoda::regression_helper(geoda::RegressionModel::SPATIAL_LAG, dep, indeps, weights, weights_values, dep_name,
+                                  indep_names, dataset_name, dep_undefs, indep_undefs);
+}
+
+DiagnosticReport geoda::spatial_error(const std::vector<double> &dep, const std::vector<std::vector<double>> &indeps,
+                                      const std::vector<std::vector<unsigned int>> &weights,
+                                      const std::vector<std::vector<double>> &weights_values,
+                                      const std::string &dep_name, const std::vector<std::string> &indep_names,
+                                      const std::string &dataset_name, const std::vector<unsigned int> &dep_undefs,
+                                      const std::vector<std::vector<unsigned int>> &indep_undefs) {
+  // run the regression_helper with the spatial error model
+  return geoda::regression_helper(geoda::RegressionModel::SPATIAL_ERROR, dep, indeps, weights, weights_values, dep_name,
+                                  indep_names, dataset_name, dep_undefs, indep_undefs);
+}
+
+DiagnosticReport geoda::regression_helper(RegressionModel regress_model, const std::vector<double> &dep,
                                           const std::vector<std::vector<double>> &indeps,
                                           const std::vector<std::vector<unsigned int>> &weights,
+                                          const std::vector<std::vector<double>> &weights_values,
                                           const std::string &dep_name, const std::vector<std::string> &indep_names,
                                           const std::string &dataset_name, const std::vector<unsigned int> &dep_undefs,
                                           const std::vector<std::vector<unsigned int>> &indep_undefs) {
@@ -126,6 +160,7 @@ DiagnosticReport geoda::linear_regression(const std::vector<double> &dep,
 
   // convert weights to geoda::GalElement
   geoda::GalElement *gal = NULL;
+  bool has_weights_values = weights_values.size() == m_obs;
 
   if (weights.size() > 0) {
     gal = new geoda::GalElement[valid_obs];
@@ -143,7 +178,11 @@ DiagnosticReport geoda::linear_regression(const std::vector<double> &dep,
       for (int j = 0; j < weights[i].size(); j++) {
         if (undefs[weights[i][j]]) continue;
         int nbr_id = orig_valid_map[weights[i][j]];
-        gal[yidx].SetNbr(j, nbr_id);
+        if (has_weights_values) {
+          gal[yidx].SetNbr(j, nbr_id, weights_values[i][j]);
+        } else {
+          gal[yidx].SetNbr(j, nbr_id);
+        }
       }
       yidx++;
     }
@@ -152,9 +191,9 @@ DiagnosticReport geoda::linear_regression(const std::vector<double> &dep,
   // run linear regression
   const int n = valid_obs;
   bool do_white_test = false;
-  int RegressModel = 1;
 
-  DiagnosticReport m_DR(n, x_names.size(), m_constant_term, true, RegressModel);
+  bool include_constant = true;
+  DiagnosticReport m_DR(n, x_names.size(), m_constant_term, include_constant, regress_model);
   // SetXVariableNames(&m_DR);
   for (int i = 0; i < x_names.size(); i++) {
     m_DR.SetXVarNames(i, x_names[i]);
@@ -162,7 +201,18 @@ DiagnosticReport geoda::linear_regression(const std::vector<double> &dep,
   m_DR.SetMeanY(ComputeMean(y, n));
   m_DR.SetSDevY(ComputeSdev(y, n));
 
-  geoda::classicalRegression(gal, valid_obs, y, n, x, nX, &m_DR, m_constant_term, true, do_white_test);
+  if (regress_model == geoda::RegressionModel::OLS) {
+    bool calculate_moran = true;
+    geoda::classicalRegression(gal, valid_obs, y, n, x, nX, &m_DR, m_constant_term, calculate_moran, do_white_test);
+  } else if (regress_model == geoda::RegressionModel::SPATIAL_LAG) {
+    geoda::spatialLagRegression(gal, valid_obs, y, n, x, nX, &m_DR, m_constant_term);
+  } else if (regress_model == geoda::RegressionModel::SPATIAL_ERROR) {
+    geoda::spatialErrorRegression(gal, valid_obs, y, n, x, nX, &m_DR, m_constant_term);
+  } else {
+    // run classic regression model
+    bool calculate_moran = false;
+    geoda::classicalRegression(gal, valid_obs, y, n, x, nX, &m_DR, m_constant_term, calculate_moran, do_white_test);
+  }
 
   // free memory of gal
   delete[] gal;

@@ -515,6 +515,7 @@ export interface GeoDaModule {
    * @param dep The values of the dependent variable
    * @param indeps The values of the independent variables, it's a 2D array
    * @param weights The spatial weights represented as a 2D array and each row shows the neighbors of the corresponding observation
+   * @param weightsValues The spatial weights values represented as a 2D array and each row shows the neighbors of the corresponding observation
    * @param depName The name of the dependent variable
    * @param indepNames The names of the independent variables
    * @param datasetName The name of the dataset
@@ -525,6 +526,7 @@ export interface GeoDaModule {
     dep: VectorDouble,
     indeps: VecVecDouble,
     weights: VecVecUInt,
+    weightsValues: VecVecDouble,
     depName: string,
     indepNames: VectorString,
     datasetName: string,

@@ -131,6 +131,8 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
       .function("GetSDevY", &DiagnosticReport::GetSDevY);
 
   emscripten::function("dotProduct", &geoda::dot_product);
-  emscripten::function("linearRegression", &geoda::linear_regression);
+  emscripten::function("linearRegression", &geoda::ols);
+  emscripten::function("spatialLag", &geoda::spatial_lag);
+  emscripten::function("spatialError", &geoda::spatial_error);
 }
 #endif

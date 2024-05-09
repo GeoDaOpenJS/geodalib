@@ -667,7 +667,7 @@ bool geoda::classicalRegression(geoda::GalElement *g, int num_obs, double *Y, in
   return true;
 }
 
-bool spatialLagRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int deps, DiagnosticReport *dr,
+bool geoda::spatialLagRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int deps, DiagnosticReport *dr,
                           bool InclConstant) {
   typedef double *double_ptr_type;
   const int n = dim;
@@ -878,7 +878,7 @@ void residual(const DenseVector &rhs, const DenseVector *X, const DenseVector &o
 double mie(const DenseVector &rsd, const DenseVector &lag_resid, const double trace, const double trace2,
            const DenseVector &y, const DenseVector *X, const SparseMatrix &w, const int vars, const double lambda);
 
-bool spatialErrorRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **XX, int deps, DiagnosticReport *rr,
+bool geoda::spatialErrorRegression(geoda::GalElement *g, int num_obs, double *Y, int dim, double **XX, int deps, DiagnosticReport *rr,
                             bool InclConstant) {
   typedef double *double_ptr_type;
   DenseVector y(Y, dim, false), *X = new DenseVector[deps];
