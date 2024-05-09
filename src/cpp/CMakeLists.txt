@@ -7,6 +7,7 @@ set (GEODA_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/natural-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/equal-interval-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/percentile-breaks.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/mapping/box-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/regression/linear-regression.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/regression/dense-vector.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/regression/mix.cpp

@@ -368,6 +368,13 @@ export interface GeoDaModule {
   percentileBreaks(data: VectorDouble, undefs?: VectorInt): VectorDouble;
 
   /**
+   * Box breaks classification: Lower outlier, < 25%, [25-50)%, [50-75)%, >= 75%, Upper outlier
+   * @param data the values to be classified
+   * @param hinge the hinge value, default is 1.5 and could be 3.0
+   */
+  boxBreaks(data: VectorDouble, undefs: VectorInt, hinge: Double): VectorDouble;
+
+  /**
    * Local Moran statistics
    * @param data the data values
    * @param neighbors the spatial weights matrix that represents neighbor indices: [[1, 2], [0, 2], [0, 1],...]
