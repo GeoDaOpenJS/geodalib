@@ -4,4 +4,8 @@ import './weights/contiguity-neighbors.test';
 import './weights/nearest-neighbors.test';
 import './mapping/quantile.test';
 import './mapping/natural-breaks.test';
+import './mapping/equal-interval-breaks.test';
+import './mapping/percentile-breaks.test';
+import './mapping/box-breaks.test';
+import './mapping/stddev-breaks.test';
 import './regression/linear-regression.test';
