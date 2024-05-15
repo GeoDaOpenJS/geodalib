@@ -7,6 +7,7 @@ export {
   getWASM as getGeoDa
 } from './init';
 
+export {getDistanceNeighborsFromBinaryGeometries} from './weights/distance-neighbors';
 export {getNearestNeighborsFromBinaryGeometries} from './weights/nearest-neighbors';
 export {getContiguityNeighborsFromBinaryGeometries} from './weights/contiguity-neighbors';
 export * from './weights/weights-stats';
@@ -17,6 +18,7 @@ export * from './sa/spatial-lag';
 export * from './sa/rates';
 
 export {createPointCollectionFromBinaryFeatures as createGeoDaPointsFromBinaryFeatures} from './geometry/binary-geometry';
+export type {BinaryGeometryType} from './geometry/binary-geometry';
 
 export * from './mapping/quantile';
 export * from './mapping/natural-breaks';
