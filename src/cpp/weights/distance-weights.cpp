@@ -58,7 +58,7 @@ double geoda::haversine_distance(double lon1, double lat1, double lon2, double l
   return is_mile ? earth_radius_miles * c : earth_radius_km * c;
 }
 
-std::vector<std::vector<unsigned int>> geoda::distance_weights(const GeometryCollection& geoms,
+std::vector<std::vector<double>> geoda::distance_weights(const GeometryCollection& geoms,
                                                                 double distance_threshold, bool is_mile) {
   // create rtree
   std::vector<point_val> pts;
@@ -69,7 +69,7 @@ std::vector<std::vector<unsigned int>> geoda::distance_weights(const GeometryCol
   }
   rtree_point_t rtree(pts);
 
-  std::vector<std::vector<unsigned int>> result(num_geoms);
+  std::vector<std::vector<double>> result(num_geoms * 2);
 
   // visit all element in rtree
   for (rtree_point_t::const_query_iterator it = rtree.qbegin(bgi::intersects(rtree.bounds())); it != rtree.qend();
@@ -99,6 +99,7 @@ std::vector<std::vector<unsigned int>> geoda::distance_weights(const GeometryCol
       double d = haversine_distance(x, y, x1, y1, is_mile);
       if (d <= distance_threshold) {
         result[orig_idx].push_back(nbr.second);
+        result[orig_idx + num_geoms].push_back(d);
       }
     }
   }
