@@ -5,7 +5,7 @@
 
 namespace geoda {
 
-enum LocalMoranClusterType { HH = 1, LL = 2, HL = 3, LH = 4, NEIGHBORLESS = 5 };
+enum LocalMoranClusterType { HH = 1, LL = 2, HL = 3, LH = 4, NEIGHBORLESS = 5, UNDEFINED = 6};
 
 std::vector<double> standardize_data(const std::vector<double>& data);
 
@@ -32,8 +32,14 @@ struct LisaResult {
   std::vector<double> get_lisas() const { return lisa_values; }
 };
 
+void runPermutation(const std::vector<double>& std_data, const std::vector<std::vector<unsigned int>>& neighbors,
+                    unsigned int num_permutations, LisaResult& result);
+
 LisaResult local_moran(const std::vector<double>& data, const std::vector<std::vector<unsigned int>>& neighbors,
                        unsigned int num_permutations);
+
+LisaResult local_g(const std::vector<double>& data, const std::vector<std::vector<unsigned int>>& neighbors,
+                   unsigned int num_permutations, bool is_gstar = false);
 }  // namespace geoda
 
 #endif  // GEODA_LOCAL_STATISTICS_H

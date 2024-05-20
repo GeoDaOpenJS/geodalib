@@ -64,9 +64,10 @@ test('Test getDistanceNeighborsFromBinaryGeometries()', async t => {
     binaryGeometries
   });
 
-  t.deepEqual(result, [[2], [], [0], [], []]);
+  t.deepEqual(result, [[2, 111.16185827369097], [], [0, 111.16185827369097], [], []]);
 
-  const wMeta = getMetaFromWeights(result);
+  const isDistanceWeights = true;
+  const wMeta = getMetaFromWeights(result, isDistanceWeights);
 
   t.deepEqual(wMeta, {
     numberOfObservations: 5,
