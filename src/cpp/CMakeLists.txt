@@ -1,6 +1,7 @@
 set (GEODA_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/geometry.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/lisa.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/sa/local-g.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/distance-weights.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/contiguity-weights.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/quantile-breaks.cpp

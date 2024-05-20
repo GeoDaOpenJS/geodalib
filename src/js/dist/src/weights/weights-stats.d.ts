@@ -21,4 +21,4 @@ export type WeightsMeta = {
  * @param weights the weights structure of every observation using row index
  * @returns WeightsMeta
  */
-export declare function getMetaFromWeights(weights: number[][]): WeightsMeta;
+export declare function getMetaFromWeights(weights: number[][], isDistanceWeights?: boolean): WeightsMeta;

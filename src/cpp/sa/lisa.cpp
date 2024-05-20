@@ -108,6 +108,14 @@ LisaResult geoda::local_moran(const std::vector<double>& data, const std::vector
     }
   }
 
+  geoda::runPermutation(std_data, neighbors, num_permutations, result);
+  return result;
+}
+
+void geoda::runPermutation(const std::vector<double>& std_data, const std::vector<std::vector<unsigned int>>& neighbors,
+                           unsigned int num_permutations, LisaResult& result) {
+  size_t n = neighbors.size();
+
   // get maximum number of neighbors
   size_t max_num_neighbors = 0;
   for (size_t i = 0; i < n; ++i) {
@@ -152,5 +160,4 @@ LisaResult geoda::local_moran(const std::vector<double>& data, const std::vector
   }
 
   result.is_valid = true;
-  return result;
 }

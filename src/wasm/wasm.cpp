@@ -78,6 +78,7 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::function("getPointContiguityWeights", &geoda::point_contiguity_weights);
 
   emscripten::function("localMoran", &geoda::local_moran);
+  emscripten::function("localG", &geoda::local_g);
 
   emscripten::function("quantileBreaks", &geoda::quantile_breaks);
   emscripten::function("naturalBreaks", &geoda::natural_breaks);

@@ -390,6 +390,15 @@ export interface GeoDaModule {
    */
   localMoran(data: VectorDouble, neighbors: VecVecUInt, permuations: UnsignedInt): LisaResult;
 
+  /**
+   * Local Getis-Ord statistics
+   * @param data the data values
+   * @param neighbors the spatial weights matrix that represents neighbor indices: [[1, 2], [0, 2], [0, 1],...]
+   * @param permuations the number of permutations
+   * @param isGStar whether to use G* or G
+   */
+  localG(data: VectorDouble, neighbors: VecVecUInt, permuations: UnsignedInt, isGStar: boolean): LisaResult;
+
   // test for dotProduct
   dotProduct(x: VectorDouble, y: VectorDouble): number;
 
