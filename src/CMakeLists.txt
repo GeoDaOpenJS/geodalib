@@ -20,6 +20,9 @@ add_subdirectory(cpp)
 # add compile definitions to avoid BOOST deprecated functions BOOST_NO_CXX98_FUNCTION_BASE
 add_compile_definitions(BOOST_NO_CXX98_FUNCTION_BASE)
 
+# add compile flag "__NO_THREAD__"
+add_definitions(-D__NO_THREAD__)
+
 # library
 include(FetchContent)
 FetchContent_Declare(clapack

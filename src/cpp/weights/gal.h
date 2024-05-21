@@ -6,6 +6,7 @@
 #include <map>
 #include <set>
 #include <vector>
+#include <iostream>
 
 #include "weights/weights.h"
 
@@ -17,6 +18,14 @@ namespace geoda {
  */
 class GalElement {
  public:
+  bool is_nbrAvgW_empty;
+  std::vector<double> nbrAvgW;
+  std::map<unsigned int, int> nbrLookup;  // nbr_id, idx_in_nbrWeight
+  int idx;
+
+  std::vector<unsigned int> nbr;
+  std::vector<double> nbrWeight;
+
   GalElement() {
     is_nbrAvgW_empty = true;
     idx = -1;
@@ -50,6 +59,13 @@ class GalElement {
     if (pos < nbrWeight.size()) {
       nbrWeight[pos] = 1.0;
     }
+  }
+
+  void Print() const {
+    for (size_t i = 0; i < nbr.size(); i++) {
+      std::cout << nbr[i] << " ";
+    }
+    std::cout << std::endl;
   }
 
   // neighbor, id, weight
@@ -138,7 +154,7 @@ class GalElement {
     if (is_binary) {
       if (self_id < 0) {
         for (size_t i = 0; i < sz; ++i) lag += x[nbr[i]];
-        if (sz > 1) lag /= (double)sz;
+        if (sz > 1) lag /= static_cast<double>(sz);
       } else {
         // for case of using kernel weights with diagonal
         int n_nbrs = 0;
@@ -148,7 +164,7 @@ class GalElement {
             n_nbrs += 1;
           }
         }
-        if (n_nbrs > 0) lag /= (double)n_nbrs;
+        if (n_nbrs > 0) lag /= static_cast<double>(n_nbrs);
       }
     } else {
       double sumW = 0;
@@ -157,9 +173,9 @@ class GalElement {
           sumW += nbrWeight[i];
         }
 
-        if (sumW == 0)
+        if (sumW == 0) {
           lag = 0;
-        else {
+        } else {
           for (size_t i = 0; i < sz; ++i) {
             lag += x[nbr[i]] * nbrWeight[i] / sumW;
           }
@@ -172,9 +188,9 @@ class GalElement {
           }
         }
 
-        if (sumW == 0)
+        if (sumW == 0) {
           lag = 0;
-        else {
+        } else {
           for (size_t i = 0; i < sz; ++i) {
             if (nbr[i] != self_id) {  // exclude self-neighbor
               lag += x[nbr[i]] * nbrWeight[i] / sumW;
@@ -241,14 +257,6 @@ class GalElement {
       }
     }
   }
-
-  bool is_nbrAvgW_empty;
-  std::vector<double> nbrAvgW;
-  std::map<unsigned int, int> nbrLookup;  // nbr_id, idx_in_nbrWeight
-  int idx;
-
-  std::vector<unsigned int> nbr;
-  std::vector<double> nbrWeight;
 };
 
 }  // namespace geoda

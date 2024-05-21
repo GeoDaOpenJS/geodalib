@@ -5,12 +5,12 @@ import {localMoran} from '../../src/sa/local-moran';
 test('Test localMoran()', async t => {
   const data = [3.0, 3.0, 0.0, 9.0, 8.0, 8.5];
   const neighbors = [[1], [0], [], [4, 5], [3, 5], [3, 4]];
-  const perm = 99;
+  const permutation = 99;
 
-  const result = await localMoran(data, neighbors, perm);
+  const result = await localMoran({data, neighbors, permutation});
 
   t.deepEqual(result.isValid, true);
-  t.deepEqual(result.pValues, [0.16, 0.16, 0, 0.09, 0.09, 0.09]);
+  t.deepEqual(result.pValues, [0.02, 0.02, 0, 0.01, 0.01, 0.01]);
   t.deepEqual(
     result.lagValues,
     [
@@ -25,6 +25,6 @@ test('Test localMoran()', async t => {
       0.7558139534883721
     ]
   );
-  t.deepEqual(result.clusters, [2, 2, 5, 1, 1, 1]);
+  t.deepEqual(result.clusters, [2, 2, 6, 1, 1, 1]);
   t.end();
 });

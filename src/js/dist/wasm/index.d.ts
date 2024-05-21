@@ -233,6 +233,15 @@ export class LisaResult {
   getLagValues(): VectorDouble;
 
   getLisaValues(): VectorDouble;
+
+  getSignificanceCategories(): VectorInt;
+
+  getNN(): VectorInt;
+
+  getLabels(): VectorString;
+
+  getColors(): VectorString;
+
   delete(): void;
 }
 
@@ -353,7 +362,7 @@ export interface GeoDaModule {
   naturalBreaks(k: number, data: VectorDouble, undefs?: VectorInt): VectorDouble;
 
   /**
-   * Equal interval breaks classification 
+   * Equal interval breaks classification
    * @param k number of breaks
    * @param data the values to be classified into k classes
    * @param undefs the flags of undefined values
@@ -386,18 +395,39 @@ export interface GeoDaModule {
    * Local Moran statistics
    * @param data the data values
    * @param neighbors the spatial weights matrix that represents neighbor indices: [[1, 2], [0, 2], [0, 1],...]
+   * @param undefs the undefined values
+   * @param significanceCutoff the significance cutoff
    * @param permuations the number of permutations
+   * @param lastSeed the last seed
    */
-  localMoran(data: VectorDouble, neighbors: VecVecUInt, permuations: UnsignedInt): LisaResult;
+  localMoran(
+    data: VectorDouble,
+    neighbors: VecVecUInt,
+    undefs: VectorUInt,
+    significanceCutoff: number,
+    permuations: UnsignedInt,
+    lastSeed: number
+  ): LisaResult;
 
   /**
    * Local Getis-Ord statistics
    * @param data the data values
    * @param neighbors the spatial weights matrix that represents neighbor indices: [[1, 2], [0, 2], [0, 1],...]
+   * @param undefs the undefined values
+   * @param significanceCutoff the significance cutoff
    * @param permuations the number of permutations
+   * @param lastSeed the last seed
    * @param isGStar whether to use G* or G
    */
-  localG(data: VectorDouble, neighbors: VecVecUInt, permuations: UnsignedInt, isGStar: boolean): LisaResult;
+  localG(
+    data: VectorDouble,
+    neighbors: VecVecUInt,
+    undefs: VectorUInt,
+    significanceCutoff: number,
+    permuations: UnsignedInt,
+    lastSeed: number,
+    isGStar: number 
+  ): LisaResult;
 
   // test for dotProduct
   dotProduct(x: VectorDouble, y: VectorDouble): number;

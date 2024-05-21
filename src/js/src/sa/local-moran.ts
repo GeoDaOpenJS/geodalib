@@ -1,5 +1,5 @@
 import {initWASM} from '../init';
-import {vecDoubleToNumber} from '../utils';
+import {vecDoubleToNumber, vecIntToNumber, vecStringToArray} from '../utils';
 
 export type LocalMoranResult = {
   isValid: boolean;
@@ -7,14 +7,28 @@ export type LocalMoranResult = {
   lagValues: number[];
   pValues: number[];
   lisaValues: number[];
+  sigCategories: number[];
+  nn: number[];
+  labels: string[];
+  colors: string[];
+};
+
+export type LocalMoranProps = {
+  data: number[] | Float32Array;
+  neighbors: number[][];
+  permutation: number;
+  significanceCutoff?: number;
+  seed?: number;
 };
 
 // Get local moran statistics
-export async function localMoran(
-  data: number[] | Float32Array,
-  neighbors: number[][],
-  permutation: number
-): Promise<LocalMoranResult> {
+export async function localMoran({
+  data,
+  neighbors,
+  permutation,
+  significanceCutoff = 0.05,
+  seed = 1234567890
+}: LocalMoranProps): Promise<LocalMoranResult> {
   const wasm = await initWASM();
 
   const n = data.length;
@@ -25,6 +39,8 @@ export async function localMoran(
   }
 
   const wasmNeighbors = new wasm.VecVecUInt();
+  const wasmUndefs = new wasm.VectorUInt();
+
   for (let i = 0; i < n; ++i) {
     const nbrs = neighbors[i];
     const wasmNeighborIndices = new wasm.VectorUInt();
@@ -34,13 +50,24 @@ export async function localMoran(
     wasmNeighbors.push_back(wasmNeighborIndices);
   }
 
-  const result = wasm.localMoran(wasmData, wasmNeighbors, permutation);
+  const result = wasm.localMoran(
+    wasmData,
+    wasmNeighbors,
+    wasmUndefs,
+    significanceCutoff,
+    permutation,
+    seed
+  );
 
   return {
     isValid: result.isValid(),
     clusters: vecDoubleToNumber(result.getClusters()),
     lagValues: vecDoubleToNumber(result.getLagValues()),
     lisaValues: vecDoubleToNumber(result.getLisaValues()),
-    pValues: vecDoubleToNumber(result.getPValues())
+    pValues: vecDoubleToNumber(result.getPValues()),
+    sigCategories: vecIntToNumber(result.getSignificanceCategories()),
+    nn: vecIntToNumber(result.getNN()),
+    labels: vecStringToArray(result.getLabels()),
+    colors: vecStringToArray(result.getColors())
   };
 }

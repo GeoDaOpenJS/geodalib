@@ -1,2 +1,10 @@
 import { LocalMoranResult } from './local-moran';
-export declare function localG(data: number[] | Float32Array, neighbors: number[][], permutation: number, isGStar?: boolean): Promise<LocalMoranResult>;
+export type LocalGProps = {
+    data: number[] | Float32Array;
+    neighbors: number[][];
+    permutation: number;
+    significanceCutoff?: number;
+    seed?: number;
+    isGStar?: boolean;
+};
+export declare function localG({ data, neighbors, permutation, significanceCutoff, seed, isGStar }: LocalGProps): Promise<LocalMoranResult>;

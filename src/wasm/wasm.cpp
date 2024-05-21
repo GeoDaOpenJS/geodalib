@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "geometry/geometry.h"
-#include "sa/lisa.h"
+#include "sa/lisa-api.h"
 #include "weights/weights.h"
 #include "mapping/mapping.h"
 #include "regression/diagnostic-report.h"
@@ -66,10 +66,14 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
 
   emscripten::class_<geoda::LisaResult>("LisaResult")
       .function("isValid", &geoda::LisaResult::get_is_valid)
-      .function("getPValues", &geoda::LisaResult::get_pvalues)
-      .function("getClusters", &geoda::LisaResult::get_clusters)
-      .function("getLagValues", &geoda::LisaResult::get_lags)
-      .function("getLisaValues", &geoda::LisaResult::get_lisas);
+      .function("getPValues", &geoda::LisaResult::get_sig_local)
+      .function("getClusters", &geoda::LisaResult::get_cluster)
+      .function("getLagValues", &geoda::LisaResult::get_lag)
+      .function("getLisaValues", &geoda::LisaResult::get_lisa)
+      .function("getSignificanceCategories", &geoda::LisaResult::get_sig_cat)
+      .function("getNN", &geoda::LisaResult::get_nn)
+      .function("getLabels", &geoda::LisaResult::get_labels)
+      .function("getColors", &geoda::LisaResult::get_colors);
 
   emscripten::function("getNearestNeighbors", &geoda::knearest_neighbors);
   emscripten::function("getDistanceWeights", &geoda::distance_weights);

@@ -1,4 +1,4 @@
-import {VectorDouble} from '../wasm';
+import {VectorDouble, VectorInt, VectorString} from '../wasm';
 
 export const earthRadius = 6371008.8;
 const mileToMeters = 1609.344;
@@ -42,6 +42,38 @@ export function lengthToMeters(distance: number, unit: DistanceUnit): number {
  */
 export function vecDoubleToNumber(data: VectorDouble): number[] {
   const result: number[] = [];
+
+  const n = data.size();
+  for (let i = 0; i < n; ++i) {
+    result.push(data.get(i));
+  }
+
+  return result;
+}
+
+/**
+ * Convert the std::vector<int> data to number[]
+ * @param data The std::vector<int> data
+ * @returns The values in number[] format.
+ */
+export function vecIntToNumber(data: VectorInt): number[] {
+  const result: number[] = [];
+
+  const n = data.size();
+  for (let i = 0; i < n; ++i) {
+    result.push(data.get(i));
+  }
+
+  return result;
+}
+
+/**
+ * Convert the std::vector<string> data to string[]
+ * @param data The std::vector<string> data
+ * @returns The values in string[] format.
+ */
+export function vecStringToArray(data: VectorString): string[] {
+  const result: string[] = [];
 
   const n = data.size();
   for (let i = 0; i < n; ++i) {

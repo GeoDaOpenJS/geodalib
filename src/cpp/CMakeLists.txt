@@ -1,9 +1,15 @@
 set (GEODA_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/geometry.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/sa/lisa.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/sa/local-moran.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/local-g.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/lisa/LISA.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/lisa/UniLocalMoran.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/lisa/UniG.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/lisa/UniGstar.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/distance-weights.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/contiguity-weights.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/weights/geoda-weight.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/weights/vector-weight.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/quantile-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/natural-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/equal-interval-breaks.cpp

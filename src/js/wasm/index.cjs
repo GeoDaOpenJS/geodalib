@@ -2784,6 +2784,16 @@ var stackAlloc = a0 => (stackAlloc = wasmExports["stackAlloc"])(a0);
 
 var ___cxa_is_pointer_type = a0 => (___cxa_is_pointer_type = wasmExports["__cxa_is_pointer_type"])(a0);
 
+var dynCall_viiij = Module["dynCall_viiij"] = (a0, a1, a2, a3, a4, a5) => (dynCall_viiij = Module["dynCall_viiij"] = wasmExports["dynCall_viiij"])(a0, a1, a2, a3, a4, a5);
+
+var dynCall_viiiij = Module["dynCall_viiiij"] = (a0, a1, a2, a3, a4, a5, a6) => (dynCall_viiiij = Module["dynCall_viiiij"] = wasmExports["dynCall_viiiij"])(a0, a1, a2, a3, a4, a5, a6);
+
+var dynCall_ji = Module["dynCall_ji"] = (a0, a1) => (dynCall_ji = Module["dynCall_ji"] = wasmExports["dynCall_ji"])(a0, a1);
+
+var dynCall_vij = Module["dynCall_vij"] = (a0, a1, a2, a3) => (dynCall_vij = Module["dynCall_vij"] = wasmExports["dynCall_vij"])(a0, a1, a2, a3);
+
+var dynCall_jiii = Module["dynCall_jiii"] = (a0, a1, a2, a3) => (dynCall_jiii = Module["dynCall_jiii"] = wasmExports["dynCall_jiii"])(a0, a1, a2, a3);
+
 var dynCall_jiji = Module["dynCall_jiji"] = (a0, a1, a2, a3, a4) => (dynCall_jiji = Module["dynCall_jiji"] = wasmExports["dynCall_jiji"])(a0, a1, a2, a3, a4);
 
 var dynCall_viijii = Module["dynCall_viijii"] = (a0, a1, a2, a3, a4, a5, a6) => (dynCall_viijii = Module["dynCall_viijii"] = wasmExports["dynCall_viijii"])(a0, a1, a2, a3, a4, a5, a6);

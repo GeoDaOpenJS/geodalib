@@ -1,4 +1,4 @@
-import { VectorDouble } from '../wasm';
+import { VectorDouble, VectorInt, VectorString } from '../wasm';
 export declare const earthRadius = 6371008.8;
 export declare enum DistanceUnit {
     Mile = "Mile",
@@ -24,3 +24,15 @@ export declare function lengthToMeters(distance: number, unit: DistanceUnit): nu
  * @returns The values in number[] format.
  */
 export declare function vecDoubleToNumber(data: VectorDouble): number[];
+/**
+ * Convert the std::vector<int> data to number[]
+ * @param data The std::vector<int> data
+ * @returns The values in number[] format.
+ */
+export declare function vecIntToNumber(data: VectorInt): number[];
+/**
+ * Convert the std::vector<string> data to string[]
+ * @param data The std::vector<string> data
+ * @returns The values in string[] format.
+ */
+export declare function vecStringToArray(data: VectorString): string[];

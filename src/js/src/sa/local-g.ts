@@ -1,14 +1,24 @@
 import {LocalMoranResult} from './local-moran';
 import {initWASM} from '../init';
-import {vecDoubleToNumber} from '../utils';
+import {vecDoubleToNumber, vecIntToNumber, vecStringToArray} from '../utils';
 
+export type LocalGProps = {
+  data: number[] | Float32Array;
+  neighbors: number[][];
+  permutation: number;
+  significanceCutoff?: number;
+  seed?: number;
+  isGStar?: boolean;
+};
 // Get local Getis-Ord statistics
-export async function localG(
-  data: number[] | Float32Array,
-  neighbors: number[][],
-  permutation: number,
+export async function localG({
+  data,
+  neighbors,
+  permutation,
+  significanceCutoff = 0.05,
+  seed = 1234567890,
   isGStar = false
-): Promise<LocalMoranResult> {
+}: LocalGProps): Promise<LocalMoranResult> {
   const wasm = await initWASM();
 
   const n = data.length;
@@ -18,6 +28,7 @@ export async function localG(
     wasmData.set(i, data[i]);
   }
 
+  const wasmUndefs = new wasm.VectorUInt();
   const wasmNeighbors = new wasm.VecVecUInt();
   for (let i = 0; i < n; ++i) {
     const nbrs = neighbors[i];
@@ -28,13 +39,25 @@ export async function localG(
     wasmNeighbors.push_back(wasmNeighborIndices);
   }
 
-  const result = wasm.localG(wasmData, wasmNeighbors, permutation, isGStar);
+  const result = wasm.localG(
+    wasmData,
+    wasmNeighbors,
+    wasmUndefs,
+    significanceCutoff,
+    permutation,
+    seed,
+    isGStar ? 1 : 0
+  );
 
   return {
     isValid: result.isValid(),
     clusters: vecDoubleToNumber(result.getClusters()),
     lagValues: vecDoubleToNumber(result.getLagValues()),
     lisaValues: vecDoubleToNumber(result.getLisaValues()),
-    pValues: vecDoubleToNumber(result.getPValues())
+    pValues: vecDoubleToNumber(result.getPValues()),
+    sigCategories: vecIntToNumber(result.getSignificanceCategories()),
+    nn: vecIntToNumber(result.getNN()),
+    labels: vecStringToArray(result.getLabels()),
+    colors: vecStringToArray(result.getColors())
   };
 }
