@@ -14,6 +14,9 @@ export * from './weights/weights-stats';
 
 export type {LocalMoranResult as LocalMoranResultType} from './sa/local-moran';
 export * from './sa/local-moran';
+export * from './sa/local-g';
+export * from './sa/local-geary';
+export * from './sa/quantile-lisa';
 export * from './sa/spatial-lag';
 export * from './sa/rates';
 

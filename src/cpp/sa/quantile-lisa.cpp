@@ -20,10 +20,6 @@ geoda::LisaResult geoda::quantile_lisa(int k, int quantile, const std::vector<do
 
   std::vector<double> breaks = geoda::quantile_breaks(k, data, undefs);
 
-  // print breaks
-  for (size_t i = 0; i < breaks.size(); ++i) {
-    std::cout << "breaks[i]" <<  breaks[i] << " " << std::endl;
-  }
   // get left and right bounds for quantile-th interval
   double left = quantile <= 1 ? -std::numeric_limits<double>::max() : breaks[quantile - 2];
   double right = quantile >= k ? std::numeric_limits<double>::max() : breaks[quantile - 1];
@@ -47,7 +43,7 @@ geoda::LisaResult geoda::quantile_lisa(int k, int quantile, const std::vector<do
   }
   int nCPUs = 1;
   // note: crash when using LookupTable for localG
-  std::string perm_method = "LookupTable";
+  std::string perm_method = "complete";
   // create a GeoDaWeight object from neighbors vector
   GeoDaWeight* w = new VectorWeight(neighbors);
 
