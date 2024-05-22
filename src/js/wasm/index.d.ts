@@ -449,6 +449,42 @@ export interface GeoDaModule {
     isGStar: number
   ): LisaResult;
 
+  /**
+   * Local Geary statistics
+   * @param data the data values
+   * @param neighbors the spatial weights matrix that represents neighbor indices: [[1, 2], [0, 2], [0, 1],...]
+   * @param undefs the undefined values
+   * @param significanceCutoff the significance cutoff
+   * @param permuations the number of permutations
+   * @param lastSeed the last seed
+   */
+  localGeary(
+    data: VectorDouble,
+    neighbors: VecVecUInt,
+    undefs: VectorUInt,
+    significanceCutoff: number,
+    permuations: UnsignedInt,
+    lastSeed: number
+  ): LisaResult;
+
+  /**
+   * Multivariate Local Geary statistics
+   * @param data the array of data values
+   * @param neighbors the spatial weights matrix that represents neighbor indices: [[1, 2], [0, 2], [0, 1],...]
+   * @param undefs the array of undefined values
+   * @param significanceCutoff the significance cutoff
+   * @param permuations the number of permutations
+   * @param lastSeed the last seed
+   */
+  multivariateLocalGeary(
+    data: VecVecDouble,
+    neighbors: VecVecUInt,
+    undefs: VecVecUInt,
+    significanceCutoff: number,
+    permuations: UnsignedInt,
+    lastSeed: number
+  ): LisaResult;
+
   // test for dotProduct
   dotProduct(x: VectorDouble, y: VectorDouble): number;
 
