@@ -351,7 +351,7 @@ export interface GeoDaModule {
    * @param data the values to be classified into k classes
    * @param undefs the indices of data that are undefined
    */
-  quantileBreaks(k: number, data: VectorDouble, undefs?: VectorInt): VectorDouble;
+  quantileBreaks(k: number, data: VectorDouble, undefs?: VectorUInt): VectorDouble;
 
   /**
    * Natural Jenks breaks classification
@@ -480,6 +480,28 @@ export interface GeoDaModule {
     data: VecVecDouble,
     neighbors: VecVecUInt,
     undefs: VecVecUInt,
+    significanceCutoff: number,
+    permuations: UnsignedInt,
+    lastSeed: number
+  ): LisaResult;
+
+  /**
+   * Local Quantile LISA statistics
+   * @param k the number of breaks
+   * @param quantile which quantile to use
+   * @param data the data values
+   * @param neighbors the spatial weights matrix that represents neighbor indices: [[1, 2], [0, 2], [0, 1],...]
+   * @param undefs the undefined values
+   * @param significanceCutoff the significance cutoff
+   * @param permuations the number of permutations
+   * @param lastSeed the last seed
+   */
+  quantileLisa(
+    k: number,
+    quantile: number,
+    data: VectorDouble,
+    neighbors: VecVecUInt,
+    undefs: VectorUInt,
     significanceCutoff: number,
     permuations: UnsignedInt,
     lastSeed: number

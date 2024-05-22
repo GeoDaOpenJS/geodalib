@@ -12,7 +12,7 @@ export async function quantileBreaks(k: number, data: number[] | Float32Array): 
 
   const n = data.length;
 
-  const wasmUndefs = new wasm.VectorInt();
+  const wasmUndefs = new wasm.VectorUInt();
   wasmUndefs.resize(n, 0);
 
   const wasmData = new wasm.VectorDouble();

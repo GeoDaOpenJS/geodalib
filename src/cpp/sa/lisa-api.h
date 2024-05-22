@@ -68,6 +68,11 @@ LisaResult local_multivariate_geary(const std::vector<std::vector<double>>& data
                                     const std::vector<std::vector<unsigned int>>& neighbors,
                                     const std::vector<std::vector<unsigned int>>& undefs, double significance_cutoff,
                                     unsigned int perm, int last_seed);
+
+LisaResult quantile_lisa(int k, int quantile, const std::vector<double>& data,
+                         const std::vector<std::vector<unsigned int>>& neighbors,
+                         const std::vector<unsigned int>& undefs, double significance_cutoff, unsigned int perm,
+                         int last_seed);
 }  // namespace geoda
 
 #endif  // GEODA_LOCAL_STATISTICS_H

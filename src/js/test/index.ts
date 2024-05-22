@@ -2,6 +2,7 @@ import './geometry/binary-geometry.test';
 import './sa/local-moran.test';
 import './sa/local-g.test';
 import './sa/local-geary.test';
+import './sa/quantile-lisa.test';
 import './weights/contiguity-neighbors.test';
 import './weights/nearest-neighbors.test';
 import './weights/distance-neighbors.test';

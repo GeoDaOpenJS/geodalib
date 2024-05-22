@@ -8,7 +8,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../weights/geoda-weight.h"
+#include "weights/geoda-weight.h"
+#include "utils/data.h"
 #include "./GeoDaSet.h"
 
 UniJoinCount::UniJoinCount(int num_obs, GeoDaWeight *w, const std::vector<double> &_data,

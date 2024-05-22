@@ -39,7 +39,7 @@ std::vector<double> natural_breaks(int k, const std::vector<double>& data, const
  * @param undefs The flags indicating which data value is undefined
  * @return std::vector<double> The values of quantile breaks
  */
-std::vector<double> quantile_breaks(int k, const std::vector<double>& data, const std::vector<int>& undefs);
+std::vector<double> quantile_breaks(int k, const std::vector<double>& data, const std::vector<unsigned int>& undefs);
 
 /**
  * @brief Compute Box breaks with 1.5 or 3.0 IQR for a given data set

@@ -31,7 +31,7 @@ double geoda::percentile(double x, const dbl_int_pair_vec_type& v) {
 
 // implmentation of quantile breaks
 std::vector<double> geoda::quantile_breaks(int num_cats, const std::vector<double>& data,
-                                          const std::vector<int>& _undef) {
+                                          const std::vector<unsigned int>& _undef) {
   int num_obs = data.size();
   std::vector<bool> undef(num_obs, 0);
 
