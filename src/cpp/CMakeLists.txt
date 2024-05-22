@@ -4,6 +4,7 @@ set (GEODA_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/local-g.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/lisa/LISA.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/lisa/UniLocalMoran.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/lisa/BiLocalMoran.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/lisa/UniG.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/lisa/UniGstar.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/distance-weights.cpp

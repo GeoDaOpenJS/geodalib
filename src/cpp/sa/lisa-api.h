@@ -1,8 +1,8 @@
 #ifndef GEODA_LOCAL_STATISTICS_H
 #define GEODA_LOCAL_STATISTICS_H
 
-#include <vector>
 #include <string>
+#include <vector>
 
 #include "lisa/LISA.h"
 
@@ -50,6 +50,11 @@ static void set_lisa_content(LISA* lisa, LisaResult& rst) {
 LisaResult local_moran(const std::vector<double>& data, const std::vector<std::vector<unsigned int>>& neighbors,
                        const std::vector<unsigned int>& undefs, double significance_cutoff, unsigned int perm,
                        int last_seed);
+
+LisaResult local_bivariate_moran(const std::vector<double>& data1, const std::vector<double>& data2,
+                                 const std::vector<std::vector<unsigned int>>& neighbors,
+                                 const std::vector<unsigned int>& undefs, double significance_cutoff, unsigned int perm,
+                                 int last_seed);
 
 LisaResult local_g(const std::vector<double>& data, const std::vector<std::vector<unsigned int>>& neighbors,
                    const std::vector<unsigned int>& undefs, double significance_cutoff, unsigned int perm,

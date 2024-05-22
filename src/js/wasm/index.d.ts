@@ -410,6 +410,26 @@ export interface GeoDaModule {
   ): LisaResult;
 
   /**
+   * Bivariate Local Moran statistics
+   * @param data1 the first data values
+   * @param data2 the second data values
+   * @param neighbors the spatial weights matrix that represents neighbor indices: [[1, 2], [0, 2], [0, 1],...]
+   * @param undefs the undefined values
+   * @param significanceCutoff the significance cutoff
+   * @param permuations the number of permutations
+   * @param lastSeed the last seed
+   */
+  bivariateLocalMoran(
+    data1: VectorDouble,
+    data2: VectorDouble,
+    neighbors: VecVecUInt,
+    undefs: VectorUInt,
+    significanceCutoff: number,
+    permuations: UnsignedInt,
+    lastSeed: number
+  ): LisaResult;
+
+  /**
    * Local Getis-Ord statistics
    * @param data the data values
    * @param neighbors the spatial weights matrix that represents neighbor indices: [[1, 2], [0, 2], [0, 1],...]
@@ -426,7 +446,7 @@ export interface GeoDaModule {
     significanceCutoff: number,
     permuations: UnsignedInt,
     lastSeed: number,
-    isGStar: number 
+    isGStar: number
   ): LisaResult;
 
   // test for dotProduct

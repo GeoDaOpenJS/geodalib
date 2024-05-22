@@ -83,6 +83,7 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
 
   emscripten::function("localMoran", &geoda::local_moran);
   emscripten::function("localG", &geoda::local_g);
+  emscripten::function("localBivariateMoran", &geoda::local_bivariate_moran);
 
   emscripten::function("quantileBreaks", &geoda::quantile_breaks);
   emscripten::function("naturalBreaks", &geoda::natural_breaks);
