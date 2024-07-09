@@ -68,8 +68,10 @@ class DiagnosticReport {
   double* GetPredError() { return prederr; }
   /// Likelihood Ratio Test for spatial lag/error dependence
   double* GetLRTest() { return lr_test; }
+  double GetLRTestValue(int i) { return lr_test[i]; }
   /// Lagrange Multiplier test for spatial lag/error dep
   double* GetLMTest() { return lm_test; }
+  double GetLMTestValue(int i) { return lm_test[i]; }
   /// Test on common factor hyphothesis
   double* GetLRTest_CF() { return lrcf_test; }
   double* GetWaldTest() { return wald_test; }

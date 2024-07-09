@@ -36,3 +36,7 @@ export {
   printLinearRegressionResultUsingMarkdown
 } from './regression/linear-regression';
 export type {LinearRegressionProps, LinearRegressionResult} from './regression/linear-regression';
+export {spatialLag} from './regression/spatial-lag';
+export type {SpatialLagResult} from './regression/spatial-lag';
+export {spatialError} from './regression/spatial-error';
+export type {SpatialErrorResult} from './regression/spatial-error';

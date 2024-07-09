@@ -26,6 +26,7 @@ export type LinearRegressionProps = {
   x: number[][];
   y: number[];
   weights?: number[][];
+  weightsValues?: number[][];
   weightsId?: string;
   xNames: string[];
   yName: string;
@@ -133,6 +134,7 @@ export async function linearRegression({
   y,
   weightsId,
   weights,
+  weightsValues,
   xNames,
   yName,
   datasetName,
@@ -165,6 +167,19 @@ export async function linearRegression({
       wasmWeights.push_back(vals);
     }
   }
+
+  // Create a new VecVecDouble for weightsValues
+  const wasmWeightsValues = new wasmInstance.VecVecDouble();
+  if (weightsValues) {
+    for (let i = 0; i < weightsValues.length; ++i) {
+      const vals = new wasmInstance.VectorDouble();
+      for (let j = 0; j < weightsValues[i].length; ++j) {
+        vals.push_back(weightsValues[i][j]);
+      }
+      wasmWeightsValues.push_back(vals);
+    }
+  }
+
   // Create a new vector of strings for xNames
   const wasmXNames = new wasmInstance.VectorString();
   for (let i = 0; i < xNames.length; ++i) {
@@ -193,6 +208,7 @@ export async function linearRegression({
     wasmY,
     wasmX,
     wasmWeights,
+    wasmWeightsValues,
     yName,
     wasmXNames,
     datasetName,
