@@ -3,6 +3,7 @@ export type LinearRegressionProps = {
     x: number[][];
     y: number[];
     weights?: number[][];
+    weightsValues?: number[][];
     weightsId?: string;
     xNames: string[];
     yName: string;
@@ -102,7 +103,7 @@ export type LinearRegressionResult = {
         };
     };
 };
-export declare function linearRegression({ x, y, weightsId, weights, xNames, yName, datasetName, xUndefs, yUndefs }: LinearRegressionProps): Promise<LinearRegressionResult>;
+export declare function linearRegression({ x, y, weightsId, weights, weightsValues, xNames, yName, datasetName, xUndefs, yUndefs }: LinearRegressionProps): Promise<LinearRegressionResult>;
 export declare function printLinearRegressionResult(regressionReport: LinearRegressionResult): string;
 export declare function printLinearRegressionResultUsingMarkdown(regressionReport: LinearRegressionResult): string;
 /**

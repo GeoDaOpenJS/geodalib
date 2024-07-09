@@ -13,3 +13,4 @@ import './mapping/percentile-breaks.test';
 import './mapping/box-breaks.test';
 import './mapping/stddev-breaks.test';
 import './regression/linear-regression.test';
+import './regression/spatial-lag.test';

@@ -75,7 +75,7 @@ DiagnosticReport geoda::regression_helper(RegressionModel regress_model, const s
                                           const std::string &dataset_name, const std::vector<unsigned int> &dep_undefs,
                                           const std::vector<std::vector<unsigned int>> &indep_undefs) {
   // create a string to store the result
-  int nX = indep_names.size() + 1;  // add constant term
+  int nX = indep_names.size();
   size_t m_obs = dep.size();
   size_t sz = indeps.size();
 
@@ -89,7 +89,7 @@ DiagnosticReport geoda::regression_helper(RegressionModel regress_model, const s
   undefs.resize(m_obs);
 
   bool m_constant_term = true;
-  bool m_WeightCheck = weights.empty();
+  bool m_WeightCheck = !weights.empty();
   bool m_standardization = true;
   bool ignoreCase = true;
   // test with no time-variable
@@ -129,18 +129,37 @@ DiagnosticReport geoda::regression_helper(RegressionModel regress_model, const s
     }
   }
 
+  // the start index of X variables
+  int ix = 1, ixName = 1;
+  if (m_constant_term) {
+    // add constant term
+    nX += 1;
+  }
+
   std::vector<std::string> x_names = indep_names;
+  // prepend "W_Yname" at the beginning of indep_names
+  if (regress_model == geoda::RegressionModel::SPATIAL_LAG) {
+    x_names.insert(x_names.begin(), "W_" + dep_name);
+    ixName = 2;
+  }
   // prepend "CONSTANT" at the beginning of indep_names
   x_names.insert(x_names.begin(), "CONSTANT");
-  int ix = 1, ixName = 1;
+  // append "LAMBDA" at the end of indep_names
+  if (regress_model == geoda::RegressionModel::SPATIAL_ERROR) {
+    x_names.push_back("LAMBDA");
+    ixName = 2;
+  }
 
-  double **x = new double *[x_names.size() + 1];  // the last one is for Y
+  double **x = new double *[nX + 1];  // the last one is for Y in dt[][]
   // set x[0] constant with 1.0 the memory with value 1.0
   x[0] = new double[valid_obs];
   for (int i = 0; i < valid_obs; i++) {
     x[0][i] = 1.0;
   }
-  int nVarName = x_names.size() + ixName;
+
+  // number of variable names
+  int nVarName = nX + ixName - 1;
+
   for (int i = 0; i < sz + 1; i++) {
     x[i + ix] = new double[valid_obs];
     int xidx = 0;
@@ -149,10 +168,11 @@ DiagnosticReport geoda::regression_helper(RegressionModel regress_model, const s
       x[i + ix][xidx++] = dt[i][j];
     }
   }
+  // set y values
   double *y = new double[valid_obs];
-  int yidx = 0;
+  int yidx = m_constant_term ? sz + 1 : sz;
   for (int j = 0; j < valid_obs; j++) {
-    y[j] = x[sz + 1][j];
+    y[j] = x[yidx][j];
   }
   // free memory of dt[][]
   for (int j = 0; j < sz + 1; j++) delete[] dt[j];
@@ -164,7 +184,7 @@ DiagnosticReport geoda::regression_helper(RegressionModel regress_model, const s
 
   if (weights.size() > 0) {
     gal = new geoda::GalElement[valid_obs];
-    yidx = 0;
+    int ridx = 0;
     for (int i = 0; i < m_obs; i++) {
       if (undefs[i]) continue;
       // check how many valid observations in weights[i]
@@ -174,17 +194,17 @@ DiagnosticReport geoda::regression_helper(RegressionModel regress_model, const s
           valid_nbrs++;
         }
       }
-      gal[yidx].SetSizeNbrs(valid_nbrs);
+      gal[ridx].SetSizeNbrs(valid_nbrs);
       for (int j = 0; j < weights[i].size(); j++) {
         if (undefs[weights[i][j]]) continue;
         int nbr_id = orig_valid_map[weights[i][j]];
         if (has_weights_values) {
-          gal[yidx].SetNbr(j, nbr_id, weights_values[i][j]);
+          gal[ridx].SetNbr(j, nbr_id, weights_values[i][j]);
         } else {
-          gal[yidx].SetNbr(j, nbr_id);
+          gal[ridx].SetNbr(j, nbr_id);
         }
       }
-      yidx++;
+      ridx++;
     }
   }
 
@@ -192,8 +212,8 @@ DiagnosticReport geoda::regression_helper(RegressionModel regress_model, const s
   const int n = valid_obs;
   bool do_white_test = false;
 
-  bool include_constant = true;
-  DiagnosticReport m_DR(n, x_names.size(), m_constant_term, include_constant, regress_model);
+  int num_var_in_report = regress_model == geoda::RegressionModel::OLS ? nX : nX + 1;
+  DiagnosticReport m_DR(n, num_var_in_report, m_constant_term, m_WeightCheck, regress_model);
   // SetXVariableNames(&m_DR);
   for (int i = 0; i < x_names.size(); i++) {
     m_DR.SetXVarNames(i, x_names[i]);
@@ -218,7 +238,7 @@ DiagnosticReport geoda::regression_helper(RegressionModel regress_model, const s
   delete[] gal;
 
   // free memory of x[] and y[]
-  for (int i = 0; i < nVarName; i++) delete[] x[i];
+  for (int i = 0; i < nX + 1; i++) delete[] x[i];
   delete[] x;
   delete[] y;
 

@@ -111,6 +111,7 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
       .function("GetAIC", &DiagnosticReport::GetAIC)
       .function("GetOLS_SC", &DiagnosticReport::GetOLS_SC)
       .function("GetRSS", &DiagnosticReport::GetRSS)
+      //   .function("GetRho", &DiagnosticReport::GetRho)
       .function("GetFtest", &DiagnosticReport::GetFtest)
       .function("GetFtestProb", &DiagnosticReport::GetFtestProb)
       .function("GetSIQ_SQ", &DiagnosticReport::GetSIQ_SQ)
@@ -128,7 +129,8 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
       .function("GetLMSarma", &DiagnosticReport::GetLMSarmaValue)
       .function("GetKelRobin", &DiagnosticReport::GetKelRobinValue)
       .function("GetMeanY", &DiagnosticReport::GetMeanY)
-      .function("GetSDevY", &DiagnosticReport::GetSDevY);
+      .function("GetSDevY", &DiagnosticReport::GetSDevY)
+      .function("GetLRTestValue", &DiagnosticReport::GetLRTestValue);
 
   emscripten::function("dotProduct", &geoda::dot_product);
   emscripten::function("linearRegression", &geoda::ols);

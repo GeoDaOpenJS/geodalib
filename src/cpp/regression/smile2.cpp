@@ -742,7 +742,7 @@ bool geoda::spatialLagRegression(geoda::GalElement *g, int num_obs, double *Y, i
   DenseVector rhs(n), sol(n), works(n);
   for (cnt = 0; cnt < n; ++cnt) rhs.setAt(cnt, xbeta.getValue(cnt) * orig.getScale()[cnt]);
 
-  //	orig.matrixColumn(xbeta2,xbeta); ? Xb / [I-rW]
+  // orig.matrixColumn(xbeta2,xbeta); ? Xb / [I-rW]
   cg(orig, finRho, rhs, sol);
 
   orig.matrixColumn(works, sol);

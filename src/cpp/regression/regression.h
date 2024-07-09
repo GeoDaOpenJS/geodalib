@@ -12,7 +12,7 @@ namespace geoda {
 class GalElement;
 
 // An enum to represent the regression model 0 = ols 1 = spatial lag, 2 = spatial error
-enum RegressionModel { OLS = 0, SPATIAL_LAG = 1, SPATIAL_ERROR = 2 };
+enum RegressionModel { OLS = 0, SPATIAL_LAG = 2, SPATIAL_ERROR = 3 };
 
 /**
  * @brief Compute the dot product of two vectors
