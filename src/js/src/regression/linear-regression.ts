@@ -1,4 +1,6 @@
 import {initWASM} from '../init';
+import {SpatialErrorResult} from './spatial-error';
+import {SpatialLagResult} from './spatial-lag';
 
 export async function dotProduct(x: number[], y: number[]): Promise<number> {
   // check if x and y are of the same length
@@ -398,7 +400,7 @@ export function printLinearRegressionResult(regressionReport: LinearRegressionRe
 }
 
 // function to print number with 4 decimal places
-function printNumber(num: number): string {
+export function printNumber(num: number): string {
   // if num is float and has more than 4 decimal places, round it to 4 decimal places; otherwise return the number as is
   const numStr = num.toString();
   if (numStr.includes('.')) {
@@ -408,6 +410,21 @@ function printNumber(num: number): string {
     }
   }
   return num.toString();
+}
+
+export function printVariableCoefficients(
+  report: LinearRegressionResult | SpatialErrorResult | SpatialLagResult
+): string {
+  let output = '';
+  output += `Variable Coefficients: \n\n`;
+  output += `| Variable&nbsp;&nbsp; | Coefficient&nbsp;&nbsp; | Std. Error&nbsp;&nbsp; | t-Statistic | Probability |\n`;
+  output += `|---------|-------------|------------|-------------|-------------|\n`;
+  for (const coefficient of report['Variable Coefficients']) {
+    output += `${coefficient.Variable} | ${printNumber(coefficient.Coefficient)} | ${printNumber(
+      coefficient['Std Error']
+    )} | ${printNumber(coefficient['t-Statistic'])} | ${printNumber(coefficient.Probability)}\n`;
+  }
+  return output;
 }
 
 // eslint-disable-next-line max-statements
@@ -453,14 +470,8 @@ export function printLinearRegressionResultUsingMarkdown(
   )}|||\n`;
 
   output += `&nbsp;  \n`;
-  output += `Variable Coefficients: \n\n`;
-  output += `| Variable&nbsp;&nbsp; | Coefficient&nbsp;&nbsp; | Std. Error&nbsp;&nbsp; | t-Statistic | Probability |\n`;
-  output += `|---------|-------------|------------|-------------|-------------|\n`;
-  for (const coefficient of regressionReport['Variable Coefficients']) {
-    output += `${coefficient.Variable} | ${printNumber(coefficient.Coefficient)} | ${printNumber(
-      coefficient['Std Error']
-    )} | ${printNumber(coefficient['t-Statistic'])} | ${printNumber(coefficient.Probability)}\n`;
-  }
+  output += printVariableCoefficients(regressionReport);
+
   output += `&nbsp;  \n`;
   output += `\nREGRESSION DIAGNOSTICS\n`;
   output += `&nbsp;  \n`;

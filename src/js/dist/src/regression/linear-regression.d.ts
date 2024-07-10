@@ -1,3 +1,5 @@
+import { SpatialErrorResult } from './spatial-error';
+import { SpatialLagResult } from './spatial-lag';
 export declare function dotProduct(x: number[], y: number[]): Promise<number>;
 export type LinearRegressionProps = {
     x: number[][];
@@ -105,6 +107,8 @@ export type LinearRegressionResult = {
 };
 export declare function linearRegression({ x, y, weightsId, weights, weightsValues, xNames, yName, datasetName, xUndefs, yUndefs }: LinearRegressionProps): Promise<LinearRegressionResult>;
 export declare function printLinearRegressionResult(regressionReport: LinearRegressionResult): string;
+export declare function printNumber(num: number): string;
+export declare function printVariableCoefficients(report: LinearRegressionResult | SpatialErrorResult | SpatialLagResult): string;
 export declare function printLinearRegressionResultUsingMarkdown(regressionReport: LinearRegressionResult): string;
 /**
  * function to check which spatail model should be used based on spatial diagnostics

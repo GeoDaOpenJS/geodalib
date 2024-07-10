@@ -21,7 +21,7 @@ export * from './mapping/box-breaks';
 export * from './mapping/stddev-breaks';
 export { linearRegression, printLinearRegressionResult, printLinearRegressionResultUsingMarkdown } from './regression/linear-regression';
 export type { LinearRegressionProps, LinearRegressionResult } from './regression/linear-regression';
-export { spatialLag } from './regression/spatial-lag';
+export { spatialLag, printSpatialLagResultUsingMarkdown } from './regression/spatial-lag';
 export type { SpatialLagResult } from './regression/spatial-lag';
 export { spatialError } from './regression/spatial-error';
 export type { SpatialErrorResult } from './regression/spatial-error';

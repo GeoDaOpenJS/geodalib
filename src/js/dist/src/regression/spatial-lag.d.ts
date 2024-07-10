@@ -12,6 +12,7 @@ export type SpatialLagResult = {
     'SD Dependent Var': number;
     'Degrees of Freedom': number;
     'Lag coefficient (Rho)': number;
+    'R-squared': number;
     'Log Likelihood': number;
     'Akaike Info Criterion': number;
     'Sigma-Square': number;
@@ -25,7 +26,7 @@ export type SpatialLagResult = {
         Probability: number;
     }>;
     'DIAGNOSTICS FOR HETEROSKEDASTICITY': {
-        'RANDOM COEFFICIENTS': {
+        'BREUSCH-PAGAN TEST': {
             Test: string;
             'Breusch-Pagan DF': number;
             'Breusch-Pagan Value': number;
@@ -33,7 +34,7 @@ export type SpatialLagResult = {
         };
     };
     'DIAGNOSTICS FOR SPATIAL DEPENDENCE': {
-        'SPATIAL LAG DEPENDENCE FOR WEIGHT MATRIX': {
+        'LIKELIHOOD RATIO TEST': {
             Test: string;
             'Likelihood Ratio DF': number;
             'Likelihood Ratio Value': number;
@@ -42,3 +43,4 @@ export type SpatialLagResult = {
     };
 };
 export declare function spatialLag({ x, y, weightsId, weights, weightsValues, xNames, yName, datasetName, xUndefs, yUndefs }: LinearRegressionProps): Promise<SpatialLagResult>;
+export declare function printSpatialLagResultUsingMarkdown(report: SpatialLagResult): string;
