@@ -584,6 +584,17 @@ export interface GeoDaModule {
     indepUndefs: VecVecUInt
   ): DiagnosticReport;
 
+  /**
+   * Spatial Join of two collections of geometries
+   * @param left The left collection of geometries
+   * @param right The right collection of geometries
+   * @returns The indices of the right geometries that are spatially joined to the left geometries
+   */
+  spatialJoin(
+    left: GeometryCollection,
+    right: GeometryCollection
+  ): VecVecUInt;
+
   GeometryCollection: typeof GeometryCollection;
   PolygonCollection: typeof PolygonCollection;
   LineCollection: typeof LineCollection;

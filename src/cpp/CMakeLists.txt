@@ -1,5 +1,6 @@
 set (GEODA_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/geometry.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/geometry/spatial-join.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/local-moran.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/local-g.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/local-geary.cpp
@@ -38,6 +39,7 @@ set (GEODA_SOURCE_FILES
 
 set (GEODA_HEADER_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/geometry.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/geometry/spatial-join.h
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/lisa.h
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/weights.h
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/gal.h

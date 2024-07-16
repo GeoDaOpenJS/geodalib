@@ -106,6 +106,7 @@ class GeometryCollection {
   virtual multiline_type get_line(size_t i) const { throw; }
   virtual multipolygon_type get_polygon(size_t i) const { throw; }
 
+  virtual bool intersect(size_t i, const GeometryCollection& join_geoms, size_t j) const = 0;
   virtual void get_bbox(size_t i, box_type& box) const = 0;
 
   virtual ShapeType get_type() const = 0;
@@ -153,6 +154,21 @@ class PointCollection : public GeometryCollection {
   }
 
   multipoint_type get_point(size_t i) const override { return points[i]; }
+
+  bool intersect(size_t i, const GeometryCollection& join_geoms, size_t j) const override {
+    const auto& left_geom = get_point(i);
+    if (join_geoms.get_type() == ShapeType::POINT) {
+      const auto& right_geom = join_geoms.get_point(j);
+      return bg::intersects(left_geom, right_geom);
+    } else if (join_geoms.get_type() == ShapeType::LINE) {
+      const auto& right_geom = join_geoms.get_line(j);
+      return bg::intersects(left_geom, right_geom);
+    } else if (join_geoms.get_type() == ShapeType::POLYGON) {
+      const auto& right_geom = join_geoms.get_polygon(j);
+      return bg::intersects(left_geom, right_geom);
+    }
+    return false;
+  }
 };
 
 class LineCollection : public GeometryCollection {
@@ -177,6 +193,21 @@ class LineCollection : public GeometryCollection {
   }
 
   multiline_type get_line(size_t i) const override { return lines[i]; }
+
+  bool intersect(size_t i, const GeometryCollection& join_geoms, size_t j) const override {
+    const auto& left_geom = get_line(i);
+    if (join_geoms.get_type() == ShapeType::POINT) {
+      const auto& right_geom = join_geoms.get_point(j);
+      return bg::intersects(left_geom, right_geom);
+    } else if (join_geoms.get_type() == ShapeType::LINE) {
+      const auto& right_geom = join_geoms.get_line(j);
+      return bg::intersects(left_geom, right_geom);
+    } else if (join_geoms.get_type() == ShapeType::POLYGON) {
+      const auto& right_geom = join_geoms.get_polygon(j);
+      return bg::intersects(left_geom, right_geom);
+    }
+    return false;
+  }
 };
 
 class PolygonCollection : public GeometryCollection {
@@ -213,6 +244,21 @@ class PolygonCollection : public GeometryCollection {
   size_t get_num_parts(size_t geom_index) const override;
 
   size_t get_num_points(size_t geom_index) const override;
+
+  bool intersect(size_t i, const GeometryCollection& join_geoms, size_t j) const override {
+    const auto& left_geom = get_polygon(i);
+    if (join_geoms.get_type() == ShapeType::POINT) {
+      const auto& right_geom = join_geoms.get_point(j);
+      return bg::intersects(left_geom, right_geom);
+    } else if (join_geoms.get_type() == ShapeType::LINE) {
+      const auto& right_geom = join_geoms.get_line(j);
+      return bg::intersects(left_geom, right_geom);
+    } else if (join_geoms.get_type() == ShapeType::POLYGON) {
+      const auto& right_geom = join_geoms.get_polygon(j);
+      return bg::intersects(left_geom, right_geom);
+    }
+    return false;
+  }
 };
 
 }  // namespace geoda
