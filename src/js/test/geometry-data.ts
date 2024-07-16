@@ -17,7 +17,7 @@ export const POINT_BINARY_GEOMETRIES: BinaryFeatureCollection[] = [
       type: 'Point',
       globalFeatureIds: {value: new Uint32Array([0, 1, 2, 3, 4]), size: 1},
       positions: {
-        value: new Float64Array([1.4, 1.4, 0.2, 0.2, 2.4, 1.4, 21.0, 21.0, 15.4, 15.4]),
+        value: new Float64Array([1.4, 1.4, 0.2, 0.2, 2.4, 1.4, 21.0, 21.0, 12.4, 12.4]),
         size: 2
       },
       properties: [{index: 0}, {index: 1}, {index: 2}, {index: 3}, {index: 4}],
