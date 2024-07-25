@@ -1,4 +1,5 @@
 import './geometry/binary-geometry.test';
+import './geometry/spatial-join.test';
 import './sa/local-moran.test';
 import './sa/local-g.test';
 import './sa/local-geary.test';

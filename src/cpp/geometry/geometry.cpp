@@ -1,12 +1,12 @@
-#include "geometry/geometry.h"
-
-#include <algorithm>
-#include <boost/geometry/algorithms/buffer.hpp>
-#include <boost/geometry/io/wkt/write.hpp>
 #include <sstream>
 #include <vector>
+#include <algorithm>
+
+#include <boost/geometry/algorithms/buffer.hpp>
+#include <boost/geometry/io/wkt/write.hpp>
 
 #include "utils/UTM.h"
+#include "geometry/geometry.h"
 
 using namespace geoda;
 

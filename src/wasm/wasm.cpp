@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "geometry/geometry.h"
+#include "geometry/spatial-join.h"
 #include "sa/lisa-api.h"
 #include "weights/weights.h"
 #include "mapping/mapping.h"
@@ -63,6 +64,8 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
       .function("addPart", &geoda::Polygon::add);
 
   emscripten::register_vector<geoda::Polygon>("VectorPolygon");
+
+  emscripten::function("spatialJoin", &geoda::spatial_join);
 
   emscripten::class_<geoda::LisaResult>("LisaResult")
       .function("isValid", &geoda::LisaResult::get_is_valid)
