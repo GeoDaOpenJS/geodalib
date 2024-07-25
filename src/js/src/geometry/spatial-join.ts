@@ -3,7 +3,7 @@ import {BinaryFeatureCollection} from '@loaders.gl/schema';
 import {BinaryGeometryType, getGeometryCollectionFromBinaryGeometries} from './binary-geometry';
 import {initWASM} from '../init';
 
-type SpatialJoinProps = {
+export type SpatialJoinProps = {
   left: BinaryFeatureCollection[];
   leftGeometryType: BinaryGeometryType;
   right: BinaryFeatureCollection[];

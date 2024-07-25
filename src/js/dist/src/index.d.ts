@@ -13,6 +13,8 @@ export * from './sa/spatial-lag';
 export * from './sa/rates';
 export { createPointCollectionFromBinaryFeatures as createGeoDaPointsFromBinaryFeatures } from './geometry/binary-geometry';
 export type { BinaryGeometryType } from './geometry/binary-geometry';
+export { spatialJoin } from './geometry/spatial-join';
+export type { SpatialJoinProps } from './geometry/spatial-join';
 export * from './mapping/quantile';
 export * from './mapping/natural-breaks';
 export * from './mapping/equal-interval-breaks';
