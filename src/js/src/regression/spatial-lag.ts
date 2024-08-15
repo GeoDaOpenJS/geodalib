@@ -46,7 +46,7 @@ export type SpatialLagResult = {
 };
 
 // eslint-disable-next-line max-statements, complexity
-export async function spatialLag({
+export async function spatialLagRegression({
   x,
   y,
   weightsId,

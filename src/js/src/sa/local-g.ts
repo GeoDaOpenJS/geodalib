@@ -8,17 +8,37 @@ export type LocalGProps = {
   permutation: number;
   significanceCutoff?: number;
   seed?: number;
-  isGStar?: boolean;
 };
+
+// localG
+export async function localG(props: LocalGProps): Promise<LocalMoranResult> {
+  return await runLocalG({
+    ...props,
+    isGStar: false
+  });
+}
+
+// localG*
+export async function localGStar(props: LocalGProps): Promise<LocalMoranResult> {
+  return await runLocalG({
+    ...props,
+    isGStar: true
+  });
+}
+
+type RunLocalGProps = {
+  isGStar: boolean;
+} & LocalGProps;
+
 // Get local Getis-Ord statistics
-export async function localG({
+async function runLocalG({
   data,
   neighbors,
   permutation,
   significanceCutoff = 0.05,
   seed = 1234567890,
   isGStar = false
-}: LocalGProps): Promise<LocalMoranResult> {
+}: RunLocalGProps): Promise<LocalMoranResult> {
   const wasm = await initWASM();
 
   const n = data.length;
