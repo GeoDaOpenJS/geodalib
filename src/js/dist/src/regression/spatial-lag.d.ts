@@ -42,5 +42,5 @@ export type SpatialLagResult = {
         };
     };
 };
-export declare function spatialLag({ x, y, weightsId, weights, weightsValues, xNames, yName, datasetName, xUndefs, yUndefs }: LinearRegressionProps): Promise<SpatialLagResult>;
+export declare function spatialLagRegression({ x, y, weightsId, weights, weightsValues, xNames, yName, datasetName, xUndefs, yUndefs }: LinearRegressionProps): Promise<SpatialLagResult>;
 export declare function printSpatialLagResultUsingMarkdown(report: SpatialLagResult): string;
