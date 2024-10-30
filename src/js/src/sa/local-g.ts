@@ -10,6 +10,17 @@ export type LocalGProps = {
   seed?: number;
   isGStar?: boolean;
 };
+
+export async function localGStar({
+  data,
+  neighbors,
+  permutation,
+  significanceCutoff = 0.05,
+  seed = 1234567890
+}: LocalGProps): Promise<LocalMoranResult> {
+  return localG({data, neighbors, permutation, significanceCutoff, seed, isGStar: true});
+}
+
 // Get local Getis-Ord statistics
 export async function localG({
   data,

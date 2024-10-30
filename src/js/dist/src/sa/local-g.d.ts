@@ -5,6 +5,7 @@ export type LocalGProps = {
     permutation: number;
     significanceCutoff?: number;
     seed?: number;
+    isGStar?: boolean;
 };
-export declare function localG(props: LocalGProps): Promise<LocalMoranResult>;
-export declare function localGStar(props: LocalGProps): Promise<LocalMoranResult>;
+export declare function localGStar({ data, neighbors, permutation, significanceCutoff, seed }: LocalGProps): Promise<LocalMoranResult>;
+export declare function localG({ data, neighbors, permutation, significanceCutoff, seed, isGStar }: LocalGProps): Promise<LocalMoranResult>;
