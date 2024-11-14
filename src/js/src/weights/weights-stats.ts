@@ -31,20 +31,35 @@ export type WeightsMeta = {
  */
 export function getMetaFromWeights(weights: number[][], isDistanceWeights = false): WeightsMeta {
   const n = weights.length;
-  let minNeighbors = Math.min(...weights.map(w => w.length));
-  let maxNeighbors = Math.max(...weights.map(w => w.length));
-  let meanNeighbors = weights.reduce((acc, w) => acc + w.length, 0) / n;
-  let medianNeighbors = weights.map(w => w.length).sort((a, b) => a - b)[Math.floor(n / 2)];
-  let sumofNeighbors = weights.reduce((acc, w) => acc + w.length, 0);
-  let pctNoneZero = sumofNeighbors / (n * n);
+
+  let minNeighbors = Infinity;
+  let maxNeighbors = 0;
+  let meanNeighbors = 0;
+  let medianNeighbors = 0;
+  let sumofNeighbors = 0;
+  let pctNoneZero = 0;
 
   if (isDistanceWeights) {
-    minNeighbors = Math.min(...weights.map(w => w.length / 2));
-    maxNeighbors = Math.max(...weights.map(w => w.length / 2));
-    meanNeighbors = weights.reduce((acc, w) => acc + w.length / 2, 0) / n;
-    medianNeighbors = weights.map(w => w.length / 2).sort((a, b) => a - b)[Math.floor(n / 2)];
-    sumofNeighbors = weights.reduce((acc, w) => acc + w.length / 2, 0);
+    for (let i = 0; i < weights.length; i++) {
+      const len = weights[i].length / 2;
+      if (len < minNeighbors) minNeighbors = len;
+      if (len > maxNeighbors) maxNeighbors = len;
+      sumofNeighbors += len;
+    }
+    meanNeighbors = sumofNeighbors / n;
     pctNoneZero = sumofNeighbors / (n * n);
+    medianNeighbors = weights.map(w => w.length / 2).sort((a, b) => a - b)[Math.floor(n / 2)];
+  } else {
+    for (let i = 0; i < weights.length; i++) {
+      const len = isDistanceWeights ? weights[i].length / 2 : weights[i].length;
+      if (len < minNeighbors) minNeighbors = len;
+      if (len > maxNeighbors) maxNeighbors = len;
+      sumofNeighbors += len;
+    }
+
+    meanNeighbors = sumofNeighbors / n;
+    pctNoneZero = sumofNeighbors / (n * n);
+    medianNeighbors = weights.map(w => w.length).sort((a, b) => a - b)[Math.floor(n / 2)];
   }
 
   return {

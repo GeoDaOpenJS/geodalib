@@ -24,14 +24,14 @@ export async function localGeary({
   const wasmData = new wasm.VectorDouble();
   wasmData.resize(n, 0);
   for (let i = 0; i < n; ++i) {
-    wasmData.set(i, data[i]);
+    wasmData.set(i, Number(data[i]));
   }
 
   const wasmNeighbors = new wasm.VecVecUInt();
   const wasmUndefs = new wasm.VectorUInt();
 
   for (let i = 0; i < n; ++i) {
-    const nbrs = neighbors[i];
+    const nbrs = neighbors[i] ?? [];
     const wasmNeighborIndices = new wasm.VectorUInt();
     for (let j = 0, numNbrs = nbrs.length; j < numNbrs; ++j) {
       wasmNeighborIndices.push_back(nbrs[j]);
