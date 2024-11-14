@@ -104,6 +104,7 @@ PolygonCollection::PolygonCollection(const std::vector<double>& in_x, const std:
     }
     polygons.push_back(boost_mp);
   }
+  std::cout << "polygons size: " << polygons.size() << std::endl;
 }
 
 void PolygonCollection::get_polygon(size_t polygon_index, Polygon& poly) {

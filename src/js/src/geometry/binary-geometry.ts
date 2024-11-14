@@ -96,6 +96,7 @@ export function createPointCollectionFromBinaryFeatures(
  * @param linesArray BinaryFeatureCollection['lines'][] An array of binary line features from chunks of geoarrow
  * @returns LineCollection | null
  */
+// eslint-disable-next-line max-statements
 export function createLineCollectionFromBinaryFeatures(
   linesArray: Array<BinaryFeatureCollection['lines']>,
   wasm: GeoDaModule
@@ -107,6 +108,7 @@ export function createLineCollectionFromBinaryFeatures(
   const sizes = new wasm.VectorUInt();
   const convertToUTM = false;
 
+  let lastStartPointIndex = 0;
   for (let lineIndex = 0; lineIndex < linesArray.length; lineIndex++) {
     const lines = linesArray[lineIndex];
     if (lines) {
@@ -123,7 +125,7 @@ export function createLineCollectionFromBinaryFeatures(
       let numParts = 0;
       for (let i = 0; i < geomOffsets.length - 1; i++) {
         const startPointIndex = geomOffsets[i];
-        parts.push_back(startPointIndex);
+        parts.push_back(startPointIndex + lastStartPointIndex);
         // eslint-disable-next-line max-depth
         if (
           i > 0 &&
@@ -136,6 +138,8 @@ export function createLineCollectionFromBinaryFeatures(
       }
       // add the last size
       sizes.push_back(numParts);
+      // update lastStartPointIndex
+      lastStartPointIndex += geomOffsets[geomOffsets.length - 1];
     }
   }
 
@@ -162,6 +166,7 @@ export function createPolygonCollectionFromBinaryFeatures(
   const fixPolygon = true;
   const convertToUTM = false;
 
+  let lastPrimitiveIndex = 0;
   for (let chunkIndex = 0; chunkIndex < polygonsArray.length; chunkIndex++) {
     const polygons = polygonsArray[chunkIndex];
     if (polygons) {
@@ -190,7 +195,7 @@ export function createPolygonCollectionFromBinaryFeatures(
           } else {
             holes.push_back(0);
           }
-          parts.push_back(primitivePolygonIndices[primitiveIndex]);
+          parts.push_back(primitivePolygonIndices[primitiveIndex] + lastPrimitiveIndex);
           primitiveIndex++;
           numParts += 1;
         }
@@ -200,6 +205,7 @@ export function createPolygonCollectionFromBinaryFeatures(
           numParts = 0;
         }
       }
+      lastPrimitiveIndex += primitivePolygonIndices[primitivePolygonIndices.length - 1];
     }
   }
 

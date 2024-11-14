@@ -252,6 +252,8 @@ std::vector<std::vector<unsigned int>> geoda::polygon_contiguity_weights(const g
     }
   }
 
+  // clean up gal
+  delete[] gal;
   return result_vec;
 }
 
