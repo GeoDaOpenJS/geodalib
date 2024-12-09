@@ -1,8 +1,8 @@
 {
   "name": "geoda-wasm",
   "description": "GeoDa WASM module",
-  "version": "0.0.1",
-  "author": "Xun Li",
+  "version": "0.0.2",
+  "author": "Xun Li <lixun910@gmail.com>",
   "sideEffects": false,
   "type": "module",
   "types": "dist/src/index.d.ts",
