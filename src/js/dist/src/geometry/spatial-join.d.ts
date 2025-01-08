@@ -24,10 +24,20 @@ export declare enum SpatialJoinGeometryType {
     ArcLayerData = "ArcLayerData",
     HexagonIdLayerData = "HexagonIdLayerData"
 }
+/**
+ * The type of the props for spatialJoin
+ * @param leftGeometries - the left geometries
+ * @param rightGeometries - the right geometries
+ */
 export type SpatialJoinProps = {
     leftGeometries: SpatialJoinGeometries;
     rightGeometries: SpatialJoinGeometries;
 };
+/**
+ * Spatial join two geometries
+ * @param props - the props for spatialJoin see {@link SpatialJoinProps}
+ * @returns the join indexes
+ */
 export declare function spatialJoin({ leftGeometries, rightGeometries }: SpatialJoinProps): Promise<number[][]>;
 /**
  * The type of the props for spatialJoinGeometryCollection

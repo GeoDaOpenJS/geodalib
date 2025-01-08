@@ -63,7 +63,7 @@ function isPointLayerData(geometry: unknown): geometry is PointLayerData {
     typeof geometry === 'object' &&
     geometry !== null &&
     'position' in geometry &&
-    'neighbors' in geometry
+    'index' in geometry
   );
 }
 
@@ -84,50 +84,58 @@ function isHexagonIdLayerData(geometry: unknown): geometry is HexagonIdLayerData
 
 function CheckGeometryType(geometries: SpatialJoinGeometries): SpatialJoinGeometryType {
   if (!geometries) {
-    throw new Error('Geometry type is unknown.');
+    throw new Error('CheckGeometryType: Geometry type is unknown.');
   }
 
   // check if it's an array
-  if (!Array.isArray(geometries)) {
-    throw new Error('Geometry type is unknown.');
+  if (Array.isArray(geometries)) {
+    // Get first item to check other types
+    const first = geometries[0];
+
+    // Check if it's BinaryFeatureCollection
+    if (isBinaryFeatureCollection(first)) {
+      return SpatialJoinGeometryType.BinaryFeatureCollection;
+    }
+
+    // Check if it's Feature
+    if (isGeoJsonFeature(first)) {
+      return SpatialJoinGeometryType.GeoJsonFeature;
+    }
+
+    // Check if it's PointLayerData[]
+    if (isPointLayerData(first)) {
+      return SpatialJoinGeometryType.PointLayerData;
+    }
+
+    // Check if it's ArcLayerData[]
+    if (isArcLayerData(first)) {
+      return SpatialJoinGeometryType.ArcLayerData;
+    }
+
+    // Check if it's HexagonIdLayerData[]
+    if (isHexagonIdLayerData(first)) {
+      return SpatialJoinGeometryType.HexagonIdLayerData;
+    }
   }
 
-  // Get first item to check other types
-  const first = geometries[0] as any;
-
-  // Check if it's BinaryFeatureCollection
-  if (isBinaryFeatureCollection(first)) {
-    return SpatialJoinGeometryType.BinaryFeatureCollection;
-  }
-
-  // Check if it's Feature
-  if (isGeoJsonFeature(first)) {
-    return SpatialJoinGeometryType.GeoJsonFeature;
-  }
-
-  // Check if it's PointLayerData[]
-  if (isPointLayerData(first)) {
-    return SpatialJoinGeometryType.PointLayerData;
-  }
-
-  // Check if it's ArcLayerData[]
-  if (isArcLayerData(first)) {
-    return SpatialJoinGeometryType.ArcLayerData;
-  }
-
-  // Check if it's HexagonIdLayerData[]
-  if (isHexagonIdLayerData(first)) {
-    return SpatialJoinGeometryType.HexagonIdLayerData;
-  }
-
-  throw new Error('Geometry type is unknown.');
+  throw new Error('CheckGeometryType: Geometry type is unknown.');
 }
 
+/**
+ * The type of the props for spatialJoin
+ * @param leftGeometries - the left geometries
+ * @param rightGeometries - the right geometries
+ */
 export type SpatialJoinProps = {
   leftGeometries: SpatialJoinGeometries;
   rightGeometries: SpatialJoinGeometries;
 };
 
+/**
+ * Spatial join two geometries
+ * @param props - the props for spatialJoin see {@link SpatialJoinProps}
+ * @returns the join indexes
+ */
 export async function spatialJoin({
   leftGeometries,
   rightGeometries
@@ -197,7 +205,7 @@ async function getGeometryCollection({
   const geometryType = CheckGeometryType(geometries);
 
   switch (geometryType) {
-    case SpatialJoinGeometryType.BinaryFeatureCollection:
+    case SpatialJoinGeometryType.BinaryFeatureCollection: {
       const binaryGeometryType = getBinaryGeometryType(geometries as BinaryFeatureCollection[]);
       if (!binaryGeometryType) {
         throw new Error('Binary geometry type is required.');
@@ -207,6 +215,7 @@ async function getGeometryCollection({
         geometries as BinaryFeatureCollection[],
         wasmInstance
       );
+    }
     case SpatialJoinGeometryType.GeoJsonFeature:
       return await getGeometryCollectionFromGeoJsonFeatures({
         features: geometries as Feature[],

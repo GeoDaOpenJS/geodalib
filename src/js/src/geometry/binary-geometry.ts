@@ -41,7 +41,7 @@ export async function getGeometryCollectionFromBinaryGeometries(
     const polygonsArray = binaryFeaturesChunks.map(chunk => chunk.polygons);
     return createPolygonCollectionFromBinaryFeatures(polygonsArray, wasm);
   }
-  throw new Error('Binary geometry type is unknown.');
+  throw new Error('getGeometryCollectionFromBinaryGeometries: Binary geometry type is unknown.');
 }
 
 /**

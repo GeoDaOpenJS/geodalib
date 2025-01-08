@@ -1,7 +1,7 @@
 {
   "name": "geoda-wasm",
   "description": "GeoDa WASM module",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "author": "Xun Li <lixun910@gmail.com>",
   "sideEffects": false,
   "type": "module",
@@ -21,9 +21,12 @@
     "build-types": "./node_modules/.bin/tsc --project tsconfig.types.json && mkdir -p dist/wasm && cp wasm/index.d.ts dist/wasm",
     "wasm": "../wasm/build-wasm.sh ./wasm"
   },
+  "dependencies": {
+    "@loaders.gl/schema": "^4.1.0-alpha.4",
+    "geojson": "^0.5.0"
+  },
   "devDependencies": {
     "@loaders.gl/arrow": "^4.1.0-alpha.4",
-    "@loaders.gl/schema": "^4.1.0-alpha.4",
     "@types/eslint": "^8.37.0",
     "@types/geojson": "^7946.0.10",
     "@types/tape": "^4.13.4",
@@ -41,7 +44,6 @@
     "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-no-only-tests": "^3.1.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "geojson": "^0.5.0",
     "prettier": "^2.8.7",
     "rimraf": "^4.4.1",
     "tape": "^5.6.3",
