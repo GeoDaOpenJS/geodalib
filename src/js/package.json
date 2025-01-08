@@ -1,7 +1,7 @@
 {
   "name": "geoda-wasm",
   "description": "GeoDa WASM module",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "author": "Xun Li <lixun910@gmail.com>",
   "sideEffects": false,
   "type": "module",
@@ -12,18 +12,21 @@
     "dist"
   ],
   "scripts": {
-    "build-js": "yarn build-types && node --loader esbuild-register/loader -r esbuild-register build-config/build.ts",
+    "build-js": "yarn build-types && node --loader esbuild-register/loader -r esbuild-register esbuild.config.ts",
     "build": "yarn clean && yarn wasm && yarn build-js",
     "clean": "rimraf dist/",
     "lint": "eslint --max-warnings 0 .",
     "typecheck": "./node_modules/.bin/tsc",
     "test": "node --loader esbuild-register/loader -r esbuild-register test/index.ts",
-    "build-types": "./node_modules/.bin/tsc --project tsconfig.types.json && mkdir dist/wasm && cp wasm/index.d.ts dist/wasm",
+    "build-types": "./node_modules/.bin/tsc --project tsconfig.types.json && mkdir -p dist/wasm && cp wasm/index.d.ts dist/wasm",
     "wasm": "../wasm/build-wasm.sh ./wasm"
+  },
+  "dependencies": {
+    "@loaders.gl/schema": "^4.1.0-alpha.4",
+    "geojson": "^0.5.0"
   },
   "devDependencies": {
     "@loaders.gl/arrow": "^4.1.0-alpha.4",
-    "@loaders.gl/schema": "^4.1.0-alpha.4",
     "@types/eslint": "^8.37.0",
     "@types/geojson": "^7946.0.10",
     "@types/tape": "^4.13.4",

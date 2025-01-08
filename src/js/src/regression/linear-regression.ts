@@ -130,7 +130,6 @@ export type LinearRegressionResult = {
   };
 };
 
-// eslint-disable-next-line max-statements, complexity
 export async function linearRegression({
   x,
   y,

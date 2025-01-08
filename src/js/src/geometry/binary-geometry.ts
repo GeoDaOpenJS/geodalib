@@ -26,8 +26,10 @@ export async function getGeometryCollectionFromBinaryGeometries(
   geometryType: BinaryGeometryType,
   binaryFeaturesChunks: BinaryFeatureCollection[],
   wasm: GeoDaModule
-): Promise<GeometryCollection | null> {
-  if (!wasm) return null;
+): Promise<GeometryCollection> {
+  if (!wasm) {
+    throw new Error('WASM module is not initialized');
+  }
 
   if (geometryType.point) {
     const pointsArray = binaryFeaturesChunks.map(chunk => chunk.points);
@@ -39,7 +41,7 @@ export async function getGeometryCollectionFromBinaryGeometries(
     const polygonsArray = binaryFeaturesChunks.map(chunk => chunk.polygons);
     return createPolygonCollectionFromBinaryFeatures(polygonsArray, wasm);
   }
-  return null;
+  throw new Error('getGeometryCollectionFromBinaryGeometries: Binary geometry type is unknown.');
 }
 
 /**
@@ -69,7 +71,6 @@ export function createPointCollectionFromBinaryFeatures(
       // get index as the start of each part when points.featureIds.value[i] changed
       let index = 0;
       for (let i = 0; i < points.featureIds.value.length; i++) {
-        // eslint-disable-next-line max-depth
         if (i === 0) {
           parts.push_back(index);
         } else if (points.featureIds.value[i] !== points.featureIds.value[i - 1]) {
@@ -96,7 +97,6 @@ export function createPointCollectionFromBinaryFeatures(
  * @param linesArray BinaryFeatureCollection['lines'][] An array of binary line features from chunks of geoarrow
  * @returns LineCollection | null
  */
-// eslint-disable-next-line max-statements
 export function createLineCollectionFromBinaryFeatures(
   linesArray: Array<BinaryFeatureCollection['lines']>,
   wasm: GeoDaModule
@@ -126,7 +126,6 @@ export function createLineCollectionFromBinaryFeatures(
       for (let i = 0; i < geomOffsets.length - 1; i++) {
         const startPointIndex = geomOffsets[i];
         parts.push_back(startPointIndex + lastStartPointIndex);
-        // eslint-disable-next-line max-depth
         if (
           i > 0 &&
           lines.featureIds.value[startPointIndex] !== lines.featureIds.value[startPointIndex - 1]
@@ -152,7 +151,6 @@ export function createLineCollectionFromBinaryFeatures(
  * @param polygonsArray BinaryFeatureCollection['polygons'][] An array of binary polygon features from chunks of geoarrow
  * @returns PolygonCollection | null
  */
-// eslint-disable-next-line max-statements
 export function createPolygonCollectionFromBinaryFeatures(
   polygonsArray: Array<BinaryFeatureCollection['polygons']>,
   wasm: GeoDaModule
@@ -184,11 +182,9 @@ export function createPolygonCollectionFromBinaryFeatures(
       for (let i = 0; i < polygonIndices.length - 1; i++) {
         const startIdx = polygonIndices[i];
         const endIdx = polygonIndices[i + 1];
-        // eslint-disable-next-line max-depth
         while (primitivePolygonIndices[primitiveIndex] < endIdx) {
           // parts: start index of each part
           // holes: true if the part is a hole
-          // eslint-disable-next-line max-depth
           if (primitivePolygonIndices[primitiveIndex] > startIdx) {
             // holeIndices.push(primitivePolygonIndices[primitiveIndex] - startIdx);
             holes.push_back(1);
@@ -199,7 +195,6 @@ export function createPolygonCollectionFromBinaryFeatures(
           primitiveIndex++;
           numParts += 1;
         }
-        // eslint-disable-next-line max-depth
         if (polygons.featureIds.value[endIdx] !== polygons.featureIds.value[endIdx - 1]) {
           sizes.push_back(numParts);
           numParts = 0;

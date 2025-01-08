@@ -13,7 +13,7 @@ export type BinaryGeometryType = {
  * create geoda.GeometryCollection from dataToFeatures[] in GeojsonLayer
  *
  */
-export declare function getGeometryCollectionFromBinaryGeometries(geometryType: BinaryGeometryType, binaryFeaturesChunks: BinaryFeatureCollection[], wasm: GeoDaModule): Promise<GeometryCollection | null>;
+export declare function getGeometryCollectionFromBinaryGeometries(geometryType: BinaryGeometryType, binaryFeaturesChunks: BinaryFeatureCollection[], wasm: GeoDaModule): Promise<GeometryCollection>;
 /**
  * create geoda pointCollection from dataToFeatures[] in GeojsonLayer
  * @param pointsArray BinaryFeatureCollection['points'] An array of binary point features from chunks of geoarrow

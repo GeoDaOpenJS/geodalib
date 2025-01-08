@@ -1,20 +1,25 @@
 import type {GeoDaModule} from '../wasm';
-// @ts-expect-error - geodaAny is not used
+// @ts-expect-error - geodaModule is not used, but it is required by the module
 import geodaModule from '../wasm/index.cjs';
 
-let customWASMUrl: string | null = null;
+let customWASMUrl: string | null = 'https://cdn.jsdelivr.net/npm/geoda-wasm@latest/dist/geoda.wasm';
 
 /**
  * Set the delivery WASM URL, this can be used to initialize the WASM module by using the specified WASM url.
- * For example, https://unpkg.com/geoda-wasm@0.0.1/dist/geoda.wasm
+ * For example, https://cdn.jsdelivr.net/npm/geoda-wasm@latest/dist/geoda.wasm
  * @param wasmUrl - The URL of the WASM file
  */
 export function setDeliveryWASM(wasmUrl: string): void {
   customWASMUrl = wasmUrl;
 }
 
+/**
+ * Get the delivery WASM URL, this can be used to initialize the WASM module by using the specified WASM url.
+ * For example, https://cdn.jsdelivr.net/npm/geoda-wasm@latest/dist/geoda.wasm
+ * @returns The URL of the WASM file
+ */
 export function getDeliveryWASM(): string | null {
-  return 'https://unpkg.com/geoda-wasm@latest/dist/geoda.wasm';
+  return 'https://cdn.jsdelivr.net/npm/geoda-wasm@latest/dist/geoda.wasm';
 }
 
 // Singlton wasmInstance promise
@@ -31,14 +36,16 @@ let wasmInstancePromise: Promise<GeoDaModule> | null = null;
  *
  * @example Use the CDN delivery WASM file
  * ```ts
- * import {initWASM, setDeliveryWASM, getDeliveryWASM} from 'geoda-wasm';
- * setDeliveryWASM(getDeliveryWASM());
- * const geoda = await initWASM();
+ * import {initWASM, getDeliveryWASM} from 'geoda-wasm';
+ * const geoda = await initWASM(getDeliveryWASM());
  * ```
  *
  * @returns The GeoDa WASM module
  */
-export async function initWASM(): Promise<GeoDaModule> {
+export async function initWASM(publicWASMUrl?: string): Promise<GeoDaModule> {
+  if (publicWASMUrl) {
+    setDeliveryWASM(publicWASMUrl);
+  }
   if (wasmInstancePromise === null) {
     wasmInstancePromise = (
       geodaModule as (options: Record<string, unknown>) => Promise<GeoDaModule>
