@@ -47,6 +47,7 @@ export async function initWASM(publicWASMUrl?: string): Promise<GeoDaModule> {
     setDeliveryWASM(publicWASMUrl);
   }
   if (wasmInstancePromise === null) {
+    // provide Module["locateFile"] to return the customWASMUrl to be fetched
     wasmInstancePromise = (
       geodaModule as (options: Record<string, unknown>) => Promise<GeoDaModule>
     )(customWASMUrl ? {locateFile: () => customWASMUrl} : {});

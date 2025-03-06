@@ -52,3 +52,5 @@ js/wasm/geoda.wasm
 src/js/*.tgz
 
 meta.json
+
+.vitepress
