@@ -1,85 +1,45 @@
-# Markdown Extension Examples
+# Get Started
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+GeoDaLib is a modern javascript library for spatial data analysis. It is built based on the core C++ code of GeoDa software. The C++ code has been compiled into WebAssembly modules and a typescript library has been built as a wrapper for easy API usage.
 
-## Syntax Highlighting
+## Installation
 
-VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shikijs/shiki), with additional features like line-highlighting:
+To install GeoDaLib javascript library:
 
-**Input**
+::: code-group
 
-````md
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
-```
-````
-
-**Output**
-
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
+```bash [npm]
+npm install geoda-wasm
 ```
 
-## Custom Containers
-
-**Input**
-
-```md
-::: info
-This is an info box.
-:::
-
-::: tip
-This is a tip.
-:::
-
-::: warning
-This is a warning.
-:::
-
-::: danger
-This is a dangerous warning.
-:::
-
-::: details
-This is a details block.
-:::
+```bash [pnpm]
+pnpm add geoda-wasm 
 ```
 
-**Output**
+```bash [yarn]
+yarn add geoda-wasm
+```
 
-::: info
-This is an info box.
 :::
 
-::: tip
-This is a tip.
-:::
+## Example
 
-::: warning
-This is a warning.
-:::
+Here is a quick example of using GeoDaLib to apply Local Moran statistics on some example data:
 
-::: danger
-This is a dangerous warning.
-:::
+```js
+import {localMoran} from 'geoda-wasm';
 
-::: details
-This is a details block.
-:::
+// exmaple data
+const data = [3.0, 3.0, 0.0, 9.0, 8.0, 8.5];
+const neighbors = [[1], [0], [], [4, 5], [3, 5], [3, 4]];
+const permutation = 99;
 
-## More
+// call local moran
+const result = await localMoran({data, neighbors, permutation});
+```
 
-Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
+## Bundle
+
+The webassembly module of GeoDaLib will be loaded dynamically from https://cdn.jsdelivr.net/npm/geoda-wasm@latest/dist/geoda.wasm. For more details, please see the implementation of function [initWASM()](api/functions/initGeoDa).
+
+If you want to bundle the WASM file manually, you can change the WASM location by calling function [setDeliveryWASM()](api/functions/setGeoDaDelivery).

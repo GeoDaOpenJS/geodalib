@@ -15,11 +15,19 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Spatial Operations
+    details: buffer, centroid, spatial join, spatial dissolve
+  - title: Mapping
+    details: box map, natural breaks, percentile, quantile, standard-deviation, correlogram 
+  - title: Data Exploration
+    details: PCA, t-SNE, spatial lag, rates, spatial rates
+  - title: Spatial Weights
+    details: contiguity weights (queen/rook), distance-based weights, kernel weights
+  - title: Spatial Autocorrelation Analysis
+    details: local Moran, local G/G*, local Geary, quantile lisa
+  - title: Spatial Clustering 
+    details: k Means/Medoids/Medians, hierarchical clustering, DBScan, HDBScan, spectral clustering,  
+  - title: Spatial Regression
+    details: OLS with spatial diagnostics, spatial lag, spatial error
 ---
 

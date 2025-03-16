@@ -20,10 +20,18 @@ export default defineConfig({
           { text: 'Runtime API Examples', link: '/api-examples' },
         ],
       },
+      {
+        text: 'TypeScript API',
+        link: '/api/globals',
+      },
+      {
+        text: 'C++ API',
+        link: '/cpp/',
+      },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'github', link: 'https://github.com/geodacenter/geoda-lib' },
     ],
   },
 });
