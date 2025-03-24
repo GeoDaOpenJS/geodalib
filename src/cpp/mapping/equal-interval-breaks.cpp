@@ -4,7 +4,20 @@
 
 #include "mapping/mapping.h"
 
-// implementation of equal interval breaks
+/**
+ * @brief Calculates break points using the equal interval classification method
+ *
+ * This function divides the range of values into k equal-sized intervals.
+ * It ignores undefined values when calculating the min and max values.
+ *
+ * @param k The number of classes/intervals desired
+ * @param data Vector of numerical values to be classified
+ * @param undefs Vector indicating which values in data are undefined (1=undefined, 0=defined)
+ * @return std::vector<double> A vector of k-1 break points that define k intervals
+ *
+ * @note The returned breaks array will have size k-1, as k intervals are defined by k-1 break points
+ * @note Values marked as undefined in undefs vector are excluded from min/max calculations
+ */
 std::vector<double> geoda::equal_interval_breaks(int k, const std::vector<double>& data,
                                                  const std::vector<int>& undefs) {
   double min_val = std::numeric_limits<double>::max();

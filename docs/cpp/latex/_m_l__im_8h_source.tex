@@ -1,0 +1,35 @@
+\doxysection{ML\+\_\+im.\+h}
+\hypertarget{_m_l__im_8h_source}{}\label{_m_l__im_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/regression/ML\_im.h@{/Users/xun/github/geoda-\/lib/src/cpp/regression/ML\_im.h}}
+\mbox{\hyperlink{_m_l__im_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_GEODA\_CENTER\_ML\_IM\_H\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_GEODA\_CENTER\_ML\_IM\_H\_\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_sparse_matrix_8h}{regression/SparseMatrix.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dense-vector_8h}{regression/dense-\/vector.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lite2_8h}{regression/lite2.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_m_l__im_8h_ab53c1402299638d705e3d859bf6ec278}{SMALL\_DIM}}\ =\ 500;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_m_l__im_8h_a1f5df7075ea5a865017091882fe5558d}{ASYM\_DIM}}\ =\ 1000;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_m_l__im_8h_ac4d54632486f2ce96ed9e08b3a9aedd9}{SimulationLag}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgeoda_1_1_gal_element}{geoda::GalElement}}\ *weight,\ \textcolor{keywordtype}{int}\ num\_obs,\ \textcolor{keywordtype}{int}\ Precision,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ rho,\ \textcolor{keywordtype}{double}\ *my\_Y,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ **my\_X,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ deps,\ \textcolor{keywordtype}{bool}\ InclConstant,\ \textcolor{keywordtype}{double}\ *Lik,\ \textcolor{keywordtype}{double}\ p\_bar\_min\_fraction,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ p\_bar\_max\_fraction);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_m_l__im_8h_a490df47c5e4b5f310339df999010a576}{SimulationError}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgeoda_1_1_gal_element}{geoda::GalElement}}\ *weight,\ \textcolor{keywordtype}{int}\ num\_obs,\ \textcolor{keywordtype}{int}\ Precision,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ rho,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ *my\_Y,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ **my\_X,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ deps,\ \textcolor{keywordtype}{double}\ *\&beta,\ \textcolor{keywordtype}{bool}\ InclConstant,\ \textcolor{keywordtype}{double}\ *Lik,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ p\_bar\_min\_fraction,\ \textcolor{keywordtype}{double}\ p\_bar\_max\_fraction);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_m_l__im_8h_ac4c2f21e656b1b0087c121865c32c6f0}{OLS}}(\mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&y,\ \mbox{\hyperlink{class_dense_vector}{DenseVector}}\ *X,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ IncludeConst,\ \textcolor{keywordtype}{double}\ **\&cov,\ \textcolor{keywordtype}{double}\ *resid,\ \mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&ols);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_m_l__im_8h_a47f53893f09dbe964bd1073f5d344989}{OLSS}}(\mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&y,\ \mbox{\hyperlink{class_dense_vector}{DenseVector}}\ *X,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ IncludeConst,\ \textcolor{keywordtype}{double}\ **\&cov,\ \textcolor{keywordtype}{double}\ **\&ocov,\ \textcolor{keywordtype}{double}\ *resid,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&ols);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_m_l__im_8h_ac4c2f21e656b1b0087c121865c32c6f0}{OLS}}(\mbox{\hyperlink{class_iterator}{Iterator<VALUE>}}\ y,\ \mbox{\hyperlink{class_iterator}{Iterator<WVector>}}\ X,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ IncludeConst,\ \mbox{\hyperlink{class_vector}{Vector<WVector>}}\ \&cov,\ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}}\ \&resid,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}}\ \&ols);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ bool\ ordinaryLS(DenseVector\ \&y,\ DenseVector\ *X,\ double\ **\&cov,\ double\ *resid,\ DenseVector\ \&ols);}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

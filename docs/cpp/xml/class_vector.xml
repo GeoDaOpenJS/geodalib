@@ -1,0 +1,681 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="class_vector" kind="class" language="C++" prot="public">
+    <compoundname>Vector</compoundname>
+    <basecompoundref refid="class_short_iterator" prot="public" virt="non-virtual">ShortIterator&lt; T &gt;</basecompoundref>
+    <includes refid="lite2_8h" local="no">lite2.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref></type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="class_vector_1a02f9e5a029f71cf4ef32ea0940103f3c" prot="public" static="no">
+        <type><ref refid="class_vector" kindref="compound">Vector</ref>&lt; <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> &gt;</type>
+        <definition>typedef Vector&lt;T&gt; Vector&lt; T &gt;::self</definition>
+        <argsstring></argsstring>
+        <name>self</name>
+        <qualifiedname>Vector::self</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="279" column="18" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="279" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_vector_1a6d8f4accea3727e197184e6eaeaf6d0d" prot="public" static="no">
+        <type><ref refid="class_s_l___iterator" kindref="compound">SL_Iterator</ref></type>
+        <definition>typedef SL_Iterator Vector&lt; T &gt;::iterator_type</definition>
+        <argsstring></argsstring>
+        <name>iterator_type</name>
+        <qualifiedname>Vector::iterator_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="280" column="23" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="280" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_vector_1a12449554072b5e05998c3e5607dcc2e3" prot="public" static="no">
+        <type><ref refid="class_iterator" kindref="compound">Iterator</ref>&lt; <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> &gt;</type>
+        <definition>typedef Iterator&lt;T&gt; Vector&lt; T &gt;::input_iterator</definition>
+        <argsstring></argsstring>
+        <name>input_iterator</name>
+        <qualifiedname>Vector::input_iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="281" column="20" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="281" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_vector_1a0fd3434801c6378fdb12167bbfc61614" prot="protected" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t Vector&lt; T &gt;::sz</definition>
+        <argsstring></argsstring>
+        <name>sz</name>
+        <qualifiedname>Vector::sz</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="360" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vector_1a087d2c56a7259a3d6d75573809769a51" prot="protected" static="no" mutable="no">
+        <type><ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> *</type>
+        <definition>T* Vector&lt; T &gt;::begin</definition>
+        <argsstring></argsstring>
+        <name>begin</name>
+        <qualifiedname>Vector::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="361" column="5" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vector_1a5ec0d126a6e0719e8aba43f7bb63788e" prot="protected" static="no" mutable="no">
+        <type><ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> *</type>
+        <definition>T* Vector&lt; T &gt;::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <qualifiedname>Vector::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="362" column="5" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="362" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_vector_1a3ae65492cbc923d327de8e518c6c3921" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Vector&lt; T &gt;::Vector</definition>
+        <argsstring>(const size_t initsize=0)</argsstring>
+        <name>Vector</name>
+        <qualifiedname>Vector::Vector</qualifiedname>
+        <param>
+          <type>const size_t</type>
+          <declname>initsize</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="283" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="283" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a5f057c98bd2bdb3c918beda73ad5c7cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Vector&lt; T &gt;::Vector</definition>
+        <argsstring>(const size_t initsize, const T initvalue)</argsstring>
+        <name>Vector</name>
+        <qualifiedname>Vector::Vector</qualifiedname>
+        <param>
+          <type>const size_t</type>
+          <declname>initsize</declname>
+        </param>
+        <param>
+          <type>const <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref></type>
+          <declname>initvalue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="287" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="287" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1aa0b652b56baf967e57714f65eaae8063" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Vector&lt; T &gt;::Vector</definition>
+        <argsstring>(const Vector&lt; T &gt; &amp;from)</argsstring>
+        <name>Vector</name>
+        <qualifiedname>Vector::Vector</qualifiedname>
+        <param>
+          <type>const <ref refid="class_vector" kindref="compound">Vector</ref>&lt; <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> &gt; &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="291" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="291" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1ac35fa09d494a18708f182bf546f93363" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Vector&lt; T &gt;::Vector</definition>
+        <argsstring>(T *array, const int size)</argsstring>
+        <name>Vector</name>
+        <qualifiedname>Vector::Vector</qualifiedname>
+        <param>
+          <type><ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> *</type>
+          <declname>array</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="295" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="295" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1afd524fac19e6d3d69db5198ffe2952b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Vector&lt; T &gt;::~Vector</definition>
+        <argsstring>()</argsstring>
+        <name>~Vector</name>
+        <qualifiedname>Vector::~Vector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="300" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="300" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a122ac189204ac047cac1e7b174fec789" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Vector&lt; T &gt;::operator void *</definition>
+        <argsstring>() const</argsstring>
+        <name>operator void *</name>
+        <qualifiedname>Vector::operator void *</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="306" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="306" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a90e85e82ba014cf1c4b7c0c48a28fa9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_vector" kindref="compound">Vector</ref> &amp;</type>
+        <definition>Vector &amp; Vector&lt; T &gt;::operator&lt;&lt;</definition>
+        <argsstring>(const T &amp;x)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Vector::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>const <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="307" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="307" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a517904e4c58bad18352f60711290cddd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_vector_1a12449554072b5e05998c3e5607dcc2e3" kindref="member">input_iterator</ref></type>
+        <definition>input_iterator Vector&lt; T &gt;::operator()</definition>
+        <argsstring>() const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>Vector::operator()</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="314" column="18" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="314" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1aa87589ad4e4ce072148ad7339cecd1ec" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_vector_1a12449554072b5e05998c3e5607dcc2e3" kindref="member">input_iterator</ref></type>
+        <definition>input_iterator Vector&lt; T &gt;::operator()</definition>
+        <argsstring>(const size_t dim) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>Vector::operator()</qualifiedname>
+        <param>
+          <type>const size_t</type>
+          <declname>dim</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="315" column="18" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="315" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1ac1fa84ca41982c93980996053dfe6991" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> &amp;</type>
+        <definition>T &amp; Vector&lt; T &gt;::operator[]</definition>
+        <argsstring>(const size_t loc)</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>Vector::operator[]</qualifiedname>
+        <param>
+          <type>const size_t</type>
+          <declname>loc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="319" column="5" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="319" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a5cf8e7cab819d8d26e7049a178d58014" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> &amp;</type>
+        <definition>T &amp; Vector&lt; T &gt;::operator[]</definition>
+        <argsstring>(const size_t loc) const</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>Vector::operator[]</qualifiedname>
+        <param>
+          <type>const size_t</type>
+          <declname>loc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="320" column="5" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="320" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1aa180e41d75824c650d74115c9d456230" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_vector_1a02f9e5a029f71cf4ef32ea0940103f3c" kindref="member">self</ref> &amp;</type>
+        <definition>Vector&lt; T &gt; &amp; Vector&lt; T &gt;::operator=</definition>
+        <argsstring>(self &amp;from)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Vector::operator=</qualifiedname>
+        <param>
+          <type><ref refid="class_vector_1a02f9e5a029f71cf4ef32ea0940103f3c" kindref="member">self</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="321" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="380" bodyend="386"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a6fff35341bb311837fedc45a3038e6f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_vector_1a02f9e5a029f71cf4ef32ea0940103f3c" kindref="member">self</ref> &amp;</type>
+        <definition>Vector&lt; T &gt; &amp; Vector&lt; T &gt;::operator=</definition>
+        <argsstring>(const self &amp;from)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Vector::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_vector_1a02f9e5a029f71cf4ef32ea0940103f3c" kindref="member">self</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="322" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="391" bodyend="397"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a3762bf4b079290011c9dbe7bd835c0f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_vector_1a02f9e5a029f71cf4ef32ea0940103f3c" kindref="member">self</ref> &amp;</type>
+        <definition>Vector&lt; T &gt; &amp; Vector&lt; T &gt;::operator=</definition>
+        <argsstring>(self *from)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Vector::operator=</qualifiedname>
+        <param>
+          <type><ref refid="class_vector_1a02f9e5a029f71cf4ef32ea0940103f3c" kindref="member">self</ref> *</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="325" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="402" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a864d1f7b69f57a633f3b248fad3619ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vector&lt; T &gt;::alloc</definition>
+        <argsstring>(const size_t initsize=0)</argsstring>
+        <name>alloc</name>
+        <qualifiedname>Vector::alloc</qualifiedname>
+        <param>
+          <type>const size_t</type>
+          <declname>initsize</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="327" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="458" bodyend="471"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a3d4aaeb95cdd277a335783cf6b0193d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vector&lt; T &gt;::alloc</definition>
+        <argsstring>(const size_t initsize, const T initvalue)</argsstring>
+        <name>alloc</name>
+        <qualifiedname>Vector::alloc</qualifiedname>
+        <param>
+          <type>const size_t</type>
+          <declname>initsize</declname>
+        </param>
+        <param>
+          <type>const <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref></type>
+          <declname>initvalue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="328" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="425" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a32ad98b135472b0ebc5d6cb3ae5d0085" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vector&lt; T &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>Vector::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="329" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="329" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1ae4c41304edf8d979e751bcb1ae2c627e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t Vector&lt; T &gt;::copy</definition>
+        <argsstring>(Iterator&lt; T &gt; from)</argsstring>
+        <name>copy</name>
+        <qualifiedname>Vector::copy</qualifiedname>
+        <param>
+          <type><ref refid="class_iterator" kindref="compound">Iterator</ref>&lt; <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> &gt;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="336" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="414" bodyend="422"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1af45f4326d063c568d21181d0d5738838" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t Vector&lt; T &gt;::count</definition>
+        <argsstring>() const</argsstring>
+        <name>count</name>
+        <qualifiedname>Vector::count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="337" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="337" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a557dae0338b7c4f08a58cae39a7df869" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vector&lt; T &gt;::destroy</definition>
+        <argsstring>()</argsstring>
+        <name>destroy</name>
+        <qualifiedname>Vector::destroy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="338" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="338" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1ad688a8a0dfbd07ea63d838058a436f79" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Vector&lt; T &gt;::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <qualifiedname>Vector::empty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="343" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="343" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a53aad8ce8c9b993a8d4db1734a8f7cee" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> *</type>
+        <definition>T * Vector&lt; T &gt;::first</definition>
+        <argsstring>() const</argsstring>
+        <name>first</name>
+        <qualifiedname>Vector::first</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="344" column="5" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="344" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1ae5041c136faabeccd5ed9f519c9f4e80" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> *</type>
+        <definition>T * Vector&lt; T &gt;::last</definition>
+        <argsstring>() const</argsstring>
+        <name>last</name>
+        <qualifiedname>Vector::last</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="345" column="5" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="345" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1aecbdf33f934d6f2803e08c65d9c2fd1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vector&lt; T &gt;::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>Vector::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="346" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="346" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1ad68b022fd919c10c8ebef99b739294e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vector&lt; T &gt;::reset</definition>
+        <argsstring>(int s)</argsstring>
+        <name>reset</name>
+        <qualifiedname>Vector::reset</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="350" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="350" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1ad8bbf4b4aa450d119ec2c44c80e71ae6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vector&lt; T &gt;::fill</definition>
+        <argsstring>(const size_t initsize, const T initvalue)</argsstring>
+        <name>fill</name>
+        <qualifiedname>Vector::fill</qualifiedname>
+        <param>
+          <type>const size_t</type>
+          <declname>initsize</declname>
+        </param>
+        <param>
+          <type>const <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref></type>
+          <declname>initvalue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="355" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="371" bodyend="375"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a9b439586cd10cb45d002ca9d6e3db43c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t Vector&lt; T &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <qualifiedname>Vector::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="356" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="356" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_1a3cd35c20c654363bb9e0c3ea77f977e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vector&lt; T &gt;::Swap</definition>
+        <argsstring>(self &amp;with)</argsstring>
+        <name>Swap</name>
+        <qualifiedname>Vector::Swap</qualifiedname>
+        <param>
+          <type><ref refid="class_vector_1a02f9e5a029f71cf4ef32ea0940103f3c" kindref="member">self</ref> &amp;</type>
+          <declname>with</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="357" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="434" bodyend="447"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_vector_1ae6e986f95d278c11be5a42ff64dae0e8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Vector&lt; T &gt;::realloc</definition>
+        <argsstring>(const size_t newsize)</argsstring>
+        <name>realloc</name>
+        <qualifiedname>Vector::realloc</qualifiedname>
+        <param>
+          <type>const size_t</type>
+          <declname>newsize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="365" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="481" bodyend="488"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ShortIterator&lt; T &gt;</label>
+        <link refid="class_short_iterator"/>
+      </node>
+      <node id="1">
+        <label>Vector&lt; T &gt;</label>
+        <link refid="class_vector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ShortIterator&lt; T &gt;</label>
+        <link refid="class_short_iterator"/>
+      </node>
+      <node id="1">
+        <label>Vector&lt; T &gt;</label>
+        <link refid="class_vector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="277" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="277" bodyend="366"/>
+    <listofallmembers>
+      <member refid="class_vector_1a864d1f7b69f57a633f3b248fad3619ee" prot="public" virt="non-virtual"><scope>Vector</scope><name>alloc</name></member>
+      <member refid="class_vector_1a3d4aaeb95cdd277a335783cf6b0193d1" prot="public" virt="non-virtual"><scope>Vector</scope><name>alloc</name></member>
+      <member refid="class_vector_1a087d2c56a7259a3d6d75573809769a51" prot="protected" virt="non-virtual"><scope>Vector</scope><name>begin</name></member>
+      <member refid="class_vector_1a32ad98b135472b0ebc5d6cb3ae5d0085" prot="public" virt="non-virtual"><scope>Vector</scope><name>clear</name></member>
+      <member refid="class_vector_1ae4c41304edf8d979e751bcb1ae2c627e" prot="public" virt="non-virtual"><scope>Vector</scope><name>copy</name></member>
+      <member refid="class_vector_1af45f4326d063c568d21181d0d5738838" prot="public" virt="non-virtual"><scope>Vector</scope><name>count</name></member>
+      <member refid="class_short_iterator_1a53ec66291ce2b7e582be864a5904be33" prot="public" virt="non-virtual"><scope>Vector</scope><name>data</name></member>
+      <member refid="class_vector_1a557dae0338b7c4f08a58cae39a7df869" prot="public" virt="non-virtual"><scope>Vector</scope><name>destroy</name></member>
+      <member refid="class_vector_1ad688a8a0dfbd07ea63d838058a436f79" prot="public" virt="non-virtual"><scope>Vector</scope><name>empty</name></member>
+      <member refid="class_vector_1a5ec0d126a6e0719e8aba43f7bb63788e" prot="protected" virt="non-virtual"><scope>Vector</scope><name>end</name></member>
+      <member refid="class_vector_1ad8bbf4b4aa450d119ec2c44c80e71ae6" prot="public" virt="non-virtual"><scope>Vector</scope><name>fill</name></member>
+      <member refid="class_vector_1a53aad8ce8c9b993a8d4db1734a8f7cee" prot="public" virt="non-virtual"><scope>Vector</scope><name>first</name></member>
+      <member refid="class_vector_1a12449554072b5e05998c3e5607dcc2e3" prot="public" virt="non-virtual"><scope>Vector</scope><name>input_iterator</name></member>
+      <member refid="class_vector_1a6d8f4accea3727e197184e6eaeaf6d0d" prot="public" virt="non-virtual"><scope>Vector</scope><name>iterator_type</name></member>
+      <member refid="class_vector_1ae5041c136faabeccd5ed9f519c9f4e80" prot="public" virt="non-virtual"><scope>Vector</scope><name>last</name></member>
+      <member refid="class_vector_1a122ac189204ac047cac1e7b174fec789" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator void *</name></member>
+      <member refid="class_vector_1a517904e4c58bad18352f60711290cddd" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator()</name></member>
+      <member refid="class_vector_1aa87589ad4e4ce072148ad7339cecd1ec" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator()</name></member>
+      <member refid="class_short_iterator_1a73df9cc6d70bef3fccb6932a6f9c9c9a" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator*</name></member>
+      <member refid="class_short_iterator_1ad7752b89a0617b67658158bef76b3ace" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator*</name></member>
+      <member refid="class_short_iterator_1a63bd4fd36fcaf114a50dc0595669ff37" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator++</name></member>
+      <member refid="class_short_iterator_1a115a239ff0156caa0e7e7e0d54812764" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator++</name></member>
+      <member refid="class_short_iterator_1a8dbfe25cf493edd05de30ebd06f8f557" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator+=</name></member>
+      <member refid="class_short_iterator_1a693d443b28121a088f979c806d4ec71e" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator--</name></member>
+      <member refid="class_short_iterator_1a8d5c9949fa3f464c92afbf85ea2e1f6d" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator--</name></member>
+      <member refid="class_short_iterator_1ae938288a55143f0485ab25688bfe91bc" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator-=</name></member>
+      <member refid="class_short_iterator_1a85c956189108692704a629fc5ea0e32c" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator&lt;</name></member>
+      <member refid="class_vector_1a90e85e82ba014cf1c4b7c0c48a28fa9d" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator&lt;&lt;</name></member>
+      <member refid="class_vector_1aa180e41d75824c650d74115c9d456230" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator=</name></member>
+      <member refid="class_vector_1a6fff35341bb311837fedc45a3038e6f3" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator=</name></member>
+      <member refid="class_vector_1a3762bf4b079290011c9dbe7bd835c0f6" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator=</name></member>
+      <member refid="class_vector_1ac1fa84ca41982c93980996053dfe6991" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator[]</name></member>
+      <member refid="class_vector_1a5cf8e7cab819d8d26e7049a178d58014" prot="public" virt="non-virtual"><scope>Vector</scope><name>operator[]</name></member>
+      <member refid="class_short_iterator_1a4691fb26c05291e3bb8155459cdc878b" prot="public" virt="non-virtual"><scope>Vector</scope><name>pointer</name></member>
+      <member refid="class_short_iterator_1a40ae249b29a01c173bc2654f7a7bb066" prot="protected" virt="non-virtual"><scope>Vector</scope><name>ptr</name></member>
+      <member refid="class_vector_1ae6e986f95d278c11be5a42ff64dae0e8" prot="private" virt="non-virtual"><scope>Vector</scope><name>realloc</name></member>
+      <member refid="class_vector_1aecbdf33f934d6f2803e08c65d9c2fd1d" prot="public" virt="non-virtual"><scope>Vector</scope><name>reset</name></member>
+      <member refid="class_vector_1ad68b022fd919c10c8ebef99b739294e8" prot="public" virt="non-virtual"><scope>Vector</scope><name>reset</name></member>
+      <member refid="class_vector_1a02f9e5a029f71cf4ef32ea0940103f3c" prot="public" virt="non-virtual"><scope>Vector</scope><name>self</name></member>
+      <member refid="class_short_iterator_1abb8cb59442db13d6953a81ba7e075e5a" prot="public" virt="non-virtual"><scope>Vector</scope><name>ShortIterator</name></member>
+      <member refid="class_vector_1a9b439586cd10cb45d002ca9d6e3db43c" prot="public" virt="non-virtual"><scope>Vector</scope><name>size</name></member>
+      <member refid="class_vector_1a3cd35c20c654363bb9e0c3ea77f977e0" prot="public" virt="non-virtual"><scope>Vector</scope><name>Swap</name></member>
+      <member refid="class_vector_1a0fd3434801c6378fdb12167bbfc61614" prot="protected" virt="non-virtual"><scope>Vector</scope><name>sz</name></member>
+      <member refid="class_vector_1a3ae65492cbc923d327de8e518c6c3921" prot="public" virt="non-virtual"><scope>Vector</scope><name>Vector</name></member>
+      <member refid="class_vector_1a5f057c98bd2bdb3c918beda73ad5c7cb" prot="public" virt="non-virtual"><scope>Vector</scope><name>Vector</name></member>
+      <member refid="class_vector_1aa0b652b56baf967e57714f65eaae8063" prot="public" virt="non-virtual"><scope>Vector</scope><name>Vector</name></member>
+      <member refid="class_vector_1ac35fa09d494a18708f182bf546f93363" prot="public" virt="non-virtual"><scope>Vector</scope><name>Vector</name></member>
+      <member refid="class_short_iterator_1aeb12a7f706bbedb798ce8c32bd37d22d" prot="public" virt="non-virtual"><scope>Vector</scope><name>~ShortIterator</name></member>
+      <member refid="class_vector_1afd524fac19e6d3d69db5198ffe2952b0" prot="public" virt="non-virtual"><scope>Vector</scope><name>~Vector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

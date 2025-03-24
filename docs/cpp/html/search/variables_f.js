@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['p_0',['p',['../struct__jcv__site.html#ad84e04d2917a2263eb32cc80597e336b',1,'_jcv_site']]],
+  ['parts_1',['parts',['../classgeoda_1_1_polygon.html#a60e43dbb6f5dcd6b59b6457a0c9e1192',1,'geoda::Polygon::parts'],['../classgeoda_1_1_line.html#aa451d12787cff2e3d2a62ee2c4b21e1f',1,'geoda::Line::parts'],['../classgeoda_1_1_geometry_collection.html#a6b093922e9b1b191b4c2f865e030e067',1,'geoda::GeometryCollection::parts']]],
+  ['perm_5ftable_2',['perm_table',['../class_l_i_s_a.html#a4e4104294cae67b667c3ef8a435027cf',1,'LISA']]],
+  ['permutation_5fmethod_3',['permutation_method',['../class_l_i_s_a.html#adb5baf0ecda6023779bab868d9c45af5',1,'LISA']]],
+  ['permutations_4',['permutations',['../class_batch_l_i_s_a.html#aa68604b747006dc0da9dd22a4276ec2e',1,'BatchLISA::permutations'],['../class_l_i_s_a.html#aa1b448ba82487d84f7d34b5a48687ca7',1,'LISA::permutations']]],
+  ['pi_5',['pi',['../namespacegeoda.html#a0f16cae6541a1593e2c61524e654b4f7',1,'geoda']]],
+  ['pi_5fover_5f180_6',['pi_over_180',['../namespacegeoda.html#a01ceccbc23ee69f10a97f63663bcd9f9',1,'geoda']]],
+  ['points_7',['points',['../classgeoda_1_1_point_collection.html#a6ed0c3ce70517956fe772e04be10ab64',1,'geoda::PointCollection']]],
+  ['poly_8',['Poly',['../polym_8h.html#af612757c1d1352066bd1b8773453e5d2',1,'polym.h']]],
+  ['polygon_5findex_9',['polygon_index',['../classgeoda_1_1_polygon_partition.html#a30fec504b722ce7005a74dfee2879937',1,'geoda::PolygonPartition']]],
+  ['polygons_10',['polygons',['../classgeoda_1_1_polygon_collection.html#af147a9fc1724c0a17a29e544df674499',1,'geoda::PolygonCollection']]],
+  ['pos_11',['pos',['../struct__jcv__graphedge.html#aa471bf8739860ecfa6c56343ee33eff3',1,'_jcv_graphedge::pos'],['../struct__jcv__edge.html#a184b5a86b5e25e4c2b076b10ee793fc9',1,'_jcv_edge::pos']]],
+  ['prederr_12',['prederr',['../class_diagnostic_report.html#a77b2d150122e45c603c94a5d802ed2f7',1,'DiagnosticReport']]],
+  ['prev_13',['prev',['../structgeoda_1_1_ref.html#ab2d2b7a4fa609f9f16739776d4db8d6f',1,'geoda::Ref']]],
+  ['probs_14',['probs',['../class_diagnostic_report.html#a04ce972a6f4987bbc3115985ea4920b0',1,'DiagnosticReport']]],
+  ['ptr_15',['ptr',['../class_short_iterator.html#a40ae249b29a01c173bc2654f7a7bb066',1,'ShortIterator']]],
+  ['px_16',['pX',['../classgeoda_1_1_polygon_partition.html#a69fcbef052127f103cc0b1e38adc5b6c',1,'geoda::PolygonPartition']]],
+  ['py_17',['pY',['../classgeoda_1_1_polygon_partition.html#af5075486c92b2bbf59512817eacdb0eb',1,'geoda::PolygonPartition']]]
+];

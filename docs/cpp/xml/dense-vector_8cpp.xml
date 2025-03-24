@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="dense-vector_8cpp" kind="file" language="C++">
+    <compoundname>dense-vector.cpp</compoundname>
+    <includes refid="dense-vector_8h" local="yes">regression/dense-vector.h</includes>
+    <includes refid="mix_8h" local="yes">regression/mix.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/dense-vector.cpp</label>
+        <link refid="dense-vector_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>regression/dense-vector.h</label>
+        <link refid="dense-vector_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>regression/mix.h</label>
+        <link refid="mix_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>algorithm</label>
+      </node>
+      <node id="6">
+        <label>fstream</label>
+      </node>
+      <node id="7">
+        <label>iostream</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="8">
+        <label>utility</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dense-vector_8h" kindref="compound">regression/dense-vector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mix_8h" kindref="compound">regression/mix.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><ref refid="class_dense_vector_1a55db0f001aa0ab7f21a8795c07fbe8a6" kindref="member">DenseVector::DenseVector</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sz)<sp/>:<sp/>size(0),<sp/>val(NULL)<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sz<sp/>&lt;<sp/>0)<sp/><ref refid="mix_8cpp_1a1f896110d76c45bdb438bf7a8af67163" kindref="member">error</ref>(</highlight><highlight class="stringliteral">&quot;<sp/><sp/>size<sp/>of<sp/>vector<sp/>must<sp/>be<sp/>positive&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sz<sp/>&gt;<sp/>0)<sp/><ref refid="mix_8h_1a4707176f2cd6eb4dc734fffb6cf10feb" kindref="member">alloc</ref>(sz);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1a97fb7da8dea1acb844b89cf5e74e7801" kindref="member">DenseVector::alloc</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sz)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(size<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>size<sp/>!=<sp/>sz)<sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;val);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>size<sp/>=<sp/>sz;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>val<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[sz];</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!val)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8cpp_1a1f896110d76c45bdb438bf7a8af67163" kindref="member">error</ref>(</highlight><highlight class="stringliteral">&quot;Error:<sp/>fail<sp/>to<sp/>allocate<sp/>memory&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>rlse<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><ref refid="class_dense_vector_1ac9cb9fd0c0b7785f5373a389804c9987" kindref="member">reset</ref>();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><ref refid="class_dense_vector_1a24e8e448ec30aa37fd2ae96cd4d5e4b0" kindref="member">DenseVector::~DenseVector</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rlse)<sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;val);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>rlse<sp/>=<sp/>true;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>size<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1add4bd59500ec4805abbd203dfb273226" kindref="member">DenseVector::addTimes</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>&amp;v,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;w)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>0;<sp/>cnt<sp/>&lt;<sp/>size;<sp/>++cnt)<sp/>val[cnt]<sp/>+=<sp/>v.val[cnt]<sp/>*<sp/>w;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1ab9b1dcae082f4b324aca15ec222d8d42" kindref="member">DenseVector::minus</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>&amp;a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>&amp;b)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(a.size<sp/>!=<sp/>this-&gt;size<sp/>||<sp/>b.size<sp/>!=<sp/>this-&gt;size)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8cpp_1a1f896110d76c45bdb438bf7a8af67163" kindref="member">error</ref>(</highlight><highlight class="stringliteral">&quot;<sp/><sp/>vector<sp/>size<sp/>don&apos;t<sp/>match&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>0;<sp/>cnt<sp/>&lt;<sp/>size;<sp/>++cnt)<sp/>val[cnt]<sp/>=<sp/>a.val[cnt]<sp/>-<sp/>b.val[cnt];</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1a8e5e9af36c71cfc5507fd8fac7bb02dd" kindref="member">DenseVector::norm</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/>return<sp/>::norm(val,<sp/>size);<sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1a73a9483af1a14b8b8a6ef8ade3e8eb0d" kindref="member">DenseVector::product</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>&amp;a)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>s<sp/>=<sp/><ref refid="class_dense_vector_1a73a9483af1a14b8b8a6ef8ade3e8eb0d" kindref="member">::product</ref>(this-&gt;val,<sp/>a.val,<sp/>size);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1a6ed0c4ad43eaefb7cc934c53f1d10df3" kindref="member">DenseVector::timesMatrix</ref>(<ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>&amp;v,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>*w)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim<sp/>=<sp/>w[0].<ref refid="class_dense_vector_1ab8cd31005d532650e2173b1f170a9e80" kindref="member">getSize</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>v.<ref refid="class_dense_vector_1a97fb7da8dea1acb844b89cf5e74e7801" kindref="member">alloc</ref>(dim);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>0;<sp/>cnt<sp/>&lt;<sp/>dim;<sp/>++cnt)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>s<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cp<sp/>=<sp/>0;<sp/>cp<sp/>&lt;<sp/>this-&gt;<ref refid="class_dense_vector_1ab8cd31005d532650e2173b1f170a9e80" kindref="member">getSize</ref>();<sp/>++cp)<sp/>s<sp/>+=<sp/>this-&gt;<ref refid="class_dense_vector_1a53c25746757ef64ce3c9fae84731d3a7" kindref="member">getValue</ref>(cp)<sp/>*<sp/>w[cp].<ref refid="class_dense_vector_1a53c25746757ef64ce3c9fae84731d3a7" kindref="member">getValue</ref>(cnt);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>v.<ref refid="class_dense_vector_1a0ebe880f97938eab1c0d4f8241ca40a9" kindref="member">setAt</ref>(cnt,<sp/>s);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1a394cd05bc0a6d8eff5de3d8c3c6897a8" kindref="member">DenseVector::timesSquareMatrix</ref>(<ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>&amp;v,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>**cov)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>v.<ref refid="class_dense_vector_1a97fb7da8dea1acb844b89cf5e74e7801" kindref="member">alloc</ref>(this-&gt;<ref refid="class_dense_vector_1ab8cd31005d532650e2173b1f170a9e80" kindref="member">getSize</ref>());</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>0;<sp/>cnt<sp/>&lt;<sp/><ref refid="class_dense_vector_1ab8cd31005d532650e2173b1f170a9e80" kindref="member">getSize</ref>();<sp/>++cnt)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>s<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cp<sp/>=<sp/>0;<sp/>cp<sp/>&lt;<sp/><ref refid="class_dense_vector_1ab8cd31005d532650e2173b1f170a9e80" kindref="member">getSize</ref>();<sp/>++cp)<sp/>s<sp/>+=<sp/><ref refid="class_dense_vector_1a53c25746757ef64ce3c9fae84731d3a7" kindref="member">getValue</ref>(cp)<sp/>*<sp/>cov[cp][cnt];</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>v.<ref refid="class_dense_vector_1a0ebe880f97938eab1c0d4f8241ca40a9" kindref="member">setAt</ref>(cnt,<sp/>s);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1ada7c406501cce1984e7b867278c1ff58" kindref="member">DenseVector::squareTimesColumn</ref>(<ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>&amp;v,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>**cov)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>v.<ref refid="class_dense_vector_1a97fb7da8dea1acb844b89cf5e74e7801" kindref="member">alloc</ref>(this-&gt;<ref refid="class_dense_vector_1ab8cd31005d532650e2173b1f170a9e80" kindref="member">getSize</ref>());</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>0;<sp/>cnt<sp/>&lt;<sp/><ref refid="class_dense_vector_1ab8cd31005d532650e2173b1f170a9e80" kindref="member">getSize</ref>();<sp/>++cnt)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>s<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cp<sp/>=<sp/>0;<sp/>cp<sp/>&lt;<sp/><ref refid="class_dense_vector_1ab8cd31005d532650e2173b1f170a9e80" kindref="member">getSize</ref>();<sp/>++cp)<sp/>s<sp/>+=<sp/><ref refid="class_dense_vector_1a53c25746757ef64ce3c9fae84731d3a7" kindref="member">getValue</ref>(cp)<sp/>*<sp/>cov[cnt][cp];</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>v.<ref refid="class_dense_vector_1a0ebe880f97938eab1c0d4f8241ca40a9" kindref="member">setAt</ref>(cnt,<sp/>s);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1aa90dfac5d825ac9c23b98d05668e7d66" kindref="member">DenseVector::copy</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>&amp;a)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>0;<sp/>cnt<sp/>&lt;<sp/>size;<sp/>++cnt)<sp/>val[cnt]<sp/>=<sp/>a.val[cnt];</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1a9e17b454a2854ce2029298d0f6573ee9" kindref="member">DenseVector::timesPlus</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>&amp;a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;s)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>0;<sp/>cnt<sp/>&lt;<sp/>size;<sp/>++cnt)<sp/>val[cnt]<sp/>=<sp/>val[cnt]<sp/>*<sp/>s<sp/>+<sp/>a.val[cnt];</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1a1514f30675ed794898c718970d0950a5" kindref="member">DenseVector::sum</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1a1514f30675ed794898c718970d0950a5" kindref="member">sum</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>0;<sp/>cnt<sp/>&lt;<sp/>size;<sp/>++cnt)<sp/><ref refid="class_dense_vector_1a1514f30675ed794898c718970d0950a5" kindref="member">sum</ref><sp/>+=<sp/>val[cnt];</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector_1a1514f30675ed794898c718970d0950a5" kindref="member">sum</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/dense-vector.cpp"/>
+  </compounddef>
+</doxygen>

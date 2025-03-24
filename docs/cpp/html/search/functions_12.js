@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['readdouble_0',['readDouble',['../_m_l__im_8cpp.html#a5251df0586ef200d95eb1077961cfdae',1,'ML_im.cpp']]],
+  ['readint_1',['readInt',['../_m_l__im_8cpp.html#af02288015755b1e979a4f3bb8d229152',1,'ML_im.cpp']]],
+  ['ref_2',['Ref',['../structgeoda_1_1_ref.html#a00b159442c63d293c05740fe6d188d30',1,'geoda::Ref']]],
+  ['regression_5fhelper_3',['regression_helper',['../namespacegeoda.html#a435d967d7dc12f81b28f83653d57e960',1,'geoda']]],
+  ['release_4',['release',['../mix_8h.html#a5ea642f00e337ed9f13f393e21ca2ce9',1,'mix.h']]],
+  ['release_5fvar_5',['release_Var',['../class_diagnostic_report.html#a548189ff7908784c22cd31ff60c3d782',1,'DiagnosticReport']]],
+  ['remove_6',['remove',['../classgeoda_1_1_partition_p.html#abfcfc09717d75e1a89f6cc1aa2be0ddc',1,'geoda::PartitionP::remove()'],['../classgeoda_1_1_partition_m.html#a94eb3b57d20d6e93e4f2549f0cf6445b',1,'geoda::PartitionM::remove()']]],
+  ['removecolumns_7',['RemoveColumns',['../polym_8h.html#abaab16ef4c9c80a1f8ebb2b96a75dbb4',1,'polym.h']]],
+  ['removethebelt_8',['RemoveTheBelt',['../polym_8h.html#ab41c635f92197ad9d125952a4ae94090',1,'polym.h']]],
+  ['rename_9',['Rename',['../polym_8h.html#aeb5dc3aae4617b1ecd855c54d6d10565',1,'polym.h']]],
+  ['reportdensevector_10',['ReportDenseVector',['../smile2_8cpp.html#a9848ecba5be460e99011c5734a91cec7',1,'smile2.cpp']]],
+  ['reset_11',['Reset',['../class_geo_da_set.html#a1e0fdb6c332fb6d881256836b56a7dde',1,'GeoDaSet']]],
+  ['reset_12',['reset',['../class_dense_vector.html#ac9cb9fd0c0b7785f5373a389804c9987',1,'DenseVector::reset()'],['../class_vector.html#aecbdf33f934d6f2803e08c65d9c2fd1d',1,'Vector::reset()'],['../class_vector.html#ad68b022fd919c10c8ebef99b739294e8',1,'Vector::reset(int s)'],['../class_sparse_vector.html#ab144815479ee95f102ee3c15ea1e825b',1,'SparseVector::reset()']]],
+  ['residual_13',['residual',['../_m_l__im_8cpp.html#a34beccf854252b640ecf4ce44858a2b3',1,'residual(const DenseVector &amp;rhs, const DenseVector *X, const DenseVector &amp;ols, DenseVector &amp;resid):&#160;ML_im.cpp'],['../smile2_8cpp.html#a34beccf854252b640ecf4ce44858a2b3',1,'residual(const DenseVector &amp;rhs, const DenseVector *X, const DenseVector &amp;ols, DenseVector &amp;resid):&#160;ML_im.cpp']]],
+  ['reversenbrs_14',['ReverseNbrs',['../classgeoda_1_1_gal_element.html#a85d7ff24f1822da3028216398a47cb67',1,'geoda::GalElement']]],
+  ['rotation_15',['Rotation',['../_m_l__im_8cpp.html#aa65a3c42e72b1d6b5080f8658ad71594',1,'ML_im.cpp']]],
+  ['rowiminusrhothis_16',['rowIminusRhoThis',['../class_sparse_matrix.html#ac0be6b83481087a0ca05db3a8063e118',1,'SparseMatrix']]],
+  ['rowmatrix_17',['rowMatrix',['../class_sparse_matrix.html#a13e4bc731bac5f1c3c4ff0abf123af99',1,'SparseMatrix']]],
+  ['rowmultiply_18',['RowMultiply',['../_power_lag_8h.html#a15d397a6439196ca8dfc13a97984460f',1,'PowerLag.h']]],
+  ['rowplussrow_19',['rowPlusSRow',['../class_sparse_row.html#abdb99ae3d00a8c02795efabc1b5c39ea',1,'SparseRow::rowPlusSRow(SparseVector &amp;v, const double w) const'],['../class_sparse_row.html#a5e253d5950e8de8f3292349dd0d25081',1,'SparseRow::rowPlusSRow(DenseVector &amp;v, const double w) const']]],
+  ['rowstandardize_20',['RowStandardize',['../_m_l__im_8cpp.html#aec803f52a1f99bca131465a6ac8a9496',1,'RowStandardize(Iterator&lt; WMap &gt; mt):&#160;ML_im.cpp'],['../_m_l__im_8cpp.html#a0ba1cbef0434acc1fc69b6771d326584',1,'RowStandardize(Iterator&lt; WVector &gt; it):&#160;ML_im.cpp']]],
+  ['rowstandardize_21',['rowStandardize',['../class_sparse_matrix.html#a094158f24145751d4ce10d6a07c13171',1,'SparseMatrix']]],
+  ['run_22',['Run',['../class_batch_l_i_s_a.html#afc0199862116962406688e23d9cb8eec',1,'BatchLISA::Run()'],['../class_l_i_s_a.html#a4ffb64846007d1d7ff443f57112b28f9',1,'LISA::Run()']]],
+  ['run1_23',['run1',['../_m_l__im_8cpp.html#a8d7ecde547bbec9b4b6feceb8aa839b4',1,'run1(SparseMatrix &amp;w, const double rr, double &amp;trace, double &amp;trace2, double &amp;frobenius, double p_bar_min_fraction, double p_bar_max_fraction):&#160;ML_im.cpp'],['../smile2_8cpp.html#a8d7ecde547bbec9b4b6feceb8aa839b4',1,'run1(SparseMatrix &amp;w, const double rr, double &amp;trace, double &amp;trace2, double &amp;frobenius, double p_bar_min_fraction, double p_bar_max_fraction):&#160;ML_im.cpp']]]
+];

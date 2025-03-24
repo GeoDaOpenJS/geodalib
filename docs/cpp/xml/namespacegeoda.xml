@@ -1,0 +1,2095 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="namespacegeoda" kind="namespace" language="C++">
+    <compoundname>geoda</compoundname>
+    <innerclass refid="classgeoda_1_1_base_partition" prot="public">geoda::BasePartition</innerclass>
+    <innerclass refid="classgeoda_1_1_gal_element" prot="public">geoda::GalElement</innerclass>
+    <innerclass refid="classgeoda_1_1_geometry" prot="public">geoda::Geometry</innerclass>
+    <innerclass refid="classgeoda_1_1_geometry_collection" prot="public">geoda::GeometryCollection</innerclass>
+    <innerclass refid="classgeoda_1_1_line" prot="public">geoda::Line</innerclass>
+    <innerclass refid="classgeoda_1_1_line_collection" prot="public">geoda::LineCollection</innerclass>
+    <innerclass refid="structgeoda_1_1_lisa_result" prot="public">geoda::LisaResult</innerclass>
+    <innerclass refid="classgeoda_1_1_partition_m" prot="public">geoda::PartitionM</innerclass>
+    <innerclass refid="classgeoda_1_1_partition_p" prot="public">geoda::PartitionP</innerclass>
+    <innerclass refid="classgeoda_1_1_point" prot="public">geoda::Point</innerclass>
+    <innerclass refid="classgeoda_1_1_point_collection" prot="public">geoda::PointCollection</innerclass>
+    <innerclass refid="classgeoda_1_1_polygon" prot="public">geoda::Polygon</innerclass>
+    <innerclass refid="classgeoda_1_1_polygon_collection" prot="public">geoda::PolygonCollection</innerclass>
+    <innerclass refid="classgeoda_1_1_polygon_partition" prot="public">geoda::PolygonPartition</innerclass>
+    <innerclass refid="structgeoda_1_1_ref" prot="public">geoda::Ref</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacegeoda_1a20fd16562e89848c50247b0d9c865348" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ShapeType</name>
+        <qualifiedname>geoda::ShapeType</qualifiedname>
+        <enumvalue id="namespacegeoda_1a20fd16562e89848c50247b0d9c865348a192924cc003eed4049ee213193034d3c" prot="public">
+          <name>POINT</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacegeoda_1a20fd16562e89848c50247b0d9c865348a3ef27c9d88e9d8579e62af71d9e6f73c" prot="public">
+          <name>LINE</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacegeoda_1a20fd16562e89848c50247b0d9c865348ad57a95d0e1b24c7ec3dc75d0b5ee4f37" prot="public">
+          <name>POLYGON</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="19" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacegeoda_1aeda937a4cddab0c05b1ecf7682b74abf" prot="public" static="no" strong="no">
+        <type></type>
+        <name>RegressionModel</name>
+        <qualifiedname>geoda::RegressionModel</qualifiedname>
+        <enumvalue id="namespacegeoda_1aeda937a4cddab0c05b1ecf7682b74abfad77753b59ea4f6c7d114acecb0510077" prot="public">
+          <name>OLS</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacegeoda_1aeda937a4cddab0c05b1ecf7682b74abfa1d82c10408a97fb4037f16e24d99d8f8" prot="public">
+          <name>SPATIAL_LAG</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacegeoda_1aeda937a4cddab0c05b1ecf7682b74abfa51d8ece19fa7268a7a602ac3feb5a700" prot="public">
+          <name>SPATIAL_ERROR</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" line="15" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacegeoda_1a8194b74832000db775cc553040126c88" prot="public" static="no" strong="no">
+        <type></type>
+        <name>LocalMoranClusterType</name>
+        <qualifiedname>geoda::LocalMoranClusterType</qualifiedname>
+        <enumvalue id="namespacegeoda_1a8194b74832000db775cc553040126c88afcb26c5f969390a65abe86add70398df" prot="public">
+          <name>HH</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacegeoda_1a8194b74832000db775cc553040126c88a05067a3789e9d47a036f57e506575f3d" prot="public">
+          <name>LL</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacegeoda_1a8194b74832000db775cc553040126c88aec5dca9e2204b1a5d32be5369157f42e" prot="public">
+          <name>HL</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacegeoda_1a8194b74832000db775cc553040126c88a51185311473f4e3a03d21a7ac47eb3cc" prot="public">
+          <name>LH</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacegeoda_1a8194b74832000db775cc553040126c88a13b6345248fd2f0648de0bae82822dfa" prot="public">
+          <name>NEIGHBORLESS</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacegeoda_1a8194b74832000db775cc553040126c88a3ab7a68960a7642292918c06b28cf3e2" prot="public">
+          <name>UNDEFINED</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="11" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="11" bodyend="11"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacegeoda_1a3e76816f68cde0a87e65f27b98373e00" prot="public" static="no">
+        <type>struct <ref refid="structgeoda_1_1_ref" kindref="compound">geoda::Ref</ref></type>
+        <definition>typedef struct geoda::Ref geoda::RefStruct</definition>
+        <argsstring></argsstring>
+        <name>RefStruct</name>
+        <qualifiedname>geoda::RefStruct</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="340" column="11"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacegeoda_1a043142de326587fe4dc753afa3eb7137" prot="public" static="no">
+        <type><ref refid="namespacegeoda_1a3e76816f68cde0a87e65f27b98373e00" kindref="member">RefStruct</ref> *</type>
+        <definition>typedef RefStruct* geoda::RefPtr</definition>
+        <argsstring></argsstring>
+        <name>RefPtr</name>
+        <qualifiedname>geoda::RefPtr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="342" column="19" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacegeoda_1a98dd5070071151974ac8cb05295d268b" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int geoda::TRUE</definition>
+        <argsstring></argsstring>
+        <name>TRUE</name>
+        <qualifiedname>geoda::TRUE</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="21" column="11" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegeoda_1a25f4054ba59545f53a15c9b347787d20" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int geoda::FALSE</definition>
+        <argsstring></argsstring>
+        <name>FALSE</name>
+        <qualifiedname>geoda::FALSE</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="22" column="11" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegeoda_1a5680915a799cd7c585eb30110932189f" prot="public" static="yes" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int geoda::USER_SEED</definition>
+        <argsstring></argsstring>
+        <name>USER_SEED</name>
+        <qualifiedname>geoda::USER_SEED</qualifiedname>
+        <initializer>= 123456789</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" line="12" column="27" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegeoda_1a638d9161b63f0e5c89118acb57677ea5" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int geoda::EMPTY_COUNT</definition>
+        <argsstring></argsstring>
+        <name>EMPTY_COUNT</name>
+        <qualifiedname>geoda::EMPTY_COUNT</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="17" column="18" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegeoda_1a0f16cae6541a1593e2c61524e654b4f7" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double geoda::pi</definition>
+        <argsstring></argsstring>
+        <name>pi</name>
+        <qualifiedname>geoda::pi</qualifiedname>
+        <initializer>= 3.141592653589793238463</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="9" column="14" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegeoda_1a69601ca6ebe7caf244256296e8c1be3e" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double geoda::mile_per_degree</definition>
+        <argsstring></argsstring>
+        <name>mile_per_degree</name>
+        <qualifiedname>geoda::mile_per_degree</qualifiedname>
+        <initializer>= 69.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="10" column="14" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegeoda_1adcfb18fa45bbfe7e54f65138330eaa6a" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double geoda::km_per_degree</definition>
+        <argsstring></argsstring>
+        <name>km_per_degree</name>
+        <qualifiedname>geoda::km_per_degree</qualifiedname>
+        <initializer>= 111.1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="11" column="14" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegeoda_1a01ceccbc23ee69f10a97f63663bcd9f9" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double geoda::pi_over_180</definition>
+        <argsstring></argsstring>
+        <name>pi_over_180</name>
+        <qualifiedname>geoda::pi_over_180</qualifiedname>
+        <initializer>= <ref refid="namespacegeoda_1a0f16cae6541a1593e2c61524e654b4f7" kindref="member">pi</ref> / 180.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="12" column="14" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegeoda_1a24e199d421bd163374ac94c924479408" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double geoda::earth_radius_km</definition>
+        <argsstring></argsstring>
+        <name>earth_radius_km</name>
+        <qualifiedname>geoda::earth_radius_km</qualifiedname>
+        <initializer>= 6371.007180918475</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="13" column="14" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacegeoda_1a41ebf7994c44307f5d65d936cc930b79" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double geoda::earth_radius_miles</definition>
+        <argsstring></argsstring>
+        <name>earth_radius_miles</name>
+        <qualifiedname>geoda::earth_radius_miles</qualifiedname>
+        <initializer>= <ref refid="namespacegeoda_1a24e199d421bd163374ac94c924479408" kindref="member">earth_radius_km</ref> / 1.609344</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="14" column="14" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacegeoda_1a7886a40ade5bf81c130125ef079a9e78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; unsigned int &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; unsigned int &gt; &gt; geoda::spatial_join</definition>
+        <argsstring>(const GeometryCollection &amp;left, const GeometryCollection &amp;right)</argsstring>
+        <name>spatial_join</name>
+        <qualifiedname>geoda::spatial_join</qualifiedname>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.h" line="10" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.cpp" bodystart="25" bodyend="74" declfile="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.h" declline="10" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a893cc84a86ec4e9ef3dd2c2c1b8dfec6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool geoda::dbl_int_pair_cmp_less</definition>
+        <argsstring>(const dbl_int_pair_type &amp;ind1, const dbl_int_pair_type &amp;ind2)</argsstring>
+        <name>dbl_int_pair_cmp_less</name>
+        <qualifiedname>geoda::dbl_int_pair_cmp_less</qualifiedname>
+        <param>
+          <type>const <ref refid="mapping_8h_1aa9ab4acaec4dd3baaa7e1e31ec448caf" kindref="member">dbl_int_pair_type</ref> &amp;</type>
+          <declname>ind1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="mapping_8h_1aa9ab4acaec4dd3baaa7e1e31ec448caf" kindref="member">dbl_int_pair_type</ref> &amp;</type>
+          <declname>ind2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Use with std::sort for sorting in ascending order </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" line="14" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/quantile-breaks.cpp" bodystart="6" bodyend="8" declfile="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" declline="14" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a71ea13dd549661abde0b04a7a5af2a5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double geoda::percentile</definition>
+        <argsstring>(double x, const dbl_int_pair_vec_type &amp;v)</argsstring>
+        <name>percentile</name>
+        <qualifiedname>geoda::percentile</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const <ref refid="mapping_8h_1a3435859a52d3b07aea492f663f1cbc18" kindref="member">dbl_int_pair_vec_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" line="16" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/quantile-breaks.cpp" bodystart="11" bodyend="30" declfile="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" declline="16" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a1ad44a733a65babc804992d3f23d302b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; geoda::natural_breaks</definition>
+        <argsstring>(int k, const std::vector&lt; double &gt; &amp;data, const std::vector&lt; int &gt; &amp;undefs)</argsstring>
+        <name>natural_breaks</name>
+        <qualifiedname>geoda::natural_breaks</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <briefdescription>
+<para>Compute natural breaks for a given data set and number of classes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of classes/categroies </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>undefs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The flags indicating which data value is undefined </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;double&gt; The values of natural breaks </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" line="32" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" bodystart="91" bodyend="178" declfile="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" declline="32" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a429e3de946d7d92fe4327091449d6911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; geoda::quantile_breaks</definition>
+        <argsstring>(int k, const std::vector&lt; double &gt; &amp;data, const std::vector&lt; unsigned int &gt; &amp;undefs)</argsstring>
+        <name>quantile_breaks</name>
+        <qualifiedname>geoda::quantile_breaks</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <briefdescription>
+<para>Compute quantile breaks for a given data set and number of classes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of classes/categroies </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>undefs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The flags indicating which data value is undefined </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;double&gt; The values of quantile breaks </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" line="42" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/quantile-breaks.cpp" bodystart="33" bodyend="55" declfile="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" declline="42" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1aabbfae876ffd3128e34eff31b328f781" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; geoda::box_breaks</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;data, const std::vector&lt; int &gt; &amp;undefs, double iqr_factor=1.5)</argsstring>
+        <name>box_breaks</name>
+        <qualifiedname>geoda::box_breaks</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>iqr_factor</declname>
+          <defval>1.5</defval>
+        </param>
+        <briefdescription>
+<para>Compute Box breaks with 1.5 or 3.0 IQR for a given data set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>undefs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The flags indicating which data value is undefined </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iqr_factor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The factor of IQR, default is 1.5, or 3.0 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;double&gt; The values of Box breaks with 1.5 IQR </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" line="52" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/box-breaks.cpp" bodystart="8" bodyend="47" declfile="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" declline="52" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a7f5baf554ab5a18ddf3341a0ebfdf366" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; geoda::percentile_breaks</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;data, const std::vector&lt; int &gt; &amp;undefs)</argsstring>
+        <name>percentile_breaks</name>
+        <qualifiedname>geoda::percentile_breaks</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <briefdescription>
+<para>Compute percentile breaks for a given data set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>undefs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The flags indicating which data value is undefined </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;double&gt; The values of percentile breaks </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" line="62" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/percentile-breaks.cpp" bodystart="6" bodyend="23" declfile="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" declline="62" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a3456e8bc0515f5be88c5136dc8d175db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; geoda::equal_interval_breaks</definition>
+        <argsstring>(int k, const std::vector&lt; double &gt; &amp;data, const std::vector&lt; int &gt; &amp;undefs)</argsstring>
+        <name>equal_interval_breaks</name>
+        <qualifiedname>geoda::equal_interval_breaks</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <briefdescription>
+<para>Compute equal interval breaks for a given data set and number of classes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of classes </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>undefs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The flags indicating which data value is undefined </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;double&gt; The values of equal interval breaks </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" line="72" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/equal-interval-breaks.cpp" bodystart="8" bodyend="23" declfile="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" declline="72" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1aa17cf78273494d55a8c8c8194a95af50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; geoda::std_dev_breaks</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;data, const std::vector&lt; int &gt; &amp;undefs)</argsstring>
+        <name>std_dev_breaks</name>
+        <qualifiedname>geoda::std_dev_breaks</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <briefdescription>
+<para>Compute standard deviation breaks for a given data set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>undefs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The flags indicating which data value is undefined </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;double&gt; The values of standard deviation breaks </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" line="81" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/stddev-breaks.cpp" bodystart="8" bodyend="55" declfile="/Users/xun/github/geoda-lib/src/cpp/mapping/mapping.h" declline="81" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a5259659de75fddbef73d6a656a0150f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double geoda::dot_product</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;x, const std::vector&lt; double &gt; &amp;y)</argsstring>
+        <name>dot_product</name>
+        <qualifiedname>geoda::dot_product</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Compute the dot product of two vectors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>double The dot product </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" line="22" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.cpp" bodystart="20" bodyend="35" declfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" declline="22" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a046ab13ed91fac538448c1b58fbe55a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool geoda::classicalRegression</definition>
+        <argsstring>(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int expl, DiagnosticReport *dr, bool InclConstant, bool m_moranz, bool do_white_test)</argsstring>
+        <name>classicalRegression</name>
+        <qualifiedname>geoda::classicalRegression</qualifiedname>
+        <param>
+          <type><ref refid="classgeoda_1_1_gal_element" kindref="compound">geoda::GalElement</ref> *</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_obs</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>Y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dim</declname>
+        </param>
+        <param>
+          <type>double **</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>expl</declname>
+        </param>
+        <param>
+          <type><ref refid="class_diagnostic_report" kindref="compound">DiagnosticReport</ref> *</type>
+          <declname>dr</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>InclConstant</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>m_moranz</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>do_white_test</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" line="24" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/smile2.cpp" bodystart="485" bodyend="668" declfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" declline="24" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1adfb8a07e712725c0d9a11bb5650123d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool geoda::spatialLagRegression</definition>
+        <argsstring>(geoda::GalElement *g, int num_obs, double *Y, int dim, double **X, int deps, DiagnosticReport *dr, bool InclConstant)</argsstring>
+        <name>spatialLagRegression</name>
+        <qualifiedname>geoda::spatialLagRegression</qualifiedname>
+        <param>
+          <type><ref refid="classgeoda_1_1_gal_element" kindref="compound">geoda::GalElement</ref> *</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_obs</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>Y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dim</declname>
+        </param>
+        <param>
+          <type>double **</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>deps</declname>
+        </param>
+        <param>
+          <type><ref refid="class_diagnostic_report" kindref="compound">DiagnosticReport</ref> *</type>
+          <declname>dr</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>InclConstant</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" line="27" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/smile2.cpp" bodystart="670" bodyend="873" declfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" declline="27" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1ae49e5bd07a139851237271c9b85ba6ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool geoda::spatialErrorRegression</definition>
+        <argsstring>(geoda::GalElement *g, int num_obs, double *Y, int dim, double **XX, int deps, DiagnosticReport *rr, bool InclConstant)</argsstring>
+        <name>spatialErrorRegression</name>
+        <qualifiedname>geoda::spatialErrorRegression</qualifiedname>
+        <param>
+          <type><ref refid="classgeoda_1_1_gal_element" kindref="compound">geoda::GalElement</ref> *</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_obs</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>Y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dim</declname>
+        </param>
+        <param>
+          <type>double **</type>
+          <declname>XX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>deps</declname>
+        </param>
+        <param>
+          <type><ref refid="class_diagnostic_report" kindref="compound">DiagnosticReport</ref> *</type>
+          <declname>rr</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>InclConstant</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" line="30" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/smile2.cpp" bodystart="881" bodyend="1096" declfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" declline="30" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a4bb896c1edfb733407f3bc834ef9b3dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_diagnostic_report" kindref="compound">DiagnosticReport</ref></type>
+        <definition>DiagnosticReport geoda::ols</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;dep, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;indeps, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;weights, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;weights_values, const std::string &amp;y_name, const std::vector&lt; std::string &gt; &amp;x_names, const std::string &amp;dataset_name, const std::vector&lt; unsigned int &gt; &amp;y_undefs, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;x_undefs)</argsstring>
+        <name>ols</name>
+        <qualifiedname>geoda::ols</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>dep</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>indeps</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>weights</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>weights_values</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>y_name</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>x_names</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>dataset_name</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>y_undefs</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>x_undefs</declname>
+        </param>
+        <briefdescription>
+<para>linear regression function, which takes the dependent variable y, the independent variables x, and the weights for spatial diagnostics </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" line="39" column="18" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.cpp" bodystart="37" bodyend="46" declfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" declline="39" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a4c82b654e0c7d511f51c5445b4ed9230" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_diagnostic_report" kindref="compound">DiagnosticReport</ref></type>
+        <definition>DiagnosticReport geoda::spatial_lag</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;dep, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;indeps, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;weights, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;weights_values, const std::string &amp;y_name, const std::vector&lt; std::string &gt; &amp;x_names, const std::string &amp;dataset_name, const std::vector&lt; unsigned int &gt; &amp;y_undefs, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;x_undefs)</argsstring>
+        <name>spatial_lag</name>
+        <qualifiedname>geoda::spatial_lag</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>dep</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>indeps</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>weights</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>weights_values</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>y_name</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>x_names</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>dataset_name</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>y_undefs</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>x_undefs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" line="45" column="18" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.cpp" bodystart="48" bodyend="57" declfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" declline="45" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1ae8d1cc84a89c3c16b8aff397b3c07c13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_diagnostic_report" kindref="compound">DiagnosticReport</ref></type>
+        <definition>DiagnosticReport geoda::spatial_error</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;dep, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;indeps, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;weights, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;weights_values, const std::string &amp;y_name, const std::vector&lt; std::string &gt; &amp;x_names, const std::string &amp;dataset_name, const std::vector&lt; unsigned int &gt; &amp;y_undefs, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;x_undefs)</argsstring>
+        <name>spatial_error</name>
+        <qualifiedname>geoda::spatial_error</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>dep</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>indeps</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>weights</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>weights_values</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>y_name</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>x_names</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>dataset_name</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>y_undefs</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>x_undefs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" line="52" column="18" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.cpp" bodystart="59" bodyend="68" declfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" declline="52" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a435d967d7dc12f81b28f83653d57e960" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_diagnostic_report" kindref="compound">DiagnosticReport</ref></type>
+        <definition>DiagnosticReport geoda::regression_helper</definition>
+        <argsstring>(RegressionModel regress_model, const std::vector&lt; double &gt; &amp;dep, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;indeps, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;weights, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;weights_values, const std::string &amp;y_name, const std::vector&lt; std::string &gt; &amp;x_names, const std::string &amp;dataset_name, const std::vector&lt; unsigned int &gt; &amp;y_undefs, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;x_undefs)</argsstring>
+        <name>regression_helper</name>
+        <qualifiedname>geoda::regression_helper</qualifiedname>
+        <param>
+          <type><ref refid="namespacegeoda_1aeda937a4cddab0c05b1ecf7682b74abf" kindref="member">RegressionModel</ref></type>
+          <declname>regress_model</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>dep</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>indeps</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>weights</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>weights_values</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>y_name</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>x_names</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>dataset_name</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>y_undefs</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>x_undefs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" line="59" column="18" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.cpp" bodystart="70" bodyend="247" declfile="/Users/xun/github/geoda-lib/src/cpp/regression/regression.h" declline="59" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a6923d07c932f5f7c1ea5d19c4644ba20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; unsigned int &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; unsigned int &gt; &gt; geoda::create_perm_table</definition>
+        <argsstring>(const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;neighbors, unsigned int num_permutations, unsigned int max_num_neighbors)</argsstring>
+        <name>create_perm_table</name>
+        <qualifiedname>geoda::create_perm_table</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>neighbors</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>num_permutations</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>max_num_neighbors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="13" column="13" declfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" declline="13" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a8c41df3210bcf83749276d4ac301ce24" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void geoda::set_lisa_content</definition>
+        <argsstring>(LISA *lisa, LisaResult &amp;rst)</argsstring>
+        <name>set_lisa_content</name>
+        <qualifiedname>geoda::set_lisa_content</qualifiedname>
+        <param>
+          <type><ref refid="class_l_i_s_a" kindref="compound">LISA</ref> *</type>
+          <declname>lisa</declname>
+        </param>
+        <param>
+          <type><ref refid="structgeoda_1_1_lisa_result" kindref="compound">LisaResult</ref> &amp;</type>
+          <declname>rst</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="38" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="38" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a451233e599c0bec0a7339dcb37f7e0bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structgeoda_1_1_lisa_result" kindref="compound">LisaResult</ref></type>
+        <definition>geoda::LisaResult geoda::local_moran</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;data, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;neighbors, const std::vector&lt; unsigned int &gt; &amp;undefs, double significance_cutoff, unsigned int perm, int last_seed)</argsstring>
+        <name>local_moran</name>
+        <qualifiedname>geoda::local_moran</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>neighbors</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>significance_cutoff</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>perm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last_seed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="50" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/local-moran.cpp" bodystart="10" bodyend="45" declfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" declline="50" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a5a0d51cf7e5d7d56d5d877494664320d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structgeoda_1_1_lisa_result" kindref="compound">LisaResult</ref></type>
+        <definition>geoda::LisaResult geoda::local_bivariate_moran</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;data1, const std::vector&lt; double &gt; &amp;data2, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;neighbors, const std::vector&lt; unsigned int &gt; &amp;undefs, double significance_cutoff, unsigned int perm, int last_seed)</argsstring>
+        <name>local_bivariate_moran</name>
+        <qualifiedname>geoda::local_bivariate_moran</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data1</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data2</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>neighbors</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>significance_cutoff</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>perm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last_seed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="54" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/local-moran.cpp" bodystart="47" bodyend="82" declfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" declline="54" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a20eeb64ced54469d08d53089892fe778" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structgeoda_1_1_lisa_result" kindref="compound">LisaResult</ref></type>
+        <definition>geoda::LisaResult geoda::local_g</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;data, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;neighbors, const std::vector&lt; unsigned int &gt; &amp;undefs, double significance_cutoff, unsigned int perm, int last_seed, int is_gstar)</argsstring>
+        <name>local_g</name>
+        <qualifiedname>geoda::local_g</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>neighbors</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>significance_cutoff</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>perm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last_seed</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>is_gstar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="59" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/local-g.cpp" bodystart="6" bodyend="50" declfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" declline="59" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a17f0149c0d8ed5c1be04498d782184ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structgeoda_1_1_lisa_result" kindref="compound">LisaResult</ref></type>
+        <definition>geoda::LisaResult geoda::local_geary</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;data, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;neighbors, const std::vector&lt; unsigned int &gt; &amp;undefs, double significance_cutoff, unsigned int perm, int last_seed)</argsstring>
+        <name>local_geary</name>
+        <qualifiedname>geoda::local_geary</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>neighbors</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>significance_cutoff</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>perm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last_seed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="63" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/local-geary.cpp" bodystart="7" bodyend="42" declfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" declline="63" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a5d52653ea03254bdb20739b3f19b9750" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structgeoda_1_1_lisa_result" kindref="compound">LisaResult</ref></type>
+        <definition>geoda::LisaResult geoda::local_multivariate_geary</definition>
+        <argsstring>(const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;data, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;neighbors, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;undefs, double significance_cutoff, unsigned int perm, int last_seed)</argsstring>
+        <name>local_multivariate_geary</name>
+        <qualifiedname>geoda::local_multivariate_geary</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>neighbors</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>significance_cutoff</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>perm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last_seed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="67" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/local-geary.cpp" bodystart="44" bodyend="81" declfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" declline="67" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a86290af35de484bd39ef74712b866c3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structgeoda_1_1_lisa_result" kindref="compound">LisaResult</ref></type>
+        <definition>geoda::LisaResult geoda::quantile_lisa</definition>
+        <argsstring>(int k, int quantile, const std::vector&lt; double &gt; &amp;data, const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;neighbors, const std::vector&lt; unsigned int &gt; &amp;undefs, double significance_cutoff, unsigned int perm, int last_seed)</argsstring>
+        <name>quantile_lisa</name>
+        <qualifiedname>geoda::quantile_lisa</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>quantile</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;</type>
+          <declname>neighbors</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>significance_cutoff</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>perm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>last_seed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="72" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/quantile-lisa.cpp" bodystart="8" bodyend="62" declfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" declline="72" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1ab42838d21adabe60e65db60a2fba8f3c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>static double geoda::ThomasWangHashDouble</definition>
+        <argsstring>(uint64_t key)</argsstring>
+        <name>ThomasWangHashDouble</name>
+        <qualifiedname>geoda::ThomasWangHashDouble</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/data.h" line="10" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/data.h" bodystart="10" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1ac0c7c4d1acfb183a8f8f4d287faf5c31" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>static std::vector&lt; double &gt; geoda::standardize_data</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;data)</argsstring>
+        <name>standardize_data</name>
+        <qualifiedname>geoda::standardize_data</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/data.h" line="21" column="20" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/data.h" bodystart="21" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a10a9c3faab1bcbc683e3b2747a2974b6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>static std::vector&lt; double &gt; geoda::standardize_data</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;data, const std::vector&lt; bool &gt; &amp;undefs)</argsstring>
+        <name>standardize_data</name>
+        <qualifiedname>geoda::standardize_data</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; bool &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/data.h" line="53" column="20" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/data.h" bodystart="53" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1aae99cbaa2a239c00d5a96586b4b6ac2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double geoda::haversine_distance</definition>
+        <argsstring>(double lon1, double lat1, double lon2, double lat2, bool is_mile)</argsstring>
+        <name>haversine_distance</name>
+        <qualifiedname>geoda::haversine_distance</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>lon1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lat1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lon2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lat2</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_mile</declname>
+        </param>
+        <briefdescription>
+<para>Compute the haversine distance between two points see <ulink url="https://www.movable-type.co.uk/scripts/latlong.html">https://www.movable-type.co.uk/scripts/latlong.html</ulink>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lon1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The longitude of the first point </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lat1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The latitude of the first point </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lon2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The longitude of the second point </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lat2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The latitude of the second point </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_mile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, use mile as the distance unit, otherwise use kilometer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>double The haversine distance </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="26" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/distance-weights.cpp" bodystart="50" bodyend="59" declfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" declline="26" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1aa8cdb09f0627ed6b7a39fb26ef99ab09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; double &gt; &gt; geoda::distance_weights</definition>
+        <argsstring>(const GeometryCollection &amp;geoms, double distance_threshold, bool is_mile)</argsstring>
+        <name>distance_weights</name>
+        <qualifiedname>geoda::distance_weights</qualifiedname>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>geoms</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>distance_threshold</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_mile</declname>
+        </param>
+        <briefdescription>
+<para>Compute the distance weights for a collection of geometries. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>geoms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The geometry collection </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>distance_threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The distance threshold </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_mile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, use mile as the distance unit, otherwise use kilometer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;std::vector&lt;unsigned int&gt;&gt; The 2D vector of distance weights </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="36" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/distance-weights.cpp" bodystart="61" bodyend="108" declfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" declline="36" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1ac401bfe6a3293f4ce3d300dd9ad7b724" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; geoda::get_distance_thresholds</definition>
+        <argsstring>(const GeometryCollection &amp;geoms, bool is_mile)</argsstring>
+        <name>get_distance_thresholds</name>
+        <qualifiedname>geoda::get_distance_thresholds</qualifiedname>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>geoms</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_mile</declname>
+        </param>
+        <briefdescription>
+<para>Get the distance thresholds, first threshold guarantee that each observation has at least one neighbor, and the second threshold is the maximum distance between two observations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>geoms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The geometry collection </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_mile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, use mile as the distance unit, otherwise use kilometer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;double&gt; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="47" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/distance-weights.cpp" bodystart="110" bodyend="156" declfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" declline="47" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a4808eed26b9dd4f4342e4144e4691e99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; unsigned int &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; unsigned int &gt; &gt; geoda::knearest_neighbors</definition>
+        <argsstring>(const GeometryCollection &amp;geoms, unsigned int k)</argsstring>
+        <name>knearest_neighbors</name>
+        <qualifiedname>geoda::knearest_neighbors</qualifiedname>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>geoms</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+<para>Compute k-nearest neighbors for a collection of geometries. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>geoms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The geometry collection. If the collection is not a point collection, the centroids of the geometries are used. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of nearest neighbors to compute </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;std::vector&lt;unsigned int&gt;&gt; The 2D vector of k-nearest neighbors </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="57" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/distance-weights.cpp" bodystart="16" bodyend="48" declfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" declline="57" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a92f374961f8bd3ee98ed6afad3ddeb71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; unsigned int &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; unsigned int &gt; &gt; geoda::point_contiguity_weights</definition>
+        <argsstring>(const GeometryCollection &amp;geoms, bool is_queen, double precision_threshold=0.0, unsigned int order_contiguity=1, bool include_lower_order=false)</argsstring>
+        <name>point_contiguity_weights</name>
+        <qualifiedname>geoda::point_contiguity_weights</qualifiedname>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>geoms</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_queen</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>precision_threshold</declname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>order_contiguity</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>include_lower_order</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Compute contiguity weights for a collection of geometries using the centroids of the geometries. The centroids are used to create a voronoi diagram, which is then used to compute the contiguity weights. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>geoms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The geometry collection, which could be point/line/polygon collection </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_queen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, use queen contiguity, otherwise use rook contiguity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>precision_threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The precision threshold for comparing coordinates to determine if two points are the same </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;std::vector&lt;unsigned int&gt;&gt; The 2D vector of contiguity weights </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="68" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/contiguity-weights.cpp" bodystart="387" bodyend="530" declfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" declline="68" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1ac1bb11a3540a063bbd29b42b21d5a6ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; unsigned int &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; unsigned int &gt; &gt; geoda::polygon_contiguity_weights</definition>
+        <argsstring>(const GeometryCollection &amp;geoms, bool is_queen, double precision_threshold=0.0, unsigned int order_contiguity=1, bool include_lower_order=false)</argsstring>
+        <name>polygon_contiguity_weights</name>
+        <qualifiedname>geoda::polygon_contiguity_weights</qualifiedname>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>geoms</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_queen</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>precision_threshold</declname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>order_contiguity</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>include_lower_order</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Compute contiguity weights for a collection of polygons. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>geoms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The polygon collection. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_queen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, use queen contiguity, otherwise use rook contiguity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>precision_threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The precision threshold for comparing coordinates to determine if two points are the same </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;std::vector&lt;unsigned int&gt;&gt; The 2D vector of contiguity weights </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="81" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/contiguity-weights.cpp" bodystart="255" bodyend="266" declfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" declline="81" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a7d1305e8d33fe3daf63e6fb9dd754c03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; unsigned int &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; unsigned int &gt; &gt; geoda::polygon_contiguity_weights_threshold</definition>
+        <argsstring>(const GeometryCollection &amp;geoms, bool is_queen, double precision_threshold=0.0, unsigned int order_contiguity=1, bool include_lower_order=false)</argsstring>
+        <name>polygon_contiguity_weights_threshold</name>
+        <qualifiedname>geoda::polygon_contiguity_weights_threshold</qualifiedname>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>geoms</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_queen</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>precision_threshold</declname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>order_contiguity</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>include_lower_order</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Compute contiguity weights for a collection of polygons using a threshold for precision. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>geoms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The polygon collection </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>is_queen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, use queen contiguity, otherwise use rook contiguity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>precision_threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The precision threshold for comparing coordinates to determine if two points are the same </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>order_contiguity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The order of contiguity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>include_lower_order</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, include lower order contiguity </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;std::vector&lt;unsigned int&gt;&gt; The 2D vector of contiguity weights </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="96" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/contiguity-weights.cpp" bodystart="268" bodyend="385" declfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" declline="96" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a12bde1832774f498f050b0626d625c56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; unsigned int &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; unsigned int &gt; &gt; geoda::simple_polygon_queen_weights</definition>
+        <argsstring>(const GeometryCollection &amp;geoms, unsigned int order_contiguity=1, bool include_lower_order=false)</argsstring>
+        <name>simple_polygon_queen_weights</name>
+        <qualifiedname>geoda::simple_polygon_queen_weights</qualifiedname>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>geoms</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>order_contiguity</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>include_lower_order</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Compute queen contiguity weights for a collection of polygons using a simple algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>geoms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The polygon collection </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>order_contiguity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The order of contiguity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>include_lower_order</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, include lower order contiguity </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;std::vector&lt;unsigned int&gt;&gt; The 2D vector of contiguity weights </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="109" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/contiguity-weights.cpp" bodystart="165" bodyend="222" declfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" declline="109" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a129eb61ef7a7b08339d9d5193fa10355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; unsigned int &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; unsigned int &gt; &gt; geoda::simple_polygon_rook_weights</definition>
+        <argsstring>(const GeometryCollection &amp;geoms, unsigned int order_contiguity=1, bool include_lower_order=false)</argsstring>
+        <name>simple_polygon_rook_weights</name>
+        <qualifiedname>geoda::simple_polygon_rook_weights</qualifiedname>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>geoms</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>order_contiguity</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>include_lower_order</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Compute rook contiguity weights for a collection of polygons using a simple algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>geoms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The polygon collection </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>order_contiguity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The order of contiguity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>include_lower_order</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, include lower order contiguity </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;std::vector&lt;unsigned int&gt;&gt; The 2D vector of contiguity weights </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="121" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/contiguity-weights.cpp" bodystart="224" bodyend="253" declfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" declline="121" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a233abf7e4dc61081091d7df14a06dfde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool geoda::points_equals</definition>
+        <argsstring>(const point_type &amp;p1, const point_type &amp;p2, double precision_threshold)</argsstring>
+        <name>points_equals</name>
+        <qualifiedname>geoda::points_equals</qualifiedname>
+        <param>
+          <type>const <ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref> &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref> &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>precision_threshold</declname>
+        </param>
+        <briefdescription>
+<para>Check if two points are equal within a precision threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first point </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>p2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second point </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>precision_threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The precision threshold </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true </para>
+</simplesect>
+<simplesect kind="return"><para>false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="134" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/contiguity-weights.cpp" bodystart="53" bodyend="56" declfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" declline="134" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegeoda_1a3421fa10f62574abd53248505424dcdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool geoda::bbox_intersects</definition>
+        <argsstring>(const box_type &amp;b1, const box_type &amp;b2)</argsstring>
+        <name>bbox_intersects</name>
+        <qualifiedname>geoda::bbox_intersects</qualifiedname>
+        <param>
+          <type>const <ref refid="geometry_8h_1a7d32eb4d5272ffdaf1a4c210691779fb" kindref="member">box_type</ref> &amp;</type>
+          <declname>b1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="geometry_8h_1a7d32eb4d5272ffdaf1a4c210691779fb" kindref="member">box_type</ref> &amp;</type>
+          <declname>b2</declname>
+        </param>
+        <briefdescription>
+<para>Check if two bounding boxes intersect. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first bounding box </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second bounding box </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true </para>
+</simplesect>
+<simplesect kind="return"><para>false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" line="144" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/contiguity-weights.cpp" bodystart="58" bodyend="72" declfile="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h" declline="144" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="17" column="1"/>
+  </compounddef>
+</doxygen>

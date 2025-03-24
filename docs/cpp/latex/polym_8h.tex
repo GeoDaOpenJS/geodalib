@@ -1,0 +1,336 @@
+\doxysection{/\+Users/xun/github/geoda-\/lib/src/cpp/regression/polym.h File Reference}
+\hypertarget{polym_8h}{}\label{polym_8h}\index{/Users/xun/github/geoda-\/lib/src/cpp/regression/polym.h@{/Users/xun/github/geoda-\/lib/src/cpp/regression/polym.h}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include "{}regression/\+Power\+Sym\+Lag.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{polym_8h_a089c2e12eb41c55e339649240bb94c51}{SL\+\_\+\+SMALL\+\_\+\+MATRIX}}~5
+\item 
+\#define \mbox{\hyperlink{polym_8h_aa691a57b0fb8374b072a02825d89a31e}{SL\+\_\+\+SMALL}}~1e-\/14
+\item 
+\#define \mbox{\hyperlink{polym_8h_ac9308e85a1e9abba7f247485552bb3ef}{geoda\+\_\+sqr}}(x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{polym_8h_ac00d641cff83a1cfaf4c477c5e645a43}{Init\+Poly}} (int precis, const int dim)
+\item 
+void \mbox{\hyperlink{polym_8h_a87f716874abb180365d6bf75211e6b35}{Permute\+Matrix}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ mt, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} i, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} j)
+\item 
+void \mbox{\hyperlink{polym_8h_aaf7ad0bef23a96c5645d722c41349b63}{Danilevsky\+Post\+Multiply}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ mt, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} r1, \mbox{\hyperlink{lite2_8h_a3a00b1c836acf59360ffc84741af61c6}{WIterator}} its)
+\item 
+void \mbox{\hyperlink{polym_8h_a8b8dd531fc557cdb257d21b688f964bd}{Danilevsky\+Pre\+Multiply}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ mt, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} r1, \mbox{\hyperlink{lite2_8h_a3a00b1c836acf59360ffc84741af61c6}{WIterator}} its)
+\item 
+void \mbox{\hyperlink{polym_8h_abaab16ef4c9c80a1f8ebb2b96a75dbb4}{Remove\+Columns}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ mt, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} num)
+\item 
+void \mbox{\hyperlink{polym_8h_ac1050cf28402f4b026fa097f83d71dcc}{Danilevsky\+Iteration}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ mt, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} r1, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Remove)
+\item 
+{\footnotesize template$<$class R$>$ }\\\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \mbox{\hyperlink{polym_8h_ad9ba6ebe14958c3efb4c2b996508f97f}{Find\+Abs\+Largest}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ R $>$ vt, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} ro)
+\item 
+void \mbox{\hyperlink{polym_8h_a0550030e6569c967036f184a62cac73b}{Poly\+Multiply}} (\mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \&a, \mbox{\hyperlink{lite2_8h_a3a00b1c836acf59360ffc84741af61c6}{WIterator}} b, \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \&c)
+\item 
+void \mbox{\hyperlink{polym_8h_abfd9cf31ddb10022112d36489207fab7}{Danilevsky\+Method}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ mt, \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \&poly)
+\item 
+\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \mbox{\hyperlink{polym_8h_a622cc3d52b0eb88a1045e15a4d0ae04a}{Level\+Structure}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&start, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&Contig, const \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} $>$ perm, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \texorpdfstring{$\ast$}{*}order)
+\item 
+{\footnotesize template$<$class P$>$ }\\void \mbox{\hyperlink{polym_8h_a1d686219b28c3765fec487a853f105a0}{Poly\+Product}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ P $>$ \&v1, \mbox{\hyperlink{class_iterator}{Iterator}}$<$ P $>$ v2)
+\item 
+void \mbox{\hyperlink{polym_8h_a32c764c7c1a9272f0bdbc0a730225ba2}{Sparse\+Sub\+Matrix}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt, \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} $>$ perm, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \texorpdfstring{$\ast$}{*}flag, \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ \&v)
+\item 
+{\footnotesize template$<$class IR$>$ }\\void \mbox{\hyperlink{polym_8h_a4d2ea91dbbf3520a912c32eeb411c68d}{Save\+Perm}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ IR $>$ it, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \texorpdfstring{$\ast$}{*}perm)
+\item 
+{\footnotesize template$<$class R$>$ }\\void \mbox{\hyperlink{polym_8h_aeb5dc3aae4617b1ecd855c54d6d10565}{Rename}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ R $>$ mt, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \texorpdfstring{$\ast$}{*}Perm)
+\item 
+void \mbox{\hyperlink{polym_8h_a783f3ad2f22a8ea86604fae069d4f28a}{Select\+Matrix}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} start, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} stop, \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ \&v)
+\item 
+void \mbox{\hyperlink{polym_8h_ab41c635f92197ad9d125952a4ae94090}{Remove\+The\+Belt}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ it, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} In\+The\+Belt)
+\item 
+void \mbox{\hyperlink{polym_8h_a9dcb8129dd797bc11805632aa33f0d66}{Sparse\+Poly\+Bordering}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Belt\+Size, \mbox{\hyperlink{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099}{WMatrix}} \&\mbox{\hyperlink{polym_8h_af612757c1d1352066bd1b8773453e5d2}{Poly}})
+\item 
+void \mbox{\hyperlink{polym_8h_abf8445d3c21621b80fa766845706b935}{Sparse\+Poly\+Bordering\+NE}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Belt\+Size, \mbox{\hyperlink{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099}{WMatrix}} \&\mbox{\hyperlink{polym_8h_af612757c1d1352066bd1b8773453e5d2}{Poly}})
+\item 
+void \mbox{\hyperlink{polym_8h_a76bea34d3f14396be8f647b7667fff04}{Dense\+Poly\+Solving}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt)
+\item 
+void \mbox{\hyperlink{polym_8h_aa07e9b8661f4182f3beaf429619b695d}{Dense\+Poly\+Solving\+Old}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt)
+\item 
+void \mbox{\hyperlink{polym_8h_a1369c7b447e333a1a3198034b1b7b355}{Poly\+Organize}} (const \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \texorpdfstring{$\ast$}{*}First, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Precision, \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ Border)
+\item 
+\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \mbox{\hyperlink{polym_8h_a7a5c04884939f8a9c40e2e0cab172486}{Split\+Sparse}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Pseudo, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&Second, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&Pseudo\+Count)
+\item 
+\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \mbox{\hyperlink{polym_8h_aefa3295517e3c2de8b707231c86511b6}{Split\+Sparse\+Old}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Pseudo, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&Level, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&Second)
+\item 
+void \mbox{\hyperlink{polym_8h_af1c7749bc4934f25849032d35c8beed9}{Sparse\+Poly}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt)
+\item 
+void \mbox{\hyperlink{polym_8h_a557ef056710cede1495d4c331cb31b1c}{Sparse\+Block\+Poly}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Pseudo)
+\item 
+void \mbox{\hyperlink{polym_8h_abb49292e91ec68878ad6be06e0f73543}{Select\+Block\+Poly\+NE}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Start\+Best, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Pseudo\+Count)
+\item 
+void \mbox{\hyperlink{polym_8h_a96dd1cdaa9b0000c0475ad715c3148e5}{Partial\+Rename}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ it, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Deduct)
+\item 
+void \mbox{\hyperlink{polym_8h_aefe68e52b1679297acdda70b93f684dd}{Select\+Poly\+NE}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Start\+Best, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Stop)
+\item 
+\mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} \mbox{\hyperlink{polym_8h_a50bd3effbed49185c43d5d1f6e5fd810}{One\+Poly}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ \mbox{\hyperlink{polym_8h_af612757c1d1352066bd1b8773453e5d2}{Poly}}, const \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} Val, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Prec, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Pr)
+\item 
+\mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} \mbox{\hyperlink{polym_8h_a303bc3e7da1c5ac7b10ff52915ba50b3}{One\+Prime}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ \mbox{\hyperlink{polym_8h_af612757c1d1352066bd1b8773453e5d2}{Poly}}, const \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} Val, const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Prec, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Pr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \mbox{\hyperlink{polym_8h_a5b5a395141319c5c13666a272aa1f645}{SL\+\_\+\+Max\+\_\+\+Precision}}
+\item 
+\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \mbox{\hyperlink{polym_8h_adaf590cd5aa3e5808843ac00d9e26d1e}{Max\+\_\+\+Dense}}
+\item 
+\mbox{\hyperlink{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099}{WMatrix}} \mbox{\hyperlink{polym_8h_af612757c1d1352066bd1b8773453e5d2}{Poly}}
+\item 
+const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \mbox{\hyperlink{polym_8h_a2f3fd9411da34dd4faa1988983fb1545}{k\+Dense\+Max}} = 1
+\item 
+\mbox{\hyperlink{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099}{WMatrix}} \mbox{\hyperlink{polym_8h_aca9b6ff613d988cc22b061d312c6ab34}{Buffer\+Dense}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{polym_8h_ac9308e85a1e9abba7f247485552bb3ef}\index{polym.h@{polym.h}!geoda\_sqr@{geoda\_sqr}}
+\index{geoda\_sqr@{geoda\_sqr}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{geoda\_sqr}{geoda\_sqr}}
+{\footnotesize\ttfamily \label{polym_8h_ac9308e85a1e9abba7f247485552bb3ef} 
+\#define geoda\+\_\+sqr(\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((x)\ *\ (x))}
+
+\end{DoxyCode}
+\Hypertarget{polym_8h_aa691a57b0fb8374b072a02825d89a31e}\index{polym.h@{polym.h}!SL\_SMALL@{SL\_SMALL}}
+\index{SL\_SMALL@{SL\_SMALL}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SL\_SMALL}{SL\_SMALL}}
+{\footnotesize\ttfamily \label{polym_8h_aa691a57b0fb8374b072a02825d89a31e} 
+\#define SL\+\_\+\+SMALL~1e-\/14}
+
+\Hypertarget{polym_8h_a089c2e12eb41c55e339649240bb94c51}\index{polym.h@{polym.h}!SL\_SMALL\_MATRIX@{SL\_SMALL\_MATRIX}}
+\index{SL\_SMALL\_MATRIX@{SL\_SMALL\_MATRIX}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SL\_SMALL\_MATRIX}{SL\_SMALL\_MATRIX}}
+{\footnotesize\ttfamily \label{polym_8h_a089c2e12eb41c55e339649240bb94c51} 
+\#define SL\+\_\+\+SMALL\+\_\+\+MATRIX~5}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{polym_8h_ac1050cf28402f4b026fa097f83d71dcc}\index{polym.h@{polym.h}!DanilevskyIteration@{DanilevskyIteration}}
+\index{DanilevskyIteration@{DanilevskyIteration}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{DanilevskyIteration()}{DanilevskyIteration()}}
+{\footnotesize\ttfamily \label{polym_8h_ac1050cf28402f4b026fa097f83d71dcc} 
+void Danilevsky\+Iteration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$}]{mt}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{r1}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Remove}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{polym_8h_abfd9cf31ddb10022112d36489207fab7}\index{polym.h@{polym.h}!DanilevskyMethod@{DanilevskyMethod}}
+\index{DanilevskyMethod@{DanilevskyMethod}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{DanilevskyMethod()}{DanilevskyMethod()}}
+{\footnotesize\ttfamily \label{polym_8h_abfd9cf31ddb10022112d36489207fab7} 
+void Danilevsky\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$}]{mt}{, }\item[{\mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \&}]{poly}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_aaf7ad0bef23a96c5645d722c41349b63}\index{polym.h@{polym.h}!DanilevskyPostMultiply@{DanilevskyPostMultiply}}
+\index{DanilevskyPostMultiply@{DanilevskyPostMultiply}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{DanilevskyPostMultiply()}{DanilevskyPostMultiply()}}
+{\footnotesize\ttfamily \label{polym_8h_aaf7ad0bef23a96c5645d722c41349b63} 
+void Danilevsky\+Post\+Multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$}]{mt}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{r1}{, }\item[{\mbox{\hyperlink{lite2_8h_a3a00b1c836acf59360ffc84741af61c6}{WIterator}}}]{its}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a8b8dd531fc557cdb257d21b688f964bd}\index{polym.h@{polym.h}!DanilevskyPreMultiply@{DanilevskyPreMultiply}}
+\index{DanilevskyPreMultiply@{DanilevskyPreMultiply}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{DanilevskyPreMultiply()}{DanilevskyPreMultiply()}}
+{\footnotesize\ttfamily \label{polym_8h_a8b8dd531fc557cdb257d21b688f964bd} 
+void Danilevsky\+Pre\+Multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$}]{mt}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{r1}{, }\item[{\mbox{\hyperlink{lite2_8h_a3a00b1c836acf59360ffc84741af61c6}{WIterator}}}]{its}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a76bea34d3f14396be8f647b7667fff04}\index{polym.h@{polym.h}!DensePolySolving@{DensePolySolving}}
+\index{DensePolySolving@{DensePolySolving}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{DensePolySolving()}{DensePolySolving()}}
+{\footnotesize\ttfamily \label{polym_8h_a76bea34d3f14396be8f647b7667fff04} 
+void Dense\+Poly\+Solving (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_aa07e9b8661f4182f3beaf429619b695d}\index{polym.h@{polym.h}!DensePolySolvingOld@{DensePolySolvingOld}}
+\index{DensePolySolvingOld@{DensePolySolvingOld}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{DensePolySolvingOld()}{DensePolySolvingOld()}}
+{\footnotesize\ttfamily \label{polym_8h_aa07e9b8661f4182f3beaf429619b695d} 
+void Dense\+Poly\+Solving\+Old (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_ad9ba6ebe14958c3efb4c2b996508f97f}\index{polym.h@{polym.h}!FindAbsLargest@{FindAbsLargest}}
+\index{FindAbsLargest@{FindAbsLargest}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{FindAbsLargest()}{FindAbsLargest()}}
+{\footnotesize\ttfamily \label{polym_8h_ad9ba6ebe14958c3efb4c2b996508f97f} 
+template$<$class R$>$ \\
+\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Find\+Abs\+Largest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ R $>$}]{vt}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{ro}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{polym_8h_ac00d641cff83a1cfaf4c477c5e645a43}\index{polym.h@{polym.h}!InitPoly@{InitPoly}}
+\index{InitPoly@{InitPoly}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{InitPoly()}{InitPoly()}}
+{\footnotesize\ttfamily \label{polym_8h_ac00d641cff83a1cfaf4c477c5e645a43} 
+void Init\+Poly (\begin{DoxyParamCaption}\item[{int}]{precis}{, }\item[{const int}]{dim}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a622cc3d52b0eb88a1045e15a4d0ae04a}\index{polym.h@{polym.h}!LevelStructure@{LevelStructure}}
+\index{LevelStructure@{LevelStructure}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{LevelStructure()}{LevelStructure()}}
+{\footnotesize\ttfamily \label{polym_8h_a622cc3d52b0eb88a1045e15a4d0ae04a} 
+\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Level\+Structure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&}]{start}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&}]{Contig}{, }\item[{const \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} $>$}]{perm}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \texorpdfstring{$\ast$}{*}}]{order}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a50bd3effbed49185c43d5d1f6e5fd810}\index{polym.h@{polym.h}!OnePoly@{OnePoly}}
+\index{OnePoly@{OnePoly}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{OnePoly()}{OnePoly()}}
+{\footnotesize\ttfamily \label{polym_8h_a50bd3effbed49185c43d5d1f6e5fd810} 
+\mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} One\+Poly (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$}]{Poly}{, }\item[{const \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}}}]{Val}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Prec}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Pr}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a303bc3e7da1c5ac7b10ff52915ba50b3}\index{polym.h@{polym.h}!OnePrime@{OnePrime}}
+\index{OnePrime@{OnePrime}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{OnePrime()}{OnePrime()}}
+{\footnotesize\ttfamily \label{polym_8h_a303bc3e7da1c5ac7b10ff52915ba50b3} 
+\mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} One\+Prime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$}]{Poly}{, }\item[{const \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}}}]{Val}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Prec}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Pr}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a96dd1cdaa9b0000c0475ad715c3148e5}\index{polym.h@{polym.h}!PartialRename@{PartialRename}}
+\index{PartialRename@{PartialRename}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{PartialRename()}{PartialRename()}}
+{\footnotesize\ttfamily \label{polym_8h_a96dd1cdaa9b0000c0475ad715c3148e5} 
+void Partial\+Rename (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{it}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Deduct}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a87f716874abb180365d6bf75211e6b35}\index{polym.h@{polym.h}!PermuteMatrix@{PermuteMatrix}}
+\index{PermuteMatrix@{PermuteMatrix}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{PermuteMatrix()}{PermuteMatrix()}}
+{\footnotesize\ttfamily \label{polym_8h_a87f716874abb180365d6bf75211e6b35} 
+void Permute\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$}]{mt}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{i}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{polym_8h_a0550030e6569c967036f184a62cac73b}\index{polym.h@{polym.h}!PolyMultiply@{PolyMultiply}}
+\index{PolyMultiply@{PolyMultiply}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{PolyMultiply()}{PolyMultiply()}}
+{\footnotesize\ttfamily \label{polym_8h_a0550030e6569c967036f184a62cac73b} 
+void Poly\+Multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \&}]{a}{, }\item[{\mbox{\hyperlink{lite2_8h_a3a00b1c836acf59360ffc84741af61c6}{WIterator}}}]{b}{, }\item[{\mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \&}]{c}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a1369c7b447e333a1a3198034b1b7b355}\index{polym.h@{polym.h}!PolyOrganize@{PolyOrganize}}
+\index{PolyOrganize@{PolyOrganize}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{PolyOrganize()}{PolyOrganize()}}
+{\footnotesize\ttfamily \label{polym_8h_a1369c7b447e333a1a3198034b1b7b355} 
+void Poly\+Organize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \texorpdfstring{$\ast$}{*}}]{First}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Precision}{, }\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$}]{Border}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a1d686219b28c3765fec487a853f105a0}\index{polym.h@{polym.h}!PolyProduct@{PolyProduct}}
+\index{PolyProduct@{PolyProduct}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{PolyProduct()}{PolyProduct()}}
+{\footnotesize\ttfamily \label{polym_8h_a1d686219b28c3765fec487a853f105a0} 
+template$<$class P$>$ \\
+void Poly\+Product (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ P $>$ \&}]{v1}{, }\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ P $>$}]{v2}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_abaab16ef4c9c80a1f8ebb2b96a75dbb4}\index{polym.h@{polym.h}!RemoveColumns@{RemoveColumns}}
+\index{RemoveColumns@{RemoveColumns}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{RemoveColumns()}{RemoveColumns()}}
+{\footnotesize\ttfamily \label{polym_8h_abaab16ef4c9c80a1f8ebb2b96a75dbb4} 
+void Remove\+Columns (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$}]{mt}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{num}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{polym_8h_ab41c635f92197ad9d125952a4ae94090}\index{polym.h@{polym.h}!RemoveTheBelt@{RemoveTheBelt}}
+\index{RemoveTheBelt@{RemoveTheBelt}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{RemoveTheBelt()}{RemoveTheBelt()}}
+{\footnotesize\ttfamily \label{polym_8h_ab41c635f92197ad9d125952a4ae94090} 
+void Remove\+The\+Belt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{it}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{In\+The\+Belt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{polym_8h_aeb5dc3aae4617b1ecd855c54d6d10565}\index{polym.h@{polym.h}!Rename@{Rename}}
+\index{Rename@{Rename}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{Rename()}{Rename()}}
+{\footnotesize\ttfamily \label{polym_8h_aeb5dc3aae4617b1ecd855c54d6d10565} 
+template$<$class R$>$ \\
+void Rename (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ R $>$}]{mt}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \texorpdfstring{$\ast$}{*}}]{Perm}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a4d2ea91dbbf3520a912c32eeb411c68d}\index{polym.h@{polym.h}!SavePerm@{SavePerm}}
+\index{SavePerm@{SavePerm}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SavePerm()}{SavePerm()}}
+{\footnotesize\ttfamily \label{polym_8h_a4d2ea91dbbf3520a912c32eeb411c68d} 
+template$<$class IR$>$ \\
+void Save\+Perm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ IR $>$}]{it}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \texorpdfstring{$\ast$}{*}}]{perm}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_abb49292e91ec68878ad6be06e0f73543}\index{polym.h@{polym.h}!SelectBlockPolyNE@{SelectBlockPolyNE}}
+\index{SelectBlockPolyNE@{SelectBlockPolyNE}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SelectBlockPolyNE()}{SelectBlockPolyNE()}}
+{\footnotesize\ttfamily \label{polym_8h_abb49292e91ec68878ad6be06e0f73543} 
+void Select\+Block\+Poly\+NE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Start\+Best}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Pseudo\+Count}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a783f3ad2f22a8ea86604fae069d4f28a}\index{polym.h@{polym.h}!SelectMatrix@{SelectMatrix}}
+\index{SelectMatrix@{SelectMatrix}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SelectMatrix()}{SelectMatrix()}}
+{\footnotesize\ttfamily \label{polym_8h_a783f3ad2f22a8ea86604fae069d4f28a} 
+void Select\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{start}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{stop}{, }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ \&}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{polym_8h_aefe68e52b1679297acdda70b93f684dd}\index{polym.h@{polym.h}!SelectPolyNE@{SelectPolyNE}}
+\index{SelectPolyNE@{SelectPolyNE}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SelectPolyNE()}{SelectPolyNE()}}
+{\footnotesize\ttfamily \label{polym_8h_aefe68e52b1679297acdda70b93f684dd} 
+void Select\+Poly\+NE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Start\+Best}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Stop}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{polym_8h_a557ef056710cede1495d4c331cb31b1c}\index{polym.h@{polym.h}!SparseBlockPoly@{SparseBlockPoly}}
+\index{SparseBlockPoly@{SparseBlockPoly}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SparseBlockPoly()}{SparseBlockPoly()}}
+{\footnotesize\ttfamily \label{polym_8h_a557ef056710cede1495d4c331cb31b1c} 
+void Sparse\+Block\+Poly (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Pseudo}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_af1c7749bc4934f25849032d35c8beed9}\index{polym.h@{polym.h}!SparsePoly@{SparsePoly}}
+\index{SparsePoly@{SparsePoly}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SparsePoly()}{SparsePoly()}}
+{\footnotesize\ttfamily \label{polym_8h_af1c7749bc4934f25849032d35c8beed9} 
+void Sparse\+Poly (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a9dcb8129dd797bc11805632aa33f0d66}\index{polym.h@{polym.h}!SparsePolyBordering@{SparsePolyBordering}}
+\index{SparsePolyBordering@{SparsePolyBordering}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SparsePolyBordering()}{SparsePolyBordering()}}
+{\footnotesize\ttfamily \label{polym_8h_a9dcb8129dd797bc11805632aa33f0d66} 
+void Sparse\+Poly\+Bordering (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Belt\+Size}{, }\item[{\mbox{\hyperlink{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099}{WMatrix}} \&}]{Poly}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_abf8445d3c21621b80fa766845706b935}\index{polym.h@{polym.h}!SparsePolyBorderingNE@{SparsePolyBorderingNE}}
+\index{SparsePolyBorderingNE@{SparsePolyBorderingNE}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SparsePolyBorderingNE()}{SparsePolyBorderingNE()}}
+{\footnotesize\ttfamily \label{polym_8h_abf8445d3c21621b80fa766845706b935} 
+void Sparse\+Poly\+Bordering\+NE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{, }\item[{const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Belt\+Size}{, }\item[{\mbox{\hyperlink{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099}{WMatrix}} \&}]{Poly}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a32c764c7c1a9272f0bdbc0a730225ba2}\index{polym.h@{polym.h}!SparseSubMatrix@{SparseSubMatrix}}
+\index{SparseSubMatrix@{SparseSubMatrix}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SparseSubMatrix()}{SparseSubMatrix()}}
+{\footnotesize\ttfamily \label{polym_8h_a32c764c7c1a9272f0bdbc0a730225ba2} 
+void Sparse\+Sub\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{, }\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} $>$}]{perm}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \texorpdfstring{$\ast$}{*}}]{flag}{, }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ \&}]{v}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_a7a5c04884939f8a9c40e2e0cab172486}\index{polym.h@{polym.h}!SplitSparse@{SplitSparse}}
+\index{SplitSparse@{SplitSparse}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SplitSparse()}{SplitSparse()}}
+{\footnotesize\ttfamily \label{polym_8h_a7a5c04884939f8a9c40e2e0cab172486} 
+\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Split\+Sparse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Pseudo}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&}]{Second}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&}]{Pseudo\+Count}{}\end{DoxyParamCaption})}
+
+\Hypertarget{polym_8h_aefa3295517e3c2de8b707231c86511b6}\index{polym.h@{polym.h}!SplitSparseOld@{SplitSparseOld}}
+\index{SplitSparseOld@{SplitSparseOld}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SplitSparseOld()}{SplitSparseOld()}}
+{\footnotesize\ttfamily \label{polym_8h_aefa3295517e3c2de8b707231c86511b6} 
+\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Split\+Sparse\+Old (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{Pseudo}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&}]{Level}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} \&}]{Second}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{polym_8h_aca9b6ff613d988cc22b061d312c6ab34}\index{polym.h@{polym.h}!BufferDense@{BufferDense}}
+\index{BufferDense@{BufferDense}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{BufferDense}{BufferDense}}
+{\footnotesize\ttfamily \label{polym_8h_aca9b6ff613d988cc22b061d312c6ab34} 
+\mbox{\hyperlink{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099}{WMatrix}} Buffer\+Dense}
+
+\Hypertarget{polym_8h_a2f3fd9411da34dd4faa1988983fb1545}\index{polym.h@{polym.h}!kDenseMax@{kDenseMax}}
+\index{kDenseMax@{kDenseMax}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{kDenseMax}{kDenseMax}}
+{\footnotesize\ttfamily \label{polym_8h_a2f3fd9411da34dd4faa1988983fb1545} 
+const \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} k\+Dense\+Max = 1}
+
+\Hypertarget{polym_8h_adaf590cd5aa3e5808843ac00d9e26d1e}\index{polym.h@{polym.h}!Max\_Dense@{Max\_Dense}}
+\index{Max\_Dense@{Max\_Dense}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{Max\_Dense}{Max\_Dense}}
+{\footnotesize\ttfamily \label{polym_8h_adaf590cd5aa3e5808843ac00d9e26d1e} 
+\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} Max\+\_\+\+Dense}
+
+\Hypertarget{polym_8h_af612757c1d1352066bd1b8773453e5d2}\index{polym.h@{polym.h}!Poly@{Poly}}
+\index{Poly@{Poly}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{Poly}{Poly}}
+{\footnotesize\ttfamily \label{polym_8h_af612757c1d1352066bd1b8773453e5d2} 
+\mbox{\hyperlink{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099}{WMatrix}} Poly}
+
+\Hypertarget{polym_8h_a5b5a395141319c5c13666a272aa1f645}\index{polym.h@{polym.h}!SL\_Max\_Precision@{SL\_Max\_Precision}}
+\index{SL\_Max\_Precision@{SL\_Max\_Precision}!polym.h@{polym.h}}
+\doxysubsubsection{\texorpdfstring{SL\_Max\_Precision}{SL\_Max\_Precision}}
+{\footnotesize\ttfamily \label{polym_8h_a5b5a395141319c5c13666a272aa1f645} 
+\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} SL\+\_\+\+Max\+\_\+\+Precision}
+

@@ -1,0 +1,53 @@
+\doxysection{Multi\+Join\+Count.\+h}
+\hypertarget{_multi_join_count_8h_source}{}\label{_multi_join_count_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/lisa/MultiJoinCount.h@{/Users/xun/github/geoda-\/lib/src/cpp/lisa/MultiJoinCount.h}}
+\mbox{\hyperlink{_multi_join_count_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xun\ Li\ on\ 2019-\/12-\/01.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ GEODA\_MULTIJOINCOUNT\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ GEODA\_MULTIJOINCOUNT\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_l_i_s_a_8h}{LISA.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_join_count_af3c7c3b612859056334ee0d615475778}{MultiJoinCount}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_l_i_s_a_ab514ca51acdb895cd05464eae461fcf0}{LISA}}\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_NOT\_SIG;}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_SIG;}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_UNDEFINED;}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_NEIGHBORLESS;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{class_multi_join_count_af3c7c3b612859056334ee0d615475778}{MultiJoinCount}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a61a5128a4af4e294e8f59ddc2ac35854}{num\_obs}},\ \mbox{\hyperlink{class_geo_da_weight}{GeoDaWeight}}*\ w,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>\ >\&\ \mbox{\hyperlink{class_multi_join_count_a7e97aaeaeb94b1c32c3bd611ee2fe915}{data}},}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<bool>\ >\&\ \mbox{\hyperlink{class_l_i_s_a_af36658ec6c5e572b2c131d897220a81e}{undefs}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_l_i_s_a_aefaa3485a0023c7ee635a0b2874417e7}{significance\_cutoff}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a93dbaa5b02fbd6b2fef270888b9711b6}{nCPUs}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_aa1b448ba82487d84f7d34b5a48687ca7}{permutations}},}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \_permutation\_method,\ uint64\_t\ \mbox{\hyperlink{class_l_i_s_a_a0b6a2466791bca1b75369737337fca2d}{last\_seed\_used}});}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_multi_join_count_adc3dbdac4dae741341e92514970cb7e8}{\string~MultiJoinCount}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_join_count_a97ca887a4fa255ebd9cfdd6ecc355fad}{CalcPseudoP\_range}}(\textcolor{keywordtype}{int}\ obs\_start,\ \textcolor{keywordtype}{int}\ obs\_end,\ uint64\_t\ seed\_start);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_join_count_a51894627d81b9d12322d08df7857cffa}{PermCalcPseudoP\_range}}(\textcolor{keywordtype}{int}\ obs\_start,\ \textcolor{keywordtype}{int}\ obs\_end,\ uint64\_t\ seed\_start);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_join_count_ae0e50f39c6aed9d2e6f1879ba121960d}{ComputeLoalSA}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_join_count_ad4af37b40d303d90c859e446815e04e1}{PermLocalSA}}(\textcolor{keywordtype}{int}\ cnt,\ \textcolor{keywordtype}{int}\ perm,\ \textcolor{keyword}{const}\ std::vector<int>\&\ permNeighbors,\ std::vector<double>\&\ permutedSA);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_join_count_ad4af37b40d303d90c859e446815e04e1}{PermLocalSA}}(\textcolor{keywordtype}{int}\ cnt,\ \textcolor{keywordtype}{int}\ perm,\ \textcolor{keywordtype}{int}\ numNeighbors,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ permNeighbors,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\&\ permutedSA);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{virtual}\ uint64\_t\ \mbox{\hyperlink{class_multi_join_count_ab06ce82b10b1a5474cfcbd7c413c13f6}{CountLargerSA}}(\textcolor{keywordtype}{int}\ cnt,\ \textcolor{keyword}{const}\ std::vector<double>\&\ permutedSA);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{virtual}\ std::vector<int>\ \mbox{\hyperlink{class_multi_join_count_af6c39a638c1914fa39d6d39b6b484dc6}{GetClusterIndicators}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_multi_join_count_a31da4250edc88f390e13002bf44dddb3}{num\_vars}};}
+\DoxyCodeLine{00043\ \ \ std::vector<int>\ \mbox{\hyperlink{class_multi_join_count_afa56d95c5036b2b339ffbb6f1442bcce}{zz}};}
+\DoxyCodeLine{00044\ \ \ std::vector<std::vector<double>\ >\ \mbox{\hyperlink{class_multi_join_count_a7e97aaeaeb94b1c32c3bd611ee2fe915}{data}};}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GEODA\_MULTIJOINCOUNT\_H}}
+
+\end{DoxyCode}

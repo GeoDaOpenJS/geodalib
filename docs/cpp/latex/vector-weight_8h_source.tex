@@ -1,0 +1,55 @@
+\doxysection{vector-\/weight.h}
+\hypertarget{vector-weight_8h_source}{}\label{vector-weight_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/weights/vector-\/weight.h@{/Users/xun/github/geoda-\/lib/src/cpp/weights/vector-\/weight.h}}
+\mbox{\hyperlink{vector-weight_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gal_8h}{weights/gal.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{geoda-weight_8h}{weights/geoda-\/weight.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vector_weight_a5b523d61d8c992dfbf225e89e6332c11}{VectorWeight}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_geo_da_weight_a1fa01dc2a6d2429f8f770c2e33ee22fd}{GeoDaWeight}}\ \{}
+\DoxyCodeLine{00008\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element}{geoda::GalElement}}*\ \mbox{\hyperlink{class_vector_weight_a513e5e74d9cb571b89697eb4075f27a8}{gal}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{class_vector_weight_a5b523d61d8c992dfbf225e89e6332c11}{VectorWeight}}()\ :\ \mbox{\hyperlink{class_vector_weight_a513e5e74d9cb571b89697eb4075f27a8}{gal}}(0)\ \{\ \mbox{\hyperlink{class_geo_da_weight_a19c17fc62099cb6b1a16565e723b8837}{weight\_type}}\ =\ \mbox{\hyperlink{class_geo_da_weight_af4dd01d313aca99b6a04be97dd9c61a8a884a5108e33974006ebc7e7abece685e}{gal\_type}};\ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_vector_weight_a5b523d61d8c992dfbf225e89e6332c11}{VectorWeight}}(\textcolor{keyword}{const}\ std::vector<std::vector<unsigned\ int>>\&\ neighbors);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{class_vector_weight_a5b523d61d8c992dfbf225e89e6332c11}{VectorWeight}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector_weight}{VectorWeight}}\&\ gw);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_vector_weight_a2ede66e36225dd8d71a1cba5156d345b}{\string~VectorWeight}}()\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_vector_weight_a513e5e74d9cb571b89697eb4075f27a8}{gal}})\ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{class_vector_weight_a513e5e74d9cb571b89697eb4075f27a8}{gal}};}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_vector_weight_a513e5e74d9cb571b89697eb4075f27a8}{gal}}\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_vector_weight}{VectorWeight}}\&\ \mbox{\hyperlink{class_vector_weight_afa2b1eb5eb6c7b4baef9d648f83fc16b}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector_weight}{VectorWeight}}\&\ gw);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vector_weight_af184320e3030f5d1d0d45d900a4eff43}{HasIsolates}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vector_weight_aa926828334446048eb4f00a262f4df76}{Update}}(\textcolor{keyword}{const}\ std::vector<bool>\&\ undefs);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vector_weight_aed5a3d8ffab28ee7fabd99f50c843469}{CheckNeighbor}}(\textcolor{keywordtype}{int}\ obs\_idx,\ \textcolor{keywordtype}{int}\ nbr\_idx);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\ \mbox{\hyperlink{class_vector_weight_a11e72fa70f837b222c733681ece4459f}{GetNeighbors}}(\textcolor{keywordtype}{int}\ obs\_idx);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ std::vector<double>\ \mbox{\hyperlink{class_vector_weight_a8a0ce2cb9ee5ca063b536daffdffbf8b}{GetNeighborWeights}}(\textcolor{keywordtype}{int}\ obs\_idx);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vector_weight_a882ceaacee73eea655d521f72759be91}{GetNbrStats}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_vector_weight_aedcc6d5eb68d031f2053c21d4ae4d325}{GetNbrSize}}(\textcolor{keywordtype}{int}\ obs\_idx);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_vector_weight_a959edbca5d1f2a4373a4a40c11a7a50d}{SpatialLag}}(\textcolor{keywordtype}{int}\ obs\_idx,\ \textcolor{keyword}{const}\ std::vector<double>\&\ data);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vector_weight_ac6ab3f64896c3b99218ecf740f61eaa8}{Save}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ofname,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ layer\_name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ id\_var\_name,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ id\_vec);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vector_weight_ac6ab3f64896c3b99218ecf740f61eaa8}{Save}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ofname,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ layer\_name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ id\_var\_name,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\&\ id\_vec);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vector_weight_a738e62ba4776570ef1818687e1f2a284}{SetNeighbors}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::vector<int>\&\ nbr\_ids);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vector_weight_a59ecfc42670cfdc120ed40e12b2e39cd}{SetNeighborsAndWeights}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::vector<int>\&\ nbr\_ids,\ \textcolor{keyword}{const}\ std::vector<double>\&\ w);}
+\DoxyCodeLine{00049\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,6 @@
+/* .vitepress/theme/custom.css */
+:root {
+  --vp-c-brand-1: rgb(208, 131, 131);
+  --vp-c-brand-2: orange;
+  --vp-button-brand-bg: maroon;
+}

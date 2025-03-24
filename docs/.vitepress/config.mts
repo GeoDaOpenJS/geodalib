@@ -14,19 +14,34 @@ export default defineConfig({
 
     sidebar: [
       {
+        text: 'Developer Guide',
+        items: [
+          { text: 'Get Started', link: '/get-started' },
+          { text: 'Architecture', link: '/architecture' },
+        ],
+      },
+      {
+        text: 'API Reference',
+        items: [
+          { text: 'Spatial Operations', link: '/spatial-operations' },
+          { text: 'Mapping', link: '/reference/mapping' },
+          { text: 'Data Exploration', link: '/data-exploration' },
+          { text: 'Spatial Weights', link: '/spatial-weights' },
+          { text: 'Spatial Autocorrelation Analysis', link: '/spatial-autocorrelation-analysis' },
+          { text: 'Spatial Clustering', link: '/spatial-clustering' },
+          { text: 'Spatial Regression', link: '/spatial-regression' },
+        ],
+      },
+      {
         text: 'Examples',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
+          { text: 'React Examples', link: '/react-examples' },
+          { text: 'Node Examples', link: '/node-examples' },
         ],
       },
       {
         text: 'TypeScript API',
         link: '/api/globals',
-      },
-      {
-        text: 'C++ API',
-        link: '/cpp/',
       },
     ],
 

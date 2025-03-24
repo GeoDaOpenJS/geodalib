@@ -1,0 +1,225 @@
+\doxysection{geoda\+::Polygon\+Collection Class Reference}
+\hypertarget{classgeoda_1_1_polygon_collection}{}\label{classgeoda_1_1_polygon_collection}\index{geoda::PolygonCollection@{geoda::PolygonCollection}}
+
+
+{\ttfamily \#include $<$geometry.\+h$>$}
+
+Inheritance diagram for geoda\+::Polygon\+Collection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgeoda_1_1_polygon_collection}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgeoda_1_1_polygon_collection_af69c0dbe3180ab6e4ab08386d33a0e43}{Polygon\+Collection}} (const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_aa4b142edec07a60c3ccebebd75ec1807}{x}}, const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_a21cd35c83e2c8f83c3cd9ca918a39d76}{y}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_a6b093922e9b1b191b4c2f865e030e067}{parts}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classgeoda_1_1_polygon_collection_af225c80a52c8390efed41ba53faacc7f}{holes}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_ae918c6023877c8b4b0d4b2cae0cd44d7}{sizes}}, bool fix\+\_\+polygon=false, bool \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a10e7706e4dfc1099ceff90f360577ac0}{convert\+\_\+to\+\_\+\+UTM}}=false)
+\item 
+\mbox{\hyperlink{classgeoda_1_1_polygon_collection_a1bed1e43df883b96fab1944890cf4305}{\texorpdfstring{$\sim$}{\string~}\+Polygon\+Collection}} () override=default
+\item 
+void \mbox{\hyperlink{classgeoda_1_1_polygon_collection_a61f53ffa0c91a79b38c5ccb3b96dfe97}{get\+\_\+bbox}} (size\+\_\+t i, \mbox{\hyperlink{geometry_8h_a7d32eb4d5272ffdaf1a4c210691779fb}{box\+\_\+type}} \&box) const override
+\item 
+\mbox{\hyperlink{namespacegeoda_a20fd16562e89848c50247b0d9c865348}{Shape\+Type}} \mbox{\hyperlink{classgeoda_1_1_polygon_collection_a7935f997727f1650289683122f12d5b2}{get\+\_\+type}} () const override
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classgeoda_1_1_polygon_collection_a2c89fb3c1d3fcec6c76d9275a8e1ecac}{get\+\_\+centroids}} () const override
+\item 
+\mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_polygon_collection_a10b370fc79b726b4f2ad7e692f35cc6a}{get\+\_\+centroid}} (size\+\_\+t i) const override
+\item 
+\mbox{\hyperlink{geometry_8h_ad9cc59b99ad17c2cd9f79fd375e88752}{multipolygon\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_polygon_collection_a39782c0e0ba343a250f9db5d87b9c10e}{get\+\_\+polygon}} (size\+\_\+t i) const override
+\item 
+void \mbox{\hyperlink{classgeoda_1_1_polygon_collection_abc609a571f688b404ef5deb6c18019dd}{get\+\_\+polygon}} (size\+\_\+t polygon\+\_\+index, \mbox{\hyperlink{classgeoda_1_1_polygon}{Polygon}} \&poly)
+\item 
+int \mbox{\hyperlink{classgeoda_1_1_polygon_collection_a40fbd11ed2b52766117f0b720bfea888}{get\+\_\+part}} (size\+\_\+t geom\+\_\+index, size\+\_\+t part\+\_\+index) const override
+\item 
+\mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_polygon_collection_afe1714f8c679c2688dbc8ab2e88a89f7}{get\+\_\+point}} (size\+\_\+t geom\+\_\+index, size\+\_\+t point\+\_\+index) const override
+\item 
+size\+\_\+t \mbox{\hyperlink{classgeoda_1_1_polygon_collection_addc989726ed3ddb6237aa1ea2e10d63a}{get\+\_\+num\+\_\+parts}} (size\+\_\+t geom\+\_\+index) const override
+\item 
+size\+\_\+t \mbox{\hyperlink{classgeoda_1_1_polygon_collection_a8a6d0fa2021b81137847394d47591d2c}{get\+\_\+num\+\_\+points}} (size\+\_\+t geom\+\_\+index) const override
+\item 
+bool \mbox{\hyperlink{classgeoda_1_1_polygon_collection_a33cd8020b3631e935eeb2be1c86695db}{intersect}} (size\+\_\+t i, const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&join\+\_\+geoms, size\+\_\+t j) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{geoda\+::\+Geometry\+Collection}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgeoda_1_1_geometry_collection_a9ff03fbaedb0cd610d2ac321d6dec5c3}{Geometry\+Collection}} (const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_aa4b142edec07a60c3ccebebd75ec1807}{x}}, const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_a21cd35c83e2c8f83c3cd9ca918a39d76}{y}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_a6b093922e9b1b191b4c2f865e030e067}{parts}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_ae918c6023877c8b4b0d4b2cae0cd44d7}{sizes}}, bool \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a10e7706e4dfc1099ceff90f360577ac0}{convert\+\_\+to\+\_\+\+UTM}})
+\item 
+virtual \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a369be05641ef601eab34eae7f5393e51}{\texorpdfstring{$\sim$}{\string~}\+Geometry\+Collection}} ()=default
+\item 
+void \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a51291eebb1d1165f78cdee56f317afcb}{Convert\+To\+UTM}} (int index, double lat, double lng, double \&north, double \&east)
+\item 
+size\+\_\+t \mbox{\hyperlink{classgeoda_1_1_geometry_collection_ac84ddf06ab4559e822276f376a24f41f}{size}} () const
+\item 
+bool \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a0d8bf03dd9b0edf9d6bfb740eebe4f51}{empty}} () const
+\item 
+virtual \mbox{\hyperlink{geometry_8h_adabc488e138eb16d35bb5ab9437ed3e2}{multipoint\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a56aaceca9602b4488fb7d12274429482}{get\+\_\+point}} (size\+\_\+t i) const
+\item 
+virtual \mbox{\hyperlink{geometry_8h_a4cace7380b22e2b7925d0b7f9847d782}{multiline\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_geometry_collection_aeaa895db6128cadaf3ff09cf1f6322a0}{get\+\_\+line}} (size\+\_\+t i) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classgeoda_1_1_polygon_collection_af225c80a52c8390efed41ba53faacc7f}{holes}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{geometry_8h_ad9cc59b99ad17c2cd9f79fd375e88752}{multipolygon\+\_\+type}} $>$ \mbox{\hyperlink{classgeoda_1_1_polygon_collection_af147a9fc1724c0a17a29e544df674499}{polygons}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{geoda\+::\+Geometry\+Collection}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classgeoda_1_1_geometry_collection_aa4b142edec07a60c3ccebebd75ec1807}{x}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a21cd35c83e2c8f83c3cd9ca918a39d76}{y}}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a6b093922e9b1b191b4c2f865e030e067}{parts}}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classgeoda_1_1_geometry_collection_ae918c6023877c8b4b0d4b2cae0cd44d7}{sizes}}
+\item 
+bool \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a10e7706e4dfc1099ceff90f360577ac0}{convert\+\_\+to\+\_\+\+UTM}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a110398f22f06869c071a09117788e009}{utm\+\_\+zones}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgeoda_1_1_polygon_collection_af69c0dbe3180ab6e4ab08386d33a0e43}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!PolygonCollection@{PolygonCollection}}
+\index{PolygonCollection@{PolygonCollection}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{PolygonCollection()}{PolygonCollection()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_af69c0dbe3180ab6e4ab08386d33a0e43} 
+Polygon\+Collection\+::\+Polygon\+Collection (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{x}{, }\item[{const std\+::vector$<$ double $>$ \&}]{y}{, }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{parts}{, }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{holes}{, }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{sizes}{, }\item[{bool}]{fix\+\_\+polygon}{ = {\ttfamily false}, }\item[{bool}]{convert\+\_\+to\+\_\+\+UTM}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+\Hypertarget{classgeoda_1_1_polygon_collection_a1bed1e43df883b96fab1944890cf4305}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!````~PolygonCollection@{\texorpdfstring{$\sim$}{\string~}PolygonCollection}}
+\index{````~PolygonCollection@{\texorpdfstring{$\sim$}{\string~}PolygonCollection}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PolygonCollection()}{\string~PolygonCollection()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_a1bed1e43df883b96fab1944890cf4305} 
+geoda\+::\+Polygon\+Collection\+::\texorpdfstring{$\sim$}{\string~}\+Polygon\+Collection (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgeoda_1_1_polygon_collection_a61f53ffa0c91a79b38c5ccb3b96dfe97}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!get\_bbox@{get\_bbox}}
+\index{get\_bbox@{get\_bbox}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{get\_bbox()}{get\_bbox()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_a61f53ffa0c91a79b38c5ccb3b96dfe97} 
+void geoda\+::\+Polygon\+Collection\+::get\+\_\+bbox (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i}{, }\item[{\mbox{\hyperlink{geometry_8h_a7d32eb4d5272ffdaf1a4c210691779fb}{box\+\_\+type}} \&}]{box}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a3e6ecea3fd57812663972ef52119ca18}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_polygon_collection_a10b370fc79b726b4f2ad7e692f35cc6a}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!get\_centroid@{get\_centroid}}
+\index{get\_centroid@{get\_centroid}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{get\_centroid()}{get\_centroid()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_a10b370fc79b726b4f2ad7e692f35cc6a} 
+\mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} geoda\+::\+Polygon\+Collection\+::get\+\_\+centroid (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_collection_ad1e00066be731ae77452566bd0214b56}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_polygon_collection_a2c89fb3c1d3fcec6c76d9275a8e1ecac}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!get\_centroids@{get\_centroids}}
+\index{get\_centroids@{get\_centroids}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{get\_centroids()}{get\_centroids()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_a2c89fb3c1d3fcec6c76d9275a8e1ecac} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ Polygon\+Collection\+::get\+\_\+centroids (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a68d401e4a2a61c43820b06d2d9d854b4}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_polygon_collection_addc989726ed3ddb6237aa1ea2e10d63a}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!get\_num\_parts@{get\_num\_parts}}
+\index{get\_num\_parts@{get\_num\_parts}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{get\_num\_parts()}{get\_num\_parts()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_addc989726ed3ddb6237aa1ea2e10d63a} 
+size\+\_\+t Polygon\+Collection\+::get\+\_\+num\+\_\+parts (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{geom\+\_\+index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a39fd26b2796c636e0b7913640e1b0076}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_polygon_collection_a8a6d0fa2021b81137847394d47591d2c}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!get\_num\_points@{get\_num\_points}}
+\index{get\_num\_points@{get\_num\_points}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{get\_num\_points()}{get\_num\_points()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_a8a6d0fa2021b81137847394d47591d2c} 
+size\+\_\+t Polygon\+Collection\+::get\+\_\+num\+\_\+points (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{geom\+\_\+index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a7451e84dee62efec3756bdab2f04fe89}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_polygon_collection_a40fbd11ed2b52766117f0b720bfea888}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!get\_part@{get\_part}}
+\index{get\_part@{get\_part}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{get\_part()}{get\_part()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_a40fbd11ed2b52766117f0b720bfea888} 
+int Polygon\+Collection\+::get\+\_\+part (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{geom\+\_\+index}{, }\item[{size\+\_\+t}]{part\+\_\+index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classgeoda_1_1_geometry_collection_aab3968b3c18f6aba035b3a74f5f361d0}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_polygon_collection_afe1714f8c679c2688dbc8ab2e88a89f7}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!get\_point@{get\_point}}
+\index{get\_point@{get\_point}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{get\_point()}{get\_point()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_afe1714f8c679c2688dbc8ab2e88a89f7} 
+\mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} Polygon\+Collection\+::get\+\_\+point (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{geom\+\_\+index}{, }\item[{size\+\_\+t}]{point\+\_\+index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a0b80b51bc498fd1e9942380d77300581}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_polygon_collection_a39782c0e0ba343a250f9db5d87b9c10e}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!get\_polygon@{get\_polygon}}
+\index{get\_polygon@{get\_polygon}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{get\_polygon()}{get\_polygon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_a39782c0e0ba343a250f9db5d87b9c10e} 
+\mbox{\hyperlink{geometry_8h_ad9cc59b99ad17c2cd9f79fd375e88752}{multipolygon\+\_\+type}} geoda\+::\+Polygon\+Collection\+::get\+\_\+polygon (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a5b9f32aaad9f327cd471da16d552c904}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_polygon_collection_abc609a571f688b404ef5deb6c18019dd}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!get\_polygon@{get\_polygon}}
+\index{get\_polygon@{get\_polygon}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{get\_polygon()}{get\_polygon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_abc609a571f688b404ef5deb6c18019dd} 
+void Polygon\+Collection\+::get\+\_\+polygon (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{polygon\+\_\+index}{, }\item[{\mbox{\hyperlink{classgeoda_1_1_polygon}{Polygon}} \&}]{poly}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classgeoda_1_1_polygon_collection_a7935f997727f1650289683122f12d5b2}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_a7935f997727f1650289683122f12d5b2} 
+\mbox{\hyperlink{namespacegeoda_a20fd16562e89848c50247b0d9c865348}{Shape\+Type}} geoda\+::\+Polygon\+Collection\+::get\+\_\+type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a1fb5568413e4c69d931233591a5906f2}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_polygon_collection_a33cd8020b3631e935eeb2be1c86695db}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!intersect@{intersect}}
+\index{intersect@{intersect}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{intersect()}{intersect()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_a33cd8020b3631e935eeb2be1c86695db} 
+bool geoda\+::\+Polygon\+Collection\+::intersect (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i}{, }\item[{const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&}]{join\+\_\+geoms}{, }\item[{size\+\_\+t}]{j}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a53b589cda146cc12876b8a616062ccdf}{geoda\+::\+Geometry\+Collection}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgeoda_1_1_polygon_collection_af225c80a52c8390efed41ba53faacc7f}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!holes@{holes}}
+\index{holes@{holes}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{holes}{holes}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_af225c80a52c8390efed41ba53faacc7f} 
+std\+::vector$<$unsigned int$>$ geoda\+::\+Polygon\+Collection\+::holes}
+
+\Hypertarget{classgeoda_1_1_polygon_collection_af147a9fc1724c0a17a29e544df674499}\index{geoda::PolygonCollection@{geoda::PolygonCollection}!polygons@{polygons}}
+\index{polygons@{polygons}!geoda::PolygonCollection@{geoda::PolygonCollection}}
+\doxysubsubsection{\texorpdfstring{polygons}{polygons}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_collection_af147a9fc1724c0a17a29e544df674499} 
+std\+::vector$<$\mbox{\hyperlink{geometry_8h_ad9cc59b99ad17c2cd9f79fd375e88752}{multipolygon\+\_\+type}}$>$ geoda\+::\+Polygon\+Collection\+::polygons}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/geometry/\mbox{\hyperlink{geometry_8h}{geometry.\+h}}\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/geometry/\mbox{\hyperlink{geometry_8cpp}{geometry.\+cpp}}\end{DoxyCompactItemize}

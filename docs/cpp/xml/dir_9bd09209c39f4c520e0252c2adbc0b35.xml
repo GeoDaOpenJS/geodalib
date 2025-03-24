@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="dir_9bd09209c39f4c520e0252c2adbc0b35" kind="dir">
+    <compoundname>/Users/xun/github/geoda-lib/src/cpp/mapping</compoundname>
+    <innerfile refid="box-breaks_8cpp">box-breaks.cpp</innerfile>
+    <innerfile refid="equal-interval-breaks_8cpp">equal-interval-breaks.cpp</innerfile>
+    <innerfile refid="mapping_8h">mapping.h</innerfile>
+    <innerfile refid="natural-breaks_8cpp">natural-breaks.cpp</innerfile>
+    <innerfile refid="percentile-breaks_8cpp">percentile-breaks.cpp</innerfile>
+    <innerfile refid="quantile-breaks_8cpp">quantile-breaks.cpp</innerfile>
+    <innerfile refid="stddev-breaks_8cpp">stddev-breaks.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/"/>
+  </compounddef>
+</doxygen>

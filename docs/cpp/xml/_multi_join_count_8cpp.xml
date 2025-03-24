@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="_multi_join_count_8cpp" kind="file" language="C++">
+    <compoundname>MultiJoinCount.cpp</compoundname>
+    <includes refid="_multi_join_count_8h" local="yes">MultiJoinCount.h</includes>
+    <includes local="no">math.h</includes>
+    <includes local="no">vector</includes>
+    <includes refid="geoda-weight_8h" local="yes">../weights/geoda-weight.h</includes>
+    <includes refid="_geo_da_set_8h" local="yes">./GeoDaSet.h</includes>
+    <incdepgraph>
+      <node id="11">
+        <label>./GeoDaSet.h</label>
+        <link refid="_geo_da_set_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>LISA.h</label>
+        <link refid="_l_i_s_a_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp</label>
+        <link refid="_multi_join_count_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MultiJoinCount.h</label>
+        <link refid="_multi_join_count_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>../weights/geoda-weight.h</label>
+        <link refid="geoda-weight_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cstdint</label>
+      </node>
+      <node id="7">
+        <label>list</label>
+      </node>
+      <node id="8">
+        <label>map</label>
+      </node>
+      <node id="9">
+        <label>math.h</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="12">
+        <label>string.h</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>Xun<sp/>Li<sp/>on<sp/>2019-12-01.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_multi_join_count_8h" kindref="compound">MultiJoinCount.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="geoda-weight_8h" kindref="compound">../weights/geoda-weight.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_geo_da_set_8h" kindref="compound">./GeoDaSet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><ref refid="class_multi_join_count_1af3c7c3b612859056334ee0d615475778" kindref="member">MultiJoinCount::MultiJoinCount</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_obs,<sp/><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref><sp/>*w,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;<sp/>&amp;_data,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::vector&lt;bool&gt;<sp/>&gt;<sp/>&amp;_undefs,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>significance_cutoff,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_nCPUs,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_perm,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;_permutation_method,<sp/>uint64_t<sp/>_last_seed)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="class_l_i_s_a" kindref="compound">LISA</ref>(num_obs,<sp/>w,<sp/>_undefs,<sp/>significance_cutoff,<sp/>_nCPUs,<sp/>_perm,<sp/>_permutation_method,<sp/>_last_seed),</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CLUSTER_NOT_SIG(0),</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CLUSTER_SIG(1),</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CLUSTER_UNDEFINED(2),</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CLUSTER_NEIGHBORLESS(3),</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data(_data)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>labels.push_back(</highlight><highlight class="stringliteral">&quot;Not<sp/>significant&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>labels.push_back(</highlight><highlight class="stringliteral">&quot;Significant&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>labels.push_back(</highlight><highlight class="stringliteral">&quot;Undefined&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>labels.push_back(</highlight><highlight class="stringliteral">&quot;Isolated&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>colors.push_back(</highlight><highlight class="stringliteral">&quot;#eeeeee&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>colors.push_back(</highlight><highlight class="stringliteral">&quot;#348124&quot;</highlight><highlight class="normal">);<sp/><sp/></highlight><highlight class="comment">//<sp/>green</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>colors.push_back(</highlight><highlight class="stringliteral">&quot;#464646&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>colors.push_back(</highlight><highlight class="stringliteral">&quot;#999999&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>num_vars<sp/>=<sp/>data.size();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>std::vector&lt;bool&gt;<sp/>undef_merge(num_obs,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_undefs.size()<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_obs;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>_undefs.size();<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_undefs[j].size()<sp/>&gt;=<sp/>num_obs)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>undef_merge[i]<sp/>=<sp/>undef_merge[i]<sp/>||<sp/>_undefs[j][i];</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>undefs<sp/>=<sp/>undef_merge;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>zz.resize(num_obs,<sp/>1);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_obs;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>v<sp/>=<sp/>0;<sp/>v<sp/>&lt;<sp/>num_vars;<sp/>v++)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>zz[i]<sp/>=<sp/>zz[i]<sp/>*<sp/>data[v][i];<sp/><sp/></highlight><highlight class="comment">//<sp/>0<sp/>or<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>Run();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><ref refid="class_multi_join_count_1adc3dbdac4dae741341e92514970cb7e8" kindref="member">MultiJoinCount::~MultiJoinCount</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_multi_join_count_1ae0e50f39c6aed9d2e6f1879ba121960d" kindref="member">MultiJoinCount::ComputeLoalSA</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_m_l__im_8cpp_1ab0f1c1a71d99a758429781c77aede6f7" kindref="member">sum</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[i])<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_m_l__im_8cpp_1ab0f1c1a71d99a758429781c77aede6f7" kindref="member">sum</ref><sp/>+=<sp/><ref refid="class_multi_join_count_1afa56d95c5036b2b339ffbb6f1442bcce" kindref="member">zz</ref>[i];</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>nocolocation<sp/>=<sp/><ref refid="_m_l__im_8cpp_1ab0f1c1a71d99a758429781c77aede6f7" kindref="member">sum</ref><sp/>==<sp/>0;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>bivariate<sp/>local<sp/>join<sp/>count<sp/>--<sp/>colocation<sp/>and<sp/>no-colocation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>multivariate<sp/>local<sp/>join<sp/>count<sp/>--<sp/>colocation<sp/>only</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nocolocation)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>here<sp/>only<sp/>bivariate<sp/>apply<sp/>to<sp/>no-colocation<sp/>case</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>why?<sp/>think<sp/>about<sp/>if<sp/>add<sp/>a<sp/>third<sp/>variable,<sp/>it<sp/>would<sp/>break</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>no-colocation<sp/>case!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[i]<sp/>==<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_multi_join_count_1afa56d95c5036b2b339ffbb6f1442bcce" kindref="member">zz</ref>[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_multi_join_count_1afa56d95c5036b2b339ffbb6f1442bcce" kindref="member">zz</ref>[i]<sp/>=<sp/><ref refid="class_multi_join_count_1a7e97aaeaeb94b1c32c3bd611ee2fe915" kindref="member">data</ref>[1][i];</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[i])<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a1842b85ffe20032c9fc14bb7734d946c" kindref="member">lag_vec</ref>[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i]<sp/>=<sp/>CLUSTER_UNDEFINED;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;GetNbrSize(i)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[i]<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>isolates<sp/>should<sp/>be<sp/>excluded<sp/>as<sp/>undefined</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i]<sp/>=<sp/>CLUSTER_NEIGHBORLESS;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_multi_join_count_1a7e97aaeaeb94b1c32c3bd611ee2fe915" kindref="member">data</ref>[0][i]<sp/>&gt;<sp/>0)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>x_i<sp/>=<sp/>1<sp/>(major<sp/>event)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nbr_size<sp/>=<sp/><ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;GetNbrSize(i);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;<sp/>&amp;nbrs<sp/>=<sp/><ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;GetNeighbors(i);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>nbr_size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nbrs[j]<sp/>!=<sp/>i<sp/>&amp;&amp;<sp/>!<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[nbrs[j]])<sp/><ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>[i]<sp/>+=<sp/><ref refid="class_multi_join_count_1afa56d95c5036b2b339ffbb6f1442bcce" kindref="member">zz</ref>[nbrs[j]];</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>could<sp/>be<sp/>both<sp/>bivariate<sp/>and<sp/>multivariate<sp/>cases</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[i])<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a1842b85ffe20032c9fc14bb7734d946c" kindref="member">lag_vec</ref>[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i]<sp/>=<sp/>CLUSTER_UNDEFINED;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_multi_join_count_1afa56d95c5036b2b339ffbb6f1442bcce" kindref="member">zz</ref>[i]<sp/>&gt;<sp/>0)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>x_i.z_i<sp/>=<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nbr_size<sp/>=<sp/><ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;GetNbrSize(i);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;<sp/>&amp;nbrs<sp/>=<sp/><ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;GetNeighbors(i);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>nbr_size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nbrs[j]<sp/>!=<sp/>i<sp/>&amp;&amp;<sp/>!<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[nbrs[j]])<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>the<sp/>number<sp/>of<sp/>neighbors<sp/>with</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>x_j.z_j<sp/>=<sp/>1<sp/>(zz=1)<sp/>as<sp/>a<sp/>spatial<sp/>lag</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>[i]<sp/>+=<sp/><ref refid="class_multi_join_count_1afa56d95c5036b2b339ffbb6f1442bcce" kindref="member">zz</ref>[nbrs[j]];</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_multi_join_count_1a97ca887a4fa255ebd9cfdd6ecc355fad" kindref="member">MultiJoinCount::CalcPseudoP_range</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_end,<sp/>uint64_t<sp/>seed_start)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>GeoDaSet<sp/>workPermutation(<ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max_rand<sp/>=<sp/><ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref><sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>obs_start;<sp/>cnt<sp/>&lt;=<sp/>obs_end;<sp/>cnt++)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[cnt]<sp/>||<sp/><ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;IsMasked(cnt)<sp/>==<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>6;<sp/><sp/></highlight><highlight class="comment">//<sp/>undefined<sp/>cat</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>skip<sp/>local<sp/>join<sp/>count<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>[cnt]<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a4cebb360265b00834131007f766f8888" kindref="member">sig_local_vec</ref>[cnt]<sp/>=<sp/>-1.0;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>full<sp/>neighbors<sp/>even<sp/>if<sp/>has<sp/>undefined<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numNeighbors<sp/>=<sp/><ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;GetNbrSize(cnt);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(numNeighbors<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>5;<sp/><sp/></highlight><highlight class="comment">//<sp/>neighborless<sp/>cat</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>isolate:<sp/>don&apos;t<sp/>do<sp/>permutation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>permutedSA(<ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perm<sp/>=<sp/>0;<sp/>perm<sp/>&lt;<sp/><ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref>;<sp/>perm++)<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rand<sp/>=<sp/>0,<sp/>newRandom;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rng_val;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(rand<sp/>&lt;<sp/>numNeighbors)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>computing<sp/>&apos;perfect&apos;<sp/>permutation<sp/>of<sp/>given<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rng_val<sp/>=<sp/>geoda::ThomasWangHashDouble(seed_start++)<sp/>*<sp/>max_rand;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>round<sp/>is<sp/>needed<sp/>to<sp/>fix<sp/>issue</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>https://github.com/GeoDaCenter/geoda/issues/488</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newRandom<sp/>=<sp/>(int)(rng_val<sp/>&lt;<sp/>0.0<sp/>?<sp/>ceil(rng_val<sp/>-<sp/>0.5)<sp/>:<sp/>floor(rng_val<sp/>+<sp/>0.5));</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(newRandom<sp/>!=<sp/>cnt<sp/>&amp;&amp;<sp/>!workPermutation.Belongs(newRandom)<sp/>&amp;&amp;<sp/><ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[newRandom]<sp/>==<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>workPermutation.Push(newRandom);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rand++;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>permNeighbors(numNeighbors);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cp<sp/>=<sp/>0;<sp/>cp<sp/>&lt;<sp/>numNeighbors;<sp/>cp++)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>permNeighbors[cp]<sp/>=<sp/>workPermutation.Pop();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_multi_join_count_1ad4af37b40d303d90c859e446815e04e1" kindref="member">PermLocalSA</ref>(cnt,<sp/>perm,<sp/>permNeighbors,<sp/>permutedSA);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>countLarger<sp/>=<sp/><ref refid="class_multi_join_count_1ab06ce82b10b1a5474cfcbd7c413c13f6" kindref="member">CountLargerSA</ref>(cnt,<sp/>permutedSA);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_sigLocal<sp/>=<sp/>(countLarger<sp/>+<sp/>1.0)<sp/>/<sp/>(<ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref><sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&apos;significance&apos;<sp/>of<sp/>local<sp/>sa</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_sigLocal<sp/>&lt;=<sp/>0.0001)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_sigLocal<sp/>&lt;=<sp/>0.001)</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_sigLocal<sp/>&lt;=<sp/>0.01)</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_sigLocal<sp/>&lt;=<sp/>0.05)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a4cebb360265b00834131007f766f8888" kindref="member">sig_local_vec</ref>[cnt]<sp/>=<sp/>_sigLocal;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>observations<sp/>with<sp/>no<sp/>neighbors<sp/>get<sp/>marked<sp/>as<sp/>isolates</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>undefined<sp/>should<sp/>be<sp/>marked<sp/>as<sp/>well,<sp/>however,<sp/>since<sp/>undefined_cat<sp/>has<sp/>covered<sp/>undefined<sp/>category,<sp/>we<sp/>don&apos;t</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>need<sp/>to<sp/>handle<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_multi_join_count_1a51894627d81b9d12322d08df7857cffa" kindref="member">MultiJoinCount::PermCalcPseudoP_range</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_end,<sp/>uint64_t<sp/>seed_start)<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>obs_start;<sp/>cnt<sp/>&lt;=<sp/>obs_end;<sp/>cnt++)<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[cnt]<sp/>||<sp/><ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;IsMasked(cnt)<sp/>==<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>6;<sp/><sp/></highlight><highlight class="comment">//<sp/>undefined</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ignore<sp/>local<sp/>join<sp/>count<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>[cnt]<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a4cebb360265b00834131007f766f8888" kindref="member">sig_local_vec</ref>[cnt]<sp/>=<sp/>-1.0;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>full<sp/>neighbors<sp/>even<sp/>if<sp/>has<sp/>undefined<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numNeighbors<sp/>=<sp/><ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;GetNbrSize(cnt);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(numNeighbors<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>5;<sp/><sp/></highlight><highlight class="comment">//<sp/>neighborless<sp/>cat</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>isolate:<sp/>don&apos;t<sp/>do<sp/>permutation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>permutedSA(<ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>perm<sp/>=<sp/>0;<sp/>perm<sp/>&lt;<sp/><ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref>;<sp/>perm++)<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_multi_join_count_1ad4af37b40d303d90c859e446815e04e1" kindref="member">PermLocalSA</ref>(cnt,<sp/>perm,<sp/>numNeighbors,<sp/><ref refid="class_l_i_s_a_1a4e4104294cae67b667c3ef8a435027cf" kindref="member">perm_table</ref>[perm],<sp/>permutedSA);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>countLarger<sp/>=<sp/><ref refid="class_multi_join_count_1ab06ce82b10b1a5474cfcbd7c413c13f6" kindref="member">CountLargerSA</ref>(cnt,<sp/>permutedSA);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_sigLocal<sp/>=<sp/>(countLarger<sp/>+<sp/>1.0)<sp/>/<sp/>(<ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref><sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&apos;significance&apos;<sp/>of<sp/>local<sp/>sa</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_sigLocal<sp/>&lt;=<sp/>0.0001)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_sigLocal<sp/>&lt;=<sp/>0.001)</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_sigLocal<sp/>&lt;=<sp/>0.01)</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_sigLocal<sp/>&lt;=<sp/>0.05)</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>[cnt]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a4cebb360265b00834131007f766f8888" kindref="member">sig_local_vec</ref>[cnt]<sp/>=<sp/>_sigLocal;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_multi_join_count_1ad4af37b40d303d90c859e446815e04e1" kindref="member">MultiJoinCount::PermLocalSA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perm,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numNeighbors,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*permNeighbors,</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>&amp;permutedSA)<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>validNeighbors<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>permutedLag<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>use<sp/>permutation<sp/>to<sp/>compute<sp/>the<sp/>lag</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>the<sp/>lag<sp/>for<sp/>binary<sp/>weights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cp<sp/>=<sp/>0;<sp/>cp<sp/>&lt;<sp/>numNeighbors;<sp/>cp++)<sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb<sp/>=<sp/>permNeighbors[cp];</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nb<sp/>&gt;=<sp/>cnt)<sp/>nb<sp/>=<sp/>nb<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[nb])<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permutedLag<sp/>+=<sp/><ref refid="class_multi_join_count_1afa56d95c5036b2b339ffbb6f1442bcce" kindref="member">zz</ref>[nb];</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>validNeighbors++;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/>permutedSA[perm]<sp/>=<sp/>permutedLag;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_multi_join_count_1ad4af37b40d303d90c859e446815e04e1" kindref="member">MultiJoinCount::PermLocalSA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perm,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>&amp;permNeighbors,</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>&amp;permutedSA)<sp/>{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>validNeighbors<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>permutedLag<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numNeighbors<sp/>=<sp/>permNeighbors.size();</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>use<sp/>permutation<sp/>to<sp/>compute<sp/>the<sp/>lag</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>the<sp/>lag<sp/>for<sp/>binary<sp/>weights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cp<sp/>=<sp/>0;<sp/>cp<sp/>&lt;<sp/>numNeighbors;<sp/>cp++)<sp/>{</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb<sp/>=<sp/>permNeighbors[cp];</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[nb])<sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permutedLag<sp/>+=<sp/><ref refid="class_multi_join_count_1afa56d95c5036b2b339ffbb6f1442bcce" kindref="member">zz</ref>[nb];</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>validNeighbors++;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/>permutedSA[perm]<sp/>=<sp/>permutedLag;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal">uint64_t<sp/><ref refid="class_multi_join_count_1ab06ce82b10b1a5474cfcbd7c413c13f6" kindref="member">MultiJoinCount::CountLargerSA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/>&amp;permutedSA)<sp/>{</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/>uint64_t<sp/>countLarger<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(permutedSA[i]<sp/>&gt;=<sp/><ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>[cnt])<sp/>{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>countLarger<sp/>+=<sp/>1;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>pick<sp/>the<sp/>smallest<sp/>counts</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref><sp/>-<sp/>countLarger<sp/>&lt;=<sp/>countLarger)<sp/>{</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>countLarger<sp/>=<sp/><ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref><sp/>-<sp/>countLarger;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>countLarger;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal">std::vector&lt;int&gt;<sp/><ref refid="class_multi_join_count_1af6c39a638c1914fa39d6d39b6b484dc6" kindref="member">MultiJoinCount::GetClusterIndicators</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>clusters(<ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cuttoff<sp/>=<sp/><ref refid="class_l_i_s_a_1a4a4972b885f39d697d4c3b21c617bde6" kindref="member">GetSignificanceCutoff</ref>();</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1a4cebb360265b00834131007f766f8888" kindref="member">sig_local_vec</ref>[i]<sp/>&lt;=<sp/>cuttoff)<sp/>{</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>[i]<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>clusters[i]<sp/>=<sp/>CLUSTER_NOT_SIG;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>clusters[i]<sp/>=<sp/>CLUSTER_SIG;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>clusters[i]<sp/>=<sp/>CLUSTER_NOT_SIG;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>clusters;</highlight></codeline>
+<codeline lineno="301"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp"/>
+  </compounddef>
+</doxygen>

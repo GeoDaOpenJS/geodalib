@@ -1,0 +1,79 @@
+\doxysection{dense-\/vector.h}
+\hypertarget{dense-vector_8h_source}{}\label{dense-vector_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/regression/dense-\/vector.h@{/Users/xun/github/geoda-\/lib/src/cpp/regression/dense-\/vector.h}}
+\mbox{\hyperlink{dense-vector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_GEODA\_CENTER\_DENSE\_VECTOR\_H\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_GEODA\_CENTER\_DENSE\_VECTOR\_H\_\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mix_8h}{regression/mix.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_dense_vector_a55db0f001aa0ab7f21a8795c07fbe8a6}{DenseVector}}\ \{}
+\DoxyCodeLine{00008\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_dense_vector_a55db0f001aa0ab7f21a8795c07fbe8a6}{DenseVector}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ sz\ =\ 0);}
+\DoxyCodeLine{00010\ \ \ \mbox{\hyperlink{class_dense_vector_acccd90d05e4bc03be7d55e0935d0fc57}{DenseVector}}(\textcolor{keywordtype}{double}\ *p,\ \textcolor{keywordtype}{int}\ sz,\ \textcolor{keywordtype}{bool}\ rlz\ =\ \textcolor{keyword}{false})\ \{\ \mbox{\hyperlink{class_dense_vector_a56c1672237e0c92df4bf4aa883bdb4f4}{absorb}}(p,\ sz,\ rlz);\ \}}
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{class_dense_vector_a24e8e448ec30aa37fd2ae96cd4d5e4b0}{\string~DenseVector}}();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_a97fb7da8dea1acb844b89cf5e74e7801}{alloc}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ sz);}
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_a56c1672237e0c92df4bf4aa883bdb4f4}{absorb}}(\textcolor{keywordtype}{double}\ *p,\ \textcolor{keywordtype}{int}\ sz,\ \textcolor{keywordtype}{bool}\ rlz\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ size\ =\ sz;}
+\DoxyCodeLine{00016\ \ \ \ \ val\ =\ p;}
+\DoxyCodeLine{00017\ \ \ \ \ rlse\ =\ rlz;}
+\DoxyCodeLine{00018\ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_dense_vector_a11e9945189d858f40876c88248baeee1}{getNzEntries}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ size;\ \}}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_dense_vector_ab8cd31005d532650e2173b1f170a9e80}{getSize}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ size;\ \}}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{double}\ *\mbox{\hyperlink{class_dense_vector_a990ce6cb6f30a247cdfb1a53538ccb26}{getThis}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ val;\ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_dense_vector_a7ebda1b2566747bf53ba0a8b9ea03b45}{isNonZero}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ix)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_dense_vector_af6f11e74b9a0fa9b216cdf407c7a753e}{getIx}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ elt)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ elt;\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_dense_vector_a53c25746757ef64ce3c9fae84731d3a7}{getValue}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ix)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ val[ix];\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_a0ebe880f97938eab1c0d4f8241ca40a9}{setAt}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ix,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&v)\ \{\ val[ix]\ =\ v;\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_af65044e7f9f722e25a8cf3989371defd}{plusAt}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ix,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&v)\ \{\ val[ix]\ +=\ v;\ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_add4bd59500ec4805abbd203dfb273226}{addTimes}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&v,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&w);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_ac9cb9fd0c0b7785f5373a389804c9987}{reset}}()\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cnt\ =\ 0;\ cnt\ <\ size;\ ++cnt)\ val[cnt]\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_ada07e54c2b95dd8e37a0903a93a86176}{makeDenseReady}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_ab9b1dcae082f4b324aca15ec222d8d42}{minus}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_dense_vector_a55db0f001aa0ab7f21a8795c07fbe8a6}{DenseVector}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_dense_vector_a55db0f001aa0ab7f21a8795c07fbe8a6}{DenseVector}}\ \&b);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_dense_vector_a8e5e9af36c71cfc5507fd8fac7bb02dd}{norm}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_dense_vector_aaf85f8856ff4bf268b475b6f2a531b0c}{normW}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ *w)\textcolor{keyword}{\ const\ }\{\ return\ ::normW(val,\ w,\ size);\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_dense_vector_a73a9483af1a14b8b8a6ef8ade3e8eb0d}{product}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&a)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_a6ed0c4ad43eaefb7cc934c53f1d10df3}{timesMatrix}}(\mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&v,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_dense_vector}{DenseVector}}\ *w)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_a394cd05bc0a6d8eff5de3d8c3c6897a8}{timesSquareMatrix}}(\mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&v,\ \textcolor{keywordtype}{double}\ **mx)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_ada7c406501cce1984e7b867278c1ff58}{squareTimesColumn}}(\mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&v,\ \textcolor{keywordtype}{double}\ **cov)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_aa90dfac5d825ac9c23b98d05668e7d66}{copy}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&a);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_a9e17b454a2854ce2029298d0f6573ee9}{timesPlus}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&s);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_ae191995d61af936cadd66e087e91bebe}{times}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ v)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cnt\ =\ 0;\ cnt\ <\ size;\ ++cnt)\ val[cnt]\ *=\ v;}
+\DoxyCodeLine{00057\ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_aa3d83c1bb4ccf0c480f2da5190b6d1ff}{minusTimes}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_dense_vector_a55db0f001aa0ab7f21a8795c07fbe8a6}{DenseVector}}\ \&v,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_dense_vector_a55db0f001aa0ab7f21a8795c07fbe8a6}{DenseVector}}\ \&vl,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ rho)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cnt\ =\ 0;\ cnt\ <\ size;\ ++cnt)\ this-\/>\mbox{\hyperlink{class_dense_vector_a0ebe880f97938eab1c0d4f8241ca40a9}{setAt}}(cnt,\ v.\mbox{\hyperlink{class_dense_vector_a53c25746757ef64ce3c9fae84731d3a7}{getValue}}(cnt)\ -\/\ rho\ *\ vl.\mbox{\hyperlink{class_dense_vector_a53c25746757ef64ce3c9fae84731d3a7}{getValue}}(cnt));}
+\DoxyCodeLine{00061\ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dense_vector_afcf779733797af257fc3c4eaf21f635a}{dropZeros}}()\textcolor{keyword}{\ const\ }\{\}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_dense_vector_a1514f30675ed794898c718970d0950a5}{sum}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{int}\ size;\ \ \ \ \ \textcolor{comment}{//\ vector\ size\ (==\ allocation\ of\ the\ arrays)}}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{bool}\ rlse;\ \ \ \ \textcolor{comment}{//\ release\ memory\ on\ destruction}}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{double}\ *val;\ \ \textcolor{comment}{//\ values\ of\ all\ elements}}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

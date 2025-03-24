@@ -1,0 +1,169 @@
+\doxysection{geoda\+::Line\+Collection Class Reference}
+\hypertarget{classgeoda_1_1_line_collection}{}\label{classgeoda_1_1_line_collection}\index{geoda::LineCollection@{geoda::LineCollection}}
+
+
+{\ttfamily \#include $<$geometry.\+h$>$}
+
+Inheritance diagram for geoda\+::Line\+Collection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgeoda_1_1_line_collection}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgeoda_1_1_line_collection_a4e7fac56dd2478463cd8c685d3c59331}{Line\+Collection}} (const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_aa4b142edec07a60c3ccebebd75ec1807}{x}}, const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_a21cd35c83e2c8f83c3cd9ca918a39d76}{y}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_a6b093922e9b1b191b4c2f865e030e067}{parts}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_ae918c6023877c8b4b0d4b2cae0cd44d7}{sizes}}, bool \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a10e7706e4dfc1099ceff90f360577ac0}{convert\+\_\+to\+\_\+\+UTM}}=false)
+\item 
+\mbox{\hyperlink{classgeoda_1_1_line_collection_ab7685b62ef3310025a1fbc3f04a8d01f}{\texorpdfstring{$\sim$}{\string~}\+Line\+Collection}} () override=default
+\item 
+void \mbox{\hyperlink{classgeoda_1_1_line_collection_a55a24763a2d11faf537ebe17eba36032}{get\+\_\+bbox}} (size\+\_\+t i, \mbox{\hyperlink{geometry_8h_a7d32eb4d5272ffdaf1a4c210691779fb}{box\+\_\+type}} \&box) const override
+\item 
+\mbox{\hyperlink{namespacegeoda_a20fd16562e89848c50247b0d9c865348}{Shape\+Type}} \mbox{\hyperlink{classgeoda_1_1_line_collection_a17d324019eb5efe1c43e714b6e8e490c}{get\+\_\+type}} () const override
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classgeoda_1_1_line_collection_a8253fc2d9b5ca547f3b027b2ad161e6e}{get\+\_\+centroids}} () const override
+\item 
+\mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_line_collection_af24426fbe90e3761b0ed6f2b8c874d44}{get\+\_\+centroid}} (size\+\_\+t i) const override
+\item 
+\mbox{\hyperlink{geometry_8h_a4cace7380b22e2b7925d0b7f9847d782}{multiline\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_line_collection_aa2e984ac32f44f01c901e45596727d51}{get\+\_\+line}} (size\+\_\+t i) const override
+\item 
+bool \mbox{\hyperlink{classgeoda_1_1_line_collection_ab894f0aa09a673cd42bd75465bb6038e}{intersect}} (size\+\_\+t i, const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&join\+\_\+geoms, size\+\_\+t j) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{geoda\+::\+Geometry\+Collection}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgeoda_1_1_geometry_collection_a9ff03fbaedb0cd610d2ac321d6dec5c3}{Geometry\+Collection}} (const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_aa4b142edec07a60c3ccebebd75ec1807}{x}}, const std\+::vector$<$ double $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_a21cd35c83e2c8f83c3cd9ca918a39d76}{y}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_a6b093922e9b1b191b4c2f865e030e067}{parts}}, const std\+::vector$<$ unsigned int $>$ \&\mbox{\hyperlink{classgeoda_1_1_geometry_collection_ae918c6023877c8b4b0d4b2cae0cd44d7}{sizes}}, bool \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a10e7706e4dfc1099ceff90f360577ac0}{convert\+\_\+to\+\_\+\+UTM}})
+\item 
+virtual \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a369be05641ef601eab34eae7f5393e51}{\texorpdfstring{$\sim$}{\string~}\+Geometry\+Collection}} ()=default
+\item 
+void \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a51291eebb1d1165f78cdee56f317afcb}{Convert\+To\+UTM}} (int index, double lat, double lng, double \&north, double \&east)
+\item 
+size\+\_\+t \mbox{\hyperlink{classgeoda_1_1_geometry_collection_ac84ddf06ab4559e822276f376a24f41f}{size}} () const
+\item 
+bool \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a0d8bf03dd9b0edf9d6bfb740eebe4f51}{empty}} () const
+\item 
+virtual \mbox{\hyperlink{geometry_8h_adabc488e138eb16d35bb5ab9437ed3e2}{multipoint\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a56aaceca9602b4488fb7d12274429482}{get\+\_\+point}} (size\+\_\+t i) const
+\item 
+virtual \mbox{\hyperlink{geometry_8h_ad9cc59b99ad17c2cd9f79fd375e88752}{multipolygon\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a5b9f32aaad9f327cd471da16d552c904}{get\+\_\+polygon}} (size\+\_\+t i) const
+\item 
+virtual int \mbox{\hyperlink{classgeoda_1_1_geometry_collection_aab3968b3c18f6aba035b3a74f5f361d0}{get\+\_\+part}} (size\+\_\+t geom\+\_\+index, size\+\_\+t part\+\_\+index) const
+\item 
+virtual \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a0b80b51bc498fd1e9942380d77300581}{get\+\_\+point}} (size\+\_\+t geom\+\_\+index, size\+\_\+t point\+\_\+index) const
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a39fd26b2796c636e0b7913640e1b0076}{get\+\_\+num\+\_\+parts}} (size\+\_\+t geom\+\_\+index) const
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a7451e84dee62efec3756bdab2f04fe89}{get\+\_\+num\+\_\+points}} (size\+\_\+t geom\+\_\+index) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{geometry_8h_a4cace7380b22e2b7925d0b7f9847d782}{multiline\+\_\+type}} $>$ \mbox{\hyperlink{classgeoda_1_1_line_collection_a95fdd8627a9ecab6dcbf4772fa609beb}{lines}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{geoda\+::\+Geometry\+Collection}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classgeoda_1_1_geometry_collection_aa4b142edec07a60c3ccebebd75ec1807}{x}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a21cd35c83e2c8f83c3cd9ca918a39d76}{y}}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a6b093922e9b1b191b4c2f865e030e067}{parts}}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classgeoda_1_1_geometry_collection_ae918c6023877c8b4b0d4b2cae0cd44d7}{sizes}}
+\item 
+bool \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a10e7706e4dfc1099ceff90f360577ac0}{convert\+\_\+to\+\_\+\+UTM}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a110398f22f06869c071a09117788e009}{utm\+\_\+zones}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgeoda_1_1_line_collection_a4e7fac56dd2478463cd8c685d3c59331}\index{geoda::LineCollection@{geoda::LineCollection}!LineCollection@{LineCollection}}
+\index{LineCollection@{LineCollection}!geoda::LineCollection@{geoda::LineCollection}}
+\doxysubsubsection{\texorpdfstring{LineCollection()}{LineCollection()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_line_collection_a4e7fac56dd2478463cd8c685d3c59331} 
+Line\+Collection\+::\+Line\+Collection (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{x}{, }\item[{const std\+::vector$<$ double $>$ \&}]{y}{, }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{parts}{, }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{sizes}{, }\item[{bool}]{convert\+\_\+to\+\_\+\+UTM}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+\Hypertarget{classgeoda_1_1_line_collection_ab7685b62ef3310025a1fbc3f04a8d01f}\index{geoda::LineCollection@{geoda::LineCollection}!````~LineCollection@{\texorpdfstring{$\sim$}{\string~}LineCollection}}
+\index{````~LineCollection@{\texorpdfstring{$\sim$}{\string~}LineCollection}!geoda::LineCollection@{geoda::LineCollection}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LineCollection()}{\string~LineCollection()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_line_collection_ab7685b62ef3310025a1fbc3f04a8d01f} 
+geoda\+::\+Line\+Collection\+::\texorpdfstring{$\sim$}{\string~}\+Line\+Collection (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgeoda_1_1_line_collection_a55a24763a2d11faf537ebe17eba36032}\index{geoda::LineCollection@{geoda::LineCollection}!get\_bbox@{get\_bbox}}
+\index{get\_bbox@{get\_bbox}!geoda::LineCollection@{geoda::LineCollection}}
+\doxysubsubsection{\texorpdfstring{get\_bbox()}{get\_bbox()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_line_collection_a55a24763a2d11faf537ebe17eba36032} 
+void geoda\+::\+Line\+Collection\+::get\+\_\+bbox (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i}{, }\item[{\mbox{\hyperlink{geometry_8h_a7d32eb4d5272ffdaf1a4c210691779fb}{box\+\_\+type}} \&}]{box}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a3e6ecea3fd57812663972ef52119ca18}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_line_collection_af24426fbe90e3761b0ed6f2b8c874d44}\index{geoda::LineCollection@{geoda::LineCollection}!get\_centroid@{get\_centroid}}
+\index{get\_centroid@{get\_centroid}!geoda::LineCollection@{geoda::LineCollection}}
+\doxysubsubsection{\texorpdfstring{get\_centroid()}{get\_centroid()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_line_collection_af24426fbe90e3761b0ed6f2b8c874d44} 
+\mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} geoda\+::\+Line\+Collection\+::get\+\_\+centroid (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_collection_ad1e00066be731ae77452566bd0214b56}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_line_collection_a8253fc2d9b5ca547f3b027b2ad161e6e}\index{geoda::LineCollection@{geoda::LineCollection}!get\_centroids@{get\_centroids}}
+\index{get\_centroids@{get\_centroids}!geoda::LineCollection@{geoda::LineCollection}}
+\doxysubsubsection{\texorpdfstring{get\_centroids()}{get\_centroids()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_line_collection_a8253fc2d9b5ca547f3b027b2ad161e6e} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ Line\+Collection\+::get\+\_\+centroids (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a68d401e4a2a61c43820b06d2d9d854b4}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_line_collection_aa2e984ac32f44f01c901e45596727d51}\index{geoda::LineCollection@{geoda::LineCollection}!get\_line@{get\_line}}
+\index{get\_line@{get\_line}!geoda::LineCollection@{geoda::LineCollection}}
+\doxysubsubsection{\texorpdfstring{get\_line()}{get\_line()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_line_collection_aa2e984ac32f44f01c901e45596727d51} 
+\mbox{\hyperlink{geometry_8h_a4cace7380b22e2b7925d0b7f9847d782}{multiline\+\_\+type}} geoda\+::\+Line\+Collection\+::get\+\_\+line (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classgeoda_1_1_geometry_collection_aeaa895db6128cadaf3ff09cf1f6322a0}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_line_collection_a17d324019eb5efe1c43e714b6e8e490c}\index{geoda::LineCollection@{geoda::LineCollection}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!geoda::LineCollection@{geoda::LineCollection}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_line_collection_a17d324019eb5efe1c43e714b6e8e490c} 
+\mbox{\hyperlink{namespacegeoda_a20fd16562e89848c50247b0d9c865348}{Shape\+Type}} geoda\+::\+Line\+Collection\+::get\+\_\+type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a1fb5568413e4c69d931233591a5906f2}{geoda\+::\+Geometry\+Collection}}.
+
+\Hypertarget{classgeoda_1_1_line_collection_ab894f0aa09a673cd42bd75465bb6038e}\index{geoda::LineCollection@{geoda::LineCollection}!intersect@{intersect}}
+\index{intersect@{intersect}!geoda::LineCollection@{geoda::LineCollection}}
+\doxysubsubsection{\texorpdfstring{intersect()}{intersect()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_line_collection_ab894f0aa09a673cd42bd75465bb6038e} 
+bool geoda\+::\+Line\+Collection\+::intersect (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i}{, }\item[{const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&}]{join\+\_\+geoms}{, }\item[{size\+\_\+t}]{j}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_collection_a53b589cda146cc12876b8a616062ccdf}{geoda\+::\+Geometry\+Collection}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgeoda_1_1_line_collection_a95fdd8627a9ecab6dcbf4772fa609beb}\index{geoda::LineCollection@{geoda::LineCollection}!lines@{lines}}
+\index{lines@{lines}!geoda::LineCollection@{geoda::LineCollection}}
+\doxysubsubsection{\texorpdfstring{lines}{lines}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_line_collection_a95fdd8627a9ecab6dcbf4772fa609beb} 
+std\+::vector$<$\mbox{\hyperlink{geometry_8h_a4cace7380b22e2b7925d0b7f9847d782}{multiline\+\_\+type}}$>$ geoda\+::\+Line\+Collection\+::lines}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/geometry/\mbox{\hyperlink{geometry_8h}{geometry.\+h}}\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/geometry/\mbox{\hyperlink{geometry_8cpp}{geometry.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,84 @@
+\doxysection{lisa-\/api.h}
+\hypertarget{lisa-api_8h_source}{}\label{lisa-api_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/sa/lisa-\/api.h@{/Users/xun/github/geoda-\/lib/src/cpp/sa/lisa-\/api.h}}
+\mbox{\hyperlink{lisa-api_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GEODA\_LOCAL\_STATISTICS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GEODA\_LOCAL\_STATISTICS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_l_i_s_a_8h}{lisa/LISA.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacegeoda}{geoda}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88}{LocalMoranClusterType}}\ \{\ \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88afcb26c5f969390a65abe86add70398df}{HH}}\ =\ 1,\ \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88a05067a3789e9d47a036f57e506575f3d}{LL}}\ =\ 2,\ \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88aec5dca9e2204b1a5d32be5369157f42e}{HL}}\ =\ 3,\ \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88a51185311473f4e3a03d21a7ac47eb3cc}{LH}}\ =\ 4,\ \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88a13b6345248fd2f0648de0bae82822dfa}{NEIGHBORLESS}}\ =\ 5,\ \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88a3ab7a68960a7642292918c06b28cf3e2}{UNDEFINED}}\ =\ 6\ \};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ std::vector<std::vector<unsigned\ int>>\ \mbox{\hyperlink{namespacegeoda_a6923d07c932f5f7c1ea5d19c4644ba20}{create\_perm\_table}}(\textcolor{keyword}{const}\ std::vector<std::vector<unsigned\ int>>\&\ neighbors,}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ num\_permutations,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ max\_num\_neighbors);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgeoda_1_1_lisa_result}{LisaResult}}\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a23662886bd08e74af91904c0b9a09b60}{is\_valid}};}
+\DoxyCodeLine{00018\ \ \ std::vector<double>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a9d647b56a2161fc608d6a588182834df}{sig\_local\_vec}};}
+\DoxyCodeLine{00019\ \ \ std::vector<int>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a12b7124f996257de8f7b10c15af1ccc3}{sig\_cat\_vec}};}
+\DoxyCodeLine{00020\ \ \ std::vector<int>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a3cdf8a9eafe59659e975e29f5faabf4b}{cluster\_vec}};}
+\DoxyCodeLine{00021\ \ \ std::vector<double>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a502d7e93cb055a3d5c9b74b6e85653a6}{lag\_vec}};}
+\DoxyCodeLine{00022\ \ \ std::vector<double>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_aaf9b3f2f48a414a19a19ba46a0118642}{lisa\_vec}};}
+\DoxyCodeLine{00023\ \ \ std::vector<int>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a0a85f743c921ca57d88059036c909ea0}{nn\_vec}};}
+\DoxyCodeLine{00024\ \ \ std::vector<std::string>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a6265ee6a9c48f2a196798f9226325b60}{labels}};}
+\DoxyCodeLine{00025\ \ \ std::vector<std::string>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a7d39744329d95b83bbc42fa3feb5f9b9}{colors}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_ad011f05cb84c194ceabe35fe4fa40517}{get\_is\_valid}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a23662886bd08e74af91904c0b9a09b60}{is\_valid}};\ \}}
+\DoxyCodeLine{00028\ \ \ std::vector<double>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a189aafbba76f5caa5f58f4fce9db0c9b}{get\_sig\_local}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a9d647b56a2161fc608d6a588182834df}{sig\_local\_vec}};\ \}}
+\DoxyCodeLine{00029\ \ \ std::vector<int>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_abaec515b25e9ace7de75885e1312916f}{get\_sig\_cat}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a12b7124f996257de8f7b10c15af1ccc3}{sig\_cat\_vec}};\ \}}
+\DoxyCodeLine{00030\ \ \ std::vector<int>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_aa4281e3f7415d2bd33acce1b24057bae}{get\_cluster}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a3cdf8a9eafe59659e975e29f5faabf4b}{cluster\_vec}};\ \}}
+\DoxyCodeLine{00031\ \ \ std::vector<double>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_ad56bbeb079bd3c83010ebd1a3a8184b9}{get\_lag}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a502d7e93cb055a3d5c9b74b6e85653a6}{lag\_vec}};\ \}}
+\DoxyCodeLine{00032\ \ \ std::vector<double>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a77f34c6ce7018a3d182a2e0279d123d9}{get\_lisa}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_aaf9b3f2f48a414a19a19ba46a0118642}{lisa\_vec}};\ \}}
+\DoxyCodeLine{00033\ \ \ std::vector<int>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a61d99a56786fe2fbd9a32e217f99483c}{get\_nn}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a0a85f743c921ca57d88059036c909ea0}{nn\_vec}};\ \}}
+\DoxyCodeLine{00034\ \ \ std::vector<std::string>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_aa127de51c25d7c40fa597d2b9d77c99b}{get\_labels}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a6265ee6a9c48f2a196798f9226325b60}{labels}};\ \}}
+\DoxyCodeLine{00035\ \ \ std::vector<std::string>\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a0d3497b8e1eb223f2b4557025f28e211}{get\_colors}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structgeoda_1_1_lisa_result_a7d39744329d95b83bbc42fa3feb5f9b9}{colors}};\ \}}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ set\_lisa\_content(\mbox{\hyperlink{class_l_i_s_a}{LISA}}*\ lisa,\ LisaResult\&\ rst)\ \{}
+\DoxyCodeLine{00039\ \ \ rst.is\_valid\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00040\ \ \ rst.sig\_local\_vec\ =\ lisa-\/>\mbox{\hyperlink{class_l_i_s_a_a9ffdfbc23351d06ef8c58a288a65e6dc}{GetLocalSignificanceValues}}();}
+\DoxyCodeLine{00041\ \ \ rst.sig\_cat\_vec\ =\ lisa-\/>\mbox{\hyperlink{class_l_i_s_a_a708cad7d006b534782afbfd2122f4083}{GetSigCatIndicators}}();}
+\DoxyCodeLine{00042\ \ \ rst.cluster\_vec\ =\ lisa-\/>\mbox{\hyperlink{class_l_i_s_a_a1dfd91e4c229c87fe81d6f8859bd0e0a}{GetClusterIndicators}}();}
+\DoxyCodeLine{00043\ \ \ rst.lag\_vec\ =\ lisa-\/>\mbox{\hyperlink{class_l_i_s_a_ac661ede940895d9fe8fe08c3895c10af}{GetSpatialLagValues}}();}
+\DoxyCodeLine{00044\ \ \ rst.lisa\_vec\ =\ lisa-\/>\mbox{\hyperlink{class_l_i_s_a_a66a7a277ed1b0d774f0e1881a17e6fbe}{GetLISAValues}}();}
+\DoxyCodeLine{00045\ \ \ rst.nn\_vec\ =\ lisa-\/>\mbox{\hyperlink{class_l_i_s_a_a2298353561cf8bc8a046a75e0a6101c9}{GetNumNeighbors}}();}
+\DoxyCodeLine{00046\ \ \ rst.labels\ =\ lisa-\/>\mbox{\hyperlink{class_l_i_s_a_af7c025f7b5dbfacfcd1068aea0bc3a16}{GetLabels}}();}
+\DoxyCodeLine{00047\ \ \ rst.colors\ =\ lisa-\/>\mbox{\hyperlink{class_l_i_s_a_aa7ccbefcd8fb8543e791485916270cb0}{GetColors}}();}
+\DoxyCodeLine{00048\ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \mbox{\hyperlink{structgeoda_1_1_lisa_result}{LisaResult}}\ \mbox{\hyperlink{namespacegeoda_a451233e599c0bec0a7339dcb37f7e0bb}{local\_moran}}(\textcolor{keyword}{const}\ std::vector<double>\&\ data,\ \textcolor{keyword}{const}\ std::vector<std::vector<unsigned\ int>>\&\ neighbors,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\&\ undefs,\ \textcolor{keywordtype}{double}\ significance\_cutoff,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ perm,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ last\_seed);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \mbox{\hyperlink{structgeoda_1_1_lisa_result}{LisaResult}}\ \mbox{\hyperlink{namespacegeoda_a5a0d51cf7e5d7d56d5d877494664320d}{local\_bivariate\_moran}}(\textcolor{keyword}{const}\ std::vector<double>\&\ data1,\ \textcolor{keyword}{const}\ std::vector<double>\&\ data2,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<unsigned\ int>>\&\ neighbors,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\&\ undefs,\ \textcolor{keywordtype}{double}\ significance\_cutoff,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ perm,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ last\_seed);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \mbox{\hyperlink{structgeoda_1_1_lisa_result}{LisaResult}}\ \mbox{\hyperlink{namespacegeoda_a20eeb64ced54469d08d53089892fe778}{local\_g}}(\textcolor{keyword}{const}\ std::vector<double>\&\ data,\ \textcolor{keyword}{const}\ std::vector<std::vector<unsigned\ int>>\&\ neighbors,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\&\ undefs,\ \textcolor{keywordtype}{double}\ significance\_cutoff,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ perm,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ last\_seed,\ \textcolor{keywordtype}{int}\ is\_gstar);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \mbox{\hyperlink{structgeoda_1_1_lisa_result}{LisaResult}}\ \mbox{\hyperlink{namespacegeoda_a17f0149c0d8ed5c1be04498d782184ed}{local\_geary}}(\textcolor{keyword}{const}\ std::vector<double>\&\ data,\ \textcolor{keyword}{const}\ std::vector<std::vector<unsigned\ int>>\&\ neighbors,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\&\ undefs,\ \textcolor{keywordtype}{double}\ significance\_cutoff,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ perm,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ last\_seed);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \mbox{\hyperlink{structgeoda_1_1_lisa_result}{LisaResult}}\ \mbox{\hyperlink{namespacegeoda_a5d52653ea03254bdb20739b3f19b9750}{local\_multivariate\_geary}}(\textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ data,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<unsigned\ int>>\&\ neighbors,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<unsigned\ int>>\&\ undefs,\ \textcolor{keywordtype}{double}\ significance\_cutoff,}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ perm,\ \textcolor{keywordtype}{int}\ last\_seed);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \mbox{\hyperlink{structgeoda_1_1_lisa_result}{LisaResult}}\ \mbox{\hyperlink{namespacegeoda_a86290af35de484bd39ef74712b866c3b}{quantile\_lisa}}(\textcolor{keywordtype}{int}\ k,\ \textcolor{keywordtype}{int}\ quantile,\ \textcolor{keyword}{const}\ std::vector<double>\&\ data,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<unsigned\ int>>\&\ neighbors,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\&\ undefs,\ \textcolor{keywordtype}{double}\ significance\_cutoff,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ perm,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ last\_seed);}
+\DoxyCodeLine{00076\ \}\ \ \textcolor{comment}{//\ namespace\ geoda}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GEODA\_LOCAL\_STATISTICS\_H}}
+
+\end{DoxyCode}

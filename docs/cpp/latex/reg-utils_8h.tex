@@ -1,0 +1,101 @@
+\doxysection{/\+Users/xun/github/geoda-\/lib/src/cpp/regression/reg-\/utils.h File Reference}
+\hypertarget{reg-utils_8h}{}\label{reg-utils_8h}\index{/Users/xun/github/geoda-\/lib/src/cpp/regression/reg-\/utils.h@{/Users/xun/github/geoda-\/lib/src/cpp/regression/reg-\/utils.h}}
+{\ttfamily \#include "{}regression/dense-\/vector.\+h"{}}\newline
+{\ttfamily \#include "{}regression/diagnostic-\/report.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{reg-utils_8h_ac9308e85a1e9abba7f247485552bb3ef}{geoda\+\_\+sqr}}(x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{reg-utils_8h_a874a8df8d170dc6b12a6b75b13586259}{fprob}} (int dfnum, int dfden, double F)
+\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{reg-utils_8h_a07075c7867e1a834fa77108e04482303}{Jarque\+Bera}} (double \texorpdfstring{$\ast$}{*}e, long n, long k)
+\item 
+bool \mbox{\hyperlink{reg-utils_8h_abffb96af09f2ae3ec91960165c007bfe}{ordinary\+LS}} (\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&y, \mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \texorpdfstring{$\ast$}{*}X, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\&cov, double \texorpdfstring{$\ast$}{*}resid, \mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&ols)
+\item 
+double \mbox{\hyperlink{reg-utils_8h_aa298203c6e86eac70ac4a07936ae425b}{product}} (const double \texorpdfstring{$\ast$}{*}v1, const double \texorpdfstring{$\ast$}{*}v2, const int \&sz)
+\item 
+double \mbox{\hyperlink{reg-utils_8h_af5393bc2d32f084eb797cecd3d6e887a}{cdf}} (double x)
+\item 
+float \mbox{\hyperlink{reg-utils_8h_aa080882f1a6cd79504eeb331dfdd692f}{betai}} (float a, float b, float x)
+\item 
+double \mbox{\hyperlink{reg-utils_8h_a58e406f72bf1ff087e6a0f85a52033bc}{MC\+\_\+\+Condition\+\_\+\+Number}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}, int, int)
+\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{reg-utils_8h_aae5c6723e3863d1697a7399153fcbcfd}{BP\+\_\+\+Test}} (double \texorpdfstring{$\ast$}{*}resid, int obs, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}X, int expl, bool Incl\+Const)
+\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{reg-utils_8h_a1005094e4acd0a1f2587b816f163c760}{White\+Test}} (int obs, int nvar, double \texorpdfstring{$\ast$}{*}resid, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}X, bool Incl\+Constant)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{reg-utils_8h_ac9308e85a1e9abba7f247485552bb3ef}\index{reg-\/utils.h@{reg-\/utils.h}!geoda\_sqr@{geoda\_sqr}}
+\index{geoda\_sqr@{geoda\_sqr}!reg-\/utils.h@{reg-\/utils.h}}
+\doxysubsubsection{\texorpdfstring{geoda\_sqr}{geoda\_sqr}}
+{\footnotesize\ttfamily \label{reg-utils_8h_ac9308e85a1e9abba7f247485552bb3ef} 
+\#define geoda\+\_\+sqr(\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((x)\ *\ (x))}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{reg-utils_8h_aa080882f1a6cd79504eeb331dfdd692f}\index{reg-\/utils.h@{reg-\/utils.h}!betai@{betai}}
+\index{betai@{betai}!reg-\/utils.h@{reg-\/utils.h}}
+\doxysubsubsection{\texorpdfstring{betai()}{betai()}}
+{\footnotesize\ttfamily \label{reg-utils_8h_aa080882f1a6cd79504eeb331dfdd692f} 
+float betai (\begin{DoxyParamCaption}\item[{float}]{a}{, }\item[{float}]{b}{, }\item[{float}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{reg-utils_8h_aae5c6723e3863d1697a7399153fcbcfd}\index{reg-\/utils.h@{reg-\/utils.h}!BP\_Test@{BP\_Test}}
+\index{BP\_Test@{BP\_Test}!reg-\/utils.h@{reg-\/utils.h}}
+\doxysubsubsection{\texorpdfstring{BP\_Test()}{BP\_Test()}}
+{\footnotesize\ttfamily \label{reg-utils_8h_aae5c6723e3863d1697a7399153fcbcfd} 
+double \texorpdfstring{$\ast$}{*} BP\+\_\+\+Test (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{resid}{, }\item[{int}]{obs}{, }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{X}{, }\item[{int}]{expl}{, }\item[{bool}]{Incl\+Const}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{reg-utils_8h_af5393bc2d32f084eb797cecd3d6e887a}\index{reg-\/utils.h@{reg-\/utils.h}!cdf@{cdf}}
+\index{cdf@{cdf}!reg-\/utils.h@{reg-\/utils.h}}
+\doxysubsubsection{\texorpdfstring{cdf()}{cdf()}}
+{\footnotesize\ttfamily \label{reg-utils_8h_af5393bc2d32f084eb797cecd3d6e887a} 
+double cdf (\begin{DoxyParamCaption}\item[{double}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{reg-utils_8h_a874a8df8d170dc6b12a6b75b13586259}\index{reg-\/utils.h@{reg-\/utils.h}!fprob@{fprob}}
+\index{fprob@{fprob}!reg-\/utils.h@{reg-\/utils.h}}
+\doxysubsubsection{\texorpdfstring{fprob()}{fprob()}}
+{\footnotesize\ttfamily \label{reg-utils_8h_a874a8df8d170dc6b12a6b75b13586259} 
+double fprob (\begin{DoxyParamCaption}\item[{int}]{dfnum}{, }\item[{int}]{dfden}{, }\item[{double}]{F}{}\end{DoxyParamCaption})}
+
+\Hypertarget{reg-utils_8h_a07075c7867e1a834fa77108e04482303}\index{reg-\/utils.h@{reg-\/utils.h}!JarqueBera@{JarqueBera}}
+\index{JarqueBera@{JarqueBera}!reg-\/utils.h@{reg-\/utils.h}}
+\doxysubsubsection{\texorpdfstring{JarqueBera()}{JarqueBera()}}
+{\footnotesize\ttfamily \label{reg-utils_8h_a07075c7867e1a834fa77108e04482303} 
+double \texorpdfstring{$\ast$}{*} Jarque\+Bera (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{e}{, }\item[{long}]{n}{, }\item[{long}]{k}{}\end{DoxyParamCaption})}
+
+\Hypertarget{reg-utils_8h_a58e406f72bf1ff087e6a0f85a52033bc}\index{reg-\/utils.h@{reg-\/utils.h}!MC\_Condition\_Number@{MC\_Condition\_Number}}
+\index{MC\_Condition\_Number@{MC\_Condition\_Number}!reg-\/utils.h@{reg-\/utils.h}}
+\doxysubsubsection{\texorpdfstring{MC\_Condition\_Number()}{MC\_Condition\_Number()}}
+{\footnotesize\ttfamily \label{reg-utils_8h_a58e406f72bf1ff087e6a0f85a52033bc} 
+double MC\+\_\+\+Condition\+\_\+\+Number (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{X}{, }\item[{int}]{dim}{, }\item[{int}]{expl}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{reg-utils_8h_abffb96af09f2ae3ec91960165c007bfe}\index{reg-\/utils.h@{reg-\/utils.h}!ordinaryLS@{ordinaryLS}}
+\index{ordinaryLS@{ordinaryLS}!reg-\/utils.h@{reg-\/utils.h}}
+\doxysubsubsection{\texorpdfstring{ordinaryLS()}{ordinaryLS()}}
+{\footnotesize\ttfamily \label{reg-utils_8h_abffb96af09f2ae3ec91960165c007bfe} 
+bool ordinary\+LS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&}]{y}{, }\item[{\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \texorpdfstring{$\ast$}{*}}]{X}{, }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\&}]{cov}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{resid}{, }\item[{\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&}]{ols}{}\end{DoxyParamCaption})}
+
+\Hypertarget{reg-utils_8h_aa298203c6e86eac70ac4a07936ae425b}\index{reg-\/utils.h@{reg-\/utils.h}!product@{product}}
+\index{product@{product}!reg-\/utils.h@{reg-\/utils.h}}
+\doxysubsubsection{\texorpdfstring{product()}{product()}}
+{\footnotesize\ttfamily \label{reg-utils_8h_aa298203c6e86eac70ac4a07936ae425b} 
+double product (\begin{DoxyParamCaption}\item[{const double \texorpdfstring{$\ast$}{*}}]{v1}{, }\item[{const double \texorpdfstring{$\ast$}{*}}]{v2}{, }\item[{const int \&}]{sz}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{reg-utils_8h_a1005094e4acd0a1f2587b816f163c760}\index{reg-\/utils.h@{reg-\/utils.h}!WhiteTest@{WhiteTest}}
+\index{WhiteTest@{WhiteTest}!reg-\/utils.h@{reg-\/utils.h}}
+\doxysubsubsection{\texorpdfstring{WhiteTest()}{WhiteTest()}}
+{\footnotesize\ttfamily \label{reg-utils_8h_a1005094e4acd0a1f2587b816f163c760} 
+double \texorpdfstring{$\ast$}{*} White\+Test (\begin{DoxyParamCaption}\item[{int}]{obs}{, }\item[{int}]{nvar}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{resid}{, }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{X}{, }\item[{bool}]{Incl\+Constant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+

@@ -1,0 +1,148 @@
+\doxysection{LISA.\+h}
+\hypertarget{_l_i_s_a_8h_source}{}\label{_l_i_s_a_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/lisa/LISA.h@{/Users/xun/github/geoda-\/lib/src/cpp/lisa/LISA.h}}
+\mbox{\hyperlink{_l_i_s_a_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xun\ Li\ on\ 2019-\/06-\/05.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ GEODA\_LISA\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ GEODA\_LISA\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \#ifdef\ \_WIN32}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ //\ for\ uint64\_t\ typedef}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \#include\ "{}../pg/geoms.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_geo_da_weight}{GeoDaWeight}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_l_i_s_a_ab514ca51acdb895cd05464eae461fcf0}{LISA}}\ \{}
+\DoxyCodeLine{00022\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{class_l_i_s_a_ab514ca51acdb895cd05464eae461fcf0}{LISA}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a61a5128a4af4e294e8f59ddc2ac35854}{num\_obs}},\ \mbox{\hyperlink{class_geo_da_weight}{GeoDaWeight}}*\ w,\ \textcolor{keyword}{const}\ std::vector<bool>\&\ \mbox{\hyperlink{class_l_i_s_a_af36658ec6c5e572b2c131d897220a81e}{undefs}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_l_i_s_a_aefaa3485a0023c7ee635a0b2874417e7}{significance\_cutoff}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a93dbaa5b02fbd6b2fef270888b9711b6}{nCPUs}},}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_aa1b448ba82487d84f7d34b5a48687ca7}{permutations}},\ \textcolor{keyword}{const}\ std::string\&\ \_permutation\_method,\ uint64\_t\ \mbox{\hyperlink{class_l_i_s_a_a0b6a2466791bca1b75369737337fca2d}{last\_seed\_used}});}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{class_l_i_s_a_ab514ca51acdb895cd05464eae461fcf0}{LISA}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a61a5128a4af4e294e8f59ddc2ac35854}{num\_obs}},\ \mbox{\hyperlink{class_geo_da_weight}{GeoDaWeight}}*\ w,\ \textcolor{keyword}{const}\ std::vector<std::vector<bool>\ >\&\ \mbox{\hyperlink{class_l_i_s_a_af36658ec6c5e572b2c131d897220a81e}{undefs}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_l_i_s_a_aefaa3485a0023c7ee635a0b2874417e7}{significance\_cutoff}},}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a93dbaa5b02fbd6b2fef270888b9711b6}{nCPUs}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_aa1b448ba82487d84f7d34b5a48687ca7}{permutations}},\ \textcolor{keyword}{const}\ std::string\&\ \_permutation\_method,\ uint64\_t\ \mbox{\hyperlink{class_l_i_s_a_a0b6a2466791bca1b75369737337fca2d}{last\_seed\_used}});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_l_i_s_a_ad0e5bc71ddb28e30b7f9e4895a561d15}{\string~LISA}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a3fd503729531ec0b38baab2bea13ac87}{ComputeLoalSA}}()\ =\ 0;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_ac6f4566109b14ef3dc9122563319f1d4}{CalcPseudoP}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a84f64caa8e28914746d3a9495f8bf489}{CalcPseudoP\_threaded}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_aefcdfbe128df11c625ee6f496c78f40f}{CalcPseudoP\_range}}(\textcolor{keywordtype}{int}\ obs\_start,\ \textcolor{keywordtype}{int}\ obs\_end,\ uint64\_t\ seed\_start);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ used\ for\ perm\_method=="{}LookupTable"{}}}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a2653719a7510f5f1be923bde638ddcef}{PermCreateTable\_threaded}}();}
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a654237b553a88279721ffc71f70e14ec}{PermCreateRange}}(\textcolor{keywordtype}{int}\ perm\_start,\ \textcolor{keywordtype}{int}\ perm\_end,\ \textcolor{keywordtype}{int}\ max\_neighbor,\ uint64\_t\ seed\_start);}
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a0ef933de0a4cdcf9e3caba6771d7d079}{PermCalcPseudoP\_threaded}}();}
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a85cb4aff3217976d448b734d5a61a4fb}{PermCalcPseudoP\_range}}(\textcolor{keywordtype}{int}\ obs\_start,\ \textcolor{keywordtype}{int}\ obs\_end,\ uint64\_t\ seed\_start);}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_aeefb4ec2ad6564008c6c63bdce46eccb}{PermLocalSA}}(\textcolor{keywordtype}{int}\ cnt,\ \textcolor{keywordtype}{int}\ perm,\ \textcolor{keywordtype}{int}\ numNeighbors,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ permNeighbors,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\&\ permutedSA)\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ compare\ local\ SA\ value\ of\ current\ obs\ to\ local\ SA\ values\ of\ random\ picked\ nbrs}}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a62badd64960be2ce9508d25e00bb6faf}{PermLocalSA}}(\textcolor{keywordtype}{int}\ cnt,\ \textcolor{keywordtype}{int}\ perm,\ \textcolor{keyword}{const}\ std::vector<int>\&\ permNeighbors,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\&\ permutedSA)\ =\ 0;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keyword}{virtual}\ uint64\_t\ \mbox{\hyperlink{class_l_i_s_a_a30943843a09198a2617625d5f02debf8}{CountLargerSA}}(\textcolor{keywordtype}{int}\ cnt,\ \textcolor{keyword}{const}\ std::vector<double>\&\ permutedSA)\ =\ 0;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a4ffb64846007d1d7ff443f57112b28f9}{Run}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a1b1e7eb75014f6580998b7ef12b65ade}{SetSignificanceFilter}}(\textcolor{keywordtype}{int}\ filter\_id);}
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a69bdf540d32663d3676e6c00864750b6}{GetSignificanceFilter}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_l_i_s_a_a4a4972b885f39d697d4c3b21c617bde6}{GetSignificanceCutoff}}();}
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a11c8e8fd52bbc1bb34c4a7738992d923}{SetSignificanceCutoff}}(\textcolor{keywordtype}{double}\ val);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_l_i_s_a_adc89c613b14bdac81501365a4cc71134}{GetUserCutoff}}();}
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a42efe3f048fc3152fa4b1bddc520462a}{SetUserCutoff}}(\textcolor{keywordtype}{double}\ val);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_l_i_s_a_a66abedb503f8f675b04423213027325d}{GetBO}}(\textcolor{keywordtype}{double}\ current\_p);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_l_i_s_a_a2bfab81b9e42615e66158a7865f83fbd}{GetFDR}}(\textcolor{keywordtype}{double}\ current\_p);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a87e3e04dc5cc1f56634a036ef38bc050}{GetNumPermutations}}();}
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a1537cd949a614e041239529d48b6ac49}{SetNumPermutations}}(\textcolor{keywordtype}{int}\ val);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{virtual}\ uint64\_t\ \mbox{\hyperlink{class_l_i_s_a_a9b43164d4e09625fee42e4bd3b5c7e43}{GetLastUsedSeed}}();}
+\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a73dec0f73c8494bdbde6e1063c2a903b}{SetLastUsedSeed}}(uint64\_t\ seed);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_l_i_s_a_a38bbdb73e71ae1a74825d4ca5a93d871}{IsReuseLastSeed}}();}
+\DoxyCodeLine{00075\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_a19ceb54628931d11d39e343f63d3f890}{SetReuseLastSeed}}(\textcolor{keywordtype}{bool}\ reuse);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_l_i_s_a_ac8a5fc8c591762f9c6ac3b4ad3ccdd45}{GetHasIsolates}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_l_i_s_a_aec64be30b626394c5662a4bb14e680c3}{GetHasUndefined}}();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ \mbox{\hyperlink{class_l_i_s_a_a2730bb134ce7faa62ee1a984417ad0a1}{GetDefaultCategories}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ \mbox{\hyperlink{class_l_i_s_a_a13defe2359b83ee5a988e99a6e5af2bb}{GetDefaultCutoffs}}();}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ \mbox{\hyperlink{class_l_i_s_a_a9ffdfbc23351d06ef8c58a288a65e6dc}{GetLocalSignificanceValues}}();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{keyword}{virtual}\ std::vector<int>\ \mbox{\hyperlink{class_l_i_s_a_a1dfd91e4c229c87fe81d6f8859bd0e0a}{GetClusterIndicators}}();}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{virtual}\ std::vector<int>\ \mbox{\hyperlink{class_l_i_s_a_a708cad7d006b534782afbfd2122f4083}{GetSigCatIndicators}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keyword}{virtual}\ std::vector<int>\ \mbox{\hyperlink{class_l_i_s_a_a2298353561cf8bc8a046a75e0a6101c9}{GetNumNeighbors}}();}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ \mbox{\hyperlink{class_l_i_s_a_ac661ede940895d9fe8fe08c3895c10af}{GetSpatialLagValues}}();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ \mbox{\hyperlink{class_l_i_s_a_a66a7a277ed1b0d774f0e1881a17e6fbe}{GetLISAValues}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_l_i_s_a_a5354756caf59cd4ef55eb2b93b83677a}{IsRowStandardize}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_af9dcade8f79090a594fe950ad8fa16fa}{SetRowStandardize}}(\textcolor{keywordtype}{bool}\ rowStandardize);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_aea988ecda20ea77bfe806fd082bbf3f8}{GetNumThreads}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00102\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_i_s_a_aa7e54243723d4ae3af341d43236c4a17}{SetNumThreads}}(\textcolor{keywordtype}{int}\ n\_threads);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ \mbox{\hyperlink{class_l_i_s_a_af7c025f7b5dbfacfcd1068aea0bc3a16}{GetLabels}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ \mbox{\hyperlink{class_l_i_s_a_aa7ccbefcd8fb8543e791485916270cb0}{GetColors}}();}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a93dbaa5b02fbd6b2fef270888b9711b6}{nCPUs}};}
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a61a5128a4af4e294e8f59ddc2ac35854}{num\_obs}};\ \ \textcolor{comment}{//\ total\ \#\ obs\ including\ neighborless\ obs}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_l_i_s_a_ad0d3a85084f836c14ac292dd783cc617}{row\_standardize}};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_ae93f12d73f48a9fbe7c21e8ba17fa9ee}{significance\_filter}};\ \ \textcolor{comment}{//\ 0:\ >0.05\ 1:\ 0.05,\ 2:\ 0.01,\ 3:\ 0.001,\ 4:\ 0.0001}}
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_aa1b448ba82487d84f7d34b5a48687ca7}{permutations}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ any\ number\ from\ 9\ to\ 99999,\ 99\ will\ be\ default}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_l_i_s_a_aefaa3485a0023c7ee635a0b2874417e7}{significance\_cutoff}};\ \ \textcolor{comment}{//\ either\ 0.05,\ 0.01,\ 0.001\ or\ 0.0001}}
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_l_i_s_a_af82c5848fd8c9c03720b6768b7a55376}{user\_sig\_cutoff}};\ \ \ \ \ \ \textcolor{comment}{//\ user\ defined\ cutoff}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_l_i_s_a_a2ff9fc974573d91f65acb7486f8a9cef}{has\_undefined}};}
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_l_i_s_a_ac4cb795aa0c036bd2f0721a6402bfca4}{has\_isolates}};}
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_l_i_s_a_af33206fcbd8c59afc201a8a0454f065f}{calc\_significances}};\ \ \textcolor{comment}{//\ if\ false,\ then\ p-\/vals\ will\ never\ be\ needed}}
+\DoxyCodeLine{00123\ \ \ uint64\_t\ \mbox{\hyperlink{class_l_i_s_a_a0b6a2466791bca1b75369737337fca2d}{last\_seed\_used}};}
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_l_i_s_a_a1831c01ee530b038e5e7356a86a20c2b}{reuse\_last\_seed}};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \mbox{\hyperlink{class_geo_da_weight}{GeoDaWeight}}*\ \mbox{\hyperlink{class_l_i_s_a_a3f6524f9d4aa8e8a5d92bccc5a10a46f}{weights}};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ std::vector<bool>\ \mbox{\hyperlink{class_l_i_s_a_af36658ec6c5e572b2c131d897220a81e}{undefs}};}
+\DoxyCodeLine{00129\ \ \ std::vector<double>\ \mbox{\hyperlink{class_l_i_s_a_a4cebb360265b00834131007f766f8888}{sig\_local\_vec}};}
+\DoxyCodeLine{00130\ \ \ std::vector<int>\ \mbox{\hyperlink{class_l_i_s_a_af8622086c88d0ade80130613a2a0209d}{sig\_cat\_vec}};}
+\DoxyCodeLine{00131\ \ \ std::vector<int>\ \mbox{\hyperlink{class_l_i_s_a_aafcd78acbda90794728597a5262bf4f5}{cluster\_vec}};}
+\DoxyCodeLine{00132\ \ \ std::vector<double>\ \mbox{\hyperlink{class_l_i_s_a_a1842b85ffe20032c9fc14bb7734d946c}{lag\_vec}};}
+\DoxyCodeLine{00133\ \ \ std::vector<double>\ \mbox{\hyperlink{class_l_i_s_a_a6a3eb34950154b54aa38cdb06e035bd5}{lisa\_vec}};}
+\DoxyCodeLine{00134\ \ \ std::vector<int>\ \mbox{\hyperlink{class_l_i_s_a_adc7cdba864b9a1e1dd32cc0172649f7d}{nn\_vec}};}
+\DoxyCodeLine{00135\ \ \ std::vector<std::string>\ \mbox{\hyperlink{class_l_i_s_a_a49e01da3d8c104a895fb09be22931f20}{labels}};}
+\DoxyCodeLine{00136\ \ \ std::vector<std::string>\ \mbox{\hyperlink{class_l_i_s_a_a3879ae2936f23e8301ef35200c71d5cd}{colors}};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordtype}{int}**\ \mbox{\hyperlink{class_l_i_s_a_a4e4104294cae67b667c3ef8a435027cf}{perm\_table}};}
+\DoxyCodeLine{00139\ \ \ std::string\ \mbox{\hyperlink{class_l_i_s_a_adb5baf0ecda6023779bab868d9c45af5}{permutation\_method}};}
+\DoxyCodeLine{00140\ \};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GEODA\_LISA\_H}}
+
+\end{DoxyCode}

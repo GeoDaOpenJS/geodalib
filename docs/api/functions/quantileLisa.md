@@ -1,14 +1,10 @@
-[**geoda-wasm**](../README.md)
-
-***
-
 [geoda-wasm](../globals.md) / quantileLisa
 
 # Function: quantileLisa()
 
 > **quantileLisa**(`__namedParameters`): `Promise`\<[`LocalMoranResult`](../type-aliases/LocalMoranResult.md)\>
 
-Defined in: [src/sa/quantile-lisa.ts:26](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/src/sa/quantile-lisa.ts#L26)
+Defined in: [src/sa/quantile-lisa.ts:26](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/sa/quantile-lisa.ts#L26)
 
 Get local Quantile Lisa statistics
 

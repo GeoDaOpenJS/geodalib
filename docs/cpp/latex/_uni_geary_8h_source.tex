@@ -1,0 +1,51 @@
+\doxysection{Uni\+Geary.\+h}
+\hypertarget{_uni_geary_8h_source}{}\label{_uni_geary_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/lisa/UniGeary.h@{/Users/xun/github/geoda-\/lib/src/cpp/lisa/UniGeary.h}}
+\mbox{\hyperlink{_uni_geary_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xun\ Li\ on\ 9/27/19.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ GEODA\_UNIGEARY\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ GEODA\_UNIGEARY\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_l_i_s_a_8h}{LISA.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_uni_geary_a73ba03b19aa5f3d6ede9c47c6cfaf435}{UniGeary}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_l_i_s_a_ab514ca51acdb895cd05464eae461fcf0}{LISA}}\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_NOT\_SIG;}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_HIGHHIGH;}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_LOWLOW;}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_OTHERPOS;}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_NEGATIVE;}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_UNDEFINED;}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_NEIGHBORLESS;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{class_uni_geary_a73ba03b19aa5f3d6ede9c47c6cfaf435}{UniGeary}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a61a5128a4af4e294e8f59ddc2ac35854}{num\_obs}},\ \mbox{\hyperlink{class_geo_da_weight}{GeoDaWeight}}*\ w,\ \textcolor{keyword}{const}\ std::vector<double>\&\ \mbox{\hyperlink{class_uni_geary_a5efb8cc579d00b2ffa2d87e9582afc1e}{data}},\ \textcolor{keyword}{const}\ std::vector<bool>\&\ \mbox{\hyperlink{class_l_i_s_a_af36658ec6c5e572b2c131d897220a81e}{undefs}},}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_l_i_s_a_aefaa3485a0023c7ee635a0b2874417e7}{significance\_cutoff}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_a93dbaa5b02fbd6b2fef270888b9711b6}{nCPUs}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_l_i_s_a_aa1b448ba82487d84f7d34b5a48687ca7}{permutations}},\ \textcolor{keyword}{const}\ std::string\&\ \_permutation\_method,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ \mbox{\hyperlink{class_l_i_s_a_a0b6a2466791bca1b75369737337fca2d}{last\_seed\_used}});}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_uni_geary_a0a494414ca881f2e0971d3c7d1f7d52c}{\string~UniGeary}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_uni_geary_a8b44a3959ad1ea2eb2e2028b4cde7d95}{ComputeLoalSA}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_uni_geary_a2c04163866f185bdbae34f1ccd9815ac}{PermLocalSA}}(\textcolor{keywordtype}{int}\ cnt,\ \textcolor{keywordtype}{int}\ perm,\ \textcolor{keyword}{const}\ std::vector<int>\&\ permNeighbors,\ std::vector<double>\&\ permutedSA);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_uni_geary_a2c04163866f185bdbae34f1ccd9815ac}{PermLocalSA}}(\textcolor{keywordtype}{int}\ cnt,\ \textcolor{keywordtype}{int}\ perm,\ \textcolor{keywordtype}{int}\ numNeighbors,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ permNeighbors,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\&\ permutedSA);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{virtual}\ uint64\_t\ \mbox{\hyperlink{class_uni_geary_a29a57f311290dac8d7f9a57b1afe5dd2}{CountLargerSA}}(\textcolor{keywordtype}{int}\ cnt,\ \textcolor{keyword}{const}\ std::vector<double>\&\ permutedSA);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{virtual}\ std::vector<int>\ \mbox{\hyperlink{class_uni_geary_abd9d71cdc3644facc7b3672c687af7e6}{GetClusterIndicators}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00041\ \ \ std::vector<double>\ \mbox{\hyperlink{class_uni_geary_a5efb8cc579d00b2ffa2d87e9582afc1e}{data}};}
+\DoxyCodeLine{00042\ \ \ std::vector<double>\ \mbox{\hyperlink{class_uni_geary_a6c88ea8c3e85f026f4c743805d2320dd}{data\_square}};}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GEODA\_UNIGEARY\_H}}
+
+\end{DoxyCode}

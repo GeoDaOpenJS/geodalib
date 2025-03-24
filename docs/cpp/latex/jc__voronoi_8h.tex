@@ -1,0 +1,217 @@
+\doxysection{/\+Users/xun/github/geoda-\/lib/src/cpp/utils/jc\+\_\+voronoi.h File Reference}
+\hypertarget{jc__voronoi_8h}{}\label{jc__voronoi_8h}\index{/Users/xun/github/geoda-\/lib/src/cpp/utils/jc\_voronoi.h@{/Users/xun/github/geoda-\/lib/src/cpp/utils/jc\_voronoi.h}}
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__jcv__point}{\+\_\+jcv\+\_\+point}}
+\item 
+struct \mbox{\hyperlink{struct__jcv__graphedge}{\+\_\+jcv\+\_\+graphedge}}
+\item 
+struct \mbox{\hyperlink{struct__jcv__site}{\+\_\+jcv\+\_\+site}}
+\item 
+struct \mbox{\hyperlink{struct__jcv__edge}{\+\_\+jcv\+\_\+edge}}
+\item 
+struct \mbox{\hyperlink{struct__jcv__rect}{\+\_\+jcv\+\_\+rect}}
+\item 
+struct \mbox{\hyperlink{struct__jcv__diagram}{\+\_\+jcv\+\_\+diagram}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{jc__voronoi_8h_a4d86a41e250d5cb383e6e63eea4fe0c9}{JCV\+\_\+\+REAL\+\_\+\+TYPE}}~float
+\item 
+\#define \mbox{\hyperlink{jc__voronoi_8h_a3ae890190ce57d8824a9b2353504eea2}{JCV\+\_\+\+ATAN2}}(\+\_\+\+Y\+\_\+,  \+\_\+\+X\+\_\+)
+\item 
+\#define \mbox{\hyperlink{jc__voronoi_8h_afe69737cad28c5d558fe3cea50966e9b}{JCV\+\_\+\+SQRT}}(\+\_\+\+X\+\_\+)
+\item 
+\#define \mbox{\hyperlink{jc__voronoi_8h_a48db6e7cc0b9a9a9a5ba3376a5191600}{JCV\+\_\+\+PI}}~3.\+14159265358979323846264338327950288f
+\item 
+\#define \mbox{\hyperlink{jc__voronoi_8h_a2a69ca5cc2eadf70988d863847a87025}{JCV\+\_\+\+FLT\+\_\+\+MAX}}~3.\+402823466e+38F
+\item 
+\#define \mbox{\hyperlink{jc__voronoi_8h_a1e885658896f71cb1c180c93776eb6df}{JCV\+\_\+\+EDGE\+\_\+\+INTERSECT\+\_\+\+THRESHOLD}}~1.\+0e-\/10F
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{jc__voronoi_8h_a4d86a41e250d5cb383e6e63eea4fe0c9}{JCV\+\_\+\+REAL\+\_\+\+TYPE}} \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\+\_\+real}}
+\item 
+typedef struct \mbox{\hyperlink{struct__jcv__point}{\+\_\+jcv\+\_\+point}} \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\+\_\+point}}
+\item 
+typedef struct \mbox{\hyperlink{struct__jcv__graphedge}{\+\_\+jcv\+\_\+graphedge}} \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\+\_\+graphedge}}
+\item 
+typedef struct \mbox{\hyperlink{struct__jcv__site}{\+\_\+jcv\+\_\+site}} \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\+\_\+site}}
+\item 
+typedef struct \mbox{\hyperlink{struct__jcv__edge}{\+\_\+jcv\+\_\+edge}} \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\+\_\+edge}}
+\item 
+typedef struct \mbox{\hyperlink{struct__jcv__rect}{\+\_\+jcv\+\_\+rect}} \mbox{\hyperlink{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}{jcv\+\_\+rect}}
+\item 
+typedef struct \mbox{\hyperlink{struct__jcv__diagram}{\+\_\+jcv\+\_\+diagram}} \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}}
+\item 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{jc__voronoi_8h_af61e6ea8053a82cc992c24c23d82b920}{FJCVAlloc\+Fn}}) (void \texorpdfstring{$\ast$}{*}userctx, size\+\_\+t size)
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{jc__voronoi_8h_ac02fb2bffd328442d958687d886a69ef}{FJCVFree\+Fn}}) (void \texorpdfstring{$\ast$}{*}userctx, void \texorpdfstring{$\ast$}{*}p)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{jc__voronoi_8h_a06e41773fa0f60c5dd38ec8fd24ee44c}{jcv\+\_\+diagram\+\_\+generate}} (int num\+\_\+points, const \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\+\_\+point}} \texorpdfstring{$\ast$}{*}points, const \mbox{\hyperlink{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}{jcv\+\_\+rect}} \texorpdfstring{$\ast$}{*}rect, \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}} \texorpdfstring{$\ast$}{*}diagram)
+\item 
+void \mbox{\hyperlink{jc__voronoi_8h_a31d74234527a688f260a955dc9c5adfc}{jcv\+\_\+diagram\+\_\+generate\+\_\+useralloc}} (int num\+\_\+points, const \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\+\_\+point}} \texorpdfstring{$\ast$}{*}points, const \mbox{\hyperlink{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}{jcv\+\_\+rect}} \texorpdfstring{$\ast$}{*}rect, void \texorpdfstring{$\ast$}{*}userallocctx, \mbox{\hyperlink{jc__voronoi_8h_af61e6ea8053a82cc992c24c23d82b920}{FJCVAlloc\+Fn}} allocfn, \mbox{\hyperlink{jc__voronoi_8h_ac02fb2bffd328442d958687d886a69ef}{FJCVFree\+Fn}} freefn, \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}} \texorpdfstring{$\ast$}{*}diagram)
+\item 
+void \mbox{\hyperlink{jc__voronoi_8h_a2be8cceedaa369c8568076f049b5d9fa}{jcv\+\_\+diagram\+\_\+free}} (\mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}} \texorpdfstring{$\ast$}{*}diagram)
+\item 
+const \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\+\_\+site}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{jc__voronoi_8h_a3f1f04b91dba62621ce99132ea03bdd5}{jcv\+\_\+diagram\+\_\+get\+\_\+sites}} (const \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}} \texorpdfstring{$\ast$}{*}diagram)
+\item 
+const \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\+\_\+edge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{jc__voronoi_8h_a6ed5fdcd8aa5764dae68f27f1ea152a6}{jcv\+\_\+diagram\+\_\+get\+\_\+edges}} (const \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}} \texorpdfstring{$\ast$}{*}diagram)
+\item 
+const \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\+\_\+edge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{jc__voronoi_8h_af42b092404285d28eeb2c2a119d5e8d7}{jcv\+\_\+diagram\+\_\+get\+\_\+next\+\_\+edge}} (const \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\+\_\+edge}} \texorpdfstring{$\ast$}{*}edge)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{jc__voronoi_8h_a3ae890190ce57d8824a9b2353504eea2}\index{jc\_voronoi.h@{jc\_voronoi.h}!JCV\_ATAN2@{JCV\_ATAN2}}
+\index{JCV\_ATAN2@{JCV\_ATAN2}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{JCV\_ATAN2}{JCV\_ATAN2}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a3ae890190ce57d8824a9b2353504eea2} 
+\#define JCV\+\_\+\+ATAN2(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+Y\+\_\+}{, }\item[{}]{\+\_\+\+X\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{atan2f(\_Y\_,\ \_X\_)}
+
+\end{DoxyCode}
+\Hypertarget{jc__voronoi_8h_a1e885658896f71cb1c180c93776eb6df}\index{jc\_voronoi.h@{jc\_voronoi.h}!JCV\_EDGE\_INTERSECT\_THRESHOLD@{JCV\_EDGE\_INTERSECT\_THRESHOLD}}
+\index{JCV\_EDGE\_INTERSECT\_THRESHOLD@{JCV\_EDGE\_INTERSECT\_THRESHOLD}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{JCV\_EDGE\_INTERSECT\_THRESHOLD}{JCV\_EDGE\_INTERSECT\_THRESHOLD}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a1e885658896f71cb1c180c93776eb6df} 
+\#define JCV\+\_\+\+EDGE\+\_\+\+INTERSECT\+\_\+\+THRESHOLD~1.\+0e-\/10F}
+
+\Hypertarget{jc__voronoi_8h_a2a69ca5cc2eadf70988d863847a87025}\index{jc\_voronoi.h@{jc\_voronoi.h}!JCV\_FLT\_MAX@{JCV\_FLT\_MAX}}
+\index{JCV\_FLT\_MAX@{JCV\_FLT\_MAX}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{JCV\_FLT\_MAX}{JCV\_FLT\_MAX}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a2a69ca5cc2eadf70988d863847a87025} 
+\#define JCV\+\_\+\+FLT\+\_\+\+MAX~3.\+402823466e+38F}
+
+\Hypertarget{jc__voronoi_8h_a48db6e7cc0b9a9a9a5ba3376a5191600}\index{jc\_voronoi.h@{jc\_voronoi.h}!JCV\_PI@{JCV\_PI}}
+\index{JCV\_PI@{JCV\_PI}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{JCV\_PI}{JCV\_PI}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a48db6e7cc0b9a9a9a5ba3376a5191600} 
+\#define JCV\+\_\+\+PI~3.\+14159265358979323846264338327950288f}
+
+\Hypertarget{jc__voronoi_8h_a4d86a41e250d5cb383e6e63eea4fe0c9}\index{jc\_voronoi.h@{jc\_voronoi.h}!JCV\_REAL\_TYPE@{JCV\_REAL\_TYPE}}
+\index{JCV\_REAL\_TYPE@{JCV\_REAL\_TYPE}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{JCV\_REAL\_TYPE}{JCV\_REAL\_TYPE}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a4d86a41e250d5cb383e6e63eea4fe0c9} 
+\#define JCV\+\_\+\+REAL\+\_\+\+TYPE~float}
+
+\Hypertarget{jc__voronoi_8h_afe69737cad28c5d558fe3cea50966e9b}\index{jc\_voronoi.h@{jc\_voronoi.h}!JCV\_SQRT@{JCV\_SQRT}}
+\index{JCV\_SQRT@{JCV\_SQRT}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{JCV\_SQRT}{JCV\_SQRT}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_afe69737cad28c5d558fe3cea50966e9b} 
+\#define JCV\+\_\+\+SQRT(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+X\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sqrtf(\_X\_)}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{jc__voronoi_8h_af61e6ea8053a82cc992c24c23d82b920}\index{jc\_voronoi.h@{jc\_voronoi.h}!FJCVAllocFn@{FJCVAllocFn}}
+\index{FJCVAllocFn@{FJCVAllocFn}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{FJCVAllocFn}{FJCVAllocFn}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_af61e6ea8053a82cc992c24c23d82b920} 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} FJCVAlloc\+Fn) (void \texorpdfstring{$\ast$}{*}userctx, size\+\_\+t size)}
+
+\Hypertarget{jc__voronoi_8h_ac02fb2bffd328442d958687d886a69ef}\index{jc\_voronoi.h@{jc\_voronoi.h}!FJCVFreeFn@{FJCVFreeFn}}
+\index{FJCVFreeFn@{FJCVFreeFn}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{FJCVFreeFn}{FJCVFreeFn}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_ac02fb2bffd328442d958687d886a69ef} 
+typedef void(\texorpdfstring{$\ast$}{*} FJCVFree\+Fn) (void \texorpdfstring{$\ast$}{*}userctx, void \texorpdfstring{$\ast$}{*}p)}
+
+\Hypertarget{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_diagram@{jcv\_diagram}}
+\index{jcv\_diagram@{jcv\_diagram}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_diagram}{jcv\_diagram}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05} 
+typedef struct \mbox{\hyperlink{struct__jcv__diagram}{\+\_\+jcv\+\_\+diagram}} \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}}}
+
+\Hypertarget{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_edge@{jcv\_edge}}
+\index{jcv\_edge@{jcv\_edge}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_edge}{jcv\_edge}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b} 
+typedef struct \mbox{\hyperlink{struct__jcv__edge}{\+\_\+jcv\+\_\+edge}} \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\+\_\+edge}}}
+
+\Hypertarget{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_graphedge@{jcv\_graphedge}}
+\index{jcv\_graphedge@{jcv\_graphedge}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_graphedge}{jcv\_graphedge}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6} 
+typedef struct \mbox{\hyperlink{struct__jcv__graphedge}{\+\_\+jcv\+\_\+graphedge}} \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\+\_\+graphedge}}}
+
+\Hypertarget{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_point@{jcv\_point}}
+\index{jcv\_point@{jcv\_point}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_point}{jcv\_point}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4} 
+typedef struct \mbox{\hyperlink{struct__jcv__point}{\+\_\+jcv\+\_\+point}} \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\+\_\+point}}}
+
+\Hypertarget{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_real@{jcv\_real}}
+\index{jcv\_real@{jcv\_real}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_real}{jcv\_real}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f} 
+typedef \mbox{\hyperlink{jc__voronoi_8h_a4d86a41e250d5cb383e6e63eea4fe0c9}{JCV\+\_\+\+REAL\+\_\+\+TYPE}} \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\+\_\+real}}}
+
+\Hypertarget{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_rect@{jcv\_rect}}
+\index{jcv\_rect@{jcv\_rect}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_rect}{jcv\_rect}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479} 
+typedef struct \mbox{\hyperlink{struct__jcv__rect}{\+\_\+jcv\+\_\+rect}} \mbox{\hyperlink{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}{jcv\+\_\+rect}}}
+
+\Hypertarget{jc__voronoi_8h_a5386281099d8669709643c318b500893}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_site@{jcv\_site}}
+\index{jcv\_site@{jcv\_site}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_site}{jcv\_site}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a5386281099d8669709643c318b500893} 
+typedef struct \mbox{\hyperlink{struct__jcv__site}{\+\_\+jcv\+\_\+site}} \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\+\_\+site}}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{jc__voronoi_8h_a2be8cceedaa369c8568076f049b5d9fa}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_diagram\_free@{jcv\_diagram\_free}}
+\index{jcv\_diagram\_free@{jcv\_diagram\_free}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_diagram\_free()}{jcv\_diagram\_free()}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a2be8cceedaa369c8568076f049b5d9fa} 
+void jcv\+\_\+diagram\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}} \texorpdfstring{$\ast$}{*}}]{diagram}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{jc__voronoi_8h_a06e41773fa0f60c5dd38ec8fd24ee44c}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_diagram\_generate@{jcv\_diagram\_generate}}
+\index{jcv\_diagram\_generate@{jcv\_diagram\_generate}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_diagram\_generate()}{jcv\_diagram\_generate()}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a06e41773fa0f60c5dd38ec8fd24ee44c} 
+void jcv\+\_\+diagram\+\_\+generate (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+points}{, }\item[{const \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\+\_\+point}} \texorpdfstring{$\ast$}{*}}]{points}{, }\item[{const \mbox{\hyperlink{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}{jcv\+\_\+rect}} \texorpdfstring{$\ast$}{*}}]{rect}{, }\item[{\mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}} \texorpdfstring{$\ast$}{*}}]{diagram}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+Uses malloc If rect is null, an automatic bounding box is calculated, with an extra padding of 10 units If rect is non null, all points will be culled against the bounding rect, and all edges will be clipped against it. \Hypertarget{jc__voronoi_8h_a31d74234527a688f260a955dc9c5adfc}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_diagram\_generate\_useralloc@{jcv\_diagram\_generate\_useralloc}}
+\index{jcv\_diagram\_generate\_useralloc@{jcv\_diagram\_generate\_useralloc}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_diagram\_generate\_useralloc()}{jcv\_diagram\_generate\_useralloc()}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a31d74234527a688f260a955dc9c5adfc} 
+void jcv\+\_\+diagram\+\_\+generate\+\_\+useralloc (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+points}{, }\item[{const \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\+\_\+point}} \texorpdfstring{$\ast$}{*}}]{points}{, }\item[{const \mbox{\hyperlink{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}{jcv\+\_\+rect}} \texorpdfstring{$\ast$}{*}}]{rect}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{userallocctx}{, }\item[{\mbox{\hyperlink{jc__voronoi_8h_af61e6ea8053a82cc992c24c23d82b920}{FJCVAlloc\+Fn}}}]{allocfn}{, }\item[{\mbox{\hyperlink{jc__voronoi_8h_ac02fb2bffd328442d958687d886a69ef}{FJCVFree\+Fn}}}]{freefn}{, }\item[{\mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}} \texorpdfstring{$\ast$}{*}}]{diagram}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{jc__voronoi_8h_a6ed5fdcd8aa5764dae68f27f1ea152a6}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_diagram\_get\_edges@{jcv\_diagram\_get\_edges}}
+\index{jcv\_diagram\_get\_edges@{jcv\_diagram\_get\_edges}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_diagram\_get\_edges()}{jcv\_diagram\_get\_edges()}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a6ed5fdcd8aa5764dae68f27f1ea152a6} 
+const \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\+\_\+edge}} \texorpdfstring{$\ast$}{*} jcv\+\_\+diagram\+\_\+get\+\_\+edges (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}} \texorpdfstring{$\ast$}{*}}]{diagram}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{jc__voronoi_8h_af42b092404285d28eeb2c2a119d5e8d7}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_diagram\_get\_next\_edge@{jcv\_diagram\_get\_next\_edge}}
+\index{jcv\_diagram\_get\_next\_edge@{jcv\_diagram\_get\_next\_edge}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_diagram\_get\_next\_edge()}{jcv\_diagram\_get\_next\_edge()}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_af42b092404285d28eeb2c2a119d5e8d7} 
+const \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\+\_\+edge}} \texorpdfstring{$\ast$}{*} jcv\+\_\+diagram\+\_\+get\+\_\+next\+\_\+edge (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\+\_\+edge}} \texorpdfstring{$\ast$}{*}}]{edge}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{jc__voronoi_8h_a3f1f04b91dba62621ce99132ea03bdd5}\index{jc\_voronoi.h@{jc\_voronoi.h}!jcv\_diagram\_get\_sites@{jcv\_diagram\_get\_sites}}
+\index{jcv\_diagram\_get\_sites@{jcv\_diagram\_get\_sites}!jc\_voronoi.h@{jc\_voronoi.h}}
+\doxysubsubsection{\texorpdfstring{jcv\_diagram\_get\_sites()}{jcv\_diagram\_get\_sites()}}
+{\footnotesize\ttfamily \label{jc__voronoi_8h_a3f1f04b91dba62621ce99132ea03bdd5} 
+const \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\+\_\+site}} \texorpdfstring{$\ast$}{*} jcv\+\_\+diagram\+\_\+get\+\_\+sites (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\+\_\+diagram}} \texorpdfstring{$\ast$}{*}}]{diagram}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+

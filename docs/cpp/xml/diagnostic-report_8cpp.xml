@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="diagnostic-report_8cpp" kind="file" language="C++">
+    <compoundname>diagnostic-report.cpp</compoundname>
+    <includes refid="diagnostic-report_8h" local="yes">regression/diagnostic-report.h</includes>
+    <includes refid="mix_8h" local="yes">regression/mix.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/diagnostic-report.cpp</label>
+        <link refid="diagnostic-report_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>regression/diagnostic-report.h</label>
+        <link refid="diagnostic-report_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>regression/mix.h</label>
+        <link refid="mix_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>fstream</label>
+      </node>
+      <node id="8">
+        <label>iostream</label>
+      </node>
+      <node id="6">
+        <label>math.h</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="9">
+        <label>utility</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="diagnostic-report_8h" kindref="compound">regression/diagnostic-report.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mix_8h" kindref="compound">regression/mix.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><ref refid="class_diagnostic_report_1a3f214a5babfde06fc062932994cae083" kindref="member">DiagnosticReport::DiagnosticReport</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>obs,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nvar,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>inclconst,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>nObs(obs),<sp/>nVar(nvar),<sp/>inclConstant(inclconst),<sp/>model(m),<sp/>hasWeight(w)<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>diagStatus<sp/>=<sp/>Allocate();</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><ref refid="class_diagnostic_report_1ad69651a06586c8b287f82bb63e199b6a" kindref="member">DiagnosticReport::~DiagnosticReport</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_diagnostic_report_1ad516520b7f9292f8c09a1dc97d55cbc2" kindref="member">DiagnosticReport::GetDiagStatus</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_diagnostic_report_1a56ffb4d9efc04f6bac5e0f0111cddac2" kindref="member">diagStatus</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>DiagnosticReport::Allocate()<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_diagnostic_report_1a54ad6e1561ddc635744c5c240f5624fe" kindref="member">nObs</ref><sp/>&lt;<sp/><ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref><sp/>||<sp/><ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref><sp/>&lt;<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>s<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>number<sp/>of<sp/>covariates<sp/>should<sp/>be<sp/>more<sp/>than<sp/>the<sp/>number<sp/>of<sp/>observations.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><ref refid="class_diagnostic_report_1ac683a0b41fd0cf27b2a3da88b7c398e1" kindref="member">varNames</ref>.resize(<ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref><sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>double_ptr_type;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="class_diagnostic_report_1a9967c6f4810a8f730d272f5bec77eed3" kindref="member">cov</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>double_ptr_type[<ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref><sp/>+<sp/>3];</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a9967c6f4810a8f730d272f5bec77eed3" kindref="member">cov</ref>[i]<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[<ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref><sp/>+<sp/>3];</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="class_diagnostic_report_1a0b62caf19fb12d24e12df3e6befddc02" kindref="member">coeff</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[<ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref><sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="class_diagnostic_report_1aaf441deef9c738f8ab8e0362a0f9a9f4" kindref="member">sterr</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[<ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref><sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="class_diagnostic_report_1a61258d7141b71c3f20fc9403d1bd44dd" kindref="member">stats</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[<ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref><sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="class_diagnostic_report_1a04ce972a6f4987bbc3115985ea4920b0" kindref="member">probs</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[<ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref><sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="class_diagnostic_report_1ae65313e02aa2a56b0420daf92d1b1766" kindref="member">bptest</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[6];</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="mix_8h_1a4707176f2cd6eb4dc734fffb6cf10feb" kindref="member">alloc</ref>(<ref refid="class_diagnostic_report_1a366e8a0807ac8966fdef0dd40dd55b4d" kindref="member">resid</ref>,<sp/><ref refid="class_diagnostic_report_1a54ad6e1561ddc635744c5c240f5624fe" kindref="member">nObs</ref><sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="class_diagnostic_report_1a3684153f646e87ec3c6228cc1be785d7" kindref="member">yhat</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[<ref refid="class_diagnostic_report_1a54ad6e1561ddc635744c5c240f5624fe" kindref="member">nObs</ref><sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><ref refid="class_diagnostic_report_1a3d341d4b5db217155b654579a3086bdb" kindref="member">eigval</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[<ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref>];</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_diagnostic_report_1a366e8a0807ac8966fdef0dd40dd55b4d" kindref="member">resid</ref><sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>s<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Not<sp/>enough<sp/>memory!&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_diagnostic_report_1afec757e91d4bd3f17ce85da63ef0f06c" kindref="member">model</ref><sp/>==<sp/>2)<sp/><sp/></highlight><highlight class="comment">//<sp/>lag</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1ad2eb290dc100359ebad0adf248a2e408" kindref="member">rho</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[4];</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a2b711c43af44489ffac5835933df0aa9" kindref="member">sbptest</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1add3cd61bcddee7d3352cebd13417f8e8" kindref="member">lr_test</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a508ef602363d0adfbb65aea46b28cc60" kindref="member">lm_test</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a77b2d150122e45c603c94a5d802ed2f7" kindref="member">prederr</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[<ref refid="class_diagnostic_report_1a54ad6e1561ddc635744c5c240f5624fe" kindref="member">nObs</ref>];</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_diagnostic_report_1afec757e91d4bd3f17ce85da63ef0f06c" kindref="member">model</ref><sp/>==<sp/>3)<sp/><sp/></highlight><highlight class="comment">//<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a95479c602406dba24090de00367b627e" kindref="member">lambda</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[4];</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a2b711c43af44489ffac5835933df0aa9" kindref="member">sbptest</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1add3cd61bcddee7d3352cebd13417f8e8" kindref="member">lr_test</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a508ef602363d0adfbb65aea46b28cc60" kindref="member">lm_test</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a173754da4c8b80a8dc8e9b04ddfb1026" kindref="member">lrcf_test</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a5d0a28a6311197b7f896b7b0d4d007fe" kindref="member">wald_test</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a77b2d150122e45c603c94a5d802ed2f7" kindref="member">prederr</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[<ref refid="class_diagnostic_report_1a54ad6e1561ddc635744c5c240f5624fe" kindref="member">nObs</ref>];</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a4dd52549449c88de3ab88787c8dc43ce" kindref="member">moranI</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a27dac44fd489f112c879c612098c4ef9" kindref="member">jbtest</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a8735cae10dd51c620d8914639cc73fd0" kindref="member">kbtest</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a6ff6486f7b317f9f79959eb9ba72085b" kindref="member">white</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_diagnostic_report_1a0117e2cd12c141d9aa2d463cb444155c" kindref="member">hasWeight</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1aba1a992e1c90dec552f35729da7b2d20" kindref="member">lmlag</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a46975c3ec9e616ea32ffbde2f091aef0" kindref="member">lmerr</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1ad4beb9e9969eae600275cc6852ef3b6f" kindref="member">lmlagr</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1ad66b49b634fc24d613517c19b1aa3a33" kindref="member">lmerrr</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1ac5b484273a72b5bc84cb6bf06193c0f3" kindref="member">lmsarma</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_diagnostic_report_1a0e953b2a5d77d90d3496b692c4d25f96" kindref="member">kelrob</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3];</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DiagnosticReport::SetDiagStatus(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>status)<sp/>{<sp/><ref refid="class_diagnostic_report_1a56ffb4d9efc04f6bac5e0f0111cddac2" kindref="member">diagStatus</ref><sp/>=<sp/>status;<sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_diagnostic_report_1a548189ff7908784c22cd31ff60c3d782" kindref="member">DiagnosticReport::release_Var</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_diagnostic_report_1ac18c522a90b84c34fd67d2bf2053c2a8" kindref="member">nVar</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a9967c6f4810a8f730d272f5bec77eed3" kindref="member">cov</ref>[i]);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a9967c6f4810a8f730d272f5bec77eed3" kindref="member">cov</ref>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a0b62caf19fb12d24e12df3e6befddc02" kindref="member">coeff</ref>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1aaf441deef9c738f8ab8e0362a0f9a9f4" kindref="member">sterr</ref>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a61258d7141b71c3f20fc9403d1bd44dd" kindref="member">stats</ref>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a04ce972a6f4987bbc3115985ea4920b0" kindref="member">probs</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1ae65313e02aa2a56b0420daf92d1b1766" kindref="member">bptest</ref>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a3d341d4b5db217155b654579a3086bdb" kindref="member">eigval</ref>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_diagnostic_report_1afec757e91d4bd3f17ce85da63ef0f06c" kindref="member">model</ref><sp/>==<sp/>2)<sp/><sp/></highlight><highlight class="comment">//<sp/>lag</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1ad2eb290dc100359ebad0adf248a2e408" kindref="member">rho</ref>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a2b711c43af44489ffac5835933df0aa9" kindref="member">sbptest</ref>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1add3cd61bcddee7d3352cebd13417f8e8" kindref="member">lr_test</ref>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a508ef602363d0adfbb65aea46b28cc60" kindref="member">lm_test</ref>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_diagnostic_report_1afec757e91d4bd3f17ce85da63ef0f06c" kindref="member">model</ref><sp/>==<sp/>3)<sp/><sp/></highlight><highlight class="comment">//<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a95479c602406dba24090de00367b627e" kindref="member">lambda</ref>);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a2b711c43af44489ffac5835933df0aa9" kindref="member">sbptest</ref>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1add3cd61bcddee7d3352cebd13417f8e8" kindref="member">lr_test</ref>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a508ef602363d0adfbb65aea46b28cc60" kindref="member">lm_test</ref>);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a173754da4c8b80a8dc8e9b04ddfb1026" kindref="member">lrcf_test</ref>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a5d0a28a6311197b7f896b7b0d4d007fe" kindref="member">wald_test</ref>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a4dd52549449c88de3ab88787c8dc43ce" kindref="member">moranI</ref>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a27dac44fd489f112c879c612098c4ef9" kindref="member">jbtest</ref>);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a8735cae10dd51c620d8914639cc73fd0" kindref="member">kbtest</ref>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a6ff6486f7b317f9f79959eb9ba72085b" kindref="member">white</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_diagnostic_report_1a0117e2cd12c141d9aa2d463cb444155c" kindref="member">hasWeight</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1aba1a992e1c90dec552f35729da7b2d20" kindref="member">lmlag</ref>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a46975c3ec9e616ea32ffbde2f091aef0" kindref="member">lmerr</ref>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1ad4beb9e9969eae600275cc6852ef3b6f" kindref="member">lmlagr</ref>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1ad66b49b634fc24d613517c19b1aa3a33" kindref="member">lmerrr</ref>);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1ac5b484273a72b5bc84cb6bf06193c0f3" kindref="member">lmsarma</ref>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="mix_8h_1a5ea642f00e337ed9f13f393e21ca2ce9" kindref="member">release</ref>(&amp;<ref refid="class_diagnostic_report_1a0e953b2a5d77d90d3496b692c4d25f96" kindref="member">kelrob</ref>);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/diagnostic-report.cpp"/>
+  </compounddef>
+</doxygen>

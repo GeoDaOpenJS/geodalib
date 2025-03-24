@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="dir_b507ac314e4ee1474e9eb1b834c8fc59" kind="dir">
+    <compoundname>/Users/xun/github/geoda-lib/src/cpp/utils</compoundname>
+    <innerfile refid="data_8h">data.h</innerfile>
+    <innerfile refid="jc__voronoi_8h">jc_voronoi.h</innerfile>
+    <innerfile refid="_u_t_m_8h">UTM.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/utils/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1261 @@
+\doxysection{jc\+\_\+voronoi.\+h}
+\hypertarget{jc__voronoi_8h_source}{}\label{jc__voronoi_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/utils/jc\_voronoi.h@{/Users/xun/github/geoda-\/lib/src/cpp/utils/jc\_voronoi.h}}
+\mbox{\hyperlink{jc__voronoi_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ NOLINT(legal/copyright)}}
+\DoxyCodeLine{00002\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00003\ \textcolor{comment}{}}
+\DoxyCodeLine{00004\ \textcolor{comment}{ABOUT:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ A\ fast\ single\ file\ 2D\ voronoi\ diagram\ generator.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{}}
+\DoxyCodeLine{00008\ \textcolor{comment}{HISTORY:}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ 0.6\ \ \ \ \ 2018-\/10-\/21\ \ -\/\ Removed\ JCV\_CEIL/JCV\_FLOOR/JCV\_FABS}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Optimizations:\ Fewer\ indirections,\ better\ beach\ head\ approximation}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ \ \ \ 0.5\ \ \ \ \ 2018-\/10-\/14\ \ -\/\ Fixed\ issue\ where\ the\ graph\ edge\ had\ the\ wrong\ edge\ assigned\ (issue\ \#28)}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Fixed\ issue\ where\ a\ point\ was\ falsely\ passing\ the\ jcv\_is\_valid()\ test\ (issue\ \#22)}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Fixed\ jcv\_diagram\_get\_edges()\ so\ it\ now\ returns\ \_all\_\ edges\ (issue\ \#28)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Added\ jcv\_diagram\_get\_next\_edge()\ to\ skip\ zero\ length\ edges\ (issue\ \#10)}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Added\ defines\ JCV\_CEIL/JCV\_FLOOR/JCV\_FLT\_MAX\ for\ easier\ configuration}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ 0.4\ \ \ \ \ 2017-\/06-\/03\ \ -\/\ Increased\ the\ max\ number\ of\ events\ that\ are\ preallocated}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ 0.3\ \ \ \ \ 2017-\/04-\/16\ \ -\/\ Added\ clipping\ box\ as\ input\ argument\ (Automatically\ calcuated\ if\ needed)}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Input\ points\ are\ pruned\ based\ on\ bounding\ box}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ 0.2\ \ \ \ \ 2016-\/12-\/30\ \ -\/\ Fixed\ issue\ of\ edges\ not\ being\ closed\ properly}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Fixed\ issue\ when\ having\ many\ events}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Fixed\ edge\ sorting}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ Code\ cleanup}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ \ \ \ 0.1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Initial\ version}}
+\DoxyCodeLine{00025\ \textcolor{comment}{}}
+\DoxyCodeLine{00026\ \textcolor{comment}{LICENSE:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ The\ MIT\ License\ (MIT)}}
+\DoxyCodeLine{00029\ \textcolor{comment}{}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2018\ Mathias\ Westerdahl}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ \ \ \ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ \ \ \ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ \ \ \ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00038\ \textcolor{comment}{}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ \ \ \ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00041\ \textcolor{comment}{}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ \ \ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ \ \ \ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ SOFTWARE.}}
+\DoxyCodeLine{00049\ \textcolor{comment}{}}
+\DoxyCodeLine{00050\ \textcolor{comment}{}}
+\DoxyCodeLine{00051\ \textcolor{comment}{DISCLAIMER:}}
+\DoxyCodeLine{00052\ \textcolor{comment}{}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ This\ software\ is\ supplied\ "{}AS\ IS"{}\ without\ any\ warranties\ and\ support}}
+\DoxyCodeLine{00054\ \textcolor{comment}{}}
+\DoxyCodeLine{00055\ \textcolor{comment}{USAGE:}}
+\DoxyCodeLine{00056\ \textcolor{comment}{}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ \ \ \ The\ input\ points\ are\ pruned\ if}}
+\DoxyCodeLine{00058\ \textcolor{comment}{}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ \ \ \ \ \ \ \ *\ There\ are\ duplicates\ points}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ *\ The\ input\ points\ are\ outside\ of\ the\ bounding\ box}}
+\DoxyCodeLine{00061\ \textcolor{comment}{}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ \ \ \ The\ input\ bounding\ box\ is\ optional\ (calculated\ automatically)}}
+\DoxyCodeLine{00063\ \textcolor{comment}{}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ \ \ \ The\ input\ domain\ is\ (-\/FLT\_MAX,\ FLT\_MAX]\ (for\ floats)}}
+\DoxyCodeLine{00065\ \textcolor{comment}{}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ \ \ \ The\ api\ consists\ of\ these\ functions:}}
+\DoxyCodeLine{00067\ \textcolor{comment}{}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ \ \ void\ jcv\_diagram\_generate(\ int\ num\_points,\ const\ jcv\_point*\ points,\ const\ jcv\_rect*\ rect,\ jcv\_diagram*\ diagram\ );}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ \ \ \ void\ jcv\_diagram\_generate\_useralloc(\ int\ num\_points,\ const\ jcv\_point*\ points,\ const\ jcv\_rect*\ rect,\ void*}}
+\DoxyCodeLine{00070\ \textcolor{comment}{userallocctx,\ FJCVAllocFn\ allocfn,\ FJCVFreeFn\ freefn,\ jcv\_diagram*\ diagram\ );\ void\ jcv\_diagram\_free(\ jcv\_diagram*}}
+\DoxyCodeLine{00071\ \textcolor{comment}{diagram\ );}}
+\DoxyCodeLine{00072\ \textcolor{comment}{}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ \ \ \ const\ jcv\_site*\ jcv\_diagram\_get\_sites(\ const\ jcv\_diagram*\ diagram\ );}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ const\ jcv\_edge*\ jcv\_diagram\_get\_edges(\ const\ jcv\_diagram*\ diagram\ );}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ const\ jcv\_edge*\ jcv\_diagram\_get\_next\_edge(\ const\ jcv\_edge*\ edge\ );}}
+\DoxyCodeLine{00076\ \textcolor{comment}{}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ An\ example\ usage:}}
+\DoxyCodeLine{00078\ \textcolor{comment}{}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ \ \ \ \#define\ JC\_VORONOI\_IMPLEMENTATION}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ //\ If\ you\ wish\ to\ use\ doubles}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ \ \ \ //\#define\ JCV\_REAL\_TYPE\ double}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ \ \ \ //\#define\ JCV\_ATAN2\ atan2}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ \ \ \ //\#define\ JCV\_FLT\_MAX\ 1.7976931348623157E+308}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ \ \ \ \#include\ "{}jc\_voronoi.h"{}}}
+\DoxyCodeLine{00085\ \textcolor{comment}{}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ \ \ \ void\ draw\_edges(const\ jcv\_diagram*\ diagram);}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ \ \ \ void\ draw\_cells(const\ jcv\_diagram*\ diagram);}}
+\DoxyCodeLine{00088\ \textcolor{comment}{}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ \ \ void\ generate\_and\_draw(int\ numpoints,\ const\ jcv\_point*\ points)}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ \ \ \ \ \ \ \ jcv\_diagram\ diagram;}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ \ \ \ \ \ \ memset(\&diagram,\ 0,\ sizeof(jcv\_diagram));}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ \ \ \ \ \ \ \ jcv\_diagram\_generate(count,\ points,\ 0,\ \&diagram);}}
+\DoxyCodeLine{00094\ \textcolor{comment}{}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ \ \ \ \ draw\_edges(diagram);}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ \ \ \ \ draw\_cells(diagram);}}
+\DoxyCodeLine{00097\ \textcolor{comment}{}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ \ \ \ \ \ \ \ jcv\_diagram\_free(\ \&diagram\ );}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00100\ \textcolor{comment}{}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ \ \ \ void\ draw\_edges(const\ jcv\_diagram*\ diagram)}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ \ \ \ \ \ \ \ //\ If\ all\ you\ need\ are\ the\ edges}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ \ \ \ \ \ \ \ const\ jcv\_edge*\ edge\ =\ jcv\_diagram\_get\_edges(\ diagram\ );}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ \ \ \ \ \ \ \ while(\ edge\ )}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ draw\_line(edge-\/>pos[0],\ edge-\/>pos[1]);}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ edge\ =\ jcv\_diagram\_get\_next\_edge(edge);}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00111\ \textcolor{comment}{}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ \ \ \ void\ draw\_cells(const\ jcv\_diagram*\ diagram)}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ \ \ \ \ \ \ \ //\ If\ you\ want\ to\ draw\ triangles,\ or\ relax\ the\ diagram,}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ \ \ \ \ \ \ \ //\ you\ can\ iterate\ over\ the\ sites\ and\ get\ all\ edges\ easily}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ \ \ \ \ \ \ \ const\ jcv\_site*\ sites\ =\ jcv\_diagram\_get\_sites(\ diagram\ );}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ \ \ \ \ \ \ \ for(\ int\ i\ =\ 0;\ i\ <\ diagram-\/>numsites;\ ++i\ )}}
+\DoxyCodeLine{00118\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ const\ jcv\_site*\ site\ =\ \&sites[i];}}
+\DoxyCodeLine{00120\ \textcolor{comment}{}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ const\ jcv\_graphedge*\ e\ =\ site-\/>edges;}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ while(\ e\ )}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00124\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ draw\_triangle(\ site-\/>p,\ e-\/>pos[0],\ e-\/>pos[1]);}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ e-\/>next;}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00129\ \textcolor{comment}{}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ \ \ \ //\ Here\ is\ a\ simple\ example\ of\ how\ to\ do\ the\ relaxations\ of\ the\ cells}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ void\ relax\_points(const\ jcv\_diagram*\ diagram,\ jcv\_point*\ points)}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ \ \ \ \ \ \ \ const\ jcv\_site*\ sites\ =\ jcv\_diagram\_get\_sites(diagram);}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ \ \ \ \ \ for(\ int\ i\ =\ 0;\ i\ <\ diagram-\/>numsites;\ ++i\ )}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ const\ jcv\_site*\ site\ =\ \&sites[i];}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ jcv\_point\ sum\ =\ site-\/>p;}}
+\DoxyCodeLine{00138\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ int\ count\ =\ 1;}}
+\DoxyCodeLine{00139\ \textcolor{comment}{}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ const\ jcv\_graphedge*\ edge\ =\ site-\/>edges;}}
+\DoxyCodeLine{00141\ \textcolor{comment}{}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ while(\ edge\ )}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum.x\ +=\ edge-\/>pos[0].x;}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum.y\ +=\ edge-\/>pos[0].y;}}
+\DoxyCodeLine{00146\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++count;}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ edge\ =\ edge-\/>next;}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00149\ \textcolor{comment}{}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ points[site-\/>index].x\ =\ sum.x\ /\ count;}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ points[site-\/>index].y\ =\ sum.y\ /\ count;}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00154\ \textcolor{comment}{}}
+\DoxyCodeLine{00155\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#ifndef\ JC\_VORONOI\_H}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ JC\_VORONOI\_H}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00166\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#ifndef\ JCV\_REAL\_TYPE}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ JCV\_REAL\_TYPE\ float}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#ifndef\ JCV\_ATAN2}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ JCV\_ATAN2(\_Y\_,\ \_X\_)\ atan2f(\_Y\_,\ \_X\_)}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#ifndef\ JCV\_SQRT}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ JCV\_SQRT(\_X\_)\ sqrtf(\_X\_)}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#ifndef\ JCV\_PI}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#define\ JCV\_PI\ 3.14159265358979323846264338327950288f}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#ifndef\ JCV\_FLT\_MAX}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#define\ JCV\_FLT\_MAX\ 3.402823466e+38F}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#ifndef\ JCV\_EDGE\_INTERSECT\_THRESHOLD}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#define\ JCV\_EDGE\_INTERSECT\_THRESHOLD\ 1.0e-\/10F}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{jc__voronoi_8h_a4d86a41e250d5cb383e6e63eea4fe0c9}{JCV\_REAL\_TYPE}}\ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#pragma\ pack(push,\ 1)}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__jcv__point}{\_jcv\_point}}\ \{}
+\DoxyCodeLine{00198\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ \mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00199\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ \mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{00200\ \}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}};}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__jcv__graphedge}{\_jcv\_graphedge}}\ \{}
+\DoxyCodeLine{00203\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__jcv__graphedge}{\_jcv\_graphedge}}*\ \mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}};}
+\DoxyCodeLine{00204\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__jcv__edge}{\_jcv\_edge}}*\ \mbox{\hyperlink{struct__jcv__graphedge_a9c14a395e04edecf0cca0c0ff6710a66}{edge}};}
+\DoxyCodeLine{00205\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__jcv__site}{\_jcv\_site}}*\ \mbox{\hyperlink{struct__jcv__graphedge_acd5d8687a0737b73df963967da7d0e86}{neighbor}};}
+\DoxyCodeLine{00206\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ \mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[2];}
+\DoxyCodeLine{00207\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ \mbox{\hyperlink{struct__jcv__graphedge_a609a99341004843f7a9af639015e3404}{angle}};}
+\DoxyCodeLine{00208\ \}\ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__jcv__site}{\_jcv\_site}}\ \{}
+\DoxyCodeLine{00211\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ \mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}};}
+\DoxyCodeLine{00212\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__jcv__site_a9a1e21b7b574616ebc167322fce414a9}{index}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Index\ into\ the\ original\ list\ of\ points}}
+\DoxyCodeLine{00213\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ \mbox{\hyperlink{struct__jcv__site_a66bedf58384b9c116b625faf5f76c660}{edges}};\ \ \textcolor{comment}{//\ The\ half\ edges\ owned\ by\ the\ cell}}
+\DoxyCodeLine{00214\ \}\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}};}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__jcv__edge}{\_jcv\_edge}}\ \{}
+\DoxyCodeLine{00217\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__jcv__edge}{\_jcv\_edge}}*\ \mbox{\hyperlink{struct__jcv__edge_aa0c0dd1f7301167e856b9b6e73299519}{next}};}
+\DoxyCodeLine{00218\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ \mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[2];}
+\DoxyCodeLine{00219\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ \mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[2];}
+\DoxyCodeLine{00220\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ \mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}};}
+\DoxyCodeLine{00221\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ \mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}};}
+\DoxyCodeLine{00222\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ \mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}};}
+\DoxyCodeLine{00223\ \}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__jcv__rect}{\_jcv\_rect}}\ \{}
+\DoxyCodeLine{00226\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ \mbox{\hyperlink{struct__jcv__rect_a72574eae9f12009fd339ecf1065ed2db}{min}};}
+\DoxyCodeLine{00227\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ \mbox{\hyperlink{struct__jcv__rect_a16150970f1caf28961255bacf5ec6d22}{max}};}
+\DoxyCodeLine{00228\ \}\ \mbox{\hyperlink{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}{jcv\_rect}};}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__jcv__diagram}{\_jcv\_diagram}}\ \{}
+\DoxyCodeLine{00231\ \ \ \textcolor{keyword}{struct\ }\_jcv\_context\_internal*\ \mbox{\hyperlink{struct__jcv__diagram_a466fea28608fbb307fe9f26fb8cd7c79}{internal}};}
+\DoxyCodeLine{00232\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ \mbox{\hyperlink{struct__jcv__diagram_a37cf2c70119c58752c0b61b2f113be7e}{edges}};}
+\DoxyCodeLine{00233\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ \mbox{\hyperlink{struct__jcv__diagram_a4ae320fc804cccfcd4d46c0cf98cb150}{sites}};}
+\DoxyCodeLine{00234\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__jcv__diagram_a6684510ae98f93978135c10a41ee5914}{numsites}};}
+\DoxyCodeLine{00235\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ \mbox{\hyperlink{struct__jcv__diagram_aa399b45ddd3f8fad587b128d17a0f1a1}{min}};}
+\DoxyCodeLine{00236\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ \mbox{\hyperlink{struct__jcv__diagram_aa9e598b93f68c6297f7f405d4d240c4c}{max}};}
+\DoxyCodeLine{00237\ \}\ \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}};}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#pragma\ pack(pop)}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00246\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{jc__voronoi_8h_a06e41773fa0f60c5dd38ec8fd24ee44c}{jcv\_diagram\_generate}}(\textcolor{keywordtype}{int}\ num\_points,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ points,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}{jcv\_rect}}*\ rect,\ \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}}*\ diagram);}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}*\ (*FJCVAllocFn)(\textcolor{keywordtype}{void}*\ userctx,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00249\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{jc__voronoi_8h_ac02fb2bffd328442d958687d886a69ef}{FJCVFreeFn}})(\textcolor{keywordtype}{void}*\ userctx,\ \textcolor{keywordtype}{void}*\ p);}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{comment}{//\ Same\ as\ above,\ but\ allows\ the\ client\ to\ use\ a\ custom\ allocator}}
+\DoxyCodeLine{00252\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{jc__voronoi_8h_a31d74234527a688f260a955dc9c5adfc}{jcv\_diagram\_generate\_useralloc}}(\textcolor{keywordtype}{int}\ num\_points,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ points,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}{jcv\_rect}}*\ rect,}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ userallocctx,\ \mbox{\hyperlink{jc__voronoi_8h_af61e6ea8053a82cc992c24c23d82b920}{FJCVAllocFn}}\ allocfn,\ \mbox{\hyperlink{jc__voronoi_8h_ac02fb2bffd328442d958687d886a69ef}{FJCVFreeFn}}\ freefn,}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}}*\ diagram);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{comment}{//\ Uses\ free\ (or\ the\ registered\ custom\ free\ function)}}
+\DoxyCodeLine{00257\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{jc__voronoi_8h_a2be8cceedaa369c8568076f049b5d9fa}{jcv\_diagram\_free}}(\mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}}*\ diagram);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{comment}{//\ Returns\ an\ array\ of\ sites,\ where\ each\ index\ is\ the\ same\ as\ the\ original\ input\ point\ array.}}
+\DoxyCodeLine{00260\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ \mbox{\hyperlink{jc__voronoi_8h_a3f1f04b91dba62621ce99132ea03bdd5}{jcv\_diagram\_get\_sites}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}}*\ diagram);}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{comment}{//\ Returns\ a\ linked\ list\ of\ all\ the\ voronoi\ edges}}
+\DoxyCodeLine{00263\ \textcolor{comment}{//\ excluding\ the\ ones\ that\ lie\ on\ the\ borders\ of\ the\ bounding\ box.}}
+\DoxyCodeLine{00264\ \textcolor{comment}{//\ For\ a\ full\ list\ of\ edges,\ you\ need\ to\ iterate\ over\ the\ sites,\ and\ their\ graph\ edges.}}
+\DoxyCodeLine{00265\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ \mbox{\hyperlink{jc__voronoi_8h_a6ed5fdcd8aa5764dae68f27f1ea152a6}{jcv\_diagram\_get\_edges}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}}*\ diagram);}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{comment}{//\ Iterates\ over\ a\ list\ of\ edges,\ skipping\ invalid\ edges\ (where\ p0==p1)}}
+\DoxyCodeLine{00268\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ \mbox{\hyperlink{jc__voronoi_8h_af42b092404285d28eeb2c2a119d5e8d7}{jcv\_diagram\_get\_next\_edge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ edge);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00271\ \}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ JC\_VORONOI\_H}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#ifdef\ JC\_VORONOI\_IMPLEMENTATION}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#include\ <memory.h>}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \textcolor{comment}{//\ INTERNAL\ FUNCTIONS}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ \&\&\ !defined(\_\_cplusplus)}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#define\ inline\ \_\_inline}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \textcolor{comment}{//\ jcv\_point}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ jcv\_point\_cmp(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ p1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ p2)\ \{}
+\DoxyCodeLine{00289\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ s1\ =\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*)p1;}
+\DoxyCodeLine{00290\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ s2\ =\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*)p2;}
+\DoxyCodeLine{00291\ \ \ \textcolor{keywordflow}{return}\ (s1-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ !=\ s2-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}})\ ?\ (s1-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ <\ s2-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ ?\ -\/1\ :\ 1)\ :\ (s1-\/>x\ <\ s2-\/>x\ ?\ -\/1\ :\ 1);}
+\DoxyCodeLine{00292\ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ jcv\_point\_less(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ pt1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ pt2)\ \{}
+\DoxyCodeLine{00295\ \ \ \textcolor{keywordflow}{return}\ (pt1-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ ==\ pt2-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}})\ ?\ (pt1-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ <\ pt2-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}})\ :\ pt1-\/>y\ <\ pt2-\/>y;}
+\DoxyCodeLine{00296\ \}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ jcv\_point\_eq(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ pt1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ pt2)\ \{}
+\DoxyCodeLine{00299\ \ \ \textcolor{keywordflow}{return}\ (pt1-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ ==\ pt2-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}})\ \&\&\ (pt1-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ ==\ pt2-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}});}
+\DoxyCodeLine{00300\ \}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ jcv\_point\_on\_edge(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ pt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ min,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ max)\ \{}
+\DoxyCodeLine{00303\ \ \ \textcolor{keywordflow}{return}\ pt-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ ==\ min-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ ||\ pt-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ ==\ min-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ ||\ pt-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ ==\ max-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ ||\ pt-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ ==\ max-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{00304\ \}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ jcv\_point\_dist\_sq(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ pt1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ pt2)\ \{}
+\DoxyCodeLine{00307\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ diffx\ =\ pt1-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ -\/\ pt2-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00308\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ diffy\ =\ pt1-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ -\/\ pt2-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{00309\ \ \ \textcolor{keywordflow}{return}\ diffx\ *\ diffx\ +\ diffy\ *\ diffy;}
+\DoxyCodeLine{00310\ \}}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ jcv\_point\_dist(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ pt1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ pt2)\ \{}
+\DoxyCodeLine{00313\ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})(\mbox{\hyperlink{jc__voronoi_8h_afe69737cad28c5d558fe3cea50966e9b}{JCV\_SQRT}}(jcv\_point\_dist\_sq(pt1,\ pt2)));}
+\DoxyCodeLine{00314\ \}}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \textcolor{comment}{//\ Structs}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#pragma\ pack(push,\ 1)}}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_jcv\_halfedge\ \{}
+\DoxyCodeLine{00321\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ edge;}
+\DoxyCodeLine{00322\ \ \ \textcolor{keyword}{struct\ }\_jcv\_halfedge*\ left;}
+\DoxyCodeLine{00323\ \ \ \textcolor{keyword}{struct\ }\_jcv\_halfedge*\ right;}
+\DoxyCodeLine{00324\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ vertex;}
+\DoxyCodeLine{00325\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ y;}
+\DoxyCodeLine{00326\ \ \ \textcolor{keywordtype}{int}\ direction;\ \ \textcolor{comment}{//\ 0=left,\ 1=right}}
+\DoxyCodeLine{00327\ \ \ \textcolor{keywordtype}{int}\ pqpos;}
+\DoxyCodeLine{00328\ \}\ jcv\_halfedge;}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_jcv\_memoryblock\ \{}
+\DoxyCodeLine{00331\ \ \ \textcolor{keywordtype}{size\_t}\ sizefree;}
+\DoxyCodeLine{00332\ \ \ \textcolor{keyword}{struct\ }\_jcv\_memoryblock*\ next;}
+\DoxyCodeLine{00333\ \ \ \textcolor{keywordtype}{char}*\ memory;}
+\DoxyCodeLine{00334\ \}\ jcv\_memoryblock;}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \textcolor{keyword}{typedef}\ int\ (*FJCVPriorityQueuePrint)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ node,\ \textcolor{keywordtype}{int}\ pos);}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_jcv\_priorityqueue\ \{}
+\DoxyCodeLine{00339\ \ \ \textcolor{comment}{//\ Implements\ a\ binary\ heap}}
+\DoxyCodeLine{00340\ \ \ \textcolor{keywordtype}{int}\ maxnumitems;}
+\DoxyCodeLine{00341\ \ \ \textcolor{keywordtype}{int}\ numitems;}
+\DoxyCodeLine{00342\ \ \ \textcolor{keywordtype}{void}**\ items;}
+\DoxyCodeLine{00343\ \}\ jcv\_priorityqueue;}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_jcv\_context\_internal\ \{}
+\DoxyCodeLine{00346\ \ \ \textcolor{keywordtype}{void}*\ mem;}
+\DoxyCodeLine{00347\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ edges;}
+\DoxyCodeLine{00348\ \ \ jcv\_halfedge*\ beachline\_start;}
+\DoxyCodeLine{00349\ \ \ jcv\_halfedge*\ beachline\_end;}
+\DoxyCodeLine{00350\ \ \ jcv\_halfedge*\ last\_inserted;}
+\DoxyCodeLine{00351\ \ \ jcv\_priorityqueue*\ eventqueue;}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ sites;}
+\DoxyCodeLine{00354\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ bottomsite;}
+\DoxyCodeLine{00355\ \ \ \textcolor{keywordtype}{int}\ numsites;}
+\DoxyCodeLine{00356\ \ \ \textcolor{keywordtype}{int}\ numsites\_sqrt;}
+\DoxyCodeLine{00357\ \ \ \textcolor{keywordtype}{int}\ currentsite;}
+\DoxyCodeLine{00358\ \ \ \textcolor{keywordtype}{int}\ \_padding;}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ jcv\_memoryblock*\ memblocks;}
+\DoxyCodeLine{00361\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ edgepool;}
+\DoxyCodeLine{00362\ \ \ jcv\_halfedge*\ halfedgepool;}
+\DoxyCodeLine{00363\ \ \ \textcolor{keywordtype}{void}**\ eventmem;}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \textcolor{keywordtype}{void}*\ memctx;\ \ \textcolor{comment}{//\ Given\ by\ the\ user}}
+\DoxyCodeLine{00366\ \ \ \mbox{\hyperlink{jc__voronoi_8h_af61e6ea8053a82cc992c24c23d82b920}{FJCVAllocFn}}\ \mbox{\hyperlink{mix_8h_a4707176f2cd6eb4dc734fffb6cf10feb}{alloc}};}
+\DoxyCodeLine{00367\ \ \ \mbox{\hyperlink{jc__voronoi_8h_ac02fb2bffd328442d958687d886a69ef}{FJCVFreeFn}}\ free;}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ min;}
+\DoxyCodeLine{00370\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ max;}
+\DoxyCodeLine{00371\ \}\ jcv\_context\_internal;}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \textcolor{preprocessor}{\#pragma\ pack(pop)}}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ JCV\_DIRECTION\_LEFT\ =\ 0;}
+\DoxyCodeLine{00376\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ JCV\_DIRECTION\_RIGHT\ =\ 1;}
+\DoxyCodeLine{00377\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ JCV\_INVALID\_VALUE\ =\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})-\/\mbox{\hyperlink{jc__voronoi_8h_a2a69ca5cc2eadf70988d863847a87025}{JCV\_FLT\_MAX}};}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{jc__voronoi_8h_a2be8cceedaa369c8568076f049b5d9fa}{jcv\_diagram\_free}}(\mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}}*\ d)\ \{}
+\DoxyCodeLine{00380\ \ \ jcv\_context\_internal*\ internal\ =\ d-\/>\mbox{\hyperlink{struct__jcv__diagram_a466fea28608fbb307fe9f26fb8cd7c79}{internal}};}
+\DoxyCodeLine{00381\ \ \ \textcolor{keywordtype}{void}*\ memctx\ =\ internal-\/>memctx;}
+\DoxyCodeLine{00382\ \ \ \mbox{\hyperlink{jc__voronoi_8h_ac02fb2bffd328442d958687d886a69ef}{FJCVFreeFn}}\ freefn\ =\ internal-\/>free;}
+\DoxyCodeLine{00383\ \ \ \textcolor{keywordflow}{while}\ (internal-\/>memblocks)\ \{}
+\DoxyCodeLine{00384\ \ \ \ \ jcv\_memoryblock*\ p\ =\ internal-\/>memblocks;}
+\DoxyCodeLine{00385\ \ \ \ \ internal-\/>memblocks\ =\ internal-\/>memblocks-\/>next;}
+\DoxyCodeLine{00386\ \ \ \ \ freefn(memctx,\ p);}
+\DoxyCodeLine{00387\ \ \ \}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \ \ freefn(memctx,\ internal-\/>mem);}
+\DoxyCodeLine{00390\ \}}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ \mbox{\hyperlink{jc__voronoi_8h_a3f1f04b91dba62621ce99132ea03bdd5}{jcv\_diagram\_get\_sites}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}}*\ diagram)\ \{\ \textcolor{keywordflow}{return}\ diagram-\/>\mbox{\hyperlink{struct__jcv__diagram_a466fea28608fbb307fe9f26fb8cd7c79}{internal}}-\/>sites;\ \}}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ \mbox{\hyperlink{jc__voronoi_8h_a6ed5fdcd8aa5764dae68f27f1ea152a6}{jcv\_diagram\_get\_edges}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}}*\ diagram)\ \{\ \textcolor{keywordflow}{return}\ diagram-\/>\mbox{\hyperlink{struct__jcv__diagram_a466fea28608fbb307fe9f26fb8cd7c79}{internal}}-\/>edges;\ \}}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ \mbox{\hyperlink{jc__voronoi_8h_af42b092404285d28eeb2c2a119d5e8d7}{jcv\_diagram\_get\_next\_edge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ edge)\ \{}
+\DoxyCodeLine{00397\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e\ =\ edge-\/>\mbox{\hyperlink{struct__jcv__edge_aa0c0dd1f7301167e856b9b6e73299519}{next}};}
+\DoxyCodeLine{00398\ \ \ \textcolor{keywordflow}{while}\ (e\ !=\ 0\ \&\&\ jcv\_point\_eq(\&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[0],\ \&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1]))\ \{}
+\DoxyCodeLine{00399\ \ \ \ \ e\ =\ e-\/>\mbox{\hyperlink{struct__jcv__edge_aa0c0dd1f7301167e856b9b6e73299519}{next}};}
+\DoxyCodeLine{00400\ \ \ \}}
+\DoxyCodeLine{00401\ \ \ \textcolor{keywordflow}{return}\ e;}
+\DoxyCodeLine{00402\ \}}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}*\ jcv\_alloc(jcv\_context\_internal*\ internal,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00405\ \ \ \textcolor{keywordflow}{if}\ (!internal-\/>memblocks\ ||\ internal-\/>memblocks-\/>sizefree\ <\ size)\ \{}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ blocksize\ =\ 16\ *\ 1024;}
+\DoxyCodeLine{00407\ \ \ \ \ jcv\_memoryblock*\ block\ =\ (jcv\_memoryblock*)internal-\/>alloc(internal-\/>memctx,\ blocksize);}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ offset\ =\ \textcolor{keyword}{sizeof}(jcv\_memoryblock);}
+\DoxyCodeLine{00409\ \ \ \ \ block-\/>sizefree\ =\ blocksize\ -\/\ offset;}
+\DoxyCodeLine{00410\ \ \ \ \ block-\/>next\ =\ internal-\/>memblocks;}
+\DoxyCodeLine{00411\ \ \ \ \ block-\/>memory\ =\ ((\textcolor{keywordtype}{char}*)block)\ +\ offset;}
+\DoxyCodeLine{00412\ \ \ \ \ internal-\/>memblocks\ =\ block;}
+\DoxyCodeLine{00413\ \ \ \}}
+\DoxyCodeLine{00414\ \ \ \textcolor{keywordtype}{void}*\ p\ =\ internal-\/>memblocks-\/>memory;}
+\DoxyCodeLine{00415\ \ \ internal-\/>memblocks-\/>memory\ +=\ size;}
+\DoxyCodeLine{00416\ \ \ internal-\/>memblocks-\/>sizefree\ -\/=\ size;}
+\DoxyCodeLine{00417\ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{00418\ \}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \textcolor{keyword}{static}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ jcv\_alloc\_edge(jcv\_context\_internal*\ internal)\ \{}
+\DoxyCodeLine{00421\ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*)jcv\_alloc(internal,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}));}
+\DoxyCodeLine{00422\ \}}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \textcolor{keyword}{static}\ jcv\_halfedge*\ jcv\_alloc\_halfedge(jcv\_context\_internal*\ internal)\ \{}
+\DoxyCodeLine{00425\ \ \ \textcolor{keywordflow}{if}\ (internal-\/>halfedgepool)\ \{}
+\DoxyCodeLine{00426\ \ \ \ \ jcv\_halfedge*\ edge\ =\ internal-\/>halfedgepool;}
+\DoxyCodeLine{00427\ \ \ \ \ internal-\/>halfedgepool\ =\ internal-\/>halfedgepool-\/>right;}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordflow}{return}\ edge;}
+\DoxyCodeLine{00429\ \ \ \}}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \ \ \textcolor{keywordflow}{return}\ (jcv\_halfedge*)jcv\_alloc(internal,\ \textcolor{keyword}{sizeof}(jcv\_halfedge));}
+\DoxyCodeLine{00432\ \}}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00434\ \textcolor{keyword}{static}\ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ jcv\_alloc\_graphedge(jcv\_context\_internal*\ internal)\ \{}
+\DoxyCodeLine{00435\ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*)jcv\_alloc(internal,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}));}
+\DoxyCodeLine{00436\ \}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}*\ jcv\_alloc\_fn(\textcolor{keywordtype}{void}*\ memctx,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00439\ \ \ (void)memctx;}
+\DoxyCodeLine{00440\ \ \ \textcolor{keywordflow}{return}\ malloc(size);}
+\DoxyCodeLine{00441\ \}}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_free\_fn(\textcolor{keywordtype}{void}*\ memctx,\ \textcolor{keywordtype}{void}*\ p)\ \{}
+\DoxyCodeLine{00444\ \ \ (void)memctx;}
+\DoxyCodeLine{00445\ \ \ free(p);}
+\DoxyCodeLine{00446\ \}}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \textcolor{comment}{//\ jcv\_edge}}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ jcv\_is\_valid(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ p)\ \{}
+\DoxyCodeLine{00451\ \ \ \textcolor{keywordflow}{return}\ (p-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ !=\ JCV\_INVALID\_VALUE\ ||\ p-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ !=\ JCV\_INVALID\_VALUE)\ ?\ 1\ :\ 0;}
+\DoxyCodeLine{00452\ \}}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_edge\_create(\mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e,\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ s1,\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ s2)\ \{}
+\DoxyCodeLine{00455\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_aa0c0dd1f7301167e856b9b6e73299519}{next}}\ =\ 0;}
+\DoxyCodeLine{00456\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[0]\ =\ s1;}
+\DoxyCodeLine{00457\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[1]\ =\ s2;}
+\DoxyCodeLine{00458\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[0].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ JCV\_INVALID\_VALUE;}
+\DoxyCodeLine{00459\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[0].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ JCV\_INVALID\_VALUE;}
+\DoxyCodeLine{00460\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ JCV\_INVALID\_VALUE;}
+\DoxyCodeLine{00461\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ JCV\_INVALID\_VALUE;}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \ \ \textcolor{comment}{//\ Create\ line\ equation\ between\ S1\ and\ S2:}}
+\DoxyCodeLine{00464\ \ \ \textcolor{comment}{//\ jcv\_real\ a\ =\ -\/1\ *\ (s2-\/>p.y\ -\/\ s1-\/>p.y);}}
+\DoxyCodeLine{00465\ \ \ \textcolor{comment}{//\ jcv\_real\ b\ =\ s2-\/>p.x\ -\/\ s1-\/>p.x;}}
+\DoxyCodeLine{00466\ \ \ \textcolor{comment}{//\ //jcv\_real\ c\ =\ -\/1\ *\ (s2-\/>p.x\ -\/\ s1-\/>p.x)\ *\ s1-\/>p.y\ +\ (s2-\/>p.y\ -\/\ s1-\/>p.y)\ *\ s1-\/>p.x;}}
+\DoxyCodeLine{00467\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00468\ \ \ \textcolor{comment}{//\ //\ create\ perpendicular\ line}}
+\DoxyCodeLine{00469\ \ \ \textcolor{comment}{//\ jcv\_real\ pa\ =\ b;}}
+\DoxyCodeLine{00470\ \ \ \textcolor{comment}{//\ jcv\_real\ pb\ =\ -\/a;}}
+\DoxyCodeLine{00471\ \ \ \textcolor{comment}{//\ //jcv\_real\ pc\ =\ pa\ *\ s1-\/>p.x\ +\ pb\ *\ s1-\/>p.y;}}
+\DoxyCodeLine{00472\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00473\ \ \ \textcolor{comment}{//\ //\ Move\ to\ the\ mid\ point}}
+\DoxyCodeLine{00474\ \ \ \textcolor{comment}{//\ jcv\_real\ mx\ =\ s1-\/>p.x\ +\ dx\ *\ jcv\_real(0.5);}}
+\DoxyCodeLine{00475\ \ \ \textcolor{comment}{//\ jcv\_real\ my\ =\ s1-\/>p.y\ +\ dy\ *\ jcv\_real(0.5);}}
+\DoxyCodeLine{00476\ \ \ \textcolor{comment}{//\ jcv\_real\ pc\ =\ (\ pa\ *\ mx\ +\ pb\ *\ my\ );}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ dx\ =\ s2-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ -\/\ s1-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00479\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ dy\ =\ s2-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ -\/\ s1-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{00480\ \ \ \textcolor{keywordtype}{int}\ dx\_is\_larger\ =\ (dx\ *\ dx)\ >\ (dy\ *\ dy);\ \ \textcolor{comment}{//\ instead\ of\ fabs}}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ \ \ \textcolor{comment}{//\ Simplify\ it,\ using\ dx\ and\ dy}}
+\DoxyCodeLine{00483\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ =\ dx\ *\ (s1-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ +\ dx\ *\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})0.5)\ +\ dy\ *\ (s1-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ +\ dy\ *\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})0.5);}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \textcolor{keywordflow}{if}\ (dx\_is\_larger)\ \{}
+\DoxyCodeLine{00486\ \ \ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}}\ =\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})1;}
+\DoxyCodeLine{00487\ \ \ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ =\ dy\ /\ dx;}
+\DoxyCodeLine{00488\ \ \ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ /=\ dx;}
+\DoxyCodeLine{00489\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00490\ \ \ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}}\ =\ dx\ /\ dy;}
+\DoxyCodeLine{00491\ \ \ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ =\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})1;}
+\DoxyCodeLine{00492\ \ \ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ /=\ dy;}
+\DoxyCodeLine{00493\ \ \ \}}
+\DoxyCodeLine{00494\ \}}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ jcv\_edge\_clipline(\mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e,\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ min,\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ max)\ \{}
+\DoxyCodeLine{00497\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ pxmin\ =\ min-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00498\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ pxmax\ =\ max-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00499\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ pymin\ =\ min-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{00500\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ pymax\ =\ max-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ x1,\ y1,\ x2,\ y2;}
+\DoxyCodeLine{00503\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ s1;}
+\DoxyCodeLine{00504\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ s2;}
+\DoxyCodeLine{00505\ \ \ \textcolor{keywordflow}{if}\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}}\ ==\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})1\ \&\&\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ >=\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})0)\ \{}
+\DoxyCodeLine{00506\ \ \ \ \ s1\ =\ jcv\_is\_valid(\&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1])\ ?\ \&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1]\ :\ 0;}
+\DoxyCodeLine{00507\ \ \ \ \ s2\ =\ jcv\_is\_valid(\&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[0])\ ?\ \&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[0]\ :\ 0;}
+\DoxyCodeLine{00508\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00509\ \ \ \ \ s1\ =\ jcv\_is\_valid(\&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[0])\ ?\ \&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[0]\ :\ 0;}
+\DoxyCodeLine{00510\ \ \ \ \ s2\ =\ jcv\_is\_valid(\&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1])\ ?\ \&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1]\ :\ 0;}
+\DoxyCodeLine{00511\ \ \ \};}
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ \ \ \textcolor{keywordflow}{if}\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}}\ ==\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})1)\ \{}
+\DoxyCodeLine{00514\ \ \ \ \ y1\ =\ pymin;}
+\DoxyCodeLine{00515\ \ \ \ \ \textcolor{keywordflow}{if}\ (s1\ !=\ 0\ \&\&\ s1-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ >\ pymin)\ \{}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ y1\ =\ s1-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{00517\ \ \ \ \ \}}
+\DoxyCodeLine{00518\ \ \ \ \ \textcolor{keywordflow}{if}\ (y1\ >\ pymax)\ \{}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ y1\ =\ pymax;}
+\DoxyCodeLine{00520\ \ \ \ \ \}}
+\DoxyCodeLine{00521\ \ \ \ \ x1\ =\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ *\ y1;}
+\DoxyCodeLine{00522\ \ \ \ \ y2\ =\ pymax;}
+\DoxyCodeLine{00523\ \ \ \ \ \textcolor{keywordflow}{if}\ (s2\ !=\ 0\ \&\&\ s2-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ <\ pymax)\ y2\ =\ s2-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \ \ \ \ \textcolor{keywordflow}{if}\ (y2\ <\ pymin)\ \{}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ y2\ =\ pymin;}
+\DoxyCodeLine{00527\ \ \ \ \ \}}
+\DoxyCodeLine{00528\ \ \ \ \ x2\ =\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}})\ -\/\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}})\ *\ y2;}
+\DoxyCodeLine{00529\ \ \ \ \ \textcolor{comment}{//\ Never\ occurs\ according\ to\ lcov}}
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{comment}{//\ if(\ ((x1\ >\ pxmax)\ \&\ (x2\ >\ pxmax))\ |\ ((x1\ <\ pxmin)\ \&\ (x2\ <\ pxmin))\ )}}
+\DoxyCodeLine{00531\ \ \ \ \ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ return\ 0;}}
+\DoxyCodeLine{00533\ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keywordflow}{if}\ (x1\ >\ pxmax)\ \{}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ x1\ =\ pxmax;}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ y1\ =\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ x1)\ /\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}};}
+\DoxyCodeLine{00537\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (x1\ <\ pxmin)\ \{}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ x1\ =\ pxmin;}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ y1\ =\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ x1)\ /\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}};}
+\DoxyCodeLine{00540\ \ \ \ \ \}}
+\DoxyCodeLine{00541\ \ \ \ \ \textcolor{keywordflow}{if}\ (x2\ >\ pxmax)\ \{}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ x2\ =\ pxmax;}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ y2\ =\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ x2)\ /\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}};}
+\DoxyCodeLine{00544\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (x2\ <\ pxmin)\ \{}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ x2\ =\ pxmin;}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ y2\ =\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ x2)\ /\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}};}
+\DoxyCodeLine{00547\ \ \ \ \ \}}
+\DoxyCodeLine{00548\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00549\ \ \ \ \ x1\ =\ pxmin;}
+\DoxyCodeLine{00550\ \ \ \ \ \textcolor{keywordflow}{if}\ (s1\ !=\ 0\ \&\&\ s1-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ >\ pxmin)\ x1\ =\ s1-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keywordflow}{if}\ (x1\ >\ pxmax)\ \{}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ x1\ =\ pxmax;}
+\DoxyCodeLine{00553\ \ \ \ \ \}}
+\DoxyCodeLine{00554\ \ \ \ \ y1\ =\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}}\ *\ x1;}
+\DoxyCodeLine{00555\ \ \ \ \ x2\ =\ pxmax;}
+\DoxyCodeLine{00556\ \ \ \ \ \textcolor{keywordflow}{if}\ (s2\ !=\ 0\ \&\&\ s2-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ <\ pxmax)\ x2\ =\ s2-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00557\ \ \ \ \ \textcolor{keywordflow}{if}\ (x2\ <\ pxmin)\ \{}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ x2\ =\ pxmin;}
+\DoxyCodeLine{00559\ \ \ \ \ \}}
+\DoxyCodeLine{00560\ \ \ \ \ y2\ =\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}}\ *\ x2;}
+\DoxyCodeLine{00561\ \ \ \ \ \textcolor{comment}{//\ Never\ occurs\ according\ to\ lcov}}
+\DoxyCodeLine{00562\ \ \ \ \ \textcolor{comment}{//\ if(\ ((y1\ >\ pymax)\ \&\ (y2\ >\ pymax))\ |\ ((y1\ <\ pymin)\ \&\ (y2\ <\ pymin))\ )}}
+\DoxyCodeLine{00563\ \ \ \ \ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{00564\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ return\ 0;}}
+\DoxyCodeLine{00565\ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00566\ \ \ \ \ \textcolor{keywordflow}{if}\ (y1\ >\ pymax)\ \{}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ y1\ =\ pymax;}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ x1\ =\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ y1)\ /\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}};}
+\DoxyCodeLine{00569\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (y1\ <\ pymin)\ \{}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ y1\ =\ pymin;}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ x1\ =\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ y1)\ /\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}};}
+\DoxyCodeLine{00572\ \ \ \ \ \}}
+\DoxyCodeLine{00573\ \ \ \ \ \textcolor{keywordflow}{if}\ (y2\ >\ pymax)\ \{}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ y2\ =\ pymax;}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ x2\ =\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ y2)\ /\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}};}
+\DoxyCodeLine{00576\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (y2\ <\ pymin)\ \{}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ y2\ =\ pymin;}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ x2\ =\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ y2)\ /\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}};}
+\DoxyCodeLine{00579\ \ \ \ \ \};}
+\DoxyCodeLine{00580\ \ \ \};}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00582\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[0].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ x1;}
+\DoxyCodeLine{00583\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[0].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ y1;}
+\DoxyCodeLine{00584\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ x2;}
+\DoxyCodeLine{00585\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ y2;}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00587\ \ \ \textcolor{comment}{//\ If\ the\ two\ points\ are\ equal,\ the\ result\ is\ invalid}}
+\DoxyCodeLine{00588\ \ \ \textcolor{keywordflow}{return}\ (x1\ ==\ x2\ \&\&\ y1\ ==\ y2)\ ?\ 0\ :\ 1;}
+\DoxyCodeLine{00589\ \}}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \textcolor{keyword}{static}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ jcv\_edge\_new(jcv\_context\_internal*\ internal,\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ s1,\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ s2)\ \{}
+\DoxyCodeLine{00592\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e\ =\ jcv\_alloc\_edge(internal);}
+\DoxyCodeLine{00593\ \ \ jcv\_edge\_create(e,\ s1,\ s2);}
+\DoxyCodeLine{00594\ \ \ \textcolor{keywordflow}{return}\ e;}
+\DoxyCodeLine{00595\ \}}
+\DoxyCodeLine{00596\ }
+\DoxyCodeLine{00597\ \textcolor{comment}{//\ jcv\_halfedge}}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00599\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_halfedge\_link(jcv\_halfedge*\ edge,\ jcv\_halfedge*\ newedge)\ \{}
+\DoxyCodeLine{00600\ \ \ newedge-\/>left\ =\ edge;}
+\DoxyCodeLine{00601\ \ \ newedge-\/>right\ =\ edge-\/>right;}
+\DoxyCodeLine{00602\ \ \ edge-\/>right-\/>left\ =\ newedge;}
+\DoxyCodeLine{00603\ \ \ edge-\/>right\ =\ newedge;}
+\DoxyCodeLine{00604\ \}}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00606\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ jcv\_halfedge\_unlink(jcv\_halfedge*\ he)\ \{}
+\DoxyCodeLine{00607\ \ \ he-\/>left-\/>right\ =\ he-\/>right;}
+\DoxyCodeLine{00608\ \ \ he-\/>right-\/>left\ =\ he-\/>left;}
+\DoxyCodeLine{00609\ \ \ he-\/>left\ =\ 0;}
+\DoxyCodeLine{00610\ \ \ he-\/>right\ =\ 0;}
+\DoxyCodeLine{00611\ \}}
+\DoxyCodeLine{00612\ }
+\DoxyCodeLine{00613\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ jcv\_halfedge*\ jcv\_halfedge\_new(jcv\_context\_internal*\ internal,\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e,\ \textcolor{keywordtype}{int}\ direction)\ \{}
+\DoxyCodeLine{00614\ \ \ jcv\_halfedge*\ he\ =\ jcv\_alloc\_halfedge(internal);}
+\DoxyCodeLine{00615\ \ \ he-\/>edge\ =\ e;}
+\DoxyCodeLine{00616\ \ \ he-\/>left\ =\ 0;}
+\DoxyCodeLine{00617\ \ \ he-\/>right\ =\ 0;}
+\DoxyCodeLine{00618\ \ \ he-\/>direction\ =\ direction;}
+\DoxyCodeLine{00619\ \ \ he-\/>pqpos\ =\ 0;}
+\DoxyCodeLine{00620\ \ \ \textcolor{comment}{//\ These\ are\ set\ outside}}
+\DoxyCodeLine{00621\ \ \ \textcolor{comment}{//\ he-\/>y}}
+\DoxyCodeLine{00622\ \ \ \textcolor{comment}{//\ he-\/>vertex}}
+\DoxyCodeLine{00623\ \ \ \textcolor{keywordflow}{return}\ he;}
+\DoxyCodeLine{00624\ \}}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_halfedge\_delete(jcv\_context\_internal*\ internal,\ jcv\_halfedge*\ he)\ \{}
+\DoxyCodeLine{00627\ \ \ he-\/>right\ =\ internal-\/>halfedgepool;}
+\DoxyCodeLine{00628\ \ \ internal-\/>halfedgepool\ =\ he;}
+\DoxyCodeLine{00629\ \}}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00631\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ jcv\_halfedge\_leftsite(\textcolor{keyword}{const}\ jcv\_halfedge*\ he)\ \{\ \textcolor{keywordflow}{return}\ he-\/>edge-\/>sites[he-\/>direction];\ \}}
+\DoxyCodeLine{00632\ }
+\DoxyCodeLine{00633\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ jcv\_halfedge\_rightsite(\textcolor{keyword}{const}\ jcv\_halfedge*\ he)\ \{}
+\DoxyCodeLine{00634\ \ \ \textcolor{keywordflow}{return}\ he-\/>edge\ ?\ he-\/>edge-\/>sites[1\ -\/\ he-\/>direction]\ :\ 0;}
+\DoxyCodeLine{00635\ \}}
+\DoxyCodeLine{00636\ }
+\DoxyCodeLine{00637\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ jcv\_halfedge\_rightof(\textcolor{keyword}{const}\ jcv\_halfedge*\ he,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ p)\ \{}
+\DoxyCodeLine{00638\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e\ =\ he-\/>edge;}
+\DoxyCodeLine{00639\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ topsite\ =\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[1];}
+\DoxyCodeLine{00640\ }
+\DoxyCodeLine{00641\ \ \ \textcolor{keywordtype}{int}\ right\_of\_site\ =\ (p-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ >\ topsite-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}})\ ?\ 1\ :\ 0;}
+\DoxyCodeLine{00642\ \ \ \textcolor{keywordflow}{if}\ (right\_of\_site\ \&\&\ he-\/>direction\ ==\ JCV\_DIRECTION\_LEFT)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00643\ \ \ \textcolor{keywordflow}{if}\ (!right\_of\_site\ \&\&\ he-\/>direction\ ==\ JCV\_DIRECTION\_RIGHT)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00645\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ dxp,\ dyp,\ dxs,\ t1,\ t2,\ t3,\ yl;}
+\DoxyCodeLine{00646\ }
+\DoxyCodeLine{00647\ \ \ \textcolor{keywordtype}{int}\ above;}
+\DoxyCodeLine{00648\ \ \ \textcolor{keywordflow}{if}\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}}\ ==\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})1)\ \{}
+\DoxyCodeLine{00649\ \ \ \ \ dyp\ =\ p-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ -\/\ topsite-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{00650\ \ \ \ \ dxp\ =\ p-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ -\/\ topsite-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00651\ \ \ \ \ \textcolor{keywordtype}{int}\ fast\ =\ 0;}
+\DoxyCodeLine{00652\ \ \ \ \ \textcolor{keywordflow}{if}\ ((!right\_of\_site\ \&\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ <\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})0))\ |\ (right\_of\_site\ \&\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ >=\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})0)))\ \{}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ above\ =\ dyp\ >=\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ *\ dxp;}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ fast\ =\ above;}
+\DoxyCodeLine{00655\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ above\ =\ (p-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ +\ p-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ *\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}})\ >\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}};}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ <\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})0)\ above\ =\ !above;}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!above)\ fast\ =\ 1;}
+\DoxyCodeLine{00659\ \ \ \ \ \};}
+\DoxyCodeLine{00660\ \ \ \ \ \textcolor{keywordflow}{if}\ (!fast)\ \{}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ dxs\ =\ topsite-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ -\/\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[0]-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ above\ =\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ *\ (dxp\ *\ dxp\ -\/\ dyp\ *\ dyp)\ <\ dxs\ *\ dyp\ *\ ((\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})1\ +\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})2\ *\ dxp\ /\ dxs\ +\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ *\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}});}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ <\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})0)\ above\ =\ !above;}
+\DoxyCodeLine{00664\ \ \ \ \ \};}
+\DoxyCodeLine{00665\ \ \ \}\ \textcolor{keywordflow}{else}\ \ \textcolor{comment}{//\ e-\/>b\ ==\ 1}}
+\DoxyCodeLine{00666\ \ \ \{}
+\DoxyCodeLine{00667\ \ \ \ \ yl\ =\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}}\ *\ p-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00668\ \ \ \ \ t1\ =\ p-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ -\/\ yl;}
+\DoxyCodeLine{00669\ \ \ \ \ t2\ =\ p-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ -\/\ topsite-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00670\ \ \ \ \ t3\ =\ yl\ -\/\ topsite-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{00671\ \ \ \ \ above\ =\ t1\ *\ t1\ >\ (t2\ *\ t2\ +\ t3\ *\ t3);}
+\DoxyCodeLine{00672\ \ \ \};}
+\DoxyCodeLine{00673\ \ \ \textcolor{keywordflow}{return}\ (he-\/>direction\ ==\ JCV\_DIRECTION\_LEFT\ ?\ above\ :\ !above);}
+\DoxyCodeLine{00674\ \}}
+\DoxyCodeLine{00675\ }
+\DoxyCodeLine{00676\ \textcolor{comment}{//\ Keeps\ the\ priority\ queue\ sorted\ with\ events\ sorted\ in\ ascending\ order}}
+\DoxyCodeLine{00677\ \textcolor{comment}{//\ Return\ 1\ if\ the\ edges\ needs\ to\ be\ swapped}}
+\DoxyCodeLine{00678\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ jcv\_halfedge\_compare(\textcolor{keyword}{const}\ jcv\_halfedge*\ he1,\ \textcolor{keyword}{const}\ jcv\_halfedge*\ he2)\ \{}
+\DoxyCodeLine{00679\ \ \ \textcolor{keywordflow}{return}\ (he1-\/>y\ ==\ he2-\/>y)\ ?\ he1-\/>vertex.x\ >\ he2-\/>vertex.x\ :\ he1-\/>y\ >\ he2-\/>y;}
+\DoxyCodeLine{00680\ \}}
+\DoxyCodeLine{00681\ }
+\DoxyCodeLine{00682\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ jcv\_halfedge\_intersect(\textcolor{keyword}{const}\ jcv\_halfedge*\ he1,\ \textcolor{keyword}{const}\ jcv\_halfedge*\ he2,\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ out)\ \{}
+\DoxyCodeLine{00683\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e1\ =\ he1-\/>edge;}
+\DoxyCodeLine{00684\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e2\ =\ he2-\/>edge;}
+\DoxyCodeLine{00685\ }
+\DoxyCodeLine{00686\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ d\ =\ e1-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}}\ *\ e2-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ -\/\ e1-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ *\ e2-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}};}
+\DoxyCodeLine{00687\ \ \ \textcolor{keywordflow}{if}\ (((\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})-\/\mbox{\hyperlink{jc__voronoi_8h_a1e885658896f71cb1c180c93776eb6df}{JCV\_EDGE\_INTERSECT\_THRESHOLD}}\ <\ d\ \&\&\ d\ <\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})\mbox{\hyperlink{jc__voronoi_8h_a1e885658896f71cb1c180c93776eb6df}{JCV\_EDGE\_INTERSECT\_THRESHOLD}}))\ \{}
+\DoxyCodeLine{00688\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00689\ \ \ \}}
+\DoxyCodeLine{00690\ \ \ out-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ (e1-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ *\ e2-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ -\/\ e1-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ *\ e2-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}})\ /\ d;}
+\DoxyCodeLine{00691\ \ \ out-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ (e1-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}}\ *\ e2-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ -\/\ e1-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ *\ e2-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}})\ /\ d;}
+\DoxyCodeLine{00692\ }
+\DoxyCodeLine{00693\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e;}
+\DoxyCodeLine{00694\ \ \ \textcolor{keyword}{const}\ jcv\_halfedge*\ he;}
+\DoxyCodeLine{00695\ \ \ \textcolor{keywordflow}{if}\ (jcv\_point\_less(\&e1-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[1]-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}},\ \&e2-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[1]-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}))\ \{}
+\DoxyCodeLine{00696\ \ \ \ \ he\ =\ he1;}
+\DoxyCodeLine{00697\ \ \ \ \ e\ =\ e1;}
+\DoxyCodeLine{00698\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00699\ \ \ \ \ he\ =\ he2;}
+\DoxyCodeLine{00700\ \ \ \ \ e\ =\ e2;}
+\DoxyCodeLine{00701\ \ \ \}}
+\DoxyCodeLine{00702\ }
+\DoxyCodeLine{00703\ \ \ \textcolor{keywordtype}{int}\ right\_of\_site\ =\ out-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ >=\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[1]-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{00704\ \ \ \textcolor{keywordflow}{if}\ ((right\_of\_site\ \&\&\ he-\/>direction\ ==\ JCV\_DIRECTION\_LEFT)\ ||}
+\DoxyCodeLine{00705\ \ \ \ \ \ \ (!right\_of\_site\ \&\&\ he-\/>direction\ ==\ JCV\_DIRECTION\_RIGHT))\ \{}
+\DoxyCodeLine{00706\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00707\ \ \ \}}
+\DoxyCodeLine{00708\ }
+\DoxyCodeLine{00709\ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00710\ \}}
+\DoxyCodeLine{00711\ }
+\DoxyCodeLine{00712\ \textcolor{comment}{//\ Priority\ queue}}
+\DoxyCodeLine{00713\ }
+\DoxyCodeLine{00714\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ jcv\_pq\_moveup(jcv\_priorityqueue*\ pq,\ \textcolor{keywordtype}{int}\ pos)\ \{}
+\DoxyCodeLine{00715\ \ \ jcv\_halfedge**\ items\ =\ (jcv\_halfedge**)pq-\/>items;}
+\DoxyCodeLine{00716\ \ \ jcv\_halfedge*\ node\ =\ items[pos];}
+\DoxyCodeLine{00717\ }
+\DoxyCodeLine{00718\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ parent\ =\ (pos\ >>\ 1);\ pos\ >\ 1\ \&\&\ jcv\_halfedge\_compare(items[parent],\ node);}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ pos\ =\ parent,\ parent\ =\ parent\ >>\ 1)\ \{}
+\DoxyCodeLine{00720\ \ \ \ \ items[pos]\ =\ items[parent];}
+\DoxyCodeLine{00721\ \ \ \ \ items[pos]-\/>pqpos\ =\ pos;}
+\DoxyCodeLine{00722\ \ \ \}}
+\DoxyCodeLine{00723\ }
+\DoxyCodeLine{00724\ \ \ node-\/>pqpos\ =\ pos;}
+\DoxyCodeLine{00725\ \ \ items[pos]\ =\ node;}
+\DoxyCodeLine{00726\ \ \ \textcolor{keywordflow}{return}\ pos;}
+\DoxyCodeLine{00727\ \}}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00729\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ jcv\_pq\_maxchild(jcv\_priorityqueue*\ pq,\ \textcolor{keywordtype}{int}\ pos)\ \{}
+\DoxyCodeLine{00730\ \ \ \textcolor{keywordtype}{int}\ child\ =\ pos\ <<\ 1;}
+\DoxyCodeLine{00731\ \ \ \textcolor{keywordflow}{if}\ (child\ >=\ pq-\/>numitems)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00732\ \ \ jcv\_halfedge**\ items\ =\ (jcv\_halfedge**)pq-\/>items;}
+\DoxyCodeLine{00733\ \ \ \textcolor{keywordflow}{if}\ ((child\ +\ 1)\ <\ pq-\/>numitems\ \&\&\ jcv\_halfedge\_compare(items[child],\ items[child\ +\ 1]))\ \textcolor{keywordflow}{return}\ child\ +\ 1;}
+\DoxyCodeLine{00734\ \ \ \textcolor{keywordflow}{return}\ child;}
+\DoxyCodeLine{00735\ \}}
+\DoxyCodeLine{00736\ }
+\DoxyCodeLine{00737\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ jcv\_pq\_movedown(jcv\_priorityqueue*\ pq,\ \textcolor{keywordtype}{int}\ pos)\ \{}
+\DoxyCodeLine{00738\ \ \ jcv\_halfedge**\ items\ =\ (jcv\_halfedge**)pq-\/>items;}
+\DoxyCodeLine{00739\ \ \ jcv\_halfedge*\ node\ =\ items[pos];}
+\DoxyCodeLine{00740\ }
+\DoxyCodeLine{00741\ \ \ \textcolor{keywordtype}{int}\ child\ =\ jcv\_pq\_maxchild(pq,\ pos);}
+\DoxyCodeLine{00742\ \ \ \textcolor{keywordflow}{while}\ (child\ \&\&\ jcv\_halfedge\_compare(node,\ items[child]))\ \{}
+\DoxyCodeLine{00743\ \ \ \ \ items[pos]\ =\ items[child];}
+\DoxyCodeLine{00744\ \ \ \ \ items[pos]-\/>pqpos\ =\ pos;}
+\DoxyCodeLine{00745\ \ \ \ \ pos\ =\ child;}
+\DoxyCodeLine{00746\ \ \ \ \ child\ =\ jcv\_pq\_maxchild(pq,\ pos);}
+\DoxyCodeLine{00747\ \ \ \}}
+\DoxyCodeLine{00748\ }
+\DoxyCodeLine{00749\ \ \ items[pos]\ =\ node;}
+\DoxyCodeLine{00750\ \ \ items[pos]-\/>pqpos\ =\ pos;}
+\DoxyCodeLine{00751\ \ \ \textcolor{keywordflow}{return}\ pos;}
+\DoxyCodeLine{00752\ \}}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00754\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_pq\_create(jcv\_priorityqueue*\ pq,\ \textcolor{keywordtype}{int}\ capacity,\ \textcolor{keywordtype}{void}**\ buffer)\ \{}
+\DoxyCodeLine{00755\ \ \ pq-\/>maxnumitems\ =\ capacity;}
+\DoxyCodeLine{00756\ \ \ pq-\/>numitems\ =\ 1;}
+\DoxyCodeLine{00757\ \ \ pq-\/>items\ =\ buffer;}
+\DoxyCodeLine{00758\ \}}
+\DoxyCodeLine{00759\ }
+\DoxyCodeLine{00760\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ jcv\_pq\_empty(jcv\_priorityqueue*\ pq)\ \{\ \textcolor{keywordflow}{return}\ pq-\/>numitems\ ==\ 1\ ?\ 1\ :\ 0;\ \}}
+\DoxyCodeLine{00761\ }
+\DoxyCodeLine{00762\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ jcv\_pq\_push(jcv\_priorityqueue*\ pq,\ \textcolor{keywordtype}{void}*\ node)\ \{}
+\DoxyCodeLine{00763\ \ \ assert(pq-\/>numitems\ <\ pq-\/>maxnumitems);}
+\DoxyCodeLine{00764\ \ \ \textcolor{keywordtype}{int}\ n\ =\ pq-\/>numitems++;}
+\DoxyCodeLine{00765\ \ \ pq-\/>items[n]\ =\ node;}
+\DoxyCodeLine{00766\ \ \ \textcolor{keywordflow}{return}\ jcv\_pq\_moveup(pq,\ n);}
+\DoxyCodeLine{00767\ \}}
+\DoxyCodeLine{00768\ }
+\DoxyCodeLine{00769\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}*\ jcv\_pq\_pop(jcv\_priorityqueue*\ pq)\ \{}
+\DoxyCodeLine{00770\ \ \ \textcolor{keywordtype}{void}*\ node\ =\ pq-\/>items[1];}
+\DoxyCodeLine{00771\ \ \ pq-\/>items[1]\ =\ pq-\/>items[-\/-\/pq-\/>numitems];}
+\DoxyCodeLine{00772\ \ \ jcv\_pq\_movedown(pq,\ 1);}
+\DoxyCodeLine{00773\ \ \ \textcolor{keywordflow}{return}\ node;}
+\DoxyCodeLine{00774\ \}}
+\DoxyCodeLine{00775\ }
+\DoxyCodeLine{00776\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}*\ jcv\_pq\_top(jcv\_priorityqueue*\ pq)\ \{\ \textcolor{keywordflow}{return}\ pq-\/>items[1];\ \}}
+\DoxyCodeLine{00777\ }
+\DoxyCodeLine{00778\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_pq\_remove(jcv\_priorityqueue*\ pq,\ jcv\_halfedge*\ node)\ \{}
+\DoxyCodeLine{00779\ \ \ \textcolor{keywordflow}{if}\ (pq-\/>numitems\ ==\ 1)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00780\ \ \ \textcolor{keywordtype}{int}\ pos\ =\ node-\/>pqpos;}
+\DoxyCodeLine{00781\ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00782\ }
+\DoxyCodeLine{00783\ \ \ jcv\_halfedge**\ items\ =\ (jcv\_halfedge**)pq-\/>items;}
+\DoxyCodeLine{00784\ }
+\DoxyCodeLine{00785\ \ \ items[pos]\ =\ items[-\/-\/pq-\/>numitems];}
+\DoxyCodeLine{00786\ \ \ \textcolor{keywordflow}{if}\ (jcv\_halfedge\_compare(node,\ items[pos]))}
+\DoxyCodeLine{00787\ \ \ \ \ jcv\_pq\_moveup(pq,\ pos);}
+\DoxyCodeLine{00788\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00789\ \ \ \ \ jcv\_pq\_movedown(pq,\ pos);}
+\DoxyCodeLine{00790\ \ \ node-\/>pqpos\ =\ pos;}
+\DoxyCodeLine{00791\ \}}
+\DoxyCodeLine{00792\ }
+\DoxyCodeLine{00793\ \textcolor{comment}{//\ internal\ functions}}
+\DoxyCodeLine{00794\ }
+\DoxyCodeLine{00795\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ jcv\_nextsite(jcv\_context\_internal*\ internal)\ \{}
+\DoxyCodeLine{00796\ \ \ \textcolor{keywordflow}{return}\ (internal-\/>currentsite\ <\ internal-\/>numsites)\ ?\ \&internal-\/>sites[internal-\/>currentsite++]\ :\ 0;}
+\DoxyCodeLine{00797\ \}}
+\DoxyCodeLine{00798\ }
+\DoxyCodeLine{00799\ \textcolor{keyword}{static}\ jcv\_halfedge*\ jcv\_get\_edge\_above\_x(jcv\_context\_internal*\ internal,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ p)\ \{}
+\DoxyCodeLine{00800\ \ \ \textcolor{comment}{//\ Gets\ the\ arc\ on\ the\ beach\ line\ at\ the\ x\ coordinate\ (i.e.\ right\ above\ the\ new\ site\ event)}}
+\DoxyCodeLine{00801\ }
+\DoxyCodeLine{00802\ \ \ \textcolor{comment}{//\ A\ good\ guess\ it's\ close\ by\ (Can\ be\ optimized)}}
+\DoxyCodeLine{00803\ \ \ jcv\_halfedge*\ he\ =\ internal-\/>last\_inserted;}
+\DoxyCodeLine{00804\ \ \ \textcolor{keywordflow}{if}\ (!he)\ \{}
+\DoxyCodeLine{00805\ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ <\ (internal-\/>max.x\ -\/\ internal-\/>min.x)\ /\ 2)}
+\DoxyCodeLine{00806\ \ \ \ \ \ \ he\ =\ internal-\/>beachline\_start;}
+\DoxyCodeLine{00807\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ he\ =\ internal-\/>beachline\_end;}
+\DoxyCodeLine{00809\ \ \ \}}
+\DoxyCodeLine{00810\ }
+\DoxyCodeLine{00811\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00812\ \ \ \textcolor{keywordflow}{if}\ (he\ ==\ internal-\/>beachline\_start\ ||\ (he\ !=\ internal-\/>beachline\_end\ \&\&\ jcv\_halfedge\_rightof(he,\ p)))\ \{}
+\DoxyCodeLine{00813\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ he\ =\ he-\/>right;}
+\DoxyCodeLine{00815\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (he\ !=\ internal-\/>beachline\_end\ \&\&\ jcv\_halfedge\_rightof(he,\ p));}
+\DoxyCodeLine{00816\ }
+\DoxyCodeLine{00817\ \ \ \ \ he\ =\ he-\/>left;}
+\DoxyCodeLine{00818\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00819\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ he\ =\ he-\/>left;}
+\DoxyCodeLine{00821\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (he\ !=\ internal-\/>beachline\_start\ \&\&\ !jcv\_halfedge\_rightof(he,\ p));}
+\DoxyCodeLine{00822\ \ \ \}}
+\DoxyCodeLine{00823\ }
+\DoxyCodeLine{00824\ \ \ \textcolor{keywordflow}{return}\ he;}
+\DoxyCodeLine{00825\ \}}
+\DoxyCodeLine{00826\ }
+\DoxyCodeLine{00827\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ jcv\_check\_circle\_event(\textcolor{keyword}{const}\ jcv\_halfedge*\ he1,\ \textcolor{keyword}{const}\ jcv\_halfedge*\ he2,\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ vertex)\ \{}
+\DoxyCodeLine{00828\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e1\ =\ he1-\/>edge;}
+\DoxyCodeLine{00829\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e2\ =\ he2-\/>edge;}
+\DoxyCodeLine{00830\ \ \ \textcolor{keywordflow}{if}\ (e1\ ==\ 0\ ||\ e2\ ==\ 0\ ||\ e1-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[1]\ ==\ e2-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[1])\ \{}
+\DoxyCodeLine{00831\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00832\ \ \ \}}
+\DoxyCodeLine{00833\ }
+\DoxyCodeLine{00834\ \ \ \textcolor{keywordflow}{return}\ jcv\_halfedge\_intersect(he1,\ he2,\ vertex);}
+\DoxyCodeLine{00835\ \}}
+\DoxyCodeLine{00836\ }
+\DoxyCodeLine{00837\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_site\_event(jcv\_context\_internal*\ internal,\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ site)\ \{}
+\DoxyCodeLine{00838\ \ \ jcv\_halfedge*\ left\ =\ jcv\_get\_edge\_above\_x(internal,\ \&site-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}});}
+\DoxyCodeLine{00839\ \ \ jcv\_halfedge*\ right\ =\ left-\/>right;}
+\DoxyCodeLine{00840\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ bottom\ =\ jcv\_halfedge\_rightsite(left);}
+\DoxyCodeLine{00841\ \ \ \textcolor{keywordflow}{if}\ (!bottom)\ bottom\ =\ internal-\/>bottomsite;}
+\DoxyCodeLine{00842\ }
+\DoxyCodeLine{00843\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ edge\ =\ jcv\_edge\_new(internal,\ bottom,\ site);}
+\DoxyCodeLine{00844\ \ \ edge-\/>\mbox{\hyperlink{struct__jcv__edge_aa0c0dd1f7301167e856b9b6e73299519}{next}}\ =\ internal-\/>edges;}
+\DoxyCodeLine{00845\ \ \ internal-\/>edges\ =\ edge;}
+\DoxyCodeLine{00846\ }
+\DoxyCodeLine{00847\ \ \ jcv\_halfedge*\ edge1\ =\ jcv\_halfedge\_new(internal,\ edge,\ JCV\_DIRECTION\_LEFT);}
+\DoxyCodeLine{00848\ \ \ jcv\_halfedge*\ edge2\ =\ jcv\_halfedge\_new(internal,\ edge,\ JCV\_DIRECTION\_RIGHT);}
+\DoxyCodeLine{00849\ }
+\DoxyCodeLine{00850\ \ \ jcv\_halfedge\_link(left,\ edge1);}
+\DoxyCodeLine{00851\ \ \ jcv\_halfedge\_link(edge1,\ edge2);}
+\DoxyCodeLine{00852\ }
+\DoxyCodeLine{00853\ \ \ internal-\/>last\_inserted\ =\ right;}
+\DoxyCodeLine{00854\ }
+\DoxyCodeLine{00855\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ p;}
+\DoxyCodeLine{00856\ \ \ \textcolor{keywordflow}{if}\ (jcv\_check\_circle\_event(left,\ edge1,\ \&p))\ \{}
+\DoxyCodeLine{00857\ \ \ \ \ jcv\_pq\_remove(internal-\/>eventqueue,\ left);}
+\DoxyCodeLine{00858\ \ \ \ \ left-\/>vertex\ =\ p;}
+\DoxyCodeLine{00859\ \ \ \ \ left-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ p.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ +\ jcv\_point\_dist(\&site-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}},\ \&p);}
+\DoxyCodeLine{00860\ \ \ \ \ jcv\_pq\_push(internal-\/>eventqueue,\ left);}
+\DoxyCodeLine{00861\ \ \ \}}
+\DoxyCodeLine{00862\ \ \ \textcolor{keywordflow}{if}\ (jcv\_check\_circle\_event(edge2,\ right,\ \&p))\ \{}
+\DoxyCodeLine{00863\ \ \ \ \ edge2-\/>vertex\ =\ p;}
+\DoxyCodeLine{00864\ \ \ \ \ edge2-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ p.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ +\ jcv\_point\_dist(\&site-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}},\ \&p);}
+\DoxyCodeLine{00865\ \ \ \ \ jcv\_pq\_push(internal-\/>eventqueue,\ edge2);}
+\DoxyCodeLine{00866\ \ \ \}}
+\DoxyCodeLine{00867\ \}}
+\DoxyCodeLine{00868\ }
+\DoxyCodeLine{00869\ \textcolor{comment}{//\ https://cp-\/algorithms.com/geometry/oriented-\/triangle-\/area.html}}
+\DoxyCodeLine{00870\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ jcv\_determinant(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ b,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ c)\ \{}
+\DoxyCodeLine{00871\ \ \ \textcolor{keywordflow}{return}\ (b-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ -\/\ a-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}})\ *\ (c-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ -\/\ a-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}})\ -\/\ (b-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ -\/\ a-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}})\ *\ (c-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ -\/\ a-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}});}
+\DoxyCodeLine{00872\ \}}
+\DoxyCodeLine{00873\ }
+\DoxyCodeLine{00874\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ jcv\_calc\_sort\_metric(\textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ site,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ edge)\ \{}
+\DoxyCodeLine{00875\ \ \ \textcolor{comment}{//\ We\ take\ the\ average\ of\ the\ two\ points,\ since\ we\ can\ better\ distinguish\ between\ very\ small\ edges}}
+\DoxyCodeLine{00876\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ half\ =\ 1\ /\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})2;}
+\DoxyCodeLine{00877\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ x\ =\ (edge-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ +\ edge-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}})\ *\ half;}
+\DoxyCodeLine{00878\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ y\ =\ (edge-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ +\ edge-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}})\ *\ half;}
+\DoxyCodeLine{00879\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ diffy\ =\ y\ -\/\ site-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{00880\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ angle\ =\ \mbox{\hyperlink{jc__voronoi_8h_a3ae890190ce57d8824a9b2353504eea2}{JCV\_ATAN2}}(diffy,\ x\ -\/\ site-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}});}
+\DoxyCodeLine{00881\ \ \ \textcolor{keywordflow}{if}\ (diffy\ <\ 0)\ angle\ =\ angle\ +\ 2\ *\ \mbox{\hyperlink{jc__voronoi_8h_a48db6e7cc0b9a9a9a5ba3376a5191600}{JCV\_PI}};}
+\DoxyCodeLine{00882\ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})angle;}
+\DoxyCodeLine{00883\ \}}
+\DoxyCodeLine{00884\ }
+\DoxyCodeLine{00885\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_sortedges\_insert(\mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ site,\ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ edge)\ \{}
+\DoxyCodeLine{00886\ \ \ \textcolor{comment}{//\ Special\ case\ for\ the\ head\ end}}
+\DoxyCodeLine{00887\ \ \ \textcolor{keywordflow}{if}\ (site-\/>\mbox{\hyperlink{struct__jcv__site_a66bedf58384b9c116b625faf5f76c660}{edges}}\ ==\ 0\ ||\ site-\/>\mbox{\hyperlink{struct__jcv__site_a66bedf58384b9c116b625faf5f76c660}{edges}}-\/>\mbox{\hyperlink{struct__jcv__graphedge_a609a99341004843f7a9af639015e3404}{angle}}\ >=\ edge-\/>\mbox{\hyperlink{struct__jcv__graphedge_a609a99341004843f7a9af639015e3404}{angle}})\ \{}
+\DoxyCodeLine{00888\ \ \ \ \ edge-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ site-\/>\mbox{\hyperlink{struct__jcv__site_a66bedf58384b9c116b625faf5f76c660}{edges}};}
+\DoxyCodeLine{00889\ \ \ \ \ site-\/>\mbox{\hyperlink{struct__jcv__site_a66bedf58384b9c116b625faf5f76c660}{edges}}\ =\ edge;}
+\DoxyCodeLine{00890\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00891\ \ \ \ \ \textcolor{comment}{//\ Locate\ the\ node\ before\ the\ point\ of\ insertion}}
+\DoxyCodeLine{00892\ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ current\ =\ site-\/>\mbox{\hyperlink{struct__jcv__site_a66bedf58384b9c116b625faf5f76c660}{edges}};}
+\DoxyCodeLine{00893\ \ \ \ \ \textcolor{keywordflow}{while}\ (current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ !=\ 0\ \&\&\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}-\/>\mbox{\hyperlink{struct__jcv__graphedge_a609a99341004843f7a9af639015e3404}{angle}}\ <\ edge-\/>\mbox{\hyperlink{struct__jcv__graphedge_a609a99341004843f7a9af639015e3404}{angle}})\ \{}
+\DoxyCodeLine{00894\ \ \ \ \ \ \ current\ =\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}};}
+\DoxyCodeLine{00895\ \ \ \ \ \}}
+\DoxyCodeLine{00896\ \ \ \ \ edge-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}};}
+\DoxyCodeLine{00897\ \ \ \ \ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ edge;}
+\DoxyCodeLine{00898\ \ \ \}}
+\DoxyCodeLine{00899\ \}}
+\DoxyCodeLine{00900\ }
+\DoxyCodeLine{00901\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_finishline(jcv\_context\_internal*\ internal,\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e)\ \{}
+\DoxyCodeLine{00902\ \ \ \textcolor{keywordflow}{if}\ (!jcv\_edge\_clipline(e,\ \&internal-\/>min,\ \&internal-\/>max))\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00903\ }
+\DoxyCodeLine{00904\ \ \ \textcolor{comment}{//\ Make\ sure\ the\ graph\ edges\ are\ CCW}}
+\DoxyCodeLine{00905\ \ \ \textcolor{keywordtype}{int}\ flip\ =\ jcv\_determinant(\&e-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[0]-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}},\ \&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[0],\ \&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1])\ >\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})0\ ?\ 0\ :\ 1;}
+\DoxyCodeLine{00906\ }
+\DoxyCodeLine{00907\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ ++i)\ \{}
+\DoxyCodeLine{00908\ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ ge\ =\ jcv\_alloc\_graphedge(internal);}
+\DoxyCodeLine{00909\ }
+\DoxyCodeLine{00910\ \ \ \ \ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_a9c14a395e04edecf0cca0c0ff6710a66}{edge}}\ =\ e;}
+\DoxyCodeLine{00911\ \ \ \ \ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ 0;}
+\DoxyCodeLine{00912\ \ \ \ \ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_acd5d8687a0737b73df963967da7d0e86}{neighbor}}\ =\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[1\ -\/\ i];}
+\DoxyCodeLine{00913\ \ \ \ \ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[flip]\ =\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[i];}
+\DoxyCodeLine{00914\ \ \ \ \ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1\ -\/\ flip]\ =\ e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1\ -\/\ i];}
+\DoxyCodeLine{00915\ \ \ \ \ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_a609a99341004843f7a9af639015e3404}{angle}}\ =\ jcv\_calc\_sort\_metric(e-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[i],\ ge);}
+\DoxyCodeLine{00916\ }
+\DoxyCodeLine{00917\ \ \ \ \ jcv\_sortedges\_insert(e-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[i],\ ge);}
+\DoxyCodeLine{00918\ }
+\DoxyCodeLine{00919\ \ \ \ \ \textcolor{comment}{//\ check\ that\ we\ didn't\ accidentally\ add\ a\ duplicate\ (rare),\ then\ remove\ it}}
+\DoxyCodeLine{00920\ \ \ \ \ \textcolor{keywordflow}{if}\ (ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ \&\&\ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_a609a99341004843f7a9af639015e3404}{angle}}\ ==\ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}-\/>\mbox{\hyperlink{struct__jcv__graphedge_a609a99341004843f7a9af639015e3404}{angle}})\ \{}
+\DoxyCodeLine{00921\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (jcv\_point\_eq(\&ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0],\ \&ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0])\ \&\&\ jcv\_point\_eq(\&ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1],\ \&ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1]))\ \{}
+\DoxyCodeLine{00922\ \ \ \ \ \ \ \ \ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}};\ \ \textcolor{comment}{//\ Throw\ it\ away,\ they're\ so\ few\ anyways}}
+\DoxyCodeLine{00923\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00924\ \ \ \ \ \}}
+\DoxyCodeLine{00925\ \ \ \}}
+\DoxyCodeLine{00926\ \}}
+\DoxyCodeLine{00927\ }
+\DoxyCodeLine{00928\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_endpos(jcv\_context\_internal*\ internal,\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ e,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ p,\ \textcolor{keywordtype}{int}\ direction)\ \{}
+\DoxyCodeLine{00929\ \ \ e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[direction]\ =\ *p;}
+\DoxyCodeLine{00930\ }
+\DoxyCodeLine{00931\ \ \ \textcolor{keywordflow}{if}\ (!jcv\_is\_valid(\&e-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1\ -\/\ direction]))\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00932\ }
+\DoxyCodeLine{00933\ \ \ jcv\_finishline(internal,\ e);}
+\DoxyCodeLine{00934\ \}}
+\DoxyCodeLine{00935\ }
+\DoxyCodeLine{00936\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ jcv\_create\_corner\_edge(jcv\_context\_internal*\ internal,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ site,\ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ current,}
+\DoxyCodeLine{00937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ gap)\ \{}
+\DoxyCodeLine{00938\ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_acd5d8687a0737b73df963967da7d0e86}{neighbor}}\ =\ 0;}
+\DoxyCodeLine{00939\ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0]\ =\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1];}
+\DoxyCodeLine{00940\ }
+\DoxyCodeLine{00941\ \ \ \textcolor{keywordflow}{if}\ (current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ <\ internal-\/>max.x\ \&\&\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ ==\ internal-\/>min.y)\ \{}
+\DoxyCodeLine{00942\ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ internal-\/>max.x;}
+\DoxyCodeLine{00943\ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ internal-\/>min.y;}
+\DoxyCodeLine{00944\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ >\ internal-\/>min.x\ \&\&\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ ==\ internal-\/>max.y)\ \{}
+\DoxyCodeLine{00945\ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ internal-\/>min.x;}
+\DoxyCodeLine{00946\ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ internal-\/>max.y;}
+\DoxyCodeLine{00947\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ >\ internal-\/>min.y\ \&\&\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ ==\ internal-\/>min.x)\ \{}
+\DoxyCodeLine{00948\ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ internal-\/>min.x;}
+\DoxyCodeLine{00949\ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ internal-\/>min.y;}
+\DoxyCodeLine{00950\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ <\ internal-\/>max.y\ \&\&\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ ==\ internal-\/>max.x)\ \{}
+\DoxyCodeLine{00951\ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ internal-\/>max.x;}
+\DoxyCodeLine{00952\ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ internal-\/>max.y;}
+\DoxyCodeLine{00953\ \ \ \}}
+\DoxyCodeLine{00954\ }
+\DoxyCodeLine{00955\ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_a609a99341004843f7a9af639015e3404}{angle}}\ =\ jcv\_calc\_sort\_metric(site,\ gap);}
+\DoxyCodeLine{00956\ \}}
+\DoxyCodeLine{00957\ }
+\DoxyCodeLine{00958\ \textcolor{keyword}{static}\ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ jcv\_create\_gap\_edge(jcv\_context\_internal*\ internal,\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ site,\ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ ge)\ \{}
+\DoxyCodeLine{00959\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ edge\ =\ jcv\_alloc\_edge(internal);}
+\DoxyCodeLine{00960\ \ \ edge-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[0]\ =\ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0];}
+\DoxyCodeLine{00961\ \ \ edge-\/>\mbox{\hyperlink{struct__jcv__edge_a184b5a86b5e25e4c2b076b10ee793fc9}{pos}}[1]\ =\ ge-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1];}
+\DoxyCodeLine{00962\ \ \ edge-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[0]\ =\ site;}
+\DoxyCodeLine{00963\ \ \ edge-\/>\mbox{\hyperlink{struct__jcv__edge_a64fb84dfa26fa245e405b958e4f3dbb6}{sites}}[1]\ =\ 0;}
+\DoxyCodeLine{00964\ \ \ edge-\/>\mbox{\hyperlink{struct__jcv__edge_a645614bbf65fb900b46db206647f3b28}{a}}\ =\ edge-\/>\mbox{\hyperlink{struct__jcv__edge_a6a7e4678d87a31e6fc79dcbb5099d49c}{b}}\ =\ edge-\/>\mbox{\hyperlink{struct__jcv__edge_a27038048c5bdbd5cc3ce936bba634960}{c}}\ =\ 0;}
+\DoxyCodeLine{00965\ \ \ edge-\/>\mbox{\hyperlink{struct__jcv__edge_aa0c0dd1f7301167e856b9b6e73299519}{next}}\ =\ internal-\/>edges;}
+\DoxyCodeLine{00966\ \ \ internal-\/>edges\ =\ edge;}
+\DoxyCodeLine{00967\ \ \ \textcolor{keywordflow}{return}\ edge;}
+\DoxyCodeLine{00968\ \}}
+\DoxyCodeLine{00969\ }
+\DoxyCodeLine{00970\ \textcolor{comment}{//\ Since\ the\ algorithm\ leaves\ gaps\ at\ the\ borders/corner,\ we\ want\ to\ fill\ them}}
+\DoxyCodeLine{00971\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_fillgaps(\mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}}*\ diagram)\ \{}
+\DoxyCodeLine{00972\ \ \ jcv\_context\_internal*\ internal\ =\ diagram-\/>\mbox{\hyperlink{struct__jcv__diagram_a466fea28608fbb307fe9f26fb8cd7c79}{internal}};}
+\DoxyCodeLine{00973\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ internal-\/>numsites;\ ++i)\ \{}
+\DoxyCodeLine{00974\ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ site\ =\ \&internal-\/>sites[i];}
+\DoxyCodeLine{00975\ }
+\DoxyCodeLine{00976\ \ \ \ \ \textcolor{comment}{//\ They're\ sorted\ CCW,\ so\ if\ the\ current-\/>pos[1]\ !=\ next-\/>pos[0],\ then\ we\ have\ a\ gap}}
+\DoxyCodeLine{00977\ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ current\ =\ site-\/>\mbox{\hyperlink{struct__jcv__site_a66bedf58384b9c116b625faf5f76c660}{edges}};}
+\DoxyCodeLine{00978\ \ \ \ \ \textcolor{keywordflow}{if}\ (!current)\ \{}
+\DoxyCodeLine{00979\ \ \ \ \ \ \ \textcolor{comment}{//\ No\ edges,\ then\ it\ should\ be\ a\ single\ cell}}
+\DoxyCodeLine{00980\ \ \ \ \ \ \ assert(internal-\/>numsites\ ==\ 1);}
+\DoxyCodeLine{00981\ }
+\DoxyCodeLine{00982\ \ \ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ gap\ =\ jcv\_alloc\_graphedge(internal);}
+\DoxyCodeLine{00983\ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_acd5d8687a0737b73df963967da7d0e86}{neighbor}}\ =\ 0;}
+\DoxyCodeLine{00984\ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0]\ =\ internal-\/>min;}
+\DoxyCodeLine{00985\ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ internal-\/>max.x;}
+\DoxyCodeLine{00986\ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ internal-\/>min.y;}
+\DoxyCodeLine{00987\ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_a609a99341004843f7a9af639015e3404}{angle}}\ =\ jcv\_calc\_sort\_metric(site,\ gap);}
+\DoxyCodeLine{00988\ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ 0;}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_a9c14a395e04edecf0cca0c0ff6710a66}{edge}}\ =\ jcv\_create\_gap\_edge(internal,\ site,\ gap);}
+\DoxyCodeLine{00990\ }
+\DoxyCodeLine{00991\ \ \ \ \ \ \ current\ =\ gap;}
+\DoxyCodeLine{00992\ \ \ \ \ \ \ site-\/>\mbox{\hyperlink{struct__jcv__site_a66bedf58384b9c116b625faf5f76c660}{edges}}\ =\ gap;}
+\DoxyCodeLine{00993\ \ \ \ \ \}}
+\DoxyCodeLine{00994\ }
+\DoxyCodeLine{00995\ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ next\ =\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}};}
+\DoxyCodeLine{00996\ \ \ \ \ \textcolor{keywordflow}{if}\ (!next)\ \{}
+\DoxyCodeLine{00997\ \ \ \ \ \ \ \textcolor{comment}{//\ Only\ one\ edge,\ then\ we\ assume\ it's\ a\ corner\ gap}}
+\DoxyCodeLine{00998\ \ \ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ gap\ =\ jcv\_alloc\_graphedge(internal);}
+\DoxyCodeLine{00999\ \ \ \ \ \ \ jcv\_create\_corner\_edge(internal,\ site,\ current,\ gap);}
+\DoxyCodeLine{01000\ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_a9c14a395e04edecf0cca0c0ff6710a66}{edge}}\ =\ jcv\_create\_gap\_edge(internal,\ site,\ gap);}
+\DoxyCodeLine{01001\ }
+\DoxyCodeLine{01002\ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}};}
+\DoxyCodeLine{01003\ \ \ \ \ \ \ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ gap;}
+\DoxyCodeLine{01004\ \ \ \ \ \ \ current\ =\ gap;}
+\DoxyCodeLine{01005\ \ \ \ \ \ \ next\ =\ site-\/>\mbox{\hyperlink{struct__jcv__site_a66bedf58384b9c116b625faf5f76c660}{edges}};}
+\DoxyCodeLine{01006\ \ \ \ \ \}}
+\DoxyCodeLine{01007\ }
+\DoxyCodeLine{01008\ \ \ \ \ \textcolor{keywordflow}{while}\ (current\ \&\&\ next)\ \{}
+\DoxyCodeLine{01009\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (jcv\_point\_on\_edge(\&current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1],\ \&diagram-\/>\mbox{\hyperlink{struct__jcv__diagram_aa399b45ddd3f8fad587b128d17a0f1a1}{min}},\ \&diagram-\/>\mbox{\hyperlink{struct__jcv__diagram_aa9e598b93f68c6297f7f405d4d240c4c}{max}})\ \&\&}
+\DoxyCodeLine{01010\ \ \ \ \ \ \ \ \ \ \ !jcv\_point\_eq(\&current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1],\ \&next-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0]))\ \{}
+\DoxyCodeLine{01011\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Border\ gap}}
+\DoxyCodeLine{01012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ ==\ next-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ ||\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ ==\ next-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}})\ \{}
+\DoxyCodeLine{01013\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ gap\ =\ jcv\_alloc\_graphedge(internal);}
+\DoxyCodeLine{01014\ \ \ \ \ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_acd5d8687a0737b73df963967da7d0e86}{neighbor}}\ =\ 0;}
+\DoxyCodeLine{01015\ \ \ \ \ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0]\ =\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1];}
+\DoxyCodeLine{01016\ \ \ \ \ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1]\ =\ next-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0];}
+\DoxyCodeLine{01017\ \ \ \ \ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_a609a99341004843f7a9af639015e3404}{angle}}\ =\ jcv\_calc\_sort\_metric(site,\ gap);}
+\DoxyCodeLine{01018\ \ \ \ \ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_a9c14a395e04edecf0cca0c0ff6710a66}{edge}}\ =\ jcv\_create\_gap\_edge(internal,\ site,\ gap);}
+\DoxyCodeLine{01019\ }
+\DoxyCodeLine{01020\ \ \ \ \ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}};}
+\DoxyCodeLine{01021\ \ \ \ \ \ \ \ \ \ \ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ gap;}
+\DoxyCodeLine{01022\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (jcv\_point\_on\_edge(\&current-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[1],\ \&diagram-\/>\mbox{\hyperlink{struct__jcv__diagram_aa399b45ddd3f8fad587b128d17a0f1a1}{min}},\ \&diagram-\/>\mbox{\hyperlink{struct__jcv__diagram_aa9e598b93f68c6297f7f405d4d240c4c}{max}})\ \&\&}
+\DoxyCodeLine{01023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jcv\_point\_on\_edge(\&next-\/>\mbox{\hyperlink{struct__jcv__graphedge_aa471bf8739860ecfa6c56343ee33eff3}{pos}}[0],\ \&diagram-\/>\mbox{\hyperlink{struct__jcv__diagram_aa399b45ddd3f8fad587b128d17a0f1a1}{min}},\ \&diagram-\/>\mbox{\hyperlink{struct__jcv__diagram_aa9e598b93f68c6297f7f405d4d240c4c}{max}}))\ \{}
+\DoxyCodeLine{01024\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\_graphedge}}*\ gap\ =\ jcv\_alloc\_graphedge(internal);}
+\DoxyCodeLine{01025\ \ \ \ \ \ \ \ \ \ \ jcv\_create\_corner\_edge(internal,\ site,\ current,\ gap);}
+\DoxyCodeLine{01026\ \ \ \ \ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_a9c14a395e04edecf0cca0c0ff6710a66}{edge}}\ =\ jcv\_create\_gap\_edge(internal,\ site,\ gap);}
+\DoxyCodeLine{01027\ \ \ \ \ \ \ \ \ \ \ gap-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}};}
+\DoxyCodeLine{01028\ \ \ \ \ \ \ \ \ \ \ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}}\ =\ gap;}
+\DoxyCodeLine{01029\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01030\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ something\ went\ wrong,\ abort\ instead\ of\ looping\ indefinitely}}
+\DoxyCodeLine{01031\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01033\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01034\ }
+\DoxyCodeLine{01035\ \ \ \ \ \ \ current\ =\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}};}
+\DoxyCodeLine{01036\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current)\ \{}
+\DoxyCodeLine{01037\ \ \ \ \ \ \ \ \ next\ =\ current-\/>\mbox{\hyperlink{struct__jcv__graphedge_af097be4c7e9e6aa177fe34e1efb9e62d}{next}};}
+\DoxyCodeLine{01038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!next)\ next\ =\ site-\/>\mbox{\hyperlink{struct__jcv__site_a66bedf58384b9c116b625faf5f76c660}{edges}};}
+\DoxyCodeLine{01039\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01040\ \ \ \ \ \}}
+\DoxyCodeLine{01041\ \ \ \}}
+\DoxyCodeLine{01042\ \}}
+\DoxyCodeLine{01043\ }
+\DoxyCodeLine{01044\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ jcv\_circle\_event(jcv\_context\_internal*\ internal)\ \{}
+\DoxyCodeLine{01045\ \ \ jcv\_halfedge*\ left\ =\ (jcv\_halfedge*)jcv\_pq\_pop(internal-\/>eventqueue);}
+\DoxyCodeLine{01046\ }
+\DoxyCodeLine{01047\ \ \ jcv\_halfedge*\ leftleft\ =\ left-\/>left;}
+\DoxyCodeLine{01048\ \ \ jcv\_halfedge*\ right\ =\ left-\/>right;}
+\DoxyCodeLine{01049\ \ \ jcv\_halfedge*\ rightright\ =\ right-\/>right;}
+\DoxyCodeLine{01050\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ bottom\ =\ jcv\_halfedge\_leftsite(left);}
+\DoxyCodeLine{01051\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ top\ =\ jcv\_halfedge\_rightsite(right);}
+\DoxyCodeLine{01052\ }
+\DoxyCodeLine{01053\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ vertex\ =\ left-\/>vertex;}
+\DoxyCodeLine{01054\ \ \ jcv\_endpos(internal,\ left-\/>edge,\ \&vertex,\ left-\/>direction);}
+\DoxyCodeLine{01055\ \ \ jcv\_endpos(internal,\ right-\/>edge,\ \&vertex,\ right-\/>direction);}
+\DoxyCodeLine{01056\ }
+\DoxyCodeLine{01057\ \ \ internal-\/>last\_inserted\ =\ rightright;}
+\DoxyCodeLine{01058\ }
+\DoxyCodeLine{01059\ \ \ jcv\_pq\_remove(internal-\/>eventqueue,\ right);}
+\DoxyCodeLine{01060\ \ \ jcv\_halfedge\_unlink(left);}
+\DoxyCodeLine{01061\ \ \ jcv\_halfedge\_unlink(right);}
+\DoxyCodeLine{01062\ \ \ jcv\_halfedge\_delete(internal,\ left);}
+\DoxyCodeLine{01063\ \ \ jcv\_halfedge\_delete(internal,\ right);}
+\DoxyCodeLine{01064\ }
+\DoxyCodeLine{01065\ \ \ \textcolor{keywordtype}{int}\ direction\ =\ JCV\_DIRECTION\_LEFT;}
+\DoxyCodeLine{01066\ \ \ \textcolor{keywordflow}{if}\ (bottom-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ >\ top-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}})\ \{}
+\DoxyCodeLine{01067\ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ temp\ =\ bottom;}
+\DoxyCodeLine{01068\ \ \ \ \ bottom\ =\ top;}
+\DoxyCodeLine{01069\ \ \ \ \ top\ =\ temp;}
+\DoxyCodeLine{01070\ \ \ \ \ direction\ =\ JCV\_DIRECTION\_RIGHT;}
+\DoxyCodeLine{01071\ \ \ \}}
+\DoxyCodeLine{01072\ }
+\DoxyCodeLine{01073\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a6a5b54b91e64e7464b9e5867eaad3b5b}{jcv\_edge}}*\ edge\ =\ jcv\_edge\_new(internal,\ bottom,\ top);}
+\DoxyCodeLine{01074\ \ \ edge-\/>\mbox{\hyperlink{struct__jcv__edge_aa0c0dd1f7301167e856b9b6e73299519}{next}}\ =\ internal-\/>edges;}
+\DoxyCodeLine{01075\ \ \ internal-\/>edges\ =\ edge;}
+\DoxyCodeLine{01076\ }
+\DoxyCodeLine{01077\ \ \ jcv\_halfedge*\ he\ =\ jcv\_halfedge\_new(internal,\ edge,\ direction);}
+\DoxyCodeLine{01078\ \ \ jcv\_halfedge\_link(leftleft,\ he);}
+\DoxyCodeLine{01079\ \ \ jcv\_endpos(internal,\ edge,\ \&vertex,\ JCV\_DIRECTION\_RIGHT\ -\/\ direction);}
+\DoxyCodeLine{01080\ }
+\DoxyCodeLine{01081\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ p;}
+\DoxyCodeLine{01082\ \ \ \textcolor{keywordflow}{if}\ (jcv\_check\_circle\_event(leftleft,\ he,\ \&p))\ \{}
+\DoxyCodeLine{01083\ \ \ \ \ jcv\_pq\_remove(internal-\/>eventqueue,\ leftleft);}
+\DoxyCodeLine{01084\ \ \ \ \ leftleft-\/>vertex\ =\ p;}
+\DoxyCodeLine{01085\ \ \ \ \ leftleft-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ p.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ +\ jcv\_point\_dist(\&bottom-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}},\ \&p);}
+\DoxyCodeLine{01086\ \ \ \ \ jcv\_pq\_push(internal-\/>eventqueue,\ leftleft);}
+\DoxyCodeLine{01087\ \ \ \}}
+\DoxyCodeLine{01088\ \ \ \textcolor{keywordflow}{if}\ (jcv\_check\_circle\_event(he,\ rightright,\ \&p))\ \{}
+\DoxyCodeLine{01089\ \ \ \ \ he-\/>vertex\ =\ p;}
+\DoxyCodeLine{01090\ \ \ \ \ he-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ p.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ +\ jcv\_point\_dist(\&bottom-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}},\ \&p);}
+\DoxyCodeLine{01091\ \ \ \ \ jcv\_pq\_push(internal-\/>eventqueue,\ he);}
+\DoxyCodeLine{01092\ \ \ \}}
+\DoxyCodeLine{01093\ \}}
+\DoxyCodeLine{01094\ }
+\DoxyCodeLine{01095\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ jcv\_floor(\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ v)\ \{}
+\DoxyCodeLine{01096\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ i\ =\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})(\textcolor{keywordtype}{int})v;}
+\DoxyCodeLine{01097\ \ \ \textcolor{keywordflow}{return}\ (v\ <\ i)\ ?\ i\ -\/\ 1\ :\ i;}
+\DoxyCodeLine{01098\ \}}
+\DoxyCodeLine{01099\ }
+\DoxyCodeLine{01100\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ jcv\_ceil(\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ v)\ \{}
+\DoxyCodeLine{01101\ \ \ \mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}}\ i\ =\ (\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})(\textcolor{keywordtype}{int})v;}
+\DoxyCodeLine{01102\ \ \ \textcolor{keywordflow}{return}\ (v\ >\ i)\ ?\ i\ +\ 1\ :\ i;}
+\DoxyCodeLine{01103\ \}}
+\DoxyCodeLine{01104\ }
+\DoxyCodeLine{01105\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \_jcv\_calc\_bounds(\textcolor{keywordtype}{int}\ num\_points,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ points,\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ min,\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ max)\ \{}
+\DoxyCodeLine{01106\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ \_min\ =\ points[0];}
+\DoxyCodeLine{01107\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ \_max\ =\ points[0];}
+\DoxyCodeLine{01108\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ num\_points;\ ++i)\ \{}
+\DoxyCodeLine{01109\ \ \ \ \ \textcolor{keywordflow}{if}\ (points[i].x\ <\ \_min.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}})}
+\DoxyCodeLine{01110\ \ \ \ \ \ \ \_min.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ points[i].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{01111\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (points[i].x\ >\ \_max.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}})}
+\DoxyCodeLine{01112\ \ \ \ \ \ \ \_max.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ points[i].\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}};}
+\DoxyCodeLine{01113\ }
+\DoxyCodeLine{01114\ \ \ \ \ \textcolor{keywordflow}{if}\ (points[i].y\ <\ \_min.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}})}
+\DoxyCodeLine{01115\ \ \ \ \ \ \ \_min.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ points[i].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{01116\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (points[i].y\ >\ \_max.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}})}
+\DoxyCodeLine{01117\ \ \ \ \ \ \ \_max.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ points[i].\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}};}
+\DoxyCodeLine{01118\ \ \ \}}
+\DoxyCodeLine{01119\ \ \ min-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ jcv\_floor(\_min.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}});}
+\DoxyCodeLine{01120\ \ \ min-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ jcv\_floor(\_min.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}});}
+\DoxyCodeLine{01121\ \ \ max-\/>\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ jcv\_ceil(\_max.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}});}
+\DoxyCodeLine{01122\ \ \ max-\/>\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ jcv\_ceil(\_max.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}});}
+\DoxyCodeLine{01123\ \}}
+\DoxyCodeLine{01124\ }
+\DoxyCodeLine{01125\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{jc__voronoi_8h_a06e41773fa0f60c5dd38ec8fd24ee44c}{jcv\_diagram\_generate}}(\textcolor{keywordtype}{int}\ num\_points,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ points,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}{jcv\_rect}}*\ rect,\ \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}}*\ d)\ \{}
+\DoxyCodeLine{01126\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a31d74234527a688f260a955dc9c5adfc}{jcv\_diagram\_generate\_useralloc}}(num\_points,\ points,\ rect,\ 0,\ jcv\_alloc\_fn,\ jcv\_free\_fn,\ d);}
+\DoxyCodeLine{01127\ \}}
+\DoxyCodeLine{01128\ }
+\DoxyCodeLine{01129\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\_jcv\_cast\_align\_struct\ \{}
+\DoxyCodeLine{01130\ \ \ \textcolor{keywordtype}{char}*\ charp;}
+\DoxyCodeLine{01131\ \ \ \textcolor{keywordtype}{void}**\ voidpp;}
+\DoxyCodeLine{01132\ \}\ jcv\_cast\_align\_struct;}
+\DoxyCodeLine{01133\ }
+\DoxyCodeLine{01134\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{jc__voronoi_8h_a31d74234527a688f260a955dc9c5adfc}{jcv\_diagram\_generate\_useralloc}}(\textcolor{keywordtype}{int}\ num\_points,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}*\ points,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_ad73f6c9ed27e703eef139c6ed7bb0479}{jcv\_rect}}*\ rect,\ \textcolor{keywordtype}{void}*\ userallocctx,}
+\DoxyCodeLine{01135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_af61e6ea8053a82cc992c24c23d82b920}{FJCVAllocFn}}\ allocfn,\ \mbox{\hyperlink{jc__voronoi_8h_ac02fb2bffd328442d958687d886a69ef}{FJCVFreeFn}}\ freefn,\ \mbox{\hyperlink{jc__voronoi_8h_aeb321df6f04b664ead5d9009d2557c05}{jcv\_diagram}}*\ d)\ \{}
+\DoxyCodeLine{01136\ \ \ \textcolor{keywordflow}{if}\ (d-\/>\mbox{\hyperlink{struct__jcv__diagram_a466fea28608fbb307fe9f26fb8cd7c79}{internal}})\ \mbox{\hyperlink{jc__voronoi_8h_a2be8cceedaa369c8568076f049b5d9fa}{jcv\_diagram\_free}}(d);}
+\DoxyCodeLine{01137\ }
+\DoxyCodeLine{01138\ \ \ \textcolor{keywordtype}{int}\ max\_num\_events\ =\ num\_points\ *\ 2;\ \ \textcolor{comment}{//\ beachline\ can\ have\ max\ 2*n-\/5\ parabolas}}
+\DoxyCodeLine{01139\ \ \ \textcolor{keywordtype}{size\_t}\ sitessize\ =\ (size\_t)num\_points\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}});}
+\DoxyCodeLine{01140\ \ \ \textcolor{keywordtype}{size\_t}\ memsize\ =\ 8u\ +\ (size\_t)max\_num\_events\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{void}*)\ +\ \textcolor{keyword}{sizeof}(jcv\_priorityqueue)\ +\ sitessize\ +}
+\DoxyCodeLine{01141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(jcv\_context\_internal);}
+\DoxyCodeLine{01142\ }
+\DoxyCodeLine{01143\ \ \ \textcolor{keywordtype}{char}*\ originalmem\ =\ (\textcolor{keywordtype}{char}*)allocfn(userallocctx,\ memsize);}
+\DoxyCodeLine{01144\ \ \ memset(originalmem,\ 0,\ memsize);}
+\DoxyCodeLine{01145\ }
+\DoxyCodeLine{01146\ \ \ \textcolor{comment}{//\ align\ memory}}
+\DoxyCodeLine{01147\ \ \ \textcolor{keywordtype}{char}*\ mem\ =\ originalmem\ +\ 8\ -\/\ ((size\_t)(originalmem)\&0x7);}
+\DoxyCodeLine{01148\ }
+\DoxyCodeLine{01149\ \ \ jcv\_context\_internal*\ internal\ =\ (jcv\_context\_internal*)mem;}
+\DoxyCodeLine{01150\ \ \ mem\ +=\ \textcolor{keyword}{sizeof}(jcv\_context\_internal);}
+\DoxyCodeLine{01151\ }
+\DoxyCodeLine{01152\ \ \ internal-\/>mem\ =\ originalmem;}
+\DoxyCodeLine{01153\ \ \ internal-\/>memctx\ =\ userallocctx;}
+\DoxyCodeLine{01154\ \ \ internal-\/>alloc\ =\ allocfn;}
+\DoxyCodeLine{01155\ \ \ internal-\/>free\ =\ freefn;}
+\DoxyCodeLine{01156\ }
+\DoxyCodeLine{01157\ \ \ internal-\/>beachline\_start\ =\ jcv\_halfedge\_new(internal,\ 0,\ 0);}
+\DoxyCodeLine{01158\ \ \ internal-\/>beachline\_end\ =\ jcv\_halfedge\_new(internal,\ 0,\ 0);}
+\DoxyCodeLine{01159\ }
+\DoxyCodeLine{01160\ \ \ internal-\/>beachline\_start-\/>left\ =\ 0;}
+\DoxyCodeLine{01161\ \ \ internal-\/>beachline\_start-\/>right\ =\ internal-\/>beachline\_end;}
+\DoxyCodeLine{01162\ \ \ internal-\/>beachline\_end-\/>left\ =\ internal-\/>beachline\_start;}
+\DoxyCodeLine{01163\ \ \ internal-\/>beachline\_end-\/>right\ =\ 0;}
+\DoxyCodeLine{01164\ }
+\DoxyCodeLine{01165\ \ \ internal-\/>last\_inserted\ =\ 0;}
+\DoxyCodeLine{01166\ }
+\DoxyCodeLine{01167\ \ \ internal-\/>sites\ =\ (\mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*)mem;}
+\DoxyCodeLine{01168\ \ \ mem\ +=\ sitessize;}
+\DoxyCodeLine{01169\ }
+\DoxyCodeLine{01170\ \ \ internal-\/>eventqueue\ =\ (jcv\_priorityqueue*)mem;}
+\DoxyCodeLine{01171\ \ \ mem\ +=\ \textcolor{keyword}{sizeof}(jcv\_priorityqueue);}
+\DoxyCodeLine{01172\ }
+\DoxyCodeLine{01173\ \ \ jcv\_cast\_align\_struct\ tmp;}
+\DoxyCodeLine{01174\ \ \ tmp.charp\ =\ mem;}
+\DoxyCodeLine{01175\ \ \ internal-\/>eventmem\ =\ tmp.voidpp;}
+\DoxyCodeLine{01176\ }
+\DoxyCodeLine{01177\ \ \ \textcolor{keywordflow}{if}\ (rect\ ==\ 0)\ \{}
+\DoxyCodeLine{01178\ \ \ \ \ \_jcv\_calc\_bounds(num\_points,\ points,\ \&d-\/>\mbox{\hyperlink{struct__jcv__diagram_aa399b45ddd3f8fad587b128d17a0f1a1}{min}},\ \&d-\/>\mbox{\hyperlink{struct__jcv__diagram_aa9e598b93f68c6297f7f405d4d240c4c}{max}});}
+\DoxyCodeLine{01179\ \ \ \ \ d-\/>\mbox{\hyperlink{struct__jcv__diagram_aa399b45ddd3f8fad587b128d17a0f1a1}{min}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ -\/=\ 10;}
+\DoxyCodeLine{01180\ \ \ \ \ d-\/>\mbox{\hyperlink{struct__jcv__diagram_aa399b45ddd3f8fad587b128d17a0f1a1}{min}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ -\/=\ 10;}
+\DoxyCodeLine{01181\ \ \ \ \ d-\/>\mbox{\hyperlink{struct__jcv__diagram_aa9e598b93f68c6297f7f405d4d240c4c}{max}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ +=\ 10;}
+\DoxyCodeLine{01182\ \ \ \ \ d-\/>\mbox{\hyperlink{struct__jcv__diagram_aa9e598b93f68c6297f7f405d4d240c4c}{max}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ +=\ 10;}
+\DoxyCodeLine{01183\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01184\ \ \ \ \ d-\/>\mbox{\hyperlink{struct__jcv__diagram_aa399b45ddd3f8fad587b128d17a0f1a1}{min}}\ =\ rect-\/>\mbox{\hyperlink{struct__jcv__rect_a72574eae9f12009fd339ecf1065ed2db}{min}};}
+\DoxyCodeLine{01185\ \ \ \ \ d-\/>\mbox{\hyperlink{struct__jcv__diagram_aa9e598b93f68c6297f7f405d4d240c4c}{max}}\ =\ rect-\/>\mbox{\hyperlink{struct__jcv__rect_a16150970f1caf28961255bacf5ec6d22}{max}};}
+\DoxyCodeLine{01186\ \ \ \}}
+\DoxyCodeLine{01187\ \ \ internal-\/>min\ =\ d-\/>\mbox{\hyperlink{struct__jcv__diagram_aa399b45ddd3f8fad587b128d17a0f1a1}{min}};}
+\DoxyCodeLine{01188\ \ \ internal-\/>max\ =\ d-\/>\mbox{\hyperlink{struct__jcv__diagram_aa9e598b93f68c6297f7f405d4d240c4c}{max}};}
+\DoxyCodeLine{01189\ }
+\DoxyCodeLine{01190\ \ \ jcv\_pq\_create(internal-\/>eventqueue,\ max\_num\_events,\ (\textcolor{keywordtype}{void}**)internal-\/>eventmem);}
+\DoxyCodeLine{01191\ }
+\DoxyCodeLine{01192\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ sites\ =\ internal-\/>sites;}
+\DoxyCodeLine{01193\ }
+\DoxyCodeLine{01194\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_points;\ ++i)\ \{}
+\DoxyCodeLine{01195\ \ \ \ \ sites[i].\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}\ =\ points[i];}
+\DoxyCodeLine{01196\ \ \ \ \ sites[i].\mbox{\hyperlink{struct__jcv__site_a66bedf58384b9c116b625faf5f76c660}{edges}}\ =\ 0;}
+\DoxyCodeLine{01197\ \ \ \ \ sites[i].\mbox{\hyperlink{struct__jcv__site_a9a1e21b7b574616ebc167322fce414a9}{index}}\ =\ i;}
+\DoxyCodeLine{01198\ \ \ \}}
+\DoxyCodeLine{01199\ }
+\DoxyCodeLine{01200\ \ \ qsort(sites,\ (\textcolor{keywordtype}{size\_t})num\_points,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}),\ jcv\_point\_cmp);}
+\DoxyCodeLine{01201\ }
+\DoxyCodeLine{01202\ \ \ \textcolor{keywordtype}{int}\ offset\ =\ 0;}
+\DoxyCodeLine{01203\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_points;\ i++)\ \{}
+\DoxyCodeLine{01204\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ s\ =\ \&sites[i];}
+\DoxyCodeLine{01205\ \ \ \ \ \textcolor{comment}{//\ Remove\ duplicates,\ to\ avoid\ anomalies}}
+\DoxyCodeLine{01206\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 0\ \&\&\ jcv\_point\_eq(\&s-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}},\ \&sites[i\ -\/\ 1].p))\ \{}
+\DoxyCodeLine{01207\ \ \ \ \ \ \ offset++;}
+\DoxyCodeLine{01208\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01209\ \ \ \ \ \}}
+\DoxyCodeLine{01210\ \ \ \ \ \textcolor{comment}{//\ Remove\ points\ outside\ of\ the\ bounding\ box\ to\ avoid\ bad\ edge\ clipping\ later\ on}}
+\DoxyCodeLine{01211\ \ \ \ \ \textcolor{keywordflow}{if}\ (rect\ !=\ 0)\ \{}
+\DoxyCodeLine{01212\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ <\ rect-\/>\mbox{\hyperlink{struct__jcv__rect_a72574eae9f12009fd339ecf1065ed2db}{min}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ ||\ s-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ >\ rect-\/>\mbox{\hyperlink{struct__jcv__rect_a16150970f1caf28961255bacf5ec6d22}{max}}.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ ||\ s-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ <\ rect-\/>\mbox{\hyperlink{struct__jcv__rect_a72574eae9f12009fd339ecf1065ed2db}{min}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ ||\ s-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ >\ rect-\/>\mbox{\hyperlink{struct__jcv__rect_a16150970f1caf28961255bacf5ec6d22}{max}}.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}})\ \{}
+\DoxyCodeLine{01213\ \ \ \ \ \ \ \ \ offset++;}
+\DoxyCodeLine{01214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01215\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01216\ \ \ \ \ \}}
+\DoxyCodeLine{01217\ }
+\DoxyCodeLine{01218\ \ \ \ \ sites[i\ -\/\ offset]\ =\ sites[i];}
+\DoxyCodeLine{01219\ \ \ \}}
+\DoxyCodeLine{01220\ \ \ num\_points\ -\/=\ offset;}
+\DoxyCodeLine{01221\ }
+\DoxyCodeLine{01222\ \ \ d-\/>\mbox{\hyperlink{struct__jcv__diagram_a466fea28608fbb307fe9f26fb8cd7c79}{internal}}\ =\ internal;}
+\DoxyCodeLine{01223\ \ \ d-\/>\mbox{\hyperlink{struct__jcv__diagram_a6684510ae98f93978135c10a41ee5914}{numsites}}\ =\ num\_points;}
+\DoxyCodeLine{01224\ }
+\DoxyCodeLine{01225\ \ \ internal-\/>numsites\ =\ num\_points;}
+\DoxyCodeLine{01226\ \ \ internal-\/>numsites\_sqrt\ =\ (int)(\mbox{\hyperlink{jc__voronoi_8h_afe69737cad28c5d558fe3cea50966e9b}{JCV\_SQRT}}((\mbox{\hyperlink{jc__voronoi_8h_adf3f9d7c9b8b63b4537db4843afc562f}{jcv\_real}})num\_points));}
+\DoxyCodeLine{01227\ \ \ internal-\/>currentsite\ =\ 0;}
+\DoxyCodeLine{01228\ }
+\DoxyCodeLine{01229\ \ \ internal-\/>bottomsite\ =\ jcv\_nextsite(internal);}
+\DoxyCodeLine{01230\ }
+\DoxyCodeLine{01231\ \ \ jcv\_priorityqueue*\ pq\ =\ internal-\/>eventqueue;}
+\DoxyCodeLine{01232\ \ \ \mbox{\hyperlink{jc__voronoi_8h_a5386281099d8669709643c318b500893}{jcv\_site}}*\ site\ =\ jcv\_nextsite(internal);}
+\DoxyCodeLine{01233\ }
+\DoxyCodeLine{01234\ \ \ \textcolor{keywordtype}{int}\ finished\ =\ 0;}
+\DoxyCodeLine{01235\ \ \ \textcolor{keywordflow}{while}\ (!finished)\ \{}
+\DoxyCodeLine{01236\ \ \ \ \ \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\_point}}\ lowest\_pq\_point;}
+\DoxyCodeLine{01237\ \ \ \ \ \textcolor{keywordflow}{if}\ (!jcv\_pq\_empty(pq))\ \{}
+\DoxyCodeLine{01238\ \ \ \ \ \ \ jcv\_halfedge*\ he\ =\ (jcv\_halfedge*)jcv\_pq\_top(pq);}
+\DoxyCodeLine{01239\ \ \ \ \ \ \ lowest\_pq\_point.\mbox{\hyperlink{struct__jcv__point_a2bed5e1c6148d676bb38d0616810c4f9}{x}}\ =\ he-\/>vertex.x;}
+\DoxyCodeLine{01240\ \ \ \ \ \ \ lowest\_pq\_point.\mbox{\hyperlink{struct__jcv__point_af568d5018baddc1dd1201cd188af39f8}{y}}\ =\ he-\/>y;}
+\DoxyCodeLine{01241\ \ \ \ \ \}}
+\DoxyCodeLine{01242\ }
+\DoxyCodeLine{01243\ \ \ \ \ \textcolor{keywordflow}{if}\ (site\ !=\ 0\ \&\&\ (jcv\_pq\_empty(pq)\ ||\ jcv\_point\_less(\&site-\/>\mbox{\hyperlink{struct__jcv__site_ad84e04d2917a2263eb32cc80597e336b}{p}},\ \&lowest\_pq\_point)))\ \{}
+\DoxyCodeLine{01244\ \ \ \ \ \ \ jcv\_site\_event(internal,\ site);}
+\DoxyCodeLine{01245\ \ \ \ \ \ \ site\ =\ jcv\_nextsite(internal);}
+\DoxyCodeLine{01246\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!jcv\_pq\_empty(pq))\ \{}
+\DoxyCodeLine{01247\ \ \ \ \ \ \ jcv\_circle\_event(internal);}
+\DoxyCodeLine{01248\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01249\ \ \ \ \ \ \ finished\ =\ 1;}
+\DoxyCodeLine{01250\ \ \ \ \ \}}
+\DoxyCodeLine{01251\ \ \ \}}
+\DoxyCodeLine{01252\ }
+\DoxyCodeLine{01253\ \ \ \textcolor{keywordflow}{for}\ (jcv\_halfedge*\ he\ =\ internal-\/>beachline\_start-\/>right;\ he\ !=\ internal-\/>beachline\_end;\ he\ =\ he-\/>right)\ \{}
+\DoxyCodeLine{01254\ \ \ \ \ jcv\_finishline(internal,\ he-\/>edge);}
+\DoxyCodeLine{01255\ \ \ \}}
+\DoxyCodeLine{01256\ }
+\DoxyCodeLine{01257\ \ \ jcv\_fillgaps(d);}
+\DoxyCodeLine{01258\ \}}
+\DoxyCodeLine{01259\ }
+\DoxyCodeLine{01260\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ JC\_VORONOI\_IMPLEMENTATION}}
+
+\end{DoxyCode}

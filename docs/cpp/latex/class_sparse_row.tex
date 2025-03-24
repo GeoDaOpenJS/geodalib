@@ -1,0 +1,211 @@
+\doxysection{Sparse\+Row Class Reference}
+\hypertarget{class_sparse_row}{}\label{class_sparse_row}\index{SparseRow@{SparseRow}}
+
+
+{\ttfamily \#include $<$Sparse\+Row.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sparse_row_a82f4ca09ea738fb2d593249ecf9cde12}{Sparse\+Row}} ()
+\item 
+\mbox{\hyperlink{class_sparse_row_abf079743528a67df2eeb4e5038fbbf88}{Sparse\+Row}} (int nz)
+\item 
+virtual \mbox{\hyperlink{class_sparse_row_a3be24fed1848f20f2057122f6ffa3081}{\texorpdfstring{$\sim$}{\string~}\+Sparse\+Row}} ()
+\item 
+void \mbox{\hyperlink{class_sparse_row_aa60f23340d2c558adfbd0e0c7efeb8d7}{alloc}} (int nz)
+\item 
+double \mbox{\hyperlink{class_sparse_row_a8bffec85cee5a11358ca975b68925d5b}{times\+Column}} (const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&v) const
+\item 
+double \mbox{\hyperlink{class_sparse_row_ac4bd0f0097cf44396c50f8f9024c70e2}{times\+Column}} (const \mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&v) const
+\item 
+double \mbox{\hyperlink{class_sparse_row_a580170c2845ca4b8e10f765dda64d72d}{times\+Column}} (const \mbox{\hyperlink{class_sparse_row}{Sparse\+Row}} \&v) const
+\item 
+void \mbox{\hyperlink{class_sparse_row_abdb99ae3d00a8c02795efabc1b5c39ea}{row\+Plus\+SRow}} (\mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&v, const double w) const
+\item 
+void \mbox{\hyperlink{class_sparse_row_a5e253d5950e8de8f3292349dd0d25081}{row\+Plus\+SRow}} (\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&v, const double w) const
+\item 
+int \mbox{\hyperlink{class_sparse_row_ad3a63c2f371f3a052112c94a6d5eb2f1}{get\+Size}} () const
+\item 
+\mbox{\hyperlink{class_link}{Link}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_sparse_row_aa30735076e1d6d8eaaf0fa14730f3536}{get\+Nb}} () const
+\item 
+void \mbox{\hyperlink{class_sparse_row_aa6830ce75e4b2421661d5f247743a5a6}{set\+Nb}} (const int loc, const int nbr, const double \&w)
+\item 
+int \mbox{\hyperlink{class_sparse_row_a0a17f788078e6e0e87d3d76299a8d02b}{get\+Ix}} (const int loc) const
+\item 
+double \mbox{\hyperlink{class_sparse_row_a38e7e66df11c66e2b74a74d4710a62e4}{get\+Weight}} (const int loc) const
+\item 
+void \mbox{\hyperlink{class_sparse_row_abcb39b6d4985d6d0657e363919a85191}{set\+Weight}} (const int loc, const double \&w)
+\item 
+void \mbox{\hyperlink{class_sparse_row_af4f5136462fbb0b79732556520f0fc92}{set\+Ix}} (const int loc, const int nbr)
+\item 
+\mbox{\hyperlink{class_link}{Link}} \& \mbox{\hyperlink{class_sparse_row_a9c3d9bc90fdbebd81bdaaf9181f69dc1}{get\+Link}} (int loc)
+\item 
+double \mbox{\hyperlink{class_sparse_row_ab903000a134162709801a3fdcc1a0a0c}{sum}} () const
+\item 
+void \mbox{\hyperlink{class_sparse_row_a1757d703f43f48a7eb35e51bf15deb90}{multiply}} (const double \&v)
+\item 
+void \mbox{\hyperlink{class_sparse_row_a968c86c98d13c63ccf3ec9a1cb7859c8}{m\+Row\+Div\+Column}} (const double \texorpdfstring{$\ast$}{*}scale, const int row)
+\item 
+void \mbox{\hyperlink{class_sparse_row_a4bdb77b2b4aa106e69c69329093dcb3e}{m\+Column\+Div\+Row}} (const double \texorpdfstring{$\ast$}{*}scale, const int row)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_sparse_row_a7789386532a201c5bf2aa0801e15524b}{Status\+\_\+flag}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_sparse_row_a82f4ca09ea738fb2d593249ecf9cde12}\index{SparseRow@{SparseRow}!SparseRow@{SparseRow}}
+\index{SparseRow@{SparseRow}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{SparseRow()}{SparseRow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_sparse_row_a82f4ca09ea738fb2d593249ecf9cde12} 
+Sparse\+Row\+::\+Sparse\+Row (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_row_abf079743528a67df2eeb4e5038fbbf88}\index{SparseRow@{SparseRow}!SparseRow@{SparseRow}}
+\index{SparseRow@{SparseRow}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{SparseRow()}{SparseRow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_sparse_row_abf079743528a67df2eeb4e5038fbbf88} 
+Sparse\+Row\+::\+Sparse\+Row (\begin{DoxyParamCaption}\item[{int}]{sz}{}\end{DoxyParamCaption})}
+
+Geo\+Da TM, Copyright (C) 2011-\/2015 by Luc Anselin -\/ all rights reserved
+
+This file is part of Geo\+Da.
+
+Geo\+Da is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Geo\+Da is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{http://www.gnu.org/licenses/}{\texttt{ http\+://www.\+gnu.\+org/licenses/}}. \Hypertarget{class_sparse_row_a3be24fed1848f20f2057122f6ffa3081}\index{SparseRow@{SparseRow}!````~SparseRow@{\texorpdfstring{$\sim$}{\string~}SparseRow}}
+\index{````~SparseRow@{\texorpdfstring{$\sim$}{\string~}SparseRow}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SparseRow()}{\string~SparseRow()}}
+{\footnotesize\ttfamily \label{class_sparse_row_a3be24fed1848f20f2057122f6ffa3081} 
+Sparse\+Row\+::\texorpdfstring{$\sim$}{\string~}\+Sparse\+Row (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sparse_row_aa60f23340d2c558adfbd0e0c7efeb8d7}\index{SparseRow@{SparseRow}!alloc@{alloc}}
+\index{alloc@{alloc}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{alloc()}{alloc()}}
+{\footnotesize\ttfamily \label{class_sparse_row_aa60f23340d2c558adfbd0e0c7efeb8d7} 
+void Sparse\+Row\+::alloc (\begin{DoxyParamCaption}\item[{int}]{nz}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_sparse_row_a0a17f788078e6e0e87d3d76299a8d02b}\index{SparseRow@{SparseRow}!getIx@{getIx}}
+\index{getIx@{getIx}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{getIx()}{getIx()}}
+{\footnotesize\ttfamily \label{class_sparse_row_a0a17f788078e6e0e87d3d76299a8d02b} 
+int Sparse\+Row\+::get\+Ix (\begin{DoxyParamCaption}\item[{const int}]{loc}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_row_a9c3d9bc90fdbebd81bdaaf9181f69dc1}\index{SparseRow@{SparseRow}!getLink@{getLink}}
+\index{getLink@{getLink}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{getLink()}{getLink()}}
+{\footnotesize\ttfamily \label{class_sparse_row_a9c3d9bc90fdbebd81bdaaf9181f69dc1} 
+\mbox{\hyperlink{class_link}{Link}} \& Sparse\+Row\+::get\+Link (\begin{DoxyParamCaption}\item[{int}]{loc}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_row_aa30735076e1d6d8eaaf0fa14730f3536}\index{SparseRow@{SparseRow}!getNb@{getNb}}
+\index{getNb@{getNb}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{getNb()}{getNb()}}
+{\footnotesize\ttfamily \label{class_sparse_row_aa30735076e1d6d8eaaf0fa14730f3536} 
+\mbox{\hyperlink{class_link}{Link}} \texorpdfstring{$\ast$}{*} Sparse\+Row\+::get\+Nb (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_row_ad3a63c2f371f3a052112c94a6d5eb2f1}\index{SparseRow@{SparseRow}!getSize@{getSize}}
+\index{getSize@{getSize}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily \label{class_sparse_row_ad3a63c2f371f3a052112c94a6d5eb2f1} 
+int Sparse\+Row\+::get\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_row_a38e7e66df11c66e2b74a74d4710a62e4}\index{SparseRow@{SparseRow}!getWeight@{getWeight}}
+\index{getWeight@{getWeight}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{getWeight()}{getWeight()}}
+{\footnotesize\ttfamily \label{class_sparse_row_a38e7e66df11c66e2b74a74d4710a62e4} 
+double Sparse\+Row\+::get\+Weight (\begin{DoxyParamCaption}\item[{const int}]{loc}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_row_a4bdb77b2b4aa106e69c69329093dcb3e}\index{SparseRow@{SparseRow}!mColumnDivRow@{mColumnDivRow}}
+\index{mColumnDivRow@{mColumnDivRow}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{mColumnDivRow()}{mColumnDivRow()}}
+{\footnotesize\ttfamily \label{class_sparse_row_a4bdb77b2b4aa106e69c69329093dcb3e} 
+void Sparse\+Row\+::m\+Column\+Div\+Row (\begin{DoxyParamCaption}\item[{const double \texorpdfstring{$\ast$}{*}}]{scale}{, }\item[{const int}]{row}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_sparse_row_a968c86c98d13c63ccf3ec9a1cb7859c8}\index{SparseRow@{SparseRow}!mRowDivColumn@{mRowDivColumn}}
+\index{mRowDivColumn@{mRowDivColumn}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{mRowDivColumn()}{mRowDivColumn()}}
+{\footnotesize\ttfamily \label{class_sparse_row_a968c86c98d13c63ccf3ec9a1cb7859c8} 
+void Sparse\+Row\+::m\+Row\+Div\+Column (\begin{DoxyParamCaption}\item[{const double \texorpdfstring{$\ast$}{*}}]{scale}{, }\item[{const int}]{row}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_sparse_row_a1757d703f43f48a7eb35e51bf15deb90}\index{SparseRow@{SparseRow}!multiply@{multiply}}
+\index{multiply@{multiply}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{multiply()}{multiply()}}
+{\footnotesize\ttfamily \label{class_sparse_row_a1757d703f43f48a7eb35e51bf15deb90} 
+void Sparse\+Row\+::multiply (\begin{DoxyParamCaption}\item[{const double \&}]{v}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_sparse_row_a5e253d5950e8de8f3292349dd0d25081}\index{SparseRow@{SparseRow}!rowPlusSRow@{rowPlusSRow}}
+\index{rowPlusSRow@{rowPlusSRow}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{rowPlusSRow()}{rowPlusSRow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_sparse_row_a5e253d5950e8de8f3292349dd0d25081} 
+void Sparse\+Row\+::row\+Plus\+SRow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&}]{v}{, }\item[{const double}]{w}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_sparse_row_abdb99ae3d00a8c02795efabc1b5c39ea}\index{SparseRow@{SparseRow}!rowPlusSRow@{rowPlusSRow}}
+\index{rowPlusSRow@{rowPlusSRow}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{rowPlusSRow()}{rowPlusSRow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_sparse_row_abdb99ae3d00a8c02795efabc1b5c39ea} 
+void Sparse\+Row\+::row\+Plus\+SRow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&}]{v}{, }\item[{const double}]{w}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_sparse_row_af4f5136462fbb0b79732556520f0fc92}\index{SparseRow@{SparseRow}!setIx@{setIx}}
+\index{setIx@{setIx}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{setIx()}{setIx()}}
+{\footnotesize\ttfamily \label{class_sparse_row_af4f5136462fbb0b79732556520f0fc92} 
+void Sparse\+Row\+::set\+Ix (\begin{DoxyParamCaption}\item[{const int}]{loc}{, }\item[{const int}]{nbr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_row_aa6830ce75e4b2421661d5f247743a5a6}\index{SparseRow@{SparseRow}!setNb@{setNb}}
+\index{setNb@{setNb}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{setNb()}{setNb()}}
+{\footnotesize\ttfamily \label{class_sparse_row_aa6830ce75e4b2421661d5f247743a5a6} 
+void Sparse\+Row\+::set\+Nb (\begin{DoxyParamCaption}\item[{const int}]{loc}{, }\item[{const int}]{nbr}{, }\item[{const double \&}]{w}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_row_abcb39b6d4985d6d0657e363919a85191}\index{SparseRow@{SparseRow}!setWeight@{setWeight}}
+\index{setWeight@{setWeight}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{setWeight()}{setWeight()}}
+{\footnotesize\ttfamily \label{class_sparse_row_abcb39b6d4985d6d0657e363919a85191} 
+void Sparse\+Row\+::set\+Weight (\begin{DoxyParamCaption}\item[{const int}]{loc}{, }\item[{const double \&}]{w}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_row_ab903000a134162709801a3fdcc1a0a0c}\index{SparseRow@{SparseRow}!sum@{sum}}
+\index{sum@{sum}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{sum()}{sum()}}
+{\footnotesize\ttfamily \label{class_sparse_row_ab903000a134162709801a3fdcc1a0a0c} 
+double Sparse\+Row\+::sum (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_sparse_row_ac4bd0f0097cf44396c50f8f9024c70e2}\index{SparseRow@{SparseRow}!timesColumn@{timesColumn}}
+\index{timesColumn@{timesColumn}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{timesColumn()}{timesColumn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_sparse_row_ac4bd0f0097cf44396c50f8f9024c70e2} 
+double Sparse\+Row\+::times\+Column (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&}]{v}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_sparse_row_a580170c2845ca4b8e10f765dda64d72d}\index{SparseRow@{SparseRow}!timesColumn@{timesColumn}}
+\index{timesColumn@{timesColumn}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{timesColumn()}{timesColumn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_sparse_row_a580170c2845ca4b8e10f765dda64d72d} 
+double Sparse\+Row\+::times\+Column (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_sparse_row}{Sparse\+Row}} \&}]{v}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_sparse_row_a8bffec85cee5a11358ca975b68925d5b}\index{SparseRow@{SparseRow}!timesColumn@{timesColumn}}
+\index{timesColumn@{timesColumn}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{timesColumn()}{timesColumn()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_sparse_row_a8bffec85cee5a11358ca975b68925d5b} 
+double Sparse\+Row\+::times\+Column (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&}]{v}{}\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_sparse_row_a7789386532a201c5bf2aa0801e15524b}\index{SparseRow@{SparseRow}!Status\_flag@{Status\_flag}}
+\index{Status\_flag@{Status\_flag}!SparseRow@{SparseRow}}
+\doxysubsubsection{\texorpdfstring{Status\_flag}{Status\_flag}}
+{\footnotesize\ttfamily \label{class_sparse_row_a7789386532a201c5bf2aa0801e15524b} 
+bool Sparse\+Row\+::\+Status\+\_\+flag}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/regression/\mbox{\hyperlink{_sparse_row_8h}{Sparse\+Row.\+h}}\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/regression/\mbox{\hyperlink{_sparse_row_8cpp}{Sparse\+Row.\+cpp}}\end{DoxyCompactItemize}

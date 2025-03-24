@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="struct_unique_val_elem" kind="struct" language="C++" prot="public">
+    <compoundname>UniqueValElem</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_unique_val_elem_1a10dd4b0080eae06d6ef685057f640200" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double UniqueValElem::val</definition>
+        <argsstring></argsstring>
+        <name>val</name>
+        <qualifiedname>UniqueValElem::val</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" line="12" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_unique_val_elem_1a97e3ddb0d66e2fe84dc185176d08c140" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UniqueValElem::first</definition>
+        <argsstring></argsstring>
+        <name>first</name>
+        <qualifiedname>UniqueValElem::first</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" line="13" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_unique_val_elem_1a4eb6318808d3ed6abc89dbc094bde610" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UniqueValElem::last</definition>
+        <argsstring></argsstring>
+        <name>last</name>
+        <qualifiedname>UniqueValElem::last</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" line="14" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_unique_val_elem_1a62e83275a83b1eecd5dd21fb99172282" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UniqueValElem::UniqueValElem</definition>
+        <argsstring>(double v, int f, int l)</argsstring>
+        <name>UniqueValElem</name>
+        <qualifiedname>UniqueValElem::UniqueValElem</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" line="11" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" bodystart="11" bodyend="11"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" line="10" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" bodystart="10" bodyend="15"/>
+    <listofallmembers>
+      <member refid="struct_unique_val_elem_1a97e3ddb0d66e2fe84dc185176d08c140" prot="public" virt="non-virtual"><scope>UniqueValElem</scope><name>first</name></member>
+      <member refid="struct_unique_val_elem_1a4eb6318808d3ed6abc89dbc094bde610" prot="public" virt="non-virtual"><scope>UniqueValElem</scope><name>last</name></member>
+      <member refid="struct_unique_val_elem_1a62e83275a83b1eecd5dd21fb99172282" prot="public" virt="non-virtual"><scope>UniqueValElem</scope><name>UniqueValElem</name></member>
+      <member refid="struct_unique_val_elem_1a10dd4b0080eae06d6ef685057f640200" prot="public" virt="non-virtual"><scope>UniqueValElem</scope><name>val</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

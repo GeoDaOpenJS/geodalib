@@ -1,0 +1,465 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="class_multi_join_count" kind="class" language="C++" prot="public">
+    <compoundname>MultiJoinCount</compoundname>
+    <basecompoundref refid="class_l_i_s_a" prot="public" virt="non-virtual">LISA</basecompoundref>
+    <includes refid="_multi_join_count_8h" local="no">MultiJoinCount.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_multi_join_count_1a4dbf022bc2570339e45237e12e2ca931" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int MultiJoinCount::CLUSTER_NOT_SIG</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_NOT_SIG</name>
+        <qualifiedname>MultiJoinCount::CLUSTER_NOT_SIG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="14" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_multi_join_count_1aeed17d3ff61359af16aa59f3700fbd7f" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int MultiJoinCount::CLUSTER_SIG</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_SIG</name>
+        <qualifiedname>MultiJoinCount::CLUSTER_SIG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="15" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_multi_join_count_1a2811b2c0cb81921dc726bbf5a57a5ad6" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int MultiJoinCount::CLUSTER_UNDEFINED</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_UNDEFINED</name>
+        <qualifiedname>MultiJoinCount::CLUSTER_UNDEFINED</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="16" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_multi_join_count_1a45bfe98ac5194e743321899e2da3a558" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int MultiJoinCount::CLUSTER_NEIGHBORLESS</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_NEIGHBORLESS</name>
+        <qualifiedname>MultiJoinCount::CLUSTER_NEIGHBORLESS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="17" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_multi_join_count_1a31da4250edc88f390e13002bf44dddb3" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MultiJoinCount::num_vars</definition>
+        <argsstring></argsstring>
+        <name>num_vars</name>
+        <qualifiedname>MultiJoinCount::num_vars</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="42" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_multi_join_count_1afa56d95c5036b2b339ffbb6f1442bcce" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; MultiJoinCount::zz</definition>
+        <argsstring></argsstring>
+        <name>zz</name>
+        <qualifiedname>MultiJoinCount::zz</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="43" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_multi_join_count_1a7e97aaeaeb94b1c32c3bd611ee2fe915" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; MultiJoinCount::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>MultiJoinCount::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="44" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_multi_join_count_1af3c7c3b612859056334ee0d615475778" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MultiJoinCount::MultiJoinCount</definition>
+        <argsstring>(int num_obs, GeoDaWeight *w, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;data, const std::vector&lt; std::vector&lt; bool &gt; &gt; &amp;undefs, double significance_cutoff, int nCPUs, int permutations, const std::string &amp;_permutation_method, uint64_t last_seed_used)</argsstring>
+        <name>MultiJoinCount</name>
+        <qualifiedname>MultiJoinCount::MultiJoinCount</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>num_obs</declname>
+        </param>
+        <param>
+          <type><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref> *</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; bool &gt; &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>significance_cutoff</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nCPUs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>permutations</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>_permutation_method</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>last_seed_used</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="20" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp" bodystart="14" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_multi_join_count_1adc3dbdac4dae741341e92514970cb7e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>MultiJoinCount::~MultiJoinCount</definition>
+        <argsstring>()</argsstring>
+        <name>~MultiJoinCount</name>
+        <qualifiedname>MultiJoinCount::~MultiJoinCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="24" column="11" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_multi_join_count_1a97ca887a4fa255ebd9cfdd6ecc355fad" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void MultiJoinCount::CalcPseudoP_range</definition>
+        <argsstring>(int obs_start, int obs_end, uint64_t seed_start)</argsstring>
+        <name>CalcPseudoP_range</name>
+        <qualifiedname>MultiJoinCount::CalcPseudoP_range</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1aefcdfbe128df11c625ee6f496c78f40f">CalcPseudoP_range</reimplements>
+        <param>
+          <type>int</type>
+          <declname>obs_start</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>obs_end</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>seed_start</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="26" column="16" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp" bodystart="126" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="class_multi_join_count_1a51894627d81b9d12322d08df7857cffa" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void MultiJoinCount::PermCalcPseudoP_range</definition>
+        <argsstring>(int obs_start, int obs_end, uint64_t seed_start)</argsstring>
+        <name>PermCalcPseudoP_range</name>
+        <qualifiedname>MultiJoinCount::PermCalcPseudoP_range</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1a85cb4aff3217976d448b734d5a61a4fb">PermCalcPseudoP_range</reimplements>
+        <param>
+          <type>int</type>
+          <declname>obs_start</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>obs_end</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>seed_start</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="28" column="16" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp" bodystart="196" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="class_multi_join_count_1ae0e50f39c6aed9d2e6f1879ba121960d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void MultiJoinCount::ComputeLoalSA</definition>
+        <argsstring>()</argsstring>
+        <name>ComputeLoalSA</name>
+        <qualifiedname>MultiJoinCount::ComputeLoalSA</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1a3fd503729531ec0b38baab2bea13ac87">ComputeLoalSA</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="30" column="16" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp" bodystart="60" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_multi_join_count_1ad4af37b40d303d90c859e446815e04e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void MultiJoinCount::PermLocalSA</definition>
+        <argsstring>(int cnt, int perm, const std::vector&lt; int &gt; &amp;permNeighbors, std::vector&lt; double &gt; &amp;permutedSA)</argsstring>
+        <name>PermLocalSA</name>
+        <qualifiedname>MultiJoinCount::PermLocalSA</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1a62badd64960be2ce9508d25e00bb6faf">PermLocalSA</reimplements>
+        <param>
+          <type>int</type>
+          <declname>cnt</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>perm</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>permNeighbors</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>permutedSA</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="32" column="16" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp" bodystart="254" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="class_multi_join_count_1aaf6cacf94a0c35680c01b5e1952bc543" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void MultiJoinCount::PermLocalSA</definition>
+        <argsstring>(int cnt, int perm, int numNeighbors, const int *permNeighbors, std::vector&lt; double &gt; &amp;permutedSA)</argsstring>
+        <name>PermLocalSA</name>
+        <qualifiedname>MultiJoinCount::PermLocalSA</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1aeefb4ec2ad6564008c6c63bdce46eccb">PermLocalSA</reimplements>
+        <param>
+          <type>int</type>
+          <declname>cnt</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>perm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>numNeighbors</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>permNeighbors</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>permutedSA</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="34" column="16" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp" bodystart="237" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="function" id="class_multi_join_count_1ab06ce82b10b1a5474cfcbd7c413c13f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t MultiJoinCount::CountLargerSA</definition>
+        <argsstring>(int cnt, const std::vector&lt; double &gt; &amp;permutedSA)</argsstring>
+        <name>CountLargerSA</name>
+        <qualifiedname>MultiJoinCount::CountLargerSA</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1a30943843a09198a2617625d5f02debf8">CountLargerSA</reimplements>
+        <param>
+          <type>int</type>
+          <declname>cnt</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>permutedSA</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="37" column="20" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp" bodystart="271" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="class_multi_join_count_1af6c39a638c1914fa39d6d39b6b484dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt; int &gt; MultiJoinCount::GetClusterIndicators</definition>
+        <argsstring>()</argsstring>
+        <name>GetClusterIndicators</name>
+        <qualifiedname>MultiJoinCount::GetClusterIndicators</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1a1dfd91e4c229c87fe81d6f8859bd0e0a">GetClusterIndicators</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="39" column="23" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp" bodystart="286" bodyend="301"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>LISA</label>
+        <link refid="class_l_i_s_a"/>
+      </node>
+      <node id="1">
+        <label>MultiJoinCount</label>
+        <link refid="class_multi_join_count"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>GeoDaWeight</label>
+        <link refid="class_geo_da_weight"/>
+      </node>
+      <node id="2">
+        <label>LISA</label>
+        <link refid="class_l_i_s_a"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>weights</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>MultiJoinCount</label>
+        <link refid="class_multi_join_count"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" line="13" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h" bodystart="13" bodyend="45"/>
+    <listofallmembers>
+      <member refid="class_l_i_s_a_1af33206fcbd8c59afc201a8a0454f065f" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>calc_significances</name></member>
+      <member refid="class_l_i_s_a_1ac6f4566109b14ef3dc9122563319f1d4" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>CalcPseudoP</name></member>
+      <member refid="class_multi_join_count_1a97ca887a4fa255ebd9cfdd6ecc355fad" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>CalcPseudoP_range</name></member>
+      <member refid="class_l_i_s_a_1a84f64caa8e28914746d3a9495f8bf489" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>CalcPseudoP_threaded</name></member>
+      <member refid="class_multi_join_count_1a45bfe98ac5194e743321899e2da3a558" prot="private" virt="non-virtual"><scope>MultiJoinCount</scope><name>CLUSTER_NEIGHBORLESS</name></member>
+      <member refid="class_multi_join_count_1a4dbf022bc2570339e45237e12e2ca931" prot="private" virt="non-virtual"><scope>MultiJoinCount</scope><name>CLUSTER_NOT_SIG</name></member>
+      <member refid="class_multi_join_count_1aeed17d3ff61359af16aa59f3700fbd7f" prot="private" virt="non-virtual"><scope>MultiJoinCount</scope><name>CLUSTER_SIG</name></member>
+      <member refid="class_multi_join_count_1a2811b2c0cb81921dc726bbf5a57a5ad6" prot="private" virt="non-virtual"><scope>MultiJoinCount</scope><name>CLUSTER_UNDEFINED</name></member>
+      <member refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>cluster_vec</name></member>
+      <member refid="class_l_i_s_a_1a3879ae2936f23e8301ef35200c71d5cd" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>colors</name></member>
+      <member refid="class_multi_join_count_1ae0e50f39c6aed9d2e6f1879ba121960d" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>ComputeLoalSA</name></member>
+      <member refid="class_multi_join_count_1ab06ce82b10b1a5474cfcbd7c413c13f6" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>CountLargerSA</name></member>
+      <member refid="class_multi_join_count_1a7e97aaeaeb94b1c32c3bd611ee2fe915" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>data</name></member>
+      <member refid="class_l_i_s_a_1a66abedb503f8f675b04423213027325d" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetBO</name></member>
+      <member refid="class_multi_join_count_1af6c39a638c1914fa39d6d39b6b484dc6" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetClusterIndicators</name></member>
+      <member refid="class_l_i_s_a_1aa7ccbefcd8fb8543e791485916270cb0" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetColors</name></member>
+      <member refid="class_l_i_s_a_1a2730bb134ce7faa62ee1a984417ad0a1" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetDefaultCategories</name></member>
+      <member refid="class_l_i_s_a_1a13defe2359b83ee5a988e99a6e5af2bb" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetDefaultCutoffs</name></member>
+      <member refid="class_l_i_s_a_1a2bfab81b9e42615e66158a7865f83fbd" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetFDR</name></member>
+      <member refid="class_l_i_s_a_1ac8a5fc8c591762f9c6ac3b4ad3ccdd45" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetHasIsolates</name></member>
+      <member refid="class_l_i_s_a_1aec64be30b626394c5662a4bb14e680c3" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetHasUndefined</name></member>
+      <member refid="class_l_i_s_a_1af7c025f7b5dbfacfcd1068aea0bc3a16" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetLabels</name></member>
+      <member refid="class_l_i_s_a_1a9b43164d4e09625fee42e4bd3b5c7e43" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetLastUsedSeed</name></member>
+      <member refid="class_l_i_s_a_1a66a7a277ed1b0d774f0e1881a17e6fbe" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetLISAValues</name></member>
+      <member refid="class_l_i_s_a_1a9ffdfbc23351d06ef8c58a288a65e6dc" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetLocalSignificanceValues</name></member>
+      <member refid="class_l_i_s_a_1a2298353561cf8bc8a046a75e0a6101c9" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetNumNeighbors</name></member>
+      <member refid="class_l_i_s_a_1a87e3e04dc5cc1f56634a036ef38bc050" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetNumPermutations</name></member>
+      <member refid="class_l_i_s_a_1aea988ecda20ea77bfe806fd082bbf3f8" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetNumThreads</name></member>
+      <member refid="class_l_i_s_a_1a708cad7d006b534782afbfd2122f4083" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetSigCatIndicators</name></member>
+      <member refid="class_l_i_s_a_1a4a4972b885f39d697d4c3b21c617bde6" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetSignificanceCutoff</name></member>
+      <member refid="class_l_i_s_a_1a69bdf540d32663d3676e6c00864750b6" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetSignificanceFilter</name></member>
+      <member refid="class_l_i_s_a_1ac661ede940895d9fe8fe08c3895c10af" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetSpatialLagValues</name></member>
+      <member refid="class_l_i_s_a_1adc89c613b14bdac81501365a4cc71134" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>GetUserCutoff</name></member>
+      <member refid="class_l_i_s_a_1ac4cb795aa0c036bd2f0721a6402bfca4" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>has_isolates</name></member>
+      <member refid="class_l_i_s_a_1a2ff9fc974573d91f65acb7486f8a9cef" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>has_undefined</name></member>
+      <member refid="class_l_i_s_a_1a38bbdb73e71ae1a74825d4ca5a93d871" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>IsReuseLastSeed</name></member>
+      <member refid="class_l_i_s_a_1a5354756caf59cd4ef55eb2b93b83677a" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>IsRowStandardize</name></member>
+      <member refid="class_l_i_s_a_1a49e01da3d8c104a895fb09be22931f20" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>labels</name></member>
+      <member refid="class_l_i_s_a_1a1842b85ffe20032c9fc14bb7734d946c" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>lag_vec</name></member>
+      <member refid="class_l_i_s_a_1a0b6a2466791bca1b75369737337fca2d" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>last_seed_used</name></member>
+      <member refid="class_l_i_s_a_1ab514ca51acdb895cd05464eae461fcf0" prot="public" virt="non-virtual"><scope>MultiJoinCount</scope><name>LISA</name></member>
+      <member refid="class_l_i_s_a_1a89948994dce1f7df5c66246443f7a80f" prot="public" virt="non-virtual"><scope>MultiJoinCount</scope><name>LISA</name></member>
+      <member refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>lisa_vec</name></member>
+      <member refid="class_multi_join_count_1af3c7c3b612859056334ee0d615475778" prot="public" virt="non-virtual"><scope>MultiJoinCount</scope><name>MultiJoinCount</name></member>
+      <member refid="class_l_i_s_a_1a93dbaa5b02fbd6b2fef270888b9711b6" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>nCPUs</name></member>
+      <member refid="class_l_i_s_a_1adc7cdba864b9a1e1dd32cc0172649f7d" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>nn_vec</name></member>
+      <member refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>num_obs</name></member>
+      <member refid="class_multi_join_count_1a31da4250edc88f390e13002bf44dddb3" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>num_vars</name></member>
+      <member refid="class_l_i_s_a_1a4e4104294cae67b667c3ef8a435027cf" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>perm_table</name></member>
+      <member refid="class_multi_join_count_1a51894627d81b9d12322d08df7857cffa" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>PermCalcPseudoP_range</name></member>
+      <member refid="class_l_i_s_a_1a0ef933de0a4cdcf9e3caba6771d7d079" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>PermCalcPseudoP_threaded</name></member>
+      <member refid="class_l_i_s_a_1a654237b553a88279721ffc71f70e14ec" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>PermCreateRange</name></member>
+      <member refid="class_l_i_s_a_1a2653719a7510f5f1be923bde638ddcef" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>PermCreateTable_threaded</name></member>
+      <member refid="class_multi_join_count_1ad4af37b40d303d90c859e446815e04e1" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>PermLocalSA</name></member>
+      <member refid="class_multi_join_count_1aaf6cacf94a0c35680c01b5e1952bc543" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>PermLocalSA</name></member>
+      <member refid="class_l_i_s_a_1adb5baf0ecda6023779bab868d9c45af5" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>permutation_method</name></member>
+      <member refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>permutations</name></member>
+      <member refid="class_l_i_s_a_1a1831c01ee530b038e5e7356a86a20c2b" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>reuse_last_seed</name></member>
+      <member refid="class_l_i_s_a_1ad0d3a85084f836c14ac292dd783cc617" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>row_standardize</name></member>
+      <member refid="class_l_i_s_a_1a4ffb64846007d1d7ff443f57112b28f9" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>Run</name></member>
+      <member refid="class_l_i_s_a_1a73dec0f73c8494bdbde6e1063c2a903b" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>SetLastUsedSeed</name></member>
+      <member refid="class_l_i_s_a_1a1537cd949a614e041239529d48b6ac49" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>SetNumPermutations</name></member>
+      <member refid="class_l_i_s_a_1aa7e54243723d4ae3af341d43236c4a17" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>SetNumThreads</name></member>
+      <member refid="class_l_i_s_a_1a19ceb54628931d11d39e343f63d3f890" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>SetReuseLastSeed</name></member>
+      <member refid="class_l_i_s_a_1af9dcade8f79090a594fe950ad8fa16fa" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>SetRowStandardize</name></member>
+      <member refid="class_l_i_s_a_1a11c8e8fd52bbc1bb34c4a7738992d923" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>SetSignificanceCutoff</name></member>
+      <member refid="class_l_i_s_a_1a1b1e7eb75014f6580998b7ef12b65ade" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>SetSignificanceFilter</name></member>
+      <member refid="class_l_i_s_a_1a42efe3f048fc3152fa4b1bddc520462a" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>SetUserCutoff</name></member>
+      <member refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>sig_cat_vec</name></member>
+      <member refid="class_l_i_s_a_1a4cebb360265b00834131007f766f8888" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>sig_local_vec</name></member>
+      <member refid="class_l_i_s_a_1aefaa3485a0023c7ee635a0b2874417e7" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>significance_cutoff</name></member>
+      <member refid="class_l_i_s_a_1ae93f12d73f48a9fbe7c21e8ba17fa9ee" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>significance_filter</name></member>
+      <member refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>undefs</name></member>
+      <member refid="class_l_i_s_a_1af82c5848fd8c9c03720b6768b7a55376" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>user_sig_cutoff</name></member>
+      <member refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>weights</name></member>
+      <member refid="class_multi_join_count_1afa56d95c5036b2b339ffbb6f1442bcce" prot="protected" virt="non-virtual"><scope>MultiJoinCount</scope><name>zz</name></member>
+      <member refid="class_l_i_s_a_1ad0e5bc71ddb28e30b7f9e4895a561d15" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>~LISA</name></member>
+      <member refid="class_multi_join_count_1adc3dbdac4dae741341e92514970cb7e8" prot="public" virt="virtual"><scope>MultiJoinCount</scope><name>~MultiJoinCount</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

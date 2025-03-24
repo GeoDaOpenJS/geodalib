@@ -1,0 +1,79 @@
+\doxysection{geoda-\/weight.h}
+\hypertarget{geoda-weight_8h_source}{}\label{geoda-weight_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/weights/geoda-\/weight.h@{/Users/xun/github/geoda-\/lib/src/cpp/weights/geoda-\/weight.h}}
+\mbox{\hyperlink{geoda-weight_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_JSGEODA\_GEODA\_WEIGHTS\_H\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_JSGEODA\_GEODA\_WEIGHTS\_H\_\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_geo_da_weight_a1fa01dc2a6d2429f8f770c2e33ee22fd}{GeoDaWeight}}\ \{}
+\DoxyCodeLine{00008\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \textcolor{comment}{//\ Properties}}
+\DoxyCodeLine{00010\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_geo_da_weight_af4dd01d313aca99b6a04be97dd9c61a8}{WeightType}}\ \{\ \mbox{\hyperlink{class_geo_da_weight_af4dd01d313aca99b6a04be97dd9c61a8a884a5108e33974006ebc7e7abece685e}{gal\_type}},\ \mbox{\hyperlink{class_geo_da_weight_af4dd01d313aca99b6a04be97dd9c61a8a1e90df419d0354d5c6d719e0927284c6}{gwt\_type}}\ \};}
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{class_geo_da_weight_af4dd01d313aca99b6a04be97dd9c61a8}{WeightType}}\ \mbox{\hyperlink{class_geo_da_weight_a19c17fc62099cb6b1a16565e723b8837}{weight\_type}};}
+\DoxyCodeLine{00012\ \ \ std::string\ \mbox{\hyperlink{class_geo_da_weight_af9a8fa5c60b25e06c333073963ccb341}{wflnm}};\ \ \textcolor{comment}{//\ filename}}
+\DoxyCodeLine{00013\ \ \ std::string\ \mbox{\hyperlink{class_geo_da_weight_ad004f777fe889ed0b1c6f95c3f04db90}{id\_field}};}
+\DoxyCodeLine{00014\ \ \ std::string\ \mbox{\hyperlink{class_geo_da_weight_a89bc922e9d5a9eeae04642657ba702a9}{title}};\ \ \ \ \ \ \textcolor{comment}{//\ optional\ title.\ \ Use\ wflnm\ if\ empty}}
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geo_da_weight_a9cc78fc8b36b49d6a1b30d16f6f1a26e}{symmetry\_checked}};\ \ \textcolor{comment}{//\ indicates\ validity\ of\ is\_symmetric\ bool}}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geo_da_weight_a8813dca99a1618758b762e3f150fcb6e}{is\_symmetric}};\ \ \ \ \ \ \textcolor{comment}{//\ true\ iff\ matrix\ is\ symmetric}}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_geo_da_weight_adb96b8f8109f295755ef01cbce08c611}{num\_obs}};}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_geo_da_weight_a3171780e2956a0c7cb1d97a5973ba391}{sparsity}};\ \ \textcolor{comment}{//\ \%\ non-\/zeros}}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_geo_da_weight_a1e3e270f84f87f3b318a39b01b5f85b3}{min\_nbrs}};}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_geo_da_weight_a77519fd84a63f54e521728fa162e13c1}{max\_nbrs}};}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_geo_da_weight_a68ed374b7f312f1604bc948a02dea3b9}{mean\_nbrs}};}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_geo_da_weight_aefae6005ee5e45f7a47230f2d8eaab38}{median\_nbrs}};}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geo_da_weight_a739d89865d2ecdc73a12a9f453321d61}{is\_internal\_use}};\ \ \textcolor{comment}{//\ if\ internally\ used\ weights\ structure,\ will\ not\ be\ shown\ and\ used\ by\ users}}
+\DoxyCodeLine{00024\ \ \ std::string\ \mbox{\hyperlink{class_geo_da_weight_ab72df663ce49d6749d681116ac4af519}{uid}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{class_geo_da_weight_a1fa01dc2a6d2429f8f770c2e33ee22fd}{GeoDaWeight}}()\ :\ \mbox{\hyperlink{class_geo_da_weight_a9cc78fc8b36b49d6a1b30d16f6f1a26e}{symmetry\_checked}}(false),\ \mbox{\hyperlink{class_geo_da_weight_adb96b8f8109f295755ef01cbce08c611}{num\_obs}}(0)\ \{\}}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{class_geo_da_weight_a1fa01dc2a6d2429f8f770c2e33ee22fd}{GeoDaWeight}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geo_da_weight}{GeoDaWeight}}\&\ gw);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_geo_da_weight_a3e7e08497eb89a3bc3ce5424204495fd}{\string~GeoDaWeight}}()\ \{\}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geo_da_weight_a081587de9ffd3ec89905299a1600df8c}{CheckConnectivity}}();}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geo_da_weight_a91221ff8e297f16dc61fa00c631f7974}{CheckNeighbor}}(\textcolor{keywordtype}{int}\ obs\_idx,\ \textcolor{keywordtype}{int}\ nbr\_idx)\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\ \mbox{\hyperlink{class_geo_da_weight_a2935e2a6c263d50e50f9072944ddba9b}{GetNeighbors}}(\textcolor{keywordtype}{int}\ obs\_idx)\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ std::vector<double>\ \mbox{\hyperlink{class_geo_da_weight_ac0f0408d82d3e7ce533c7e81a9ae7803}{GetNeighborWeights}}(\textcolor{keywordtype}{int}\ obs\_idx)\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_geo_da_weight_a37bde9a91acf23dcdf9e8e8b2786c4cf}{Update}}(\textcolor{keyword}{const}\ std::vector<bool>\&\ undefs)\ =\ 0;}
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geo_da_weight_af2856e115c5106bfb5e8ea2be05a5cc9}{HasIsolates}}()\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_geo_da_weight_a5fdcd087fbf1f40057696678a9cf25ab}{GetNbrStats}}()\ =\ 0;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_geo_da_weight_a85b17e272352fbd1555f6f1c9e94b7a9}{GetNbrSize}}(\textcolor{keywordtype}{int}\ obs\_idx)\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_geo_da_weight_a031b36540fdebf4f5510a998a670509a}{SpatialLag}}(\textcolor{keywordtype}{int}\ obs\_idx,\ \textcolor{keyword}{const}\ std::vector<double>\&\ data)\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geo_da_weight_a4373cae69dd72b9b929d9991084d3fbd}{Save}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ofname,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ layer\_name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ id\_var\_name,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ id\_vec)\ =\ 0;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geo_da_weight_abb2cd9fe703b2b7cd02cb2b711da49ad}{Save}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ofname,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ layer\_name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ id\_var\_name,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\&\ id\_vec)\ =\ 0;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_geo_da_weight_a98e57b733f67321d5278a77fdb5669b7}{SetNeighbors}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::vector<int>\&\ nbr\_ids)\ =\ 0;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_geo_da_weight_a97a67a7e25c6ba5a45e265c4a8a8c222}{SetNeighborsAndWeights}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::vector<int>\&\ nbr\_ids,\ \textcolor{keyword}{const}\ std::vector<double>\&\ w)\ =\ 0;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ functions:}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geo_da_weight_af2dbbb6c89105924d5b4a365f5318abc}{IsSymmetric}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_geo_da_weight_a9e15aa5966a8f8b709a711ded1aede68}{GetSparsity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_geo_da_weight_ae24f9c81ad64d031322ac1b35cafc439}{GetMinNbrs}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_geo_da_weight_a36cd1915c19f170af68622e4f472b066}{GetMaxNbrs}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_geo_da_weight_a080fa30e2b431a7f5b86c73ca0f115fc}{GetMeanNbrs}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_geo_da_weight_ae8369eca0bce3af69f96bc5f305948fc}{GetMedianNbrs}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_geo_da_weight_a0e9794e655a0cdd3b56994286ddbee57}{GetNumObs}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geo_da_weight_a3cd8387d7d686a81eac3ac808dc47584}{IsInternalUse}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geo_da_weight_a739d89865d2ecdc73a12a9f453321d61}{is\_internal\_use}};\ \}}
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geo_da_weight_adab909ac43e39aaca6d383c7dfc948d6}{IsMasked}}(\textcolor{keywordtype}{int}\ obs\_idx)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{comment}{//\ Others}}
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_geo_da_weight}{GeoDaWeight}}\&\ \mbox{\hyperlink{class_geo_da_weight_aa3e1faaedf2a837beb5403369ab52263}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geo_da_weight}{GeoDaWeight}}\&\ gw);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{class_geo_da_weight_aa4001499a1d9b951bc8e9d117006e5bb}{GetTitle}}()\ \textcolor{keyword}{const};\ \ \textcolor{comment}{//\ returns\ portion\ of\ wflnm\ if\ title\ empty}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{class_geo_da_weight_a2d5a5487782eba2faeb27d9d08bfd226}{GetIDName}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geo_da_weight_ad004f777fe889ed0b1c6f95c3f04db90}{id\_field}};\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{class_geo_da_weight_a6e5ede000bf75e4453438d2077fc3053}{GetUID}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geo_da_weight_ab72df663ce49d6749d681116ac4af519}{uid}};\ \}}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="natural-breaks_8cpp" kind="file" language="C++">
+    <compoundname>natural-breaks.cpp</compoundname>
+    <includes local="no">set</includes>
+    <includes local="no">boost/algorithm/string.hpp</includes>
+    <includes local="no">boost/math/distributions/students_t.hpp</includes>
+    <includes local="no">boost/random.hpp</includes>
+    <includes local="no">boost/random/uniform_01.hpp</includes>
+    <includes refid="mapping_8h" local="yes">mapping/mapping.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>mapping/mapping.h</label>
+        <link refid="mapping_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp</label>
+        <link refid="natural-breaks_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>boost/algorithm/string.hpp</label>
+      </node>
+      <node id="4">
+        <label>boost/math/distributions/students_t.hpp</label>
+      </node>
+      <node id="5">
+        <label>boost/random.hpp</label>
+      </node>
+      <node id="6">
+        <label>boost/random/uniform_01.hpp</label>
+      </node>
+      <node id="8">
+        <label>limits</label>
+      </node>
+      <node id="2">
+        <label>set</label>
+      </node>
+      <node id="9">
+        <label>utility</label>
+      </node>
+      <node id="10">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_unique_val_elem" prot="public">UniqueValElem</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="natural-breaks_8cpp_1a02b6228e8561b3130afcedf945b3aadb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void create_unique_val_mapping</definition>
+        <argsstring>(std::vector&lt; UniqueValElem &gt; &amp;uv_mapping, const std::vector&lt; double &gt; &amp;v, const std::vector&lt; bool &gt; &amp;v_undef)</argsstring>
+        <name>create_unique_val_mapping</name>
+        <param>
+          <type>std::vector&lt; <ref refid="struct_unique_val_elem" kindref="compound">UniqueValElem</ref> &gt; &amp;</type>
+          <declname>uv_mapping</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; bool &gt; &amp;</type>
+          <declname>v_undef</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>clears uv_mapping and resizes as needed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" line="18" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" bodystart="18" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="natural-breaks_8cpp_1aeba0a485bb50b56adc6ccac9417c80e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pick_rand_breaks</definition>
+        <argsstring>(std::vector&lt; int &gt; &amp;b, int N, boost::uniform_01&lt; boost::mt19937 &gt; &amp;X)</argsstring>
+        <name>pick_rand_breaks</name>
+        <param>
+          <type>std::vector&lt; int &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <param>
+          <type>boost::uniform_01&lt; boost::mt19937 &gt; &amp;</type>
+          <declname>X</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assume that b.size() &lt;= N-1 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" line="39" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" bodystart="39" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="natural-breaks_8cpp_1a085e43e0c5f4bd5b8f7de4876fe2d6b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void unique_to_normal_breaks</definition>
+        <argsstring>(const std::vector&lt; int &gt; &amp;u_val_breaks, const std::vector&lt; UniqueValElem &gt; &amp;u_val_mapping, std::vector&lt; int &gt; &amp;n_breaks)</argsstring>
+        <name>unique_to_normal_breaks</name>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>u_val_breaks</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="struct_unique_val_elem" kindref="compound">UniqueValElem</ref> &gt; &amp;</type>
+          <declname>u_val_mapping</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; int &gt; &amp;</type>
+          <declname>n_breaks</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" line="55" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" bodystart="55" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="natural-breaks_8cpp_1a1334bee7d6e47eb817b8c8def510eb76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double calc_gvf</definition>
+        <argsstring>(const std::vector&lt; int &gt; &amp;b, const std::vector&lt; double &gt; &amp;v, double gssd)</argsstring>
+        <name>calc_gvf</name>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>gssd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assume input b and v is sorted. If not, can sort with std::sort(v.begin(), v.end()) We assume that b and v are sorted in ascending order and are valid (ie, no break indicies out of range and all categories have at least one value. gssd is the global sum of squared differences from the mean </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" line="71" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp" bodystart="71" bodyend="88"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/algorithm/string.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/math/distributions/students_t.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/random.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/random/uniform_01.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mapping_8h" kindref="compound">mapping/mapping.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="struct_unique_val_elem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_unique_val_elem_1a62e83275a83b1eecd5dd21fb99172282" kindref="member">UniqueValElem</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><ref refid="struct_unique_val_elem_1a62e83275a83b1eecd5dd21fb99172282" kindref="member">UniqueValElem</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>v,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>f,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l)<sp/>:<sp/><ref refid="struct_unique_val_elem_1a10dd4b0080eae06d6ef685057f640200" kindref="member">val</ref>(v),<sp/><ref refid="struct_unique_val_elem_1a97e3ddb0d66e2fe84dc185176d08c140" kindref="member">first</ref>(f),<sp/><ref refid="struct_unique_val_elem_1a4eb6318808d3ed6abc89dbc094bde610" kindref="member">last</ref>(l)<sp/>{}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_unique_val_elem_1a10dd4b0080eae06d6ef685057f640200" kindref="member">val</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_unique_val_elem_1a97e3ddb0d66e2fe84dc185176d08c140" kindref="member">first</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>index<sp/>of<sp/>first<sp/>occurrance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_unique_val_elem_1a4eb6318808d3ed6abc89dbc094bde610" kindref="member">last</ref>;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>index<sp/>of<sp/>last<sp/>occurrance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="natural-breaks_8cpp_1a02b6228e8561b3130afcedf945b3aadb" kindref="member">create_unique_val_mapping</ref>(std::vector&lt;UniqueValElem&gt;&amp;<sp/>uv_mapping,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>v,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;bool&gt;&amp;<sp/>v_undef)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>uv_mapping.clear();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cur_ind<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0,<sp/>iend<sp/>=<sp/>v.size();<sp/>i<sp/>&lt;<sp/>iend;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(v_undef[i])<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(uv_mapping.empty())<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cur_ind++;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uv_mapping.push_back(<ref refid="struct_unique_val_elem" kindref="compound">UniqueValElem</ref>(v[i],<sp/>i,<sp/>i));</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(uv_mapping[cur_ind].val<sp/>!=<sp/>v[i])<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uv_mapping[cur_ind].last<sp/>=<sp/>i<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur_ind++;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uv_mapping.push_back(<ref refid="struct_unique_val_elem" kindref="compound">UniqueValElem</ref>(v[i],<sp/>i,<sp/>i));</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="natural-breaks_8cpp_1aeba0a485bb50b56adc6ccac9417c80e1" kindref="member">pick_rand_breaks</ref>(std::vector&lt;int&gt;&amp;<sp/>b,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/>boost::uniform_01&lt;boost::mt19937&gt;&amp;<sp/>X)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_breaks<sp/>=<sp/>b.size();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(num_breaks<sp/>&gt;<sp/>N<sp/>-<sp/>1)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>std::set&lt;int&gt;<sp/>s;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(s.size()<sp/>!=<sp/>num_breaks)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>s.insert(1<sp/>+<sp/>(N<sp/>-<sp/>1)<sp/>*<sp/>X());</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(std::set&lt;int&gt;::iterator<sp/>it<sp/>=<sp/>s.begin();<sp/>it<sp/>!=<sp/>s.end();<sp/>it++)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>b[cnt++]<sp/>=<sp/>*it;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>std::sort(b.begin(),<sp/>b.end());</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/>translate<sp/>unique<sp/>value<sp/>breaks<sp/>into<sp/>normal<sp/>breaks<sp/>given<sp/>unique<sp/>value<sp/>mapping</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="natural-breaks_8cpp_1a085e43e0c5f4bd5b8f7de4876fe2d6b1" kindref="member">unique_to_normal_breaks</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>u_val_breaks,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;UniqueValElem&gt;&amp;<sp/>u_val_mapping,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;&amp;<sp/>n_breaks)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n_breaks.size()<sp/>!=<sp/>u_val_breaks.size())<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>n_breaks.resize(u_val_breaks.size());</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0,<sp/>iend<sp/>=<sp/>u_val_breaks.size();<sp/>i<sp/>&lt;<sp/>iend;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>n_breaks[i]<sp/>=<sp/>u_val_mapping[u_val_breaks[i]].first;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="natural-breaks_8cpp_1a1334bee7d6e47eb817b8c8def510eb76" kindref="member">calc_gvf</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>b,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>v,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gssd)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N<sp/>=<sp/>v.size();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_cats<sp/>=<sp/>b.size()<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tssd<sp/>=<sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>total<sp/>sum<sp/>of<sp/>local<sp/>sums<sp/>of<sp/>squared<sp/>differences</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_cats;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>s<sp/>=<sp/>(i<sp/>==<sp/>0)<sp/>?<sp/>0<sp/>:<sp/>b[i<sp/>-<sp/>1];</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>t<sp/>=<sp/>(i<sp/>==<sp/>num_cats<sp/>-<sp/>1)<sp/>?<sp/>N<sp/>:<sp/>b[i];</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>m<sp/>=<sp/>0;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>local<sp/>mean</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ssd<sp/>=<sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>local<sp/>sum<sp/>of<sp/>squared<sp/>differences<sp/>(variance)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>s;<sp/>j<sp/>&lt;<sp/>t;<sp/>j++)<sp/>m<sp/>+=<sp/>v[j];</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>m<sp/>/=<sp/>(t<sp/>-<sp/>s);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>s;<sp/>j<sp/>&lt;<sp/>t;<sp/>j++)<sp/>ssd<sp/>+=<sp/>(v[j]<sp/>-<sp/>m)<sp/>*<sp/>(v[j]<sp/>-<sp/>m);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>tssd<sp/>+=<sp/>ssd;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1<sp/>-<sp/>(tssd<sp/>/<sp/>gssd);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//<sp/>implementation<sp/>of<sp/>natural<sp/>breaks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="namespacegeoda_1a1ad44a733a65babc804992d3f23d302b" kindref="member">geoda::natural_breaks</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_cats,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>data,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>_undef)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_obs<sp/>=<sp/>data.size();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>std::vector&lt;bool&gt;<sp/>undef(num_obs,<sp/>0);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_undef.size()<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>_undef.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>undef[i]<sp/>=<sp/>_undef[i]<sp/>==<sp/>1;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>std::vector&lt;std::pair&lt;double,<sp/>int&gt;<sp/>&gt;<sp/>var;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_obs;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>var.push_back(std::make_pair(data[i],<sp/>i));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>std::sort(var.begin(),<sp/>var.end(),<sp/><ref refid="namespacegeoda_1a893cc84a86ec4e9ef3dd2c2c1b8dfec6" kindref="member">geoda::dbl_int_pair_cmp_less</ref>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>v(num_obs);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>v_undef(num_obs);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_obs;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>v[i]<sp/>=<sp/>var[i].first;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind<sp/>=<sp/>var[i].second;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>v_undef[i]<sp/>=<sp/>undef[ind];</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>std::vector&lt;UniqueValElem&gt;<sp/>uv_mapping;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><ref refid="natural-breaks_8cpp_1a02b6228e8561b3130afcedf945b3aadb" kindref="member">create_unique_val_mapping</ref>(uv_mapping,<sp/>v,<sp/>undef);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_unique_vals<sp/>=<sp/>uv_mapping.size();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>t_cats<sp/>=<sp/>std::min(num_unique_vals,<sp/>num_cats);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mean<sp/>=<sp/>0,<sp/>max_val;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>valid_obs<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_obs;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>val<sp/>=<sp/>var[i].first;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind<sp/>=<sp/>var[i].second;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>0<sp/>||<sp/>val<sp/>&gt;<sp/>max_val)<sp/>max_val<sp/>=<sp/>val;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(undef[ind])<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>mean<sp/>+=<sp/>val;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>valid_obs<sp/>+=<sp/>1;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>mean<sp/>/=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(valid_obs);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gssd<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_obs;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>val<sp/>=<sp/>var[i].first;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind<sp/>=<sp/>var[i].second;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(undef[ind])<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>gssd<sp/>+=<sp/>(val<sp/>-<sp/>mean)<sp/>*<sp/>(val<sp/>-<sp/>mean);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>rand_b(t_cats<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>best_breaks(t_cats<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>uv_rand_b(t_cats<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>max_gvf_found<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max_gvf_ind<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>5000<sp/>permutations,<sp/>2200<sp/>obs,<sp/>and<sp/>4<sp/>time<sp/>periods,<sp/>slow<sp/>enough</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>sure<sp/>permutations<sp/>is<sp/>such<sp/>that<sp/>this<sp/>total<sp/>is<sp/>not<sp/>exceeded.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>c<sp/>=<sp/>5000<sp/>*<sp/>2200<sp/>*<sp/>4;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perms<sp/>=<sp/>c<sp/>/<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(valid_obs);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(perms<sp/>&lt;<sp/>10)<sp/>perms<sp/>=<sp/>10;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(perms<sp/>&gt;<sp/>10000)<sp/>perms<sp/>=<sp/>10000;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>boost::mt19937<sp/>rng(geoda::USER_SEED);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>boost::uniform_01&lt;boost::mt19937&gt;<sp/>X(rng);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>perms;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="natural-breaks_8cpp_1aeba0a485bb50b56adc6ccac9417c80e1" kindref="member">pick_rand_breaks</ref>(uv_rand_b,<sp/>num_unique_vals,<sp/>X);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>translate<sp/>uv_rand_b<sp/>into<sp/>normal<sp/>breaks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="natural-breaks_8cpp_1a085e43e0c5f4bd5b8f7de4876fe2d6b1" kindref="member">unique_to_normal_breaks</ref>(uv_rand_b,<sp/>uv_mapping,<sp/>rand_b);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>new_gvf<sp/>=<sp/><ref refid="natural-breaks_8cpp_1a1334bee7d6e47eb817b8c8def510eb76" kindref="member">calc_gvf</ref>(rand_b,<sp/>v,<sp/>gssd);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(new_gvf<sp/>&gt;<sp/>max_gvf_found)<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>max_gvf_found<sp/>=<sp/>new_gvf;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>max_gvf_ind<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>best_breaks<sp/>=<sp/>rand_b;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>nat_breaks;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>nat_breaks.resize(best_breaks.size());</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0,<sp/>iend<sp/>=<sp/>best_breaks.size();<sp/>i<sp/>&lt;<sp/>iend;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>nat_breaks[i]<sp/>=<sp/>var[best_breaks[i]].first;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nat_breaks;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/mapping/natural-breaks.cpp"/>
+  </compounddef>
+</doxygen>

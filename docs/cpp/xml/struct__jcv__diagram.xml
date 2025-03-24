@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="struct__jcv__diagram" kind="struct" language="C++" prot="public">
+    <compoundname>_jcv_diagram</compoundname>
+    <includes refid="jc__voronoi_8h" local="no">jc_voronoi.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__jcv__diagram_1a466fea28608fbb307fe9f26fb8cd7c79" prot="public" static="no" mutable="no">
+        <type>struct _jcv_context_internal *</type>
+        <definition>struct _jcv_context_internal* _jcv_diagram::internal</definition>
+        <argsstring></argsstring>
+        <name>internal</name>
+        <qualifiedname>_jcv_diagram::internal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="231" column="31" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__jcv__diagram_1a37cf2c70119c58752c0b61b2f113be7e" prot="public" static="no" mutable="no">
+        <type><ref refid="jc__voronoi_8h_1a6a5b54b91e64e7464b9e5867eaad3b5b" kindref="member">jcv_edge</ref> *</type>
+        <definition>jcv_edge* _jcv_diagram::edges</definition>
+        <argsstring></argsstring>
+        <name>edges</name>
+        <qualifiedname>_jcv_diagram::edges</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="232" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__jcv__diagram_1a4ae320fc804cccfcd4d46c0cf98cb150" prot="public" static="no" mutable="no">
+        <type><ref refid="jc__voronoi_8h_1a5386281099d8669709643c318b500893" kindref="member">jcv_site</ref> *</type>
+        <definition>jcv_site* _jcv_diagram::sites</definition>
+        <argsstring></argsstring>
+        <name>sites</name>
+        <qualifiedname>_jcv_diagram::sites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="233" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__jcv__diagram_1a6684510ae98f93978135c10a41ee5914" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _jcv_diagram::numsites</definition>
+        <argsstring></argsstring>
+        <name>numsites</name>
+        <qualifiedname>_jcv_diagram::numsites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="234" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__jcv__diagram_1aa399b45ddd3f8fad587b128d17a0f1a1" prot="public" static="no" mutable="no">
+        <type><ref refid="jc__voronoi_8h_1a7f4dcdffe3318ec1307e9b680ce05fe4" kindref="member">jcv_point</ref></type>
+        <definition>jcv_point _jcv_diagram::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <qualifiedname>_jcv_diagram::min</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="235" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__jcv__diagram_1aa9e598b93f68c6297f7f405d4d240c4c" prot="public" static="no" mutable="no">
+        <type><ref refid="jc__voronoi_8h_1a7f4dcdffe3318ec1307e9b680ce05fe4" kindref="member">jcv_point</ref></type>
+        <definition>jcv_point _jcv_diagram::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <qualifiedname>_jcv_diagram::max</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="236" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>_jcv_diagram</label>
+        <link refid="struct__jcv__diagram"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>edges</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>sites</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>max</edgelabel>
+          <edgelabel>min</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>_jcv_edge</label>
+        <link refid="struct__jcv__edge"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>sites</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>pos</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>_jcv_graphedge</label>
+        <link refid="struct__jcv__graphedge"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>edge</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>neighbor</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>pos</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>_jcv_point</label>
+        <link refid="struct__jcv__point"/>
+      </node>
+      <node id="3">
+        <label>_jcv_site</label>
+        <link refid="struct__jcv__site"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>edges</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="230" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="230" bodyend="237"/>
+    <listofallmembers>
+      <member refid="struct__jcv__diagram_1a37cf2c70119c58752c0b61b2f113be7e" prot="public" virt="non-virtual"><scope>_jcv_diagram</scope><name>edges</name></member>
+      <member refid="struct__jcv__diagram_1a466fea28608fbb307fe9f26fb8cd7c79" prot="public" virt="non-virtual"><scope>_jcv_diagram</scope><name>internal</name></member>
+      <member refid="struct__jcv__diagram_1aa9e598b93f68c6297f7f405d4d240c4c" prot="public" virt="non-virtual"><scope>_jcv_diagram</scope><name>max</name></member>
+      <member refid="struct__jcv__diagram_1aa399b45ddd3f8fad587b128d17a0f1a1" prot="public" virt="non-virtual"><scope>_jcv_diagram</scope><name>min</name></member>
+      <member refid="struct__jcv__diagram_1a6684510ae98f93978135c10a41ee5914" prot="public" virt="non-virtual"><scope>_jcv_diagram</scope><name>numsites</name></member>
+      <member refid="struct__jcv__diagram_1a4ae320fc804cccfcd4d46c0cf98cb150" prot="public" virt="non-virtual"><scope>_jcv_diagram</scope><name>sites</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

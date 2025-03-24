@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="class_uni_geary" kind="class" language="C++" prot="public">
+    <compoundname>UniGeary</compoundname>
+    <basecompoundref refid="class_l_i_s_a" prot="public" virt="non-virtual">LISA</basecompoundref>
+    <includes refid="_uni_geary_8h" local="no">UniGeary.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_uni_geary_1ac5d55b7baded95354b2f1ad3aa62dcdc" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int UniGeary::CLUSTER_NOT_SIG</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_NOT_SIG</name>
+        <qualifiedname>UniGeary::CLUSTER_NOT_SIG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="14" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_uni_geary_1a60cfc5581f997d852d8c4f3b2bc653a9" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int UniGeary::CLUSTER_HIGHHIGH</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_HIGHHIGH</name>
+        <qualifiedname>UniGeary::CLUSTER_HIGHHIGH</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="15" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_uni_geary_1a0acc352a42ebfe30a353258e04d1eed9" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int UniGeary::CLUSTER_LOWLOW</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_LOWLOW</name>
+        <qualifiedname>UniGeary::CLUSTER_LOWLOW</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="16" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_uni_geary_1a28d6476e3daad0231216e2af8e3365c6" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int UniGeary::CLUSTER_OTHERPOS</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_OTHERPOS</name>
+        <qualifiedname>UniGeary::CLUSTER_OTHERPOS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="17" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_uni_geary_1aa65263de3df6a7ee630c7cb30c3a7103" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int UniGeary::CLUSTER_NEGATIVE</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_NEGATIVE</name>
+        <qualifiedname>UniGeary::CLUSTER_NEGATIVE</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="18" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_uni_geary_1a93a6cd8d6751ae5a26c5e298360643cc" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int UniGeary::CLUSTER_UNDEFINED</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_UNDEFINED</name>
+        <qualifiedname>UniGeary::CLUSTER_UNDEFINED</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="19" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_uni_geary_1a81883f52dd055351043c24c38d933b8b" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int UniGeary::CLUSTER_NEIGHBORLESS</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_NEIGHBORLESS</name>
+        <qualifiedname>UniGeary::CLUSTER_NEIGHBORLESS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="20" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_uni_geary_1a5efb8cc579d00b2ffa2d87e9582afc1e" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; UniGeary::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>UniGeary::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="41" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_uni_geary_1a6c88ea8c3e85f026f4c743805d2320dd" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; UniGeary::data_square</definition>
+        <argsstring></argsstring>
+        <name>data_square</name>
+        <qualifiedname>UniGeary::data_square</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="42" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_uni_geary_1a73ba03b19aa5f3d6ede9c47c6cfaf435" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UniGeary::UniGeary</definition>
+        <argsstring>(int num_obs, GeoDaWeight *w, const std::vector&lt; double &gt; &amp;data, const std::vector&lt; bool &gt; &amp;undefs, double significance_cutoff, int nCPUs, int permutations, const std::string &amp;_permutation_method, uint64_t last_seed_used)</argsstring>
+        <name>UniGeary</name>
+        <qualifiedname>UniGeary::UniGeary</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>num_obs</declname>
+        </param>
+        <param>
+          <type><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref> *</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; bool &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>significance_cutoff</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nCPUs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>permutations</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>_permutation_method</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>last_seed_used</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="23" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.cpp" bodystart="10" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_uni_geary_1a0a494414ca881f2e0971d3c7d1f7d52c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>UniGeary::~UniGeary</definition>
+        <argsstring>()</argsstring>
+        <name>~UniGeary</name>
+        <qualifiedname>UniGeary::~UniGeary</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="27" column="11" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.cpp" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_uni_geary_1a8b44a3959ad1ea2eb2e2028b4cde7d95" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void UniGeary::ComputeLoalSA</definition>
+        <argsstring>()</argsstring>
+        <name>ComputeLoalSA</name>
+        <qualifiedname>UniGeary::ComputeLoalSA</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1a3fd503729531ec0b38baab2bea13ac87">ComputeLoalSA</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="29" column="16" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.cpp" bodystart="50" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_uni_geary_1a2c04163866f185bdbae34f1ccd9815ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void UniGeary::PermLocalSA</definition>
+        <argsstring>(int cnt, int perm, const std::vector&lt; int &gt; &amp;permNeighbors, std::vector&lt; double &gt; &amp;permutedSA)</argsstring>
+        <name>PermLocalSA</name>
+        <qualifiedname>UniGeary::PermLocalSA</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1a62badd64960be2ce9508d25e00bb6faf">PermLocalSA</reimplements>
+        <param>
+          <type>int</type>
+          <declname>cnt</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>perm</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>permNeighbors</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>permutedSA</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="31" column="16" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.cpp" bodystart="92" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="class_uni_geary_1a44e59696bb4e37547f71007f13c144a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void UniGeary::PermLocalSA</definition>
+        <argsstring>(int cnt, int perm, int numNeighbors, const int *permNeighbors, std::vector&lt; double &gt; &amp;permutedSA)</argsstring>
+        <name>PermLocalSA</name>
+        <qualifiedname>UniGeary::PermLocalSA</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1aeefb4ec2ad6564008c6c63bdce46eccb">PermLocalSA</reimplements>
+        <param>
+          <type>int</type>
+          <declname>cnt</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>perm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>numNeighbors</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>permNeighbors</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>permutedSA</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="33" column="16" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.cpp" bodystart="118" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="class_uni_geary_1a29a57f311290dac8d7f9a57b1afe5dd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t UniGeary::CountLargerSA</definition>
+        <argsstring>(int cnt, const std::vector&lt; double &gt; &amp;permutedSA)</argsstring>
+        <name>CountLargerSA</name>
+        <qualifiedname>UniGeary::CountLargerSA</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1a30943843a09198a2617625d5f02debf8">CountLargerSA</reimplements>
+        <param>
+          <type>int</type>
+          <declname>cnt</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>permutedSA</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="36" column="20" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.cpp" bodystart="147" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_uni_geary_1abd9d71cdc3644facc7b3672c687af7e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt; int &gt; UniGeary::GetClusterIndicators</definition>
+        <argsstring>()</argsstring>
+        <name>GetClusterIndicators</name>
+        <qualifiedname>UniGeary::GetClusterIndicators</qualifiedname>
+        <reimplements refid="class_l_i_s_a_1a1dfd91e4c229c87fe81d6f8859bd0e0a">GetClusterIndicators</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="38" column="23" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.cpp" bodystart="183" bodyend="195"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>LISA</label>
+        <link refid="class_l_i_s_a"/>
+      </node>
+      <node id="1">
+        <label>UniGeary</label>
+        <link refid="class_uni_geary"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>GeoDaWeight</label>
+        <link refid="class_geo_da_weight"/>
+      </node>
+      <node id="2">
+        <label>LISA</label>
+        <link refid="class_l_i_s_a"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>weights</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>UniGeary</label>
+        <link refid="class_uni_geary"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" line="13" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h" bodystart="13" bodyend="43"/>
+    <listofallmembers>
+      <member refid="class_l_i_s_a_1af33206fcbd8c59afc201a8a0454f065f" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>calc_significances</name></member>
+      <member refid="class_l_i_s_a_1ac6f4566109b14ef3dc9122563319f1d4" prot="public" virt="virtual"><scope>UniGeary</scope><name>CalcPseudoP</name></member>
+      <member refid="class_l_i_s_a_1aefcdfbe128df11c625ee6f496c78f40f" prot="public" virt="virtual"><scope>UniGeary</scope><name>CalcPseudoP_range</name></member>
+      <member refid="class_l_i_s_a_1a84f64caa8e28914746d3a9495f8bf489" prot="public" virt="virtual"><scope>UniGeary</scope><name>CalcPseudoP_threaded</name></member>
+      <member refid="class_uni_geary_1a60cfc5581f997d852d8c4f3b2bc653a9" prot="private" virt="non-virtual"><scope>UniGeary</scope><name>CLUSTER_HIGHHIGH</name></member>
+      <member refid="class_uni_geary_1a0acc352a42ebfe30a353258e04d1eed9" prot="private" virt="non-virtual"><scope>UniGeary</scope><name>CLUSTER_LOWLOW</name></member>
+      <member refid="class_uni_geary_1aa65263de3df6a7ee630c7cb30c3a7103" prot="private" virt="non-virtual"><scope>UniGeary</scope><name>CLUSTER_NEGATIVE</name></member>
+      <member refid="class_uni_geary_1a81883f52dd055351043c24c38d933b8b" prot="private" virt="non-virtual"><scope>UniGeary</scope><name>CLUSTER_NEIGHBORLESS</name></member>
+      <member refid="class_uni_geary_1ac5d55b7baded95354b2f1ad3aa62dcdc" prot="private" virt="non-virtual"><scope>UniGeary</scope><name>CLUSTER_NOT_SIG</name></member>
+      <member refid="class_uni_geary_1a28d6476e3daad0231216e2af8e3365c6" prot="private" virt="non-virtual"><scope>UniGeary</scope><name>CLUSTER_OTHERPOS</name></member>
+      <member refid="class_uni_geary_1a93a6cd8d6751ae5a26c5e298360643cc" prot="private" virt="non-virtual"><scope>UniGeary</scope><name>CLUSTER_UNDEFINED</name></member>
+      <member refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>cluster_vec</name></member>
+      <member refid="class_l_i_s_a_1a3879ae2936f23e8301ef35200c71d5cd" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>colors</name></member>
+      <member refid="class_uni_geary_1a8b44a3959ad1ea2eb2e2028b4cde7d95" prot="public" virt="virtual"><scope>UniGeary</scope><name>ComputeLoalSA</name></member>
+      <member refid="class_uni_geary_1a29a57f311290dac8d7f9a57b1afe5dd2" prot="public" virt="virtual"><scope>UniGeary</scope><name>CountLargerSA</name></member>
+      <member refid="class_uni_geary_1a5efb8cc579d00b2ffa2d87e9582afc1e" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>data</name></member>
+      <member refid="class_uni_geary_1a6c88ea8c3e85f026f4c743805d2320dd" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>data_square</name></member>
+      <member refid="class_l_i_s_a_1a66abedb503f8f675b04423213027325d" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetBO</name></member>
+      <member refid="class_uni_geary_1abd9d71cdc3644facc7b3672c687af7e6" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetClusterIndicators</name></member>
+      <member refid="class_l_i_s_a_1aa7ccbefcd8fb8543e791485916270cb0" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetColors</name></member>
+      <member refid="class_l_i_s_a_1a2730bb134ce7faa62ee1a984417ad0a1" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetDefaultCategories</name></member>
+      <member refid="class_l_i_s_a_1a13defe2359b83ee5a988e99a6e5af2bb" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetDefaultCutoffs</name></member>
+      <member refid="class_l_i_s_a_1a2bfab81b9e42615e66158a7865f83fbd" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetFDR</name></member>
+      <member refid="class_l_i_s_a_1ac8a5fc8c591762f9c6ac3b4ad3ccdd45" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetHasIsolates</name></member>
+      <member refid="class_l_i_s_a_1aec64be30b626394c5662a4bb14e680c3" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetHasUndefined</name></member>
+      <member refid="class_l_i_s_a_1af7c025f7b5dbfacfcd1068aea0bc3a16" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetLabels</name></member>
+      <member refid="class_l_i_s_a_1a9b43164d4e09625fee42e4bd3b5c7e43" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetLastUsedSeed</name></member>
+      <member refid="class_l_i_s_a_1a66a7a277ed1b0d774f0e1881a17e6fbe" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetLISAValues</name></member>
+      <member refid="class_l_i_s_a_1a9ffdfbc23351d06ef8c58a288a65e6dc" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetLocalSignificanceValues</name></member>
+      <member refid="class_l_i_s_a_1a2298353561cf8bc8a046a75e0a6101c9" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetNumNeighbors</name></member>
+      <member refid="class_l_i_s_a_1a87e3e04dc5cc1f56634a036ef38bc050" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetNumPermutations</name></member>
+      <member refid="class_l_i_s_a_1aea988ecda20ea77bfe806fd082bbf3f8" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetNumThreads</name></member>
+      <member refid="class_l_i_s_a_1a708cad7d006b534782afbfd2122f4083" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetSigCatIndicators</name></member>
+      <member refid="class_l_i_s_a_1a4a4972b885f39d697d4c3b21c617bde6" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetSignificanceCutoff</name></member>
+      <member refid="class_l_i_s_a_1a69bdf540d32663d3676e6c00864750b6" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetSignificanceFilter</name></member>
+      <member refid="class_l_i_s_a_1ac661ede940895d9fe8fe08c3895c10af" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetSpatialLagValues</name></member>
+      <member refid="class_l_i_s_a_1adc89c613b14bdac81501365a4cc71134" prot="public" virt="virtual"><scope>UniGeary</scope><name>GetUserCutoff</name></member>
+      <member refid="class_l_i_s_a_1ac4cb795aa0c036bd2f0721a6402bfca4" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>has_isolates</name></member>
+      <member refid="class_l_i_s_a_1a2ff9fc974573d91f65acb7486f8a9cef" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>has_undefined</name></member>
+      <member refid="class_l_i_s_a_1a38bbdb73e71ae1a74825d4ca5a93d871" prot="public" virt="virtual"><scope>UniGeary</scope><name>IsReuseLastSeed</name></member>
+      <member refid="class_l_i_s_a_1a5354756caf59cd4ef55eb2b93b83677a" prot="public" virt="virtual"><scope>UniGeary</scope><name>IsRowStandardize</name></member>
+      <member refid="class_l_i_s_a_1a49e01da3d8c104a895fb09be22931f20" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>labels</name></member>
+      <member refid="class_l_i_s_a_1a1842b85ffe20032c9fc14bb7734d946c" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>lag_vec</name></member>
+      <member refid="class_l_i_s_a_1a0b6a2466791bca1b75369737337fca2d" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>last_seed_used</name></member>
+      <member refid="class_l_i_s_a_1ab514ca51acdb895cd05464eae461fcf0" prot="public" virt="non-virtual"><scope>UniGeary</scope><name>LISA</name></member>
+      <member refid="class_l_i_s_a_1a89948994dce1f7df5c66246443f7a80f" prot="public" virt="non-virtual"><scope>UniGeary</scope><name>LISA</name></member>
+      <member refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>lisa_vec</name></member>
+      <member refid="class_l_i_s_a_1a93dbaa5b02fbd6b2fef270888b9711b6" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>nCPUs</name></member>
+      <member refid="class_l_i_s_a_1adc7cdba864b9a1e1dd32cc0172649f7d" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>nn_vec</name></member>
+      <member refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>num_obs</name></member>
+      <member refid="class_l_i_s_a_1a4e4104294cae67b667c3ef8a435027cf" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>perm_table</name></member>
+      <member refid="class_l_i_s_a_1a85cb4aff3217976d448b734d5a61a4fb" prot="public" virt="virtual"><scope>UniGeary</scope><name>PermCalcPseudoP_range</name></member>
+      <member refid="class_l_i_s_a_1a0ef933de0a4cdcf9e3caba6771d7d079" prot="public" virt="virtual"><scope>UniGeary</scope><name>PermCalcPseudoP_threaded</name></member>
+      <member refid="class_l_i_s_a_1a654237b553a88279721ffc71f70e14ec" prot="public" virt="virtual"><scope>UniGeary</scope><name>PermCreateRange</name></member>
+      <member refid="class_l_i_s_a_1a2653719a7510f5f1be923bde638ddcef" prot="public" virt="virtual"><scope>UniGeary</scope><name>PermCreateTable_threaded</name></member>
+      <member refid="class_uni_geary_1a2c04163866f185bdbae34f1ccd9815ac" prot="public" virt="virtual"><scope>UniGeary</scope><name>PermLocalSA</name></member>
+      <member refid="class_uni_geary_1a44e59696bb4e37547f71007f13c144a3" prot="public" virt="virtual"><scope>UniGeary</scope><name>PermLocalSA</name></member>
+      <member refid="class_l_i_s_a_1adb5baf0ecda6023779bab868d9c45af5" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>permutation_method</name></member>
+      <member refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>permutations</name></member>
+      <member refid="class_l_i_s_a_1a1831c01ee530b038e5e7356a86a20c2b" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>reuse_last_seed</name></member>
+      <member refid="class_l_i_s_a_1ad0d3a85084f836c14ac292dd783cc617" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>row_standardize</name></member>
+      <member refid="class_l_i_s_a_1a4ffb64846007d1d7ff443f57112b28f9" prot="public" virt="virtual"><scope>UniGeary</scope><name>Run</name></member>
+      <member refid="class_l_i_s_a_1a73dec0f73c8494bdbde6e1063c2a903b" prot="public" virt="virtual"><scope>UniGeary</scope><name>SetLastUsedSeed</name></member>
+      <member refid="class_l_i_s_a_1a1537cd949a614e041239529d48b6ac49" prot="public" virt="virtual"><scope>UniGeary</scope><name>SetNumPermutations</name></member>
+      <member refid="class_l_i_s_a_1aa7e54243723d4ae3af341d43236c4a17" prot="public" virt="virtual"><scope>UniGeary</scope><name>SetNumThreads</name></member>
+      <member refid="class_l_i_s_a_1a19ceb54628931d11d39e343f63d3f890" prot="public" virt="virtual"><scope>UniGeary</scope><name>SetReuseLastSeed</name></member>
+      <member refid="class_l_i_s_a_1af9dcade8f79090a594fe950ad8fa16fa" prot="public" virt="virtual"><scope>UniGeary</scope><name>SetRowStandardize</name></member>
+      <member refid="class_l_i_s_a_1a11c8e8fd52bbc1bb34c4a7738992d923" prot="public" virt="virtual"><scope>UniGeary</scope><name>SetSignificanceCutoff</name></member>
+      <member refid="class_l_i_s_a_1a1b1e7eb75014f6580998b7ef12b65ade" prot="public" virt="virtual"><scope>UniGeary</scope><name>SetSignificanceFilter</name></member>
+      <member refid="class_l_i_s_a_1a42efe3f048fc3152fa4b1bddc520462a" prot="public" virt="virtual"><scope>UniGeary</scope><name>SetUserCutoff</name></member>
+      <member refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>sig_cat_vec</name></member>
+      <member refid="class_l_i_s_a_1a4cebb360265b00834131007f766f8888" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>sig_local_vec</name></member>
+      <member refid="class_l_i_s_a_1aefaa3485a0023c7ee635a0b2874417e7" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>significance_cutoff</name></member>
+      <member refid="class_l_i_s_a_1ae93f12d73f48a9fbe7c21e8ba17fa9ee" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>significance_filter</name></member>
+      <member refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>undefs</name></member>
+      <member refid="class_uni_geary_1a73ba03b19aa5f3d6ede9c47c6cfaf435" prot="public" virt="non-virtual"><scope>UniGeary</scope><name>UniGeary</name></member>
+      <member refid="class_l_i_s_a_1af82c5848fd8c9c03720b6768b7a55376" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>user_sig_cutoff</name></member>
+      <member refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" prot="protected" virt="non-virtual"><scope>UniGeary</scope><name>weights</name></member>
+      <member refid="class_l_i_s_a_1ad0e5bc71ddb28e30b7f9e4895a561d15" prot="public" virt="virtual"><scope>UniGeary</scope><name>~LISA</name></member>
+      <member refid="class_uni_geary_1a0a494414ca881f2e0971d3c7d1f7d52c" prot="public" virt="virtual"><scope>UniGeary</scope><name>~UniGeary</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

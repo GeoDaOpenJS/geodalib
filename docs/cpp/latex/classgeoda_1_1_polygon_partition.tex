@@ -1,0 +1,216 @@
+\doxysection{geoda\+::Polygon\+Partition Class Reference}
+\hypertarget{classgeoda_1_1_polygon_partition}{}\label{classgeoda_1_1_polygon_partition}\index{geoda::PolygonPartition@{geoda::PolygonPartition}}
+
+
+{\ttfamily \#include $<$partition.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a99e6b939494e6210b6d7b5fb77c4404d}{Polygon\+Partition}} (const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&\+\_\+geoms, size\+\_\+t \+\_\+polygon\+\_\+index)
+\item 
+\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a3af0f1f23a36fbd1a2ea706cf3b9be38}{\texorpdfstring{$\sim$}{\string~}\+Polygon\+Partition}} ()
+\item 
+\mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6}{Get\+Point}} (const int i)
+\item 
+int \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2a98ced1cb97c51a118046ca24b4cd8}{Get\+Part}} (int i)
+\item 
+double \mbox{\hyperlink{classgeoda_1_1_polygon_partition_abf2b359308ecfca32aa4c2c4e01e1d23}{Get\+MinX}} ()
+\item 
+double \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af1183c5bb6d36445fb6c9a44f0d87e2a}{Get\+MinY}} ()
+\item 
+double \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ad3d4784a9052247cee22ec57f04089ba}{Get\+MaxX}} ()
+\item 
+double \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af2796a99863b9f662ecf4d0e04708d52}{Get\+MaxY}} ()
+\item 
+int \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aa5640147ceddfd0b3ed0af4b0bde03fd}{Make\+Partition}} (int mX=0, int mY=0)
+\item 
+void \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a0e406a09c8e686f6f009c72c12277e45}{Make\+Small\+Partition}} (const int mX, const double Start, const double Stop)
+\item 
+void \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aeff6f2abdde9b18f8414c7066f3d3002}{Make\+Neighbors}} ()
+\item 
+bool \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a305aa2275ae021b8fc78a5ce72c54af4}{edge}} (\mbox{\hyperlink{classgeoda_1_1_polygon_partition}{Polygon\+Partition}} \&p, const int host, const int guest, double precision\+\_\+threshold)
+\item 
+int \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ad5a4bfc6afecec2885b2e97b2a8efe42}{sweep}} (\mbox{\hyperlink{classgeoda_1_1_polygon_partition}{Polygon\+Partition}} \&guest, bool is\+\_\+queen, double precision\+\_\+threshold=0.\+0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{Num\+Points}}
+\item 
+int \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a3309d498158ed08fdc35906fecc0e437}{Num\+Parts}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae4aa30d875e136b8117fefac04190365}{prev}} (const int pt) const
+\item 
+int \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a72b1be66f12b5effb299460aee1b040d}{succ}} (const int pt) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \& \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ada90698c3027cc377bf990a48a96e4c4}{geoms}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a30fec504b722ce7005a74dfee2879937}{polygon\+\_\+index}}
+\item 
+\mbox{\hyperlink{geometry_8h_a7d32eb4d5272ffdaf1a4c210691779fb}{box\+\_\+type}} \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a7bd82914b25820662a3c416320d34a5d}{bbox}}
+\item 
+\mbox{\hyperlink{classgeoda_1_1_base_partition}{Base\+Partition}} \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}
+\item 
+\mbox{\hyperlink{classgeoda_1_1_partition_p}{PartitionP}} \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}{pY}}
+\item 
+int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbr\+Points}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgeoda_1_1_polygon_partition_a99e6b939494e6210b6d7b5fb77c4404d}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!PolygonPartition@{PolygonPartition}}
+\index{PolygonPartition@{PolygonPartition}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{PolygonPartition()}{PolygonPartition()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_a99e6b939494e6210b6d7b5fb77c4404d} 
+geoda\+::\+Polygon\+Partition\+::\+Polygon\+Partition (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&}]{\+\_\+geoms}{, }\item[{size\+\_\+t}]{\+\_\+polygon\+\_\+index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_a3af0f1f23a36fbd1a2ea706cf3b9be38}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!````~PolygonPartition@{\texorpdfstring{$\sim$}{\string~}PolygonPartition}}
+\index{````~PolygonPartition@{\texorpdfstring{$\sim$}{\string~}PolygonPartition}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PolygonPartition()}{\string~PolygonPartition()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_a3af0f1f23a36fbd1a2ea706cf3b9be38} 
+geoda\+::\+Polygon\+Partition\+::\texorpdfstring{$\sim$}{\string~}\+Polygon\+Partition (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgeoda_1_1_polygon_partition_a305aa2275ae021b8fc78a5ce72c54af4}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!edge@{edge}}
+\index{edge@{edge}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{edge()}{edge()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_a305aa2275ae021b8fc78a5ce72c54af4} 
+bool geoda\+::\+Polygon\+Partition\+::edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgeoda_1_1_polygon_partition}{Polygon\+Partition}} \&}]{p}{, }\item[{const int}]{host}{, }\item[{const int}]{guest}{, }\item[{double}]{precision\+\_\+threshold}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_ad3d4784a9052247cee22ec57f04089ba}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!GetMaxX@{GetMaxX}}
+\index{GetMaxX@{GetMaxX}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{GetMaxX()}{GetMaxX()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_ad3d4784a9052247cee22ec57f04089ba} 
+double geoda\+::\+Polygon\+Partition\+::\+Get\+MaxX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_af2796a99863b9f662ecf4d0e04708d52}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!GetMaxY@{GetMaxY}}
+\index{GetMaxY@{GetMaxY}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{GetMaxY()}{GetMaxY()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_af2796a99863b9f662ecf4d0e04708d52} 
+double geoda\+::\+Polygon\+Partition\+::\+Get\+MaxY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_abf2b359308ecfca32aa4c2c4e01e1d23}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!GetMinX@{GetMinX}}
+\index{GetMinX@{GetMinX}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{GetMinX()}{GetMinX()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_abf2b359308ecfca32aa4c2c4e01e1d23} 
+double geoda\+::\+Polygon\+Partition\+::\+Get\+MinX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_af1183c5bb6d36445fb6c9a44f0d87e2a}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!GetMinY@{GetMinY}}
+\index{GetMinY@{GetMinY}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{GetMinY()}{GetMinY()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_af1183c5bb6d36445fb6c9a44f0d87e2a} 
+double geoda\+::\+Polygon\+Partition\+::\+Get\+MinY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_ac2a98ced1cb97c51a118046ca24b4cd8}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!GetPart@{GetPart}}
+\index{GetPart@{GetPart}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{GetPart()}{GetPart()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_ac2a98ced1cb97c51a118046ca24b4cd8} 
+int geoda\+::\+Polygon\+Partition\+::\+Get\+Part (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!GetPoint@{GetPoint}}
+\index{GetPoint@{GetPoint}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{GetPoint()}{GetPoint()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6} 
+\mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} geoda\+::\+Polygon\+Partition\+::\+Get\+Point (\begin{DoxyParamCaption}\item[{const int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_aeff6f2abdde9b18f8414c7066f3d3002}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!MakeNeighbors@{MakeNeighbors}}
+\index{MakeNeighbors@{MakeNeighbors}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{MakeNeighbors()}{MakeNeighbors()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_aeff6f2abdde9b18f8414c7066f3d3002} 
+void geoda\+::\+Polygon\+Partition\+::\+Make\+Neighbors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_aa5640147ceddfd0b3ed0af4b0bde03fd}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!MakePartition@{MakePartition}}
+\index{MakePartition@{MakePartition}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{MakePartition()}{MakePartition()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_aa5640147ceddfd0b3ed0af4b0bde03fd} 
+int geoda\+::\+Polygon\+Partition\+::\+Make\+Partition (\begin{DoxyParamCaption}\item[{int}]{mX}{ = {\ttfamily 0}, }\item[{int}]{mY}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_a0e406a09c8e686f6f009c72c12277e45}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!MakeSmallPartition@{MakeSmallPartition}}
+\index{MakeSmallPartition@{MakeSmallPartition}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{MakeSmallPartition()}{MakeSmallPartition()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_a0e406a09c8e686f6f009c72c12277e45} 
+void geoda\+::\+Polygon\+Partition\+::\+Make\+Small\+Partition (\begin{DoxyParamCaption}\item[{const int}]{mX}{, }\item[{const double}]{Start}{, }\item[{const double}]{Stop}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_ae4aa30d875e136b8117fefac04190365}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!prev@{prev}}
+\index{prev@{prev}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{prev()}{prev()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_ae4aa30d875e136b8117fefac04190365} 
+int geoda\+::\+Polygon\+Partition\+::prev (\begin{DoxyParamCaption}\item[{const int}]{pt}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_a72b1be66f12b5effb299460aee1b040d}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!succ@{succ}}
+\index{succ@{succ}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{succ()}{succ()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_a72b1be66f12b5effb299460aee1b040d} 
+int geoda\+::\+Polygon\+Partition\+::succ (\begin{DoxyParamCaption}\item[{const int}]{pt}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_ad5a4bfc6afecec2885b2e97b2a8efe42}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!sweep@{sweep}}
+\index{sweep@{sweep}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{sweep()}{sweep()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_ad5a4bfc6afecec2885b2e97b2a8efe42} 
+int geoda\+::\+Polygon\+Partition\+::sweep (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgeoda_1_1_polygon_partition}{Polygon\+Partition}} \&}]{guest}{, }\item[{bool}]{is\+\_\+queen}{, }\item[{double}]{precision\+\_\+threshold}{ = {\ttfamily 0.0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgeoda_1_1_polygon_partition_a7bd82914b25820662a3c416320d34a5d}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!bbox@{bbox}}
+\index{bbox@{bbox}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{bbox}{bbox}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_a7bd82914b25820662a3c416320d34a5d} 
+\mbox{\hyperlink{geometry_8h_a7d32eb4d5272ffdaf1a4c210691779fb}{box\+\_\+type}} geoda\+::\+Polygon\+Partition\+::bbox\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_ada90698c3027cc377bf990a48a96e4c4}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!geoms@{geoms}}
+\index{geoms@{geoms}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{geoms}{geoms}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_ada90698c3027cc377bf990a48a96e4c4} 
+const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}}\& geoda\+::\+Polygon\+Partition\+::geoms\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!nbrPoints@{nbrPoints}}
+\index{nbrPoints@{nbrPoints}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{nbrPoints}{nbrPoints}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553} 
+int\texorpdfstring{$\ast$}{*} geoda\+::\+Polygon\+Partition\+::nbr\+Points\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_a3309d498158ed08fdc35906fecc0e437}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!NumParts@{NumParts}}
+\index{NumParts@{NumParts}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{NumParts}{NumParts}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_a3309d498158ed08fdc35906fecc0e437} 
+int geoda\+::\+Polygon\+Partition\+::\+Num\+Parts}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!NumPoints@{NumPoints}}
+\index{NumPoints@{NumPoints}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{NumPoints}{NumPoints}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7} 
+int geoda\+::\+Polygon\+Partition\+::\+Num\+Points}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_a30fec504b722ce7005a74dfee2879937}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!polygon\_index@{polygon\_index}}
+\index{polygon\_index@{polygon\_index}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{polygon\_index}{polygon\_index}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_a30fec504b722ce7005a74dfee2879937} 
+size\+\_\+t geoda\+::\+Polygon\+Partition\+::polygon\+\_\+index\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!pX@{pX}}
+\index{pX@{pX}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{pX}{pX}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c} 
+\mbox{\hyperlink{classgeoda_1_1_base_partition}{Base\+Partition}} geoda\+::\+Polygon\+Partition\+::pX\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}\index{geoda::PolygonPartition@{geoda::PolygonPartition}!pY@{pY}}
+\index{pY@{pY}!geoda::PolygonPartition@{geoda::PolygonPartition}}
+\doxysubsubsection{\texorpdfstring{pY}{pY}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb} 
+\mbox{\hyperlink{classgeoda_1_1_partition_p}{PartitionP}} geoda\+::\+Polygon\+Partition\+::pY\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/weights/\mbox{\hyperlink{partition_8h}{partition.\+h}}\end{DoxyCompactItemize}

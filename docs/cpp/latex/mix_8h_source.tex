@@ -1,0 +1,122 @@
+\doxysection{mix.\+h}
+\hypertarget{mix_8h_source}{}\label{mix_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/regression/mix.h@{/Users/xun/github/geoda-\/lib/src/cpp/regression/mix.h}}
+\mbox{\hyperlink{mix_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_GEODA\_CENTER\_MIX\_H\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_GEODA\_CENTER\_MIX\_H\_\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{mix_8h_ad000f07d044bbdd4abbfa2cfb094f0e4}{ML\_SMALL}}\ =\ 1.0e-\/14;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{mix_8h_a87b9a2609791aebb3dc88e2f45967115}{GoldenRatio}}\ =\ (sqrt((\textcolor{keywordtype}{double})5)\ -\/\ 1)\ /\ 2,\ \mbox{\hyperlink{mix_8h_a5b917b3da6542d12a1e5e3bfe9960303}{GoldenToo}}\ =\ 1\ -\/\ \mbox{\hyperlink{mix_8h_a87b9a2609791aebb3dc88e2f45967115}{GoldenRatio}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{mix_8h_a89311a98397f9d6967d2cb10d5152d77}{TOLERANCE}}\ =\ 1.0e-\/14;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ standard\ normal\ density\ function}}
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{mix_8h_a80118369461f5ece56b6a6cc754a03c7}{ndf}}(\textcolor{keywordtype}{double}\ t);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ standard\ normal\ cumulative\ distribution\ function}}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{mix_8h_a750fe9d40743b3365b7bb176325a8239}{nc}}(\textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00021\ \textcolor{comment}{template\ <class\ T>}}
+\DoxyCodeLine{00022\ \textcolor{comment}{inline\ void\ swap(T\ \&\ a,\ T\ \&\ b)\ \ \{}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ T\ c\ =\ a;}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ \ \ \ a\ =\ b;}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ \ \ \ b\ =\ c;}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\}}}
+\DoxyCodeLine{00027\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mix_8h_a61102eb8cbaede8e0bd27c851d710008}{error}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s2\ =\ NULL);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ X>}
+\DoxyCodeLine{00032\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mix_8h_a5ea642f00e337ed9f13f393e21ca2ce9}{release}}(X\ **p)\ \{}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{if}\ ((*p))\ \textcolor{keyword}{delete}[]\ (*p);}
+\DoxyCodeLine{00034\ \ \ (*p)\ =\ NULL;}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ X>}
+\DoxyCodeLine{00038\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mix_8h_a4707176f2cd6eb4dc734fffb6cf10feb}{alloc}}(X\ *(\&p),\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ sz)\ \{}
+\DoxyCodeLine{00039\ \ \ p\ =\ \textcolor{keyword}{new}\ X[sz];}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cnt\ =\ 0;\ cnt\ <\ sz;\ ++cnt)\ p[cnt]\ =\ 0;}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ X>}
+\DoxyCodeLine{00044\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mix_8h_a4707176f2cd6eb4dc734fffb6cf10feb}{alloc}}(X\ *(\&p),\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ sz,\ X\ init)\ \{}
+\DoxyCodeLine{00045\ \ \ p\ =\ \textcolor{keyword}{new}\ X[sz];}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cnt\ =\ 0;\ cnt\ <\ sz;\ ++cnt)\ p[cnt]\ =\ init;}
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{mix_8h_aa298203c6e86eac70ac4a07936ae425b}{product}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ *v1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ *v2,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&sz);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{mix_8h_ad84188fef41059470dc8867321ce5b7e}{norm}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ *v,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ compute\ standard\ normal\ deviate\ using\ Box-\/Muller\ \ transformation}}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{mix_8h_a61ccd72f7e2d2f65912807eda4c8643c}{gauss}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{mix_8h_a76245581ea69a752b8bbcb373d751278}{normW}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ *v,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ *w,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ compute\ incomplete\ gamma\ function\ -\/-\/\ numerical\ resipies,\ p.\ 172-\/4}}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{mix_8h_ad43d7dfa4d017658b744b534aaaa9df7}{gammp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00062\ \textcolor{comment}{HeapSort}}
+\DoxyCodeLine{00063\ \textcolor{comment}{Sorts\ vector\ in\ the\ ascending\ order,\ using\ HeapSort.}}
+\DoxyCodeLine{00064\ \textcolor{comment}{Assumes\ operator\ <\ is\ defined\ and\ operator\ =\ is\ implemented.}}
+\DoxyCodeLine{00065\ \textcolor{comment}{For\ basic\ idea\ see\ Numerical\ Recipes\ in\ C.,\ p.247.}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00067\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mix_8h_a93be3ea178994e7864988c7c7f2a0d2f}{HeapSort}}(\mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ *start,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size)\ \{}
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ half\ =\ size\ >>\ 1;}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordflow}{if}\ (half\ ==\ 0)}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return};\ \ \textcolor{comment}{//\ nothing\ to\ sort;}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ T\ *\ start\ =\ v.first();}}
+\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ *hire\ =\ start\ +\ half,\ *boss,\ *empl;}
+\DoxyCodeLine{00074\ \ \ \textcolor{comment}{//\ hire\ will\ be\ decremented\ down\ to\ begin\ during\ the\ 'hiring'\ (heap\ creation).}}
+\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ *ir\ =\ \&start[size\ -\/\ 1];\ \ \textcolor{comment}{//\ the\ last\ element\ in\ the\ sequence}}
+\DoxyCodeLine{00076\ \ \ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ rra;}
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordflow}{while}\ (ir\ >\ start)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (hire\ >\ start)}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ rra\ =\ *(-\/-\/hire);\ \ \textcolor{comment}{//\ still\ hiring}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ retirement\ and\ promotion}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ rra\ =\ *ir;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ clear\ space\ at\ end\ of\ vector}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ *ir-\/-\/\ =\ *start;\ \ \ \textcolor{comment}{//\ retire\ the\ top\ of\ the\ heap\ into\ it}}
+\DoxyCodeLine{00083\ \ \ \ \ \};}
+\DoxyCodeLine{00084\ \ \ \ \ boss\ =\ hire;\ \ \textcolor{comment}{//\ set\ up\ to\ sift\ down\ rra\ to\ its\ proper\ level}}
+\DoxyCodeLine{00085\ \ \ \ \ empl\ =\ boss\ +\ (boss\ -\/\ start);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{while}\ (++empl\ <=\ ir)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (empl\ <\ ir\ \&\&\ *empl\ <\ *(empl\ +\ 1))\ ++empl;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rra\ <\ *empl)\ \{\ \ \textcolor{comment}{//\ demote\ rra}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ *boss\ =\ *empl;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ boss\ =\ empl;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ empl\ =\ boss\ +\ (boss\ -\/\ start);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ empl\ =\ ir;\ \ \textcolor{comment}{//\ rra\ is\ already\ in\ place}}
+\DoxyCodeLine{00094\ \ \ \ \ \};}
+\DoxyCodeLine{00095\ \ \ \ \ *boss\ =\ rra;\ \ \textcolor{comment}{//\ i\ is\ right\ place\ for\ rra}}
+\DoxyCodeLine{00096\ \ \ \}}
+\DoxyCodeLine{00097\ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ uses\ dictionary\ (array\ of\ pairs\ sorted\ in\ the\ in\ creasing\ order\ of\ key)\ to\ find}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ value\ for\ the\ matching\ key}}
+\DoxyCodeLine{00101\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ K,\ \textcolor{keyword}{class}\ W>}
+\DoxyCodeLine{00102\ W\ \mbox{\hyperlink{mix_8h_a49f1830937b34041a2717f027cc6cbf8}{Find}}(std::pair<K,\ W>\ *start,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keyword}{const}\ K\ \&key)\ \{}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{int}\ mid\ =\ size\ /\ 2;}
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{int}\ lower\ =\ 0,\ upper\ =\ size\ -\/\ 1;}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordflow}{while}\ (start[mid].first\ !=\ key)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{if}\ (start[mid].first\ <\ key)}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ lower\ =\ mid\ +\ 1;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (start[mid].first\ >\ key)}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ upper\ =\ mid\ -\/\ 1;}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ start[mid].second;}
+\DoxyCodeLine{00112\ \ \ \ \ mid\ =\ (lower\ +\ upper)\ /\ 2;}
+\DoxyCodeLine{00113\ \ \ \};}
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordflow}{return}\ start[mid].second;}
+\DoxyCodeLine{00115\ \}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,37 @@
+\doxysection{smile.\+h}
+\hypertarget{smile_8h_source}{}\label{smile_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/regression/smile.h@{/Users/xun/github/geoda-\/lib/src/cpp/regression/smile.h}}
+\mbox{\hyperlink{smile_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ \_\_GEODA\_CENTER\_SMILE\_H\_\_}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ \_\_GEODA\_CENTER\_SMILE\_H\_\_}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00024\ \textcolor{comment}{*\ \ \ OLS\ computes\ Ordinary\ Least\ Squares\ estimates\ and\ places\ output\ in\ result}}
+\DoxyCodeLine{00025\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{smile_8h_a4b5e076546c32f35c34fc56220a938da}{OLS}}(\textcolor{keywordtype}{double}\ *\ Y,\ \textcolor{keywordtype}{int}\ dim,\ \textcolor{keywordtype}{double}\ **\ X,\ \textcolor{keywordtype}{int}\ expl,\ \textcolor{keywordtype}{double}\ *\ result,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ InclConstant);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ ML\ estimation\ of\ spatial\ lag\ model.}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ Returns\ pairs\ of\ coefficient\ and\ their\ std\ errors\ -\/-\/\ total\ (expl\ +\ 1)\ pairs.}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ The\ order\ of\ pairs\ corresponds\ to\ the\ order\ of\ explanatory\ variables.}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ The\ spatial\ autoregressive\ coefficient\ and\ its\ std.\ error\ are\ reported\ last.}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{smile_8h_ac6c892cc5250da8dd87fa286bf24cb17}{SpatialLag}}(GalElement\ *g,\ \textcolor{keywordtype}{double}\ *\ Y,\ \textcolor{keywordtype}{int}\ dim,\ \textcolor{keywordtype}{double}\ **\ X,\ \textcolor{keywordtype}{int}\ expl,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ *\ result,\ \textcolor{keywordtype}{bool}\ InclConstant);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00039\ \textcolor{comment}{ML\ estimation\ of\ spatial\ error\ model.}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ Returns\ pairs\ of\ coefficient\ and\ their\ std\ errors\ -\/-\/\ total\ (expl\ +\ 1)\ pairs.}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ The\ order\ of\ pairs\ corresponds\ to\ the\ order\ of\ explanatory\ variables.}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ The\ spatial\ autoregressive\ coefficient\ and\ its\ std.\ error\ are\ reported\ last.}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{smile_8h_ad926a1e460459a58d3ad8067e0328839}{SpatialError}}(GalElement\ *g,\ \textcolor{keywordtype}{double}\ *\ Y,\ \textcolor{keywordtype}{int}\ dim,\ \textcolor{keywordtype}{double}\ **\ X,\ \textcolor{keywordtype}{int}\ expl,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ *\ result,\ \textcolor{keywordtype}{bool}\ InclConstant);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00048\ }
+
+\end{DoxyCode}

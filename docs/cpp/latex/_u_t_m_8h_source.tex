@@ -1,0 +1,232 @@
+\doxysection{UTM.\+h}
+\hypertarget{_u_t_m_8h_source}{}\label{_u_t_m_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/utils/UTM.h@{/Users/xun/github/geoda-\/lib/src/cpp/utils/UTM.h}}
+\mbox{\hyperlink{_u_t_m_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ NOLINT(legal/copyright)}}
+\DoxyCodeLine{00002\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++\ -\/*-\/}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Conversions\ between\ Latitude/Longitude\ and\ UTM}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Universal\ Transverse\ Mercator)\ coordinates.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ License:\ Modified\ BSD\ Software\ License\ Agreement}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ original\ from:\ http://www.gpsy.com/gpsinfo/geotoutm/gantz/LatLong-\/UTMconversion.cpp}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_UTM\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_UTM\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_u_t_m}{UTM}}\ \{}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespace_u_t_m_af57ea0352cdea4d960958c68e4639e06}{DEG\_TO\_RAD}}\ =\ 0.017453292519943295769236907684886f;}
+\DoxyCodeLine{00032\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespace_u_t_m_a52548a65d96a2de05c8917a531e33f34}{RAD\_TO\_DEG}}\ =\ 57.295779513082320876798154814105f;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ Grid\ granularity\ for\ rounding\ UTM\ coordinates\ to\ generate\ MapXY.}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_u_t_m_a79f3126fc1c850a6a88b6165e3c01bc0}{grid\_size}}\ =\ 100000.0;\ \ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ WGS84\ Parameters}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ WGS84\_A\ 6378137.0\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ WGS84\_B\ 6356752.31424518\ \ }}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ WGS84\_F\ 0.0033528107\ \ \ \ \ \ }}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ WGS84\_E\ 0.0818191908\ \ \ \ \ \ }}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ WGS84\_EP\ 0.0820944379\ \ \ \ \ }}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ UTM\ Parameters}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ UTM\_K0\ 0.9996\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ UTM\_FE\ 500000.0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ UTM\_FN\_N\ 0.0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ UTM\_FN\_S\ 10000000.0\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ UTM\_E2\ (WGS84\_E\ *\ WGS84\_E)\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ UTM\_E4\ (UTM\_E2\ *\ UTM\_E2)\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ UTM\_E6\ (UTM\_E4\ *\ UTM\_E2)\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ UTM\_EP2\ (UTM\_E2\ /\ (1\ -\/\ UTM\_E2))\ \ }}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{char}\ UTMLetterDesignator(\textcolor{keywordtype}{double}\ Lat)\ \{}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{char}\ LetterDesignator;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordflow}{if}\ ((84\ >=\ Lat)\ \&\&\ (Lat\ >=\ 72))}
+\DoxyCodeLine{00066\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'X'};}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((72\ >\ Lat)\ \&\&\ (Lat\ >=\ 64))}
+\DoxyCodeLine{00068\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'W'};}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((64\ >\ Lat)\ \&\&\ (Lat\ >=\ 56))}
+\DoxyCodeLine{00070\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'V'};}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((56\ >\ Lat)\ \&\&\ (Lat\ >=\ 48))}
+\DoxyCodeLine{00072\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'U'};}
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((48\ >\ Lat)\ \&\&\ (Lat\ >=\ 40))}
+\DoxyCodeLine{00074\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'T'};}
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((40\ >\ Lat)\ \&\&\ (Lat\ >=\ 32))}
+\DoxyCodeLine{00076\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'S'};}
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((32\ >\ Lat)\ \&\&\ (Lat\ >=\ 24))}
+\DoxyCodeLine{00078\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'R'};}
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((24\ >\ Lat)\ \&\&\ (Lat\ >=\ 16))}
+\DoxyCodeLine{00080\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'Q'};}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((16\ >\ Lat)\ \&\&\ (Lat\ >=\ 8))}
+\DoxyCodeLine{00082\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'P'};}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((8\ >\ Lat)\ \&\&\ (Lat\ >=\ 0))}
+\DoxyCodeLine{00084\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'N'};}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ >\ Lat)\ \&\&\ (Lat\ >=\ -\/8))}
+\DoxyCodeLine{00086\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'M'};}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((-\/8\ >\ Lat)\ \&\&\ (Lat\ >=\ -\/16))}
+\DoxyCodeLine{00088\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'L'};}
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((-\/16\ >\ Lat)\ \&\&\ (Lat\ >=\ -\/24))}
+\DoxyCodeLine{00090\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'K'};}
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((-\/24\ >\ Lat)\ \&\&\ (Lat\ >=\ -\/32))}
+\DoxyCodeLine{00092\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'J'};}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((-\/32\ >\ Lat)\ \&\&\ (Lat\ >=\ -\/40))}
+\DoxyCodeLine{00094\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'H'};}
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((-\/40\ >\ Lat)\ \&\&\ (Lat\ >=\ -\/48))}
+\DoxyCodeLine{00096\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((-\/48\ >\ Lat)\ \&\&\ (Lat\ >=\ -\/56))}
+\DoxyCodeLine{00098\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'F'};}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((-\/56\ >\ Lat)\ \&\&\ (Lat\ >=\ -\/64))}
+\DoxyCodeLine{00100\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'E'};}
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((-\/64\ >\ Lat)\ \&\&\ (Lat\ >=\ -\/72))}
+\DoxyCodeLine{00102\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'D'};}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((-\/72\ >\ Lat)\ \&\&\ (Lat\ >=\ -\/80))}
+\DoxyCodeLine{00104\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'C'};}
+\DoxyCodeLine{00105\ \ \ \textcolor{comment}{//\ 'Z'\ is\ an\ error\ flag,\ the\ Latitude\ is\ outside\ the\ UTM\ limits}}
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00107\ \ \ \ \ LetterDesignator\ =\ \textcolor{charliteral}{'Z'};}
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordflow}{return}\ LetterDesignator;}
+\DoxyCodeLine{00109\ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00120\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LLtoUTM(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ Lat,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ Long,\ \textcolor{keywordtype}{double}\&\ UTMNorthing,\ \textcolor{keywordtype}{double}\&\ UTMEasting,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ UTMZone)\ \{}
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{double}\ a\ =\ \mbox{\hyperlink{_u_t_m_8h_aa09b7cbfbfc67364d373c1a238784a8f}{WGS84\_A}};}
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordtype}{double}\ eccSquared\ =\ \mbox{\hyperlink{_u_t_m_8h_a8ceb5d1234972ff5e235776268d12e6b}{UTM\_E2}};}
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{double}\ k0\ =\ \mbox{\hyperlink{_u_t_m_8h_a087318ddc1531ba44bcfd0b68110c6ac}{UTM\_K0}};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \textcolor{keywordtype}{double}\ LongOrigin;}
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{double}\ eccPrimeSquared;}
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{double}\ N,\ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}},\ C,\ A,\ M;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \textcolor{comment}{//\ Make\ sure\ the\ longitude\ is\ between\ -\/180.00\ ..\ 179.9}}
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{double}\ LongTemp\ =\ (Long\ +\ 180)\ -\/\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}((Long\ +\ 180)\ /\ 360)\ *\ 360\ -\/\ 180;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \textcolor{keywordtype}{double}\ LatRad\ =\ Lat\ *\ \mbox{\hyperlink{namespace_u_t_m_af57ea0352cdea4d960958c68e4639e06}{DEG\_TO\_RAD}};}
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{double}\ LongRad\ =\ LongTemp\ *\ \mbox{\hyperlink{namespace_u_t_m_af57ea0352cdea4d960958c68e4639e06}{DEG\_TO\_RAD}};}
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{double}\ LongOriginRad;}
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordtype}{int}\ ZoneNumber;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordflow}{if}\ (strlen(UTMZone)\ ==\ 0)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ ZoneNumber\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}((LongTemp\ +\ 180)\ /\ 6)\ +\ 1;}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{if}\ (Lat\ >=\ 56.0\ \&\&\ Lat\ <\ 64.0\ \&\&\ LongTemp\ >=\ 3.0\ \&\&\ LongTemp\ <\ 12.0)\ ZoneNumber\ =\ 32;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ Special\ zones\ for\ Svalbard}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{if}\ (Lat\ >=\ 72.0\ \&\&\ Lat\ <\ 84.0)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LongTemp\ >=\ 0.0\ \&\&\ LongTemp\ <\ 9.0)}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ ZoneNumber\ =\ 31;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (LongTemp\ >=\ 9.0\ \&\&\ LongTemp\ <\ 21.0)}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ ZoneNumber\ =\ 33;}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (LongTemp\ >=\ 21.0\ \&\&\ LongTemp\ <\ 33.0)}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ ZoneNumber\ =\ 35;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (LongTemp\ >=\ 33.0\ \&\&\ LongTemp\ <\ 42.0)}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ ZoneNumber\ =\ 37;}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ compute\ the\ UTM\ Zone\ from\ the\ latitude\ and\ longitude}}
+\DoxyCodeLine{00155\ \ \ \ \ snprintf(UTMZone,\ \textcolor{keyword}{sizeof}(UTMZone),\ \textcolor{stringliteral}{"{}\%d\%c"{}},\ ZoneNumber,\ UTMLetterDesignator(Lat));}
+\DoxyCodeLine{00156\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{char}*\ ZoneLetter;}
+\DoxyCodeLine{00158\ \ \ \ \ ZoneNumber\ =\ strtoul(UTMZone,\ \&ZoneLetter,\ 10);}
+\DoxyCodeLine{00159\ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \textcolor{comment}{//\ +3\ puts\ origin\ in\ middle\ of\ zone}}
+\DoxyCodeLine{00162\ \ \ LongOrigin\ =\ (ZoneNumber\ -\/\ 1)\ *\ 6\ -\/\ 180\ +\ 3;}
+\DoxyCodeLine{00163\ \ \ LongOriginRad\ =\ LongOrigin\ *\ \mbox{\hyperlink{namespace_u_t_m_af57ea0352cdea4d960958c68e4639e06}{DEG\_TO\_RAD}};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ eccPrimeSquared\ =\ (eccSquared)\ /\ (1\ -\/\ eccSquared);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ N\ =\ a\ /\ sqrt(1\ -\/\ eccSquared\ *\ sin(LatRad)\ *\ sin(LatRad));}
+\DoxyCodeLine{00168\ \ \ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ =\ tan(LatRad)\ *\ tan(LatRad);}
+\DoxyCodeLine{00169\ \ \ C\ =\ eccPrimeSquared\ *\ cos(LatRad)\ *\ cos(LatRad);}
+\DoxyCodeLine{00170\ \ \ A\ =\ cos(LatRad)\ *\ (LongRad\ -\/\ LongOriginRad);}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ M\ =\ a\ *\ ((1\ -\/\ eccSquared\ /\ 4\ -\/\ 3\ *\ eccSquared\ *\ eccSquared\ /\ 64\ -\/\ 5\ *\ eccSquared\ *\ eccSquared\ *\ eccSquared\ /\ 256)\ *}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LatRad\ -\/}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ (3\ *\ eccSquared\ /\ 8\ +\ 3\ *\ eccSquared\ *\ eccSquared\ /\ 32\ +\ 45\ *\ eccSquared\ *\ eccSquared\ *\ eccSquared\ /\ 1024)\ *}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sin(2\ *\ LatRad)\ +}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ (15\ *\ eccSquared\ *\ eccSquared\ /\ 256\ +\ 45\ *\ eccSquared\ *\ eccSquared\ *\ eccSquared\ /\ 1024)\ *\ sin(4\ *\ LatRad)\ -\/}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ (35\ *\ eccSquared\ *\ eccSquared\ *\ eccSquared\ /\ 3072)\ *\ sin(6\ *\ LatRad));}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ UTMEasting\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(k0\ *\ N\ *}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (A\ +\ (1\ -\/\ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ +\ C)\ *\ A\ *\ A\ *\ A\ /\ 6\ +}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (5\ -\/\ 18\ *\ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ +\ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ *\ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ +\ 72\ *\ C\ -\/\ 58\ *\ eccPrimeSquared)\ *\ A\ *\ A\ *\ A\ *\ A\ *\ A\ /\ 120)\ +}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 500000.0);}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ UTMNorthing\ =}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(k0\ *\ (M\ +\ N\ *\ tan(LatRad)\ *}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (A\ *\ A\ /\ 2\ +\ (5\ -\/\ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ +\ 9\ *\ C\ +\ 4\ *\ C\ *\ C)\ *\ A\ *\ A\ *\ A\ *\ A\ /\ 24\ +}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (61\ -\/\ 58\ *\ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ +\ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ *\ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}\ +\ 600\ *\ C\ -\/\ 330\ *\ eccPrimeSquared)\ *\ A\ *\ A\ *\ A\ *\ A\ *\ A\ *\ A\ /\ 720)));}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \textcolor{keywordflow}{if}\ (Lat\ <\ 0)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ 10000000\ meter\ offset\ for\ southern\ hemisphere}}
+\DoxyCodeLine{00191\ \ \ \ \ UTMNorthing\ +=\ 10000000.0;}
+\DoxyCodeLine{00192\ \ \ \}}
+\DoxyCodeLine{00193\ \}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00204\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ UTMtoLL(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ UTMNorthing,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ UTMEasting,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ UTMZone,\ \textcolor{keywordtype}{double}\&\ Lat,}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ Long)\ \{}
+\DoxyCodeLine{00206\ \ \ \textcolor{keywordtype}{double}\ k0\ =\ \mbox{\hyperlink{_u_t_m_8h_a087318ddc1531ba44bcfd0b68110c6ac}{UTM\_K0}};}
+\DoxyCodeLine{00207\ \ \ \textcolor{keywordtype}{double}\ a\ =\ \mbox{\hyperlink{_u_t_m_8h_aa09b7cbfbfc67364d373c1a238784a8f}{WGS84\_A}};}
+\DoxyCodeLine{00208\ \ \ \textcolor{keywordtype}{double}\ eccSquared\ =\ \mbox{\hyperlink{_u_t_m_8h_a8ceb5d1234972ff5e235776268d12e6b}{UTM\_E2}};}
+\DoxyCodeLine{00209\ \ \ \textcolor{keywordtype}{double}\ eccPrimeSquared;}
+\DoxyCodeLine{00210\ \ \ \textcolor{keywordtype}{double}\ e1\ =\ (1\ -\/\ sqrt(1\ -\/\ eccSquared))\ /\ (1\ +\ sqrt(1\ -\/\ eccSquared));}
+\DoxyCodeLine{00211\ \ \ \textcolor{keywordtype}{double}\ N1,\ T1,\ C1,\ R1,\ D,\ M;}
+\DoxyCodeLine{00212\ \ \ \textcolor{keywordtype}{double}\ LongOrigin;}
+\DoxyCodeLine{00213\ \ \ \textcolor{keywordtype}{double}\ mu,\ phi1Rad;}
+\DoxyCodeLine{00214\ \ \ \textcolor{keywordtype}{double}\ x,\ y;}
+\DoxyCodeLine{00215\ \ \ \textcolor{keywordtype}{int}\ ZoneNumber;}
+\DoxyCodeLine{00216\ \ \ \textcolor{keywordtype}{char}*\ ZoneLetter;}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ x\ =\ UTMEasting\ -\/\ 500000.0;\ \ \textcolor{comment}{//\ remove\ 500,000\ meter\ offset\ for\ longitude}}
+\DoxyCodeLine{00219\ \ \ y\ =\ UTMNorthing;}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ ZoneNumber\ =\ strtoul(UTMZone,\ \&ZoneLetter,\ 10);}
+\DoxyCodeLine{00222\ \ \ \textcolor{keywordflow}{if}\ ((*ZoneLetter\ -\/\ \textcolor{charliteral}{'N'})\ <\ 0)\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{//\ remove\ 10,000,000\ meter\ offset\ used\ for\ southern\ hemisphere}}
+\DoxyCodeLine{00224\ \ \ \ \ y\ -\/=\ 10000000.0;}
+\DoxyCodeLine{00225\ \ \ \}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \textcolor{comment}{//\ +3\ puts\ origin\ in\ middle\ of\ zone}}
+\DoxyCodeLine{00228\ \ \ LongOrigin\ =\ (ZoneNumber\ -\/\ 1)\ *\ 6\ -\/\ 180\ +\ 3;}
+\DoxyCodeLine{00229\ \ \ eccPrimeSquared\ =\ (eccSquared)\ /\ (1\ -\/\ eccSquared);}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ M\ =\ y\ /\ k0;}
+\DoxyCodeLine{00232\ \ \ mu\ =\ M\ /}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ (a\ *\ (1\ -\/\ eccSquared\ /\ 4\ -\/\ 3\ *\ eccSquared\ *\ eccSquared\ /\ 64\ -\/\ 5\ *\ eccSquared\ *\ eccSquared\ *\ eccSquared\ /\ 256));}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ phi1Rad\ =}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ mu\ +\ ((3\ *\ e1\ /\ 2\ -\/\ 27\ *\ e1\ *\ e1\ *\ e1\ /\ 32)\ *\ sin(2\ *\ mu)\ +}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ (21\ *\ e1\ *\ e1\ /\ 16\ -\/\ 55\ *\ e1\ *\ e1\ *\ e1\ *\ e1\ /\ 32)\ *\ sin(4\ *\ mu)\ +\ (151\ *\ e1\ *\ e1\ *\ e1\ /\ 96)\ *\ sin(6\ *\ mu));}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ N1\ =\ a\ /\ sqrt(1\ -\/\ eccSquared\ *\ sin(phi1Rad)\ *\ sin(phi1Rad));}
+\DoxyCodeLine{00240\ \ \ T1\ =\ tan(phi1Rad)\ *\ tan(phi1Rad);}
+\DoxyCodeLine{00241\ \ \ C1\ =\ eccPrimeSquared\ *\ cos(phi1Rad)\ *\ cos(phi1Rad);}
+\DoxyCodeLine{00242\ \ \ R1\ =\ a\ *\ (1\ -\/\ eccSquared)\ /\ pow(1\ -\/\ eccSquared\ *\ sin(phi1Rad)\ *\ sin(phi1Rad),\ 1.5);}
+\DoxyCodeLine{00243\ \ \ D\ =\ x\ /\ (N1\ *\ k0);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ Lat\ =}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ phi1Rad\ -\/}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ ((N1\ *\ tan(phi1Rad)\ /\ R1)\ *}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ (D\ *\ D\ /\ 2\ -\/\ (5\ +\ 3\ *\ T1\ +\ 10\ *\ C1\ -\/\ 4\ *\ C1\ *\ C1\ -\/\ 9\ *\ eccPrimeSquared)\ *\ D\ *\ D\ *\ D\ *\ D\ /\ 24\ +}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ (61\ +\ 90\ *\ T1\ +\ 298\ *\ C1\ +\ 45\ *\ T1\ *\ T1\ -\/\ 252\ *\ eccPrimeSquared\ -\/\ 3\ *\ C1\ *\ C1)\ *\ D\ *\ D\ *\ D\ *\ D\ *\ D\ *\ D\ /\ 720));}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ Lat\ =\ Lat\ *\ \mbox{\hyperlink{namespace_u_t_m_a52548a65d96a2de05c8917a531e33f34}{RAD\_TO\_DEG}};}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ Long\ =\ ((D\ -\/\ (1\ +\ 2\ *\ T1\ +\ C1)\ *\ D\ *\ D\ *\ D\ /\ 6\ +}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ (5\ -\/\ 2\ *\ C1\ +\ 28\ *\ T1\ -\/\ 3\ *\ C1\ *\ C1\ +\ 8\ *\ eccPrimeSquared\ +\ 24\ *\ T1\ *\ T1)\ *\ D\ *\ D\ *\ D\ *\ D\ *\ D\ /\ 120)\ /}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ cos(phi1Rad));}
+\DoxyCodeLine{00256\ \ \ Long\ =\ LongOrigin\ +\ Long\ *\ \mbox{\hyperlink{namespace_u_t_m_a52548a65d96a2de05c8917a531e33f34}{RAD\_TO\_DEG}};}
+\DoxyCodeLine{00257\ \}}
+\DoxyCodeLine{00258\ \}\ \ \textcolor{comment}{//\ end\ namespace\ UTM}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_UTM\_H}}
+
+\end{DoxyCode}

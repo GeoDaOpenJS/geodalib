@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="struct__jcv__graphedge" kind="struct" language="C++" prot="public">
+    <compoundname>_jcv_graphedge</compoundname>
+    <includes refid="jc__voronoi_8h" local="no">jc_voronoi.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__jcv__graphedge_1af097be4c7e9e6aa177fe34e1efb9e62d" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct__jcv__graphedge" kindref="compound">_jcv_graphedge</ref> *</type>
+        <definition>struct _jcv_graphedge* _jcv_graphedge::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <qualifiedname>_jcv_graphedge::next</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="203" column="24" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__jcv__graphedge_1a9c14a395e04edecf0cca0c0ff6710a66" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct__jcv__edge" kindref="compound">_jcv_edge</ref> *</type>
+        <definition>struct _jcv_edge* _jcv_graphedge::edge</definition>
+        <argsstring></argsstring>
+        <name>edge</name>
+        <qualifiedname>_jcv_graphedge::edge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="204" column="19" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__jcv__graphedge_1acd5d8687a0737b73df963967da7d0e86" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct__jcv__site" kindref="compound">_jcv_site</ref> *</type>
+        <definition>struct _jcv_site* _jcv_graphedge::neighbor</definition>
+        <argsstring></argsstring>
+        <name>neighbor</name>
+        <qualifiedname>_jcv_graphedge::neighbor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="205" column="19" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__jcv__graphedge_1aa471bf8739860ecfa6c56343ee33eff3" prot="public" static="no" mutable="no">
+        <type><ref refid="jc__voronoi_8h_1a7f4dcdffe3318ec1307e9b680ce05fe4" kindref="member">jcv_point</ref></type>
+        <definition>jcv_point _jcv_graphedge::pos[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>pos</name>
+        <qualifiedname>_jcv_graphedge::pos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="206" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__jcv__graphedge_1a609a99341004843f7a9af639015e3404" prot="public" static="no" mutable="no">
+        <type><ref refid="jc__voronoi_8h_1adf3f9d7c9b8b63b4537db4843afc562f" kindref="member">jcv_real</ref></type>
+        <definition>jcv_real _jcv_graphedge::angle</definition>
+        <argsstring></argsstring>
+        <name>angle</name>
+        <qualifiedname>_jcv_graphedge::angle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="207" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>_jcv_edge</label>
+        <link refid="struct__jcv__edge"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>sites</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>pos</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>_jcv_graphedge</label>
+        <link refid="struct__jcv__graphedge"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>edge</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>neighbor</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>pos</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>_jcv_point</label>
+        <link refid="struct__jcv__point"/>
+      </node>
+      <node id="3">
+        <label>_jcv_site</label>
+        <link refid="struct__jcv__site"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>edges</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" line="202" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/utils/jc_voronoi.h" bodystart="202" bodyend="208"/>
+    <listofallmembers>
+      <member refid="struct__jcv__graphedge_1a609a99341004843f7a9af639015e3404" prot="public" virt="non-virtual"><scope>_jcv_graphedge</scope><name>angle</name></member>
+      <member refid="struct__jcv__graphedge_1a9c14a395e04edecf0cca0c0ff6710a66" prot="public" virt="non-virtual"><scope>_jcv_graphedge</scope><name>edge</name></member>
+      <member refid="struct__jcv__graphedge_1acd5d8687a0737b73df963967da7d0e86" prot="public" virt="non-virtual"><scope>_jcv_graphedge</scope><name>neighbor</name></member>
+      <member refid="struct__jcv__graphedge_1af097be4c7e9e6aa177fe34e1efb9e62d" prot="public" virt="non-virtual"><scope>_jcv_graphedge</scope><name>next</name></member>
+      <member refid="struct__jcv__graphedge_1aa471bf8739860ecfa6c56343ee33eff3" prot="public" virt="non-virtual"><scope>_jcv_graphedge</scope><name>pos</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "moxygen": "^0.8.0",
     "typedoc": "^0.27.9",
     "typedoc-plugin-markdown": "^4.4.2",
     "typedoc-vitepress-theme": "^1.1.2",
@@ -10,6 +11,8 @@
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
-    "typedoc": "typedoc"
+    "typedoc": "typedoc",
+    "doxygen": "doxygen Doxyfile",
+    "cpp": "pnpm run doxygen && ./node_modules/moxygen/bin/moxygen.js -c ./cpp/xml -o ./cpp/api-%s.md"
   }
 }

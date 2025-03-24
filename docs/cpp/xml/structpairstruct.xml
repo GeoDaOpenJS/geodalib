@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="structpairstruct" kind="struct" language="C++" prot="public">
+    <compoundname>pairstruct</compoundname>
+    <includes refid="lite2_8h" local="no">lite2.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class First</type>
+      </param>
+      <param>
+        <type>class Second</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpairstruct_1a1a17700bea9dc60e3011204fede1a9e9" prot="public" static="no" mutable="no">
+        <type>First</type>
+        <definition>First pairstruct&lt; First, Second &gt;::first</definition>
+        <argsstring></argsstring>
+        <name>first</name>
+        <qualifiedname>pairstruct::first</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="242" column="9" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpairstruct_1aa5a79515342867606403ab3fce598304" prot="public" static="no" mutable="no">
+        <type>Second</type>
+        <definition>Second pairstruct&lt; First, Second &gt;::second</definition>
+        <argsstring></argsstring>
+        <name>second</name>
+        <qualifiedname>pairstruct::second</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="243" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structpairstruct_1ad0f782a83914f732f47fae86498a5762" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pairstruct&lt; First, Second &gt;::pairstruct</definition>
+        <argsstring>(const First init1, const Second init2)</argsstring>
+        <name>pairstruct</name>
+        <qualifiedname>pairstruct::pairstruct</qualifiedname>
+        <param>
+          <type>const First</type>
+          <declname>init1</declname>
+        </param>
+        <param>
+          <type>const Second</type>
+          <declname>init2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="244" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="244" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="structpairstruct_1a137827e5066edc8b86575b3bc95e84b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pairstruct&lt; First, Second &gt;::pairstruct</definition>
+        <argsstring>()</argsstring>
+        <name>pairstruct</name>
+        <qualifiedname>pairstruct::pairstruct</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="245" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="245" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="structpairstruct_1a8d05f3bc56e17541a0472b8cd7bb343f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool pairstruct&lt; First, Second &gt;::operator&lt;</definition>
+        <argsstring>(const pairstruct&lt; First, Second &gt; &amp;x)</argsstring>
+        <name>operator&lt;</name>
+        <qualifiedname>pairstruct::operator&lt;</qualifiedname>
+        <param>
+          <type>const <ref refid="structpairstruct" kindref="compound">pairstruct</ref>&lt; First, Second &gt; &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="246" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="246" bodyend="246"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="241" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="241" bodyend="248"/>
+    <listofallmembers>
+      <member refid="structpairstruct_1a1a17700bea9dc60e3011204fede1a9e9" prot="public" virt="non-virtual"><scope>pairstruct</scope><name>first</name></member>
+      <member refid="structpairstruct_1a8d05f3bc56e17541a0472b8cd7bb343f" prot="public" virt="non-virtual"><scope>pairstruct</scope><name>operator&lt;</name></member>
+      <member refid="structpairstruct_1ad0f782a83914f732f47fae86498a5762" prot="public" virt="non-virtual"><scope>pairstruct</scope><name>pairstruct</name></member>
+      <member refid="structpairstruct_1a137827e5066edc8b86575b3bc95e84b2" prot="public" virt="non-virtual"><scope>pairstruct</scope><name>pairstruct</name></member>
+      <member refid="structpairstruct_1aa5a79515342867606403ab3fce598304" prot="public" virt="non-virtual"><scope>pairstruct</scope><name>second</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

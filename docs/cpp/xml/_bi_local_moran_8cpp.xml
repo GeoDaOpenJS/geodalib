@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="_bi_local_moran_8cpp" kind="file" language="C++">
+    <compoundname>BiLocalMoran.cpp</compoundname>
+    <includes refid="_bi_local_moran_8h" local="yes">BiLocalMoran.h</includes>
+    <includes refid="geoda-weight_8h" local="yes">weights/geoda-weight.h</includes>
+    <includes refid="data_8h" local="yes">utils/data.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/BiLocalMoran.cpp</label>
+        <link refid="_bi_local_moran_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BiLocalMoran.h</label>
+        <link refid="_bi_local_moran_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>LISA.h</label>
+        <link refid="_l_i_s_a_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>utils/data.h</label>
+        <link refid="data_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>weights/geoda-weight.h</label>
+        <link refid="geoda-weight_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>algorithm</label>
+      </node>
+      <node id="6">
+        <label>cstdint</label>
+      </node>
+      <node id="12">
+        <label>iostream</label>
+      </node>
+      <node id="7">
+        <label>list</label>
+      </node>
+      <node id="8">
+        <label>map</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>Xun<sp/>Li<sp/>on<sp/>2021-09-05.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_bi_local_moran_8h" kindref="compound">BiLocalMoran.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="geoda-weight_8h" kindref="compound">weights/geoda-weight.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="data_8h" kindref="compound">utils/data.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><ref refid="class_bi_local_moran_1a44afd9d49f2587a796655ce84eab3cdd" kindref="member">BiLocalMoran::~BiLocalMoran</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><ref refid="class_bi_local_moran_1a82cd1fc31bbb4851e8d57a0178cf6013" kindref="member">BiLocalMoran::BiLocalMoran</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_obs,<sp/><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref>*<sp/>w,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>_data1,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>_data2,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;bool&gt;&amp;<sp/>_undefs,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>significance_cutoff,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_nCPUs,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_perm,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>_permutation_method,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>_last_seed)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="class_l_i_s_a" kindref="compound">LISA</ref>(num_obs,<sp/>w,<sp/>_undefs,<sp/>significance_cutoff,<sp/>_nCPUs,<sp/>_perm,<sp/>_permutation_method,<sp/>_last_seed),</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CLUSTER_NOT_SIG(0),</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CLUSTER_HIGHHIGH(1),</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CLUSTER_LOWLOW(2),</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CLUSTER_LOWHIGH(3),</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CLUSTER_HIGHLOW(4),</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CLUSTER_UNDEFINED(5),</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CLUSTER_NEIGHBORLESS(6),</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data1(_data1),</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data2(_data2)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>labels.push_back(</highlight><highlight class="stringliteral">&quot;Not<sp/>significant&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>labels.push_back(</highlight><highlight class="stringliteral">&quot;High-High&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>labels.push_back(</highlight><highlight class="stringliteral">&quot;Low-Low&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>labels.push_back(</highlight><highlight class="stringliteral">&quot;Low-High&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>labels.push_back(</highlight><highlight class="stringliteral">&quot;High-Low&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>labels.push_back(</highlight><highlight class="stringliteral">&quot;Undefined&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>labels.push_back(</highlight><highlight class="stringliteral">&quot;Isolated&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>colors.push_back(</highlight><highlight class="stringliteral">&quot;#eeeeee&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>colors.push_back(</highlight><highlight class="stringliteral">&quot;#FF0000&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>colors.push_back(</highlight><highlight class="stringliteral">&quot;#0000FF&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>colors.push_back(</highlight><highlight class="stringliteral">&quot;#a7adf9&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>colors.push_back(</highlight><highlight class="stringliteral">&quot;#f4ada8&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>colors.push_back(</highlight><highlight class="stringliteral">&quot;#464646&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>colors.push_back(</highlight><highlight class="stringliteral">&quot;#999999&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>data1<sp/>=<sp/>geoda::standardize_data(data1,<sp/>undefs);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>data2<sp/>=<sp/>geoda::standardize_data(data2,<sp/>undefs);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>Run();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bi_local_moran_1a51bdd9f54eb57d9abc07c3e79f49b1e4" kindref="member">BiLocalMoran::ComputeLoalSA</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[i]<sp/>||<sp/><ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;IsMasked(i)<sp/>==<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a1842b85ffe20032c9fc14bb7734d946c" kindref="member">lag_vec</ref>[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i]<sp/>=<sp/>CLUSTER_UNDEFINED;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;GetNbrSize(i)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i]<sp/>=<sp/>CLUSTER_NEIGHBORLESS;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sp_lag<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>nbrs<sp/>=<sp/><ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>-&gt;GetNeighbors(i);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nn<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>nbrs.size();<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nbrs[j]<sp/>!=<sp/>i<sp/>&amp;&amp;<sp/>!<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[nbrs[j]])<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>not<sp/>including<sp/>the<sp/>value<sp/>at<sp/>the<sp/>location</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sp_lag<sp/>+=<sp/><ref refid="class_bi_local_moran_1a48d595c021095493e5b6b807bb09a8cb" kindref="member">data2</ref>[nbrs[j]];</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nn<sp/>+=<sp/>1;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sp_lag<sp/>=<sp/>sp_lag<sp/>/<sp/>nn;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a1842b85ffe20032c9fc14bb7734d946c" kindref="member">lag_vec</ref>[i]<sp/>=<sp/>sp_lag;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>[i]<sp/>=<sp/><ref refid="class_bi_local_moran_1a15b7ae444194485c9d7bddd17e23abc9" kindref="member">data1</ref>[i]<sp/>*<sp/>sp_lag;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assign<sp/>the<sp/>cluster</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_bi_local_moran_1a15b7ae444194485c9d7bddd17e23abc9" kindref="member">data1</ref>[i]<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>sp_lag<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i]<sp/>=<sp/>CLUSTER_HIGHLOW;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_bi_local_moran_1a15b7ae444194485c9d7bddd17e23abc9" kindref="member">data1</ref>[i]<sp/>&lt;<sp/>0<sp/>&amp;&amp;<sp/>sp_lag<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i]<sp/>=<sp/>CLUSTER_LOWHIGH;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_bi_local_moran_1a15b7ae444194485c9d7bddd17e23abc9" kindref="member">data1</ref>[i]<sp/>&lt;<sp/>0<sp/>&amp;&amp;<sp/>sp_lag<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i]<sp/>=<sp/>CLUSTER_LOWLOW;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i]<sp/>=<sp/>CLUSTER_HIGHHIGH;<sp/><sp/></highlight><highlight class="comment">//<sp/>data1[i]<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>Wdata<sp/>&gt;<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bi_local_moran_1af60b3d3e5feb2de162d29816822600c3" kindref="member">BiLocalMoran::PermLocalSA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perm,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>permNeighbors,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;&amp;<sp/>permutedSA)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>validNeighbors<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>permutedLag<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numNeighbors<sp/>=<sp/>permNeighbors.size();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>use<sp/>permutation<sp/>to<sp/>compute<sp/>the<sp/>lag</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>the<sp/>lag<sp/>for<sp/>binary<sp/>weights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cp<sp/>=<sp/>0;<sp/>cp<sp/>&lt;<sp/>numNeighbors;<sp/>cp++)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb<sp/>=<sp/>permNeighbors[cp];</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[nb])<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permutedLag<sp/>+=<sp/><ref refid="class_bi_local_moran_1a48d595c021095493e5b6b807bb09a8cb" kindref="member">data2</ref>[nb];</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>validNeighbors++;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>we<sp/>shouldn&apos;t<sp/>have<sp/>to<sp/>row-standardize<sp/>or</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>multiply<sp/>by<sp/>data1[cnt]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(validNeighbors<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/><ref refid="class_l_i_s_a_1ad0d3a85084f836c14ac292dd783cc617" kindref="member">row_standardize</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>permutedLag<sp/>/=<sp/>validNeighbors;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>localMoranPermuted<sp/>=<sp/>permutedLag<sp/>*<sp/><ref refid="class_bi_local_moran_1a15b7ae444194485c9d7bddd17e23abc9" kindref="member">data1</ref>[cnt];</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>permutedSA[perm]<sp/>=<sp/>localMoranPermuted;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bi_local_moran_1af60b3d3e5feb2de162d29816822600c3" kindref="member">BiLocalMoran::PermLocalSA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perm,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numNeighbors,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>permNeighbors,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;&amp;<sp/>permutedSA)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>validNeighbors<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>permutedLag<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>use<sp/>permutation<sp/>to<sp/>compute<sp/>the<sp/>lag</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>the<sp/>lag<sp/>for<sp/>binary<sp/>weights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cp<sp/>=<sp/>0;<sp/>cp<sp/>&lt;<sp/>numNeighbors;<sp/>cp++)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb<sp/>=<sp/>permNeighbors[cp];</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nb<sp/>&gt;=<sp/>cnt)<sp/>nb<sp/>=<sp/>nb<sp/>+<sp/>1;<sp/><sp/></highlight><highlight class="comment">//<sp/>self<sp/>&quot;cnt&quot;<sp/>should<sp/>be<sp/>excluded,<sp/>index<sp/>should<sp/>be<sp/>adjusted</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>[nb])<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>permutedLag<sp/>+=<sp/><ref refid="class_bi_local_moran_1a48d595c021095493e5b6b807bb09a8cb" kindref="member">data2</ref>[nb];</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>validNeighbors++;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>we<sp/>shouldn&apos;t<sp/>have<sp/>to<sp/>row-standardize<sp/>or</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>multiply<sp/>by<sp/>data1[cnt]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(validNeighbors<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/><ref refid="class_l_i_s_a_1ad0d3a85084f836c14ac292dd783cc617" kindref="member">row_standardize</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>permutedLag<sp/>/=<sp/>validNeighbors;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>localMoranPermuted<sp/>=<sp/>permutedLag<sp/>*<sp/><ref refid="class_bi_local_moran_1a15b7ae444194485c9d7bddd17e23abc9" kindref="member">data1</ref>[cnt];</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>permutedSA[perm]<sp/>=<sp/>localMoranPermuted;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal">uint64_t<sp/><ref refid="class_bi_local_moran_1a23833cef67c74615eb9e2943cd98e328" kindref="member">BiLocalMoran::CountLargerSA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>permutedSA)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>uint64_t<sp/>countLarger<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(permutedSA[i]<sp/>&gt;=<sp/><ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>[cnt])<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>countLarger<sp/>+=<sp/>1;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>pick<sp/>the<sp/>smallest<sp/>counts</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref><sp/>-<sp/>countLarger<sp/>&lt;=<sp/>countLarger)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>countLarger<sp/>=<sp/><ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref><sp/>-<sp/>countLarger;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>countLarger;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal">std::vector&lt;int&gt;<sp/><ref refid="class_bi_local_moran_1acb900b3f54743838c3f80f6f89e3538a" kindref="member">BiLocalMoran::GetClusterIndicators</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>clusters(<ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cuttoff<sp/>=<sp/><ref refid="class_l_i_s_a_1a4a4972b885f39d697d4c3b21c617bde6" kindref="member">GetSignificanceCutoff</ref>();</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_l_i_s_a_1a4cebb360265b00834131007f766f8888" kindref="member">sig_local_vec</ref>[i]<sp/>&gt;<sp/>cuttoff<sp/>&amp;&amp;<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i]<sp/>!=<sp/>CLUSTER_UNDEFINED<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i]<sp/>!=<sp/>CLUSTER_NEIGHBORLESS)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>clusters[i]<sp/>=<sp/>CLUSTER_NOT_SIG;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>clusters[i]<sp/>=<sp/><ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>[i];</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>clusters;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BiLocalMoran.cpp"/>
+  </compounddef>
+</doxygen>

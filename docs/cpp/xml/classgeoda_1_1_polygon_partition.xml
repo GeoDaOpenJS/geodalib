@@ -1,0 +1,471 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="classgeoda_1_1_polygon_partition" kind="class" language="C++" prot="public">
+    <compoundname>geoda::PolygonPartition</compoundname>
+    <includes refid="partition_8h" local="no">partition.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classgeoda_1_1_polygon_partition_1ada90698c3027cc377bf990a48a96e4c4" prot="protected" static="no" mutable="no">
+        <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+        <definition>const GeometryCollection&amp; geoda::PolygonPartition::geoms</definition>
+        <argsstring></argsstring>
+        <name>geoms</name>
+        <qualifiedname>geoda::PolygonPartition::geoms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="170" column="28" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeoda_1_1_polygon_partition_1a30fec504b722ce7005a74dfee2879937" prot="protected" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t geoda::PolygonPartition::polygon_index</definition>
+        <argsstring></argsstring>
+        <name>polygon_index</name>
+        <qualifiedname>geoda::PolygonPartition::polygon_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="171" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeoda_1_1_polygon_partition_1a7bd82914b25820662a3c416320d34a5d" prot="protected" static="no" mutable="no">
+        <type><ref refid="geometry_8h_1a7d32eb4d5272ffdaf1a4c210691779fb" kindref="member">box_type</ref></type>
+        <definition>box_type geoda::PolygonPartition::bbox</definition>
+        <argsstring></argsstring>
+        <name>bbox</name>
+        <qualifiedname>geoda::PolygonPartition::bbox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="172" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeoda_1_1_polygon_partition_1a69fcbef052127f103cc0b1e38adc5b6c" prot="protected" static="no" mutable="no">
+        <type><ref refid="classgeoda_1_1_base_partition" kindref="compound">BasePartition</ref></type>
+        <definition>BasePartition geoda::PolygonPartition::pX</definition>
+        <argsstring></argsstring>
+        <name>pX</name>
+        <qualifiedname>geoda::PolygonPartition::pX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="174" column="17" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeoda_1_1_polygon_partition_1af5075486c92b2bbf59512817eacdb0eb" prot="protected" static="no" mutable="no">
+        <type><ref refid="classgeoda_1_1_partition_p" kindref="compound">PartitionP</ref></type>
+        <definition>PartitionP geoda::PolygonPartition::pY</definition>
+        <argsstring></argsstring>
+        <name>pY</name>
+        <qualifiedname>geoda::PolygonPartition::pY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="175" column="14" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeoda_1_1_polygon_partition_1ae86cf213780c5974ada02c9c3fe3d553" prot="protected" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* geoda::PolygonPartition::nbrPoints</definition>
+        <argsstring></argsstring>
+        <name>nbrPoints</name>
+        <qualifiedname>geoda::PolygonPartition::nbrPoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="176" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classgeoda_1_1_polygon_partition_1ac2775a5aa99d1bd9b90eeb52dfd49bc7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int geoda::PolygonPartition::NumPoints</definition>
+        <argsstring></argsstring>
+        <name>NumPoints</name>
+        <qualifiedname>geoda::PolygonPartition::NumPoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="188" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeoda_1_1_polygon_partition_1a3309d498158ed08fdc35906fecc0e437" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int geoda::PolygonPartition::NumParts</definition>
+        <argsstring></argsstring>
+        <name>NumParts</name>
+        <qualifiedname>geoda::PolygonPartition::NumParts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="189" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1ae4aa30d875e136b8117fefac04190365" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int geoda::PolygonPartition::prev</definition>
+        <argsstring>(const int pt) const</argsstring>
+        <name>prev</name>
+        <qualifiedname>geoda::PolygonPartition::prev</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>pt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="178" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="178" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1a72b1be66f12b5effb299460aee1b040d" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int geoda::PolygonPartition::succ</definition>
+        <argsstring>(const int pt) const</argsstring>
+        <name>succ</name>
+        <qualifiedname>geoda::PolygonPartition::succ</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>pt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="182" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="182" bodyend="185"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1a99e6b939494e6210b6d7b5fb77c4404d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>geoda::PolygonPartition::PolygonPartition</definition>
+        <argsstring>(const GeometryCollection &amp;_geoms, size_t _polygon_index)</argsstring>
+        <name>PolygonPartition</name>
+        <qualifiedname>geoda::PolygonPartition::PolygonPartition</qualifiedname>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>_geoms</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>_polygon_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="192" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="192" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1a3af0f1f23a36fbd1a2ea706cf3b9be38" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>geoda::PolygonPartition::~PolygonPartition</definition>
+        <argsstring>()</argsstring>
+        <name>~PolygonPartition</name>
+        <qualifiedname>geoda::PolygonPartition::~PolygonPartition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="206" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="206" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1aae2c86891e1b3d3692d6dccc7fda70e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref></type>
+        <definition>point_type geoda::PolygonPartition::GetPoint</definition>
+        <argsstring>(const int i)</argsstring>
+        <name>GetPoint</name>
+        <qualifiedname>geoda::PolygonPartition::GetPoint</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="213" column="14" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="213" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1ac2a98ced1cb97c51a118046ca24b4cd8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int geoda::PolygonPartition::GetPart</definition>
+        <argsstring>(int i)</argsstring>
+        <name>GetPart</name>
+        <qualifiedname>geoda::PolygonPartition::GetPart</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="215" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="215" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1abf2b359308ecfca32aa4c2c4e01e1d23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double geoda::PolygonPartition::GetMinX</definition>
+        <argsstring>()</argsstring>
+        <name>GetMinX</name>
+        <qualifiedname>geoda::PolygonPartition::GetMinX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="217" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="217" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1af1183c5bb6d36445fb6c9a44f0d87e2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double geoda::PolygonPartition::GetMinY</definition>
+        <argsstring>()</argsstring>
+        <name>GetMinY</name>
+        <qualifiedname>geoda::PolygonPartition::GetMinY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="218" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="218" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1ad3d4784a9052247cee22ec57f04089ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double geoda::PolygonPartition::GetMaxX</definition>
+        <argsstring>()</argsstring>
+        <name>GetMaxX</name>
+        <qualifiedname>geoda::PolygonPartition::GetMaxX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="219" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="219" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1af2796a99863b9f662ecf4d0e04708d52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double geoda::PolygonPartition::GetMaxY</definition>
+        <argsstring>()</argsstring>
+        <name>GetMaxY</name>
+        <qualifiedname>geoda::PolygonPartition::GetMaxY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="220" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="220" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1aa5640147ceddfd0b3ed0af4b0bde03fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int geoda::PolygonPartition::MakePartition</definition>
+        <argsstring>(int mX=0, int mY=0)</argsstring>
+        <name>MakePartition</name>
+        <qualifiedname>geoda::PolygonPartition::MakePartition</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>mX</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mY</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="222" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="222" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1a0e406a09c8e686f6f009c72c12277e45" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void geoda::PolygonPartition::MakeSmallPartition</definition>
+        <argsstring>(const int mX, const double Start, const double Stop)</argsstring>
+        <name>MakeSmallPartition</name>
+        <qualifiedname>geoda::PolygonPartition::MakeSmallPartition</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>mX</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>Start</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>Stop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="243" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="243" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1aeff6f2abdde9b18f8414c7066f3d3002" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void geoda::PolygonPartition::MakeNeighbors</definition>
+        <argsstring>()</argsstring>
+        <name>MakeNeighbors</name>
+        <qualifiedname>geoda::PolygonPartition::MakeNeighbors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="255" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="255" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1a305aa2275ae021b8fc78a5ce72c54af4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool geoda::PolygonPartition::edge</definition>
+        <argsstring>(PolygonPartition &amp;p, const int host, const int guest, double precision_threshold)</argsstring>
+        <name>edge</name>
+        <qualifiedname>geoda::PolygonPartition::edge</qualifiedname>
+        <param>
+          <type><ref refid="classgeoda_1_1_polygon_partition" kindref="compound">PolygonPartition</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>host</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>guest</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>precision_threshold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="273" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="273" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_partition_1ad5a4bfc6afecec2885b2e97b2a8efe42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int geoda::PolygonPartition::sweep</definition>
+        <argsstring>(PolygonPartition &amp;guest, bool is_queen, double precision_threshold=0.0)</argsstring>
+        <name>sweep</name>
+        <qualifiedname>geoda::PolygonPartition::sweep</qualifiedname>
+        <param>
+          <type><ref refid="classgeoda_1_1_polygon_partition" kindref="compound">PolygonPartition</ref> &amp;</type>
+          <declname>guest</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_queen</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>precision_threshold</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="301" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="301" bodyend="334"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>geoda::BasePartition</label>
+        <link refid="classgeoda_1_1_base_partition"/>
+      </node>
+      <node id="2">
+        <label>geoda::GeometryCollection</label>
+        <link refid="classgeoda_1_1_geometry_collection"/>
+      </node>
+      <node id="4">
+        <label>geoda::PartitionP</label>
+        <link refid="classgeoda_1_1_partition_p"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>geoda::PolygonPartition</label>
+        <link refid="classgeoda_1_1_polygon_partition"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>geoms</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>pX</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>pY</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="168" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="168" bodyend="335"/>
+    <listofallmembers>
+      <member refid="classgeoda_1_1_polygon_partition_1a7bd82914b25820662a3c416320d34a5d" prot="protected" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>bbox</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1a305aa2275ae021b8fc78a5ce72c54af4" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>edge</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1ada90698c3027cc377bf990a48a96e4c4" prot="protected" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>geoms</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1ad3d4784a9052247cee22ec57f04089ba" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>GetMaxX</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1af2796a99863b9f662ecf4d0e04708d52" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>GetMaxY</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1abf2b359308ecfca32aa4c2c4e01e1d23" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>GetMinX</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1af1183c5bb6d36445fb6c9a44f0d87e2a" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>GetMinY</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1ac2a98ced1cb97c51a118046ca24b4cd8" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>GetPart</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1aae2c86891e1b3d3692d6dccc7fda70e6" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>GetPoint</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1aeff6f2abdde9b18f8414c7066f3d3002" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>MakeNeighbors</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1aa5640147ceddfd0b3ed0af4b0bde03fd" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>MakePartition</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1a0e406a09c8e686f6f009c72c12277e45" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>MakeSmallPartition</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1ae86cf213780c5974ada02c9c3fe3d553" prot="protected" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>nbrPoints</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1a3309d498158ed08fdc35906fecc0e437" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>NumParts</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1ac2775a5aa99d1bd9b90eeb52dfd49bc7" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>NumPoints</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1a30fec504b722ce7005a74dfee2879937" prot="protected" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>polygon_index</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1a99e6b939494e6210b6d7b5fb77c4404d" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>PolygonPartition</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1ae4aa30d875e136b8117fefac04190365" prot="protected" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>prev</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1a69fcbef052127f103cc0b1e38adc5b6c" prot="protected" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>pX</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1af5075486c92b2bbf59512817eacdb0eb" prot="protected" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>pY</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1a72b1be66f12b5effb299460aee1b040d" prot="protected" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>succ</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1ad5a4bfc6afecec2885b2e97b2a8efe42" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>sweep</name></member>
+      <member refid="classgeoda_1_1_polygon_partition_1a3af0f1f23a36fbd1a2ea706cf3b9be38" prot="public" virt="non-virtual"><scope>geoda::PolygonPartition</scope><name>~PolygonPartition</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

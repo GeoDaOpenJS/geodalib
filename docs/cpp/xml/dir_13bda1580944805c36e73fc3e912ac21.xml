@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="dir_13bda1580944805c36e73fc3e912ac21" kind="dir">
+    <compoundname>/Users/xun/github/geoda-lib/src/cpp/regression</compoundname>
+    <innerfile refid="dense-vector_8cpp">dense-vector.cpp</innerfile>
+    <innerfile refid="dense-vector_8h">dense-vector.h</innerfile>
+    <innerfile refid="_dense_matrix_8cpp">DenseMatrix.cpp</innerfile>
+    <innerfile refid="_dense_matrix_8h">DenseMatrix.h</innerfile>
+    <innerfile refid="diagnostic-report_8cpp">diagnostic-report.cpp</innerfile>
+    <innerfile refid="diagnostic-report_8h">diagnostic-report.h</innerfile>
+    <innerfile refid="_link_8h">Link.h</innerfile>
+    <innerfile refid="lite2_8h">lite2.h</innerfile>
+    <innerfile refid="mix_8cpp">mix.cpp</innerfile>
+    <innerfile refid="mix_8h">mix.h</innerfile>
+    <innerfile refid="_m_l__im_8cpp">ML_im.cpp</innerfile>
+    <innerfile refid="_m_l__im_8h">ML_im.h</innerfile>
+    <innerfile refid="polym_8h">polym.h</innerfile>
+    <innerfile refid="_power_lag_8cpp">PowerLag.cpp</innerfile>
+    <innerfile refid="_power_lag_8h">PowerLag.h</innerfile>
+    <innerfile refid="_power_sym_lag_8cpp">PowerSymLag.cpp</innerfile>
+    <innerfile refid="_power_sym_lag_8h">PowerSymLag.h</innerfile>
+    <innerfile refid="reg-utils_8h">reg-utils.h</innerfile>
+    <innerfile refid="regression_8cpp">regression.cpp</innerfile>
+    <innerfile refid="regression_8h">regression.h</innerfile>
+    <innerfile refid="smile_8h">smile.h</innerfile>
+    <innerfile refid="smile2_8cpp">smile2.cpp</innerfile>
+    <innerfile refid="_sparse_matrix_8cpp">SparseMatrix.cpp</innerfile>
+    <innerfile refid="_sparse_matrix_8h">SparseMatrix.h</innerfile>
+    <innerfile refid="_sparse_row_8cpp">SparseRow.cpp</innerfile>
+    <innerfile refid="_sparse_row_8h">SparseRow.h</innerfile>
+    <innerfile refid="_sparse_vector_8cpp">SparseVector.cpp</innerfile>
+    <innerfile refid="_sparse_vector_8h">SparseVector.h</innerfile>
+    <innerfile refid="_weights_8cpp">Weights.cpp</innerfile>
+    <innerfile refid="regression_2_weights_8h">Weights.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/"/>
+  </compounddef>
+</doxygen>

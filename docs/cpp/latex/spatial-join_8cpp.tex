@@ -1,0 +1,51 @@
+\doxysection{/\+Users/xun/github/geoda-\/lib/src/cpp/geometry/spatial-\/join.cpp File Reference}
+\hypertarget{spatial-join_8cpp}{}\label{spatial-join_8cpp}\index{/Users/xun/github/geoda-\/lib/src/cpp/geometry/spatial-\/join.cpp@{/Users/xun/github/geoda-\/lib/src/cpp/geometry/spatial-\/join.cpp}}
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$boost/geometry/geometries/box.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/index/rtree.\+hpp$>$}\newline
+{\ttfamily \#include "{}geometry/geometry.\+h"{}}\newline
+{\ttfamily \#include "{}geometry/spatial-\/join.\+h"{}}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef boost\+::geometry\+::model\+::box$<$ \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} $>$ \mbox{\hyperlink{spatial-join_8cpp_a33a5d4f8889ff840e8b2c35bcd0987bf}{boost\+\_\+box}}
+\item 
+typedef std\+::pair$<$ \mbox{\hyperlink{spatial-join_8cpp_a33a5d4f8889ff840e8b2c35bcd0987bf}{boost\+\_\+box}}, unsigned int $>$ \mbox{\hyperlink{spatial-join_8cpp_a7e2308fcd3df8690ab764903ca6b9bf0}{box\+\_\+value}}
+\item 
+typedef boost\+::geometry\+::index\+::rtree$<$ \mbox{\hyperlink{spatial-join_8cpp_a7e2308fcd3df8690ab764903ca6b9bf0}{box\+\_\+value}}, boost\+::geometry\+::index\+::quadratic$<$ 32 $>$ $>$ \mbox{\hyperlink{spatial-join_8cpp_a4509f4df0e8acd44bcb0cde90272b311}{boost\+\_\+rtree}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{spatial-join_8cpp_a4509f4df0e8acd44bcb0cde90272b311}{boost\+\_\+rtree}} \mbox{\hyperlink{spatial-join_8cpp_a4ba3de1097e143d055bc14a10f86a5d6}{create\+\_\+rtree}} (const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{geoda\+::\+Geometry\+Collection}} \&collection)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{spatial-join_8cpp_a33a5d4f8889ff840e8b2c35bcd0987bf}\index{spatial-\/join.cpp@{spatial-\/join.cpp}!boost\_box@{boost\_box}}
+\index{boost\_box@{boost\_box}!spatial-\/join.cpp@{spatial-\/join.cpp}}
+\doxysubsubsection{\texorpdfstring{boost\_box}{boost\_box}}
+{\footnotesize\ttfamily \label{spatial-join_8cpp_a33a5d4f8889ff840e8b2c35bcd0987bf} 
+typedef boost\+::geometry\+::model\+::box$<$\mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}}$>$ \mbox{\hyperlink{spatial-join_8cpp_a33a5d4f8889ff840e8b2c35bcd0987bf}{boost\+\_\+box}}}
+
+\Hypertarget{spatial-join_8cpp_a4509f4df0e8acd44bcb0cde90272b311}\index{spatial-\/join.cpp@{spatial-\/join.cpp}!boost\_rtree@{boost\_rtree}}
+\index{boost\_rtree@{boost\_rtree}!spatial-\/join.cpp@{spatial-\/join.cpp}}
+\doxysubsubsection{\texorpdfstring{boost\_rtree}{boost\_rtree}}
+{\footnotesize\ttfamily \label{spatial-join_8cpp_a4509f4df0e8acd44bcb0cde90272b311} 
+typedef boost\+::geometry\+::index\+::rtree$<$\mbox{\hyperlink{spatial-join_8cpp_a7e2308fcd3df8690ab764903ca6b9bf0}{box\+\_\+value}}, boost\+::geometry\+::index\+::quadratic$<$32$>$ $>$ \mbox{\hyperlink{spatial-join_8cpp_a4509f4df0e8acd44bcb0cde90272b311}{boost\+\_\+rtree}}}
+
+\Hypertarget{spatial-join_8cpp_a7e2308fcd3df8690ab764903ca6b9bf0}\index{spatial-\/join.cpp@{spatial-\/join.cpp}!box\_value@{box\_value}}
+\index{box\_value@{box\_value}!spatial-\/join.cpp@{spatial-\/join.cpp}}
+\doxysubsubsection{\texorpdfstring{box\_value}{box\_value}}
+{\footnotesize\ttfamily \label{spatial-join_8cpp_a7e2308fcd3df8690ab764903ca6b9bf0} 
+typedef std\+::pair$<$\mbox{\hyperlink{spatial-join_8cpp_a33a5d4f8889ff840e8b2c35bcd0987bf}{boost\+\_\+box}}, unsigned int$>$ \mbox{\hyperlink{spatial-join_8cpp_a7e2308fcd3df8690ab764903ca6b9bf0}{box\+\_\+value}}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{spatial-join_8cpp_a4ba3de1097e143d055bc14a10f86a5d6}\index{spatial-\/join.cpp@{spatial-\/join.cpp}!create\_rtree@{create\_rtree}}
+\index{create\_rtree@{create\_rtree}!spatial-\/join.cpp@{spatial-\/join.cpp}}
+\doxysubsubsection{\texorpdfstring{create\_rtree()}{create\_rtree()}}
+{\footnotesize\ttfamily \label{spatial-join_8cpp_a4ba3de1097e143d055bc14a10f86a5d6} 
+\mbox{\hyperlink{spatial-join_8cpp_a4509f4df0e8acd44bcb0cde90272b311}{boost\+\_\+rtree}} create\+\_\+rtree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{geoda\+::\+Geometry\+Collection}} \&}]{collection}{}\end{DoxyParamCaption})}
+

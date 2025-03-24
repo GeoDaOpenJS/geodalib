@@ -1,12 +1,8 @@
-[**geoda-wasm**](../README.md)
-
-***
-
 [geoda-wasm](../globals.md) / GeoDaInterface
 
 # Interface: GeoDaInterface
 
-Defined in: [wasm/index.d.ts:663](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L663)
+Defined in: [wasm/index.d.ts:663](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L663)
 
 ## Properties
 
@@ -14,7 +10,7 @@ Defined in: [wasm/index.d.ts:663](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **DiagnosticReport**: *typeof* `DiagnosticReport`
 
-Defined in: [wasm/index.d.ts:984](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L984)
+Defined in: [wasm/index.d.ts:984](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L984)
 
 ***
 
@@ -22,7 +18,7 @@ Defined in: [wasm/index.d.ts:984](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **GeometryCollection**: *typeof* `GeometryCollection`
 
-Defined in: [wasm/index.d.ts:970](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L970)
+Defined in: [wasm/index.d.ts:970](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L970)
 
 ***
 
@@ -30,7 +26,7 @@ Defined in: [wasm/index.d.ts:970](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **LineCollection**: *typeof* `LineCollection`
 
-Defined in: [wasm/index.d.ts:972](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L972)
+Defined in: [wasm/index.d.ts:972](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L972)
 
 ***
 
@@ -38,7 +34,7 @@ Defined in: [wasm/index.d.ts:972](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **LisaResult**: *typeof* `LisaResult`
 
-Defined in: [wasm/index.d.ts:983](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L983)
+Defined in: [wasm/index.d.ts:983](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L983)
 
 ***
 
@@ -46,7 +42,7 @@ Defined in: [wasm/index.d.ts:983](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **PointCollection**: *typeof* `PointCollection`
 
-Defined in: [wasm/index.d.ts:973](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L973)
+Defined in: [wasm/index.d.ts:973](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L973)
 
 ***
 
@@ -54,7 +50,7 @@ Defined in: [wasm/index.d.ts:973](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **Polygon**: *typeof* `Polygon`
 
-Defined in: [wasm/index.d.ts:974](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L974)
+Defined in: [wasm/index.d.ts:974](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L974)
 
 ***
 
@@ -62,7 +58,7 @@ Defined in: [wasm/index.d.ts:974](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **PolygonCollection**: *typeof* `PolygonCollection`
 
-Defined in: [wasm/index.d.ts:971](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L971)
+Defined in: [wasm/index.d.ts:971](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L971)
 
 ***
 
@@ -70,7 +66,7 @@ Defined in: [wasm/index.d.ts:971](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **VectorDouble**: *typeof* `VectorDouble`
 
-Defined in: [wasm/index.d.ts:979](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L979)
+Defined in: [wasm/index.d.ts:979](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L979)
 
 ***
 
@@ -78,7 +74,7 @@ Defined in: [wasm/index.d.ts:979](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **VectorInt**: *typeof* `VectorInt`
 
-Defined in: [wasm/index.d.ts:977](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L977)
+Defined in: [wasm/index.d.ts:977](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L977)
 
 ***
 
@@ -86,7 +82,7 @@ Defined in: [wasm/index.d.ts:977](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **VectorPolygon**: *typeof* `VectorPolygon`
 
-Defined in: [wasm/index.d.ts:981](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L981)
+Defined in: [wasm/index.d.ts:981](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L981)
 
 ***
 
@@ -94,7 +90,7 @@ Defined in: [wasm/index.d.ts:981](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **VectorString**: *typeof* `VectorString`
 
-Defined in: [wasm/index.d.ts:982](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L982)
+Defined in: [wasm/index.d.ts:982](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L982)
 
 ***
 
@@ -102,7 +98,7 @@ Defined in: [wasm/index.d.ts:982](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **VectorUInt**: *typeof* `VectorUInt`
 
-Defined in: [wasm/index.d.ts:975](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L975)
+Defined in: [wasm/index.d.ts:975](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L975)
 
 ***
 
@@ -110,7 +106,7 @@ Defined in: [wasm/index.d.ts:975](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **VecVecDouble**: *typeof* `VecVecDouble`
 
-Defined in: [wasm/index.d.ts:980](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L980)
+Defined in: [wasm/index.d.ts:980](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L980)
 
 ***
 
@@ -118,7 +114,7 @@ Defined in: [wasm/index.d.ts:980](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **VecVecInt**: *typeof* `VecVecInt`
 
-Defined in: [wasm/index.d.ts:978](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L978)
+Defined in: [wasm/index.d.ts:978](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L978)
 
 ***
 
@@ -126,7 +122,7 @@ Defined in: [wasm/index.d.ts:978](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **VecVecUInt**: *typeof* `VecVecUInt`
 
-Defined in: [wasm/index.d.ts:976](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L976)
+Defined in: [wasm/index.d.ts:976](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L976)
 
 ## Methods
 
@@ -134,7 +130,7 @@ Defined in: [wasm/index.d.ts:976](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **bivariateLocalMoran**(`data1`, `data2`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`): `LisaResult`
 
-Defined in: [wasm/index.d.ts:796](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L796)
+Defined in: [wasm/index.d.ts:796](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L796)
 
 Bivariate Local Moran statistics
 
@@ -192,7 +188,7 @@ the last seed
 
 > **boxBreaks**(`data`, `undefs`, `hinge`): `VectorDouble`
 
-Defined in: [wasm/index.d.ts:759](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L759)
+Defined in: [wasm/index.d.ts:759](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L759)
 
 Box breaks classification: Lower outlier, < 25%, [25-50)%, [50-75)%, >= 75%, Upper outlier
 
@@ -226,7 +222,7 @@ the hinge value, default is 1.5 and could be 3.0
 
 > **dotProduct**(`x`, `y`): `number`
 
-Defined in: [wasm/index.d.ts:885](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L885)
+Defined in: [wasm/index.d.ts:885](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L885)
 
 #### Parameters
 
@@ -248,7 +244,7 @@ Defined in: [wasm/index.d.ts:885](https://github.com/GeoDaCenter/geoda-lib/blob/
 
 > **equalIntervalBreaks**(`k`, `data`, `undefs`?): `VectorDouble`
 
-Defined in: [wasm/index.d.ts:744](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L744)
+Defined in: [wasm/index.d.ts:744](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L744)
 
 Equal interval breaks classification
 
@@ -282,7 +278,7 @@ the flags of undefined values
 
 > **getDistanceThresholds**(`geometries`, `isMile`): `VectorDouble`
 
-Defined in: [wasm/index.d.ts:720](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L720)
+Defined in: [wasm/index.d.ts:720](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L720)
 
 get the distance thresholds of a collection of geometries that guarantee 1 nearest neighbors
 
@@ -310,7 +306,7 @@ the unit of distance
 
 > **getDistanceWeights**(`geometries`, `threshold`, `isMile`): `VecVecUInt`
 
-Defined in: [wasm/index.d.ts:709](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L709)
+Defined in: [wasm/index.d.ts:709](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L709)
 
 get the nearest neighbors of a collection of geometries
 
@@ -344,7 +340,7 @@ the unit of distance
 
 > **getNearestNeighbors**(`geometries`, `k`): `VecVecUInt`
 
-Defined in: [wasm/index.d.ts:701](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L701)
+Defined in: [wasm/index.d.ts:701](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L701)
 
 get the nearest neighbors of a collection of geometries
 
@@ -372,7 +368,7 @@ the number of nearest neighbors
 
 > **getPointContiguityWeights**(`geometries`, `isQueen`, `precisionThreshold`, `orderOfContiguity`, `includeLowerOrder`): `VecVecUInt`
 
-Defined in: [wasm/index.d.ts:672](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L672)
+Defined in: [wasm/index.d.ts:672](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L672)
 
 get the contiguity neighbors using the centroids of a collection of geometries
 
@@ -408,7 +404,7 @@ get the contiguity neighbors using the centroids of a collection of geometries
 
 > **getPolygonContiguityWeights**(`geometries`, `isQueen`, `precisionThreshold`, `orderOfContiguity`, `includeLowerOrder`): `VecVecUInt`
 
-Defined in: [wasm/index.d.ts:688](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L688)
+Defined in: [wasm/index.d.ts:688](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L688)
 
 get the contiguity neighbors of a collection of polygons
 
@@ -444,7 +440,7 @@ get the contiguity neighbors of a collection of polygons
 
 > **linearRegression**(`dep`, `indeps`, `weights`, `weightsValues`, `depName`, `indepNames`, `datasetName`, `depUndefs`, `indepUndefs`): `DiagnosticReport`
 
-Defined in: [wasm/index.d.ts:899](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L899)
+Defined in: [wasm/index.d.ts:899](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L899)
 
 #### Parameters
 
@@ -512,7 +508,7 @@ The 2D array of 0/1 indicating the undefined values of the independent variables
 
 > **localG**(`data`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`, `isGStar`): `LisaResult`
 
-Defined in: [wasm/index.d.ts:816](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L816)
+Defined in: [wasm/index.d.ts:816](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L816)
 
 Local Getis-Ord statistics
 
@@ -570,7 +566,7 @@ whether to use G* or G
 
 > **localGeary**(`data`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`): `LisaResult`
 
-Defined in: [wasm/index.d.ts:835](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L835)
+Defined in: [wasm/index.d.ts:835](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L835)
 
 Local Geary statistics
 
@@ -622,7 +618,7 @@ the last seed
 
 > **localMoran**(`data`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`): `LisaResult`
 
-Defined in: [wasm/index.d.ts:777](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L777)
+Defined in: [wasm/index.d.ts:777](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L777)
 
 Local Moran statistics
 
@@ -674,7 +670,7 @@ the last seed
 
 > **multivariateLocalGeary**(`data`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`): `LisaResult`
 
-Defined in: [wasm/index.d.ts:853](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L853)
+Defined in: [wasm/index.d.ts:853](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L853)
 
 Multivariate Local Geary statistics
 
@@ -726,7 +722,7 @@ the last seed
 
 > **naturalBreaks**(`k`, `data`, `undefs`?): `VectorDouble`
 
-Defined in: [wasm/index.d.ts:736](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L736)
+Defined in: [wasm/index.d.ts:736](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L736)
 
 Natural Jenks breaks classification
 
@@ -760,7 +756,7 @@ the indices of data that are undefined
 
 > **percentileBreaks**(`data`, `undefs`?): `VectorDouble`
 
-Defined in: [wasm/index.d.ts:751](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L751)
+Defined in: [wasm/index.d.ts:751](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L751)
 
 Percentile breaks classification: <1%, 1-10%, 10-50%, 50-90%, 90-99%, >99%
 
@@ -788,7 +784,7 @@ the flags of undefined values
 
 > **quantileBreaks**(`k`, `data`, `undefs`?): `VectorDouble`
 
-Defined in: [wasm/index.d.ts:728](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L728)
+Defined in: [wasm/index.d.ts:728](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L728)
 
 #### Parameters
 
@@ -820,7 +816,7 @@ the indices of data that are undefined
 
 > **quantileLisa**(`k`, `quantile`, `data`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`): `LisaResult`
 
-Defined in: [wasm/index.d.ts:873](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L873)
+Defined in: [wasm/index.d.ts:873](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L873)
 
 Local Quantile LISA statistics
 
@@ -884,7 +880,7 @@ the last seed
 
 > **spatialError**(`dep`, `indeps`, `weights`, `weightsValues`, `depName`, `indepNames`, `datasetName`, `depUndefs`, `indepUndefs`): `DiagnosticReport`
 
-Defined in: [wasm/index.d.ts:947](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L947)
+Defined in: [wasm/index.d.ts:947](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L947)
 
 Spatial Error regression
 
@@ -954,7 +950,7 @@ The 2D array of 0/1 indicating the undefined values of the independent variables
 
 > **spatialJoin**(`left`, `right`): `VecVecUInt`
 
-Defined in: [wasm/index.d.ts:965](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L965)
+Defined in: [wasm/index.d.ts:965](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L965)
 
 Spatial Join of two collections of geometries
 
@@ -984,7 +980,7 @@ The indices of the right geometries that are spatially joined to the left geomet
 
 > **spatialLag**(`dep`, `indeps`, `weights`, `weightsValues`, `depName`, `indepNames`, `datasetName`, `depUndefs`, `indepUndefs`): `DiagnosticReport`
 
-Defined in: [wasm/index.d.ts:923](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L923)
+Defined in: [wasm/index.d.ts:923](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L923)
 
 Spatial Lag regression
 
@@ -1054,7 +1050,7 @@ The 2D array of 0/1 indicating the undefined values of the independent variables
 
 > **standardDeviationBreaks**(`data`, `undefs`): `VectorDouble`
 
-Defined in: [wasm/index.d.ts:766](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/wasm/index.d.ts#L766)
+Defined in: [wasm/index.d.ts:766](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/wasm/index.d.ts#L766)
 
 Standard deviation breaks classification
 

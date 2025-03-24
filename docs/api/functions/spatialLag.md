@@ -1,14 +1,10 @@
-[**geoda-wasm**](../README.md)
-
-***
-
 [geoda-wasm](../globals.md) / spatialLag
 
 # Function: spatialLag()
 
 > **spatialLag**(`values`, `neighbors`, `rowStandardize`, `weights`?, `useSelfNeighbor`?): `number`[]
 
-Defined in: [src/sa/spatial-lag.ts:11](https://github.com/GeoDaCenter/geoda-lib/blob/0ad3977fd23db605b1dc766f99d329a28ef59f68/src/js/src/sa/spatial-lag.ts#L11)
+Defined in: [src/sa/spatial-lag.ts:11](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/sa/spatial-lag.ts#L11)
 
 Compute spatial lag of a list of values based on a list of neighbors and weights.
 

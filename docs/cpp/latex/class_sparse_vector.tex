@@ -1,0 +1,157 @@
+\doxysection{Sparse\+Vector Class Reference}
+\hypertarget{class_sparse_vector}{}\label{class_sparse_vector}\index{SparseVector@{SparseVector}}
+
+
+{\ttfamily \#include $<$Sparse\+Vector.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sparse_vector_aca14a5984823c214b7d2ac49a89f9da7}{Sparse\+Vector}} (const int sz)
+\item 
+virtual \mbox{\hyperlink{class_sparse_vector_abe57a9753a7c596a0f76a6462b13b408}{\texorpdfstring{$\sim$}{\string~}\+Sparse\+Vector}} ()
+\item 
+int \mbox{\hyperlink{class_sparse_vector_a56d0a0b1ad231ce13216f483c3f2bdf1}{get\+Nz\+Entries}} () const
+\item 
+bool \mbox{\hyperlink{class_sparse_vector_a0c3bd6f0134154111b3956ea0197aabb}{is\+Non\+Zero}} (const int ix) const
+\item 
+int \mbox{\hyperlink{class_sparse_vector_a3eaf794e7aceb9055f42b69b7e219b2d}{get\+Ix}} (const int elt) const
+\item 
+double \mbox{\hyperlink{class_sparse_vector_a39b8aab5bb3957b644e4b32b51277259}{get\+Value}} (const int ix) const
+\item 
+void \mbox{\hyperlink{class_sparse_vector_a780b513f1cb1bdf8a21381b14162c94a}{set\+At}} (const int ix, const double \&v)
+\item 
+void \mbox{\hyperlink{class_sparse_vector_a5490bf623beb457d0ff113515d0c7eac}{plus\+At}} (const int ix, const double \&v)
+\item 
+void \mbox{\hyperlink{class_sparse_vector_ae86a19da23b15dc34270f6f92bc56844}{add\+Times}} (const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&v, const double \&w)
+\item 
+void \mbox{\hyperlink{class_sparse_vector_ab144815479ee95f102ee3c15ea1e825b}{reset}} ()
+\item 
+void \mbox{\hyperlink{class_sparse_vector_a668688ee8ab05dd43bb5598302ced419}{make\+Dense\+Ready}} ()
+\item 
+void \mbox{\hyperlink{class_sparse_vector_a29cb480eb814f92663d501522c71af40}{minus}} (const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&a, const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&b)
+\item 
+double \mbox{\hyperlink{class_sparse_vector_a35bc9e964d0dcb30ca4d8eeab64c6b49}{norm}} () const
+\item 
+double \mbox{\hyperlink{class_sparse_vector_aa3bf9fefbc47929d97935e0ec4515c6d}{product}} (const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&a) const
+\item 
+void \mbox{\hyperlink{class_sparse_vector_a22933b654d37b53c4f1f2e586944d01f}{copy}} (const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&a)
+\item 
+void \mbox{\hyperlink{class_sparse_vector_a954ba850f0cb9d357f4df94d5c45ea12}{times\+Plus}} (const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&a, const double \&s)
+\item 
+void \mbox{\hyperlink{class_sparse_vector_afc0a2a71d9794e5d1e859424e1d9fd10}{drop\+Zeros}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_sparse_vector_aca14a5984823c214b7d2ac49a89f9da7}\index{SparseVector@{SparseVector}!SparseVector@{SparseVector}}
+\index{SparseVector@{SparseVector}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{SparseVector()}{SparseVector()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_aca14a5984823c214b7d2ac49a89f9da7} 
+Sparse\+Vector\+::\+Sparse\+Vector (\begin{DoxyParamCaption}\item[{const int}]{sz}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\Hypertarget{class_sparse_vector_abe57a9753a7c596a0f76a6462b13b408}\index{SparseVector@{SparseVector}!````~SparseVector@{\texorpdfstring{$\sim$}{\string~}SparseVector}}
+\index{````~SparseVector@{\texorpdfstring{$\sim$}{\string~}SparseVector}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SparseVector()}{\string~SparseVector()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_abe57a9753a7c596a0f76a6462b13b408} 
+Sparse\+Vector\+::\texorpdfstring{$\sim$}{\string~}\+Sparse\+Vector (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sparse_vector_ae86a19da23b15dc34270f6f92bc56844}\index{SparseVector@{SparseVector}!addTimes@{addTimes}}
+\index{addTimes@{addTimes}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{addTimes()}{addTimes()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_ae86a19da23b15dc34270f6f92bc56844} 
+void Sparse\+Vector\+::add\+Times (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&}]{v}{, }\item[{const double \&}]{w}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_sparse_vector_a22933b654d37b53c4f1f2e586944d01f}\index{SparseVector@{SparseVector}!copy@{copy}}
+\index{copy@{copy}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_a22933b654d37b53c4f1f2e586944d01f} 
+void Sparse\+Vector\+::copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&}]{a}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_sparse_vector_afc0a2a71d9794e5d1e859424e1d9fd10}\index{SparseVector@{SparseVector}!dropZeros@{dropZeros}}
+\index{dropZeros@{dropZeros}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{dropZeros()}{dropZeros()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_afc0a2a71d9794e5d1e859424e1d9fd10} 
+void Sparse\+Vector\+::drop\+Zeros (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_sparse_vector_a3eaf794e7aceb9055f42b69b7e219b2d}\index{SparseVector@{SparseVector}!getIx@{getIx}}
+\index{getIx@{getIx}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{getIx()}{getIx()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_a3eaf794e7aceb9055f42b69b7e219b2d} 
+int Sparse\+Vector\+::get\+Ix (\begin{DoxyParamCaption}\item[{const int}]{elt}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_vector_a56d0a0b1ad231ce13216f483c3f2bdf1}\index{SparseVector@{SparseVector}!getNzEntries@{getNzEntries}}
+\index{getNzEntries@{getNzEntries}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{getNzEntries()}{getNzEntries()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_a56d0a0b1ad231ce13216f483c3f2bdf1} 
+int Sparse\+Vector\+::get\+Nz\+Entries (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_vector_a39b8aab5bb3957b644e4b32b51277259}\index{SparseVector@{SparseVector}!getValue@{getValue}}
+\index{getValue@{getValue}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_a39b8aab5bb3957b644e4b32b51277259} 
+double Sparse\+Vector\+::get\+Value (\begin{DoxyParamCaption}\item[{const int}]{ix}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_vector_a0c3bd6f0134154111b3956ea0197aabb}\index{SparseVector@{SparseVector}!isNonZero@{isNonZero}}
+\index{isNonZero@{isNonZero}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{isNonZero()}{isNonZero()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_a0c3bd6f0134154111b3956ea0197aabb} 
+bool Sparse\+Vector\+::is\+Non\+Zero (\begin{DoxyParamCaption}\item[{const int}]{ix}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_vector_a668688ee8ab05dd43bb5598302ced419}\index{SparseVector@{SparseVector}!makeDenseReady@{makeDenseReady}}
+\index{makeDenseReady@{makeDenseReady}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{makeDenseReady()}{makeDenseReady()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_a668688ee8ab05dd43bb5598302ced419} 
+void Sparse\+Vector\+::make\+Dense\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_sparse_vector_a29cb480eb814f92663d501522c71af40}\index{SparseVector@{SparseVector}!minus@{minus}}
+\index{minus@{minus}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{minus()}{minus()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_a29cb480eb814f92663d501522c71af40} 
+void Sparse\+Vector\+::minus (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&}]{a}{, }\item[{const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&}]{b}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_sparse_vector_a35bc9e964d0dcb30ca4d8eeab64c6b49}\index{SparseVector@{SparseVector}!norm@{norm}}
+\index{norm@{norm}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{norm()}{norm()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_a35bc9e964d0dcb30ca4d8eeab64c6b49} 
+double Sparse\+Vector\+::norm (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_sparse_vector_a5490bf623beb457d0ff113515d0c7eac}\index{SparseVector@{SparseVector}!plusAt@{plusAt}}
+\index{plusAt@{plusAt}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{plusAt()}{plusAt()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_a5490bf623beb457d0ff113515d0c7eac} 
+void Sparse\+Vector\+::plus\+At (\begin{DoxyParamCaption}\item[{const int}]{ix}{, }\item[{const double \&}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_vector_aa3bf9fefbc47929d97935e0ec4515c6d}\index{SparseVector@{SparseVector}!product@{product}}
+\index{product@{product}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{product()}{product()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_aa3bf9fefbc47929d97935e0ec4515c6d} 
+double Sparse\+Vector\+::product (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&}]{a}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_sparse_vector_ab144815479ee95f102ee3c15ea1e825b}\index{SparseVector@{SparseVector}!reset@{reset}}
+\index{reset@{reset}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_ab144815479ee95f102ee3c15ea1e825b} 
+void Sparse\+Vector\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_vector_a780b513f1cb1bdf8a21381b14162c94a}\index{SparseVector@{SparseVector}!setAt@{setAt}}
+\index{setAt@{setAt}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{setAt()}{setAt()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_a780b513f1cb1bdf8a21381b14162c94a} 
+void Sparse\+Vector\+::set\+At (\begin{DoxyParamCaption}\item[{const int}]{ix}{, }\item[{const double \&}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_sparse_vector_a954ba850f0cb9d357f4df94d5c45ea12}\index{SparseVector@{SparseVector}!timesPlus@{timesPlus}}
+\index{timesPlus@{timesPlus}!SparseVector@{SparseVector}}
+\doxysubsubsection{\texorpdfstring{timesPlus()}{timesPlus()}}
+{\footnotesize\ttfamily \label{class_sparse_vector_a954ba850f0cb9d357f4df94d5c45ea12} 
+void Sparse\+Vector\+::times\+Plus (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_sparse_vector}{Sparse\+Vector}} \&}]{a}{, }\item[{const double \&}]{s}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/regression/\mbox{\hyperlink{_sparse_vector_8h}{Sparse\+Vector.\+h}}\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/regression/\mbox{\hyperlink{_sparse_vector_8cpp}{Sparse\+Vector.\+cpp}}\end{DoxyCompactItemize}

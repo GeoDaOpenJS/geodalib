@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="classgeoda_1_1_partition_p" kind="class" language="C++" prot="public">
+    <compoundname>geoda::PartitionP</compoundname>
+    <basecompoundref refid="classgeoda_1_1_base_partition" prot="public" virt="non-virtual">geoda::BasePartition</basecompoundref>
+    <includes refid="partition_8h" local="no">partition.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgeoda_1_1_partition_p_1a66b4a6035bcd2beb6f351768cfe132a5" prot="private" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* geoda::PartitionP::cellIndex</definition>
+        <argsstring></argsstring>
+        <name>cellIndex</name>
+        <qualifiedname>geoda::PartitionP::cellIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="81" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeoda_1_1_partition_p_1a9cda65e24ac2c51fb20bb48091bb47b0" prot="private" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* geoda::PartitionP::previous</definition>
+        <argsstring></argsstring>
+        <name>previous</name>
+        <qualifiedname>geoda::PartitionP::previous</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="82" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgeoda_1_1_partition_p_1a8d1900d11bf39ec8218782812edb0116" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>geoda::PartitionP::PartitionP</definition>
+        <argsstring>(const int els=0, const int cls=0, const double range=0)</argsstring>
+        <name>PartitionP</name>
+        <qualifiedname>geoda::PartitionP::PartitionP</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>els</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>cls</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>range</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="85" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="85" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_partition_p_1aa29fc4d202106a6b8f095c02e742af37" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual geoda::PartitionP::~PartitionP</definition>
+        <argsstring>()</argsstring>
+        <name>~PartitionP</name>
+        <qualifiedname>geoda::PartitionP::~PartitionP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="91" column="11" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="91" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_partition_p_1a8c28724b701870e4f2e3f085894354b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void geoda::PartitionP::alloc</definition>
+        <argsstring>(const int els, const int cls, const double range)</argsstring>
+        <name>alloc</name>
+        <qualifiedname>geoda::PartitionP::alloc</qualifiedname>
+        <reimplements refid="classgeoda_1_1_base_partition_1a574ad51f5c1ba2c7d05708c96ea3ed4c">alloc</reimplements>
+        <param>
+          <type>const int</type>
+          <declname>els</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>cls</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="97" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="97" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_partition_p_1a3b505e7640be2f6280c5d4caba668360" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void geoda::PartitionP::include</definition>
+        <argsstring>(const int incl)</argsstring>
+        <name>include</name>
+        <qualifiedname>geoda::PartitionP::include</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>incl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="109" column="16" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="109" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_partition_p_1aa4ab5dd4443648605b28582ccc6551b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void geoda::PartitionP::initIx</definition>
+        <argsstring>(const int incl, const double range)</argsstring>
+        <name>initIx</name>
+        <qualifiedname>geoda::PartitionP::initIx</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>incl</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="120" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="120" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_partition_p_1a06dc59eb09eb3042161c0b8ca12d3584" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int geoda::PartitionP::inTheRange</definition>
+        <argsstring>(const double range) const</argsstring>
+        <name>inTheRange</name>
+        <qualifiedname>geoda::PartitionP::inTheRange</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="132" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="132" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_partition_p_1abfcfc09717d75e1a89f6cc1aa2be0ddc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void geoda::PartitionP::remove</definition>
+        <argsstring>(const int del)</argsstring>
+        <name>remove</name>
+        <qualifiedname>geoda::PartitionP::remove</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>del</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="145" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="145" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_partition_p_1a83bc25d10180d0f8b5ef11372fd4df8a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void geoda::PartitionP::cleanup</definition>
+        <argsstring>(const BasePartition &amp;p, const int cl)</argsstring>
+        <name>cleanup</name>
+        <qualifiedname>geoda::PartitionP::cleanup</qualifiedname>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_base_partition" kindref="compound">BasePartition</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>cl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="161" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="161" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_partition_p_1a07703330c3c26bdd0fae7bf766df1e1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void geoda::BasePartition::include</definition>
+        <argsstring>(const int incl, const double range)</argsstring>
+        <name>include</name>
+        <qualifiedname>geoda::PartitionP::include</qualifiedname>
+        <reimplements refid="classgeoda_1_1_base_partition_1a07703330c3c26bdd0fae7bf766df1e1c">include</reimplements>
+        <param>
+          <type>const int</type>
+          <declname>incl</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="107" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="60" bodyend="73"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>geoda::BasePartition</label>
+        <link refid="classgeoda_1_1_base_partition"/>
+      </node>
+      <node id="1">
+        <label>geoda::PartitionP</label>
+        <link refid="classgeoda_1_1_partition_p"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>geoda::BasePartition</label>
+        <link refid="classgeoda_1_1_base_partition"/>
+      </node>
+      <node id="1">
+        <label>geoda::PartitionP</label>
+        <link refid="classgeoda_1_1_partition_p"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" line="79" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/weights/partition.h" bodystart="79" bodyend="166"/>
+    <listofallmembers>
+      <member refid="classgeoda_1_1_partition_p_1a8c28724b701870e4f2e3f085894354b7" prot="public" virt="virtual"><scope>geoda::PartitionP</scope><name>alloc</name></member>
+      <member refid="classgeoda_1_1_base_partition_1a0c32e082020274681b417e042a34a7b5" prot="public" virt="non-virtual"><scope>geoda::PartitionP</scope><name>BasePartition</name></member>
+      <member refid="classgeoda_1_1_base_partition_1a20f1ab48a6da41257ed8b861bf66f9cb" prot="protected" virt="non-virtual"><scope>geoda::PartitionP</scope><name>cell</name></member>
+      <member refid="classgeoda_1_1_partition_p_1a66b4a6035bcd2beb6f351768cfe132a5" prot="private" virt="non-virtual"><scope>geoda::PartitionP</scope><name>cellIndex</name></member>
+      <member refid="classgeoda_1_1_base_partition_1a46790c26fe4814a6d9edaab0c998a01e" prot="public" virt="non-virtual"><scope>geoda::PartitionP</scope><name>Cells</name></member>
+      <member refid="classgeoda_1_1_base_partition_1a136c36ea6576912b6685abe032eeb855" prot="protected" virt="non-virtual"><scope>geoda::PartitionP</scope><name>cells</name></member>
+      <member refid="classgeoda_1_1_partition_p_1a83bc25d10180d0f8b5ef11372fd4df8a" prot="public" virt="non-virtual"><scope>geoda::PartitionP</scope><name>cleanup</name></member>
+      <member refid="classgeoda_1_1_base_partition_1a0f73b72f034cb6559d95e4536735122d" prot="protected" virt="non-virtual"><scope>geoda::PartitionP</scope><name>elements</name></member>
+      <member refid="classgeoda_1_1_base_partition_1ab1f2537ef31a8c112f8ccb2b72ceffc3" prot="public" virt="non-virtual"><scope>geoda::PartitionP</scope><name>first</name></member>
+      <member refid="classgeoda_1_1_partition_p_1a3b505e7640be2f6280c5d4caba668360" prot="public" virt="virtual"><scope>geoda::PartitionP</scope><name>include</name></member>
+      <member refid="classgeoda_1_1_partition_p_1a07703330c3c26bdd0fae7bf766df1e1c" prot="public" virt="virtual"><scope>geoda::PartitionP</scope><name>include</name></member>
+      <member refid="classgeoda_1_1_partition_p_1aa4ab5dd4443648605b28582ccc6551b8" prot="public" virt="non-virtual"><scope>geoda::PartitionP</scope><name>initIx</name></member>
+      <member refid="classgeoda_1_1_partition_p_1a06dc59eb09eb3042161c0b8ca12d3584" prot="public" virt="non-virtual"><scope>geoda::PartitionP</scope><name>inTheRange</name></member>
+      <member refid="classgeoda_1_1_base_partition_1aa96cfba06cd3f7041dea881834fe779f" prot="protected" virt="non-virtual"><scope>geoda::PartitionP</scope><name>next</name></member>
+      <member refid="classgeoda_1_1_partition_p_1a8d1900d11bf39ec8218782812edb0116" prot="public" virt="non-virtual"><scope>geoda::PartitionP</scope><name>PartitionP</name></member>
+      <member refid="classgeoda_1_1_partition_p_1a9cda65e24ac2c51fb20bb48091bb47b0" prot="private" virt="non-virtual"><scope>geoda::PartitionP</scope><name>previous</name></member>
+      <member refid="classgeoda_1_1_partition_p_1abfcfc09717d75e1a89f6cc1aa2be0ddc" prot="public" virt="non-virtual"><scope>geoda::PartitionP</scope><name>remove</name></member>
+      <member refid="classgeoda_1_1_base_partition_1a114eff152a6ae196ce2e83cba47a6737" prot="public" virt="non-virtual"><scope>geoda::PartitionP</scope><name>Step</name></member>
+      <member refid="classgeoda_1_1_base_partition_1aa8d5d8cae67097eff40915150ab060f6" prot="protected" virt="non-virtual"><scope>geoda::PartitionP</scope><name>step</name></member>
+      <member refid="classgeoda_1_1_base_partition_1abd2ccb040b8905632f51cd39b8cce778" prot="public" virt="non-virtual"><scope>geoda::PartitionP</scope><name>tail</name></member>
+      <member refid="classgeoda_1_1_base_partition_1a1df7ae60f82518599ef9ee655329d897" prot="public" virt="virtual"><scope>geoda::PartitionP</scope><name>~BasePartition</name></member>
+      <member refid="classgeoda_1_1_partition_p_1aa29fc4d202106a6b8f095c02e742af37" prot="public" virt="virtual"><scope>geoda::PartitionP</scope><name>~PartitionP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="struct_s_l__function" kind="struct" language="C++" prot="public">
+    <compoundname>SL_function</compoundname>
+    <includes refid="lite2_8h" local="no">lite2.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class Arg</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_s_l__function_1ad2b288927ccb3b4dcf2fbca1044d4d95" prot="public" static="no" mutable="no">
+        <type>Arg</type>
+        <definition>Arg SL_function&lt; Arg &gt;::arg</definition>
+        <argsstring></argsstring>
+        <name>arg</name>
+        <qualifiedname>SL_function::arg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="67" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_s_l__function_1aafc42df49312ff343934591bc5bbc852" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SL_function&lt; Arg &gt;::SL_function</definition>
+        <argsstring>()</argsstring>
+        <name>SL_function</name>
+        <qualifiedname>SL_function::SL_function</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="68" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_s_l__function_1a6d0f53d256f03a32661ce8d823808fdf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SL_function&lt; Arg &gt;::SL_function</definition>
+        <argsstring>(const Arg &amp;param)</argsstring>
+        <name>SL_function</name>
+        <qualifiedname>SL_function::SL_function</qualifiedname>
+        <param>
+          <type>const Arg &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="69" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="69" bodyend="69"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="66" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="66" bodyend="70"/>
+    <listofallmembers>
+      <member refid="struct_s_l__function_1ad2b288927ccb3b4dcf2fbca1044d4d95" prot="public" virt="non-virtual"><scope>SL_function</scope><name>arg</name></member>
+      <member refid="struct_s_l__function_1aafc42df49312ff343934591bc5bbc852" prot="public" virt="non-virtual"><scope>SL_function</scope><name>SL_function</name></member>
+      <member refid="struct_s_l__function_1a6d0f53d256f03a32661ce8d823808fdf" prot="public" virt="non-virtual"><scope>SL_function</scope><name>SL_function</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="struct_sqr" kind="struct" language="C++" prot="public">
+    <compoundname>Sqr</compoundname>
+    <basecompoundref refid="struct_s_l__function" prot="public" virt="non-virtual">SL_function&lt; T &gt;</basecompoundref>
+    <includes refid="lite2_8h" local="no">lite2.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref></type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_sqr_1ad463f458c5256c5a0deadd06a3a4734b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref></type>
+        <definition>T Sqr&lt; T &gt;::operator()</definition>
+        <argsstring>(const T &amp;x)</argsstring>
+        <name>operator()</name>
+        <qualifiedname>Sqr::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="79" column="5" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="79" bodyend="79"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>SL_function&lt; T &gt;</label>
+        <link refid="struct_s_l__function"/>
+      </node>
+      <node id="1">
+        <label>Sqr&lt; T &gt;</label>
+        <link refid="struct_sqr"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>SL_function&lt; T &gt;</label>
+        <link refid="struct_s_l__function"/>
+      </node>
+      <node id="1">
+        <label>Sqr&lt; T &gt;</label>
+        <link refid="struct_sqr"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" line="78" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/lite2.h" bodystart="78" bodyend="80"/>
+    <listofallmembers>
+      <member refid="struct_s_l__function_1ad2b288927ccb3b4dcf2fbca1044d4d95" prot="public" virt="non-virtual"><scope>Sqr</scope><name>arg</name></member>
+      <member refid="struct_sqr_1ad463f458c5256c5a0deadd06a3a4734b" prot="public" virt="non-virtual"><scope>Sqr</scope><name>operator()</name></member>
+      <member refid="struct_s_l__function_1aafc42df49312ff343934591bc5bbc852" prot="public" virt="non-virtual"><scope>Sqr</scope><name>SL_function</name></member>
+      <member refid="struct_s_l__function_1a6d0f53d256f03a32661ce8d823808fdf" prot="public" virt="non-virtual"><scope>Sqr</scope><name>SL_function</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

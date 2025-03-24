@@ -1,0 +1,82 @@
+\doxysection{/\+Users/xun/github/geoda-\/lib/src/cpp/weights/contiguity-\/weights.cpp File Reference}
+\hypertarget{contiguity-weights_8cpp}{}\label{contiguity-weights_8cpp}\index{/Users/xun/github/geoda-\/lib/src/cpp/weights/contiguity-\/weights.cpp@{/Users/xun/github/geoda-\/lib/src/cpp/weights/contiguity-\/weights.cpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$boost/geometry/geometries/box.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/index/rtree.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/unordered\+\_\+map.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}geometry/geometry.\+h"{}}\newline
+{\ttfamily \#include "{}weights/gal.\+h"{}}\newline
+{\ttfamily \#include "{}weights/partition.\+h"{}}\newline
+{\ttfamily \#include "{}weights/weights.\+h"{}}\newline
+{\ttfamily \#include "{}utils/jc\+\_\+voronoi.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_point2_d}{Point2D}}
+\item 
+struct \mbox{\hyperlink{struct_point2_d_hash}{Point2\+DHash}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{contiguity-weights_8cpp_a0a844252781ff4bf094a1a15c5c182bd}{JC\+\_\+\+VORONOI\+\_\+\+IMPLEMENTATION}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{contiguity-weights_8cpp_a14fed8abcf4a849da385ab679409c055}{jcv\+\_\+point\+\_\+str}} (const \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\+\_\+point}} \&pt)
+\item 
+std\+::string \mbox{\hyperlink{contiguity-weights_8cpp_affbe65d01d3c099de51da6d4b44d9734}{jcv\+\_\+edge\+\_\+str}} (const \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\+\_\+graphedge}} \texorpdfstring{$\ast$}{*}edge)
+\item 
+void \mbox{\hyperlink{contiguity-weights_8cpp_a7c211c4277171ed6519dbf4d41b338af}{make\+\_\+higher\+\_\+ord\+\_\+contiguity}} (size\+\_\+t distance, size\+\_\+t obs, \mbox{\hyperlink{classgeoda_1_1_gal_element}{geoda\+::\+Gal\+Element}} \texorpdfstring{$\ast$}{*}weights, bool cummulative)
+\item 
+\mbox{\hyperlink{classgeoda_1_1_gal_element}{geoda\+::\+Gal\+Element}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{contiguity-weights_8cpp_a35460b853c89ae48ea55ca85d9e1569a}{neighbors\+\_\+to\+\_\+gal}} (std\+::vector$<$ std\+::set$<$ int $>$ $>$ \&nbr\+\_\+map)
+\item 
+std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \mbox{\hyperlink{contiguity-weights_8cpp_a9678c4cad67849fdd8aa1d6b0520a30f}{convert\+\_\+to\+\_\+weights}} (const std\+::vector$<$ std\+::set$<$ int $>$ $>$ \&nbr\+\_\+map, unsigned int order\+\_\+contiguity=1, bool include\+\_\+lower\+\_\+order=false)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{contiguity-weights_8cpp_a0a844252781ff4bf094a1a15c5c182bd}\index{contiguity-\/weights.cpp@{contiguity-\/weights.cpp}!JC\_VORONOI\_IMPLEMENTATION@{JC\_VORONOI\_IMPLEMENTATION}}
+\index{JC\_VORONOI\_IMPLEMENTATION@{JC\_VORONOI\_IMPLEMENTATION}!contiguity-\/weights.cpp@{contiguity-\/weights.cpp}}
+\doxysubsubsection{\texorpdfstring{JC\_VORONOI\_IMPLEMENTATION}{JC\_VORONOI\_IMPLEMENTATION}}
+{\footnotesize\ttfamily \label{contiguity-weights_8cpp_a0a844252781ff4bf094a1a15c5c182bd} 
+\#define JC\+\_\+\+VORONOI\+\_\+\+IMPLEMENTATION}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{contiguity-weights_8cpp_a9678c4cad67849fdd8aa1d6b0520a30f}\index{contiguity-\/weights.cpp@{contiguity-\/weights.cpp}!convert\_to\_weights@{convert\_to\_weights}}
+\index{convert\_to\_weights@{convert\_to\_weights}!contiguity-\/weights.cpp@{contiguity-\/weights.cpp}}
+\doxysubsubsection{\texorpdfstring{convert\_to\_weights()}{convert\_to\_weights()}}
+{\footnotesize\ttfamily \label{contiguity-weights_8cpp_a9678c4cad67849fdd8aa1d6b0520a30f} 
+std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ convert\+\_\+to\+\_\+weights (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::set$<$ int $>$ $>$ \&}]{nbr\+\_\+map}{, }\item[{unsigned int}]{order\+\_\+contiguity}{ = {\ttfamily 1}, }\item[{bool}]{include\+\_\+lower\+\_\+order}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+\Hypertarget{contiguity-weights_8cpp_affbe65d01d3c099de51da6d4b44d9734}\index{contiguity-\/weights.cpp@{contiguity-\/weights.cpp}!jcv\_edge\_str@{jcv\_edge\_str}}
+\index{jcv\_edge\_str@{jcv\_edge\_str}!contiguity-\/weights.cpp@{contiguity-\/weights.cpp}}
+\doxysubsubsection{\texorpdfstring{jcv\_edge\_str()}{jcv\_edge\_str()}}
+{\footnotesize\ttfamily \label{contiguity-weights_8cpp_affbe65d01d3c099de51da6d4b44d9734} 
+std\+::string jcv\+\_\+edge\+\_\+str (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{jc__voronoi_8h_a2eb469b4802dbc3964403c88c4c2cbd6}{jcv\+\_\+graphedge}} \texorpdfstring{$\ast$}{*}}]{edge}{}\end{DoxyParamCaption})}
+
+\Hypertarget{contiguity-weights_8cpp_a14fed8abcf4a849da385ab679409c055}\index{contiguity-\/weights.cpp@{contiguity-\/weights.cpp}!jcv\_point\_str@{jcv\_point\_str}}
+\index{jcv\_point\_str@{jcv\_point\_str}!contiguity-\/weights.cpp@{contiguity-\/weights.cpp}}
+\doxysubsubsection{\texorpdfstring{jcv\_point\_str()}{jcv\_point\_str()}}
+{\footnotesize\ttfamily \label{contiguity-weights_8cpp_a14fed8abcf4a849da385ab679409c055} 
+std\+::string jcv\+\_\+point\+\_\+str (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{jc__voronoi_8h_a7f4dcdffe3318ec1307e9b680ce05fe4}{jcv\+\_\+point}} \&}]{pt}{}\end{DoxyParamCaption})}
+
+\Hypertarget{contiguity-weights_8cpp_a7c211c4277171ed6519dbf4d41b338af}\index{contiguity-\/weights.cpp@{contiguity-\/weights.cpp}!make\_higher\_ord\_contiguity@{make\_higher\_ord\_contiguity}}
+\index{make\_higher\_ord\_contiguity@{make\_higher\_ord\_contiguity}!contiguity-\/weights.cpp@{contiguity-\/weights.cpp}}
+\doxysubsubsection{\texorpdfstring{make\_higher\_ord\_contiguity()}{make\_higher\_ord\_contiguity()}}
+{\footnotesize\ttfamily \label{contiguity-weights_8cpp_a7c211c4277171ed6519dbf4d41b338af} 
+void make\+\_\+higher\+\_\+ord\+\_\+contiguity (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{distance}{, }\item[{size\+\_\+t}]{obs}{, }\item[{\mbox{\hyperlink{classgeoda_1_1_gal_element}{geoda\+::\+Gal\+Element}} \texorpdfstring{$\ast$}{*}}]{weights}{, }\item[{bool}]{cummulative}{}\end{DoxyParamCaption})}
+
+Add higher order neighbors up to (and including) distance. If cummulative true, then include lower orders as well. Otherwise, only include elements on frontier. \Hypertarget{contiguity-weights_8cpp_a35460b853c89ae48ea55ca85d9e1569a}\index{contiguity-\/weights.cpp@{contiguity-\/weights.cpp}!neighbors\_to\_gal@{neighbors\_to\_gal}}
+\index{neighbors\_to\_gal@{neighbors\_to\_gal}!contiguity-\/weights.cpp@{contiguity-\/weights.cpp}}
+\doxysubsubsection{\texorpdfstring{neighbors\_to\_gal()}{neighbors\_to\_gal()}}
+{\footnotesize\ttfamily \label{contiguity-weights_8cpp_a35460b853c89ae48ea55ca85d9e1569a} 
+\mbox{\hyperlink{classgeoda_1_1_gal_element}{geoda\+::\+Gal\+Element}} \texorpdfstring{$\ast$}{*} neighbors\+\_\+to\+\_\+gal (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::set$<$ int $>$ $>$ \&}]{nbr\+\_\+map}{}\end{DoxyParamCaption})}
+

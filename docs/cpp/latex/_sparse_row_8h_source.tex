@@ -1,0 +1,53 @@
+\doxysection{Sparse\+Row.\+h}
+\hypertarget{_sparse_row_8h_source}{}\label{_sparse_row_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/regression/SparseRow.h@{/Users/xun/github/geoda-\/lib/src/cpp/regression/SparseRow.h}}
+\mbox{\hyperlink{_sparse_row_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_GEODA\_CENTER\_SPARSE\_ROW\_H\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_GEODA\_CENTER\_SPARSE\_ROW\_H\_\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_link_8h}{Link.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_sparse_vector_8h}{SparseVector.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dense-vector_8h}{regression/dense-\/vector.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_sparse_row_a82f4ca09ea738fb2d593249ecf9cde12}{SparseRow}}\ \{}
+\DoxyCodeLine{00010\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{class_sparse_row_a82f4ca09ea738fb2d593249ecf9cde12}{SparseRow}}()\ :\ size(0),\ nb(NULL),\ \mbox{\hyperlink{class_sparse_row_a7789386532a201c5bf2aa0801e15524b}{Status\_flag}}(false)\{\};}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{class_sparse_row_a82f4ca09ea738fb2d593249ecf9cde12}{SparseRow}}(\textcolor{keywordtype}{int}\ nz);}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_sparse_row_a3be24fed1848f20f2057122f6ffa3081}{\string~SparseRow}}();}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sparse_row_aa60f23340d2c558adfbd0e0c7efeb8d7}{alloc}}(\textcolor{keywordtype}{int}\ nz);}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_sparse_row_a8bffec85cee5a11358ca975b68925d5b}{timesColumn}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_sparse_vector}{SparseVector}}\ \&v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_sparse_row_a8bffec85cee5a11358ca975b68925d5b}{timesColumn}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_sparse_row_a8bffec85cee5a11358ca975b68925d5b}{timesColumn}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_sparse_row}{SparseRow}}\ \&v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sparse_row_abdb99ae3d00a8c02795efabc1b5c39ea}{rowPlusSRow}}(\mbox{\hyperlink{class_sparse_vector}{SparseVector}}\ \&v,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ w)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sparse_row_abdb99ae3d00a8c02795efabc1b5c39ea}{rowPlusSRow}}(\mbox{\hyperlink{class_dense_vector}{DenseVector}}\ \&v,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ w)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_sparse_row_ad3a63c2f371f3a052112c94a6d5eb2f1}{getSize}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ size;\ \}}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{class_link}{Link}}\ *\mbox{\hyperlink{class_sparse_row_aa30735076e1d6d8eaaf0fa14730f3536}{getNb}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ nb;\ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sparse_row_aa6830ce75e4b2421661d5f247743a5a6}{setNb}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ loc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ nbr,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&w)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ nb[loc].setIx(nbr);}
+\DoxyCodeLine{00028\ \ \ \ \ nb[loc].setWeight(w);}
+\DoxyCodeLine{00029\ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_sparse_row_a0a17f788078e6e0e87d3d76299a8d02b}{getIx}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ loc)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ nb[loc].getIx();\ \}}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_sparse_row_a38e7e66df11c66e2b74a74d4710a62e4}{getWeight}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ loc)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ nb[loc].getWeight();\ \}}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sparse_row_abcb39b6d4985d6d0657e363919a85191}{setWeight}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ loc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&w)\ \{\ nb[loc].setWeight(w);\ \}}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sparse_row_af4f5136462fbb0b79732556520f0fc92}{setIx}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ loc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ nbr)\ \{\ nb[loc].setIx(nbr);\ \}}
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{class_link}{Link}}\ \&\mbox{\hyperlink{class_sparse_row_a9c3d9bc90fdbebd81bdaaf9181f69dc1}{getLink}}(\textcolor{keywordtype}{int}\ loc)\ \{\ \textcolor{keywordflow}{return}\ nb[loc];\ \}}
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_sparse_row_ab903000a134162709801a3fdcc1a0a0c}{sum}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sparse_row_a1757d703f43f48a7eb35e51bf15deb90}{multiply}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&v);}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sparse_row_a968c86c98d13c63ccf3ec9a1cb7859c8}{mRowDivColumn}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ *scale,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ row);}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sparse_row_a4bdb77b2b4aa106e69c69329093dcb3e}{mColumnDivRow}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ *scale,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ row);}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_sparse_row_a7789386532a201c5bf2aa0801e15524b}{Status\_flag}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{class_link}{Link}}\ *nb;}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

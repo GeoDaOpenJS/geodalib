@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="_power_sym_lag_8cpp" kind="file" language="C++">
+    <compoundname>PowerSymLag.cpp</compoundname>
+    <includes refid="_power_sym_lag_8h" local="yes">regression/PowerSymLag.h</includes>
+    <includes refid="_power_lag_8h" local="yes">regression/PowerLag.h</includes>
+    <includes refid="lite2_8h" local="yes">regression/lite2.h</includes>
+    <includes refid="mix_8h" local="yes">regression/mix.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>PowerLag.h</label>
+        <link refid="_power_lag_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/PowerSymLag.cpp</label>
+        <link refid="_power_sym_lag_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>regression/PowerSymLag.h</label>
+        <link refid="_power_sym_lag_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>lite2.h</label>
+        <link refid="lite2_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>regression/mix.h</label>
+        <link refid="mix_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>fstream</label>
+      </node>
+      <node id="10">
+        <label>iostream</label>
+      </node>
+      <node id="8">
+        <label>math.h</label>
+      </node>
+      <node id="4">
+        <label>ostream</label>
+      </node>
+      <node id="11">
+        <label>utility</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_power_sym_lag_8h" kindref="compound">regression/PowerSymLag.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_power_lag_8h" kindref="compound">regression/PowerLag.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="lite2_8h" kindref="compound">regression/lite2.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mix_8h" kindref="compound">regression/mix.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">PowerSymLag</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>template<sp/>&lt;class<sp/>R&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><ref refid="class_power_sym_lag_1a0dff33f1d9e2c152430c9ab80a473220" kindref="member">PowerSymLag::PowerSymLag</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_iterator" kindref="compound">Iterator&lt;WMap&gt;</ref><sp/>matrix,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref><sp/>vsize)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>RowLag(vsize),</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Row(vsize),</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>NonZero(vsize),</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>OrderLag(vsize,<sp/>0),</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Order(vsize,<sp/>0),</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>LastWasRow(false),</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>LongInit(0),</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>LastOrder(1),</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Dim(vsize),</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>LongLength(vsize<sp/>/<sp/>2),</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mt(matrix){};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">PowerSymLag</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>template<sp/>&lt;class<sp/>R&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref><sp/><ref refid="class_power_sym_lag_1ac533476439cd9580fce54d85485810c1" kindref="member">PowerSymLag::Init</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref><sp/><ref refid="lite2_8h_1a7dd6ec971b6f46098cb10e81b3fb0e9c" kindref="member">Product</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>Iterator&lt;WPair&gt;<sp/>it;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(it<sp/>=<sp/>mt[Dim]();<sp/>it;<sp/>++it)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>mt[<sp/>Dim<sp/>]<sp/><sp/><sp/><sp/>sic!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lite2_8h_1aa5cc9c44184affabe7dbac94d90f2854" kindref="member">WPair</ref><sp/>Neighbor<sp/>=<sp/>*it;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>OrderLag[Neighbor.<ref refid="structpairstruct_1a1a17700bea9dc60e3011204fede1a9e9" kindref="member">first</ref>]<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>Order[Neighbor.<ref refid="structpairstruct_1a1a17700bea9dc60e3011204fede1a9e9" kindref="member">first</ref>]<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>NonZero<sp/>&lt;&lt;<sp/>Neighbor.<ref refid="structpairstruct_1a1a17700bea9dc60e3011204fede1a9e9" kindref="member">first</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>RowLag[Neighbor.<ref refid="structpairstruct_1a1a17700bea9dc60e3011204fede1a9e9" kindref="member">first</ref>]<sp/>=<sp/>Neighbor.<ref refid="structpairstruct_1aa5a79515342867606403ab3fce598304" kindref="member">second</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="lite2_8h_1a7dd6ec971b6f46098cb10e81b3fb0e9c" kindref="member">Product</ref><sp/>+=<sp/>Neighbor.<ref refid="structpairstruct_1aa5a79515342867606403ab3fce598304" kindref="member">second</ref><sp/>*<sp/>Neighbor.<ref refid="structpairstruct_1aa5a79515342867606403ab3fce598304" kindref="member">second</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="lite2_8h_1a7dd6ec971b6f46098cb10e81b3fb0e9c" kindref="member">Product</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="44"><highlight class="comment">PowerSymLag</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_power_sym_lag_1a311b68ecf9492cc06610ae9cb662784e" kindref="member">PowerSymLag::AdvanceLag</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>RowLag.Swap(Row);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>OrderLag.Swap(Order);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>++LastOrder;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment">PowerSymLag</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//<sp/>template<sp/>&lt;class<sp/>R&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref><sp/><ref refid="class_power_sym_lag_1a3f2271163ebbaf6d6bd4a636cb23a37c" kindref="member">PowerSymLag::SparseRowLag</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>LastWasRow<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>NewLag<sp/>=<sp/>LastOrder<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref><sp/>Current;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>Iterator&lt;INDEX&gt;<sp/>SaveLast<sp/>=<sp/>NonZero();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>Iterator&lt;WPair&gt;<sp/>it;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>Iterator&lt;INDEX&gt;<sp/>Inz;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Inz<sp/>=<sp/>SaveLast;<sp/>Inz;<sp/>++Inz)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(OrderLag[Current<sp/>=<sp/>*Inz]<sp/>==<sp/>LastOrder)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref><sp/>Nbr<sp/>=<sp/>RowLag[Current];</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(it<sp/>=<sp/>mt[Current]();<sp/>it;<sp/>++it)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref><sp/>IxNbr<sp/>=<sp/>(*it).first,<sp/>OrderIxNbr<sp/>=<sp/>Order[IxNbr];</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(OrderIxNbr<sp/>==<sp/>NewLag)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Row[IxNbr]<sp/>+=<sp/>(*it).second<sp/>*<sp/>Nbr;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Row[IxNbr]<sp/>=<sp/>(*it).second<sp/>*<sp/>Nbr;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(OrderIxNbr<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>OrderLag[IxNbr]<sp/>==<sp/>0)<sp/>NonZero<sp/>&lt;&lt;<sp/>IxNbr;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Order[IxNbr]<sp/>=<sp/>NewLag;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref><sp/><ref refid="lite2_8h_1a7dd6ec971b6f46098cb10e81b3fb0e9c" kindref="member">Product</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Inz<sp/>=<sp/>SaveLast;<sp/>Inz;<sp/>++Inz)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>Current<sp/>=<sp/>*Inz;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(OrderLag[Current]<sp/>==<sp/>LastOrder<sp/>&amp;&amp;<sp/>Order[Current]<sp/>==<sp/>NewLag)<sp/><ref refid="lite2_8h_1a7dd6ec971b6f46098cb10e81b3fb0e9c" kindref="member">Product</ref><sp/>+=<sp/>RowLag[Current]<sp/>*<sp/>Row[Current];</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="lite2_8h_1a7dd6ec971b6f46098cb10e81b3fb0e9c" kindref="member">Product</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="88"><highlight class="comment">PowerSymLag</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//<sp/>template<sp/>&lt;class<sp/>R&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref><sp/><ref refid="class_power_sym_lag_1abd2f31da1d8c4283ba18bb1bbd072d8c" kindref="member">PowerSymLag::SparseColumnLag</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>LastWasRow<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>NewLag<sp/>=<sp/>LastOrder<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref><sp/>Current;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref><sp/><ref refid="lite2_8h_1a7dd6ec971b6f46098cb10e81b3fb0e9c" kindref="member">Product</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Iterator&lt;INDEX&gt;<sp/>Inz<sp/>=<sp/>NonZero();<sp/>Inz;<sp/>++Inz)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Order[Current<sp/>=<sp/>*Inz]<sp/>==<sp/>NewLag)<sp/><ref refid="lite2_8h_1a7dd6ec971b6f46098cb10e81b3fb0e9c" kindref="member">Product</ref><sp/>+=<sp/>Row[Current]<sp/>*<sp/>Row[Current];</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><ref refid="class_power_sym_lag_1a311b68ecf9492cc06610ae9cb662784e" kindref="member">AdvanceLag</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="lite2_8h_1a7dd6ec971b6f46098cb10e81b3fb0e9c" kindref="member">Product</ref>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerSymLag.cpp"/>
+  </compounddef>
+</doxygen>

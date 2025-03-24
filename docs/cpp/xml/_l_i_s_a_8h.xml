@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="_l_i_s_a_8h" kind="file" language="C++">
+    <compoundname>LISA.h</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes local="no">list</includes>
+    <includes local="no">map</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="_bi_local_moran_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/BiLocalMoran.h</includedby>
+    <includedby refid="_l_i_s_a_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/LISA.cpp</includedby>
+    <includedby refid="_multi_geary_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/MultiGeary.h</includedby>
+    <includedby refid="_multi_join_count_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h</includedby>
+    <includedby refid="_uni_g_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/UniG.h</includedby>
+    <includedby refid="_uni_geary_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h</includedby>
+    <includedby refid="_uni_gstar_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/UniGstar.h</includedby>
+    <includedby refid="_uni_join_count_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/UniJoinCount.h</includedby>
+    <includedby refid="_uni_local_moran_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/UniLocalMoran.h</includedby>
+    <includedby refid="lisa-api_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/LISA.h</label>
+        <link refid="_l_i_s_a_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>list</label>
+      </node>
+      <node id="4">
+        <label>map</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/BiLocalMoran.cpp</label>
+        <link refid="_bi_local_moran_8cpp"/>
+      </node>
+      <node id="2">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/BiLocalMoran.h</label>
+        <link refid="_bi_local_moran_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/LISA.cpp</label>
+        <link refid="_l_i_s_a_8cpp"/>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/LISA.h</label>
+        <link refid="_l_i_s_a_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/MultiGeary.cpp</label>
+        <link refid="_multi_geary_8cpp"/>
+      </node>
+      <node id="6">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/MultiGeary.h</label>
+        <link refid="_multi_geary_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp</label>
+        <link refid="_multi_join_count_8cpp"/>
+      </node>
+      <node id="9">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.h</label>
+        <link refid="_multi_join_count_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniG.cpp</label>
+        <link refid="_uni_g_8cpp"/>
+      </node>
+      <node id="11">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniG.h</label>
+        <link refid="_uni_g_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.cpp</label>
+        <link refid="_uni_geary_8cpp"/>
+      </node>
+      <node id="14">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.h</label>
+        <link refid="_uni_geary_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniGstar.cpp</label>
+        <link refid="_uni_gstar_8cpp"/>
+      </node>
+      <node id="16">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniGstar.h</label>
+        <link refid="_uni_gstar_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniJoinCount.cpp</label>
+        <link refid="_uni_join_count_8cpp"/>
+      </node>
+      <node id="18">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniJoinCount.h</label>
+        <link refid="_uni_join_count_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniLocalMoran.cpp</label>
+        <link refid="_uni_local_moran_8cpp"/>
+      </node>
+      <node id="21">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniLocalMoran.h</label>
+        <link refid="_uni_local_moran_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h</label>
+        <link refid="lisa-api_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/local-g.cpp</label>
+        <link refid="local-g_8cpp"/>
+      </node>
+      <node id="8">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/local-geary.cpp</label>
+        <link refid="local-geary_8cpp"/>
+      </node>
+      <node id="4">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/local-moran.cpp</label>
+        <link refid="local-moran_8cpp"/>
+      </node>
+      <node id="20">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/quantile-lisa.cpp</label>
+        <link refid="quantile-lisa_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_l_i_s_a" prot="public">LISA</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>Xun<sp/>Li<sp/>on<sp/>2019-06-05.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>GEODA_LISA_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GEODA_LISA_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>//<sp/>for<sp/>uint64_t<sp/>typedef</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;../pg/geoms.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;list&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="class_l_i_s_a" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_i_s_a_1ab514ca51acdb895cd05464eae461fcf0" kindref="member">LISA</ref><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="class_l_i_s_a_1ab514ca51acdb895cd05464eae461fcf0" kindref="member">LISA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>,<sp/><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref>*<sp/>w,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;bool&gt;&amp;<sp/><ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1aefaa3485a0023c7ee635a0b2874417e7" kindref="member">significance_cutoff</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a93dbaa5b02fbd6b2fef270888b9711b6" kindref="member">nCPUs</ref>,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>_permutation_method,<sp/>uint64_t<sp/><ref refid="class_l_i_s_a_1a0b6a2466791bca1b75369737337fca2d" kindref="member">last_seed_used</ref>);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="class_l_i_s_a_1ab514ca51acdb895cd05464eae461fcf0" kindref="member">LISA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>,<sp/><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref>*<sp/>w,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::vector&lt;bool&gt;<sp/>&gt;&amp;<sp/><ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1aefaa3485a0023c7ee635a0b2874417e7" kindref="member">significance_cutoff</ref>,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a93dbaa5b02fbd6b2fef270888b9711b6" kindref="member">nCPUs</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>_permutation_method,<sp/>uint64_t<sp/><ref refid="class_l_i_s_a_1a0b6a2466791bca1b75369737337fca2d" kindref="member">last_seed_used</ref>);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1ad0e5bc71ddb28e30b7f9e4895a561d15" kindref="member">~LISA</ref>();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="class_l_i_s_a_1a3fd503729531ec0b38baab2bea13ac87" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a3fd503729531ec0b38baab2bea13ac87" kindref="member">ComputeLoalSA</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1ac6f4566109b14ef3dc9122563319f1d4" kindref="member">CalcPseudoP</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a84f64caa8e28914746d3a9495f8bf489" kindref="member">CalcPseudoP_threaded</ref>();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1aefcdfbe128df11c625ee6f496c78f40f" kindref="member">CalcPseudoP_range</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_end,<sp/>uint64_t<sp/>seed_start);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>used<sp/>for<sp/>perm_method==&quot;LookupTable&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a2653719a7510f5f1be923bde638ddcef" kindref="member">PermCreateTable_threaded</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a654237b553a88279721ffc71f70e14ec" kindref="member">PermCreateRange</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perm_start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perm_end,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max_neighbor,<sp/>uint64_t<sp/>seed_start);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a0ef933de0a4cdcf9e3caba6771d7d079" kindref="member">PermCalcPseudoP_threaded</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a85cb4aff3217976d448b734d5a61a4fb" kindref="member">PermCalcPseudoP_range</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_end,<sp/>uint64_t<sp/>seed_start);</highlight></codeline>
+<codeline lineno="44" refid="class_l_i_s_a_1aeefb4ec2ad6564008c6c63bdce46eccb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1aeefb4ec2ad6564008c6c63bdce46eccb" kindref="member">PermLocalSA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perm,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numNeighbors,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>permNeighbors,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;&amp;<sp/>permutedSA)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>compare<sp/>local<sp/>SA<sp/>value<sp/>of<sp/>current<sp/>obs<sp/>to<sp/>local<sp/>SA<sp/>values<sp/>of<sp/>random<sp/>picked<sp/>nbrs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="class_l_i_s_a_1a62badd64960be2ce9508d25e00bb6faf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a62badd64960be2ce9508d25e00bb6faf" kindref="member">PermLocalSA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perm,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>permNeighbors,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;&amp;<sp/>permutedSA)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="class_l_i_s_a_1a30943843a09198a2617625d5f02debf8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="class_l_i_s_a_1a30943843a09198a2617625d5f02debf8" kindref="member">CountLargerSA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>permutedSA)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a4ffb64846007d1d7ff443f57112b28f9" kindref="member">Run</ref>();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a1b1e7eb75014f6580998b7ef12b65ade" kindref="member">SetSignificanceFilter</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>filter_id);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a69bdf540d32663d3676e6c00864750b6" kindref="member">GetSignificanceFilter</ref>();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a4a4972b885f39d697d4c3b21c617bde6" kindref="member">GetSignificanceCutoff</ref>();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a11c8e8fd52bbc1bb34c4a7738992d923" kindref="member">SetSignificanceCutoff</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>val);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1adc89c613b14bdac81501365a4cc71134" kindref="member">GetUserCutoff</ref>();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a42efe3f048fc3152fa4b1bddc520462a" kindref="member">SetUserCutoff</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>val);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a66abedb503f8f675b04423213027325d" kindref="member">GetBO</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>current_p);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a2bfab81b9e42615e66158a7865f83fbd" kindref="member">GetFDR</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>current_p);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a87e3e04dc5cc1f56634a036ef38bc050" kindref="member">GetNumPermutations</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a1537cd949a614e041239529d48b6ac49" kindref="member">SetNumPermutations</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="class_l_i_s_a_1a9b43164d4e09625fee42e4bd3b5c7e43" kindref="member">GetLastUsedSeed</ref>();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a73dec0f73c8494bdbde6e1063c2a903b" kindref="member">SetLastUsedSeed</ref>(uint64_t<sp/>seed);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a38bbdb73e71ae1a74825d4ca5a93d871" kindref="member">IsReuseLastSeed</ref>();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a19ceb54628931d11d39e343f63d3f890" kindref="member">SetReuseLastSeed</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>reuse);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1ac8a5fc8c591762f9c6ac3b4ad3ccdd45" kindref="member">GetHasIsolates</ref>();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1aec64be30b626394c5662a4bb14e680c3" kindref="member">GetHasUndefined</ref>();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;<sp/><ref refid="class_l_i_s_a_1a2730bb134ce7faa62ee1a984417ad0a1" kindref="member">GetDefaultCategories</ref>();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_l_i_s_a_1a13defe2359b83ee5a988e99a6e5af2bb" kindref="member">GetDefaultCutoffs</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_l_i_s_a_1a9ffdfbc23351d06ef8c58a288a65e6dc" kindref="member">GetLocalSignificanceValues</ref>();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/><ref refid="class_l_i_s_a_1a1dfd91e4c229c87fe81d6f8859bd0e0a" kindref="member">GetClusterIndicators</ref>();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/><ref refid="class_l_i_s_a_1a708cad7d006b534782afbfd2122f4083" kindref="member">GetSigCatIndicators</ref>();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/><ref refid="class_l_i_s_a_1a2298353561cf8bc8a046a75e0a6101c9" kindref="member">GetNumNeighbors</ref>();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_l_i_s_a_1ac661ede940895d9fe8fe08c3895c10af" kindref="member">GetSpatialLagValues</ref>();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_l_i_s_a_1a66a7a277ed1b0d774f0e1881a17e6fbe" kindref="member">GetLISAValues</ref>();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a5354756caf59cd4ef55eb2b93b83677a" kindref="member">IsRowStandardize</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1af9dcade8f79090a594fe950ad8fa16fa" kindref="member">SetRowStandardize</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>rowStandardize);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1aea988ecda20ea77bfe806fd082bbf3f8" kindref="member">GetNumThreads</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1aa7e54243723d4ae3af341d43236c4a17" kindref="member">SetNumThreads</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_threads);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;<sp/><ref refid="class_l_i_s_a_1af7c025f7b5dbfacfcd1068aea0bc3a16" kindref="member">GetLabels</ref>();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;<sp/><ref refid="class_l_i_s_a_1aa7ccbefcd8fb8543e791485916270cb0" kindref="member">GetColors</ref>();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="109" refid="class_l_i_s_a_1a93dbaa5b02fbd6b2fef270888b9711b6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a93dbaa5b02fbd6b2fef270888b9711b6" kindref="member">nCPUs</ref>;</highlight></codeline>
+<codeline lineno="110" refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a61a5128a4af4e294e8f59ddc2ac35854" kindref="member">num_obs</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>total<sp/>#<sp/>obs<sp/>including<sp/>neighborless<sp/>obs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="class_l_i_s_a_1ad0d3a85084f836c14ac292dd783cc617" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1ad0d3a85084f836c14ac292dd783cc617" kindref="member">row_standardize</ref>;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="class_l_i_s_a_1ae93f12d73f48a9fbe7c21e8ba17fa9ee" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1ae93f12d73f48a9fbe7c21e8ba17fa9ee" kindref="member">significance_filter</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>0:<sp/>&gt;0.05<sp/>1:<sp/>0.05,<sp/>2:<sp/>0.01,<sp/>3:<sp/>0.001,<sp/>4:<sp/>0.0001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1aa1b448ba82487d84f7d34b5a48687ca7" kindref="member">permutations</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>any<sp/>number<sp/>from<sp/>9<sp/>to<sp/>99999,<sp/>99<sp/>will<sp/>be<sp/>default</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="class_l_i_s_a_1aefaa3485a0023c7ee635a0b2874417e7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1aefaa3485a0023c7ee635a0b2874417e7" kindref="member">significance_cutoff</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>either<sp/>0.05,<sp/>0.01,<sp/>0.001<sp/>or<sp/>0.0001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="class_l_i_s_a_1af82c5848fd8c9c03720b6768b7a55376" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1af82c5848fd8c9c03720b6768b7a55376" kindref="member">user_sig_cutoff</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>user<sp/>defined<sp/>cutoff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="class_l_i_s_a_1a2ff9fc974573d91f65acb7486f8a9cef" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a2ff9fc974573d91f65acb7486f8a9cef" kindref="member">has_undefined</ref>;</highlight></codeline>
+<codeline lineno="121" refid="class_l_i_s_a_1ac4cb795aa0c036bd2f0721a6402bfca4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1ac4cb795aa0c036bd2f0721a6402bfca4" kindref="member">has_isolates</ref>;</highlight></codeline>
+<codeline lineno="122" refid="class_l_i_s_a_1af33206fcbd8c59afc201a8a0454f065f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1af33206fcbd8c59afc201a8a0454f065f" kindref="member">calc_significances</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>false,<sp/>then<sp/>p-vals<sp/>will<sp/>never<sp/>be<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="class_l_i_s_a_1a0b6a2466791bca1b75369737337fca2d" refkind="member"><highlight class="normal"><sp/><sp/>uint64_t<sp/><ref refid="class_l_i_s_a_1a0b6a2466791bca1b75369737337fca2d" kindref="member">last_seed_used</ref>;</highlight></codeline>
+<codeline lineno="124" refid="class_l_i_s_a_1a1831c01ee530b038e5e7356a86a20c2b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l_i_s_a_1a1831c01ee530b038e5e7356a86a20c2b" kindref="member">reuse_last_seed</ref>;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref>*<sp/><ref refid="class_l_i_s_a_1a3f6524f9d4aa8e8a5d92bccc5a10a46f" kindref="member">weights</ref>;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;bool&gt;<sp/><ref refid="class_l_i_s_a_1af36658ec6c5e572b2c131d897220a81e" kindref="member">undefs</ref>;</highlight></codeline>
+<codeline lineno="129" refid="class_l_i_s_a_1a4cebb360265b00834131007f766f8888" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_l_i_s_a_1a4cebb360265b00834131007f766f8888" kindref="member">sig_local_vec</ref>;</highlight></codeline>
+<codeline lineno="130" refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/><ref refid="class_l_i_s_a_1af8622086c88d0ade80130613a2a0209d" kindref="member">sig_cat_vec</ref>;</highlight></codeline>
+<codeline lineno="131" refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/><ref refid="class_l_i_s_a_1aafcd78acbda90794728597a5262bf4f5" kindref="member">cluster_vec</ref>;</highlight></codeline>
+<codeline lineno="132" refid="class_l_i_s_a_1a1842b85ffe20032c9fc14bb7734d946c" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_l_i_s_a_1a1842b85ffe20032c9fc14bb7734d946c" kindref="member">lag_vec</ref>;</highlight></codeline>
+<codeline lineno="133" refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_l_i_s_a_1a6a3eb34950154b54aa38cdb06e035bd5" kindref="member">lisa_vec</ref>;</highlight></codeline>
+<codeline lineno="134" refid="class_l_i_s_a_1adc7cdba864b9a1e1dd32cc0172649f7d" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/><ref refid="class_l_i_s_a_1adc7cdba864b9a1e1dd32cc0172649f7d" kindref="member">nn_vec</ref>;</highlight></codeline>
+<codeline lineno="135" refid="class_l_i_s_a_1a49e01da3d8c104a895fb09be22931f20" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;std::string&gt;<sp/><ref refid="class_l_i_s_a_1a49e01da3d8c104a895fb09be22931f20" kindref="member">labels</ref>;</highlight></codeline>
+<codeline lineno="136" refid="class_l_i_s_a_1a3879ae2936f23e8301ef35200c71d5cd" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;std::string&gt;<sp/><ref refid="class_l_i_s_a_1a3879ae2936f23e8301ef35200c71d5cd" kindref="member">colors</ref>;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="class_l_i_s_a_1a4e4104294cae67b667c3ef8a435027cf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">**<sp/><ref refid="class_l_i_s_a_1a4e4104294cae67b667c3ef8a435027cf" kindref="member">perm_table</ref>;</highlight></codeline>
+<codeline lineno="139" refid="class_l_i_s_a_1adb5baf0ecda6023779bab868d9c45af5" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="class_l_i_s_a_1adb5baf0ecda6023779bab868d9c45af5" kindref="member">permutation_method</ref>;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>GEODA_LISA_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/LISA.h"/>
+  </compounddef>
+</doxygen>

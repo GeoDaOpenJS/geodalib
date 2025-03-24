@@ -1,0 +1,36 @@
+\doxysection{Link.\+h}
+\hypertarget{_link_8h_source}{}\label{_link_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/regression/Link.h@{/Users/xun/github/geoda-\/lib/src/cpp/regression/Link.h}}
+\mbox{\hyperlink{_link_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ \_\_GEODA\_CENTER\_LINK\_H\_\_}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ \_\_GEODA\_CENTER\_LINK\_H\_\_}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_link_a1918a8473cee40bbed17b8e926cb85d9}{Link}}\ \ }
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ public\ :}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_link_a1918a8473cee40bbed17b8e926cb85d9}{Link}}()\ \{\};}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_link_a5398540187240bfc2a945b6a1cff7db4}{Link}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ix,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&v)\ :\ nb(ix),\ weight(v)\ \{\};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{class_link_a4906d954e9177dcdf1b427ce82dc5625}{getIx}}()\textcolor{keyword}{\ \ const\ \ }\{\ \ \textcolor{keywordflow}{return}\ nb;\ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \mbox{\hyperlink{class_link_a42c7a68b36c8f5391673b0e4c16191fc}{getWeight}}()\textcolor{keyword}{\ \ const\ \ \ }\{\ \ \textcolor{keywordflow}{return}\ weight;\ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{class_link_a632202be4caf7ff969cfba78f5c8eff4}{setIx}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ x)\ \ \{\ \ nb\ =\ x;\ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{class_link_ab52c95b0d7e9c0a81bbb30f29a8b473c}{setWeight}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&v)\ \ \{\ \ weight\ =\ v;\ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_link_a1918a8473cee40bbed17b8e926cb85d9}{Link}}\ \&\ \mbox{\hyperlink{class_link_a3236585e532dfc99cd258b757a809be7}{operator\ =\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_link_a1918a8473cee40bbed17b8e926cb85d9}{Link}}\ \&\ from)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ this-\/>\ nb\ =\ from.nb;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ this-\/>weight\ =\ from.weight;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_link_a8b1470aa09a45b3fbf8c6fd339e3d0b5}{operator\ <\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_link_a1918a8473cee40bbed17b8e926cb85d9}{Link}}\ \&\ from)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>nb\ <\ from.nb);}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ private\ :}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ nb;}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ weight;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ }
+
+\end{DoxyCode}

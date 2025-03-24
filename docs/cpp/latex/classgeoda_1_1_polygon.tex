@@ -1,0 +1,154 @@
+\doxysection{geoda\+::Polygon Class Reference}
+\hypertarget{classgeoda_1_1_polygon}{}\label{classgeoda_1_1_polygon}\index{geoda::Polygon@{geoda::Polygon}}
+
+
+{\ttfamily \#include $<$geometry.\+h$>$}
+
+Inheritance diagram for geoda\+::Polygon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgeoda_1_1_polygon}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgeoda_1_1_polygon_aacbd99518a96030cd817c22c44898aed}{Polygon}} ()=default
+\item 
+\mbox{\hyperlink{classgeoda_1_1_polygon_a6b721e761168746e762cee063c3322e3}{\texorpdfstring{$\sim$}{\string~}\+Polygon}} () override=default
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classgeoda_1_1_polygon_a834416db9604b0b0e68c2f0f2115f946}{get\+\_\+x}} () const override
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classgeoda_1_1_polygon_a3233ccee222d9f264b663324186deec7}{get\+\_\+y}} () const override
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classgeoda_1_1_polygon_a4bd1b96a89baf505d5911c57069a19a9}{get\+\_\+holes}} () const
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classgeoda_1_1_polygon_a51d288c60ee17446e88a251e9913b157}{get\+\_\+parts}} () const
+\item 
+unsigned int \mbox{\hyperlink{classgeoda_1_1_polygon_a26c5630e27ab7dac13f6fad7fcdcacb7}{size}} () const
+\item 
+\mbox{\hyperlink{namespacegeoda_a20fd16562e89848c50247b0d9c865348}{Shape\+Type}} \mbox{\hyperlink{classgeoda_1_1_polygon_acd02d276a1714dd6cb523da5d1a76930}{get\+\_\+type}} () const override
+\item 
+void \mbox{\hyperlink{classgeoda_1_1_polygon_ace55962432d0f5981611960b174467b6}{add}} (const std\+::vector$<$ double $>$ \&in\+\_\+x, const std\+::vector$<$ double $>$ \&in\+\_\+y, bool is\+\_\+hole)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classgeoda_1_1_geometry}{geoda\+::\+Geometry}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classgeoda_1_1_geometry_a2c6af1b2e95adc9ce1fca937cccdf7f3}{\texorpdfstring{$\sim$}{\string~}\+Geometry}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classgeoda_1_1_polygon_a7bc8e19f027aa85e2cacc61160e00d54}{x}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classgeoda_1_1_polygon_a24f40e5d9644fc29fcaa4641c0a2f104}{y}}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classgeoda_1_1_polygon_a60e43dbb6f5dcd6b59b6457a0c9e1192}{parts}}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classgeoda_1_1_polygon_a99cd64c0195a24310bee2fcbc45f4737}{holes}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgeoda_1_1_polygon_aacbd99518a96030cd817c22c44898aed}\index{geoda::Polygon@{geoda::Polygon}!Polygon@{Polygon}}
+\index{Polygon@{Polygon}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{Polygon()}{Polygon()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_aacbd99518a96030cd817c22c44898aed} 
+geoda\+::\+Polygon\+::\+Polygon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classgeoda_1_1_polygon_a6b721e761168746e762cee063c3322e3}\index{geoda::Polygon@{geoda::Polygon}!````~Polygon@{\texorpdfstring{$\sim$}{\string~}Polygon}}
+\index{````~Polygon@{\texorpdfstring{$\sim$}{\string~}Polygon}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Polygon()}{\string~Polygon()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_a6b721e761168746e762cee063c3322e3} 
+geoda\+::\+Polygon\+::\texorpdfstring{$\sim$}{\string~}\+Polygon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgeoda_1_1_polygon_ace55962432d0f5981611960b174467b6}\index{geoda::Polygon@{geoda::Polygon}!add@{add}}
+\index{add@{add}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_ace55962432d0f5981611960b174467b6} 
+void Polygon\+::add (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{in\+\_\+x}{, }\item[{const std\+::vector$<$ double $>$ \&}]{in\+\_\+y}{, }\item[{bool}]{is\+\_\+hole}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classgeoda_1_1_polygon_a4bd1b96a89baf505d5911c57069a19a9}\index{geoda::Polygon@{geoda::Polygon}!get\_holes@{get\_holes}}
+\index{get\_holes@{get\_holes}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{get\_holes()}{get\_holes()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_a4bd1b96a89baf505d5911c57069a19a9} 
+std\+::vector$<$ unsigned int $>$ geoda\+::\+Polygon\+::get\+\_\+holes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_a51d288c60ee17446e88a251e9913b157}\index{geoda::Polygon@{geoda::Polygon}!get\_parts@{get\_parts}}
+\index{get\_parts@{get\_parts}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{get\_parts()}{get\_parts()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_a51d288c60ee17446e88a251e9913b157} 
+std\+::vector$<$ unsigned int $>$ geoda\+::\+Polygon\+::get\+\_\+parts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgeoda_1_1_polygon_acd02d276a1714dd6cb523da5d1a76930}\index{geoda::Polygon@{geoda::Polygon}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_acd02d276a1714dd6cb523da5d1a76930} 
+\mbox{\hyperlink{namespacegeoda_a20fd16562e89848c50247b0d9c865348}{Shape\+Type}} geoda\+::\+Polygon\+::get\+\_\+type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_a8cb1b17489e3677f1b2ded15028cef23}{geoda\+::\+Geometry}}.
+
+\Hypertarget{classgeoda_1_1_polygon_a834416db9604b0b0e68c2f0f2115f946}\index{geoda::Polygon@{geoda::Polygon}!get\_x@{get\_x}}
+\index{get\_x@{get\_x}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{get\_x()}{get\_x()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_a834416db9604b0b0e68c2f0f2115f946} 
+std\+::vector$<$ double $>$ geoda\+::\+Polygon\+::get\+\_\+x (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_a35f98c9c99a02cf04b5690ae54de2c30}{geoda\+::\+Geometry}}.
+
+\Hypertarget{classgeoda_1_1_polygon_a3233ccee222d9f264b663324186deec7}\index{geoda::Polygon@{geoda::Polygon}!get\_y@{get\_y}}
+\index{get\_y@{get\_y}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{get\_y()}{get\_y()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_a3233ccee222d9f264b663324186deec7} 
+std\+::vector$<$ double $>$ geoda\+::\+Polygon\+::get\+\_\+y (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgeoda_1_1_geometry_a990ea8e2cebf1e35686de3ae536ac242}{geoda\+::\+Geometry}}.
+
+\Hypertarget{classgeoda_1_1_polygon_a26c5630e27ab7dac13f6fad7fcdcacb7}\index{geoda::Polygon@{geoda::Polygon}!size@{size}}
+\index{size@{size}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_a26c5630e27ab7dac13f6fad7fcdcacb7} 
+unsigned int geoda\+::\+Polygon\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgeoda_1_1_polygon_a99cd64c0195a24310bee2fcbc45f4737}\index{geoda::Polygon@{geoda::Polygon}!holes@{holes}}
+\index{holes@{holes}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{holes}{holes}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_a99cd64c0195a24310bee2fcbc45f4737} 
+std\+::vector$<$unsigned int$>$ geoda\+::\+Polygon\+::holes}
+
+\Hypertarget{classgeoda_1_1_polygon_a60e43dbb6f5dcd6b59b6457a0c9e1192}\index{geoda::Polygon@{geoda::Polygon}!parts@{parts}}
+\index{parts@{parts}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{parts}{parts}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_a60e43dbb6f5dcd6b59b6457a0c9e1192} 
+std\+::vector$<$unsigned int$>$ geoda\+::\+Polygon\+::parts}
+
+\Hypertarget{classgeoda_1_1_polygon_a7bc8e19f027aa85e2cacc61160e00d54}\index{geoda::Polygon@{geoda::Polygon}!x@{x}}
+\index{x@{x}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_a7bc8e19f027aa85e2cacc61160e00d54} 
+std\+::vector$<$double$>$ geoda\+::\+Polygon\+::x}
+
+\Hypertarget{classgeoda_1_1_polygon_a24f40e5d9644fc29fcaa4641c0a2f104}\index{geoda::Polygon@{geoda::Polygon}!y@{y}}
+\index{y@{y}!geoda::Polygon@{geoda::Polygon}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily \label{classgeoda_1_1_polygon_a24f40e5d9644fc29fcaa4641c0a2f104} 
+std\+::vector$<$double$>$ geoda\+::\+Polygon\+::y}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/geometry/\mbox{\hyperlink{geometry_8h}{geometry.\+h}}\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/geometry/\mbox{\hyperlink{geometry_8cpp}{geometry.\+cpp}}\end{DoxyCompactItemize}

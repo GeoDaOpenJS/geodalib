@@ -9,8 +9,11 @@ import {
 } from '../../wasm';
 
 /**
- * BinaryGeometryType, it is the same as DeckGlGeoTypes in kepler.gl/layers
+ * Defines the geometry types supported in binary format. See DeckGlGeoTypes in kepler.gl/layers
  * @typedef {Object} BinaryGeometryType
+ * @property {boolean} point - Whether the geometry contains point features
+ * @property {boolean} line - Whether the geometry contains line features
+ * @property {boolean} polygon - Whether the geometry contains polygon features
  */
 export type BinaryGeometryType = {
   point: boolean;
@@ -19,8 +22,12 @@ export type BinaryGeometryType = {
 };
 
 /**
- * create geoda.GeometryCollection from dataToFeatures[] in GeojsonLayer
- *
+ * Creates a GeoDa GeometryCollection from binary geometry features
+ * @param {BinaryGeometryType} geometryType - The type of geometry to create
+ * @param {BinaryFeatureCollection[]} binaryFeaturesChunks - Array of binary feature collections. See BinaryFeatureCollection in `@loaders.gl/schema`
+ * @param {GeoDaModule} wasm - The initialized GeoDa WASM module
+ * @returns {Promise<GeometryCollection>} A GeoDa geometry collection
+ * @throws {Error} If WASM module is not initialized or geometry type is unknown
  */
 export async function getGeometryCollectionFromBinaryGeometries(
   geometryType: BinaryGeometryType,
@@ -28,7 +35,7 @@ export async function getGeometryCollectionFromBinaryGeometries(
   wasm: GeoDaModule
 ): Promise<GeometryCollection> {
   if (!wasm) {
-    throw new Error('WASM module is not initialized');
+    throw new Error('GeoDa WASM module is not initialized');
   }
 
   if (geometryType.point) {
@@ -45,9 +52,10 @@ export async function getGeometryCollectionFromBinaryGeometries(
 }
 
 /**
- * create geoda pointCollection from dataToFeatures[] in GeojsonLayer
- * @param pointsArray BinaryFeatureCollection['points'] An array of binary point features from chunks of geoarrow
- * @returns pointCollection | null
+ * Creates a GeoDa PointCollection from binary point features
+ * @param {Array<BinaryFeatureCollection['points']>} pointsArray - Array of binary point features from GeoArrow chunks
+ * @param {GeoDaModule} wasm - The initialized GeoDa WASM module
+ * @returns {PointCollection} A GeoDa point collection
  */
 export function createPointCollectionFromBinaryFeatures(
   pointsArray: Array<BinaryFeatureCollection['points']>,
@@ -93,9 +101,10 @@ export function createPointCollectionFromBinaryFeatures(
 }
 
 /**
- * create geoda lineCollection from dataToFeatures[] in GeojsonLayer
- * @param linesArray BinaryFeatureCollection['lines'][] An array of binary line features from chunks of geoarrow
- * @returns LineCollection | null
+ * Creates a GeoDa LineCollection from binary line features
+ * @param {Array<BinaryFeatureCollection['lines']>} linesArray - Array of binary line features from GeoArrow chunks
+ * @param {GeoDaModule} wasm - The initialized GeoDa WASM module
+ * @returns {LineCollection} A GeoDa line collection
  */
 export function createLineCollectionFromBinaryFeatures(
   linesArray: Array<BinaryFeatureCollection['lines']>,
@@ -147,9 +156,10 @@ export function createLineCollectionFromBinaryFeatures(
 }
 
 /**
- * create geoda polygonCollection from dataToFeatures[] in GeojsonLayer
- * @param polygonsArray BinaryFeatureCollection['polygons'][] An array of binary polygon features from chunks of geoarrow
- * @returns PolygonCollection | null
+ * Creates a GeoDa PolygonCollection from binary polygon features
+ * @param {Array<BinaryFeatureCollection['polygons']>} polygonsArray - Array of binary polygon features from GeoArrow chunks
+ * @param {GeoDaModule} wasm - The initialized GeoDa WASM module
+ * @returns {PolygonCollection} A GeoDa polygon collection
  */
 export function createPolygonCollectionFromBinaryFeatures(
   polygonsArray: Array<BinaryFeatureCollection['polygons']>,

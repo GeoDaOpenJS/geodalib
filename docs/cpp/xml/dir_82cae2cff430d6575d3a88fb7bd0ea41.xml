@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="dir_82cae2cff430d6575d3a88fb7bd0ea41" kind="dir">
+    <compoundname>/Users/xun/github/geoda-lib/src/cpp/geometry</compoundname>
+    <innerfile refid="geometry_8cpp">geometry.cpp</innerfile>
+    <innerfile refid="geometry_8h">geometry.h</innerfile>
+    <innerfile refid="spatial-join_8cpp">spatial-join.cpp</innerfile>
+    <innerfile refid="spatial-join_8h">spatial-join.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="weights_2_weights_8h" kind="file" language="C++">
+    <compoundname>weights.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes refid="geometry_8h" local="yes">geometry/geometry.h</includes>
+    <includedby refid="contiguity-weights_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/weights/contiguity-weights.cpp</includedby>
+    <includedby refid="distance-weights_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/weights/distance-weights.cpp</includedby>
+    <includedby refid="gal_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/weights/gal.h</includedby>
+    <includedby refid="partition_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/weights/partition.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>geometry/geometry.h</label>
+        <link refid="geometry_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/weights.h</label>
+        <link refid="weights_2_weights_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>boost/geometry.hpp</label>
+      </node>
+      <node id="5">
+        <label>limits</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/ML_im.cpp</label>
+        <link refid="_m_l__im_8cpp"/>
+      </node>
+      <node id="7">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/ML_im.h</label>
+        <link refid="_m_l__im_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseMatrix.cpp</label>
+        <link refid="_sparse_matrix_8cpp"/>
+      </node>
+      <node id="6">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseMatrix.h</label>
+        <link refid="_sparse_matrix_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp</label>
+        <link refid="_weights_8cpp"/>
+      </node>
+      <node id="10">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/Weights.h</label>
+        <link refid="regression_2_weights_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/regression.cpp</label>
+        <link refid="regression_8cpp"/>
+      </node>
+      <node id="9">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/smile2.cpp</label>
+        <link refid="smile2_8cpp"/>
+      </node>
+      <node id="14">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/local-g.cpp</label>
+        <link refid="local-g_8cpp"/>
+      </node>
+      <node id="15">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/local-geary.cpp</label>
+        <link refid="local-geary_8cpp"/>
+      </node>
+      <node id="16">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/local-moran.cpp</label>
+        <link refid="local-moran_8cpp"/>
+      </node>
+      <node id="17">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/quantile-lisa.cpp</label>
+        <link refid="quantile-lisa_8cpp"/>
+      </node>
+      <node id="2">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/contiguity-weights.cpp</label>
+        <link refid="contiguity-weights_8cpp"/>
+      </node>
+      <node id="3">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/distance-weights.cpp</label>
+        <link refid="distance-weights_8cpp"/>
+      </node>
+      <node id="4">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/gal.h</label>
+        <link refid="gal_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/partition.h</label>
+        <link refid="partition_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/vector-weight.cpp</label>
+        <link refid="vector-weight_8cpp"/>
+      </node>
+      <node id="13">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/vector-weight.h</label>
+        <link refid="vector-weight_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/weights.h</label>
+        <link refid="weights_2_weights_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacegeoda">geoda</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>GEODA_DISTANCE_WEIGHTS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GEODA_DISTANCE_WEIGHTS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="geometry_8h" kindref="compound">geometry/geometry.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacegeoda" kindref="compound">geoda</ref><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="namespacegeoda_1a0f16cae6541a1593e2c61524e654b4f7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacegeoda_1a0f16cae6541a1593e2c61524e654b4f7" kindref="member">pi</ref><sp/>=<sp/>3.141592653589793238463;</highlight></codeline>
+<codeline lineno="10" refid="namespacegeoda_1a69601ca6ebe7caf244256296e8c1be3e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacegeoda_1a69601ca6ebe7caf244256296e8c1be3e" kindref="member">mile_per_degree</ref><sp/>=<sp/>69.0;</highlight></codeline>
+<codeline lineno="11" refid="namespacegeoda_1adcfb18fa45bbfe7e54f65138330eaa6a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacegeoda_1adcfb18fa45bbfe7e54f65138330eaa6a" kindref="member">km_per_degree</ref><sp/>=<sp/>111.1;</highlight></codeline>
+<codeline lineno="12" refid="namespacegeoda_1a01ceccbc23ee69f10a97f63663bcd9f9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacegeoda_1a01ceccbc23ee69f10a97f63663bcd9f9" kindref="member">pi_over_180</ref><sp/>=<sp/><ref refid="namespacegeoda_1a0f16cae6541a1593e2c61524e654b4f7" kindref="member">pi</ref><sp/>/<sp/>180.0;</highlight></codeline>
+<codeline lineno="13" refid="namespacegeoda_1a24e199d421bd163374ac94c924479408" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacegeoda_1a24e199d421bd163374ac94c924479408" kindref="member">earth_radius_km</ref><sp/>=<sp/>6371.007180918475;</highlight></codeline>
+<codeline lineno="14" refid="namespacegeoda_1a41ebf7994c44307f5d65d936cc930b79" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacegeoda_1a41ebf7994c44307f5d65d936cc930b79" kindref="member">earth_radius_miles</ref><sp/>=<sp/><ref refid="namespacegeoda_1a24e199d421bd163374ac94c924479408" kindref="member">earth_radius_km</ref><sp/>/<sp/>1.609344;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacegeoda_1aae99cbaa2a239c00d5a96586b4b6ac2d" kindref="member">haversine_distance</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lon1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lat1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lon2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lat2,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_mile);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">std::vector&lt;std::vector&lt;double&gt;&gt;<sp/><ref refid="namespacegeoda_1aa8cdb09f0627ed6b7a39fb26ef99ab09" kindref="member">distance_weights</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref>&amp;<sp/>geoms,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>distance_threshold,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_mile);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="namespacegeoda_1ac401bfe6a3293f4ce3d300dd9ad7b724" kindref="member">get_distance_thresholds</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref>&amp;<sp/>geoms,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_mile);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">std::vector&lt;std::vector&lt;unsigned<sp/>int&gt;&gt;<sp/><ref refid="namespacegeoda_1a4808eed26b9dd4f4342e4144e4691e99" kindref="member">knearest_neighbors</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref>&amp;<sp/>geoms,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">std::vector&lt;std::vector&lt;unsigned<sp/>int&gt;&gt;<sp/><ref refid="namespacegeoda_1a92f374961f8bd3ee98ed6afad3ddeb71" kindref="member">point_contiguity_weights</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref>&amp;<sp/>geoms,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_queen,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>precision_threshold<sp/>=<sp/>0.0,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>order_contiguity<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>include_lower_order<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal">std::vector&lt;std::vector&lt;unsigned<sp/>int&gt;&gt;<sp/><ref refid="namespacegeoda_1ac1bb11a3540a063bbd29b42b21d5a6ad" kindref="member">polygon_contiguity_weights</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref>&amp;<sp/>geoms,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_queen,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>precision_threshold<sp/>=<sp/>0.0,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>order_contiguity<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>include_lower_order<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">std::vector&lt;std::vector&lt;unsigned<sp/>int&gt;&gt;<sp/><ref refid="namespacegeoda_1a7d1305e8d33fe3daf63e6fb9dd754c03" kindref="member">polygon_contiguity_weights_threshold</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref>&amp;<sp/>geoms,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_queen,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>precision_threshold<sp/>=<sp/>0.0,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>order_contiguity<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>include_lower_order<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">std::vector&lt;std::vector&lt;unsigned<sp/>int&gt;&gt;<sp/><ref refid="namespacegeoda_1a12bde1832774f498f050b0626d625c56" kindref="member">simple_polygon_queen_weights</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref>&amp;<sp/>geoms,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>order_contiguity<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>include_lower_order<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">std::vector&lt;std::vector&lt;unsigned<sp/>int&gt;&gt;<sp/><ref refid="namespacegeoda_1a129eb61ef7a7b08339d9d5193fa10355" kindref="member">simple_polygon_rook_weights</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref>&amp;<sp/>geoms,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>order_contiguity<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>include_lower_order<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacegeoda_1a233abf7e4dc61081091d7df14a06dfde" kindref="member">points_equals</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref>&amp;<sp/>p1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref>&amp;<sp/>p2,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>precision_threshold);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacegeoda_1a3421fa10f62574abd53248505424dcdc" kindref="member">bbox_intersects</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="geometry_8h_1a7d32eb4d5272ffdaf1a4c210691779fb" kindref="member">box_type</ref>&amp;<sp/>b1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="geometry_8h_1a7d32eb4d5272ffdaf1a4c210691779fb" kindref="member">box_type</ref>&amp;<sp/>b2);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>geoda</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>GEODA_DISTANCE_WEIGHTS_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/weights/weights.h"/>
+  </compounddef>
+</doxygen>

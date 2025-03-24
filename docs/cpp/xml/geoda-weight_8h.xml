@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="geoda-weight_8h" kind="file" language="C++">
+    <compoundname>geoda-weight.h</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="_batch_l_i_s_a_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLISA.cpp</includedby>
+    <includedby refid="_batch_local_moran_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.cpp</includedby>
+    <includedby refid="_bi_local_moran_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/BiLocalMoran.cpp</includedby>
+    <includedby refid="_l_i_s_a_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/LISA.cpp</includedby>
+    <includedby refid="_multi_geary_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/MultiGeary.cpp</includedby>
+    <includedby refid="_multi_join_count_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp</includedby>
+    <includedby refid="_uni_g_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/UniG.cpp</includedby>
+    <includedby refid="_uni_geary_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.cpp</includedby>
+    <includedby refid="_uni_gstar_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/UniGstar.cpp</includedby>
+    <includedby refid="_uni_join_count_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/UniJoinCount.cpp</includedby>
+    <includedby refid="_uni_local_moran_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/UniLocalMoran.cpp</includedby>
+    <includedby refid="_uni_local_moran_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/lisa/UniLocalMoran.h</includedby>
+    <includedby refid="local-geary_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/sa/local-geary.cpp</includedby>
+    <includedby refid="local-moran_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/sa/local-moran.cpp</includedby>
+    <includedby refid="geoda-weight_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/weights/geoda-weight.cpp</includedby>
+    <includedby refid="vector-weight_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/weights/vector-weight.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/geoda-weight.h</label>
+        <link refid="geoda-weight_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLISA.cpp</label>
+        <link refid="_batch_l_i_s_a_8cpp"/>
+      </node>
+      <node id="3">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.cpp</label>
+        <link refid="_batch_local_moran_8cpp"/>
+      </node>
+      <node id="4">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/BiLocalMoran.cpp</label>
+        <link refid="_bi_local_moran_8cpp"/>
+      </node>
+      <node id="5">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/LISA.cpp</label>
+        <link refid="_l_i_s_a_8cpp"/>
+      </node>
+      <node id="6">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/MultiGeary.cpp</label>
+        <link refid="_multi_geary_8cpp"/>
+      </node>
+      <node id="7">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/MultiJoinCount.cpp</label>
+        <link refid="_multi_join_count_8cpp"/>
+      </node>
+      <node id="8">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniG.cpp</label>
+        <link refid="_uni_g_8cpp"/>
+      </node>
+      <node id="9">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniGeary.cpp</label>
+        <link refid="_uni_geary_8cpp"/>
+      </node>
+      <node id="10">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniGstar.cpp</label>
+        <link refid="_uni_gstar_8cpp"/>
+      </node>
+      <node id="11">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniJoinCount.cpp</label>
+        <link refid="_uni_join_count_8cpp"/>
+      </node>
+      <node id="12">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniLocalMoran.cpp</label>
+        <link refid="_uni_local_moran_8cpp"/>
+      </node>
+      <node id="13">
+        <label>/Users/xun/github/geoda-lib/src/cpp/lisa/UniLocalMoran.h</label>
+        <link refid="_uni_local_moran_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/local-g.cpp</label>
+        <link refid="local-g_8cpp"/>
+      </node>
+      <node id="15">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/local-geary.cpp</label>
+        <link refid="local-geary_8cpp"/>
+      </node>
+      <node id="14">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/local-moran.cpp</label>
+        <link refid="local-moran_8cpp"/>
+      </node>
+      <node id="19">
+        <label>/Users/xun/github/geoda-lib/src/cpp/sa/quantile-lisa.cpp</label>
+        <link refid="quantile-lisa_8cpp"/>
+      </node>
+      <node id="16">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/geoda-weight.cpp</label>
+        <link refid="geoda-weight_8cpp"/>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/geoda-weight.h</label>
+        <link refid="geoda-weight_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/vector-weight.cpp</label>
+        <link refid="vector-weight_8cpp"/>
+      </node>
+      <node id="17">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/vector-weight.h</label>
+        <link refid="vector-weight_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_geo_da_weight" prot="public">GeoDaWeight</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__JSGEODA_GEODA_WEIGHTS_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__JSGEODA_GEODA_WEIGHTS_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="class_geo_da_weight" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_geo_da_weight_1a1fa01dc2a6d2429f8f770c2e33ee22fd" kindref="member">GeoDaWeight</ref><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Properties</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_geo_da_weight_1af4dd01d313aca99b6a04be97dd9c61a8a884a5108e33974006ebc7e7abece685e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1af4dd01d313aca99b6a04be97dd9c61a8" kindref="member">WeightType</ref><sp/>{<sp/><ref refid="class_geo_da_weight_1af4dd01d313aca99b6a04be97dd9c61a8a884a5108e33974006ebc7e7abece685e" kindref="member">gal_type</ref>,<sp/><ref refid="class_geo_da_weight_1af4dd01d313aca99b6a04be97dd9c61a8a1e90df419d0354d5c6d719e0927284c6" kindref="member">gwt_type</ref><sp/>};</highlight></codeline>
+<codeline lineno="11" refid="class_geo_da_weight_1a19c17fc62099cb6b1a16565e723b8837" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_geo_da_weight_1af4dd01d313aca99b6a04be97dd9c61a8" kindref="member">WeightType</ref><sp/><ref refid="class_geo_da_weight_1a19c17fc62099cb6b1a16565e723b8837" kindref="member">weight_type</ref>;</highlight></codeline>
+<codeline lineno="12" refid="class_geo_da_weight_1af9a8fa5c60b25e06c333073963ccb341" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="class_geo_da_weight_1af9a8fa5c60b25e06c333073963ccb341" kindref="member">wflnm</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>filename</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_geo_da_weight_1ad004f777fe889ed0b1c6f95c3f04db90" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="class_geo_da_weight_1ad004f777fe889ed0b1c6f95c3f04db90" kindref="member">id_field</ref>;</highlight></codeline>
+<codeline lineno="14" refid="class_geo_da_weight_1a89bc922e9d5a9eeae04642657ba702a9" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="class_geo_da_weight_1a89bc922e9d5a9eeae04642657ba702a9" kindref="member">title</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>optional<sp/>title.<sp/><sp/>Use<sp/>wflnm<sp/>if<sp/>empty</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_geo_da_weight_1a9cc78fc8b36b49d6a1b30d16f6f1a26e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a9cc78fc8b36b49d6a1b30d16f6f1a26e" kindref="member">symmetry_checked</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>indicates<sp/>validity<sp/>of<sp/>is_symmetric<sp/>bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="class_geo_da_weight_1a8813dca99a1618758b762e3f150fcb6e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a8813dca99a1618758b762e3f150fcb6e" kindref="member">is_symmetric</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>true<sp/>iff<sp/>matrix<sp/>is<sp/>symmetric</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>;</highlight></codeline>
+<codeline lineno="18" refid="class_geo_da_weight_1a3171780e2956a0c7cb1d97a5973ba391" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a3171780e2956a0c7cb1d97a5973ba391" kindref="member">sparsity</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>%<sp/>non-zeros</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="class_geo_da_weight_1a1e3e270f84f87f3b318a39b01b5f85b3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a1e3e270f84f87f3b318a39b01b5f85b3" kindref="member">min_nbrs</ref>;</highlight></codeline>
+<codeline lineno="20" refid="class_geo_da_weight_1a77519fd84a63f54e521728fa162e13c1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a77519fd84a63f54e521728fa162e13c1" kindref="member">max_nbrs</ref>;</highlight></codeline>
+<codeline lineno="21" refid="class_geo_da_weight_1a68ed374b7f312f1604bc948a02dea3b9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a68ed374b7f312f1604bc948a02dea3b9" kindref="member">mean_nbrs</ref>;</highlight></codeline>
+<codeline lineno="22" refid="class_geo_da_weight_1aefae6005ee5e45f7a47230f2d8eaab38" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1aefae6005ee5e45f7a47230f2d8eaab38" kindref="member">median_nbrs</ref>;</highlight></codeline>
+<codeline lineno="23" refid="class_geo_da_weight_1a739d89865d2ecdc73a12a9f453321d61" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a739d89865d2ecdc73a12a9f453321d61" kindref="member">is_internal_use</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>internally<sp/>used<sp/>weights<sp/>structure,<sp/>will<sp/>not<sp/>be<sp/>shown<sp/>and<sp/>used<sp/>by<sp/>users</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="class_geo_da_weight_1ab72df663ce49d6749d681116ac4af519" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="class_geo_da_weight_1ab72df663ce49d6749d681116ac4af519" kindref="member">uid</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="27" refid="class_geo_da_weight_1a1fa01dc2a6d2429f8f770c2e33ee22fd" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_geo_da_weight_1a1fa01dc2a6d2429f8f770c2e33ee22fd" kindref="member">GeoDaWeight</ref>()<sp/>:<sp/><ref refid="class_geo_da_weight_1a9cc78fc8b36b49d6a1b30d16f6f1a26e" kindref="member">symmetry_checked</ref>(false),<sp/><ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>(0)<sp/>{}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="class_geo_da_weight_1a1fa01dc2a6d2429f8f770c2e33ee22fd" kindref="member">GeoDaWeight</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref>&amp;<sp/>gw);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="class_geo_da_weight_1a3e7e08497eb89a3bc3ce5424204495fd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a3e7e08497eb89a3bc3ce5424204495fd" kindref="member">~GeoDaWeight</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a081587de9ffd3ec89905299a1600df8c" kindref="member">CheckConnectivity</ref>();</highlight></codeline>
+<codeline lineno="33" refid="class_geo_da_weight_1a91221ff8e297f16dc61fa00c631f7974" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a91221ff8e297f16dc61fa00c631f7974" kindref="member">CheckNeighbor</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_idx,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nbr_idx)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="34" refid="class_geo_da_weight_1a2935e2a6c263d50e50f9072944ddba9b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;<sp/><ref refid="class_geo_da_weight_1a2935e2a6c263d50e50f9072944ddba9b" kindref="member">GetNeighbors</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_idx)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="35" refid="class_geo_da_weight_1ac0f0408d82d3e7ce533c7e81a9ae7803" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_geo_da_weight_1ac0f0408d82d3e7ce533c7e81a9ae7803" kindref="member">GetNeighborWeights</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_idx)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="36" refid="class_geo_da_weight_1a37bde9a91acf23dcdf9e8e8b2786c4cf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a37bde9a91acf23dcdf9e8e8b2786c4cf" kindref="member">Update</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;bool&gt;&amp;<sp/>undefs)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="37" refid="class_geo_da_weight_1af2856e115c5106bfb5e8ea2be05a5cc9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1af2856e115c5106bfb5e8ea2be05a5cc9" kindref="member">HasIsolates</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="38" refid="class_geo_da_weight_1a5fdcd087fbf1f40057696678a9cf25ab" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a5fdcd087fbf1f40057696678a9cf25ab" kindref="member">GetNbrStats</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_geo_da_weight_1a85b17e272352fbd1555f6f1c9e94b7a9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a85b17e272352fbd1555f6f1c9e94b7a9" kindref="member">GetNbrSize</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_idx)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="41" refid="class_geo_da_weight_1a031b36540fdebf4f5510a998a670509a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a031b36540fdebf4f5510a998a670509a" kindref="member">SpatialLag</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_idx,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>data)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="42" refid="class_geo_da_weight_1a4373cae69dd72b9b929d9991084d3fbd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a4373cae69dd72b9b929d9991084d3fbd" kindref="member">Save</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ofname,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>layer_name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>id_var_name,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>id_vec)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="class_geo_da_weight_1abb2cd9fe703b2b7cd02cb2b711da49ad" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1abb2cd9fe703b2b7cd02cb2b711da49ad" kindref="member">Save</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ofname,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>layer_name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>id_var_name,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;&amp;<sp/>id_vec)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="class_geo_da_weight_1a98e57b733f67321d5278a77fdb5669b7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a98e57b733f67321d5278a77fdb5669b7" kindref="member">SetNeighbors</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>nbr_ids)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="class_geo_da_weight_1a97a67a7e25c6ba5a45e265c4a8a8c222" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a97a67a7e25c6ba5a45e265c4a8a8c222" kindref="member">SetNeighborsAndWeights</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>nbr_ids,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>w)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>functions:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1af2dbbb6c89105924d5b4a365f5318abc" kindref="member">IsSymmetric</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a9e15aa5966a8f8b709a711ded1aede68" kindref="member">GetSparsity</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1ae24f9c81ad64d031322ac1b35cafc439" kindref="member">GetMinNbrs</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a36cd1915c19f170af68622e4f472b066" kindref="member">GetMaxNbrs</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a080fa30e2b431a7f5b86c73ca0f115fc" kindref="member">GetMeanNbrs</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1ae8369eca0bce3af69f96bc5f305948fc" kindref="member">GetMedianNbrs</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a0e9794e655a0cdd3b56994286ddbee57" kindref="member">GetNumObs</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60" refid="class_geo_da_weight_1a3cd8387d7d686a81eac3ac808dc47584" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a3cd8387d7d686a81eac3ac808dc47584" kindref="member">IsInternalUse</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1a739d89865d2ecdc73a12a9f453321d61" kindref="member">is_internal_use</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="61" refid="class_geo_da_weight_1adab909ac43e39aaca6d383c7dfc948d6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1adab909ac43e39aaca6d383c7dfc948d6" kindref="member">IsMasked</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_idx)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Others</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref>&amp;<sp/><ref refid="class_geo_da_weight_1aa3e1faaedf2a837beb5403369ab52263" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref>&amp;<sp/>gw);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="class_geo_da_weight_1aa4001499a1d9b951bc8e9d117006e5bb" kindref="member">GetTitle</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>returns<sp/>portion<sp/>of<sp/>wflnm<sp/>if<sp/>title<sp/>empty</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="class_geo_da_weight_1a2d5a5487782eba2faeb27d9d08bfd226" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="class_geo_da_weight_1a2d5a5487782eba2faeb27d9d08bfd226" kindref="member">GetIDName</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1ad004f777fe889ed0b1c6f95c3f04db90" kindref="member">id_field</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="class_geo_da_weight_1a6e5ede000bf75e4453438d2077fc3053" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="class_geo_da_weight_1a6e5ede000bf75e4453438d2077fc3053" kindref="member">GetUID</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_geo_da_weight_1ab72df663ce49d6749d681116ac4af519" kindref="member">uid</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/weights/geoda-weight.h"/>
+  </compounddef>
+</doxygen>

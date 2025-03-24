@@ -1,0 +1,613 @@
+\doxysection{LISA Class Reference}
+\hypertarget{class_l_i_s_a}{}\label{class_l_i_s_a}\index{LISA@{LISA}}
+
+
+{\ttfamily \#include $<$LISA.\+h$>$}
+
+Inheritance diagram for LISA\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=9.000000cm]{class_l_i_s_a}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_i_s_a_ab514ca51acdb895cd05464eae461fcf0}{LISA}} (int \mbox{\hyperlink{class_l_i_s_a_a61a5128a4af4e294e8f59ddc2ac35854}{num\+\_\+obs}}, \mbox{\hyperlink{class_geo_da_weight}{Geo\+Da\+Weight}} \texorpdfstring{$\ast$}{*}w, const std\+::vector$<$ bool $>$ \&\mbox{\hyperlink{class_l_i_s_a_af36658ec6c5e572b2c131d897220a81e}{undefs}}, double \mbox{\hyperlink{class_l_i_s_a_aefaa3485a0023c7ee635a0b2874417e7}{significance\+\_\+cutoff}}, int \mbox{\hyperlink{class_l_i_s_a_a93dbaa5b02fbd6b2fef270888b9711b6}{n\+CPUs}}, int \mbox{\hyperlink{class_l_i_s_a_aa1b448ba82487d84f7d34b5a48687ca7}{permutations}}, const std\+::string \&\+\_\+permutation\+\_\+method, uint64\+\_\+t \mbox{\hyperlink{class_l_i_s_a_a0b6a2466791bca1b75369737337fca2d}{last\+\_\+seed\+\_\+used}})
+\item 
+\mbox{\hyperlink{class_l_i_s_a_a89948994dce1f7df5c66246443f7a80f}{LISA}} (int \mbox{\hyperlink{class_l_i_s_a_a61a5128a4af4e294e8f59ddc2ac35854}{num\+\_\+obs}}, \mbox{\hyperlink{class_geo_da_weight}{Geo\+Da\+Weight}} \texorpdfstring{$\ast$}{*}w, const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&\mbox{\hyperlink{class_l_i_s_a_af36658ec6c5e572b2c131d897220a81e}{undefs}}, double \mbox{\hyperlink{class_l_i_s_a_aefaa3485a0023c7ee635a0b2874417e7}{significance\+\_\+cutoff}}, int \mbox{\hyperlink{class_l_i_s_a_a93dbaa5b02fbd6b2fef270888b9711b6}{n\+CPUs}}, int \mbox{\hyperlink{class_l_i_s_a_aa1b448ba82487d84f7d34b5a48687ca7}{permutations}}, const std\+::string \&\+\_\+permutation\+\_\+method, uint64\+\_\+t \mbox{\hyperlink{class_l_i_s_a_a0b6a2466791bca1b75369737337fca2d}{last\+\_\+seed\+\_\+used}})
+\item 
+virtual \mbox{\hyperlink{class_l_i_s_a_ad0e5bc71ddb28e30b7f9e4895a561d15}{\texorpdfstring{$\sim$}{\string~}\+LISA}} ()
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a3fd503729531ec0b38baab2bea13ac87}{Compute\+Loal\+SA}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_ac6f4566109b14ef3dc9122563319f1d4}{Calc\+PseudoP}} ()
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a84f64caa8e28914746d3a9495f8bf489}{Calc\+Pseudo\+P\+\_\+threaded}} ()
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_aefcdfbe128df11c625ee6f496c78f40f}{Calc\+Pseudo\+P\+\_\+range}} (int obs\+\_\+start, int obs\+\_\+end, uint64\+\_\+t seed\+\_\+start)
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a2653719a7510f5f1be923bde638ddcef}{Perm\+Create\+Table\+\_\+threaded}} ()
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a654237b553a88279721ffc71f70e14ec}{Perm\+Create\+Range}} (int perm\+\_\+start, int perm\+\_\+end, int max\+\_\+neighbor, uint64\+\_\+t seed\+\_\+start)
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a0ef933de0a4cdcf9e3caba6771d7d079}{Perm\+Calc\+Pseudo\+P\+\_\+threaded}} ()
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a85cb4aff3217976d448b734d5a61a4fb}{Perm\+Calc\+Pseudo\+P\+\_\+range}} (int obs\+\_\+start, int obs\+\_\+end, uint64\+\_\+t seed\+\_\+start)
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_aeefb4ec2ad6564008c6c63bdce46eccb}{Perm\+Local\+SA}} (int cnt, int perm, int num\+Neighbors, const int \texorpdfstring{$\ast$}{*}perm\+Neighbors, std\+::vector$<$ double $>$ \&permuted\+SA)=0
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a62badd64960be2ce9508d25e00bb6faf}{Perm\+Local\+SA}} (int cnt, int perm, const std\+::vector$<$ int $>$ \&perm\+Neighbors, std\+::vector$<$ double $>$ \&permuted\+SA)=0
+\item 
+virtual uint64\+\_\+t \mbox{\hyperlink{class_l_i_s_a_a30943843a09198a2617625d5f02debf8}{Count\+Larger\+SA}} (int cnt, const std\+::vector$<$ double $>$ \&permuted\+SA)=0
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a4ffb64846007d1d7ff443f57112b28f9}{Run}} ()
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a1b1e7eb75014f6580998b7ef12b65ade}{Set\+Significance\+Filter}} (int filter\+\_\+id)
+\item 
+virtual int \mbox{\hyperlink{class_l_i_s_a_a69bdf540d32663d3676e6c00864750b6}{Get\+Significance\+Filter}} ()
+\item 
+virtual double \mbox{\hyperlink{class_l_i_s_a_a4a4972b885f39d697d4c3b21c617bde6}{Get\+Significance\+Cutoff}} ()
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a11c8e8fd52bbc1bb34c4a7738992d923}{Set\+Significance\+Cutoff}} (double val)
+\item 
+virtual double \mbox{\hyperlink{class_l_i_s_a_adc89c613b14bdac81501365a4cc71134}{Get\+User\+Cutoff}} ()
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a42efe3f048fc3152fa4b1bddc520462a}{Set\+User\+Cutoff}} (double val)
+\item 
+virtual double \mbox{\hyperlink{class_l_i_s_a_a66abedb503f8f675b04423213027325d}{Get\+BO}} (double current\+\_\+p)
+\item 
+virtual double \mbox{\hyperlink{class_l_i_s_a_a2bfab81b9e42615e66158a7865f83fbd}{Get\+FDR}} (double current\+\_\+p)
+\item 
+virtual int \mbox{\hyperlink{class_l_i_s_a_a87e3e04dc5cc1f56634a036ef38bc050}{Get\+Num\+Permutations}} ()
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a1537cd949a614e041239529d48b6ac49}{Set\+Num\+Permutations}} (int val)
+\item 
+virtual uint64\+\_\+t \mbox{\hyperlink{class_l_i_s_a_a9b43164d4e09625fee42e4bd3b5c7e43}{Get\+Last\+Used\+Seed}} ()
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a73dec0f73c8494bdbde6e1063c2a903b}{Set\+Last\+Used\+Seed}} (uint64\+\_\+t seed)
+\item 
+virtual bool \mbox{\hyperlink{class_l_i_s_a_a38bbdb73e71ae1a74825d4ca5a93d871}{Is\+Reuse\+Last\+Seed}} ()
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_a19ceb54628931d11d39e343f63d3f890}{Set\+Reuse\+Last\+Seed}} (bool reuse)
+\item 
+virtual bool \mbox{\hyperlink{class_l_i_s_a_ac8a5fc8c591762f9c6ac3b4ad3ccdd45}{Get\+Has\+Isolates}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_l_i_s_a_aec64be30b626394c5662a4bb14e680c3}{Get\+Has\+Undefined}} ()
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_l_i_s_a_a2730bb134ce7faa62ee1a984417ad0a1}{Get\+Default\+Categories}} ()
+\item 
+virtual std\+::vector$<$ double $>$ \mbox{\hyperlink{class_l_i_s_a_a13defe2359b83ee5a988e99a6e5af2bb}{Get\+Default\+Cutoffs}} ()
+\item 
+virtual std\+::vector$<$ double $>$ \mbox{\hyperlink{class_l_i_s_a_a9ffdfbc23351d06ef8c58a288a65e6dc}{Get\+Local\+Significance\+Values}} ()
+\item 
+virtual std\+::vector$<$ int $>$ \mbox{\hyperlink{class_l_i_s_a_a1dfd91e4c229c87fe81d6f8859bd0e0a}{Get\+Cluster\+Indicators}} ()
+\item 
+virtual std\+::vector$<$ int $>$ \mbox{\hyperlink{class_l_i_s_a_a708cad7d006b534782afbfd2122f4083}{Get\+Sig\+Cat\+Indicators}} ()
+\item 
+virtual std\+::vector$<$ int $>$ \mbox{\hyperlink{class_l_i_s_a_a2298353561cf8bc8a046a75e0a6101c9}{Get\+Num\+Neighbors}} ()
+\item 
+virtual std\+::vector$<$ double $>$ \mbox{\hyperlink{class_l_i_s_a_ac661ede940895d9fe8fe08c3895c10af}{Get\+Spatial\+Lag\+Values}} ()
+\item 
+virtual std\+::vector$<$ double $>$ \mbox{\hyperlink{class_l_i_s_a_a66a7a277ed1b0d774f0e1881a17e6fbe}{Get\+LISAValues}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_l_i_s_a_a5354756caf59cd4ef55eb2b93b83677a}{Is\+Row\+Standardize}} () const
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_af9dcade8f79090a594fe950ad8fa16fa}{Set\+Row\+Standardize}} (bool row\+Standardize)
+\item 
+virtual int \mbox{\hyperlink{class_l_i_s_a_aea988ecda20ea77bfe806fd082bbf3f8}{Get\+Num\+Threads}} () const
+\item 
+virtual void \mbox{\hyperlink{class_l_i_s_a_aa7e54243723d4ae3af341d43236c4a17}{Set\+Num\+Threads}} (int n\+\_\+threads)
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_l_i_s_a_af7c025f7b5dbfacfcd1068aea0bc3a16}{Get\+Labels}} ()
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_l_i_s_a_aa7ccbefcd8fb8543e791485916270cb0}{Get\+Colors}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_l_i_s_a_a93dbaa5b02fbd6b2fef270888b9711b6}{n\+CPUs}}
+\item 
+int \mbox{\hyperlink{class_l_i_s_a_a61a5128a4af4e294e8f59ddc2ac35854}{num\+\_\+obs}}
+\item 
+bool \mbox{\hyperlink{class_l_i_s_a_ad0d3a85084f836c14ac292dd783cc617}{row\+\_\+standardize}}
+\item 
+int \mbox{\hyperlink{class_l_i_s_a_ae93f12d73f48a9fbe7c21e8ba17fa9ee}{significance\+\_\+filter}}
+\item 
+int \mbox{\hyperlink{class_l_i_s_a_aa1b448ba82487d84f7d34b5a48687ca7}{permutations}}
+\item 
+double \mbox{\hyperlink{class_l_i_s_a_aefaa3485a0023c7ee635a0b2874417e7}{significance\+\_\+cutoff}}
+\item 
+double \mbox{\hyperlink{class_l_i_s_a_af82c5848fd8c9c03720b6768b7a55376}{user\+\_\+sig\+\_\+cutoff}}
+\item 
+bool \mbox{\hyperlink{class_l_i_s_a_a2ff9fc974573d91f65acb7486f8a9cef}{has\+\_\+undefined}}
+\item 
+bool \mbox{\hyperlink{class_l_i_s_a_ac4cb795aa0c036bd2f0721a6402bfca4}{has\+\_\+isolates}}
+\item 
+bool \mbox{\hyperlink{class_l_i_s_a_af33206fcbd8c59afc201a8a0454f065f}{calc\+\_\+significances}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{class_l_i_s_a_a0b6a2466791bca1b75369737337fca2d}{last\+\_\+seed\+\_\+used}}
+\item 
+bool \mbox{\hyperlink{class_l_i_s_a_a1831c01ee530b038e5e7356a86a20c2b}{reuse\+\_\+last\+\_\+seed}}
+\item 
+\mbox{\hyperlink{class_geo_da_weight}{Geo\+Da\+Weight}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_l_i_s_a_a3f6524f9d4aa8e8a5d92bccc5a10a46f}{weights}}
+\item 
+std\+::vector$<$ bool $>$ \mbox{\hyperlink{class_l_i_s_a_af36658ec6c5e572b2c131d897220a81e}{undefs}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_l_i_s_a_a4cebb360265b00834131007f766f8888}{sig\+\_\+local\+\_\+vec}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_l_i_s_a_af8622086c88d0ade80130613a2a0209d}{sig\+\_\+cat\+\_\+vec}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_l_i_s_a_aafcd78acbda90794728597a5262bf4f5}{cluster\+\_\+vec}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_l_i_s_a_a1842b85ffe20032c9fc14bb7734d946c}{lag\+\_\+vec}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_l_i_s_a_a6a3eb34950154b54aa38cdb06e035bd5}{lisa\+\_\+vec}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_l_i_s_a_adc7cdba864b9a1e1dd32cc0172649f7d}{nn\+\_\+vec}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_l_i_s_a_a49e01da3d8c104a895fb09be22931f20}{labels}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_l_i_s_a_a3879ae2936f23e8301ef35200c71d5cd}{colors}}
+\item 
+int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_l_i_s_a_a4e4104294cae67b667c3ef8a435027cf}{perm\+\_\+table}}
+\item 
+std\+::string \mbox{\hyperlink{class_l_i_s_a_adb5baf0ecda6023779bab868d9c45af5}{permutation\+\_\+method}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_l_i_s_a_ab514ca51acdb895cd05464eae461fcf0}\index{LISA@{LISA}!LISA@{LISA}}
+\index{LISA@{LISA}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{LISA()}{LISA()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_ab514ca51acdb895cd05464eae461fcf0} 
+LISA\+::\+LISA (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+obs}{, }\item[{\mbox{\hyperlink{class_geo_da_weight}{Geo\+Da\+Weight}} \texorpdfstring{$\ast$}{*}}]{w}{, }\item[{const std\+::vector$<$ bool $>$ \&}]{undefs}{, }\item[{double}]{significance\+\_\+cutoff}{, }\item[{int}]{n\+CPUs}{, }\item[{int}]{permutations}{, }\item[{const std\+::string \&}]{\+\_\+permutation\+\_\+method}{, }\item[{uint64\+\_\+t}]{last\+\_\+seed\+\_\+used}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_l_i_s_a_a89948994dce1f7df5c66246443f7a80f}\index{LISA@{LISA}!LISA@{LISA}}
+\index{LISA@{LISA}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{LISA()}{LISA()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a89948994dce1f7df5c66246443f7a80f} 
+LISA\+::\+LISA (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+obs}{, }\item[{\mbox{\hyperlink{class_geo_da_weight}{Geo\+Da\+Weight}} \texorpdfstring{$\ast$}{*}}]{w}{, }\item[{const std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ \&}]{undefs}{, }\item[{double}]{significance\+\_\+cutoff}{, }\item[{int}]{n\+CPUs}{, }\item[{int}]{permutations}{, }\item[{const std\+::string \&}]{\+\_\+permutation\+\_\+method}{, }\item[{uint64\+\_\+t}]{last\+\_\+seed\+\_\+used}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_l_i_s_a_ad0e5bc71ddb28e30b7f9e4895a561d15}\index{LISA@{LISA}!````~LISA@{\texorpdfstring{$\sim$}{\string~}LISA}}
+\index{````~LISA@{\texorpdfstring{$\sim$}{\string~}LISA}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LISA()}{\string~LISA()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_ad0e5bc71ddb28e30b7f9e4895a561d15} 
+LISA\+::\texorpdfstring{$\sim$}{\string~}\+LISA (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_l_i_s_a_ac6f4566109b14ef3dc9122563319f1d4}\index{LISA@{LISA}!CalcPseudoP@{CalcPseudoP}}
+\index{CalcPseudoP@{CalcPseudoP}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{CalcPseudoP()}{CalcPseudoP()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_ac6f4566109b14ef3dc9122563319f1d4} 
+void LISA\+::\+Calc\+PseudoP (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_aefcdfbe128df11c625ee6f496c78f40f}\index{LISA@{LISA}!CalcPseudoP\_range@{CalcPseudoP\_range}}
+\index{CalcPseudoP\_range@{CalcPseudoP\_range}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{CalcPseudoP\_range()}{CalcPseudoP\_range()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_aefcdfbe128df11c625ee6f496c78f40f} 
+void LISA\+::\+Calc\+Pseudo\+P\+\_\+range (\begin{DoxyParamCaption}\item[{int}]{obs\+\_\+start}{, }\item[{int}]{obs\+\_\+end}{, }\item[{uint64\+\_\+t}]{seed\+\_\+start}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_multi_join_count_a97ca887a4fa255ebd9cfdd6ecc355fad}{Multi\+Join\+Count}}, and \mbox{\hyperlink{class_uni_join_count_a6e15bf3359c0c9e28a760114a41352a7}{Uni\+Join\+Count}}.
+
+\Hypertarget{class_l_i_s_a_a84f64caa8e28914746d3a9495f8bf489}\index{LISA@{LISA}!CalcPseudoP\_threaded@{CalcPseudoP\_threaded}}
+\index{CalcPseudoP\_threaded@{CalcPseudoP\_threaded}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{CalcPseudoP\_threaded()}{CalcPseudoP\_threaded()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a84f64caa8e28914746d3a9495f8bf489} 
+void LISA\+::\+Calc\+Pseudo\+P\+\_\+threaded (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a3fd503729531ec0b38baab2bea13ac87}\index{LISA@{LISA}!ComputeLoalSA@{ComputeLoalSA}}
+\index{ComputeLoalSA@{ComputeLoalSA}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{ComputeLoalSA()}{ComputeLoalSA()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a3fd503729531ec0b38baab2bea13ac87} 
+virtual void LISA\+::\+Compute\+Loal\+SA (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_bi_local_moran_a51bdd9f54eb57d9abc07c3e79f49b1e4}{Bi\+Local\+Moran}}, \mbox{\hyperlink{class_multi_geary_add14ef4c8ad22369eb78de39e7ecaba3}{Multi\+Geary}}, \mbox{\hyperlink{class_multi_join_count_ae0e50f39c6aed9d2e6f1879ba121960d}{Multi\+Join\+Count}}, \mbox{\hyperlink{class_uni_g_a3c0fd881682148a19c30a09653ae44ba}{UniG}}, \mbox{\hyperlink{class_uni_geary_a8b44a3959ad1ea2eb2e2028b4cde7d95}{Uni\+Geary}}, \mbox{\hyperlink{class_uni_gstar_a51b9daf3d5b7ac64d044421bb603f1aa}{Uni\+Gstar}}, \mbox{\hyperlink{class_uni_join_count_aa04b404266a34d509eb94eb2a404f176}{Uni\+Join\+Count}}, and \mbox{\hyperlink{class_uni_local_moran_ad44e2390cb2ff99bd1b4d45476e7e3c5}{Uni\+Local\+Moran}}.
+
+\Hypertarget{class_l_i_s_a_a30943843a09198a2617625d5f02debf8}\index{LISA@{LISA}!CountLargerSA@{CountLargerSA}}
+\index{CountLargerSA@{CountLargerSA}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{CountLargerSA()}{CountLargerSA()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a30943843a09198a2617625d5f02debf8} 
+virtual uint64\+\_\+t LISA\+::\+Count\+Larger\+SA (\begin{DoxyParamCaption}\item[{int}]{cnt}{, }\item[{const std\+::vector$<$ double $>$ \&}]{permuted\+SA}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_bi_local_moran_a23833cef67c74615eb9e2943cd98e328}{Bi\+Local\+Moran}}, \mbox{\hyperlink{class_multi_geary_ab0c5dbb73cc3fcf2664013ce869dfc60}{Multi\+Geary}}, \mbox{\hyperlink{class_multi_join_count_ab06ce82b10b1a5474cfcbd7c413c13f6}{Multi\+Join\+Count}}, \mbox{\hyperlink{class_uni_g_a9cf91c19e02b6d5d434f477c5341db77}{UniG}}, \mbox{\hyperlink{class_uni_geary_a29a57f311290dac8d7f9a57b1afe5dd2}{Uni\+Geary}}, \mbox{\hyperlink{class_uni_gstar_aa61b635b4d5c20ee2f99d1d0b9ea5bc9}{Uni\+Gstar}}, \mbox{\hyperlink{class_uni_join_count_aa0066335309b14a488f7fbc9919e223a}{Uni\+Join\+Count}}, and \mbox{\hyperlink{class_uni_local_moran_a2d961f1cb7a00e7aa6d4503e631f9c0c}{Uni\+Local\+Moran}}.
+
+\Hypertarget{class_l_i_s_a_a66abedb503f8f675b04423213027325d}\index{LISA@{LISA}!GetBO@{GetBO}}
+\index{GetBO@{GetBO}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetBO()}{GetBO()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a66abedb503f8f675b04423213027325d} 
+double LISA\+::\+Get\+BO (\begin{DoxyParamCaption}\item[{double}]{current\+\_\+p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a1dfd91e4c229c87fe81d6f8859bd0e0a}\index{LISA@{LISA}!GetClusterIndicators@{GetClusterIndicators}}
+\index{GetClusterIndicators@{GetClusterIndicators}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetClusterIndicators()}{GetClusterIndicators()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a1dfd91e4c229c87fe81d6f8859bd0e0a} 
+std\+::vector$<$ int $>$ LISA\+::\+Get\+Cluster\+Indicators (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_bi_local_moran_acb900b3f54743838c3f80f6f89e3538a}{Bi\+Local\+Moran}}, \mbox{\hyperlink{class_multi_geary_a1c135d0f4603fde1f9275be1f11c0caf}{Multi\+Geary}}, \mbox{\hyperlink{class_multi_join_count_af6c39a638c1914fa39d6d39b6b484dc6}{Multi\+Join\+Count}}, \mbox{\hyperlink{class_uni_g_a04ea30926014a5ba7386ea46d595240b}{UniG}}, \mbox{\hyperlink{class_uni_geary_abd9d71cdc3644facc7b3672c687af7e6}{Uni\+Geary}}, \mbox{\hyperlink{class_uni_gstar_a057a4873b7709c6e5a90e7e0f6c62bb1}{Uni\+Gstar}}, \mbox{\hyperlink{class_uni_join_count_a13cb84b88f72acc8e4b0c787cbbc9d68}{Uni\+Join\+Count}}, and \mbox{\hyperlink{class_uni_local_moran_a63f4461f29c17cf223edb65a6d57ea86}{Uni\+Local\+Moran}}.
+
+\Hypertarget{class_l_i_s_a_aa7ccbefcd8fb8543e791485916270cb0}\index{LISA@{LISA}!GetColors@{GetColors}}
+\index{GetColors@{GetColors}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetColors()}{GetColors()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_aa7ccbefcd8fb8543e791485916270cb0} 
+std\+::vector$<$ std\+::string $>$ LISA\+::\+Get\+Colors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a2730bb134ce7faa62ee1a984417ad0a1}\index{LISA@{LISA}!GetDefaultCategories@{GetDefaultCategories}}
+\index{GetDefaultCategories@{GetDefaultCategories}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetDefaultCategories()}{GetDefaultCategories()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a2730bb134ce7faa62ee1a984417ad0a1} 
+std\+::vector$<$ std\+::string $>$ LISA\+::\+Get\+Default\+Categories (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a13defe2359b83ee5a988e99a6e5af2bb}\index{LISA@{LISA}!GetDefaultCutoffs@{GetDefaultCutoffs}}
+\index{GetDefaultCutoffs@{GetDefaultCutoffs}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetDefaultCutoffs()}{GetDefaultCutoffs()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a13defe2359b83ee5a988e99a6e5af2bb} 
+std\+::vector$<$ double $>$ LISA\+::\+Get\+Default\+Cutoffs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a2bfab81b9e42615e66158a7865f83fbd}\index{LISA@{LISA}!GetFDR@{GetFDR}}
+\index{GetFDR@{GetFDR}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetFDR()}{GetFDR()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a2bfab81b9e42615e66158a7865f83fbd} 
+double LISA\+::\+Get\+FDR (\begin{DoxyParamCaption}\item[{double}]{current\+\_\+p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_ac8a5fc8c591762f9c6ac3b4ad3ccdd45}\index{LISA@{LISA}!GetHasIsolates@{GetHasIsolates}}
+\index{GetHasIsolates@{GetHasIsolates}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetHasIsolates()}{GetHasIsolates()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_ac8a5fc8c591762f9c6ac3b4ad3ccdd45} 
+bool LISA\+::\+Get\+Has\+Isolates (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_aec64be30b626394c5662a4bb14e680c3}\index{LISA@{LISA}!GetHasUndefined@{GetHasUndefined}}
+\index{GetHasUndefined@{GetHasUndefined}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetHasUndefined()}{GetHasUndefined()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_aec64be30b626394c5662a4bb14e680c3} 
+bool LISA\+::\+Get\+Has\+Undefined (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_af7c025f7b5dbfacfcd1068aea0bc3a16}\index{LISA@{LISA}!GetLabels@{GetLabels}}
+\index{GetLabels@{GetLabels}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetLabels()}{GetLabels()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_af7c025f7b5dbfacfcd1068aea0bc3a16} 
+std\+::vector$<$ std\+::string $>$ LISA\+::\+Get\+Labels (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a9b43164d4e09625fee42e4bd3b5c7e43}\index{LISA@{LISA}!GetLastUsedSeed@{GetLastUsedSeed}}
+\index{GetLastUsedSeed@{GetLastUsedSeed}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetLastUsedSeed()}{GetLastUsedSeed()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a9b43164d4e09625fee42e4bd3b5c7e43} 
+uint64\+\_\+t LISA\+::\+Get\+Last\+Used\+Seed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a66a7a277ed1b0d774f0e1881a17e6fbe}\index{LISA@{LISA}!GetLISAValues@{GetLISAValues}}
+\index{GetLISAValues@{GetLISAValues}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetLISAValues()}{GetLISAValues()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a66a7a277ed1b0d774f0e1881a17e6fbe} 
+std\+::vector$<$ double $>$ LISA\+::\+Get\+LISAValues (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a9ffdfbc23351d06ef8c58a288a65e6dc}\index{LISA@{LISA}!GetLocalSignificanceValues@{GetLocalSignificanceValues}}
+\index{GetLocalSignificanceValues@{GetLocalSignificanceValues}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetLocalSignificanceValues()}{GetLocalSignificanceValues()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a9ffdfbc23351d06ef8c58a288a65e6dc} 
+std\+::vector$<$ double $>$ LISA\+::\+Get\+Local\+Significance\+Values (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a2298353561cf8bc8a046a75e0a6101c9}\index{LISA@{LISA}!GetNumNeighbors@{GetNumNeighbors}}
+\index{GetNumNeighbors@{GetNumNeighbors}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetNumNeighbors()}{GetNumNeighbors()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a2298353561cf8bc8a046a75e0a6101c9} 
+std\+::vector$<$ int $>$ LISA\+::\+Get\+Num\+Neighbors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a87e3e04dc5cc1f56634a036ef38bc050}\index{LISA@{LISA}!GetNumPermutations@{GetNumPermutations}}
+\index{GetNumPermutations@{GetNumPermutations}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetNumPermutations()}{GetNumPermutations()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a87e3e04dc5cc1f56634a036ef38bc050} 
+int LISA\+::\+Get\+Num\+Permutations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_aea988ecda20ea77bfe806fd082bbf3f8}\index{LISA@{LISA}!GetNumThreads@{GetNumThreads}}
+\index{GetNumThreads@{GetNumThreads}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetNumThreads()}{GetNumThreads()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_aea988ecda20ea77bfe806fd082bbf3f8} 
+int LISA\+::\+Get\+Num\+Threads (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a708cad7d006b534782afbfd2122f4083}\index{LISA@{LISA}!GetSigCatIndicators@{GetSigCatIndicators}}
+\index{GetSigCatIndicators@{GetSigCatIndicators}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetSigCatIndicators()}{GetSigCatIndicators()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a708cad7d006b534782afbfd2122f4083} 
+std\+::vector$<$ int $>$ LISA\+::\+Get\+Sig\+Cat\+Indicators (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a4a4972b885f39d697d4c3b21c617bde6}\index{LISA@{LISA}!GetSignificanceCutoff@{GetSignificanceCutoff}}
+\index{GetSignificanceCutoff@{GetSignificanceCutoff}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetSignificanceCutoff()}{GetSignificanceCutoff()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a4a4972b885f39d697d4c3b21c617bde6} 
+double LISA\+::\+Get\+Significance\+Cutoff (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a69bdf540d32663d3676e6c00864750b6}\index{LISA@{LISA}!GetSignificanceFilter@{GetSignificanceFilter}}
+\index{GetSignificanceFilter@{GetSignificanceFilter}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetSignificanceFilter()}{GetSignificanceFilter()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a69bdf540d32663d3676e6c00864750b6} 
+int LISA\+::\+Get\+Significance\+Filter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_ac661ede940895d9fe8fe08c3895c10af}\index{LISA@{LISA}!GetSpatialLagValues@{GetSpatialLagValues}}
+\index{GetSpatialLagValues@{GetSpatialLagValues}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetSpatialLagValues()}{GetSpatialLagValues()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_ac661ede940895d9fe8fe08c3895c10af} 
+std\+::vector$<$ double $>$ LISA\+::\+Get\+Spatial\+Lag\+Values (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_adc89c613b14bdac81501365a4cc71134}\index{LISA@{LISA}!GetUserCutoff@{GetUserCutoff}}
+\index{GetUserCutoff@{GetUserCutoff}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{GetUserCutoff()}{GetUserCutoff()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_adc89c613b14bdac81501365a4cc71134} 
+double LISA\+::\+Get\+User\+Cutoff (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a38bbdb73e71ae1a74825d4ca5a93d871}\index{LISA@{LISA}!IsReuseLastSeed@{IsReuseLastSeed}}
+\index{IsReuseLastSeed@{IsReuseLastSeed}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{IsReuseLastSeed()}{IsReuseLastSeed()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a38bbdb73e71ae1a74825d4ca5a93d871} 
+bool LISA\+::\+Is\+Reuse\+Last\+Seed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a5354756caf59cd4ef55eb2b93b83677a}\index{LISA@{LISA}!IsRowStandardize@{IsRowStandardize}}
+\index{IsRowStandardize@{IsRowStandardize}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{IsRowStandardize()}{IsRowStandardize()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a5354756caf59cd4ef55eb2b93b83677a} 
+bool LISA\+::\+Is\+Row\+Standardize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a85cb4aff3217976d448b734d5a61a4fb}\index{LISA@{LISA}!PermCalcPseudoP\_range@{PermCalcPseudoP\_range}}
+\index{PermCalcPseudoP\_range@{PermCalcPseudoP\_range}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{PermCalcPseudoP\_range()}{PermCalcPseudoP\_range()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a85cb4aff3217976d448b734d5a61a4fb} 
+void LISA\+::\+Perm\+Calc\+Pseudo\+P\+\_\+range (\begin{DoxyParamCaption}\item[{int}]{obs\+\_\+start}{, }\item[{int}]{obs\+\_\+end}{, }\item[{uint64\+\_\+t}]{seed\+\_\+start}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_multi_join_count_a51894627d81b9d12322d08df7857cffa}{Multi\+Join\+Count}}, and \mbox{\hyperlink{class_uni_join_count_a01717d940f3294a80ccf116b265b371c}{Uni\+Join\+Count}}.
+
+\Hypertarget{class_l_i_s_a_a0ef933de0a4cdcf9e3caba6771d7d079}\index{LISA@{LISA}!PermCalcPseudoP\_threaded@{PermCalcPseudoP\_threaded}}
+\index{PermCalcPseudoP\_threaded@{PermCalcPseudoP\_threaded}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{PermCalcPseudoP\_threaded()}{PermCalcPseudoP\_threaded()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a0ef933de0a4cdcf9e3caba6771d7d079} 
+void LISA\+::\+Perm\+Calc\+Pseudo\+P\+\_\+threaded (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a654237b553a88279721ffc71f70e14ec}\index{LISA@{LISA}!PermCreateRange@{PermCreateRange}}
+\index{PermCreateRange@{PermCreateRange}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{PermCreateRange()}{PermCreateRange()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a654237b553a88279721ffc71f70e14ec} 
+void LISA\+::\+Perm\+Create\+Range (\begin{DoxyParamCaption}\item[{int}]{perm\+\_\+start}{, }\item[{int}]{perm\+\_\+end}{, }\item[{int}]{max\+\_\+neighbor}{, }\item[{uint64\+\_\+t}]{seed\+\_\+start}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a2653719a7510f5f1be923bde638ddcef}\index{LISA@{LISA}!PermCreateTable\_threaded@{PermCreateTable\_threaded}}
+\index{PermCreateTable\_threaded@{PermCreateTable\_threaded}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{PermCreateTable\_threaded()}{PermCreateTable\_threaded()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a2653719a7510f5f1be923bde638ddcef} 
+void LISA\+::\+Perm\+Create\+Table\+\_\+threaded (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a62badd64960be2ce9508d25e00bb6faf}\index{LISA@{LISA}!PermLocalSA@{PermLocalSA}}
+\index{PermLocalSA@{PermLocalSA}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{PermLocalSA()}{PermLocalSA()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a62badd64960be2ce9508d25e00bb6faf} 
+virtual void LISA\+::\+Perm\+Local\+SA (\begin{DoxyParamCaption}\item[{int}]{cnt}{, }\item[{int}]{perm}{, }\item[{const std\+::vector$<$ int $>$ \&}]{perm\+Neighbors}{, }\item[{std\+::vector$<$ double $>$ \&}]{permuted\+SA}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_bi_local_moran_af60b3d3e5feb2de162d29816822600c3}{Bi\+Local\+Moran}}, \mbox{\hyperlink{class_multi_geary_ae536ed401ab78643bbeb7649e5b771eb}{Multi\+Geary}}, \mbox{\hyperlink{class_multi_join_count_ad4af37b40d303d90c859e446815e04e1}{Multi\+Join\+Count}}, \mbox{\hyperlink{class_uni_g_ae06a35f4a52da64c69200527ff888a3b}{UniG}}, \mbox{\hyperlink{class_uni_geary_a2c04163866f185bdbae34f1ccd9815ac}{Uni\+Geary}}, \mbox{\hyperlink{class_uni_gstar_a93c222f31b1b2a53e5093f9937e0b5d8}{Uni\+Gstar}}, \mbox{\hyperlink{class_uni_join_count_a11c3595d6ea34aecf799923141cd3f31}{Uni\+Join\+Count}}, and \mbox{\hyperlink{class_uni_local_moran_ad92fb583eb1f40c637dcc91dc362479a}{Uni\+Local\+Moran}}.
+
+\Hypertarget{class_l_i_s_a_aeefb4ec2ad6564008c6c63bdce46eccb}\index{LISA@{LISA}!PermLocalSA@{PermLocalSA}}
+\index{PermLocalSA@{PermLocalSA}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{PermLocalSA()}{PermLocalSA()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_aeefb4ec2ad6564008c6c63bdce46eccb} 
+virtual void LISA\+::\+Perm\+Local\+SA (\begin{DoxyParamCaption}\item[{int}]{cnt}{, }\item[{int}]{perm}{, }\item[{int}]{num\+Neighbors}{, }\item[{const int \texorpdfstring{$\ast$}{*}}]{perm\+Neighbors}{, }\item[{std\+::vector$<$ double $>$ \&}]{permuted\+SA}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_bi_local_moran_a74872f4b2a7f656b770b7bee24243553}{Bi\+Local\+Moran}}, \mbox{\hyperlink{class_multi_geary_abc4606fa022879aeb13ae80f5a71ffc2}{Multi\+Geary}}, \mbox{\hyperlink{class_multi_join_count_aaf6cacf94a0c35680c01b5e1952bc543}{Multi\+Join\+Count}}, \mbox{\hyperlink{class_uni_g_a3a69576f89f3a8b4dc3ba268bbeafdf3}{UniG}}, \mbox{\hyperlink{class_uni_geary_a44e59696bb4e37547f71007f13c144a3}{Uni\+Geary}}, \mbox{\hyperlink{class_uni_gstar_a763e20c200c484c0eae5d0d32177e421}{Uni\+Gstar}}, \mbox{\hyperlink{class_uni_join_count_a646f8336470faaa0f2f41684cf327db1}{Uni\+Join\+Count}}, and \mbox{\hyperlink{class_uni_local_moran_a16d36de3bf4e599fa6d9af42d4dd2127}{Uni\+Local\+Moran}}.
+
+\Hypertarget{class_l_i_s_a_a4ffb64846007d1d7ff443f57112b28f9}\index{LISA@{LISA}!Run@{Run}}
+\index{Run@{Run}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a4ffb64846007d1d7ff443f57112b28f9} 
+void LISA\+::\+Run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a73dec0f73c8494bdbde6e1063c2a903b}\index{LISA@{LISA}!SetLastUsedSeed@{SetLastUsedSeed}}
+\index{SetLastUsedSeed@{SetLastUsedSeed}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{SetLastUsedSeed()}{SetLastUsedSeed()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a73dec0f73c8494bdbde6e1063c2a903b} 
+void LISA\+::\+Set\+Last\+Used\+Seed (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{seed}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a1537cd949a614e041239529d48b6ac49}\index{LISA@{LISA}!SetNumPermutations@{SetNumPermutations}}
+\index{SetNumPermutations@{SetNumPermutations}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{SetNumPermutations()}{SetNumPermutations()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a1537cd949a614e041239529d48b6ac49} 
+void LISA\+::\+Set\+Num\+Permutations (\begin{DoxyParamCaption}\item[{int}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_aa7e54243723d4ae3af341d43236c4a17}\index{LISA@{LISA}!SetNumThreads@{SetNumThreads}}
+\index{SetNumThreads@{SetNumThreads}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{SetNumThreads()}{SetNumThreads()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_aa7e54243723d4ae3af341d43236c4a17} 
+void LISA\+::\+Set\+Num\+Threads (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+threads}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a19ceb54628931d11d39e343f63d3f890}\index{LISA@{LISA}!SetReuseLastSeed@{SetReuseLastSeed}}
+\index{SetReuseLastSeed@{SetReuseLastSeed}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{SetReuseLastSeed()}{SetReuseLastSeed()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a19ceb54628931d11d39e343f63d3f890} 
+void LISA\+::\+Set\+Reuse\+Last\+Seed (\begin{DoxyParamCaption}\item[{bool}]{reuse}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_af9dcade8f79090a594fe950ad8fa16fa}\index{LISA@{LISA}!SetRowStandardize@{SetRowStandardize}}
+\index{SetRowStandardize@{SetRowStandardize}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{SetRowStandardize()}{SetRowStandardize()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_af9dcade8f79090a594fe950ad8fa16fa} 
+void LISA\+::\+Set\+Row\+Standardize (\begin{DoxyParamCaption}\item[{bool}]{row\+Standardize}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a11c8e8fd52bbc1bb34c4a7738992d923}\index{LISA@{LISA}!SetSignificanceCutoff@{SetSignificanceCutoff}}
+\index{SetSignificanceCutoff@{SetSignificanceCutoff}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{SetSignificanceCutoff()}{SetSignificanceCutoff()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a11c8e8fd52bbc1bb34c4a7738992d923} 
+void LISA\+::\+Set\+Significance\+Cutoff (\begin{DoxyParamCaption}\item[{double}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a1b1e7eb75014f6580998b7ef12b65ade}\index{LISA@{LISA}!SetSignificanceFilter@{SetSignificanceFilter}}
+\index{SetSignificanceFilter@{SetSignificanceFilter}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{SetSignificanceFilter()}{SetSignificanceFilter()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a1b1e7eb75014f6580998b7ef12b65ade} 
+void LISA\+::\+Set\+Significance\+Filter (\begin{DoxyParamCaption}\item[{int}]{filter\+\_\+id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_l_i_s_a_a42efe3f048fc3152fa4b1bddc520462a}\index{LISA@{LISA}!SetUserCutoff@{SetUserCutoff}}
+\index{SetUserCutoff@{SetUserCutoff}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{SetUserCutoff()}{SetUserCutoff()}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a42efe3f048fc3152fa4b1bddc520462a} 
+void LISA\+::\+Set\+User\+Cutoff (\begin{DoxyParamCaption}\item[{double}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_l_i_s_a_af33206fcbd8c59afc201a8a0454f065f}\index{LISA@{LISA}!calc\_significances@{calc\_significances}}
+\index{calc\_significances@{calc\_significances}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{calc\_significances}{calc\_significances}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_af33206fcbd8c59afc201a8a0454f065f} 
+bool LISA\+::calc\+\_\+significances\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_aafcd78acbda90794728597a5262bf4f5}\index{LISA@{LISA}!cluster\_vec@{cluster\_vec}}
+\index{cluster\_vec@{cluster\_vec}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{cluster\_vec}{cluster\_vec}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_aafcd78acbda90794728597a5262bf4f5} 
+std\+::vector$<$int$>$ LISA\+::cluster\+\_\+vec\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a3879ae2936f23e8301ef35200c71d5cd}\index{LISA@{LISA}!colors@{colors}}
+\index{colors@{colors}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{colors}{colors}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a3879ae2936f23e8301ef35200c71d5cd} 
+std\+::vector$<$std\+::string$>$ LISA\+::colors\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_ac4cb795aa0c036bd2f0721a6402bfca4}\index{LISA@{LISA}!has\_isolates@{has\_isolates}}
+\index{has\_isolates@{has\_isolates}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{has\_isolates}{has\_isolates}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_ac4cb795aa0c036bd2f0721a6402bfca4} 
+bool LISA\+::has\+\_\+isolates\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a2ff9fc974573d91f65acb7486f8a9cef}\index{LISA@{LISA}!has\_undefined@{has\_undefined}}
+\index{has\_undefined@{has\_undefined}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{has\_undefined}{has\_undefined}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a2ff9fc974573d91f65acb7486f8a9cef} 
+bool LISA\+::has\+\_\+undefined\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a49e01da3d8c104a895fb09be22931f20}\index{LISA@{LISA}!labels@{labels}}
+\index{labels@{labels}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{labels}{labels}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a49e01da3d8c104a895fb09be22931f20} 
+std\+::vector$<$std\+::string$>$ LISA\+::labels\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a1842b85ffe20032c9fc14bb7734d946c}\index{LISA@{LISA}!lag\_vec@{lag\_vec}}
+\index{lag\_vec@{lag\_vec}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{lag\_vec}{lag\_vec}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a1842b85ffe20032c9fc14bb7734d946c} 
+std\+::vector$<$double$>$ LISA\+::lag\+\_\+vec\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a0b6a2466791bca1b75369737337fca2d}\index{LISA@{LISA}!last\_seed\_used@{last\_seed\_used}}
+\index{last\_seed\_used@{last\_seed\_used}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{last\_seed\_used}{last\_seed\_used}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a0b6a2466791bca1b75369737337fca2d} 
+uint64\+\_\+t LISA\+::last\+\_\+seed\+\_\+used\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a6a3eb34950154b54aa38cdb06e035bd5}\index{LISA@{LISA}!lisa\_vec@{lisa\_vec}}
+\index{lisa\_vec@{lisa\_vec}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{lisa\_vec}{lisa\_vec}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a6a3eb34950154b54aa38cdb06e035bd5} 
+std\+::vector$<$double$>$ LISA\+::lisa\+\_\+vec\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a93dbaa5b02fbd6b2fef270888b9711b6}\index{LISA@{LISA}!nCPUs@{nCPUs}}
+\index{nCPUs@{nCPUs}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{nCPUs}{nCPUs}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a93dbaa5b02fbd6b2fef270888b9711b6} 
+int LISA\+::n\+CPUs\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_adc7cdba864b9a1e1dd32cc0172649f7d}\index{LISA@{LISA}!nn\_vec@{nn\_vec}}
+\index{nn\_vec@{nn\_vec}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{nn\_vec}{nn\_vec}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_adc7cdba864b9a1e1dd32cc0172649f7d} 
+std\+::vector$<$int$>$ LISA\+::nn\+\_\+vec\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a61a5128a4af4e294e8f59ddc2ac35854}\index{LISA@{LISA}!num\_obs@{num\_obs}}
+\index{num\_obs@{num\_obs}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{num\_obs}{num\_obs}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a61a5128a4af4e294e8f59ddc2ac35854} 
+int LISA\+::num\+\_\+obs\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a4e4104294cae67b667c3ef8a435027cf}\index{LISA@{LISA}!perm\_table@{perm\_table}}
+\index{perm\_table@{perm\_table}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{perm\_table}{perm\_table}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a4e4104294cae67b667c3ef8a435027cf} 
+int\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} LISA\+::perm\+\_\+table\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_adb5baf0ecda6023779bab868d9c45af5}\index{LISA@{LISA}!permutation\_method@{permutation\_method}}
+\index{permutation\_method@{permutation\_method}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{permutation\_method}{permutation\_method}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_adb5baf0ecda6023779bab868d9c45af5} 
+std\+::string LISA\+::permutation\+\_\+method\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_aa1b448ba82487d84f7d34b5a48687ca7}\index{LISA@{LISA}!permutations@{permutations}}
+\index{permutations@{permutations}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{permutations}{permutations}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_aa1b448ba82487d84f7d34b5a48687ca7} 
+int LISA\+::permutations\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a1831c01ee530b038e5e7356a86a20c2b}\index{LISA@{LISA}!reuse\_last\_seed@{reuse\_last\_seed}}
+\index{reuse\_last\_seed@{reuse\_last\_seed}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{reuse\_last\_seed}{reuse\_last\_seed}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a1831c01ee530b038e5e7356a86a20c2b} 
+bool LISA\+::reuse\+\_\+last\+\_\+seed\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_ad0d3a85084f836c14ac292dd783cc617}\index{LISA@{LISA}!row\_standardize@{row\_standardize}}
+\index{row\_standardize@{row\_standardize}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{row\_standardize}{row\_standardize}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_ad0d3a85084f836c14ac292dd783cc617} 
+bool LISA\+::row\+\_\+standardize\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_af8622086c88d0ade80130613a2a0209d}\index{LISA@{LISA}!sig\_cat\_vec@{sig\_cat\_vec}}
+\index{sig\_cat\_vec@{sig\_cat\_vec}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{sig\_cat\_vec}{sig\_cat\_vec}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_af8622086c88d0ade80130613a2a0209d} 
+std\+::vector$<$int$>$ LISA\+::sig\+\_\+cat\+\_\+vec\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a4cebb360265b00834131007f766f8888}\index{LISA@{LISA}!sig\_local\_vec@{sig\_local\_vec}}
+\index{sig\_local\_vec@{sig\_local\_vec}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{sig\_local\_vec}{sig\_local\_vec}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a4cebb360265b00834131007f766f8888} 
+std\+::vector$<$double$>$ LISA\+::sig\+\_\+local\+\_\+vec\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_aefaa3485a0023c7ee635a0b2874417e7}\index{LISA@{LISA}!significance\_cutoff@{significance\_cutoff}}
+\index{significance\_cutoff@{significance\_cutoff}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{significance\_cutoff}{significance\_cutoff}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_aefaa3485a0023c7ee635a0b2874417e7} 
+double LISA\+::significance\+\_\+cutoff\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_ae93f12d73f48a9fbe7c21e8ba17fa9ee}\index{LISA@{LISA}!significance\_filter@{significance\_filter}}
+\index{significance\_filter@{significance\_filter}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{significance\_filter}{significance\_filter}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_ae93f12d73f48a9fbe7c21e8ba17fa9ee} 
+int LISA\+::significance\+\_\+filter\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_af36658ec6c5e572b2c131d897220a81e}\index{LISA@{LISA}!undefs@{undefs}}
+\index{undefs@{undefs}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{undefs}{undefs}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_af36658ec6c5e572b2c131d897220a81e} 
+std\+::vector$<$bool$>$ LISA\+::undefs\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_af82c5848fd8c9c03720b6768b7a55376}\index{LISA@{LISA}!user\_sig\_cutoff@{user\_sig\_cutoff}}
+\index{user\_sig\_cutoff@{user\_sig\_cutoff}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{user\_sig\_cutoff}{user\_sig\_cutoff}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_af82c5848fd8c9c03720b6768b7a55376} 
+double LISA\+::user\+\_\+sig\+\_\+cutoff\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_l_i_s_a_a3f6524f9d4aa8e8a5d92bccc5a10a46f}\index{LISA@{LISA}!weights@{weights}}
+\index{weights@{weights}!LISA@{LISA}}
+\doxysubsubsection{\texorpdfstring{weights}{weights}}
+{\footnotesize\ttfamily \label{class_l_i_s_a_a3f6524f9d4aa8e8a5d92bccc5a10a46f} 
+\mbox{\hyperlink{class_geo_da_weight}{Geo\+Da\+Weight}}\texorpdfstring{$\ast$}{*} LISA\+::weights\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/lisa/\mbox{\hyperlink{_l_i_s_a_8h}{LISA.\+h}}\item 
+/\+Users/xun/github/geoda-\/lib/src/cpp/lisa/\mbox{\hyperlink{_l_i_s_a_8cpp}{LISA.\+cpp}}\end{DoxyCompactItemize}

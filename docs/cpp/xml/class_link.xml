@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="class_link" kind="class" language="C++" prot="public">
+    <compoundname>Link</compoundname>
+    <includes refid="_link_8h" local="no">Link.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_link_1ac7bb83c3a3cdf97674df1e516b709973" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Link::nb</definition>
+        <argsstring></argsstring>
+        <name>nb</name>
+        <qualifiedname>Link::nb</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" line="41" column="4" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_link_1ac924aa9dda854b498cafce920e08020b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Link::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <qualifiedname>Link::weight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" line="42" column="9" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_link_1a1918a8473cee40bbed17b8e926cb85d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Link::Link</definition>
+        <argsstring>()</argsstring>
+        <name>Link</name>
+        <qualifiedname>Link::Link</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" line="26" column="5" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_link_1a5398540187240bfc2a945b6a1cff7db4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Link::Link</definition>
+        <argsstring>(const int ix, const double &amp;v)</argsstring>
+        <name>Link</name>
+        <qualifiedname>Link::Link</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>ix</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" line="27" column="5" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_link_1a4906d954e9177dcdf1b427ce82dc5625" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Link::getIx</definition>
+        <argsstring>() const</argsstring>
+        <name>getIx</name>
+        <qualifiedname>Link::getIx</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" line="28" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_link_1a42c7a68b36c8f5391673b0e4c16191fc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Link::getWeight</definition>
+        <argsstring>() const</argsstring>
+        <name>getWeight</name>
+        <qualifiedname>Link::getWeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" line="29" column="11" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_link_1a632202be4caf7ff969cfba78f5c8eff4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Link::setIx</definition>
+        <argsstring>(const int x)</argsstring>
+        <name>setIx</name>
+        <qualifiedname>Link::setIx</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" line="30" column="9" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_link_1ab52c95b0d7e9c0a81bbb30f29a8b473c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Link::setWeight</definition>
+        <argsstring>(const double &amp;v)</argsstring>
+        <name>setWeight</name>
+        <qualifiedname>Link::setWeight</qualifiedname>
+        <param>
+          <type>const double &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" line="31" column="9" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_link_1a3236585e532dfc99cd258b757a809be7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_link" kindref="compound">Link</ref> &amp;</type>
+        <definition>Link &amp; Link::operator=</definition>
+        <argsstring>(const Link &amp;from)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Link::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_link" kindref="compound">Link</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" line="32" column="11" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" bodystart="32" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_link_1a8b1470aa09a45b3fbf8c6fd339e3d0b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Link::operator&lt;</definition>
+        <argsstring>(const Link &amp;from)</argsstring>
+        <name>operator&lt;</name>
+        <qualifiedname>Link::operator&lt;</qualifiedname>
+        <param>
+          <type>const <ref refid="class_link" kindref="compound">Link</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" line="37" column="5" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" bodystart="37" bodyend="39"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>GeoDa TM, Copyright (C) 2011-2015 by Luc Anselin - all rights reserved</para>
+<para>This file is part of GeoDa.</para>
+<para>GeoDa is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</para>
+<para>GeoDa is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</para>
+<para>You should have received a copy of the GNU General Public License along with this program. If not, see <ulink url="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</ulink>. </para>
+    </detaileddescription>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" line="23" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Link.h" bodystart="24" bodyend="44"/>
+    <listofallmembers>
+      <member refid="class_link_1a4906d954e9177dcdf1b427ce82dc5625" prot="public" virt="non-virtual"><scope>Link</scope><name>getIx</name></member>
+      <member refid="class_link_1a42c7a68b36c8f5391673b0e4c16191fc" prot="public" virt="non-virtual"><scope>Link</scope><name>getWeight</name></member>
+      <member refid="class_link_1a1918a8473cee40bbed17b8e926cb85d9" prot="public" virt="non-virtual"><scope>Link</scope><name>Link</name></member>
+      <member refid="class_link_1a5398540187240bfc2a945b6a1cff7db4" prot="public" virt="non-virtual"><scope>Link</scope><name>Link</name></member>
+      <member refid="class_link_1ac7bb83c3a3cdf97674df1e516b709973" prot="private" virt="non-virtual"><scope>Link</scope><name>nb</name></member>
+      <member refid="class_link_1a8b1470aa09a45b3fbf8c6fd339e3d0b5" prot="public" virt="non-virtual"><scope>Link</scope><name>operator&lt;</name></member>
+      <member refid="class_link_1a3236585e532dfc99cd258b757a809be7" prot="public" virt="non-virtual"><scope>Link</scope><name>operator=</name></member>
+      <member refid="class_link_1a632202be4caf7ff969cfba78f5c8eff4" prot="public" virt="non-virtual"><scope>Link</scope><name>setIx</name></member>
+      <member refid="class_link_1ab52c95b0d7e9c0a81bbb30f29a8b473c" prot="public" virt="non-virtual"><scope>Link</scope><name>setWeight</name></member>
+      <member refid="class_link_1ac924aa9dda854b498cafce920e08020b" prot="private" virt="non-virtual"><scope>Link</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

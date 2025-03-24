@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="classgeoda_1_1_point_collection" kind="class" language="C++" prot="public">
+    <compoundname>geoda::PointCollection</compoundname>
+    <basecompoundref refid="classgeoda_1_1_geometry_collection" prot="public" virt="non-virtual">geoda::GeometryCollection</basecompoundref>
+    <includes refid="geometry_8h" local="no">geometry.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classgeoda_1_1_point_collection_1a6ed0c3ce70517956fe772e04be10ab64" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="geometry_8h_1adabc488e138eb16d35bb5ab9437ed3e2" kindref="member">multipoint_type</ref> &gt;</type>
+        <definition>std::vector&lt;multipoint_type&gt; geoda::PointCollection::points</definition>
+        <argsstring></argsstring>
+        <name>points</name>
+        <qualifiedname>geoda::PointCollection::points</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="128" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgeoda_1_1_point_collection_1a14a4a07a9764a873c484ca2ce848fe9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PointCollection::PointCollection</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;x, const std::vector&lt; double &gt; &amp;y, const std::vector&lt; unsigned int &gt; &amp;parts, const std::vector&lt; unsigned int &gt; &amp;sizes, bool convert_to_UTM=false)</argsstring>
+        <name>PointCollection</name>
+        <qualifiedname>geoda::PointCollection::PointCollection</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>parts</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>sizes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>convert_to_UTM</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Construct a new <ref refid="classgeoda_1_1_point" kindref="compound">Point</ref> Collection object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x coordinates </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y coordinates </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The array of part index for each point geometry </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sizes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The array of size (how many parts) of each point geometry </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>convert_to_UTM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, convert the coordinates to <ref refid="namespace_u_t_m" kindref="compound">UTM</ref> in the unit of meters </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="139" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.cpp" bodystart="256" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_point_collection_1a26553cc40bba006f0fde1009ef04f8ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>geoda::PointCollection::~PointCollection</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~PointCollection</name>
+        <qualifiedname>geoda::PointCollection::~PointCollection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="142" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_point_collection_1a69b5a12de3a654d0ee1534453a151b41" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void geoda::PointCollection::get_bbox</definition>
+        <argsstring>(size_t i, box_type &amp;box) const override</argsstring>
+        <name>get_bbox</name>
+        <qualifiedname>geoda::PointCollection::get_bbox</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a3e6ecea3fd57812663972ef52119ca18">get_bbox</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="geometry_8h_1a7d32eb4d5272ffdaf1a4c210691779fb" kindref="member">box_type</ref> &amp;</type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="144" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="144" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_point_collection_1a921fe7b5e7567d09d6906d11fe5cd3fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="namespacegeoda_1a20fd16562e89848c50247b0d9c865348" kindref="member">ShapeType</ref></type>
+        <definition>ShapeType geoda::PointCollection::get_type</definition>
+        <argsstring>() const override</argsstring>
+        <name>get_type</name>
+        <qualifiedname>geoda::PointCollection::get_type</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a1fb5568413e4c69d931233591a5906f2">get_type</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="146" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="146" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_point_collection_1a0aecf4ebc56a1b826ed560247400b667" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; double &gt; &gt; PointCollection::get_centroids</definition>
+        <argsstring>() const override</argsstring>
+        <name>get_centroids</name>
+        <qualifiedname>geoda::PointCollection::get_centroids</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a68d401e4a2a61c43820b06d2d9d854b4">get_centroids</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="148" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.cpp" bodystart="285" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_point_collection_1a027464f6cbe726125a23b7eac3a08ed3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref></type>
+        <definition>point_type geoda::PointCollection::get_centroid</definition>
+        <argsstring>(size_t i) const override</argsstring>
+        <name>get_centroid</name>
+        <qualifiedname>geoda::PointCollection::get_centroid</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1ad1e00066be731ae77452566bd0214b56">get_centroid</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="150" column="14" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="150" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_point_collection_1a2439ee91039cbb5fd494630df7f36775" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="geometry_8h_1adabc488e138eb16d35bb5ab9437ed3e2" kindref="member">multipoint_type</ref></type>
+        <definition>multipoint_type geoda::PointCollection::get_point</definition>
+        <argsstring>(size_t i) const override</argsstring>
+        <name>get_point</name>
+        <qualifiedname>geoda::PointCollection::get_point</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a56aaceca9602b4488fb7d12274429482">get_point</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="156" column="19" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="156" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_point_collection_1a6c5cbccddbd2bdeb498d6f003fff1cb8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool geoda::PointCollection::intersect</definition>
+        <argsstring>(size_t i, const GeometryCollection &amp;join_geoms, size_t j) const override</argsstring>
+        <name>intersect</name>
+        <qualifiedname>geoda::PointCollection::intersect</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a53b589cda146cc12876b8a616062ccdf">intersect</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>join_geoms</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="158" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="158" bodyend="171"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="classgeoda_1_1_point_collection" kindref="compound">PointCollection</ref> class for <ref refid="classgeoda_1_1_point" kindref="compound">Point</ref> or MultiPoint shape type. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>geoda::GeometryCollection</label>
+        <link refid="classgeoda_1_1_geometry_collection"/>
+      </node>
+      <node id="1">
+        <label>geoda::PointCollection</label>
+        <link refid="classgeoda_1_1_point_collection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>geoda::GeometryCollection</label>
+        <link refid="classgeoda_1_1_geometry_collection"/>
+      </node>
+      <node id="1">
+        <label>geoda::PointCollection</label>
+        <link refid="classgeoda_1_1_point_collection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="126" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="126" bodyend="172"/>
+    <listofallmembers>
+      <member refid="classgeoda_1_1_geometry_collection_1a10e7706e4dfc1099ceff90f360577ac0" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>convert_to_UTM</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a51291eebb1d1165f78cdee56f317afcb" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>ConvertToUTM</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a0d8bf03dd9b0edf9d6bfb740eebe4f51" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>empty</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a9ff03fbaedb0cd610d2ac321d6dec5c3" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>GeometryCollection</name></member>
+      <member refid="classgeoda_1_1_point_collection_1a69b5a12de3a654d0ee1534453a151b41" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>get_bbox</name></member>
+      <member refid="classgeoda_1_1_point_collection_1a027464f6cbe726125a23b7eac3a08ed3" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>get_centroid</name></member>
+      <member refid="classgeoda_1_1_point_collection_1a0aecf4ebc56a1b826ed560247400b667" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>get_centroids</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1aeaa895db6128cadaf3ff09cf1f6322a0" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>get_line</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a39fd26b2796c636e0b7913640e1b0076" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>get_num_parts</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a7451e84dee62efec3756bdab2f04fe89" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>get_num_points</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1aab3968b3c18f6aba035b3a74f5f361d0" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>get_part</name></member>
+      <member refid="classgeoda_1_1_point_collection_1a2439ee91039cbb5fd494630df7f36775" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>get_point</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a0b80b51bc498fd1e9942380d77300581" prot="public" virt="virtual" ambiguityscope="geoda::GeometryCollection::"><scope>geoda::PointCollection</scope><name>get_point</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a5b9f32aaad9f327cd471da16d552c904" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>get_polygon</name></member>
+      <member refid="classgeoda_1_1_point_collection_1a921fe7b5e7567d09d6906d11fe5cd3fb" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>get_type</name></member>
+      <member refid="classgeoda_1_1_point_collection_1a6c5cbccddbd2bdeb498d6f003fff1cb8" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>intersect</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a6b093922e9b1b191b4c2f865e030e067" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>parts</name></member>
+      <member refid="classgeoda_1_1_point_collection_1a14a4a07a9764a873c484ca2ce848fe9f" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>PointCollection</name></member>
+      <member refid="classgeoda_1_1_point_collection_1a6ed0c3ce70517956fe772e04be10ab64" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>points</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>size</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>sizes</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a110398f22f06869c071a09117788e009" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>utm_zones</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1aa4b142edec07a60c3ccebebd75ec1807" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>x</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a21cd35c83e2c8f83c3cd9ca918a39d76" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>y</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a369be05641ef601eab34eae7f5393e51" prot="public" virt="virtual"><scope>geoda::PointCollection</scope><name>~GeometryCollection</name></member>
+      <member refid="classgeoda_1_1_point_collection_1a26553cc40bba006f0fde1009ef04f8ed" prot="public" virt="non-virtual"><scope>geoda::PointCollection</scope><name>~PointCollection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

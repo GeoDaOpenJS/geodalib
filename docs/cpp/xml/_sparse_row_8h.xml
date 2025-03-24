@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="_sparse_row_8h" kind="file" language="C++">
+    <compoundname>SparseRow.h</compoundname>
+    <includes refid="_link_8h" local="yes">Link.h</includes>
+    <includes refid="_sparse_vector_8h" local="yes">SparseVector.h</includes>
+    <includes refid="dense-vector_8h" local="yes">regression/dense-vector.h</includes>
+    <includedby refid="_sparse_matrix_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/regression/SparseMatrix.h</includedby>
+    <includedby refid="_sparse_row_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/regression/SparseRow.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Link.h</label>
+        <link refid="_link_8h"/>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseRow.h</label>
+        <link refid="_sparse_row_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SparseVector.h</label>
+        <link refid="_sparse_vector_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>regression/dense-vector.h</label>
+        <link refid="dense-vector_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>regression/mix.h</label>
+        <link refid="mix_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>algorithm</label>
+      </node>
+      <node id="8">
+        <label>fstream</label>
+      </node>
+      <node id="9">
+        <label>iostream</label>
+      </node>
+      <node id="7">
+        <label>math.h</label>
+      </node>
+      <node id="10">
+        <label>utility</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/ML_im.cpp</label>
+        <link refid="_m_l__im_8cpp"/>
+      </node>
+      <node id="3">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/ML_im.h</label>
+        <link refid="_m_l__im_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseMatrix.cpp</label>
+        <link refid="_sparse_matrix_8cpp"/>
+      </node>
+      <node id="2">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseMatrix.h</label>
+        <link refid="_sparse_matrix_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseRow.cpp</label>
+        <link refid="_sparse_row_8cpp"/>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseRow.h</label>
+        <link refid="_sparse_row_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/smile2.cpp</label>
+        <link refid="smile2_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_sparse_row" prot="public">SparseRow</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__GEODA_CENTER_SPARSE_ROW_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__GEODA_CENTER_SPARSE_ROW_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_link_8h" kindref="compound">Link.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_sparse_vector_8h" kindref="compound">SparseVector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dense-vector_8h" kindref="compound">regression/dense-vector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="class_sparse_row" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_sparse_row_1a82f4ca09ea738fb2d593249ecf9cde12" kindref="member">SparseRow</ref><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11" refid="class_sparse_row_1a82f4ca09ea738fb2d593249ecf9cde12" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_sparse_row_1a82f4ca09ea738fb2d593249ecf9cde12" kindref="member">SparseRow</ref>()<sp/>:<sp/>size(0),<sp/>nb(NULL),<sp/><ref refid="class_sparse_row_1a7789386532a201c5bf2aa0801e15524b" kindref="member">Status_flag</ref>(false){};</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><ref refid="class_sparse_row_1a82f4ca09ea738fb2d593249ecf9cde12" kindref="member">SparseRow</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nz);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1a3be24fed1848f20f2057122f6ffa3081" kindref="member">~SparseRow</ref>();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1aa60f23340d2c558adfbd0e0c7efeb8d7" kindref="member">alloc</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nz);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1a8bffec85cee5a11358ca975b68925d5b" kindref="member">timesColumn</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector" kindref="compound">SparseVector</ref><sp/>&amp;v)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1a8bffec85cee5a11358ca975b68925d5b" kindref="member">timesColumn</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>&amp;v)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1a8bffec85cee5a11358ca975b68925d5b" kindref="member">timesColumn</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row" kindref="compound">SparseRow</ref><sp/>&amp;v)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1abdb99ae3d00a8c02795efabc1b5c39ea" kindref="member">rowPlusSRow</ref>(<ref refid="class_sparse_vector" kindref="compound">SparseVector</ref><sp/>&amp;v,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1abdb99ae3d00a8c02795efabc1b5c39ea" kindref="member">rowPlusSRow</ref>(<ref refid="class_dense_vector" kindref="compound">DenseVector</ref><sp/>&amp;v,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="class_sparse_row_1ad3a63c2f371f3a052112c94a6d5eb2f1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1ad3a63c2f371f3a052112c94a6d5eb2f1" kindref="member">getSize</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>size;<sp/>}</highlight></codeline>
+<codeline lineno="24" refid="class_sparse_row_1aa30735076e1d6d8eaaf0fa14730f3536" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_link" kindref="compound">Link</ref><sp/>*<ref refid="class_sparse_row_1aa30735076e1d6d8eaaf0fa14730f3536" kindref="member">getNb</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nb;<sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="class_sparse_row_1aa6830ce75e4b2421661d5f247743a5a6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1aa6830ce75e4b2421661d5f247743a5a6" kindref="member">setNb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nbr,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;w)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>nb[loc].setIx(nbr);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>nb[loc].setWeight(w);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="class_sparse_row_1a0a17f788078e6e0e87d3d76299a8d02b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1a0a17f788078e6e0e87d3d76299a8d02b" kindref="member">getIx</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loc)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nb[loc].getIx();<sp/>}</highlight></codeline>
+<codeline lineno="32" refid="class_sparse_row_1a38e7e66df11c66e2b74a74d4710a62e4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1a38e7e66df11c66e2b74a74d4710a62e4" kindref="member">getWeight</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loc)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nb[loc].getWeight();<sp/>}</highlight></codeline>
+<codeline lineno="33" refid="class_sparse_row_1abcb39b6d4985d6d0657e363919a85191" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1abcb39b6d4985d6d0657e363919a85191" kindref="member">setWeight</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;w)<sp/>{<sp/>nb[loc].setWeight(w);<sp/>}</highlight></codeline>
+<codeline lineno="34" refid="class_sparse_row_1af4f5136462fbb0b79732556520f0fc92" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1af4f5136462fbb0b79732556520f0fc92" kindref="member">setIx</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nbr)<sp/>{<sp/>nb[loc].setIx(nbr);<sp/>}</highlight></codeline>
+<codeline lineno="35" refid="class_sparse_row_1a9c3d9bc90fdbebd81bdaaf9181f69dc1" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_link" kindref="compound">Link</ref><sp/>&amp;<ref refid="class_sparse_row_1a9c3d9bc90fdbebd81bdaaf9181f69dc1" kindref="member">getLink</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loc)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nb[loc];<sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1ab903000a134162709801a3fdcc1a0a0c" kindref="member">sum</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1a1757d703f43f48a7eb35e51bf15deb90" kindref="member">multiply</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;v);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1a968c86c98d13c63ccf3ec9a1cb7859c8" kindref="member">mRowDivColumn</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*scale,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1a4bdb77b2b4aa106e69c69329093dcb3e" kindref="member">mColumnDivRow</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*scale,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row);</highlight></codeline>
+<codeline lineno="40" refid="class_sparse_row_1a7789386532a201c5bf2aa0801e15524b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_sparse_row_1a7789386532a201c5bf2aa0801e15524b" kindref="member">Status_flag</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="class_link" kindref="compound">Link</ref><sp/>*nb;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/SparseRow.h"/>
+  </compounddef>
+</doxygen>

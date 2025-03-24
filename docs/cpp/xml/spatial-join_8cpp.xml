@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="spatial-join_8cpp" kind="file" language="C++">
+    <compoundname>spatial-join.cpp</compoundname>
+    <includes local="no">utility</includes>
+    <includes local="no">boost/geometry/geometries/box.hpp</includes>
+    <includes local="no">boost/geometry/index/rtree.hpp</includes>
+    <includes refid="geometry_8h" local="yes">geometry/geometry.h</includes>
+    <includes refid="spatial-join_8h" local="yes">geometry/spatial-join.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>geometry/geometry.h</label>
+        <link refid="geometry_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.cpp</label>
+        <link refid="spatial-join_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>geometry/spatial-join.h</label>
+        <link refid="spatial-join_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>boost/geometry.hpp</label>
+      </node>
+      <node id="3">
+        <label>boost/geometry/geometries/box.hpp</label>
+      </node>
+      <node id="4">
+        <label>boost/geometry/index/rtree.hpp</label>
+      </node>
+      <node id="7">
+        <label>limits</label>
+      </node>
+      <node id="8">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>utility</label>
+      </node>
+      <node id="9">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="spatial-join_8cpp_1a33a5d4f8889ff840e8b2c35bcd0987bf" prot="public" static="no">
+        <type>boost::geometry::model::box&lt; <ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref> &gt;</type>
+        <definition>typedef boost::geometry::model::box&lt;point_type&gt; boost_box</definition>
+        <argsstring></argsstring>
+        <name>boost_box</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.cpp" line="9" column="37" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.cpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="spatial-join_8cpp_1a7e2308fcd3df8690ab764903ca6b9bf0" prot="public" static="no">
+        <type>std::pair&lt; <ref refid="spatial-join_8cpp_1a33a5d4f8889ff840e8b2c35bcd0987bf" kindref="member">boost_box</ref>, unsigned int &gt;</type>
+        <definition>typedef std::pair&lt;boost_box, unsigned int&gt; box_value</definition>
+        <argsstring></argsstring>
+        <name>box_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.cpp" line="10" column="19" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.cpp" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="spatial-join_8cpp_1a4509f4df0e8acd44bcb0cde90272b311" prot="public" static="no">
+        <type>boost::geometry::index::rtree&lt; <ref refid="spatial-join_8cpp_1a7e2308fcd3df8690ab764903ca6b9bf0" kindref="member">box_value</ref>, boost::geometry::index::quadratic&lt; 32 &gt; &gt;</type>
+        <definition>typedef boost::geometry::index::rtree&lt;box_value, boost::geometry::index::quadratic&lt;32&gt; &gt; boost_rtree</definition>
+        <argsstring></argsstring>
+        <name>boost_rtree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.cpp" line="11" column="39" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.cpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="spatial-join_8cpp_1a4ba3de1097e143d055bc14a10f86a5d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="spatial-join_8cpp_1a4509f4df0e8acd44bcb0cde90272b311" kindref="member">boost_rtree</ref></type>
+        <definition>boost_rtree create_rtree</definition>
+        <argsstring>(const geoda::GeometryCollection &amp;collection)</argsstring>
+        <name>create_rtree</name>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">geoda::GeometryCollection</ref> &amp;</type>
+          <declname>collection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.cpp" line="14" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.cpp" bodystart="14" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/geometry/geometries/box.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/geometry/index/rtree.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="geometry_8h" kindref="compound">geometry/geometry.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="spatial-join_8h" kindref="compound">geometry/spatial-join.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::geometry::model::box&lt;point_type&gt;<sp/><ref refid="spatial-join_8cpp_1a33a5d4f8889ff840e8b2c35bcd0987bf" kindref="member">boost_box</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::pair&lt;boost_box,<sp/>unsigned<sp/>int&gt;<sp/><ref refid="spatial-join_8cpp_1a7e2308fcd3df8690ab764903ca6b9bf0" kindref="member">box_value</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::geometry::index::rtree&lt;box_value,<sp/>boost::geometry::index::quadratic&lt;32&gt;&gt;<sp/><ref refid="spatial-join_8cpp_1a4509f4df0e8acd44bcb0cde90272b311" kindref="member">boost_rtree</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>function<sp/>to<sp/>create<sp/>a<sp/>rtree<sp/>from<sp/>geometry<sp/>collection</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><ref refid="spatial-join_8cpp_1a4509f4df0e8acd44bcb0cde90272b311" kindref="member">boost_rtree</ref><sp/><ref refid="spatial-join_8cpp_1a4ba3de1097e143d055bc14a10f86a5d6" kindref="member">create_rtree</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">geoda::GeometryCollection</ref>&amp;<sp/>collection)<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>std::vector&lt;box_value&gt;<sp/>boxes;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>collection.<ref refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" kindref="member">size</ref>();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="spatial-join_8cpp_1a33a5d4f8889ff840e8b2c35bcd0987bf" kindref="member">boost_box</ref><sp/>box;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>collection.<ref refid="classgeoda_1_1_geometry_collection_1a3e6ecea3fd57812663972ef52119ca18" kindref="member">get_bbox</ref>(i,<sp/>box);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>boxes.emplace_back(box,<sp/>i);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><ref refid="spatial-join_8cpp_1a4509f4df0e8acd44bcb0cde90272b311" kindref="member">boost_rtree</ref><sp/>rtree(boxes);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rtree;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">std::vector&lt;std::vector&lt;unsigned<sp/>int&gt;&gt;<sp/><ref refid="namespacegeoda_1a7886a40ade5bf81c130125ef079a9e78" kindref="member">geoda::spatial_join</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">geoda::GeometryCollection</ref>&amp;<sp/>left,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">geoda::GeometryCollection</ref>&amp;<sp/>right)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;unsigned<sp/>int&gt;&gt;<sp/>result;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(left.<ref refid="classgeoda_1_1_geometry_collection_1a0d8bf03dd9b0edf9d6bfb740eebe4f51" kindref="member">empty</ref>()<sp/>||<sp/>right.<ref refid="classgeoda_1_1_geometry_collection_1a0d8bf03dd9b0edf9d6bfb740eebe4f51" kindref="member">empty</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>result.resize(left.<ref refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" kindref="member">size</ref>());</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>build<sp/>a<sp/>rtree<sp/>using<sp/>the<sp/>bbox<sp/>of<sp/>either<sp/>left<sp/>or<sp/>right</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>left_index<sp/>=<sp/>left.<ref refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" kindref="member">size</ref>()<sp/>&gt;<sp/>right.<ref refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><ref refid="spatial-join_8cpp_1a4509f4df0e8acd44bcb0cde90272b311" kindref="member">boost_rtree</ref><sp/>rtree<sp/>=<sp/>left_index<sp/>?<sp/><ref refid="spatial-join_8cpp_1a4ba3de1097e143d055bc14a10f86a5d6" kindref="member">create_rtree</ref>(left)<sp/>:<sp/><ref refid="spatial-join_8cpp_1a4ba3de1097e143d055bc14a10f86a5d6" kindref="member">create_rtree</ref>(right);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>try<sp/>less<sp/>number<sp/>of<sp/>queries</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>query_size<sp/>=<sp/>left_index<sp/>?<sp/>right.<ref refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" kindref="member">size</ref>()<sp/>:<sp/>left.<ref refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>query</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>std::vector&lt;box_value&gt;<sp/>query_result;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>for<sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>query_size;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>bbox<sp/>of<sp/>the<sp/>query<sp/>geometry</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="spatial-join_8cpp_1a33a5d4f8889ff840e8b2c35bcd0987bf" kindref="member">boost_box</ref><sp/>query_box;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(left_index)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>right.<ref refid="classgeoda_1_1_geometry_collection_1a3e6ecea3fd57812663972ef52119ca18" kindref="member">get_bbox</ref>(i,<sp/>query_box);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>left.<ref refid="classgeoda_1_1_geometry_collection_1a3e6ecea3fd57812663972ef52119ca18" kindref="member">get_bbox</ref>(i,<sp/>query_box);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>query<sp/>the<sp/>potential<sp/>intersecting<sp/>geometries<sp/>from<sp/>the<sp/>rtree</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>rtree.query(boost::geometry::index::intersects(query_box),<sp/>std::back_inserter(query_result));</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>the<sp/>intersection<sp/>of<sp/>the<sp/>query<sp/>geometry<sp/>with<sp/>the<sp/>potential<sp/>intersecting<sp/>geometries</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>item<sp/>:<sp/>query_result)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>index<sp/>of<sp/>the<sp/>potential<sp/>intersecting<sp/>geometry</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>idx<sp/>=<sp/>item.second;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>run<sp/>intersection<sp/>test</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(left_index)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(left.<ref refid="classgeoda_1_1_geometry_collection_1a53b589cda146cc12876b8a616062ccdf" kindref="member">intersect</ref>(idx,<sp/>right,<sp/>i))<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result[idx].push_back(i);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(left.<ref refid="classgeoda_1_1_geometry_collection_1a53b589cda146cc12876b8a616062ccdf" kindref="member">intersect</ref>(i,<sp/>right,<sp/>idx))<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result[i].push_back(idx);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>query_result.clear();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/spatial-join.cpp"/>
+  </compounddef>
+</doxygen>

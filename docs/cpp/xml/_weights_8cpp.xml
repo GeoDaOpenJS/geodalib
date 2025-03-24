@@ -1,0 +1,613 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="_weights_8cpp" kind="file" language="C++">
+    <compoundname>Weights.cpp</compoundname>
+    <includes refid="regression_2_weights_8h" local="yes">regression/Weights.h</includes>
+    <includes refid="lite2_8h" local="yes">regression/lite2.h</includes>
+    <includes refid="mix_8h" local="yes">regression/mix.h</includes>
+    <incdepgraph>
+      <node id="13">
+        <label>geometry/geometry.h</label>
+        <link refid="geometry_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp</label>
+        <link refid="_weights_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>regression/Weights.h</label>
+        <link refid="regression_2_weights_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>lite2.h</label>
+        <link refid="lite2_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>regression/mix.h</label>
+        <link refid="mix_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>weights/gal.h</label>
+        <link refid="gal_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>weights/weights.h</label>
+        <link refid="weights_2_weights_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>algorithm</label>
+      </node>
+      <node id="14">
+        <label>boost/geometry.hpp</label>
+      </node>
+      <node id="19">
+        <label>fstream</label>
+      </node>
+      <node id="8">
+        <label>functional</label>
+      </node>
+      <node id="11">
+        <label>iostream</label>
+      </node>
+      <node id="15">
+        <label>limits</label>
+      </node>
+      <node id="9">
+        <label>map</label>
+      </node>
+      <node id="18">
+        <label>math.h</label>
+      </node>
+      <node id="4">
+        <label>ostream</label>
+      </node>
+      <node id="10">
+        <label>set</label>
+      </node>
+      <node id="16">
+        <label>string</label>
+      </node>
+      <node id="20">
+        <label>utility</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_weights_8cpp_1a3453a49b257668d6988c33ec20700029" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SL_Transform</definition>
+        <argsstring>(WVector &amp;to, WMap::input_iterator from, const size_t dim)</argsstring>
+        <name>SL_Transform</name>
+        <param>
+          <type><ref refid="lite2_8h_1ae9d1896edbd59cd55628634470738d01" kindref="member">WVector</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="class_vector_1a12449554072b5e05998c3e5607dcc2e3" kindref="member">WMap::input_iterator</ref></type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const size_t</type>
+          <declname>dim</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" line="13" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" bodystart="13" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="_weights_8cpp_1ad0039c8834943d70e4fdcb8731151b87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SL_Transform</definition>
+        <argsstring>(WVector &amp;to, Iterator&lt; INDEX &gt; from, const size_t dim)</argsstring>
+        <name>SL_Transform</name>
+        <param>
+          <type><ref refid="lite2_8h_1ae9d1896edbd59cd55628634470738d01" kindref="member">WVector</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="class_iterator" kindref="compound">Iterator</ref>&lt; <ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref> &gt;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const size_t</type>
+          <declname>dim</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" line="21" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" bodystart="21" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="_weights_8cpp_1a6afcc2171bc3706e68311bd1e9743597" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SL_Transform</definition>
+        <argsstring>(WMap &amp;to, WIterator from, size_t Cnt)</argsstring>
+        <name>SL_Transform</name>
+        <param>
+          <type><ref refid="lite2_8h_1acfa58732882265b88a2da01b3a6cf948" kindref="member">WMap</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="lite2_8h_1a3a00b1c836acf59360ffc84741af61c6" kindref="member">WIterator</ref></type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>Cnt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" line="30" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" bodystart="30" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="_weights_8cpp_1a3c7942a8673665118bc3009d4c32ed79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SL_Transform</definition>
+        <argsstring>(WMap &amp;to, Iterator&lt; INDEX &gt; from, size_t cnt)</argsstring>
+        <name>SL_Transform</name>
+        <param>
+          <type><ref refid="lite2_8h_1acfa58732882265b88a2da01b3a6cf948" kindref="member">WMap</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="class_iterator" kindref="compound">Iterator</ref>&lt; <ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref> &gt;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>cnt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" line="48" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" bodystart="48" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="_weights_8cpp_1abde19f09ada93e11e4342dbc8122e106" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SL_Transform</definition>
+        <argsstring>(Vector&lt; INDEX &gt; &amp;to, WIterator from, size_t cnt)</argsstring>
+        <name>SL_Transform</name>
+        <param>
+          <type><ref refid="class_vector" kindref="compound">Vector</ref>&lt; <ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref> &gt; &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="lite2_8h_1a3a00b1c836acf59360ffc84741af61c6" kindref="member">WIterator</ref></type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>cnt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" line="57" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" bodystart="57" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="_weights_8cpp_1a146194f0bfcd9a5ab47f97d846fd2b07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SL_Transform</definition>
+        <argsstring>(Vector&lt; INDEX &gt; &amp;to, WMap::input_iterator from, size_t cnt)</argsstring>
+        <name>SL_Transform</name>
+        <param>
+          <type><ref refid="class_vector" kindref="compound">Vector</ref>&lt; <ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref> &gt; &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="class_vector_1a12449554072b5e05998c3e5607dcc2e3" kindref="member">WMap::input_iterator</ref></type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>cnt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" line="75" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" bodystart="75" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="_weights_8cpp_1a09bada3d05a46406e7f2cf4bc655cb27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class <ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref></type>
+          </param>
+          <param>
+            <type>class F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void SL_WeightsTransform</definition>
+        <argsstring>(T &amp;t, F it)</argsstring>
+        <name>SL_WeightsTransform</name>
+        <param>
+          <type><ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref> &amp;</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>it</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" line="85" column="6" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp" bodystart="85" bodyend="94"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="regression_2_weights_8h" kindref="compound">regression/Weights.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="lite2_8h" kindref="compound">regression/lite2.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mix_8h" kindref="compound">regression/mix.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><ref refid="class_weights_1a40b35175e032d341761fee4fde048ecf" kindref="member">Weights::Weights</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_gal_element" kindref="compound">geoda::GalElement</ref><sp/>*my_gal,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_obs)<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>WeightsGal(my_gal,<sp/>num_obs);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><ref refid="class_weights_1aae6b4a6f505221d3862de8b3d3156105" kindref="member">format</ref><sp/>=<sp/><ref refid="lite2_8h_1a954bbef49b89224c123c4afb101eee9aa067a1d3ae9a5ea841118b2b29b0b453d" kindref="member">W_GAL</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_weights_8cpp_1a3453a49b257668d6988c33ec20700029" kindref="member">SL_Transform</ref>(<ref refid="lite2_8h_1ae9d1896edbd59cd55628634470738d01" kindref="member">WVector</ref><sp/>&amp;to,<sp/><ref refid="class_vector_1a12449554072b5e05998c3e5607dcc2e3" kindref="member">WMap::input_iterator</ref><sp/>from,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dim)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>to.<ref refid="class_vector_1a864d1f7b69f57a633f3b248fad3619ee" kindref="member">alloc</ref>(dim,<sp/>0);<sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>zero<sp/>array<sp/>of<sp/>size<sp/>dim</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>from;<sp/>++from)<sp/>to[(*from).first]<sp/>=<sp/>(*from).second;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_weights_8cpp_1a3453a49b257668d6988c33ec20700029" kindref="member">SL_Transform</ref>(<ref refid="lite2_8h_1ae9d1896edbd59cd55628634470738d01" kindref="member">WVector</ref><sp/>&amp;to,<sp/><ref refid="class_iterator" kindref="compound">Iterator&lt;INDEX&gt;</ref><sp/>from,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dim)<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>to.<ref refid="class_vector_1a864d1f7b69f57a633f3b248fad3619ee" kindref="member">alloc</ref>(dim,<sp/>0);<sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>zero<sp/>array<sp/>of<sp/>size<sp/>dim</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref><sp/>setvalue(1);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>from;<sp/>++from)<sp/>to[*from]<sp/>=<sp/>setvalue;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_weights_8cpp_1a3453a49b257668d6988c33ec20700029" kindref="member">SL_Transform</ref>(<ref refid="lite2_8h_1acfa58732882265b88a2da01b3a6cf948" kindref="member">WMap</ref><sp/>&amp;to,<sp/><ref refid="lite2_8h_1a3a00b1c836acf59360ffc84741af61c6" kindref="member">WIterator</ref><sp/>from,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>Cnt)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>Cnt<sp/>=<sp/><ref refid="lite2_8h_1a31c3e1107de675a688243b89d96b40ba" kindref="member">Values</ref>(from,<sp/>0.0);<sp/><sp/></highlight><highlight class="comment">//<sp/>#<sp/>of<sp/>non-zeros<sp/>in<sp/>the<sp/>array</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>to.<ref refid="class_vector_1a864d1f7b69f57a633f3b248fad3619ee" kindref="member">alloc</ref>(Cnt);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref><sp/>key(0);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(Cnt--)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!(*from))<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>skip<sp/>zeros</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++key;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++from;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>to<sp/>&lt;&lt;<sp/><ref refid="lite2_8h_1aa5cc9c44184affabe7dbac94d90f2854" kindref="member">WPair</ref>(key,<sp/>*from);<sp/><sp/></highlight><highlight class="comment">//<sp/>copy<sp/>nonzero</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>++key;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>++from;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_weights_8cpp_1a3453a49b257668d6988c33ec20700029" kindref="member">SL_Transform</ref>(<ref refid="lite2_8h_1acfa58732882265b88a2da01b3a6cf948" kindref="member">WMap</ref><sp/>&amp;to,<sp/><ref refid="class_iterator" kindref="compound">Iterator&lt;INDEX&gt;</ref><sp/>from,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>cnt)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref><sp/>setvalue(1);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>to.<ref refid="class_vector_1a864d1f7b69f57a633f3b248fad3619ee" kindref="member">alloc</ref>(cnt<sp/>=<sp/>from.<ref refid="class_iterator_1afd338869f80ec5af59561f9aeae65b21" kindref="member">count</ref>());<sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>map<sp/>of<sp/>the<sp/>same<sp/>size<sp/>as<sp/>set</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>from;<sp/>++from)<sp/>to<sp/>&lt;&lt;<sp/><ref refid="lite2_8h_1aa5cc9c44184affabe7dbac94d90f2854" kindref="member">WPair</ref>(*from,<sp/>setvalue);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_weights_8cpp_1a3453a49b257668d6988c33ec20700029" kindref="member">SL_Transform</ref>(<ref refid="class_vector" kindref="compound">Vector&lt;INDEX&gt;</ref><sp/>&amp;to,<sp/><ref refid="lite2_8h_1a3a00b1c836acf59360ffc84741af61c6" kindref="member">WIterator</ref><sp/>from,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>cnt)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>cnt<sp/>=<sp/><ref refid="lite2_8h_1a31c3e1107de675a688243b89d96b40ba" kindref="member">Values</ref>(from,<sp/>0.0);<sp/><sp/></highlight><highlight class="comment">//<sp/>#<sp/>of<sp/>non-zero<sp/>elements</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>to.<ref refid="class_vector_1a864d1f7b69f57a633f3b248fad3619ee" kindref="member">alloc</ref>(cnt);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>object<sp/>of<sp/>proper<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref><sp/>key(0);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(cnt--)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!(*from))<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++key;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++from;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>to<sp/>&lt;&lt;<sp/>key;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>++key;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>++from;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_weights_8cpp_1a3453a49b257668d6988c33ec20700029" kindref="member">SL_Transform</ref>(<ref refid="class_vector" kindref="compound">Vector&lt;INDEX&gt;</ref><sp/>&amp;to,<sp/><ref refid="class_vector_1a12449554072b5e05998c3e5607dcc2e3" kindref="member">WMap::input_iterator</ref><sp/>from,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>cnt)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>cnt<sp/>=<sp/>from.<ref refid="class_iterator_1afd338869f80ec5af59561f9aeae65b21" kindref="member">count</ref>();<sp/><sp/></highlight><highlight class="comment">//<sp/>#<sp/>of<sp/>elements<sp/>in<sp/>the<sp/>map</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>to.<ref refid="class_vector_1a864d1f7b69f57a633f3b248fad3619ee" kindref="member">alloc</ref>(cnt);<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>object<sp/>of<sp/>proper<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>from;<sp/>++from)<sp/>to<sp/>&lt;&lt;<sp/>(*from).first;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_weights_8cpp_1a09bada3d05a46406e7f2cf4bc655cb27" kindref="member">SL_WeightsTransform</ref>(<ref refid="smile2_8cpp_1a7f4206808832737986bb37074e92cba9" kindref="member">T</ref><sp/>&amp;t,<sp/>F<sp/>it)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dim(it.count());</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>t.alloc(dim);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(it)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_weights_8cpp_1a3453a49b257668d6988c33ec20700029" kindref="member">SL_Transform</ref>(*t,<sp/>(*it)(),<sp/>dim);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>++it;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>++t;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_weights_1a8c93840598e2b48fbf6641c527b192ac" kindref="member">Weights::Transform</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="lite2_8h_1a954bbef49b89224c123c4afb101eee9a" kindref="member">WeightsType</ref><sp/>otype)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_weights_1aae6b4a6f505221d3862de8b3d3156105" kindref="member">format</ref><sp/>==<sp/><ref refid="lite2_8h_1a954bbef49b89224c123c4afb101eee9aaf9ced402bda88d6da7fee1bce6bb6fcf" kindref="member">W_UNDEF</ref>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_weights_1aae6b4a6f505221d3862de8b3d3156105" kindref="member">format</ref><sp/>!=<sp/>otype)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<ref refid="class_weights_1aae6b4a6f505221d3862de8b3d3156105" kindref="member">format</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lite2_8h_1a954bbef49b89224c123c4afb101eee9aa606e8cfc2734f94c0a5ae0852816d64f" kindref="member">W_MAT</ref>:</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(otype<sp/>==<sp/><ref refid="lite2_8h_1a954bbef49b89224c123c4afb101eee9aae612f27f32fcd94eee19701daae9d223" kindref="member">W_GWT</ref>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_weights_8cpp_1a09bada3d05a46406e7f2cf4bc655cb27" kindref="member">SL_WeightsTransform</ref>(<ref refid="class_weights_1a790a42a54487ff7d389bc8ed3a254174" kindref="member">gt</ref>,<sp/><ref refid="class_weights_1a1d82c81480cc6d1365862d043fae6528" kindref="member">mt</ref>());</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_weights_8cpp_1a09bada3d05a46406e7f2cf4bc655cb27" kindref="member">SL_WeightsTransform</ref>(<ref refid="class_weights_1a381483094a84eee1715d955bab866158" kindref="member">gl</ref>,<sp/><ref refid="class_weights_1a1d82c81480cc6d1365862d043fae6528" kindref="member">mt</ref>());</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="lite2_8h_1ae23d69c5116873b5abc88978a129d1ff" kindref="member">Destroy</ref>(<ref refid="class_weights_1a1d82c81480cc6d1365862d043fae6528" kindref="member">mt</ref>());</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lite2_8h_1a954bbef49b89224c123c4afb101eee9aae612f27f32fcd94eee19701daae9d223" kindref="member">W_GWT</ref>:</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(otype<sp/>==<sp/><ref refid="lite2_8h_1a954bbef49b89224c123c4afb101eee9aa606e8cfc2734f94c0a5ae0852816d64f" kindref="member">W_MAT</ref>)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_weights_8cpp_1a09bada3d05a46406e7f2cf4bc655cb27" kindref="member">SL_WeightsTransform</ref>(<ref refid="class_weights_1a1d82c81480cc6d1365862d043fae6528" kindref="member">mt</ref>,<sp/><ref refid="class_weights_1a790a42a54487ff7d389bc8ed3a254174" kindref="member">gt</ref>());</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_weights_8cpp_1a09bada3d05a46406e7f2cf4bc655cb27" kindref="member">SL_WeightsTransform</ref>(<ref refid="class_weights_1a381483094a84eee1715d955bab866158" kindref="member">gl</ref>,<sp/><ref refid="class_weights_1a790a42a54487ff7d389bc8ed3a254174" kindref="member">gt</ref>());</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="lite2_8h_1ae23d69c5116873b5abc88978a129d1ff" kindref="member">Destroy</ref>(<ref refid="class_weights_1a790a42a54487ff7d389bc8ed3a254174" kindref="member">gt</ref>());</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lite2_8h_1a954bbef49b89224c123c4afb101eee9aa067a1d3ae9a5ea841118b2b29b0b453d" kindref="member">W_GAL</ref>:</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(otype<sp/>==<sp/><ref refid="lite2_8h_1a954bbef49b89224c123c4afb101eee9aa606e8cfc2734f94c0a5ae0852816d64f" kindref="member">W_MAT</ref>)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_weights_8cpp_1a09bada3d05a46406e7f2cf4bc655cb27" kindref="member">SL_WeightsTransform</ref>(<ref refid="class_weights_1a1d82c81480cc6d1365862d043fae6528" kindref="member">mt</ref>,<sp/><ref refid="class_weights_1a381483094a84eee1715d955bab866158" kindref="member">gl</ref>());</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_weights_8cpp_1a09bada3d05a46406e7f2cf4bc655cb27" kindref="member">SL_WeightsTransform</ref>(<ref refid="class_weights_1a790a42a54487ff7d389bc8ed3a254174" kindref="member">gt</ref>,<sp/><ref refid="class_weights_1a381483094a84eee1715d955bab866158" kindref="member">gl</ref>());</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="lite2_8h_1ae23d69c5116873b5abc88978a129d1ff" kindref="member">Destroy</ref>(<ref refid="class_weights_1a381483094a84eee1715d955bab866158" kindref="member">gl</ref>());</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="lite2_8h_1a954bbef49b89224c123c4afb101eee9aaf9ced402bda88d6da7fee1bce6bb6fcf" kindref="member">W_UNDEF</ref>:<sp/></highlight><highlight class="comment">/*<sp/><sp/>data<sp/>should<sp/>have<sp/>format<sp/>other<sp/>than<sp/>UNDEF<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_weights_1aae6b4a6f505221d3862de8b3d3156105" kindref="member">format</ref><sp/>=<sp/>otype;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><ref refid="class_weights_1a2db8a7bafb6204201f0471e82c62be98" kindref="member">Weights::~Weights</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1ae23d69c5116873b5abc88978a129d1ff" kindref="member">Destroy</ref>(<ref refid="class_weights_1a1d82c81480cc6d1365862d043fae6528" kindref="member">mt</ref>());</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1ae23d69c5116873b5abc88978a129d1ff" kindref="member">Destroy</ref>(<ref refid="class_weights_1a790a42a54487ff7d389bc8ed3a254174" kindref="member">gt</ref>());</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1ae23d69c5116873b5abc88978a129d1ff" kindref="member">Destroy</ref>(<ref refid="class_weights_1a381483094a84eee1715d955bab866158" kindref="member">gl</ref>());</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><ref refid="class_weights_1aae6b4a6f505221d3862de8b3d3156105" kindref="member">format</ref><sp/>=<sp/><ref refid="lite2_8h_1a954bbef49b89224c123c4afb101eee9aaf9ced402bda88d6da7fee1bce6bb6fcf" kindref="member">W_UNDEF</ref>;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><ref refid="class_weights_1aef9654bdbf150d9323d115e361115cb6" kindref="member">wdim</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Weights::WeightsGal(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_gal_element" kindref="compound">geoda::GalElement</ref><sp/>*my_gal,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_obs)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>pairstruct&lt;CNT,<sp/>INDEX&gt;<sp/>local_pair;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref><sp/>Rows,<sp/>disp,<sp/>sz;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1a6a4288add566c8d9c96f7cb0dc661c66" kindref="member">CNT</ref><sp/>row;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>disp<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>Rows<sp/>=<sp/>num_obs;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><ref refid="class_weights_1a277497fcbfb9f74588de6e901b283e8c" kindref="member">gal</ref><sp/>tgt(Rows);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><ref refid="class_weights_1a187d5927ec4514b6048c5d91af1a1f8c" kindref="member">key</ref>.alloc(Rows);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref><sp/>k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>Rows;<sp/>k++)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>row<sp/>=<sp/>k;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_weights_1a187d5927ec4514b6048c5d91af1a1f8c" kindref="member">key</ref><sp/>&lt;&lt;<sp/>local_pair(row,<sp/>disp);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>sz<sp/>=<sp/>my_gal[k].<ref refid="classgeoda_1_1_gal_element_1a9e32d1e75feb41f219804cbef680c2a1" kindref="member">Size</ref>();</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>(*tgt).alloc(sz);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sz)<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="lite2_8h_1a31fbc4cff08b760d1ffc26e6b395e7e5" kindref="member">CopyInput</ref>(*tgt,<sp/>my_gal[k].GetNbrs(),<sp/>sz);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="lite2_8h_1a296bbd8b511d9d0ec7e41b6203569c0d" kindref="member">HeapSort</ref>((*tgt)());</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>++disp;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>++tgt;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><ref refid="lite2_8h_1a296bbd8b511d9d0ec7e41b6203569c0d" kindref="member">HeapSort</ref>(<ref refid="class_weights_1a187d5927ec4514b6048c5d91af1a1f8c" kindref="member">key</ref>());</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><ref refid="class_weights_1a381483094a84eee1715d955bab866158" kindref="member">gl</ref>.alloc(Rows);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><ref refid="class_vector_1a12449554072b5e05998c3e5607dcc2e3" kindref="member">gal::input_iterator</ref><sp/>itemp<sp/>=<sp/>tgt();</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(itemp)<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>(*gl).alloc((*itemp).count());</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="class_vector_1a12449554072b5e05998c3e5607dcc2e3" kindref="member">set::input_iterator</ref><sp/>iset<sp/>=<sp/>(*itemp)();<sp/>iset;<sp/>++iset)<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>local_pair<sp/>*t<sp/>=<sp/><ref refid="lite2_8h_1a194ef7f2fe4817fac79a07166697bb7a" kindref="member">Find</ref>(<ref refid="class_weights_1a187d5927ec4514b6048c5d91af1a1f8c" kindref="member">key</ref>(),<sp/>*iset);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(t)<sp/>*<ref refid="class_weights_1a381483094a84eee1715d955bab866158" kindref="member">gl</ref><sp/>&lt;&lt;<sp/>t-&gt;second;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/><sp/>Messenger(ERR_LAST,<sp/>&quot;<sp/>GAL<sp/>reference<sp/>outside<sp/>the<sp/>matrix&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>++itemp;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>++<ref refid="class_weights_1a381483094a84eee1715d955bab866158" kindref="member">gl</ref>;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><ref refid="class_weights_1aef9654bdbf150d9323d115e361115cb6" kindref="member">wdim</ref><sp/>=<sp/>Rows;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="comment">//<sp/>void<sp/>Weights::WeightsGwt(const<sp/>GwtElement<sp/>*my_gwt,<sp/>int<sp/>num_obs)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>typedef<sp/>pairstruct&lt;CNT,<sp/>INDEX&gt;<sp/>local_pair;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>INDEX<sp/>Rows,<sp/>disp,<sp/>sz;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>CNT<sp/>row;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>int<sp/>j<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>INDEX<sp/>k<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>disp<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>Rows<sp/>=<sp/>num_obs;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>gwt<sp/>tgt(Rows);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>key.alloc(Rows);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for<sp/>(k=0;<sp/>k&lt;Rows;<sp/>k++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>row<sp/>=<sp/>k;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>key<sp/>&lt;&lt;<sp/>local_pair(row,<sp/>disp);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>sz<sp/>=<sp/>my_gwt[k].Size();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>(*tgt).alloc(sz);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(sz)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GwtNeighbor*<sp/>nbrs<sp/>=<sp/>my_gwt[k].dt();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;long&gt;<sp/>nblist(sz);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>weightlist(sz);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(size_t<sp/>i=0;<sp/>i&lt;sz;<sp/>++i)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nblist[i]<sp/>=<sp/>nbrs[i].nbx;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weightlist[i]<sp/>=<sp/>nbrs[i].weight;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CopyInput(*tgt,<sp/>nblist,<sp/>weightlist,<sp/>sz);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HeapSort((*tgt)());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>++disp;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>++tgt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>HeapSort(key());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>gt.alloc(Rows);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>gwt::input_iterator<sp/>itemp=<sp/>tgt();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>while<sp/>(itemp)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>(*gt).alloc((*itemp).count());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(WMap::input_iterator<sp/>iset=<sp/>(*itemp)();<sp/>iset;<sp/>++iset)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>local_pair<sp/>*<sp/>t=<sp/>FindW(key(),<sp/>*iset);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(t)<sp/>*gt<sp/>&lt;&lt;<sp/>pairstruct&lt;INDEX,<sp/>VALUE&gt;(t-&gt;second,<sp/>(*iset).second);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>else<sp/><sp/>Messenger(ERR_LAST,<sp/>&quot;<sp/>GAL<sp/>reference<sp/>outside<sp/>the<sp/>matrix&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>++itemp;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>++gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>wdim=Rows;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>return;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_weights_1afb6b5d16d72e058b92146de598ec620d" kindref="member">Weights::MakeSymmetricStructure</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_weights_1aa899ff42408d8c4462bdf86118faea44" kindref="member">dim</ref><sp/>=<sp/><ref refid="class_weights_1a790a42a54487ff7d389bc8ed3a254174" kindref="member">gt</ref>.count();</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Iterator&lt;WPair&gt;<sp/>RowIterator;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>Vector&lt;RowIterator&gt;<sp/>state;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>RowIterator<sp/>row;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>Iterator&lt;WMap&gt;<sp/>it;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt,<sp/>rowId;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/>Vector&lt;int&gt;<sp/>counts(<ref refid="class_weights_1aa899ff42408d8c4462bdf86118faea44" kindref="member">dim</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/>state.<ref refid="class_vector_1a864d1f7b69f57a633f3b248fad3619ee" kindref="member">alloc</ref>(<ref refid="class_weights_1aa899ff42408d8c4462bdf86118faea44" kindref="member">dim</ref>);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>vector<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(cnt<sp/>=<sp/>0;<sp/>cnt<sp/>&lt;<sp/><ref refid="class_weights_1aa899ff42408d8c4462bdf86118faea44" kindref="member">dim</ref>;<sp/>++cnt)<sp/>state<sp/>&lt;&lt;<sp/><ref refid="class_weights_1a790a42a54487ff7d389bc8ed3a254174" kindref="member">gt</ref>[cnt]();<sp/><sp/></highlight><highlight class="comment">//<sp/>initialize<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(rowId<sp/>=<sp/>0;<sp/>rowId<sp/>&lt;<sp/><ref refid="class_weights_1aa899ff42408d8c4462bdf86118faea44" kindref="member">dim</ref>;<sp/>++rowId)<sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(row<sp/>=<sp/>state[rowId];<sp/>row;<sp/>++row)<sp/>{</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nextId<sp/>=<sp/>(*row).first;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nextId<sp/>==<sp/>rowId)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>is<sp/>a<sp/>diagonal<sp/>element</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counts[rowId];</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nextId<sp/>&lt;<sp/>rowId)<sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counts[rowId];<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>real<sp/>existing<sp/>pair;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counts[nextId];<sp/><sp/></highlight><highlight class="comment">//<sp/>pair<sp/>(nextId,<sp/>rowId)<sp/>=<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>begin<sp/>partial<sp/>processing<sp/>of<sp/>row<sp/>nextId</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nextOtherId<sp/>=<sp/><ref refid="lite2_8h_1acc3471b999ba92174faec94199ed7aec" kindref="member">NeighborId</ref>(state[nextId]);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(nextOtherId<sp/>&lt;<sp/>rowId)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>row<sp/>nextId<sp/>has<sp/>neighbors<sp/>with<sp/>id<sp/>less<sp/>than<sp/>rowId</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counts[nextId];<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>accomodate<sp/>real<sp/>pair(nextId,<sp/>nextOtherId)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counts[nextOtherId];<sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>accomodate<sp/>pair(nextOtherId,<sp/>nextId)<sp/>=<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++state[nextId];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>advance<sp/>state<sp/>to<sp/>next<sp/>weight</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nextOtherId<sp/>=<sp/><ref refid="lite2_8h_1acc3471b999ba92174faec94199ed7aec" kindref="member">NeighborId</ref>(state[nextId]);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nextOtherId<sp/>==<sp/>rowId)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>symmetric<sp/>entry</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counts[nextId];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>accomodate<sp/>real<sp/>pair(nextId,<sp/>nextOtherId)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counts[rowId];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>accomodate<sp/>real<sp/>pair(nextOtherId,<sp/>nextId)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++state[nextId];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>advance<sp/>state<sp/>to<sp/>next<sp/>weight</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counts[rowId];</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counts[nextId];</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>};<sp/><sp/></highlight><highlight class="comment">//<sp/>end<sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_weights_1a292a42ab0729b25c91f0f676b3ec0e00" kindref="member">Weights::ComputeTranspose</ref>(<ref refid="lite2_8h_1a4c7688b643a08fd9b048deecbb9376b5" kindref="member">GWT</ref><sp/>&amp;transpose)<sp/>{</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_weights_1aa899ff42408d8c4462bdf86118faea44" kindref="member">dim</ref><sp/>=<sp/><ref refid="class_weights_1a790a42a54487ff7d389bc8ed3a254174" kindref="member">gt</ref>.count();</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt;</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>will<sp/>contain<sp/>number<sp/>of<sp/>non-zero<sp/>elements<sp/>in<sp/>the<sp/>rows<sp/>of<sp/>transposed<sp/>mx</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/>Vector&lt;int&gt;<sp/>count(<ref refid="class_weights_1aa899ff42408d8c4462bdf86118faea44" kindref="member">dim</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/>Iterator&lt;WMap&gt;<sp/>it;</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/>Iterator&lt;WPair&gt;<sp/>row;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(it<sp/>=<sp/><ref refid="class_weights_1a790a42a54487ff7d389bc8ed3a254174" kindref="member">gt</ref>();<sp/>it;<sp/>++it)<sp/><sp/></highlight><highlight class="comment">//<sp/>initialize<sp/>counts</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(row<sp/>=<sp/>(*it)();<sp/>row;<sp/>++row)<sp/>++count[(*row).first];</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/>transpose.<ref refid="class_vector_1a864d1f7b69f57a633f3b248fad3619ee" kindref="member">alloc</ref>(<ref refid="class_weights_1aa899ff42408d8c4462bdf86118faea44" kindref="member">dim</ref>);<sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>transpose</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(cnt<sp/>=<sp/>0;<sp/>cnt<sp/>&lt;<sp/><ref refid="class_weights_1aa899ff42408d8c4462bdf86118faea44" kindref="member">dim</ref>;<sp/>++cnt)<sp/>{</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>(*transpose).alloc(count[cnt]);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>++transpose;</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(cnt<sp/>=<sp/>0;<sp/>cnt<sp/>&lt;<sp/><ref refid="class_weights_1aa899ff42408d8c4462bdf86118faea44" kindref="member">dim</ref>;<sp/>++cnt)</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(row<sp/>=<sp/><ref refid="class_weights_1a790a42a54487ff7d389bc8ed3a254174" kindref="member">gt</ref>[cnt]();<sp/>row;<sp/>++row)<sp/>transpose[(*row).first]<sp/>&lt;&lt;<sp/><ref refid="lite2_8h_1aa5cc9c44184affabe7dbac94d90f2854" kindref="member">WPair</ref>(cnt,<sp/>(*row).second);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>PrintM(transpose());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/Weights.cpp"/>
+  </compounddef>
+</doxygen>

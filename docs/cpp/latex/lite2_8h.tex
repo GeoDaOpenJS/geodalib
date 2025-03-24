@@ -1,0 +1,415 @@
+\doxysection{/\+Users/xun/github/geoda-\/lib/src/cpp/regression/lite2.h File Reference}
+\hypertarget{lite2_8h}{}\label{lite2_8h}\index{/Users/xun/github/geoda-\/lib/src/cpp/regression/lite2.h@{/Users/xun/github/geoda-\/lib/src/cpp/regression/lite2.h}}
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_s_l___input_iterator}{SL\+\_\+\+Input\+Iterator}}
+\item 
+class \mbox{\hyperlink{class_s_l___iterator}{SL\+\_\+\+Iterator}}
+\item 
+class \mbox{\hyperlink{class_s_l___output_iterator}{SL\+\_\+\+Output\+Iterator}}
+\item 
+struct \mbox{\hyperlink{struct_s_l__function}{SL\+\_\+function$<$ Arg $>$}}
+\item 
+struct \mbox{\hyperlink{struct_sqr}{Sqr$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{class_short_iterator}{Short\+Iterator$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{class_iterator}{Iterator$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structpairstruct}{pairstruct$<$ First, Second $>$}}
+\item 
+class \mbox{\hyperlink{class_vector}{Vector$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{struct_map__types}{Map\+\_\+types$<$ K, T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lite2_8h_a6a4288add566c8d9c96f7cb0dc661c66}{CNT}}~int
+\item 
+\#define \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}}~double
+\item 
+\#define \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}~size\+\_\+t
+\item 
+\#define \mbox{\hyperlink{lite2_8h_a94d786927b0409afc505ac352d4acd46}{sl\+\_\+max}}(x,  y)
+\item 
+\#define \mbox{\hyperlink{lite2_8h_ae57614aa49a6298bfcef92612873e04d}{sl\+\_\+min}}(x,  y)
+\item 
+\#define \mbox{\hyperlink{lite2_8h_a12f5988d0e8de3bb2ed9583ae905d8bd}{GDA\+\_\+\+SWAP}}(x,  y,  t)
+\item 
+\#define \mbox{\hyperlink{lite2_8h_af130a8cc637c0980d7d2e9d85e336ffb}{MAP}}(K,  \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{structpairstruct}{pairstruct}}$<$ \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}, \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$ \mbox{\hyperlink{lite2_8h_aa5cc9c44184affabe7dbac94d90f2854}{WPair}}
+\item 
+typedef \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_aa5cc9c44184affabe7dbac94d90f2854}{WPair}} $>$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}}
+\item 
+typedef \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ \mbox{\hyperlink{lite2_8h_a4c7688b643a08fd9b048deecbb9376b5}{GWT}}
+\item 
+typedef \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}}
+\item 
+typedef \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$ \mbox{\hyperlink{lite2_8h_a3a00b1c836acf59360ffc84741af61c6}{WIterator}}
+\item 
+typedef \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ \mbox{\hyperlink{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099}{WMatrix}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{lite2_8h_a954bbef49b89224c123c4afb101eee9a}{Weights\+Type}} \{ \mbox{\hyperlink{lite2_8h_a954bbef49b89224c123c4afb101eee9aaf9ced402bda88d6da7fee1bce6bb6fcf}{W\+\_\+\+UNDEF}}
+, \mbox{\hyperlink{lite2_8h_a954bbef49b89224c123c4afb101eee9aa606e8cfc2734f94c0a5ae0852816d64f}{W\+\_\+\+MAT}}
+, \mbox{\hyperlink{lite2_8h_a954bbef49b89224c123c4afb101eee9aae612f27f32fcd94eee19701daae9d223}{W\+\_\+\+GWT}}
+, \mbox{\hyperlink{lite2_8h_a954bbef49b89224c123c4afb101eee9aa067a1d3ae9a5ea841118b2b29b0b453d}{W\+\_\+\+GAL}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{lite2_8h_a13132a47bd1e2c56d2b05d091896445d}{Compute\+Mean}} (double \texorpdfstring{$\ast$}{*}dt, int dim)
+\item 
+double \mbox{\hyperlink{lite2_8h_a5fd7f53b02952c4e38a78932b7d4d04f}{Compute\+Sdev}} (double \texorpdfstring{$\ast$}{*}dt, int dim)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ }\\void \mbox{\hyperlink{lite2_8h_ab6370ad33b283ec00171c2a5439ac7c3}{divide}} (\mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} \&x, const \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} \&y)
+\item 
+{\footnotesize template$<$class D, class F$>$ }\\void \mbox{\hyperlink{lite2_8h_a87d5626dc40955b45bedb1a92b3ba545}{for\+\_\+each}} (D itr, F f)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ }\\bool \mbox{\hyperlink{lite2_8h_aecf90f506ef060987440a9f354a37cc2}{operator$>$}} (const \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} \&x, const \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} \&y)
+\item 
+{\footnotesize template$<$class F, class S$>$ }\\std\+::ostream \& \mbox{\hyperlink{lite2_8h_ab2c7f9df32ca2ccdadef1620601bc118}{operator$<$$<$}} (std\+::ostream \&s, \mbox{\hyperlink{structpairstruct}{pairstruct}}$<$ F, S $>$ \&v)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ }\\\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \& \mbox{\hyperlink{lite2_8h_aa3573f8fe9ec3c4e1dab0877beaeb5f4}{operator-\/=}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&it1, \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ it2)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ }\\void \mbox{\hyperlink{lite2_8h_a296bbd8b511d9d0ec7e41b6203569c0d}{Heap\+Sort}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ v)
+\item 
+{\footnotesize template$<$class D, class F$>$ }\\D \mbox{\hyperlink{lite2_8h_a93ec93381fc1f75057b7f45937ff55dc}{accumulator}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ D $>$ v, F f)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ }\\void \mbox{\hyperlink{lite2_8h_ae23d69c5116873b5abc88978a129d1ff}{Destroy}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ it)
+\item 
+{\footnotesize template$<$class X$>$ }\\void \mbox{\hyperlink{lite2_8h_a31fbc4cff08b760d1ffc26e6b395e7e5}{Copy\+Input}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ X $>$ \&dest, const std\+::vector$<$ unsigned int $>$ \&nbl, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} size)
+\item 
+{\footnotesize template$<$class X$>$ }\\void \mbox{\hyperlink{lite2_8h_a068bdac0bd10887d43c8495d1511aade}{Copy\+Input}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ X $>$ \&dest, const std\+::vector$<$ unsigned int $>$ \&nbl, const std\+::vector$<$ double $>$ \&wtl, \mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}} size)
+\item 
+{\footnotesize template$<$class X, class Y$>$ }\\void \mbox{\hyperlink{lite2_8h_acfc62f638d7f256178130be948c921f6}{Copy}} (X \&dest, Y src)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ }\\size\+\_\+t \mbox{\hyperlink{lite2_8h_a31c3e1107de675a688243b89d96b40ba}{Values}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ it, const \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} threshold)
+\item 
+\mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} \mbox{\hyperlink{lite2_8h_a7dd6ec971b6f46098cb10e81b3fb0e9c}{Product}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$ it1, \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$ it2)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ }\\\mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} \mbox{\hyperlink{lite2_8h_aa1370876f2c781f443356f2a7b4d4b9c}{Sum}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ it)
+\item 
+\mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} \mbox{\hyperlink{lite2_8h_a1741d3eff97d95cc971de2b1fea89cd2}{Product}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa5cc9c44184affabe7dbac94d90f2854}{WPair}} $>$ it1, \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$ it2)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ }\\\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \& \mbox{\hyperlink{lite2_8h_a839cd9f66fbef0921b0d1b18bc9b7aaa}{operator-\/=}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&v1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&v2)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ }\\\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \& \mbox{\hyperlink{lite2_8h_a8d3f811d884aa29aea7ac90b301e180f}{operator+=}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&v1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&v2)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ }\\\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \& \mbox{\hyperlink{lite2_8h_a51c1244e34e1dc616228075c5f9cfcc2}{operator\texorpdfstring{$\ast$}{*}=}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&v1, const \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} v2)
+\item 
+{\footnotesize template$<$class Pair, class Key$>$ }\\Pair \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lite2_8h_a194ef7f2fe4817fac79a07166697bb7a}{Find}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ Pair $>$ it, const Key What)
+\item 
+{\footnotesize template$<$class Pair, class Key$>$ }\\Pair \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lite2_8h_aeb88d60e36e6908449b26209f7928c76}{FindW}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ Pair $>$ it, const Key What)
+\item 
+void \mbox{\hyperlink{lite2_8h_af2d4a6e9c58b3995943f051b2b709bb1}{Column\+Multiply}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$ column, \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$ mt, \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$ \&\mbox{\hyperlink{mix_8cpp_aa298203c6e86eac70ac4a07936ae425b}{product}})
+\item 
+int \mbox{\hyperlink{lite2_8h_acc3471b999ba92174faec94199ed7aec}{Neighbor\+Id}} (const \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa5cc9c44184affabe7dbac94d90f2854}{WPair}} $>$ it)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{lite2_8h_a6a4288add566c8d9c96f7cb0dc661c66}\index{lite2.h@{lite2.h}!CNT@{CNT}}
+\index{CNT@{CNT}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{CNT}{CNT}}
+{\footnotesize\ttfamily \label{lite2_8h_a6a4288add566c8d9c96f7cb0dc661c66} 
+\#define CNT~int}
+
+\Hypertarget{lite2_8h_a12f5988d0e8de3bb2ed9583ae905d8bd}\index{lite2.h@{lite2.h}!GDA\_SWAP@{GDA\_SWAP}}
+\index{GDA\_SWAP@{GDA\_SWAP}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{GDA\_SWAP}{GDA\_SWAP}}
+{\footnotesize\ttfamily \label{lite2_8h_a12f5988d0e8de3bb2ed9583ae905d8bd} 
+\#define GDA\+\_\+\+SWAP(\begin{DoxyParamCaption}\item[{}]{x}{, }\item[{}]{y}{, }\item[{}]{t}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((t)\ =\ (x),\ (x)\ =\ (y),\ (y)\ =\ (t))}
+
+\end{DoxyCode}
+\Hypertarget{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}\index{lite2.h@{lite2.h}!INDEX@{INDEX}}
+\index{INDEX@{INDEX}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{INDEX}{INDEX}}
+{\footnotesize\ttfamily \label{lite2_8h_ac6885dbfb371c33e523c7fb046118b36} 
+\#define INDEX~size\+\_\+t}
+
+\Hypertarget{lite2_8h_af130a8cc637c0980d7d2e9d85e336ffb}\index{lite2.h@{lite2.h}!MAP@{MAP}}
+\index{MAP@{MAP}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{MAP}{MAP}}
+{\footnotesize\ttfamily \label{lite2_8h_af130a8cc637c0980d7d2e9d85e336ffb} 
+\#define MAP(\begin{DoxyParamCaption}\item[{}]{K}{, }\item[{}]{\mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{struct_map__types_a2275788219f306f9e4af37bc350e01a7}{Map\_types<K,\ T>::map\_container}}}
+
+\end{DoxyCode}
+\Hypertarget{lite2_8h_a94d786927b0409afc505ac352d4acd46}\index{lite2.h@{lite2.h}!sl\_max@{sl\_max}}
+\index{sl\_max@{sl\_max}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{sl\_max}{sl\_max}}
+{\footnotesize\ttfamily \label{lite2_8h_a94d786927b0409afc505ac352d4acd46} 
+\#define sl\+\_\+max(\begin{DoxyParamCaption}\item[{}]{x}{, }\item[{}]{y}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((x)\ <\ (y)\ ?\ (y)\ :\ (x))}
+
+\end{DoxyCode}
+\Hypertarget{lite2_8h_ae57614aa49a6298bfcef92612873e04d}\index{lite2.h@{lite2.h}!sl\_min@{sl\_min}}
+\index{sl\_min@{sl\_min}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{sl\_min}{sl\_min}}
+{\footnotesize\ttfamily \label{lite2_8h_ae57614aa49a6298bfcef92612873e04d} 
+\#define sl\+\_\+min(\begin{DoxyParamCaption}\item[{}]{x}{, }\item[{}]{y}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((x)\ <\ (y)\ ?\ (x)\ :\ (y))}
+
+\end{DoxyCode}
+\Hypertarget{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}\index{lite2.h@{lite2.h}!VALUE@{VALUE}}
+\index{VALUE@{VALUE}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{VALUE}{VALUE}}
+{\footnotesize\ttfamily \label{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a} 
+\#define VALUE~double}
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{lite2_8h_a4c7688b643a08fd9b048deecbb9376b5}\index{lite2.h@{lite2.h}!GWT@{GWT}}
+\index{GWT@{GWT}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{GWT}{GWT}}
+{\footnotesize\ttfamily \label{lite2_8h_a4c7688b643a08fd9b048deecbb9376b5} 
+typedef \mbox{\hyperlink{class_vector}{Vector}}$<$\mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}}$>$ \mbox{\hyperlink{lite2_8h_a4c7688b643a08fd9b048deecbb9376b5}{GWT}}}
+
+\Hypertarget{lite2_8h_a3a00b1c836acf59360ffc84741af61c6}\index{lite2.h@{lite2.h}!WIterator@{WIterator}}
+\index{WIterator@{WIterator}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{WIterator}{WIterator}}
+{\footnotesize\ttfamily \label{lite2_8h_a3a00b1c836acf59360ffc84741af61c6} 
+typedef \mbox{\hyperlink{class_iterator}{Iterator}}$<$\mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}}$>$ \mbox{\hyperlink{lite2_8h_a3a00b1c836acf59360ffc84741af61c6}{WIterator}}}
+
+\Hypertarget{lite2_8h_acfa58732882265b88a2da01b3a6cf948}\index{lite2.h@{lite2.h}!WMap@{WMap}}
+\index{WMap@{WMap}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{WMap}{WMap}}
+{\footnotesize\ttfamily \label{lite2_8h_acfa58732882265b88a2da01b3a6cf948} 
+typedef \mbox{\hyperlink{class_vector}{Vector}}$<$\mbox{\hyperlink{lite2_8h_aa5cc9c44184affabe7dbac94d90f2854}{WPair}}$>$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}}}
+
+\Hypertarget{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099}\index{lite2.h@{lite2.h}!WMatrix@{WMatrix}}
+\index{WMatrix@{WMatrix}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{WMatrix}{WMatrix}}
+{\footnotesize\ttfamily \label{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099} 
+typedef \mbox{\hyperlink{class_vector}{Vector}}$<$\mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}}$>$ \mbox{\hyperlink{lite2_8h_aa4c05e4e478804f6d0fe30b06abe0099}{WMatrix}}}
+
+\Hypertarget{lite2_8h_aa5cc9c44184affabe7dbac94d90f2854}\index{lite2.h@{lite2.h}!WPair@{WPair}}
+\index{WPair@{WPair}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{WPair}{WPair}}
+{\footnotesize\ttfamily \label{lite2_8h_aa5cc9c44184affabe7dbac94d90f2854} 
+typedef \mbox{\hyperlink{structpairstruct}{pairstruct}}$<$\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}, \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}}$>$ \mbox{\hyperlink{lite2_8h_aa5cc9c44184affabe7dbac94d90f2854}{WPair}}}
+
+\Hypertarget{lite2_8h_ae9d1896edbd59cd55628634470738d01}\index{lite2.h@{lite2.h}!WVector@{WVector}}
+\index{WVector@{WVector}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{WVector}{WVector}}
+{\footnotesize\ttfamily \label{lite2_8h_ae9d1896edbd59cd55628634470738d01} 
+typedef \mbox{\hyperlink{class_vector}{Vector}}$<$\mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}}$>$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{lite2_8h_a954bbef49b89224c123c4afb101eee9a}\index{lite2.h@{lite2.h}!WeightsType@{WeightsType}}
+\index{WeightsType@{WeightsType}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{WeightsType}{WeightsType}}
+{\footnotesize\ttfamily \label{lite2_8h_a954bbef49b89224c123c4afb101eee9a} 
+enum \mbox{\hyperlink{lite2_8h_a954bbef49b89224c123c4afb101eee9a}{Weights\+Type}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{W\_UNDEF@{W\_UNDEF}!lite2.h@{lite2.h}}\index{lite2.h@{lite2.h}!W\_UNDEF@{W\_UNDEF}}}\Hypertarget{lite2_8h_a954bbef49b89224c123c4afb101eee9aaf9ced402bda88d6da7fee1bce6bb6fcf}\label{lite2_8h_a954bbef49b89224c123c4afb101eee9aaf9ced402bda88d6da7fee1bce6bb6fcf} 
+W\+\_\+\+UNDEF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{W\_MAT@{W\_MAT}!lite2.h@{lite2.h}}\index{lite2.h@{lite2.h}!W\_MAT@{W\_MAT}}}\Hypertarget{lite2_8h_a954bbef49b89224c123c4afb101eee9aa606e8cfc2734f94c0a5ae0852816d64f}\label{lite2_8h_a954bbef49b89224c123c4afb101eee9aa606e8cfc2734f94c0a5ae0852816d64f} 
+W\+\_\+\+MAT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{W\_GWT@{W\_GWT}!lite2.h@{lite2.h}}\index{lite2.h@{lite2.h}!W\_GWT@{W\_GWT}}}\Hypertarget{lite2_8h_a954bbef49b89224c123c4afb101eee9aae612f27f32fcd94eee19701daae9d223}\label{lite2_8h_a954bbef49b89224c123c4afb101eee9aae612f27f32fcd94eee19701daae9d223} 
+W\+\_\+\+GWT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{W\_GAL@{W\_GAL}!lite2.h@{lite2.h}}\index{lite2.h@{lite2.h}!W\_GAL@{W\_GAL}}}\Hypertarget{lite2_8h_a954bbef49b89224c123c4afb101eee9aa067a1d3ae9a5ea841118b2b29b0b453d}\label{lite2_8h_a954bbef49b89224c123c4afb101eee9aa067a1d3ae9a5ea841118b2b29b0b453d} 
+W\+\_\+\+GAL&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{lite2_8h_a93ec93381fc1f75057b7f45937ff55dc}\index{lite2.h@{lite2.h}!accumulator@{accumulator}}
+\index{accumulator@{accumulator}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{accumulator()}{accumulator()}}
+{\footnotesize\ttfamily \label{lite2_8h_a93ec93381fc1f75057b7f45937ff55dc} 
+template$<$class D, class F$>$ \\
+D accumulator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ D $>$}]{v}{, }\item[{F}]{f}{}\end{DoxyParamCaption})}
+
+\Hypertarget{lite2_8h_af2d4a6e9c58b3995943f051b2b709bb1}\index{lite2.h@{lite2.h}!ColumnMultiply@{ColumnMultiply}}
+\index{ColumnMultiply@{ColumnMultiply}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{ColumnMultiply()}{ColumnMultiply()}}
+{\footnotesize\ttfamily \label{lite2_8h_af2d4a6e9c58b3995943f051b2b709bb1} 
+void Column\+Multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$}]{column}{, }\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_acfa58732882265b88a2da01b3a6cf948}{WMap}} $>$}]{mt}{, }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$ \&}]{product}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a13132a47bd1e2c56d2b05d091896445d}\index{lite2.h@{lite2.h}!ComputeMean@{ComputeMean}}
+\index{ComputeMean@{ComputeMean}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{ComputeMean()}{ComputeMean()}}
+{\footnotesize\ttfamily \label{lite2_8h_a13132a47bd1e2c56d2b05d091896445d} 
+double Compute\+Mean (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{dt}{, }\item[{int}]{dim}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a5fd7f53b02952c4e38a78932b7d4d04f}\index{lite2.h@{lite2.h}!ComputeSdev@{ComputeSdev}}
+\index{ComputeSdev@{ComputeSdev}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{ComputeSdev()}{ComputeSdev()}}
+{\footnotesize\ttfamily \label{lite2_8h_a5fd7f53b02952c4e38a78932b7d4d04f} 
+double Compute\+Sdev (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{dt}{, }\item[{int}]{dim}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_acfc62f638d7f256178130be948c921f6}\index{lite2.h@{lite2.h}!Copy@{Copy}}
+\index{Copy@{Copy}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \label{lite2_8h_acfc62f638d7f256178130be948c921f6} 
+template$<$class X, class Y$>$ \\
+void Copy (\begin{DoxyParamCaption}\item[{X \&}]{dest}{, }\item[{Y}]{src}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a068bdac0bd10887d43c8495d1511aade}\index{lite2.h@{lite2.h}!CopyInput@{CopyInput}}
+\index{CopyInput@{CopyInput}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{CopyInput()}{CopyInput()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{lite2_8h_a068bdac0bd10887d43c8495d1511aade} 
+template$<$class X$>$ \\
+void Copy\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ X $>$ \&}]{dest}{, }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{nbl}{, }\item[{const std\+::vector$<$ double $>$ \&}]{wtl}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a31fbc4cff08b760d1ffc26e6b395e7e5}\index{lite2.h@{lite2.h}!CopyInput@{CopyInput}}
+\index{CopyInput@{CopyInput}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{CopyInput()}{CopyInput()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{lite2_8h_a31fbc4cff08b760d1ffc26e6b395e7e5} 
+template$<$class X$>$ \\
+void Copy\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ X $>$ \&}]{dest}{, }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{nbl}{, }\item[{\mbox{\hyperlink{lite2_8h_ac6885dbfb371c33e523c7fb046118b36}{INDEX}}}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_ae23d69c5116873b5abc88978a129d1ff}\index{lite2.h@{lite2.h}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily \label{lite2_8h_ae23d69c5116873b5abc88978a129d1ff} 
+template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ \\
+void Destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$}]{it}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_ab6370ad33b283ec00171c2a5439ac7c3}\index{lite2.h@{lite2.h}!divide@{divide}}
+\index{divide@{divide}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{divide()}{divide()}}
+{\footnotesize\ttfamily \label{lite2_8h_ab6370ad33b283ec00171c2a5439ac7c3} 
+template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ \\
+void divide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} \&}]{x}{, }\item[{const \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a194ef7f2fe4817fac79a07166697bb7a}\index{lite2.h@{lite2.h}!Find@{Find}}
+\index{Find@{Find}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}}
+{\footnotesize\ttfamily \label{lite2_8h_a194ef7f2fe4817fac79a07166697bb7a} 
+template$<$class Pair, class Key$>$ \\
+Pair \texorpdfstring{$\ast$}{*} Find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ Pair $>$}]{it}{, }\item[{const Key}]{What}{}\end{DoxyParamCaption})}
+
+\Hypertarget{lite2_8h_aeb88d60e36e6908449b26209f7928c76}\index{lite2.h@{lite2.h}!FindW@{FindW}}
+\index{FindW@{FindW}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{FindW()}{FindW()}}
+{\footnotesize\ttfamily \label{lite2_8h_aeb88d60e36e6908449b26209f7928c76} 
+template$<$class Pair, class Key$>$ \\
+Pair \texorpdfstring{$\ast$}{*} FindW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ Pair $>$}]{it}{, }\item[{const Key}]{What}{}\end{DoxyParamCaption})}
+
+\Hypertarget{lite2_8h_a87d5626dc40955b45bedb1a92b3ba545}\index{lite2.h@{lite2.h}!for\_each@{for\_each}}
+\index{for\_each@{for\_each}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{for\_each()}{for\_each()}}
+{\footnotesize\ttfamily \label{lite2_8h_a87d5626dc40955b45bedb1a92b3ba545} 
+template$<$class D, class F$>$ \\
+void for\+\_\+each (\begin{DoxyParamCaption}\item[{D}]{itr}{, }\item[{F}]{f}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a296bbd8b511d9d0ec7e41b6203569c0d}\index{lite2.h@{lite2.h}!HeapSort@{HeapSort}}
+\index{HeapSort@{HeapSort}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{HeapSort()}{HeapSort()}}
+{\footnotesize\ttfamily \label{lite2_8h_a296bbd8b511d9d0ec7e41b6203569c0d} 
+template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ \\
+void Heap\+Sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$}]{v}{}\end{DoxyParamCaption})}
+
+\Hypertarget{lite2_8h_acc3471b999ba92174faec94199ed7aec}\index{lite2.h@{lite2.h}!NeighborId@{NeighborId}}
+\index{NeighborId@{NeighborId}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{NeighborId()}{NeighborId()}}
+{\footnotesize\ttfamily \label{lite2_8h_acc3471b999ba92174faec94199ed7aec} 
+int Neighbor\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa5cc9c44184affabe7dbac94d90f2854}{WPair}} $>$}]{it}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a51c1244e34e1dc616228075c5f9cfcc2}\index{lite2.h@{lite2.h}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \label{lite2_8h_a51c1244e34e1dc616228075c5f9cfcc2} 
+template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ \\
+\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \& operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&}]{v1}{, }\item[{const \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}}]{v2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a8d3f811d884aa29aea7ac90b301e180f}\index{lite2.h@{lite2.h}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \label{lite2_8h_a8d3f811d884aa29aea7ac90b301e180f} 
+template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ \\
+\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \& operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&}]{v1}{, }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&}]{v2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_aa3573f8fe9ec3c4e1dab0877beaeb5f4}\index{lite2.h@{lite2.h}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{lite2_8h_aa3573f8fe9ec3c4e1dab0877beaeb5f4} 
+template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ \\
+\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \& operator-\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&}]{it1}{, }\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$}]{it2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a839cd9f66fbef0921b0d1b18bc9b7aaa}\index{lite2.h@{lite2.h}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{lite2_8h_a839cd9f66fbef0921b0d1b18bc9b7aaa} 
+template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ \\
+\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \& operator-\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&}]{v1}{, }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$ \&}]{v2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_ab2c7f9df32ca2ccdadef1620601bc118}\index{lite2.h@{lite2.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \label{lite2_8h_ab2c7f9df32ca2ccdadef1620601bc118} 
+template$<$class F, class S$>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{s}{, }\item[{\mbox{\hyperlink{structpairstruct}{pairstruct}}$<$ F, S $>$ \&}]{v}{}\end{DoxyParamCaption})}
+
+\Hypertarget{lite2_8h_aecf90f506ef060987440a9f354a37cc2}\index{lite2.h@{lite2.h}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily \label{lite2_8h_aecf90f506ef060987440a9f354a37cc2} 
+template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ \\
+bool operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} \&}]{x}{, }\item[{const \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a7dd6ec971b6f46098cb10e81b3fb0e9c}\index{lite2.h@{lite2.h}!Product@{Product}}
+\index{Product@{Product}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{Product()}{Product()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{lite2_8h_a7dd6ec971b6f46098cb10e81b3fb0e9c} 
+\mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} Product (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$}]{it1}{, }\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$}]{it2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a1741d3eff97d95cc971de2b1fea89cd2}\index{lite2.h@{lite2.h}!Product@{Product}}
+\index{Product@{Product}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{Product()}{Product()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{lite2_8h_a1741d3eff97d95cc971de2b1fea89cd2} 
+\mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} Product (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa5cc9c44184affabe7dbac94d90f2854}{WPair}} $>$}]{it1}{, }\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$}]{it2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_aa1370876f2c781f443356f2a7b4d4b9c}\index{lite2.h@{lite2.h}!Sum@{Sum}}
+\index{Sum@{Sum}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{Sum()}{Sum()}}
+{\footnotesize\ttfamily \label{lite2_8h_aa1370876f2c781f443356f2a7b4d4b9c} 
+template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ \\
+\mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} Sum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$}]{it}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{lite2_8h_a31c3e1107de675a688243b89d96b40ba}\index{lite2.h@{lite2.h}!Values@{Values}}
+\index{Values@{Values}!lite2.h@{lite2.h}}
+\doxysubsubsection{\texorpdfstring{Values()}{Values()}}
+{\footnotesize\ttfamily \label{lite2_8h_a31c3e1107de675a688243b89d96b40ba} 
+template$<$class \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}$>$ \\
+size\+\_\+t Values (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}} $>$}]{it}{, }\item[{const \mbox{\hyperlink{smile2_8cpp_a7f4206808832737986bb37074e92cba9}{T}}}]{threshold}{}\end{DoxyParamCaption})}
+

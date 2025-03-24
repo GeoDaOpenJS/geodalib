@@ -1,0 +1,266 @@
+\doxysection{gal.\+h}
+\hypertarget{gal_8h_source}{}\label{gal_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/weights/gal.h@{/Users/xun/github/geoda-\/lib/src/cpp/weights/gal.h}}
+\mbox{\hyperlink{gal_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GEODA\_GAL\_WEIGHT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GEODA\_GAL\_WEIGHT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{weights_2_weights_8h}{weights/weights.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacegeoda}{geoda}}\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgeoda_1_1_gal_element_a940550c4aff6930b85ee6384a2fdf16c}{GalElement}}\ \{}
+\DoxyCodeLine{00020\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_af9b1d7f8cb7c13bf0a6e780d0ce9372f}{is\_nbrAvgW\_empty}};}
+\DoxyCodeLine{00022\ \ \ std::vector<double>\ \mbox{\hyperlink{classgeoda_1_1_gal_element_ac4d9413cdf78552ca4fea3531bb5f28f}{nbrAvgW}};}
+\DoxyCodeLine{00023\ \ \ std::map<unsigned\ int,\ int>\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}};\ \ \textcolor{comment}{//\ nbr\_id,\ idx\_in\_nbrWeight}}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a20124618fe8e70daa42be9fc1436de62}{idx}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ std::vector<unsigned\ int>\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}};}
+\DoxyCodeLine{00027\ \ \ std::vector<double>\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a940550c4aff6930b85ee6384a2fdf16c}{GalElement}}()\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_af9b1d7f8cb7c13bf0a6e780d0ce9372f}{is\_nbrAvgW\_empty}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a20124618fe8e70daa42be9fc1436de62}{idx}}\ =\ -\/1;}
+\DoxyCodeLine{00032\ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a176c99a11a2d39b10a1c814e115f0a26}{\string~GalElement}}()\ \{\}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a9e32d1e75feb41f219804cbef680c2a1}{Size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.size();\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\&\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a25cfb78d1e60685e3f65fd756ab8b754}{GetNbrs}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}};\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_ac61e2be4e8fab36fcf292f54c33bcb7d}{operator[]}}(\textcolor{keywordtype}{size\_t}\ n)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[n];\ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a062a8436c7aa13ad72479e0e84933941}{SetSizeNbrs}}(\textcolor{keywordtype}{size\_t}\ sz,\ \textcolor{keywordtype}{bool}\ is\_gal\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.resize(sz);}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}.resize(sz);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (!is\_gal)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sz;\ i++)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}[i]\ =\ 1.0;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ (which\ neighbor,\ what\ ID)}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a3c01c70b047ac2dbd712951b4f28bb60}{SetNbr}}(\textcolor{keywordtype}{size\_t}\ pos,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ <\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.size())\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[pos]\ =\ n;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}[n]\ =\ pos;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ this\ should\ be\ called\ by\ GAL\ created\ only}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ <\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}.size())\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}[pos]\ =\ 1.0;}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a63abc9b2ccfa4b92fc169eaf741b815b}{Print}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.size();\ i++)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00069\ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{comment}{//\ neighbor,\ id,\ weight}}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a36556f3fd8d0b6c2a2f603e846e56102}{SetNbr}}(\textcolor{keywordtype}{size\_t}\ pos,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{double}\ w)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ <\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.size())\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[pos]\ =\ n;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}[n]\ =\ pos;}
+\DoxyCodeLine{00076\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.push\_back(n);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}[n]\ =\ pos;}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ this\ should\ be\ called\ by\ GWT-\/GAL}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ <\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}.size())\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}[pos]\ =\ w;}
+\DoxyCodeLine{00084\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}.push\_back(w);}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aaa1f3cda9314bbf3e305b2d38ef3f771}{SetNbrs}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a940550c4aff6930b85ee6384a2fdf16c}{GalElement}}\&\ gal)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ sz\ =\ gal.\mbox{\hyperlink{classgeoda_1_1_gal_element_a9e32d1e75feb41f219804cbef680c2a1}{Size}}();}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.resize(sz);}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}.resize(sz);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}\ =\ gal.\mbox{\hyperlink{classgeoda_1_1_gal_element_a25cfb78d1e60685e3f65fd756ab8b754}{GetNbrs}}();}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}\ =\ gal.\mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}};}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}\ =\ gal.\mbox{\hyperlink{classgeoda_1_1_gal_element_a525be8a4aed6d124434eb0eba71e7082}{GetNbrWeights}}();}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}\ =\ gal.\mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}};}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_ac4d9413cdf78552ca4fea3531bb5f28f}{nbrAvgW}}\ =\ gal.\mbox{\hyperlink{classgeoda_1_1_gal_element_ac4d9413cdf78552ca4fea3531bb5f28f}{nbrAvgW}};}
+\DoxyCodeLine{00099\ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a525be8a4aed6d124434eb0eba71e7082}{GetNbrWeights}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}};\ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a0905933552d2419a73105c137f964188}{SortNbrs}}()\ \{\ std::sort(\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.begin(),\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.end(),\ std::greater<unsigned\ int>());\ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a85d7ff24f1822da3028216398a47cb67}{ReverseNbrs}}()\ \{\ std::reverse(\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.begin(),\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.end());\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{comment}{//\ Compute\ spatial\ lag\ for\ a\ contiguity\ weights\ matrix.}}
+\DoxyCodeLine{00108\ \ \ \textcolor{comment}{//\ Automatically\ performs\ standardization\ of\ the\ result}}
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a5688f75d9bd223ffd215d715f149b21a}{SpatialLag}}(\textcolor{keyword}{const}\ std::vector<double>\&\ x)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{double}\ lag\ =\ 0;}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ sz\ =\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a9e32d1e75feb41f219804cbef680c2a1}{Size}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sz;\ ++i)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ lag\ +=\ x[\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i]];}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{if}\ (sz\ >\ 1)\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ lag\ /=\ sz;}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{return}\ lag;}
+\DoxyCodeLine{00121\ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a27fc3d5ffe16b55dba78bdeab4e6ce40}{SpatialLag}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}*\ x)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{double}\ lag\ =\ 0;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ sz\ =\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a9e32d1e75feb41f219804cbef680c2a1}{Size}}();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sz;\ ++i)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ lag\ +=\ x[\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i]];}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (sz\ >\ 1)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ lag\ /=\ sz;}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ lag;}
+\DoxyCodeLine{00135\ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aff01167e47be9632b19cbf4925f35cc3}{SpatialLag}}(\textcolor{keyword}{const}\ std::vector<double>\&\ x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ perm)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ todo:\ this\ should\ also\ handle\ ReadGWtAsGAL\ like\ previous\ 2\ functions}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{double}\ lag\ =\ 0;}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ sz\ =\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a9e32d1e75feb41f219804cbef680c2a1}{Size}}();}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sz;\ ++i)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ lag\ +=\ x[perm[\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i]]];}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{if}\ (sz\ >\ 1)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ lag\ /=\ sz;}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ lag;}
+\DoxyCodeLine{00148\ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aae9ae7ddd6ec6e7721b82682b3e7f943}{SpatialLag}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}*\ x,\ \textcolor{keywordtype}{bool}\ is\_binary\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{int}\ self\_id\ =\ -\/1)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{double}\ lag\ =\ 0;}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ sz\ =\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a9e32d1e75feb41f219804cbef680c2a1}{Size}}();}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_binary)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (self\_id\ <\ 0)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sz;\ ++i)\ lag\ +=\ x[\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i]];}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sz\ >\ 1)\ lag\ /=\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(sz);}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ case\ of\ using\ kernel\ weights\ with\ diagonal}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\_nbrs\ =\ 0;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.size();\ ++i)\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i]\ !=\ self\_id)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ lag\ +=\ x[\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i]];}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ n\_nbrs\ +=\ 1;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\_nbrs\ >\ 0)\ lag\ /=\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(n\_nbrs);}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sumW\ =\ 0;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (self\_id\ <\ 0)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sz;\ ++i)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ sumW\ +=\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}[i];}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sumW\ ==\ 0)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ lag\ =\ 0;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sz;\ ++i)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ lag\ +=\ x[\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i]]\ *\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}[i]\ /\ sumW;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ case\ of\ using\ kernel\ weights\ with\ diagonal}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sz;\ ++i)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i]\ !=\ self\_id)\ \{\ \ \textcolor{comment}{//\ exclude\ self-\/neighbor}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ sumW\ +=\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}[i];}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sumW\ ==\ 0)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ lag\ =\ 0;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sz;\ ++i)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i]\ !=\ self\_id)\ \{\ \ \textcolor{comment}{//\ exclude\ self-\/neighbor}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lag\ +=\ x[\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i]]\ *\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}[i]\ /\ sumW;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{return}\ lag;}
+\DoxyCodeLine{00203\ \ \ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \textcolor{comment}{//\ return\ row\ standardized\ weights\ value}}
+\DoxyCodeLine{00206\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_abd87a174cd6b72fca44cc62bff51c166}{GetRW}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a20124618fe8e70daa42be9fc1436de62}{idx}})\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_gal_element_af9b1d7f8cb7c13bf0a6e780d0ce9372f}{is\_nbrAvgW\_empty}})\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ sz\ =\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.size();}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_ac4d9413cdf78552ca4fea3531bb5f28f}{nbrAvgW}}.resize(sz);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sumW\ =\ 0.0;}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sz;\ i++)\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ sumW\ +=\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}[i];}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sz;\ i++)\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_ac4d9413cdf78552ca4fea3531bb5f28f}{nbrAvgW}}[i]\ =\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}[i]\ /\ sumW;}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_af9b1d7f8cb7c13bf0a6e780d0ce9372f}{is\_nbrAvgW\_empty}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}.find(\mbox{\hyperlink{classgeoda_1_1_gal_element_a20124618fe8e70daa42be9fc1436de62}{idx}})\ !=\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}.end())\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_ac4d9413cdf78552ca4fea3531bb5f28f}{nbrAvgW}}[\mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}[\mbox{\hyperlink{classgeoda_1_1_gal_element_a20124618fe8e70daa42be9fc1436de62}{idx}}]];}
+\DoxyCodeLine{00224\ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordflow}{return}\ 0.0;}
+\DoxyCodeLine{00226\ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_ae6fbe21f7bece5bfa74d485069767a26}{Check}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nbrIdx)\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}.find(nbrIdx)\ !=\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}.end())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00231\ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_gal_element_abbe8626aa7c7fc09099eaef1c6ff5d89}{Update}}(\textcolor{keyword}{const}\ std::vector<bool>\&\ undefs)\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ std::vector<int>\ undef\_obj\_positions;}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.size();\ i++)\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ obj\_id\ =\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[i];}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (undefs[obj\_id])\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pos\ =\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}[obj\_id];}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ undef\_obj\_positions.push\_back(pos);}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{if}\ (undef\_obj\_positions.empty())\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{comment}{//\ sort\ the\ positions\ in\ descending\ order,\ for\ removing\ from\ std::vector}}
+\DoxyCodeLine{00247\ \ \ \ \ std::sort(undef\_obj\_positions.begin(),\ undef\_obj\_positions.end(),\ std::greater<int>());}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ undef\_obj\_positions.size();\ i++)\ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pos\ =\ undef\_obj\_positions[i];}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ <\ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.size())\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a0f411050dd9ee5283027024fcb830618}{nbrLookup}}.erase(\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}[pos]);}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.erase(\mbox{\hyperlink{classgeoda_1_1_gal_element_aeeda4ec538a092938ac9192510e6661a}{nbr}}.begin()\ +\ pos);}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ <\ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}.size())\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}.erase(\mbox{\hyperlink{classgeoda_1_1_gal_element_a13aed228f5867f4ba15fb9382c18da03}{nbrWeight}}.begin()\ +\ pos);}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00258\ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \}}
+\DoxyCodeLine{00260\ \};}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \}\ \ \textcolor{comment}{//\ namespace\ geoda}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GEODA\_GAL\_WEIGHT\_H}}
+
+\end{DoxyCode}

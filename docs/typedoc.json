@@ -1,6 +1,6 @@
 {
   "entryPoints": ["../src/js/src/index.ts"],
-  "plugin": ["typedoc-plugin-markdown"],
+  "plugin": ["typedoc-plugin-markdown", "typedoc-vitepress-theme"],
   // "theme": "typedoc-vitepress-theme",
   "out": "api",
   "skipErrorChecking": true

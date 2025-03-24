@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="class_batch_local_moran" kind="class" language="C++" prot="public">
+    <compoundname>BatchLocalMoran</compoundname>
+    <basecompoundref refid="class_batch_l_i_s_a" prot="public" virt="non-virtual">BatchLISA</basecompoundref>
+    <includes refid="_batch_local_moran_8h" local="no">BatchLocalMoran.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_batch_local_moran_1a2d03b9d82e84e4e9061b1c74e516fb8c" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int BatchLocalMoran::CLUSTER_NOT_SIG</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_NOT_SIG</name>
+        <qualifiedname>BatchLocalMoran::CLUSTER_NOT_SIG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="15" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_batch_local_moran_1ad0b20d411ea6429edc99f1883721bcb7" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int BatchLocalMoran::CLUSTER_HIGHHIGH</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_HIGHHIGH</name>
+        <qualifiedname>BatchLocalMoran::CLUSTER_HIGHHIGH</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="16" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_batch_local_moran_1af53eeed1a0cae2a6a9facb0a3c5b4af8" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int BatchLocalMoran::CLUSTER_LOWLOW</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_LOWLOW</name>
+        <qualifiedname>BatchLocalMoran::CLUSTER_LOWLOW</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="17" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_batch_local_moran_1a60fca747a6ff396ac845dcc70a45e5b5" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int BatchLocalMoran::CLUSTER_LOWHIGH</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_LOWHIGH</name>
+        <qualifiedname>BatchLocalMoran::CLUSTER_LOWHIGH</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="18" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_batch_local_moran_1a54284bf217b00c156d1e9de6e40c1a80" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int BatchLocalMoran::CLUSTER_HIGHLOW</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_HIGHLOW</name>
+        <qualifiedname>BatchLocalMoran::CLUSTER_HIGHLOW</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="19" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_batch_local_moran_1a097084dfd183ae264299886b75ea604a" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int BatchLocalMoran::CLUSTER_UNDEFINED</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_UNDEFINED</name>
+        <qualifiedname>BatchLocalMoran::CLUSTER_UNDEFINED</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="20" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_batch_local_moran_1a36e8cc557feb0dbb529bf50d8518f908" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int BatchLocalMoran::CLUSTER_NEIGHBORLESS</definition>
+        <argsstring></argsstring>
+        <name>CLUSTER_NEIGHBORLESS</name>
+        <qualifiedname>BatchLocalMoran::CLUSTER_NEIGHBORLESS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="21" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_batch_local_moran_1a8de278db157568024ce068132abbef34" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; BatchLocalMoran::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>BatchLocalMoran::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="40" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_batch_local_moran_1a077c3841930bb72c8d8c1219c2ddace3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BatchLocalMoran::BatchLocalMoran</definition>
+        <argsstring>(int num_obs, GeoDaWeight *w, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;data, const std::vector&lt; std::vector&lt; bool &gt; &gt; &amp;undefs, double significance_cutoff, int nCPUs, int permutations, uint64_t last_seed_used)</argsstring>
+        <name>BatchLocalMoran</name>
+        <qualifiedname>BatchLocalMoran::BatchLocalMoran</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>num_obs</declname>
+        </param>
+        <param>
+          <type><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref> *</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; bool &gt; &gt; &amp;</type>
+          <declname>undefs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>significance_cutoff</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nCPUs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>permutations</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>last_seed_used</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="24" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.cpp" bodystart="11" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_batch_local_moran_1a23ebd40f45ff798ea337d3a1be7b3c04" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BatchLocalMoran::~BatchLocalMoran</definition>
+        <argsstring>()</argsstring>
+        <name>~BatchLocalMoran</name>
+        <qualifiedname>BatchLocalMoran::~BatchLocalMoran</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="28" column="11" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.cpp" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_batch_local_moran_1adb714eb82c58360a87d75d16af2b2d8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BatchLocalMoran::ComputeLoalSA</definition>
+        <argsstring>()</argsstring>
+        <name>ComputeLoalSA</name>
+        <qualifiedname>BatchLocalMoran::ComputeLoalSA</qualifiedname>
+        <reimplements refid="class_batch_l_i_s_a_1a912364a71106968ed77f4f4b17122f81">ComputeLoalSA</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="30" column="16" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.cpp" bodystart="47" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_batch_local_moran_1a3b57e2a7ab358c55b54807989a5bc0f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BatchLocalMoran::PermLocalSA</definition>
+        <argsstring>(int cnt, int perm, const std::vector&lt; int &gt; &amp;permNeighbors, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;permutedSA)</argsstring>
+        <name>PermLocalSA</name>
+        <qualifiedname>BatchLocalMoran::PermLocalSA</qualifiedname>
+        <reimplements refid="class_batch_l_i_s_a_1a7ed3bc7770e54c05637c1ab43fd86690">PermLocalSA</reimplements>
+        <param>
+          <type>int</type>
+          <declname>cnt</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>perm</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>permNeighbors</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>permutedSA</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="32" column="16" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.cpp" bodystart="86" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_batch_local_moran_1a234a72460b0b49e9b703fecefae55831" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::vector&lt; uint64_t &gt;</type>
+        <definition>std::vector&lt; uint64_t &gt; BatchLocalMoran::CountLargerSA</definition>
+        <argsstring>(int cnt, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;permutedSA)</argsstring>
+        <name>CountLargerSA</name>
+        <qualifiedname>BatchLocalMoran::CountLargerSA</qualifiedname>
+        <reimplements refid="class_batch_l_i_s_a_1a936e4be0882cd88adf07c6053ef2d6f4">CountLargerSA</reimplements>
+        <param>
+          <type>int</type>
+          <declname>cnt</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>permutedSA</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="35" column="23" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.cpp" bodystart="111" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="class_batch_local_moran_1a4509a22c2a999495c88b500b362f13d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt; int &gt; BatchLocalMoran::GetClusterIndicators</definition>
+        <argsstring>(int idx)</argsstring>
+        <name>GetClusterIndicators</name>
+        <qualifiedname>BatchLocalMoran::GetClusterIndicators</qualifiedname>
+        <reimplements refid="class_batch_l_i_s_a_1a64668148f4f1ed44c3ee726de14cfbd0">GetClusterIndicators</reimplements>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="37" column="23" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.cpp" bodystart="130" bodyend="143"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BatchLISA</label>
+        <link refid="class_batch_l_i_s_a"/>
+      </node>
+      <node id="1">
+        <label>BatchLocalMoran</label>
+        <link refid="class_batch_local_moran"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BatchLISA</label>
+        <link refid="class_batch_l_i_s_a"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>weights</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BatchLocalMoran</label>
+        <link refid="class_batch_local_moran"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GeoDaWeight</label>
+        <link refid="class_geo_da_weight"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" line="14" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/lisa/BatchLocalMoran.h" bodystart="14" bodyend="41"/>
+    <listofallmembers>
+      <member refid="class_batch_l_i_s_a_1a63f499cde5d347aa148e7ff02a5b3379" prot="public" virt="non-virtual"><scope>BatchLocalMoran</scope><name>BatchLISA</name></member>
+      <member refid="class_batch_local_moran_1a077c3841930bb72c8d8c1219c2ddace3" prot="public" virt="non-virtual"><scope>BatchLocalMoran</scope><name>BatchLocalMoran</name></member>
+      <member refid="class_batch_l_i_s_a_1a161b0aa92fd69f547d225283039174f5" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>calc_significances</name></member>
+      <member refid="class_batch_l_i_s_a_1af4ba7dffdb88a6edb74cfb17103bf4cd" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>CalcPseudoP</name></member>
+      <member refid="class_batch_l_i_s_a_1a01346ac98a9204ed99d2a0d9dc2a0595" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>CalcPseudoP_range</name></member>
+      <member refid="class_batch_l_i_s_a_1a206db1935f2bcfe824a0a213839c0510" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>CalcPseudoP_threaded</name></member>
+      <member refid="class_batch_local_moran_1ad0b20d411ea6429edc99f1883721bcb7" prot="private" virt="non-virtual"><scope>BatchLocalMoran</scope><name>CLUSTER_HIGHHIGH</name></member>
+      <member refid="class_batch_local_moran_1a54284bf217b00c156d1e9de6e40c1a80" prot="private" virt="non-virtual"><scope>BatchLocalMoran</scope><name>CLUSTER_HIGHLOW</name></member>
+      <member refid="class_batch_local_moran_1a60fca747a6ff396ac845dcc70a45e5b5" prot="private" virt="non-virtual"><scope>BatchLocalMoran</scope><name>CLUSTER_LOWHIGH</name></member>
+      <member refid="class_batch_local_moran_1af53eeed1a0cae2a6a9facb0a3c5b4af8" prot="private" virt="non-virtual"><scope>BatchLocalMoran</scope><name>CLUSTER_LOWLOW</name></member>
+      <member refid="class_batch_local_moran_1a36e8cc557feb0dbb529bf50d8518f908" prot="private" virt="non-virtual"><scope>BatchLocalMoran</scope><name>CLUSTER_NEIGHBORLESS</name></member>
+      <member refid="class_batch_local_moran_1a2d03b9d82e84e4e9061b1c74e516fb8c" prot="private" virt="non-virtual"><scope>BatchLocalMoran</scope><name>CLUSTER_NOT_SIG</name></member>
+      <member refid="class_batch_local_moran_1a097084dfd183ae264299886b75ea604a" prot="private" virt="non-virtual"><scope>BatchLocalMoran</scope><name>CLUSTER_UNDEFINED</name></member>
+      <member refid="class_batch_l_i_s_a_1a48ff3a6e4742c47a97699d555ed44155" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>cluster_vec</name></member>
+      <member refid="class_batch_l_i_s_a_1a7b23e882e584108cd4748fee1f034d42" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>colors</name></member>
+      <member refid="class_batch_local_moran_1adb714eb82c58360a87d75d16af2b2d8c" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>ComputeLoalSA</name></member>
+      <member refid="class_batch_local_moran_1a234a72460b0b49e9b703fecefae55831" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>CountLargerSA</name></member>
+      <member refid="class_batch_local_moran_1a8de278db157568024ce068132abbef34" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>data</name></member>
+      <member refid="class_batch_l_i_s_a_1a6a212260baeee4c914bb9752627508ef" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetBO</name></member>
+      <member refid="class_batch_local_moran_1a4509a22c2a999495c88b500b362f13d0" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetClusterIndicators</name></member>
+      <member refid="class_batch_l_i_s_a_1afc2fbced26a6154cabdd82ce68fe21e0" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetColors</name></member>
+      <member refid="class_batch_l_i_s_a_1af21c99ed8a15fc79fae2debe76da6dd4" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetDefaultCategories</name></member>
+      <member refid="class_batch_l_i_s_a_1a963b68a3a3772360cd04539fc17f29a8" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetDefaultCutoffs</name></member>
+      <member refid="class_batch_l_i_s_a_1a6684f63321d322bf1cc3d8107049b976" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetFDR</name></member>
+      <member refid="class_batch_l_i_s_a_1acb8fafedd7b86af1be217ffb2d25305d" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetHasIsolates</name></member>
+      <member refid="class_batch_l_i_s_a_1a3f77fd90f006297c210a034c43c88e92" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetHasUndefined</name></member>
+      <member refid="class_batch_l_i_s_a_1a1ffb1f2bc4c7ac2aa1e58135aa9e1209" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetLabels</name></member>
+      <member refid="class_batch_l_i_s_a_1a48922390f1e7f318efd693c3ccd4b463" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetLastUsedSeed</name></member>
+      <member refid="class_batch_l_i_s_a_1ac56c5feca4a69226e04ece590847d2ff" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetLISAValues</name></member>
+      <member refid="class_batch_l_i_s_a_1ab1d543fade2290fff4f48b4be2171e1f" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetLocalSignificanceValues</name></member>
+      <member refid="class_batch_l_i_s_a_1a5c150d16af001c658004c762c54a30ae" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetNumNeighbors</name></member>
+      <member refid="class_batch_l_i_s_a_1aa54c7033fee3b3477f5ab7f3d4203433" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetNumPermutations</name></member>
+      <member refid="class_batch_l_i_s_a_1a2179250821133e59d7d68acec85c2f4c" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetNumThreads</name></member>
+      <member refid="class_batch_l_i_s_a_1a258ee2b3d9694d11718c0c1fde55d497" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetSigCatIndicators</name></member>
+      <member refid="class_batch_l_i_s_a_1ad0e884d33d8a01b6606f83fc9fb94169" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetSignificanceCutoff</name></member>
+      <member refid="class_batch_l_i_s_a_1a7e6aac14436d0ebaa717e596b6db909a" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetSignificanceFilter</name></member>
+      <member refid="class_batch_l_i_s_a_1a651ee834f2d0efc183f72361a478808c" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetSpatialLagValues</name></member>
+      <member refid="class_batch_l_i_s_a_1a261bbb74d46f4fd628506d51e99d4d74" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>GetUserCutoff</name></member>
+      <member refid="class_batch_l_i_s_a_1a7903dcf217bf1b854772b5b0bfaafb64" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>has_isolates</name></member>
+      <member refid="class_batch_l_i_s_a_1a135f1b1f9e6ec0f81f579b2685ee007f" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>has_undefined</name></member>
+      <member refid="class_batch_l_i_s_a_1a0234412dac2672683fb26900285c62ea" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>IsReuseLastSeed</name></member>
+      <member refid="class_batch_l_i_s_a_1ae13f7fd84d0a792c18125e5e3cc4efcc" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>IsRowStandardize</name></member>
+      <member refid="class_batch_l_i_s_a_1a25b06a3d5d9d1ef551607671d10a352f" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>labels</name></member>
+      <member refid="class_batch_l_i_s_a_1aa25fa791b1d3cfb2c9dd1d3f3b8a3bf1" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>lag_vec</name></member>
+      <member refid="class_batch_l_i_s_a_1a58da92a3ad297dd294b8631395d3e2e6" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>last_seed_used</name></member>
+      <member refid="class_batch_l_i_s_a_1ae1592bab99cab0a3cb937fb0edccf184" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>lisa_vec</name></member>
+      <member refid="class_batch_l_i_s_a_1a772e893eb6919dbb8a904d2b9cc293cb" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>nCPUs</name></member>
+      <member refid="class_batch_l_i_s_a_1a8eee5f68e8274762ff9aa69ab4902d0f" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>nn_vec</name></member>
+      <member refid="class_batch_l_i_s_a_1addfa51ca3a3e1869edcd2342c5bf50f0" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>num_batch</name></member>
+      <member refid="class_batch_l_i_s_a_1acfa114b6646825683aa75107e95d3e77" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>num_obs</name></member>
+      <member refid="class_batch_local_moran_1a3b57e2a7ab358c55b54807989a5bc0f0" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>PermLocalSA</name></member>
+      <member refid="class_batch_l_i_s_a_1aa68604b747006dc0da9dd22a4276ec2e" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>permutations</name></member>
+      <member refid="class_batch_l_i_s_a_1a8306280cca5606aa7b2365bef3db69e5" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>reuse_last_seed</name></member>
+      <member refid="class_batch_l_i_s_a_1a049f7565501a8242b3d5efa97932557a" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>row_standardize</name></member>
+      <member refid="class_batch_l_i_s_a_1afc0199862116962406688e23d9cb8eec" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>Run</name></member>
+      <member refid="class_batch_l_i_s_a_1a6b0349e58232f861fb9f22438ebc669b" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>SetLastUsedSeed</name></member>
+      <member refid="class_batch_l_i_s_a_1ac62c00856e07ed02a886ca146809b5fd" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>SetNumPermutations</name></member>
+      <member refid="class_batch_l_i_s_a_1a9718111864edefff4faba880bef21704" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>SetNumThreads</name></member>
+      <member refid="class_batch_l_i_s_a_1afd8ed58b76ae0679e574abc28ef49b26" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>SetReuseLastSeed</name></member>
+      <member refid="class_batch_l_i_s_a_1ae78b2179938f8e1ed1223456da74c160" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>SetRowStandardize</name></member>
+      <member refid="class_batch_l_i_s_a_1a6a7b354a62bf1812e6d633481299f854" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>SetSignificanceCutoff</name></member>
+      <member refid="class_batch_l_i_s_a_1ab0ca50fa4fd73926f8e99144cc609536" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>SetSignificanceFilter</name></member>
+      <member refid="class_batch_l_i_s_a_1aa273824fa66082932a8988e8a8b2102d" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>SetUserCutoff</name></member>
+      <member refid="class_batch_l_i_s_a_1ac7d1f7d2ef8d4e236c7c3df80773df5f" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>sig_cat_vec</name></member>
+      <member refid="class_batch_l_i_s_a_1a35a6414f3ed4f44e5828e68bcc0f9160" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>sig_local_vec</name></member>
+      <member refid="class_batch_l_i_s_a_1aae887eeb8b3fd9a42ef60c399de53bc7" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>significance_cutoff</name></member>
+      <member refid="class_batch_l_i_s_a_1a039f5ad06b7098574cae5e133449dee2" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>significance_filter</name></member>
+      <member refid="class_batch_l_i_s_a_1abd135602bbc27fbeaf18f4284c185995" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>undefs</name></member>
+      <member refid="class_batch_l_i_s_a_1a73066ebb119363b95cea0fcfb246e5ad" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>user_sig_cutoff</name></member>
+      <member refid="class_batch_l_i_s_a_1aa652dafdede6fe0792d434db2f1d0010" prot="protected" virt="non-virtual"><scope>BatchLocalMoran</scope><name>weights</name></member>
+      <member refid="class_batch_l_i_s_a_1aa4239554d60029952c2b095db1ab50fa" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>~BatchLISA</name></member>
+      <member refid="class_batch_local_moran_1a23ebd40f45ff798ea337d3a1be7b3c04" prot="public" virt="virtual"><scope>BatchLocalMoran</scope><name>~BatchLocalMoran</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

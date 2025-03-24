@@ -1,0 +1,45 @@
+\doxysection{/\+Users/xun/github/geoda-\/lib/src/cpp/sa/lisa-\/api.h File Reference}
+\hypertarget{lisa-api_8h}{}\label{lisa-api_8h}\index{/Users/xun/github/geoda-\/lib/src/cpp/sa/lisa-\/api.h@{/Users/xun/github/geoda-\/lib/src/cpp/sa/lisa-\/api.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}lisa/\+LISA.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structgeoda_1_1_lisa_result}{geoda\+::\+Lisa\+Result}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegeoda}{geoda}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88}{geoda\+::\+Local\+Moran\+Cluster\+Type}} \{ \newline
+\mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88afcb26c5f969390a65abe86add70398df}{geoda\+::\+HH}} = 1
+, \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88a05067a3789e9d47a036f57e506575f3d}{geoda\+::\+LL}} = 2
+, \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88aec5dca9e2204b1a5d32be5369157f42e}{geoda\+::\+HL}} = 3
+, \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88a51185311473f4e3a03d21a7ac47eb3cc}{geoda\+::\+LH}} = 4
+, \newline
+\mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88a13b6345248fd2f0648de0bae82822dfa}{geoda\+::\+NEIGHBORLESS}} = 5
+, \mbox{\hyperlink{namespacegeoda_a8194b74832000db775cc553040126c88a3ab7a68960a7642292918c06b28cf3e2}{geoda\+::\+UNDEFINED}} = 6
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \mbox{\hyperlink{namespacegeoda_a6923d07c932f5f7c1ea5d19c4644ba20}{geoda\+::create\+\_\+perm\+\_\+table}} (const std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \&neighbors, unsigned int num\+\_\+permutations, unsigned int max\+\_\+num\+\_\+neighbors)
+\item 
+\mbox{\hyperlink{structgeoda_1_1_lisa_result}{Lisa\+Result}} \mbox{\hyperlink{namespacegeoda_a451233e599c0bec0a7339dcb37f7e0bb}{geoda\+::local\+\_\+moran}} (const std\+::vector$<$ double $>$ \&data, const std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \&neighbors, const std\+::vector$<$ unsigned int $>$ \&undefs, double significance\+\_\+cutoff, unsigned int perm, int last\+\_\+seed)
+\item 
+\mbox{\hyperlink{structgeoda_1_1_lisa_result}{Lisa\+Result}} \mbox{\hyperlink{namespacegeoda_a5a0d51cf7e5d7d56d5d877494664320d}{geoda\+::local\+\_\+bivariate\+\_\+moran}} (const std\+::vector$<$ double $>$ \&data1, const std\+::vector$<$ double $>$ \&data2, const std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \&neighbors, const std\+::vector$<$ unsigned int $>$ \&undefs, double significance\+\_\+cutoff, unsigned int perm, int last\+\_\+seed)
+\item 
+\mbox{\hyperlink{structgeoda_1_1_lisa_result}{Lisa\+Result}} \mbox{\hyperlink{namespacegeoda_a20eeb64ced54469d08d53089892fe778}{geoda\+::local\+\_\+g}} (const std\+::vector$<$ double $>$ \&data, const std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \&neighbors, const std\+::vector$<$ unsigned int $>$ \&undefs, double significance\+\_\+cutoff, unsigned int perm, int last\+\_\+seed, int is\+\_\+gstar)
+\item 
+\mbox{\hyperlink{structgeoda_1_1_lisa_result}{Lisa\+Result}} \mbox{\hyperlink{namespacegeoda_a17f0149c0d8ed5c1be04498d782184ed}{geoda\+::local\+\_\+geary}} (const std\+::vector$<$ double $>$ \&data, const std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \&neighbors, const std\+::vector$<$ unsigned int $>$ \&undefs, double significance\+\_\+cutoff, unsigned int perm, int last\+\_\+seed)
+\item 
+\mbox{\hyperlink{structgeoda_1_1_lisa_result}{Lisa\+Result}} \mbox{\hyperlink{namespacegeoda_a5d52653ea03254bdb20739b3f19b9750}{geoda\+::local\+\_\+multivariate\+\_\+geary}} (const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&data, const std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \&neighbors, const std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \&undefs, double significance\+\_\+cutoff, unsigned int perm, int last\+\_\+seed)
+\item 
+\mbox{\hyperlink{structgeoda_1_1_lisa_result}{Lisa\+Result}} \mbox{\hyperlink{namespacegeoda_a86290af35de484bd39ef74712b866c3b}{geoda\+::quantile\+\_\+lisa}} (int k, int quantile, const std\+::vector$<$ double $>$ \&data, const std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \&neighbors, const std\+::vector$<$ unsigned int $>$ \&undefs, double significance\+\_\+cutoff, unsigned int perm, int last\+\_\+seed)
+\end{DoxyCompactItemize}

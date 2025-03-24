@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="structgeoda_1_1_lisa_result" kind="struct" language="C++" prot="public">
+    <compoundname>geoda::LisaResult</compoundname>
+    <includes refid="lisa-api_8h" local="no">lisa-api.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structgeoda_1_1_lisa_result_1a23662886bd08e74af91904c0b9a09b60" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool geoda::LisaResult::is_valid</definition>
+        <argsstring></argsstring>
+        <name>is_valid</name>
+        <qualifiedname>geoda::LisaResult::is_valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="17" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structgeoda_1_1_lisa_result_1a9d647b56a2161fc608d6a588182834df" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; geoda::LisaResult::sig_local_vec</definition>
+        <argsstring></argsstring>
+        <name>sig_local_vec</name>
+        <qualifiedname>geoda::LisaResult::sig_local_vec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="18" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structgeoda_1_1_lisa_result_1a12b7124f996257de8f7b10c15af1ccc3" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; geoda::LisaResult::sig_cat_vec</definition>
+        <argsstring></argsstring>
+        <name>sig_cat_vec</name>
+        <qualifiedname>geoda::LisaResult::sig_cat_vec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="19" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structgeoda_1_1_lisa_result_1a3cdf8a9eafe59659e975e29f5faabf4b" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; geoda::LisaResult::cluster_vec</definition>
+        <argsstring></argsstring>
+        <name>cluster_vec</name>
+        <qualifiedname>geoda::LisaResult::cluster_vec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="20" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structgeoda_1_1_lisa_result_1a502d7e93cb055a3d5c9b74b6e85653a6" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; geoda::LisaResult::lag_vec</definition>
+        <argsstring></argsstring>
+        <name>lag_vec</name>
+        <qualifiedname>geoda::LisaResult::lag_vec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="21" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structgeoda_1_1_lisa_result_1aaf9b3f2f48a414a19a19ba46a0118642" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; geoda::LisaResult::lisa_vec</definition>
+        <argsstring></argsstring>
+        <name>lisa_vec</name>
+        <qualifiedname>geoda::LisaResult::lisa_vec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="22" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structgeoda_1_1_lisa_result_1a0a85f743c921ca57d88059036c909ea0" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; geoda::LisaResult::nn_vec</definition>
+        <argsstring></argsstring>
+        <name>nn_vec</name>
+        <qualifiedname>geoda::LisaResult::nn_vec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="23" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structgeoda_1_1_lisa_result_1a6265ee6a9c48f2a196798f9226325b60" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; geoda::LisaResult::labels</definition>
+        <argsstring></argsstring>
+        <name>labels</name>
+        <qualifiedname>geoda::LisaResult::labels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="24" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structgeoda_1_1_lisa_result_1a7d39744329d95b83bbc42fa3feb5f9b9" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; geoda::LisaResult::colors</definition>
+        <argsstring></argsstring>
+        <name>colors</name>
+        <qualifiedname>geoda::LisaResult::colors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="25" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structgeoda_1_1_lisa_result_1ad011f05cb84c194ceabe35fe4fa40517" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool geoda::LisaResult::get_is_valid</definition>
+        <argsstring>()</argsstring>
+        <name>get_is_valid</name>
+        <qualifiedname>geoda::LisaResult::get_is_valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="27" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structgeoda_1_1_lisa_result_1a189aafbba76f5caa5f58f4fce9db0c9b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; geoda::LisaResult::get_sig_local</definition>
+        <argsstring>()</argsstring>
+        <name>get_sig_local</name>
+        <qualifiedname>geoda::LisaResult::get_sig_local</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="28" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="structgeoda_1_1_lisa_result_1abaec515b25e9ace7de75885e1312916f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt; int &gt; geoda::LisaResult::get_sig_cat</definition>
+        <argsstring>()</argsstring>
+        <name>get_sig_cat</name>
+        <qualifiedname>geoda::LisaResult::get_sig_cat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="29" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="structgeoda_1_1_lisa_result_1aa4281e3f7415d2bd33acce1b24057bae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt; int &gt; geoda::LisaResult::get_cluster</definition>
+        <argsstring>()</argsstring>
+        <name>get_cluster</name>
+        <qualifiedname>geoda::LisaResult::get_cluster</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="30" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="structgeoda_1_1_lisa_result_1ad56bbeb079bd3c83010ebd1a3a8184b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; geoda::LisaResult::get_lag</definition>
+        <argsstring>()</argsstring>
+        <name>get_lag</name>
+        <qualifiedname>geoda::LisaResult::get_lag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="31" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="structgeoda_1_1_lisa_result_1a77f34c6ce7018a3d182a2e0279d123d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; geoda::LisaResult::get_lisa</definition>
+        <argsstring>()</argsstring>
+        <name>get_lisa</name>
+        <qualifiedname>geoda::LisaResult::get_lisa</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="32" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="structgeoda_1_1_lisa_result_1a61d99a56786fe2fbd9a32e217f99483c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt; int &gt; geoda::LisaResult::get_nn</definition>
+        <argsstring>()</argsstring>
+        <name>get_nn</name>
+        <qualifiedname>geoda::LisaResult::get_nn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="33" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structgeoda_1_1_lisa_result_1aa127de51c25d7c40fa597d2b9d77c99b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; geoda::LisaResult::get_labels</definition>
+        <argsstring>()</argsstring>
+        <name>get_labels</name>
+        <qualifiedname>geoda::LisaResult::get_labels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="34" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="structgeoda_1_1_lisa_result_1a0d3497b8e1eb223f2b4557025f28e211" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; geoda::LisaResult::get_colors</definition>
+        <argsstring>()</argsstring>
+        <name>get_colors</name>
+        <qualifiedname>geoda::LisaResult::get_colors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="35" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" line="16" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/sa/lisa-api.h" bodystart="16" bodyend="36"/>
+    <listofallmembers>
+      <member refid="structgeoda_1_1_lisa_result_1a3cdf8a9eafe59659e975e29f5faabf4b" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>cluster_vec</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1a7d39744329d95b83bbc42fa3feb5f9b9" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>colors</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1aa4281e3f7415d2bd33acce1b24057bae" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>get_cluster</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1a0d3497b8e1eb223f2b4557025f28e211" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>get_colors</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1ad011f05cb84c194ceabe35fe4fa40517" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>get_is_valid</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1aa127de51c25d7c40fa597d2b9d77c99b" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>get_labels</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1ad56bbeb079bd3c83010ebd1a3a8184b9" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>get_lag</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1a77f34c6ce7018a3d182a2e0279d123d9" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>get_lisa</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1a61d99a56786fe2fbd9a32e217f99483c" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>get_nn</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1abaec515b25e9ace7de75885e1312916f" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>get_sig_cat</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1a189aafbba76f5caa5f58f4fce9db0c9b" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>get_sig_local</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1a23662886bd08e74af91904c0b9a09b60" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>is_valid</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1a6265ee6a9c48f2a196798f9226325b60" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>labels</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1a502d7e93cb055a3d5c9b74b6e85653a6" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>lag_vec</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1aaf9b3f2f48a414a19a19ba46a0118642" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>lisa_vec</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1a0a85f743c921ca57d88059036c909ea0" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>nn_vec</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1a12b7124f996257de8f7b10c15af1ccc3" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>sig_cat_vec</name></member>
+      <member refid="structgeoda_1_1_lisa_result_1a9d647b56a2161fc608d6a588182834df" prot="public" virt="non-virtual"><scope>geoda::LisaResult</scope><name>sig_local_vec</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,49 @@
+\doxysection{Batch\+Local\+Moran.\+h}
+\hypertarget{_batch_local_moran_8h_source}{}\label{_batch_local_moran_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/lisa/BatchLocalMoran.h@{/Users/xun/github/geoda-\/lib/src/cpp/lisa/BatchLocalMoran.h}}
+\mbox{\hyperlink{_batch_local_moran_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xun\ Li\ on\ 2019-\/06-\/05.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ GEODA\_BATCHLOCALMORAN\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ GEODA\_BATCHLOCALMORAN\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_batch_l_i_s_a_8h}{BatchLISA.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_geo_da_weight}{GeoDaWeight}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_batch_local_moran_a077c3841930bb72c8d8c1219c2ddace3}{BatchLocalMoran}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_batch_l_i_s_a_a63f499cde5d347aa148e7ff02a5b3379}{BatchLISA}}\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_NOT\_SIG;}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_HIGHHIGH;}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_LOWLOW;}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_LOWHIGH;}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_HIGHLOW;}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_UNDEFINED;}
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CLUSTER\_NEIGHBORLESS;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{class_batch_local_moran_a077c3841930bb72c8d8c1219c2ddace3}{BatchLocalMoran}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_batch_l_i_s_a_acfa114b6646825683aa75107e95d3e77}{num\_obs}},\ \mbox{\hyperlink{class_geo_da_weight}{GeoDaWeight}}*\ w,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>\ >\&\ \mbox{\hyperlink{class_batch_local_moran_a8de278db157568024ce068132abbef34}{data}},}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<bool>\ >\&\ \mbox{\hyperlink{class_batch_l_i_s_a_abd135602bbc27fbeaf18f4284c185995}{undefs}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_batch_l_i_s_a_aae887eeb8b3fd9a42ef60c399de53bc7}{significance\_cutoff}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_batch_l_i_s_a_a772e893eb6919dbb8a904d2b9cc293cb}{nCPUs}},}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_batch_l_i_s_a_aa68604b747006dc0da9dd22a4276ec2e}{permutations}},\ uint64\_t\ \mbox{\hyperlink{class_batch_l_i_s_a_a58da92a3ad297dd294b8631395d3e2e6}{last\_seed\_used}});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_batch_local_moran_a23ebd40f45ff798ea337d3a1be7b3c04}{\string~BatchLocalMoran}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_batch_local_moran_adb714eb82c58360a87d75d16af2b2d8c}{ComputeLoalSA}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_batch_local_moran_a3b57e2a7ab358c55b54807989a5bc0f0}{PermLocalSA}}(\textcolor{keywordtype}{int}\ cnt,\ \textcolor{keywordtype}{int}\ perm,\ \textcolor{keyword}{const}\ std::vector<int>\&\ permNeighbors,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<double>\ >\&\ permutedSA);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{virtual}\ std::vector<uint64\_t>\ \mbox{\hyperlink{class_batch_local_moran_a234a72460b0b49e9b703fecefae55831}{CountLargerSA}}(\textcolor{keywordtype}{int}\ cnt,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>\ >\&\ permutedSA);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{virtual}\ std::vector<int>\ \mbox{\hyperlink{class_batch_local_moran_a4509a22c2a999495c88b500b362f13d0}{GetClusterIndicators}}(\textcolor{keywordtype}{int}\ idx);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00040\ \ \ std::vector<std::vector<double>\ >\ \mbox{\hyperlink{class_batch_local_moran_a8de278db157568024ce068132abbef34}{data}};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GEODA\_BATCHLOCALMORAN\_H}}
+
+\end{DoxyCode}

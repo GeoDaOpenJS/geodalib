@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="class_power_lag" kind="class" language="C++" prot="public">
+    <compoundname>PowerLag</compoundname>
+    <includes refid="_power_lag_8h" local="no">PowerLag.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_power_lag_1a5e228e880030b5fe8980a25e483eed65" prot="private" static="no" mutable="no">
+        <type><ref refid="lite2_8h_1ae9d1896edbd59cd55628634470738d01" kindref="member">WVector</ref></type>
+        <definition>WVector PowerLag::RowLag</definition>
+        <argsstring></argsstring>
+        <name>RowLag</name>
+        <qualifiedname>PowerLag::RowLag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="66" column="11" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1a8c82eab647da201e45a8ae1e0088d49e" prot="private" static="no" mutable="no">
+        <type><ref refid="lite2_8h_1ae9d1896edbd59cd55628634470738d01" kindref="member">WVector</ref></type>
+        <definition>WVector PowerLag::Row</definition>
+        <argsstring></argsstring>
+        <name>Row</name>
+        <qualifiedname>PowerLag::Row</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="66" column="18" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1a157178d5edbf2c39cc2b085cacb62137" prot="private" static="no" mutable="no">
+        <type><ref refid="lite2_8h_1ae9d1896edbd59cd55628634470738d01" kindref="member">WVector</ref></type>
+        <definition>WVector PowerLag::ColumnLag</definition>
+        <argsstring></argsstring>
+        <name>ColumnLag</name>
+        <qualifiedname>PowerLag::ColumnLag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="66" column="22" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1ab74149bc024f6df8806e5d27380c4aa0" prot="private" static="no" mutable="no">
+        <type><ref refid="lite2_8h_1ae9d1896edbd59cd55628634470738d01" kindref="member">WVector</ref></type>
+        <definition>WVector PowerLag::Column</definition>
+        <argsstring></argsstring>
+        <name>Column</name>
+        <qualifiedname>PowerLag::Column</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="66" column="32" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1abf31ac43df2980f949076f3dfbd9d77b" prot="private" static="no" mutable="no">
+        <type><ref refid="class_vector" kindref="compound">Vector</ref>&lt; <ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref> &gt;</type>
+        <definition>Vector&lt;INDEX&gt; PowerLag::OrderLag</definition>
+        <argsstring></argsstring>
+        <name>OrderLag</name>
+        <qualifiedname>PowerLag::OrderLag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="67" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1a70820a4004a937bad7d53b98cf4418ff" prot="private" static="no" mutable="no">
+        <type><ref refid="class_vector" kindref="compound">Vector</ref>&lt; <ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref> &gt;</type>
+        <definition>Vector&lt;INDEX&gt; PowerLag::Order</definition>
+        <argsstring></argsstring>
+        <name>Order</name>
+        <qualifiedname>PowerLag::Order</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="67" column="19" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1ad4c7829d36d0fec6a3b72b842c7ec798" prot="private" static="no" mutable="no">
+        <type><ref refid="class_vector" kindref="compound">Vector</ref>&lt; <ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref> &gt;</type>
+        <definition>Vector&lt;INDEX&gt; PowerLag::NonZero</definition>
+        <argsstring></argsstring>
+        <name>NonZero</name>
+        <qualifiedname>PowerLag::NonZero</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="67" column="25" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1ab33edf4b4e9f1304d0ef47d3b07b6709" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PowerLag::LastWasRow</definition>
+        <argsstring></argsstring>
+        <name>LastWasRow</name>
+        <qualifiedname>PowerLag::LastWasRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="68" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1a382b22d2b9b518871f89880110ac4891" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PowerLag::LongInit</definition>
+        <argsstring></argsstring>
+        <name>LongInit</name>
+        <qualifiedname>PowerLag::LongInit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="68" column="19" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1a303947bf50e4d4db41d0b34209481003" prot="private" static="no" mutable="no">
+        <type><ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref></type>
+        <definition>INDEX PowerLag::LastOrder</definition>
+        <argsstring></argsstring>
+        <name>LastOrder</name>
+        <qualifiedname>PowerLag::LastOrder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="69" column="9" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1a7ad778edb3424d19de816a687ac078a2" prot="private" static="no" mutable="no">
+        <type><ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref></type>
+        <definition>INDEX PowerLag::Dim</definition>
+        <argsstring></argsstring>
+        <name>Dim</name>
+        <qualifiedname>PowerLag::Dim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="69" column="19" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1adc7ca6a17832c4df3a2978cc7ae3d491" prot="private" static="no" mutable="no">
+        <type><ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref></type>
+        <definition>INDEX PowerLag::LongLength</definition>
+        <argsstring></argsstring>
+        <name>LongLength</name>
+        <qualifiedname>PowerLag::LongLength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="69" column="23" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_power_lag_1a76aec974884f84d9cf342f95a5011d0a" prot="private" static="no" mutable="no">
+        <type><ref refid="class_iterator" kindref="compound">Iterator</ref>&lt; <ref refid="lite2_8h_1acfa58732882265b88a2da01b3a6cf948" kindref="member">WMap</ref> &gt;</type>
+        <definition>Iterator&lt;WMap&gt; PowerLag::mt</definition>
+        <argsstring></argsstring>
+        <name>mt</name>
+        <qualifiedname>PowerLag::mt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="70" column="12" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_power_lag_1a7b26d068a2fe166b38ab9ed307b95cb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PowerLag::PowerLag</definition>
+        <argsstring>(const Iterator&lt; WMap &gt; matrix, const INDEX vsize)</argsstring>
+        <name>PowerLag</name>
+        <qualifiedname>PowerLag::PowerLag</qualifiedname>
+        <param>
+          <type>const <ref refid="class_iterator" kindref="compound">Iterator</ref>&lt; <ref refid="lite2_8h_1acfa58732882265b88a2da01b3a6cf948" kindref="member">WMap</ref> &gt;</type>
+          <declname>matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="lite2_8h_1ac6885dbfb371c33e523c7fb046118b36" kindref="member">INDEX</ref></type>
+          <declname>vsize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="34" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.cpp" bodystart="10" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_power_lag_1aac78c8b85bf9e9b2cebe0101be5238e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref></type>
+        <definition>VALUE PowerLag::Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <qualifiedname>PowerLag::Init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="35" column="9" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.cpp" bodystart="29" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_power_lag_1a5191b9966745f7d382fd21f5b454c227" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PowerLag::AdvanceLag</definition>
+        <argsstring>()</argsstring>
+        <name>AdvanceLag</name>
+        <qualifiedname>PowerLag::AdvanceLag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="36" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.cpp" bodystart="51" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_power_lag_1a8bc05997c93fa811849c5ed9e77dd4c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref></type>
+        <definition>VALUE PowerLag::SparseRowLag</definition>
+        <argsstring>()</argsstring>
+        <name>SparseRowLag</name>
+        <qualifiedname>PowerLag::SparseRowLag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="38" column="9" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.cpp" bodystart="63" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_power_lag_1ab241075e258a1f4d8470562fd7e2b780" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref></type>
+        <definition>VALUE PowerLag::SparseColumnLag</definition>
+        <argsstring>()</argsstring>
+        <name>SparseColumnLag</name>
+        <qualifiedname>PowerLag::SparseColumnLag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="39" column="9" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.cpp" bodystart="95" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="class_power_lag_1a45e047a78001ff390ae483f9e42ea3a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref></type>
+        <definition>VALUE PowerLag::DenseRowLag</definition>
+        <argsstring>()</argsstring>
+        <name>DenseRowLag</name>
+        <qualifiedname>PowerLag::DenseRowLag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="40" column="9" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="40" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_power_lag_1a2123f6e5fb5372b11590e2bd9cf0baee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref></type>
+        <definition>VALUE PowerLag::DenseColumnLag</definition>
+        <argsstring>()</argsstring>
+        <name>DenseColumnLag</name>
+        <qualifiedname>PowerLag::DenseColumnLag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="46" column="9" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="46" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_power_lag_1aba86f6228fe473b73c264c8dc92da290" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="lite2_8h_1aa0b03826c8f7cc324ac2db0ada2dce0a" kindref="member">VALUE</ref></type>
+        <definition>VALUE PowerLag::ComputeLag</definition>
+        <argsstring>()</argsstring>
+        <name>ComputeLag</name>
+        <qualifiedname>PowerLag::ComputeLag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="53" column="9" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="53" bodyend="63"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" line="32" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/regression/PowerLag.h" bodystart="32" bodyend="71"/>
+    <listofallmembers>
+      <member refid="class_power_lag_1a5191b9966745f7d382fd21f5b454c227" prot="public" virt="non-virtual"><scope>PowerLag</scope><name>AdvanceLag</name></member>
+      <member refid="class_power_lag_1ab74149bc024f6df8806e5d27380c4aa0" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>Column</name></member>
+      <member refid="class_power_lag_1a157178d5edbf2c39cc2b085cacb62137" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>ColumnLag</name></member>
+      <member refid="class_power_lag_1aba86f6228fe473b73c264c8dc92da290" prot="public" virt="non-virtual"><scope>PowerLag</scope><name>ComputeLag</name></member>
+      <member refid="class_power_lag_1a2123f6e5fb5372b11590e2bd9cf0baee" prot="public" virt="non-virtual"><scope>PowerLag</scope><name>DenseColumnLag</name></member>
+      <member refid="class_power_lag_1a45e047a78001ff390ae483f9e42ea3a4" prot="public" virt="non-virtual"><scope>PowerLag</scope><name>DenseRowLag</name></member>
+      <member refid="class_power_lag_1a7ad778edb3424d19de816a687ac078a2" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>Dim</name></member>
+      <member refid="class_power_lag_1aac78c8b85bf9e9b2cebe0101be5238e5" prot="public" virt="non-virtual"><scope>PowerLag</scope><name>Init</name></member>
+      <member refid="class_power_lag_1a303947bf50e4d4db41d0b34209481003" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>LastOrder</name></member>
+      <member refid="class_power_lag_1ab33edf4b4e9f1304d0ef47d3b07b6709" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>LastWasRow</name></member>
+      <member refid="class_power_lag_1a382b22d2b9b518871f89880110ac4891" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>LongInit</name></member>
+      <member refid="class_power_lag_1adc7ca6a17832c4df3a2978cc7ae3d491" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>LongLength</name></member>
+      <member refid="class_power_lag_1a76aec974884f84d9cf342f95a5011d0a" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>mt</name></member>
+      <member refid="class_power_lag_1ad4c7829d36d0fec6a3b72b842c7ec798" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>NonZero</name></member>
+      <member refid="class_power_lag_1a70820a4004a937bad7d53b98cf4418ff" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>Order</name></member>
+      <member refid="class_power_lag_1abf31ac43df2980f949076f3dfbd9d77b" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>OrderLag</name></member>
+      <member refid="class_power_lag_1a7b26d068a2fe166b38ab9ed307b95cb2" prot="public" virt="non-virtual"><scope>PowerLag</scope><name>PowerLag</name></member>
+      <member refid="class_power_lag_1a8c82eab647da201e45a8ae1e0088d49e" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>Row</name></member>
+      <member refid="class_power_lag_1a5e228e880030b5fe8980a25e483eed65" prot="private" virt="non-virtual"><scope>PowerLag</scope><name>RowLag</name></member>
+      <member refid="class_power_lag_1ab241075e258a1f4d8470562fd7e2b780" prot="public" virt="non-virtual"><scope>PowerLag</scope><name>SparseColumnLag</name></member>
+      <member refid="class_power_lag_1a8bc05997c93fa811849c5ed9e77dd4c9" prot="public" virt="non-virtual"><scope>PowerLag</scope><name>SparseRowLag</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

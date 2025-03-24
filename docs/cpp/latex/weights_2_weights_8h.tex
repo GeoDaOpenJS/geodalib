@@ -1,0 +1,49 @@
+\doxysection{/\+Users/xun/github/geoda-\/lib/src/cpp/weights/weights.h File Reference}
+\hypertarget{weights_2_weights_8h}{}\label{weights_2_weights_8h}\index{/Users/xun/github/geoda-\/lib/src/cpp/weights/weights.h@{/Users/xun/github/geoda-\/lib/src/cpp/weights/weights.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}geometry/geometry.\+h"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacegeoda}{geoda}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{namespacegeoda_aae99cbaa2a239c00d5a96586b4b6ac2d}{geoda\+::haversine\+\_\+distance}} (double lon1, double lat1, double lon2, double lat2, bool is\+\_\+mile)
+\begin{DoxyCompactList}\small\item\em Compute the haversine distance between two points see \href{https://www.movable-type.co.uk/scripts/latlong.html}{\texttt{ https\+://www.\+movable-\/type.\+co.\+uk/scripts/latlong.\+html}}. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{namespacegeoda_aa8cdb09f0627ed6b7a39fb26ef99ab09}{geoda\+::distance\+\_\+weights}} (const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&geoms, double distance\+\_\+threshold, bool is\+\_\+mile)
+\begin{DoxyCompactList}\small\item\em Compute the distance weights for a collection of geometries. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{namespacegeoda_ac401bfe6a3293f4ce3d300dd9ad7b724}{geoda\+::get\+\_\+distance\+\_\+thresholds}} (const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&geoms, bool is\+\_\+mile)
+\begin{DoxyCompactList}\small\item\em Get the distance thresholds, first threshold guarantee that each observation has at least one neighbor, and the second threshold is the maximum distance between two observations. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \mbox{\hyperlink{namespacegeoda_a4808eed26b9dd4f4342e4144e4691e99}{geoda\+::knearest\+\_\+neighbors}} (const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&geoms, unsigned int k)
+\begin{DoxyCompactList}\small\item\em Compute k-\/nearest neighbors for a collection of geometries. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \mbox{\hyperlink{namespacegeoda_a92f374961f8bd3ee98ed6afad3ddeb71}{geoda\+::point\+\_\+contiguity\+\_\+weights}} (const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&geoms, bool is\+\_\+queen, double precision\+\_\+threshold=0.\+0, unsigned int order\+\_\+contiguity=1, bool include\+\_\+lower\+\_\+order=false)
+\begin{DoxyCompactList}\small\item\em Compute contiguity weights for a collection of geometries using the centroids of the geometries. The centroids are used to create a voronoi diagram, which is then used to compute the contiguity weights. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \mbox{\hyperlink{namespacegeoda_ac1bb11a3540a063bbd29b42b21d5a6ad}{geoda\+::polygon\+\_\+contiguity\+\_\+weights}} (const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&geoms, bool is\+\_\+queen, double precision\+\_\+threshold=0.\+0, unsigned int order\+\_\+contiguity=1, bool include\+\_\+lower\+\_\+order=false)
+\begin{DoxyCompactList}\small\item\em Compute contiguity weights for a collection of polygons. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \mbox{\hyperlink{namespacegeoda_a7d1305e8d33fe3daf63e6fb9dd754c03}{geoda\+::polygon\+\_\+contiguity\+\_\+weights\+\_\+threshold}} (const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&geoms, bool is\+\_\+queen, double precision\+\_\+threshold=0.\+0, unsigned int order\+\_\+contiguity=1, bool include\+\_\+lower\+\_\+order=false)
+\begin{DoxyCompactList}\small\item\em Compute contiguity weights for a collection of polygons using a threshold for precision. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \mbox{\hyperlink{namespacegeoda_a12bde1832774f498f050b0626d625c56}{geoda\+::simple\+\_\+polygon\+\_\+queen\+\_\+weights}} (const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&geoms, unsigned int order\+\_\+contiguity=1, bool include\+\_\+lower\+\_\+order=false)
+\begin{DoxyCompactList}\small\item\em Compute queen contiguity weights for a collection of polygons using a simple algorithm. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \mbox{\hyperlink{namespacegeoda_a129eb61ef7a7b08339d9d5193fa10355}{geoda\+::simple\+\_\+polygon\+\_\+rook\+\_\+weights}} (const \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{Geometry\+Collection}} \&geoms, unsigned int order\+\_\+contiguity=1, bool include\+\_\+lower\+\_\+order=false)
+\begin{DoxyCompactList}\small\item\em Compute rook contiguity weights for a collection of polygons using a simple algorithm. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacegeoda_a233abf7e4dc61081091d7df14a06dfde}{geoda\+::points\+\_\+equals}} (const \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} \&p1, const \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\+\_\+type}} \&p2, double precision\+\_\+threshold)
+\begin{DoxyCompactList}\small\item\em Check if two points are equal within a precision threshold. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacegeoda_a3421fa10f62574abd53248505424dcdc}{geoda\+::bbox\+\_\+intersects}} (const \mbox{\hyperlink{geometry_8h_a7d32eb4d5272ffdaf1a4c210691779fb}{box\+\_\+type}} \&b1, const \mbox{\hyperlink{geometry_8h_a7d32eb4d5272ffdaf1a4c210691779fb}{box\+\_\+type}} \&b2)
+\begin{DoxyCompactList}\small\item\em Check if two bounding boxes intersect. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{namespacegeoda_a0f16cae6541a1593e2c61524e654b4f7}{geoda\+::pi}} = 3.\+141592653589793238463
+\item 
+const double \mbox{\hyperlink{namespacegeoda_a69601ca6ebe7caf244256296e8c1be3e}{geoda\+::mile\+\_\+per\+\_\+degree}} = 69.\+0
+\item 
+const double \mbox{\hyperlink{namespacegeoda_adcfb18fa45bbfe7e54f65138330eaa6a}{geoda\+::km\+\_\+per\+\_\+degree}} = 111.\+1
+\item 
+const double \mbox{\hyperlink{namespacegeoda_a01ceccbc23ee69f10a97f63663bcd9f9}{geoda\+::pi\+\_\+over\+\_\+180}} = \mbox{\hyperlink{namespacegeoda_a0f16cae6541a1593e2c61524e654b4f7}{pi}} / 180.\+0
+\item 
+const double \mbox{\hyperlink{namespacegeoda_a24e199d421bd163374ac94c924479408}{geoda\+::earth\+\_\+radius\+\_\+km}} = 6371.\+007180918475
+\item 
+const double \mbox{\hyperlink{namespacegeoda_a41ebf7994c44307f5d65d936cc930b79}{geoda\+::earth\+\_\+radius\+\_\+miles}} = \mbox{\hyperlink{namespacegeoda_a24e199d421bd163374ac94c924479408}{earth\+\_\+radius\+\_\+km}} / 1.\+609344
+\end{DoxyCompactItemize}

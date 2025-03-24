@@ -1,0 +1,73 @@
+\doxysection{/\+Users/xun/github/geoda-\/lib/src/cpp/regression/\+ML\+\_\+im.h File Reference}
+\hypertarget{_m_l__im_8h}{}\label{_m_l__im_8h}\index{/Users/xun/github/geoda-\/lib/src/cpp/regression/ML\_im.h@{/Users/xun/github/geoda-\/lib/src/cpp/regression/ML\_im.h}}
+{\ttfamily \#include "{}regression/\+Sparse\+Matrix.\+h"{}}\newline
+{\ttfamily \#include "{}regression/dense-\/vector.\+h"{}}\newline
+{\ttfamily \#include "{}regression/lite2.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_m_l__im_8h_ac4d54632486f2ce96ed9e08b3a9aedd9}{Simulation\+Lag}} (const \mbox{\hyperlink{classgeoda_1_1_gal_element}{geoda\+::\+Gal\+Element}} \texorpdfstring{$\ast$}{*}weight, int num\+\_\+obs, int Precision, const double rho, double \texorpdfstring{$\ast$}{*}my\+\_\+Y, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}my\+\_\+X, const int deps, bool Incl\+Constant, double \texorpdfstring{$\ast$}{*}Lik, double p\+\_\+bar\+\_\+min\+\_\+fraction, double p\+\_\+bar\+\_\+max\+\_\+fraction)
+\item 
+double \mbox{\hyperlink{_m_l__im_8h_a490df47c5e4b5f310339df999010a576}{Simulation\+Error}} (const \mbox{\hyperlink{classgeoda_1_1_gal_element}{geoda\+::\+Gal\+Element}} \texorpdfstring{$\ast$}{*}weight, int num\+\_\+obs, int Precision, const double rho, const double \texorpdfstring{$\ast$}{*}my\+\_\+Y, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}my\+\_\+X, const int deps, double \texorpdfstring{$\ast$}{*}\&beta, bool Incl\+Constant, double \texorpdfstring{$\ast$}{*}Lik, double p\+\_\+bar\+\_\+min\+\_\+fraction, double p\+\_\+bar\+\_\+max\+\_\+fraction)
+\item 
+bool \mbox{\hyperlink{_m_l__im_8h_ac4c2f21e656b1b0087c121865c32c6f0}{OLS}} (\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&y, \mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \texorpdfstring{$\ast$}{*}X, const bool Include\+Const, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\&cov, double \texorpdfstring{$\ast$}{*}resid, \mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&ols)
+\item 
+bool \mbox{\hyperlink{_m_l__im_8h_a47f53893f09dbe964bd1073f5d344989}{OLSS}} (\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&y, \mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \texorpdfstring{$\ast$}{*}X, const bool Include\+Const, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\&cov, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\&ocov, double \texorpdfstring{$\ast$}{*}resid, \mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&ols)
+\item 
+bool \mbox{\hyperlink{_m_l__im_8h_a97135e35f41963153e9eadfe1b372038}{OLS}} (\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$ y, \mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ X, const bool Include\+Const, \mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ \&cov, \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \&resid, \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \&ols)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{_m_l__im_8h_ab53c1402299638d705e3d859bf6ec278}{SMALL\+\_\+\+DIM}} = 500
+\item 
+const int \mbox{\hyperlink{_m_l__im_8h_a1f5df7075ea5a865017091882fe5558d}{ASYM\+\_\+\+DIM}} = 1000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_m_l__im_8h_ac4c2f21e656b1b0087c121865c32c6f0}\index{ML\_im.h@{ML\_im.h}!OLS@{OLS}}
+\index{OLS@{OLS}!ML\_im.h@{ML\_im.h}}
+\doxysubsubsection{\texorpdfstring{OLS()}{OLS()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{_m_l__im_8h_ac4c2f21e656b1b0087c121865c32c6f0} 
+bool OLS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&}]{y}{, }\item[{\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \texorpdfstring{$\ast$}{*}}]{X}{, }\item[{const bool}]{Include\+Const}{, }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\&}]{cov}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{resid}{, }\item[{\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&}]{ols}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_m_l__im_8h_a97135e35f41963153e9eadfe1b372038}\index{ML\_im.h@{ML\_im.h}!OLS@{OLS}}
+\index{OLS@{OLS}!ML\_im.h@{ML\_im.h}}
+\doxysubsubsection{\texorpdfstring{OLS()}{OLS()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{_m_l__im_8h_a97135e35f41963153e9eadfe1b372038} 
+bool OLS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_aa0b03826c8f7cc324ac2db0ada2dce0a}{VALUE}} $>$}]{y}{, }\item[{\mbox{\hyperlink{class_iterator}{Iterator}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$}]{X}{, }\item[{const bool}]{Include\+Const}{, }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ \mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} $>$ \&}]{cov}{, }\item[{\mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \&}]{resid}{, }\item[{\mbox{\hyperlink{lite2_8h_ae9d1896edbd59cd55628634470738d01}{WVector}} \&}]{ols}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_m_l__im_8h_a47f53893f09dbe964bd1073f5d344989}\index{ML\_im.h@{ML\_im.h}!OLSS@{OLSS}}
+\index{OLSS@{OLSS}!ML\_im.h@{ML\_im.h}}
+\doxysubsubsection{\texorpdfstring{OLSS()}{OLSS()}}
+{\footnotesize\ttfamily \label{_m_l__im_8h_a47f53893f09dbe964bd1073f5d344989} 
+bool OLSS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&}]{y}{, }\item[{\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \texorpdfstring{$\ast$}{*}}]{X}{, }\item[{const bool}]{Include\+Const}{, }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\&}]{cov}{, }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\&}]{ocov}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{resid}{, }\item[{\mbox{\hyperlink{class_dense_vector}{Dense\+Vector}} \&}]{ols}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_m_l__im_8h_a490df47c5e4b5f310339df999010a576}\index{ML\_im.h@{ML\_im.h}!SimulationError@{SimulationError}}
+\index{SimulationError@{SimulationError}!ML\_im.h@{ML\_im.h}}
+\doxysubsubsection{\texorpdfstring{SimulationError()}{SimulationError()}}
+{\footnotesize\ttfamily \label{_m_l__im_8h_a490df47c5e4b5f310339df999010a576} 
+double Simulation\+Error (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgeoda_1_1_gal_element}{geoda\+::\+Gal\+Element}} \texorpdfstring{$\ast$}{*}}]{weight}{, }\item[{int}]{num\+\_\+obs}{, }\item[{int}]{Precision}{, }\item[{const double}]{rho}{, }\item[{const double \texorpdfstring{$\ast$}{*}}]{my\+\_\+Y}{, }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{my\+\_\+X}{, }\item[{const int}]{deps}{, }\item[{double \texorpdfstring{$\ast$}{*}\&}]{beta}{, }\item[{bool}]{Incl\+Constant}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{Lik}{, }\item[{double}]{p\+\_\+bar\+\_\+min\+\_\+fraction}{, }\item[{double}]{p\+\_\+bar\+\_\+max\+\_\+fraction}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_m_l__im_8h_ac4d54632486f2ce96ed9e08b3a9aedd9}\index{ML\_im.h@{ML\_im.h}!SimulationLag@{SimulationLag}}
+\index{SimulationLag@{SimulationLag}!ML\_im.h@{ML\_im.h}}
+\doxysubsubsection{\texorpdfstring{SimulationLag()}{SimulationLag()}}
+{\footnotesize\ttfamily \label{_m_l__im_8h_ac4d54632486f2ce96ed9e08b3a9aedd9} 
+double Simulation\+Lag (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgeoda_1_1_gal_element}{geoda\+::\+Gal\+Element}} \texorpdfstring{$\ast$}{*}}]{weight}{, }\item[{int}]{num\+\_\+obs}{, }\item[{int}]{Precision}{, }\item[{const double}]{rho}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{my\+\_\+Y}{, }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{my\+\_\+X}{, }\item[{const int}]{deps}{, }\item[{bool}]{Incl\+Constant}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{Lik}{, }\item[{double}]{p\+\_\+bar\+\_\+min\+\_\+fraction}{, }\item[{double}]{p\+\_\+bar\+\_\+max\+\_\+fraction}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_m_l__im_8h_a1f5df7075ea5a865017091882fe5558d}\index{ML\_im.h@{ML\_im.h}!ASYM\_DIM@{ASYM\_DIM}}
+\index{ASYM\_DIM@{ASYM\_DIM}!ML\_im.h@{ML\_im.h}}
+\doxysubsubsection{\texorpdfstring{ASYM\_DIM}{ASYM\_DIM}}
+{\footnotesize\ttfamily \label{_m_l__im_8h_a1f5df7075ea5a865017091882fe5558d} 
+const int ASYM\+\_\+\+DIM = 1000}
+
+\Hypertarget{_m_l__im_8h_ab53c1402299638d705e3d859bf6ec278}\index{ML\_im.h@{ML\_im.h}!SMALL\_DIM@{SMALL\_DIM}}
+\index{SMALL\_DIM@{SMALL\_DIM}!ML\_im.h@{ML\_im.h}}
+\doxysubsubsection{\texorpdfstring{SMALL\_DIM}{SMALL\_DIM}}
+{\footnotesize\ttfamily \label{_m_l__im_8h_ab53c1402299638d705e3d859bf6ec278} 
+const int SMALL\+\_\+\+DIM = 500}
+

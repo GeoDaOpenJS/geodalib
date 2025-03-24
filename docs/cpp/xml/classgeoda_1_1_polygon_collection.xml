@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="classgeoda_1_1_polygon_collection" kind="class" language="C++" prot="public">
+    <compoundname>geoda::PolygonCollection</compoundname>
+    <basecompoundref refid="classgeoda_1_1_geometry_collection" prot="public" virt="non-virtual">geoda::GeometryCollection</basecompoundref>
+    <includes refid="geometry_8h" local="no">geometry.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classgeoda_1_1_polygon_collection_1af225c80a52c8390efed41ba53faacc7f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; unsigned int &gt;</type>
+        <definition>std::vector&lt;unsigned int&gt; geoda::PolygonCollection::holes</definition>
+        <argsstring></argsstring>
+        <name>holes</name>
+        <qualifiedname>geoda::PolygonCollection::holes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="215" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeoda_1_1_polygon_collection_1af147a9fc1724c0a17a29e544df674499" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="geometry_8h_1ad9cc59b99ad17c2cd9f79fd375e88752" kindref="member">multipolygon_type</ref> &gt;</type>
+        <definition>std::vector&lt;multipolygon_type&gt; geoda::PolygonCollection::polygons</definition>
+        <argsstring></argsstring>
+        <name>polygons</name>
+        <qualifiedname>geoda::PolygonCollection::polygons</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="216" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1af69c0dbe3180ab6e4ab08386d33a0e43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PolygonCollection::PolygonCollection</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;x, const std::vector&lt; double &gt; &amp;y, const std::vector&lt; unsigned int &gt; &amp;parts, const std::vector&lt; unsigned int &gt; &amp;holes, const std::vector&lt; unsigned int &gt; &amp;sizes, bool fix_polygon=false, bool convert_to_UTM=false)</argsstring>
+        <name>PolygonCollection</name>
+        <qualifiedname>geoda::PolygonCollection::PolygonCollection</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>parts</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>holes</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned int &gt; &amp;</type>
+          <declname>sizes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fix_polygon</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>convert_to_UTM</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="218" column="3" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.cpp" bodystart="51" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1a1bed1e43df883b96fab1944890cf4305" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>geoda::PolygonCollection::~PolygonCollection</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~PolygonCollection</name>
+        <qualifiedname>geoda::PolygonCollection::~PolygonCollection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="222" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1a61f53ffa0c91a79b38c5ccb3b96dfe97" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void geoda::PolygonCollection::get_bbox</definition>
+        <argsstring>(size_t i, box_type &amp;box) const override</argsstring>
+        <name>get_bbox</name>
+        <qualifiedname>geoda::PolygonCollection::get_bbox</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a3e6ecea3fd57812663972ef52119ca18">get_bbox</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="geometry_8h_1a7d32eb4d5272ffdaf1a4c210691779fb" kindref="member">box_type</ref> &amp;</type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="224" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="224" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1a7935f997727f1650289683122f12d5b2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="namespacegeoda_1a20fd16562e89848c50247b0d9c865348" kindref="member">ShapeType</ref></type>
+        <definition>ShapeType geoda::PolygonCollection::get_type</definition>
+        <argsstring>() const override</argsstring>
+        <name>get_type</name>
+        <qualifiedname>geoda::PolygonCollection::get_type</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a1fb5568413e4c69d931233591a5906f2">get_type</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="226" column="13" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="226" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1a2c89fb3c1d3fcec6c76d9275a8e1ecac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; double &gt; &gt; PolygonCollection::get_centroids</definition>
+        <argsstring>() const override</argsstring>
+        <name>get_centroids</name>
+        <qualifiedname>geoda::PolygonCollection::get_centroids</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a68d401e4a2a61c43820b06d2d9d854b4">get_centroids</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="228" column="15" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.cpp" bodystart="194" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1a10b370fc79b726b4f2ad7e692f35cc6a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref></type>
+        <definition>point_type geoda::PolygonCollection::get_centroid</definition>
+        <argsstring>(size_t i) const override</argsstring>
+        <name>get_centroid</name>
+        <qualifiedname>geoda::PolygonCollection::get_centroid</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1ad1e00066be731ae77452566bd0214b56">get_centroid</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="230" column="14" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="230" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1a39782c0e0ba343a250f9db5d87b9c10e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="geometry_8h_1ad9cc59b99ad17c2cd9f79fd375e88752" kindref="member">multipolygon_type</ref></type>
+        <definition>multipolygon_type geoda::PolygonCollection::get_polygon</definition>
+        <argsstring>(size_t i) const override</argsstring>
+        <name>get_polygon</name>
+        <qualifiedname>geoda::PolygonCollection::get_polygon</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a5b9f32aaad9f327cd471da16d552c904">get_polygon</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="236" column="21" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="236" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1abc609a571f688b404ef5deb6c18019dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PolygonCollection::get_polygon</definition>
+        <argsstring>(size_t polygon_index, Polygon &amp;poly)</argsstring>
+        <name>get_polygon</name>
+        <qualifiedname>geoda::PolygonCollection::get_polygon</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>polygon_index</declname>
+        </param>
+        <param>
+          <type><ref refid="classgeoda_1_1_polygon" kindref="compound">Polygon</ref> &amp;</type>
+          <declname>poly</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="238" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.cpp" bodystart="109" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1a40fbd11ed2b52766117f0b720bfea888" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>int</type>
+        <definition>int PolygonCollection::get_part</definition>
+        <argsstring>(size_t geom_index, size_t part_index) const override</argsstring>
+        <name>get_part</name>
+        <qualifiedname>geoda::PolygonCollection::get_part</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1aab3968b3c18f6aba035b3a74f5f361d0">get_part</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>geom_index</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>part_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="240" column="7" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.cpp" bodystart="139" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1afe1714f8c679c2688dbc8ab2e88a89f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref></type>
+        <definition>point_type PolygonCollection::get_point</definition>
+        <argsstring>(size_t geom_index, size_t point_index) const override</argsstring>
+        <name>get_point</name>
+        <qualifiedname>geoda::PolygonCollection::get_point</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a0b80b51bc498fd1e9942380d77300581">get_point</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>geom_index</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>point_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="242" column="14" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.cpp" bodystart="162" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1addc989726ed3ddb6237aa1ea2e10d63a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>size_t</type>
+        <definition>size_t PolygonCollection::get_num_parts</definition>
+        <argsstring>(size_t geom_index) const override</argsstring>
+        <name>get_num_parts</name>
+        <qualifiedname>geoda::PolygonCollection::get_num_parts</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a39fd26b2796c636e0b7913640e1b0076">get_num_parts</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>geom_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="244" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.cpp" bodystart="179" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1a8a6d0fa2021b81137847394d47591d2c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>size_t</type>
+        <definition>size_t PolygonCollection::get_num_points</definition>
+        <argsstring>(size_t geom_index) const override</argsstring>
+        <name>get_num_points</name>
+        <qualifiedname>geoda::PolygonCollection::get_num_points</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a7451e84dee62efec3756bdab2f04fe89">get_num_points</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>geom_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="246" column="10" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.cpp" bodystart="181" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeoda_1_1_polygon_collection_1a33cd8020b3631e935eeb2be1c86695db" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool geoda::PolygonCollection::intersect</definition>
+        <argsstring>(size_t i, const GeometryCollection &amp;join_geoms, size_t j) const override</argsstring>
+        <name>intersect</name>
+        <qualifiedname>geoda::PolygonCollection::intersect</qualifiedname>
+        <reimplements refid="classgeoda_1_1_geometry_collection_1a53b589cda146cc12876b8a616062ccdf">intersect</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref> &amp;</type>
+          <declname>join_geoms</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="248" column="8" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="248" bodyend="261"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>geoda::GeometryCollection</label>
+        <link refid="classgeoda_1_1_geometry_collection"/>
+      </node>
+      <node id="1">
+        <label>geoda::PolygonCollection</label>
+        <link refid="classgeoda_1_1_polygon_collection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>geoda::GeometryCollection</label>
+        <link refid="classgeoda_1_1_geometry_collection"/>
+      </node>
+      <node id="1">
+        <label>geoda::PolygonCollection</label>
+        <link refid="classgeoda_1_1_polygon_collection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" line="213" column="1" bodyfile="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.h" bodystart="213" bodyend="262"/>
+    <listofallmembers>
+      <member refid="classgeoda_1_1_geometry_collection_1a10e7706e4dfc1099ceff90f360577ac0" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>convert_to_UTM</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a51291eebb1d1165f78cdee56f317afcb" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>ConvertToUTM</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a0d8bf03dd9b0edf9d6bfb740eebe4f51" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>empty</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a9ff03fbaedb0cd610d2ac321d6dec5c3" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>GeometryCollection</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1a61f53ffa0c91a79b38c5ccb3b96dfe97" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>get_bbox</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1a10b370fc79b726b4f2ad7e692f35cc6a" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>get_centroid</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1a2c89fb3c1d3fcec6c76d9275a8e1ecac" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>get_centroids</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1aeaa895db6128cadaf3ff09cf1f6322a0" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>get_line</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1addc989726ed3ddb6237aa1ea2e10d63a" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>get_num_parts</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1a8a6d0fa2021b81137847394d47591d2c" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>get_num_points</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1a40fbd11ed2b52766117f0b720bfea888" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>get_part</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1afe1714f8c679c2688dbc8ab2e88a89f7" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>get_point</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a56aaceca9602b4488fb7d12274429482" prot="public" virt="virtual" ambiguityscope="geoda::GeometryCollection::"><scope>geoda::PolygonCollection</scope><name>get_point</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1a39782c0e0ba343a250f9db5d87b9c10e" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>get_polygon</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1abc609a571f688b404ef5deb6c18019dd" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>get_polygon</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1a7935f997727f1650289683122f12d5b2" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>get_type</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1af225c80a52c8390efed41ba53faacc7f" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>holes</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1a33cd8020b3631e935eeb2be1c86695db" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>intersect</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a6b093922e9b1b191b4c2f865e030e067" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>parts</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1af69c0dbe3180ab6e4ab08386d33a0e43" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>PolygonCollection</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1af147a9fc1724c0a17a29e544df674499" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>polygons</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>size</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>sizes</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a110398f22f06869c071a09117788e009" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>utm_zones</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1aa4b142edec07a60c3ccebebd75ec1807" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>x</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a21cd35c83e2c8f83c3cd9ca918a39d76" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>y</name></member>
+      <member refid="classgeoda_1_1_geometry_collection_1a369be05641ef601eab34eae7f5393e51" prot="public" virt="virtual"><scope>geoda::PolygonCollection</scope><name>~GeometryCollection</name></member>
+      <member refid="classgeoda_1_1_polygon_collection_1a1bed1e43df883b96fab1944890cf4305" prot="public" virt="non-virtual"><scope>geoda::PolygonCollection</scope><name>~PolygonCollection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

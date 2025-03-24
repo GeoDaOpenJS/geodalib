@@ -1,0 +1,465 @@
+\doxysection{partition.\+h}
+\hypertarget{partition_8h_source}{}\label{partition_8h_source}\index{/Users/xun/github/geoda-\/lib/src/cpp/weights/partition.h@{/Users/xun/github/geoda-\/lib/src/cpp/weights/partition.h}}
+\mbox{\hyperlink{partition_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GEODA\_GAL\_PARTITION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GEODA\_GAL\_PARTITION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{geometry_8h}{geometry/geometry.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{weights_2_weights_8h}{weights/weights.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ CMP\_DBL\_EPSILON\ sqrt(DBL\_EPSILON)}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacegeoda}{geoda}}\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ EMPTY\_COUNT\ =\ -\/1;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgeoda_1_1_base_partition_a0c32e082020274681b417e042a34a7b5}{BasePartition}}\ \{}
+\DoxyCodeLine{00020\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a0f73b72f034cb6559d95e4536735122d}{elements}},\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}};}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}};}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}};}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa8d5d8cae67097eff40915150ab060f6}{step}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a0c32e082020274681b417e042a34a7b5}{BasePartition}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ els\ =\ 0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cls\ =\ 0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ range\ =\ 0)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a0f73b72f034cb6559d95e4536735122d}{elements}}(els),\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}}(cls),\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}}(0),\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}}(0)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_base_partition_a0f73b72f034cb6559d95e4536735122d}{elements}}\ >\ 0)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a574ad51f5c1ba2c7d05708c96ea3ed4c}{alloc}}(els,\ cls,\ range);}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a1df7ae60f82518599ef9ee655329d897}{\string~BasePartition}}()\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}})\ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}};}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}}\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}})\ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}};}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}}\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a0f73b72f034cb6559d95e4536735122d}{elements}}\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}}\ =\ 0;}
+\DoxyCodeLine{00040\ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a574ad51f5c1ba2c7d05708c96ea3ed4c}{alloc}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ els,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cls,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ range)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a0f73b72f034cb6559d95e4536735122d}{elements}}\ =\ els;}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}}\ =\ cls;}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa8d5d8cae67097eff40915150ab060f6}{step}}\ =\ range\ /\ cls;}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}}\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[\mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}}];}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}}\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[\mbox{\hyperlink{classgeoda_1_1_base_partition_a0f73b72f034cb6559d95e4536735122d}{elements}}];}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}}\ \&\&\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}})\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cnt\ =\ 0;\ cnt\ <\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}};\ ++cnt)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}}[cnt]\ =\ EMPTY\_COUNT;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a0f73b72f034cb6559d95e4536735122d}{elements}}\ =\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}}\ =\ 0;}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a46790c26fe4814a6d9edaab0c998a01e}{Cells}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}};\ \}}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a114eff152a6ae196ce2e83cba47a6737}{Step}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa8d5d8cae67097eff40915150ab060f6}{step}};\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a07703330c3c26bdd0fae7bf766df1e1c}{include}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ incl,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ range)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ where\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(floor(range\ /\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa8d5d8cae67097eff40915150ab060f6}{step}}));}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ if\ (where\ <\ -\/1\ ||\ where\ >\ cells\ ||\ incl\ <\ 0\ ||\ incl\ >=\ elements)}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ cout\ <<\ "{}\ BasePartition:\ incl=\ "{}\ <<\ incl\ <<\ "{}\ location=\ "{}}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ <<\ where\ <<\ "{}\ els=\ "{}\ <<\ elements\ <<\ "{}\ cells=\ "{}}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ <<\ cells\ <<\ endl;}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (where\ <\ 0)}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ where\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (where\ >=\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}})}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ where\ =\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}}\ -\/\ 1;}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}}[incl]\ =\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}}[where];}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}}[where]\ =\ incl;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00073\ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_ab1f2537ef31a8c112f8ccb2b72ceffc3}{first}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cl)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}}[cl];\ \}}
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_abd2ccb040b8905632f51cd39b8cce778}{tail}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ elt)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}}[elt];\ \}}
+\DoxyCodeLine{00077\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgeoda_1_1_partition_p_a8d1900d11bf39ec8218782812edb0116}{PartitionP}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a0c32e082020274681b417e042a34a7b5}{BasePartition}}\ \{}
+\DoxyCodeLine{00080\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{int}*\ cellIndex;}
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{int}*\ previous;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classgeoda_1_1_partition_p_a8d1900d11bf39ec8218782812edb0116}{PartitionP}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ els\ =\ 0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cls\ =\ 0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ range\ =\ 0)}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a0c32e082020274681b417e042a34a7b5}{BasePartition}}(els,\ cls),\ cellIndex(NULL),\ previous(NULL)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_base_partition_a0f73b72f034cb6559d95e4536735122d}{elements}}\ >\ 0)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_partition_p_a8c28724b701870e4f2e3f085894354b7}{alloc}}(els,\ cls,\ range);}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classgeoda_1_1_partition_p_aa29fc4d202106a6b8f095c02e742af37}{\string~PartitionP}}()\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{if}\ (cellIndex)\ \textcolor{keyword}{delete}[]\ cellIndex;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (previous)\ \textcolor{keyword}{delete}[]\ previous;}
+\DoxyCodeLine{00094\ \ \ \ \ cellIndex\ =\ NULL;}
+\DoxyCodeLine{00095\ \ \ \ \ previous\ =\ NULL;}
+\DoxyCodeLine{00096\ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_partition_p_a8c28724b701870e4f2e3f085894354b7}{alloc}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ els,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cls,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ range)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a574ad51f5c1ba2c7d05708c96ea3ed4c}{BasePartition::alloc}}(els,\ cls,\ range);}
+\DoxyCodeLine{00099\ \ \ \ \ cellIndex\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[\mbox{\hyperlink{classgeoda_1_1_base_partition_a0f73b72f034cb6559d95e4536735122d}{elements}}];}
+\DoxyCodeLine{00100\ \ \ \ \ previous\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[\mbox{\hyperlink{classgeoda_1_1_base_partition_a0f73b72f034cb6559d95e4536735122d}{elements}}];}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{if}\ (!cellIndex\ ||\ !previous)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a0f73b72f034cb6559d95e4536735122d}{elements}}\ =\ 0;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}}\ =\ 0;}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classgeoda_1_1_base_partition_a07703330c3c26bdd0fae7bf766df1e1c}{BasePartition::include}};\ \ \textcolor{comment}{//\ tell\ the\ compiler\ we\ want\ both\ the\ include\ from\ Base\ and\ ours}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_partition_p_a3b505e7640be2f6280c5d4caba668360}{include}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ incl)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{int}\ where\ =\ cellIndex[incl];}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ if\ (where\ <\ 0\ ||\ where\ >=\ cells\ ||\ incl\ <\ 0\ ||\ incl\ >=\ elements)}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ cout\ <<\ "{}including\ "{}\ <<\ incl\ <<\ "{}\ at\ "{}\ <<\ where\ <<\ endl;}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{int}\ old\ =\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}}[where];}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}}[where]\ =\ incl;}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{if}\ (old\ !=\ EMPTY\_COUNT)\ previous[old]\ =\ incl;}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}}[incl]\ =\ old;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ OLD\ becomes\ the\ 2nd\ element\ in\ the\ list}}
+\DoxyCodeLine{00117\ \ \ \ \ previous[incl]\ =\ EMPTY\_COUNT;\ \ \textcolor{comment}{//\ there\ are\ no\ elements\ prior\ to\ incl}}
+\DoxyCodeLine{00118\ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_partition_p_aa4ab5dd4443648605b28582ccc6551b8}{initIx}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ incl,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ range)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{int}\ cl\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(floor(range\ /\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa8d5d8cae67097eff40915150ab060f6}{step}}));}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ if\ (cl\ <\ -\/1\ ||\ cl\ >\ cells\ ||\ incl\ <\ 0\ ||\ incl\ >=\ elements)}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ cout\ <<\ "{}PartitionP:\ incl=\ "{}\ <<\ incl\ <<\ "{}\ at\ "{}\ <<\ cl\ <<\ endl;}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (cl\ <\ 0)}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ cl\ =\ 0;}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (cl\ >=\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}})}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ cl\ =\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}}\ -\/\ 1;}
+\DoxyCodeLine{00128\ \ \ \ \ cellIndex[incl]\ =\ cl;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00130\ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_partition_p_a06dc59eb09eb3042161c0b8ca12d3584}{inTheRange}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ range)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{if}\ (range\ <\ 0\ ||\ range\ /\ step\ >\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}}\ +\ \mbox{\hyperlink{partition_8h_abad81fdb7ef960c66461191afc753140}{CMP\_DBL\_EPSILON}})\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{int}\ where\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(floor(range\ /\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa8d5d8cae67097eff40915150ab060f6}{step}}));}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{if}\ (where\ <\ 0)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ where\ =\ 0;}
+\DoxyCodeLine{00139\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (where\ >=\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a136c36ea6576912b6685abe032eeb855}{cells}})\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ -\/-\/where;}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{return}\ where;}
+\DoxyCodeLine{00143\ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_partition_p_abfcfc09717d75e1a89f6cc1aa2be0ddc}{remove}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ del)\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{int}\ thePrevious\ =\ previous[del],\ theNext\ =\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}}[del];}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{if}\ (thePrevious\ ==\ EMPTY\_COUNT)\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \textcolor{comment}{//\ this\ is\ the\ 1st\ element\ in\ the\ list}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_a20f1ab48a6da41257ed8b861bf66f9cb}{cell}}[cellIndex[del]]\ =\ theNext;}
+\DoxyCodeLine{00150\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}}[thePrevious]\ =\ theNext;}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{if}\ (theNext\ !=\ EMPTY\_COUNT)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \textcolor{comment}{//\ this\ is\ not\ the\ last\ element\ in\ thelist}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ previous[theNext]\ =\ thePrevious;}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ probably\ this\ is\ not\ necessary}}
+\DoxyCodeLine{00158\ \ \ \ \ previous[del]\ =\ \mbox{\hyperlink{classgeoda_1_1_base_partition_aa96cfba06cd3f7041dea881834fe779f}{next}}[del]\ =\ EMPTY\_COUNT;}
+\DoxyCodeLine{00159\ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_partition_p_a83bc25d10180d0f8b5ef11372fd4df8a}{cleanup}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgeoda_1_1_base_partition_a0c32e082020274681b417e042a34a7b5}{BasePartition}}\&\ p,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cl)\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cnt\ =\ p.\mbox{\hyperlink{classgeoda_1_1_base_partition_ab1f2537ef31a8c112f8ccb2b72ceffc3}{first}}(cl);\ cnt\ !=\ EMPTY\_COUNT;\ cnt\ =\ p.\mbox{\hyperlink{classgeoda_1_1_base_partition_abd2ccb040b8905632f51cd39b8cce778}{tail}}(cnt))\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_partition_p_abfcfc09717d75e1a89f6cc1aa2be0ddc}{remove}}(cnt);}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \}}
+\DoxyCodeLine{00166\ \};}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a99e6b939494e6210b6d7b5fb77c4404d}{PolygonPartition}}\ \{}
+\DoxyCodeLine{00169\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00170\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{GeometryCollection}}\&\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ada90698c3027cc377bf990a48a96e4c4}{geoms}};}
+\DoxyCodeLine{00171\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a30fec504b722ce7005a74dfee2879937}{polygon\_index}};}
+\DoxyCodeLine{00172\ \ \ \mbox{\hyperlink{geometry_8h_a7d32eb4d5272ffdaf1a4c210691779fb}{box\_type}}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a7bd82914b25820662a3c416320d34a5d}{bbox}};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \mbox{\hyperlink{classgeoda_1_1_base_partition}{BasePartition}}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}};}
+\DoxyCodeLine{00175\ \ \ \mbox{\hyperlink{classgeoda_1_1_partition_p}{PartitionP}}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}{pY}};}
+\DoxyCodeLine{00176\ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae4aa30d875e136b8117fefac04190365}{prev}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pt)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{int}\ ix\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}}[pt];}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{return}\ (ix\ >=\ 0)\ ?\ pt\ -\/\ 1\ :\ -\/ix;}
+\DoxyCodeLine{00181\ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a72b1be66f12b5effb299460aee1b040d}{succ}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pt)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{int}\ ix\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}}[pt];}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{return}\ (ix\ >=\ 0)\ ?\ ix\ :\ pt\ +\ 1;}
+\DoxyCodeLine{00185\ \ \ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00188\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{NumPoints}};}
+\DoxyCodeLine{00189\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a3309d498158ed08fdc35906fecc0e437}{NumParts}};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \textcolor{comment}{//\ constructor}}
+\DoxyCodeLine{00192\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a99e6b939494e6210b6d7b5fb77c4404d}{PolygonPartition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgeoda_1_1_geometry_collection}{GeometryCollection}}\&\ \_geoms,\ \textcolor{keywordtype}{size\_t}\ \_polygon\_index)}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ada90698c3027cc377bf990a48a96e4c4}{geoms}}(\_geoms),\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}(),\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}{pY}}(),\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}}(NULL)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a30fec504b722ce7005a74dfee2879937}{polygon\_index}}\ =\ \_polygon\_index;}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{//\ get\ number\ of\ points\ from\ boost::geometry::polygon}}
+\DoxyCodeLine{00197\ \ \ \ \ this-\/>NumPoints\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ada90698c3027cc377bf990a48a96e4c4}{geoms}}.get\_num\_points(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a30fec504b722ce7005a74dfee2879937}{polygon\_index}});}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{comment}{//\ get\ number\ of\ parts\ from\ boost::geometry::polygon}}
+\DoxyCodeLine{00199\ \ \ \ \ this-\/>NumParts\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ada90698c3027cc377bf990a48a96e4c4}{geoms}}.get\_num\_parts(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a30fec504b722ce7005a74dfee2879937}{polygon\_index}});}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{comment}{//\ get\ bbox}}
+\DoxyCodeLine{00202\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ada90698c3027cc377bf990a48a96e4c4}{geoms}}.get\_bbox(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a30fec504b722ce7005a74dfee2879937}{polygon\_index}},\ this-\/>bbox);}
+\DoxyCodeLine{00203\ \ \ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \textcolor{comment}{//\ destructor}}
+\DoxyCodeLine{00206\ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a3af0f1f23a36fbd1a2ea706cf3b9be38}{\string~PolygonPartition}}()\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}})\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}};}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}}\ =\ NULL;}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\_type}}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6}{GetPoint}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ i)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ada90698c3027cc377bf990a48a96e4c4}{geoms}}.get\_point(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a30fec504b722ce7005a74dfee2879937}{polygon\_index}},\ i);\ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2a98ced1cb97c51a118046ca24b4cd8}{GetPart}}(\textcolor{keywordtype}{int}\ i)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ada90698c3027cc377bf990a48a96e4c4}{geoms}}.get\_part(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a30fec504b722ce7005a74dfee2879937}{polygon\_index}},\ i);\ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_abf2b359308ecfca32aa4c2c4e01e1d23}{GetMinX}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a7bd82914b25820662a3c416320d34a5d}{bbox}}.min\_corner().get<0>();\ \}}
+\DoxyCodeLine{00218\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af1183c5bb6d36445fb6c9a44f0d87e2a}{GetMinY}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a7bd82914b25820662a3c416320d34a5d}{bbox}}.min\_corner().get<1>();\ \}}
+\DoxyCodeLine{00219\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ad3d4784a9052247cee22ec57f04089ba}{GetMaxX}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a7bd82914b25820662a3c416320d34a5d}{bbox}}.max\_corner().get<0>();\ \}}
+\DoxyCodeLine{00220\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af2796a99863b9f662ecf4d0e04708d52}{GetMaxY}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a7bd82914b25820662a3c416320d34a5d}{bbox}}.max\_corner().get<1>();\ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aa5640147ceddfd0b3ed0af4b0bde03fd}{MakePartition}}(\textcolor{keywordtype}{int}\ mX\ =\ 0,\ \textcolor{keywordtype}{int}\ mY\ =\ 0)\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordflow}{if}\ (mX\ ==\ 0)\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ mX\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{NumPoints}}\ /\ 4\ +\ 2;}
+\DoxyCodeLine{00225\ \ \ \ \ \}}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordflow}{if}\ (mY\ ==\ 0)\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ mY\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(sqrt((\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})\mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{NumPoints}})\ +\ 2);}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}.alloc(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{NumPoints}},\ mX,\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ad3d4784a9052247cee22ec57f04089ba}{GetMaxX}}()\ -\/\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_abf2b359308ecfca32aa4c2c4e01e1d23}{GetMinX}}());}
+\DoxyCodeLine{00230\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}{pY}}.alloc(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{NumPoints}},\ mY,\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af2796a99863b9f662ecf4d0e04708d52}{GetMaxY}}()\ -\/\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af1183c5bb6d36445fb6c9a44f0d87e2a}{GetMinY}}());}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{double}\ xStart\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_abf2b359308ecfca32aa4c2c4e01e1d23}{GetMinX}}(),\ yStart\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af1183c5bb6d36445fb6c9a44f0d87e2a}{GetMinY}}();}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cnt\ =\ 0;\ cnt\ <\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{NumPoints}};\ ++cnt)\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\_type}}\ pt\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6}{GetPoint}}(cnt);}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \textcolor{comment}{//\ get\ x\ from\ boost::geometry::point}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}.include(cnt,\ pt.get<0>()\ -\/\ xStart);}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \textcolor{comment}{//\ get\ y\ from\ boost::geometry::point}}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}{pY}}.initIx(cnt,\ pt.get<1>()\ -\/\ yStart);}
+\DoxyCodeLine{00238\ \ \ \ \ \}}
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aeff6f2abdde9b18f8414c7066f3d3002}{MakeNeighbors}}();}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00241\ \ \ \}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a0e406a09c8e686f6f009c72c12277e45}{MakeSmallPartition}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ mX,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ Start,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ Stop)\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}.alloc(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{NumPoints}},\ mX,\ Stop\ -\/\ Start);}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cnt\ =\ 0;\ cnt\ <\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{NumPoints}};\ ++cnt)\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\_type}}\ pt\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6}{GetPoint}}(cnt);}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ pt.get<0>();}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >=\ Start\ \&\&\ x\ <=\ Stop)\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}.include(cnt,\ x\ -\/\ Start);}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aeff6f2abdde9b18f8414c7066f3d3002}{MakeNeighbors}}();}
+\DoxyCodeLine{00253\ \ \ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aeff6f2abdde9b18f8414c7066f3d3002}{MakeNeighbors}}()\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}}\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[\mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{NumPoints}}];}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}}\ ==\ NULL)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cnt\ =\ 0;\ cnt\ <\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{NumPoints}};\ ++cnt)\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}}[cnt]\ =\ cnt\ +\ 1;}
+\DoxyCodeLine{00261\ \ \ \ \ \}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordtype}{int}\ first\ =\ 0,\ last;}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ part\ =\ 1;\ part\ <=\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a3309d498158ed08fdc35906fecc0e437}{NumParts}};\ ++part)\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ last\ =\ (part\ ==\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a3309d498158ed08fdc35906fecc0e437}{NumParts}})\ ?\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2775a5aa99d1bd9b90eeb52dfd49bc7}{NumPoints}}\ :\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ac2a98ced1cb97c51a118046ca24b4cd8}{GetPart}}(part);}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}}[first]\ =\ -\/(last\ -\/\ 2);}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae86cf213780c5974ada02c9c3fe3d553}{nbrPoints}}[last\ -\/\ 1]\ =\ first\ +\ 1;}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ first\ =\ last;}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ \ \ \}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \textcolor{comment}{//\ Method\ for\ detecting\ if\ an\ edge\ is\ shared\ between\ a\ host\ and\ guest\ polygon.}}
+\DoxyCodeLine{00273\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a305aa2275ae021b8fc78a5ce72c54af4}{edge}}(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a99e6b939494e6210b6d7b5fb77c4404d}{PolygonPartition}}\&\ p,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ host,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ guest,\ \textcolor{keywordtype}{double}\ precision\_threshold)\ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\_type}}\ guestPrev\ =\ p.\mbox{\hyperlink{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6}{GetPoint}}(p.\mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae4aa30d875e136b8117fefac04190365}{prev}}(guest));}
+\DoxyCodeLine{00275\ \ \ \ \ \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\_type}}\ hostPoint\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6}{GetPoint}}(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a72b1be66f12b5effb299460aee1b040d}{succ}}(host));}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacegeoda_a233abf7e4dc61081091d7df14a06dfde}{points\_equals}}(hostPoint,\ guestPrev,\ precision\_threshold))\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00279\ \ \ \ \ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\_type}}\ guestSucc\ =\ p.\mbox{\hyperlink{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6}{GetPoint}}(p.\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a72b1be66f12b5effb299460aee1b040d}{succ}}(guest));}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacegeoda_a233abf7e4dc61081091d7df14a06dfde}{points\_equals}}(hostPoint,\ guestSucc,\ precision\_threshold))\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00284\ \ \ \ \ \}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ hostPoint\ =\ this-\/>\mbox{\hyperlink{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6}{GetPoint}}(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_ae4aa30d875e136b8117fefac04190365}{prev}}(host));}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacegeoda_a233abf7e4dc61081091d7df14a06dfde}{points\_equals}}(hostPoint,\ guestSucc,\ precision\_threshold))\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00290\ \ \ \ \ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacegeoda_a233abf7e4dc61081091d7df14a06dfde}{points\_equals}}(hostPoint,\ guestPrev,\ precision\_threshold))\ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00294\ \ \ \ \ \}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00297\ \ \ \}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \textcolor{comment}{//\ Determines\ if\ two\ polygons\ are\ neighbors.\ The\ host\ is\ assumed\ to\ be\ partitioned.}}
+\DoxyCodeLine{00300\ \ \ \textcolor{comment}{//\ Uses\ two\ criteria\ to\ establish\ neighborhood:\ is\_queen\ ==\ true\ then:\ common\ point,\ else:\ common\ boundary}}
+\DoxyCodeLine{00301\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ad5a4bfc6afecec2885b2e97b2a8efe42}{sweep}}(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a99e6b939494e6210b6d7b5fb77c4404d}{PolygonPartition}}\&\ guest,\ \textcolor{keywordtype}{bool}\ is\_queen,\ \textcolor{keywordtype}{double}\ precision\_threshold\ =\ 0.0)\ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordtype}{int}\ host,\ dot,\ cly,\ cell;}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordtype}{double}\ yStart\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af1183c5bb6d36445fb6c9a44f0d87e2a}{GetMinY}}();}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{comment}{//\ double\ \ yStop=\ GetMaxY();}}
+\DoxyCodeLine{00305\ \ \ \ \ \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\_type}}\ pt;}
+\DoxyCodeLine{00306\ \ \ \ \ guest.\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a0e406a09c8e686f6f009c72c12277e45}{MakeSmallPartition}}(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}.Cells(),\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_abf2b359308ecfca32aa4c2c4e01e1d23}{GetMinX}}(),\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_ad3d4784a9052247cee22ec57f04089ba}{GetMaxX}}());}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{for}\ (cell\ =\ 0;\ cell\ <\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}.Cells();\ ++cell)\ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (host\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}.first(cell);\ host\ !=\ EMPTY\_COUNT;\ host\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}.tail(host))\ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}{pY}}.include(host);}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (dot\ =\ guest.\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}.\mbox{\hyperlink{classgeoda_1_1_base_partition_ab1f2537ef31a8c112f8ccb2b72ceffc3}{first}}(cell);\ dot\ !=\ EMPTY\_COUNT;\ dot\ =\ guest.\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}}.\mbox{\hyperlink{classgeoda_1_1_base_partition_abd2ccb040b8905632f51cd39b8cce778}{tail}}(dot))\ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ pt\ =\ guest.\mbox{\hyperlink{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6}{GetPoint}}(dot);}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ pt.get<0>();}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ pt.get<1>();}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ cly\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}{pY}}.inTheRange(y\ -\/\ yStart);}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cly\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (host\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}{pY}}.first(cly);\ host\ !=\ EMPTY\_COUNT;\ host\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}{pY}}.tail(host))\ \{}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{geometry_8h_a4955b56f005be86f2d38486958dba53b}{point\_type}}\ hostPt\ =\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_aae2c86891e1b3d3692d6dccc7fda70e6}{GetPoint}}(host);}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ xHost\ =\ hostPt.get<0>();}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ yHost\ =\ hostPt.get<1>();}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ if\ abs(x\ -\/\ xHost)\ <=\ precision\_threshold\ and\ abs(y\ -\/\ yHost)\ <=\ precision\_threshold}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(x\ -\/\ xHost)\ <=\ precision\_threshold\ \&\&\ std::abs(y\ -\/\ yHost)\ <=\ precision\_threshold)\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_queen\ ||\ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_a305aa2275ae021b8fc78a5ce72c54af4}{edge}}(guest,\ host,\ dot,\ precision\_threshold))\ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}{pY}}.cleanup(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}},\ cell);}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \mbox{\hyperlink{classgeoda_1_1_polygon_partition_af5075486c92b2bbf59512817eacdb0eb}{pY}}.cleanup(\mbox{\hyperlink{classgeoda_1_1_polygon_partition_a69fcbef052127f103cc0b1e38adc5b6c}{pX}},\ cell);}
+\DoxyCodeLine{00332\ \ \ \ \ \}}
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00334\ \ \ \}}
+\DoxyCodeLine{00335\ \};}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgeoda_1_1_ref_a00b159442c63d293c05740fe6d188d30}{Ref}}\ \{}
+\DoxyCodeLine{00338\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structgeoda_1_1_ref_a2a3a9ed0f5a2570f63ba92175229318c}{next}},\ \mbox{\hyperlink{structgeoda_1_1_ref_ab2d2b7a4fa609f9f16739776d4db8d6f}{prev}};}
+\DoxyCodeLine{00339\ \ \ \mbox{\hyperlink{structgeoda_1_1_ref_a00b159442c63d293c05740fe6d188d30}{Ref}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ nxt\ =\ -\/1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ prv\ =\ -\/1)\ :\ \mbox{\hyperlink{structgeoda_1_1_ref_a2a3a9ed0f5a2570f63ba92175229318c}{next}}(nxt),\ \mbox{\hyperlink{structgeoda_1_1_ref_ab2d2b7a4fa609f9f16739776d4db8d6f}{prev}}(prv)\ \{\}}
+\DoxyCodeLine{00340\ \}\ \mbox{\hyperlink{namespacegeoda_a3e76816f68cde0a87e65f27b98373e00}{RefStruct}};}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{namespacegeoda_a3e76816f68cde0a87e65f27b98373e00}{RefStruct}}*\ \mbox{\hyperlink{namespacegeoda_a043142de326587fe4dc753afa3eb7137}{RefPtr}};}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgeoda_1_1_partition_m_a7d24c15f51c5b44a33db8a8fb989dfa8}{PartitionM}}\ \{}
+\DoxyCodeLine{00345\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00346\ \ \ \textcolor{keywordtype}{double}\ step;}
+\DoxyCodeLine{00347\ \ \ \textcolor{keywordtype}{int}\ elements,\ cells;}
+\DoxyCodeLine{00348\ \ \ \textcolor{keywordtype}{int}*\ cell;}
+\DoxyCodeLine{00349\ \ \ \textcolor{keywordtype}{int}*\ cellIndex;}
+\DoxyCodeLine{00350\ \ \ \textcolor{keywordtype}{int}*\ lastIndex;}
+\DoxyCodeLine{00351\ \ \ \mbox{\hyperlink{namespacegeoda_a043142de326587fe4dc753afa3eb7137}{RefPtr}}*\ Refs;}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00354\ \ \ \mbox{\hyperlink{classgeoda_1_1_partition_m_a7d24c15f51c5b44a33db8a8fb989dfa8}{PartitionM}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ els,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cls,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ range)\ :\ elements(els),\ cells(cls)\ \{}
+\DoxyCodeLine{00355\ \ \ \ \ cell\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[cells];}
+\DoxyCodeLine{00356\ \ \ \ \ cellIndex\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[elements];}
+\DoxyCodeLine{00357\ \ \ \ \ lastIndex\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[elements];}
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordtype}{int}\ cnt;}
+\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordflow}{for}\ (cnt\ =\ 0;\ cnt\ <\ cells;\ ++cnt)\ cell[cnt]\ =\ EMPTY\_COUNT;}
+\DoxyCodeLine{00360\ \ \ \ \ Refs\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacegeoda_a043142de326587fe4dc753afa3eb7137}{RefPtr}}[elements];}
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keywordflow}{for}\ (cnt\ =\ 0;\ cnt\ <\ elements;\ ++cnt)\ Refs[cnt]\ =\ NULL;}
+\DoxyCodeLine{00362\ \ \ \ \ step\ =\ range\ /\ cells;}
+\DoxyCodeLine{00363\ \ \ \}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classgeoda_1_1_partition_m_a0d5e42413b6b169f03007886aa9ba8a9}{\string~PartitionM}}()\ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordflow}{if}\ (cell)\ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ cell;}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ cell\ =\ NULL;}
+\DoxyCodeLine{00369\ \ \ \ \ \}}
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordflow}{if}\ (cellIndex)\ \{}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ cellIndex;}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ cellIndex\ =\ NULL;}
+\DoxyCodeLine{00373\ \ \ \ \ \}}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordflow}{if}\ (lastIndex)\ \{}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ lastIndex;}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ lastIndex\ =\ NULL;}
+\DoxyCodeLine{00377\ \ \ \ \ \}}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{if}\ (Refs)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ ref\ =\ 0;\ ref\ <\ elements;\ ++ref)}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Refs[ref])\ \textcolor{keyword}{delete}[]\ Refs[ref];}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ Refs;}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ Refs\ =\ NULL;}
+\DoxyCodeLine{00383\ \ \ \ \ \}}
+\DoxyCodeLine{00384\ \ \ \ \ cells\ =\ 0;}
+\DoxyCodeLine{00385\ \ \ \ \ elements\ =\ 0;}
+\DoxyCodeLine{00386\ \ \ \}}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \textcolor{comment}{//\ Include\ element\ incl\ with\ duration\ [lower,\ upper]\ into\ the\ partition.}}
+\DoxyCodeLine{00389\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_partition_m_a645c3c4ba08e41e92a5a7cbb43ec6280}{include}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ incl)\ \{}
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordtype}{int}\ cnt,\ lower\ =\ cellIndex[incl],\ upper\ =\ lastIndex[incl];}
+\DoxyCodeLine{00391\ \ \ \ \ \mbox{\hyperlink{namespacegeoda_a043142de326587fe4dc753afa3eb7137}{RefPtr}}\ rptr\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacegeoda_a3e76816f68cde0a87e65f27b98373e00}{RefStruct}}[upper\ -\/\ lower\ +\ 1];}
+\DoxyCodeLine{00392\ \ \ \ \ Refs[incl]\ =\ rptr;}
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordflow}{for}\ (cnt\ =\ upper\ -\/\ lower;\ cnt\ >=\ 0;\ -\/-\/cnt)\ rptr[cnt]\ =\ \mbox{\hyperlink{structgeoda_1_1_ref}{Ref}}();}
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordflow}{for}\ (cnt\ =\ lower;\ cnt\ <=\ upper;\ ++cnt)\ \{}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ old\ =\ cell[cnt];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ first\ element\ in\ the\ cell}}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ cell[cnt]\ =\ incl;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ new\ first\ element\ in\ the\ cell}}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (old\ !=\ EMPTY\_COUNT)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ cell\ was\ not\ empty}}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ rptr[cnt\ -\/\ lower].\mbox{\hyperlink{structgeoda_1_1_ref_a2a3a9ed0f5a2570f63ba92175229318c}{next}}\ =\ old;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ OLD\ is\ the\ next\ element\ after\ incl\ in\ the\ list}}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ Refs[old][cnt\ -\/\ cellIndex[old]].prev\ =\ incl;\ \ \textcolor{comment}{//\ incl\ is\ preceeding\ OLD\ in\ the\ list}}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00401\ \ \ \ \ \}}
+\DoxyCodeLine{00402\ \ \ \}}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \ \ \textcolor{comment}{//\ Remove\ an\ element\ del\ from\ the\ partition.}}
+\DoxyCodeLine{00405\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_partition_m_a94eb3b57d20d6e93e4f2549f0cf6445b}{remove}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ del)\ \{}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{int}\ lower\ =\ cellIndex[del],\ upper\ =\ lastIndex[del],\ cnt;}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordflow}{for}\ (cnt\ =\ lower;\ cnt\ <=\ upper;\ ++cnt)\ \{}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \mbox{\hyperlink{namespacegeoda_a3e76816f68cde0a87e65f27b98373e00}{RefStruct}}\ cRef\ =\ Refs[del][cnt\ -\/\ lower];}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cRef.\mbox{\hyperlink{structgeoda_1_1_ref_ab2d2b7a4fa609f9f16739776d4db8d6f}{prev}}\ <\ 0)\ \ \textcolor{comment}{//\ this\ is\ the\ first\ element\ in\ the\ list}}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ cell[cnt]\ =\ cRef.\mbox{\hyperlink{structgeoda_1_1_ref_a2a3a9ed0f5a2570f63ba92175229318c}{next}};}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ Refs[cRef.\mbox{\hyperlink{structgeoda_1_1_ref_ab2d2b7a4fa609f9f16739776d4db8d6f}{prev}}][cnt\ -\/\ cellIndex[cRef.\mbox{\hyperlink{structgeoda_1_1_ref_ab2d2b7a4fa609f9f16739776d4db8d6f}{prev}}]].next\ =\ cRef.\mbox{\hyperlink{structgeoda_1_1_ref_a2a3a9ed0f5a2570f63ba92175229318c}{next}};}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cRef.\mbox{\hyperlink{structgeoda_1_1_ref_a2a3a9ed0f5a2570f63ba92175229318c}{next}}\ !=\ EMPTY\_COUNT)\ \ \textcolor{comment}{//\ this\ is\ not\ the\ last\ element\ in\ the\ list}}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ Refs[cRef.\mbox{\hyperlink{structgeoda_1_1_ref_a2a3a9ed0f5a2570f63ba92175229318c}{next}}][cnt\ -\/\ cellIndex[cRef.\mbox{\hyperlink{structgeoda_1_1_ref_a2a3a9ed0f5a2570f63ba92175229318c}{next}}]].prev\ =\ cRef.\mbox{\hyperlink{structgeoda_1_1_ref_ab2d2b7a4fa609f9f16739776d4db8d6f}{prev}};}
+\DoxyCodeLine{00415\ \ \ \ \ \}}
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keyword}{delete}[]\ Refs[del];}
+\DoxyCodeLine{00417\ \ \ \ \ Refs[del]\ =\ NULL;}
+\DoxyCodeLine{00418\ \ \ \}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeoda_1_1_partition_m_afc997ec048fa2a93f237ddfd2681fb34}{initIx}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ incl,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ lwr,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ upr)\ \{}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordtype}{int}\ lower\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(floor(lwr\ /\ step));}
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordtype}{int}\ upper\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(floor(upr\ /\ step));}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordflow}{if}\ (lower\ <\ 0)\ \{}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ lower\ =\ 0;}
+\DoxyCodeLine{00426\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lower\ >=\ cells)\ \{}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ lower\ =\ cells\ -\/\ 1;}
+\DoxyCodeLine{00428\ \ \ \ \ \}}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keywordflow}{if}\ (upper\ >=\ cells)\ \{}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ upper\ =\ cells\ -\/\ 1;}
+\DoxyCodeLine{00432\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (upper\ <\ 0)\ \{}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ upper\ =\ 0;}
+\DoxyCodeLine{00434\ \ \ \ \ \}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordflow}{if}\ (lower\ <\ 0\ ||\ upper\ >\ cells\ ||\ incl\ <\ 0\ ||\ incl\ >=\ elements)\ \{}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \textcolor{comment}{//\ should\ never\ be\ here}}
+\DoxyCodeLine{00438\ \ \ \ \ \}}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \ \ \ \ cellIndex[incl]\ =\ lower;}
+\DoxyCodeLine{00441\ \ \ \ \ lastIndex[incl]\ =\ upper;}
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00443\ \ \ \}}
+\DoxyCodeLine{00444\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_partition_m_aef08f48e0d9bcd7765f25eb0866163da}{lowest}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ el)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ cellIndex[el];\ \}}
+\DoxyCodeLine{00445\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_partition_m_a0e68d47fcef68d9a4973e059695b47ff}{upmost}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ el)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ lastIndex[el];\ \}}
+\DoxyCodeLine{00446\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_partition_m_a49726a98620e09eb4467ce6ce942a67b}{first}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cl)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ cell[cl];\ \}}
+\DoxyCodeLine{00447\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_partition_m_a90868506ba32d35186288cd5d7534151}{tail}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ elt,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cl)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ Refs[elt][cl\ -\/\ cellIndex[elt]].next;\ \}}
+\DoxyCodeLine{00448\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeoda_1_1_partition_m_ab4ba8539e65970cad223c6f1f06c6b55}{Sum}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_m_l__im_8cpp_ab0f1c1a71d99a758429781c77aede6f7}{sum}}\ =\ 0;}
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cnt\ =\ 0;\ cnt\ <\ elements;\ ++cnt)\ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \mbox{\hyperlink{_m_l__im_8cpp_ab0f1c1a71d99a758429781c77aede6f7}{sum}}\ +=\ (lastIndex[cnt]\ -\/\ cellIndex[cnt]\ +\ 1);}
+\DoxyCodeLine{00452\ \ \ \ \ \}}
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_m_l__im_8cpp_ab0f1c1a71d99a758429781c77aede6f7}{sum}};}
+\DoxyCodeLine{00454\ \ \ \}}
+\DoxyCodeLine{00455\ \};}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \}\ \ \textcolor{comment}{//\ namespace\ geoda}}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GEODA\_GAL\_PARTITION\_H}}
+
+\end{DoxyCode}

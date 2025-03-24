@@ -1,0 +1,389 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="geometry_8cpp" kind="file" language="C++">
+    <compoundname>geometry.cpp</compoundname>
+    <includes local="no">sstream</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">boost/geometry/algorithms/buffer.hpp</includes>
+    <includes local="no">boost/geometry/io/wkt/write.hpp</includes>
+    <includes refid="_u_t_m_8h" local="yes">utils/UTM.h</includes>
+    <includes refid="geometry_8h" local="yes">geometry/geometry.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.cpp</label>
+        <link refid="geometry_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>geometry/geometry.h</label>
+        <link refid="geometry_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>utils/UTM.h</label>
+        <link refid="_u_t_m_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>algorithm</label>
+      </node>
+      <node id="12">
+        <label>boost/geometry.hpp</label>
+      </node>
+      <node id="5">
+        <label>boost/geometry/algorithms/buffer.hpp</label>
+      </node>
+      <node id="6">
+        <label>boost/geometry/io/wkt/write.hpp</label>
+      </node>
+      <node id="10">
+        <label>cmath</label>
+      </node>
+      <node id="13">
+        <label>limits</label>
+      </node>
+      <node id="2">
+        <label>sstream</label>
+      </node>
+      <node id="8">
+        <label>stdio.h</label>
+      </node>
+      <node id="9">
+        <label>stdlib.h</label>
+      </node>
+      <node id="14">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/geometry/algorithms/buffer.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/geometry/io/wkt/write.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_u_t_m_8h" kindref="compound">utils/UTM.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="geometry_8h" kindref="compound">geometry/geometry.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacegeoda" kindref="compound">geoda</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_polygon_1ace55962432d0f5981611960b174467b6" kindref="member">Polygon::add</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_y,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_hole)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(in_x.size()<sp/>==<sp/>in_y.size())<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classgeoda_1_1_polygon_1a60e43dbb6f5dcd6b59b6457a0c9e1192" kindref="member">parts</ref>.push_back(<ref refid="classgeoda_1_1_polygon_1a60e43dbb6f5dcd6b59b6457a0c9e1192" kindref="member">parts</ref>.empty()<sp/>?<sp/>0<sp/>:<sp/><ref refid="classgeoda_1_1_polygon_1a7bc8e19f027aa85e2cacc61160e00d54" kindref="member">x</ref>.size());</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>std::copy(in_x.begin(),<sp/>in_x.end(),<sp/>std::back_inserter(<ref refid="classgeoda_1_1_polygon_1a7bc8e19f027aa85e2cacc61160e00d54" kindref="member">x</ref>));</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>std::copy(in_y.begin(),<sp/>in_y.end(),<sp/>std::back_inserter(<ref refid="classgeoda_1_1_polygon_1a24f40e5d9644fc29fcaa4641c0a2f104" kindref="member">y</ref>));</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classgeoda_1_1_polygon_1a99cd64c0195a24310bee2fcbc45f4737" kindref="member">holes</ref>.push_back(is_hole);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_line_1ab24740d29757a92ad28e1c956a7c5242" kindref="member">Line::add</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_y)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(in_x.size()<sp/>==<sp/>in_y.size())<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classgeoda_1_1_line_1aa451d12787cff2e3d2a62ee2c4b21e1f" kindref="member">parts</ref>.push_back(<ref refid="classgeoda_1_1_line_1aa451d12787cff2e3d2a62ee2c4b21e1f" kindref="member">parts</ref>.empty()<sp/>?<sp/>0<sp/>:<sp/><ref refid="classgeoda_1_1_line_1a46bee467f4781bd84b7a71a1b7836f55" kindref="member">x</ref>.size());</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>std::copy(in_x.begin(),<sp/>in_x.end(),<sp/>std::back_inserter(<ref refid="classgeoda_1_1_line_1a46bee467f4781bd84b7a71a1b7836f55" kindref="member">x</ref>));</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>std::copy(in_y.begin(),<sp/>in_y.end(),<sp/>std::back_inserter(<ref refid="classgeoda_1_1_line_1aba784c0efe5ef83224c6e0cd8d054c5d" kindref="member">y</ref>));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_point_1a6c8973a342faaccee9607af1864e3b27" kindref="member">Point::add</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>in_x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>in_y)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="classgeoda_1_1_point_1aeb4d48ab279523f2408066ad2c32c813" kindref="member">x</ref>.push_back(in_x);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="classgeoda_1_1_point_1a5a47c94cd8103d5d53326605afff42dc" kindref="member">y</ref>.push_back(in_y);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><ref refid="classgeoda_1_1_geometry_collection_1a9ff03fbaedb0cd610d2ac321d6dec5c3" kindref="member">GeometryCollection::GeometryCollection</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_y,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>parts,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>sizes,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>convert_to_UTM)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>x(in_x),<sp/>y(in_y),<sp/>parts(parts),<sp/>sizes(sizes),<sp/>convert_to_UTM(convert_to_UTM)<sp/>{}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection_1a51291eebb1d1165f78cdee56f317afcb" kindref="member">GeometryCollection::ConvertToUTM</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lat,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lng,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>north,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>east)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classgeoda_1_1_geometry_collection_1a110398f22f06869c071a09117788e009" kindref="member">utm_zones</ref>[index].<ref refid="classgeoda_1_1_geometry_collection_1a0d8bf03dd9b0edf9d6bfb740eebe4f51" kindref="member">empty</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>zone[4]<sp/>=<sp/>{</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>UTM::LLtoUTM(lat,<sp/>lng,<sp/>north,<sp/>east,<sp/>zone);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classgeoda_1_1_geometry_collection_1a110398f22f06869c071a09117788e009" kindref="member">utm_zones</ref>[index]<sp/>=<sp/>zone;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>zone<sp/>=<sp/></highlight><highlight class="keyword">const_cast&lt;</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="classgeoda_1_1_geometry_collection_1a110398f22f06869c071a09117788e009" kindref="member">utm_zones</ref>[index].c_str());</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>UTM::LLtoUTM(lat,<sp/>lng,<sp/>north,<sp/>east,<sp/>zone);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><ref refid="classgeoda_1_1_polygon_collection_1af69c0dbe3180ab6e4ab08386d33a0e43" kindref="member">PolygonCollection::PolygonCollection</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_y,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>parts,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>holes,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>sizes,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fix_polygon,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>convert_to_UTM)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref>(in_x,<sp/>in_y,<sp/>parts,<sp/>sizes,<sp/>convert_to_UTM),<sp/>holes(holes)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_points<sp/>=<sp/>x.<ref refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_polys<sp/>=<sp/>sizes.size();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_all_parts<sp/>=<sp/>parts.size();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>part_index<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>north,<sp/>east;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>utm_zones.resize(num_polys);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_polys;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="geometry_8h_1ad9cc59b99ad17c2cd9f79fd375e88752" kindref="member">multipolygon_type</ref><sp/>boost_mp;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_parts<sp/>=<sp/>sizes[i];</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>inner_parts<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>part_index;<sp/>j<sp/>&lt;<sp/>part_index<sp/>+<sp/>num_parts;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start<sp/>=<sp/>parts[j];</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end<sp/>=<sp/>j<sp/>==<sp/>num_all_parts<sp/>-<sp/>1<sp/>?<sp/>num_points<sp/>:<sp/>parts[j<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_hole<sp/>=<sp/>holes[j];</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!is_hole)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="geometry_8h_1a8941e510540f69398cb8bfdbd932f393" kindref="member">polygon_type</ref><sp/>boost_p;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>start;<sp/>k<sp/>&lt;<sp/>end;<sp/>++k)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lat<sp/>=<sp/>y[k],<sp/>lng<sp/>=<sp/>x[k];</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(convert_to_UTM)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ConvertToUTM(i,<sp/>lat,<sp/>lng,<sp/>north,<sp/>east);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lat<sp/>=<sp/>north;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lng<sp/>=<sp/>east;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bg::append(boost_p.outer(),<sp/><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref>(lng,<sp/>lat));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>boost_mp.push_back(boost_p);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inner_parts<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inner_parts<sp/>+=<sp/>1;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="geometry_8h_1a8941e510540f69398cb8bfdbd932f393" kindref="member">polygon_type</ref>&amp;<sp/>tmp_poly<sp/>=<sp/>boost_mp.back();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmp_poly.inners().resize(inner_parts);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>start;<sp/>k<sp/>&lt;<sp/>end;<sp/>++k)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lat<sp/>=<sp/>y[k],<sp/>lng<sp/>=<sp/>x[k];</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(convert_to_UTM)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ConvertToUTM(i,<sp/>lat,<sp/>lng,<sp/>north,<sp/>east);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lat<sp/>=<sp/>north;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lng<sp/>=<sp/>east;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bg::append(tmp_poly.inners().back(),<sp/><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref>(lng,<sp/>lat));</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>offset<sp/>the<sp/>index<sp/>to<sp/>visit<sp/>parts[]:<sp/>an<sp/>empty<sp/>polygon<sp/>(num_parts==0)<sp/>should<sp/>offset<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset_part<sp/>=<sp/>num_parts<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/>num_parts;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>part_index<sp/>+=<sp/>offset_part;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fix_polygon)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bg::correct(boost_mp);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>polygons.push_back(boost_mp);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_polygon_collection_1a39782c0e0ba343a250f9db5d87b9c10e" kindref="member">PolygonCollection::get_polygon</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>polygon_index,<sp/><ref refid="classgeoda_1_1_polygon" kindref="compound">Polygon</ref>&amp;<sp/>poly)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_parts<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" kindref="member">sizes</ref>[polygon_index];</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>offset_part<sp/>for<sp/>the<sp/>i-th<sp/>polygon</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>part_index<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>polygon_index;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset_part<sp/>=<sp/>num_parts<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/><ref refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" kindref="member">sizes</ref>[i];</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>part_index<sp/>+=<sp/>offset_part;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>north,<sp/>east;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>part_index;<sp/>j<sp/>&lt;<sp/>part_index<sp/>+<sp/>num_parts;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1a6b093922e9b1b191b4c2f865e030e067" kindref="member">parts</ref>[j];</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end<sp/>=<sp/>j<sp/>==<sp/><ref refid="classgeoda_1_1_geometry_collection_1a6b093922e9b1b191b4c2f865e030e067" kindref="member">parts</ref>.size()<sp/>-<sp/>1<sp/>?<sp/><ref refid="classgeoda_1_1_geometry_collection_1aa4b142edec07a60c3ccebebd75ec1807" kindref="member">x</ref>.size()<sp/>:<sp/><ref refid="classgeoda_1_1_geometry_collection_1a6b093922e9b1b191b4c2f865e030e067" kindref="member">parts</ref>[j<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>start;<sp/>k<sp/>&lt;<sp/>end;<sp/>++k)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lat<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1a21cd35c83e2c8f83c3cd9ca918a39d76" kindref="member">y</ref>[k],<sp/>lng<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1aa4b142edec07a60c3ccebebd75ec1807" kindref="member">x</ref>[k];</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classgeoda_1_1_geometry_collection_1a10e7706e4dfc1099ceff90f360577ac0" kindref="member">convert_to_UTM</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classgeoda_1_1_geometry_collection_1a51291eebb1d1165f78cdee56f317afcb" kindref="member">ConvertToUTM</ref>(polygon_index,<sp/>lat,<sp/>lng,<sp/>north,<sp/>east);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lat<sp/>=<sp/>north;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lng<sp/>=<sp/>east;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>poly.<ref refid="classgeoda_1_1_polygon_1a7bc8e19f027aa85e2cacc61160e00d54" kindref="member">x</ref>.push_back(lng);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>poly.<ref refid="classgeoda_1_1_polygon_1a24f40e5d9644fc29fcaa4641c0a2f104" kindref="member">y</ref>.push_back(lat);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>poly.<ref refid="classgeoda_1_1_polygon_1a60e43dbb6f5dcd6b59b6457a0c9e1192" kindref="member">parts</ref>.push_back(poly.<ref refid="classgeoda_1_1_polygon_1a60e43dbb6f5dcd6b59b6457a0c9e1192" kindref="member">parts</ref>.empty()<sp/>?<sp/>0<sp/>:<sp/>poly.<ref refid="classgeoda_1_1_polygon_1a7bc8e19f027aa85e2cacc61160e00d54" kindref="member">x</ref>.size());</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>poly.<ref refid="classgeoda_1_1_polygon_1a99cd64c0195a24310bee2fcbc45f4737" kindref="member">holes</ref>.push_back(<ref refid="classgeoda_1_1_polygon_collection_1af225c80a52c8390efed41ba53faacc7f" kindref="member">holes</ref>[j]);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_polygon_collection_1a40fbd11ed2b52766117f0b720bfea888" kindref="member">PolygonCollection::get_part</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>polygon_index,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>part_index)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>part_offset<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>polygon_index;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>an<sp/>empty<sp/>polygon<sp/>(num_parts==0)<sp/>should<sp/>offset<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>number_parts<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" kindref="member">sizes</ref>[i]<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/><ref refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" kindref="member">sizes</ref>[i];</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>part_offset<sp/>+=<sp/>number_parts;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection_1a6b093922e9b1b191b4c2f865e030e067" kindref="member">parts</ref>[part_offset<sp/>+<sp/>part_index]<sp/>-<sp/><ref refid="classgeoda_1_1_geometry_collection_1a6b093922e9b1b191b4c2f865e030e067" kindref="member">parts</ref>[part_offset];</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment">//<sp/>size_t<sp/>PolygonCollection::get_point_pos(size_t<sp/>polygon_index,<sp/>size_t<sp/>point_index)<sp/>const<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>int<sp/>num_parts<sp/>=<sp/>sizes[polygon_index];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>int<sp/>part_offset<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>polygon_index;<sp/>++i)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>//<sp/>an<sp/>empty<sp/>polygon<sp/>(num_parts==0)<sp/>should<sp/>offset<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>int<sp/>offset_part<sp/>=<sp/>sizes[i]<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/>sizes[i];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>part_offset<sp/>+=<sp/>offset_part;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>int<sp/>start<sp/>=<sp/>parts[part_offset];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>int<sp/>k<sp/>=<sp/>point_index<sp/>+<sp/>start;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>return<sp/>k;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref><sp/><ref refid="classgeoda_1_1_polygon_collection_1afe1714f8c679c2688dbc8ab2e88a89f7" kindref="member">PolygonCollection::get_point</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>polygon_index,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>point_index)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref><sp/>pt;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_parts<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" kindref="member">sizes</ref>[polygon_index];</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>part_offset<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>polygon_index;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>an<sp/>empty<sp/>polygon<sp/>(num_parts==0)<sp/>should<sp/>offset<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset_part<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" kindref="member">sizes</ref>[i]<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/><ref refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" kindref="member">sizes</ref>[i];</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>part_offset<sp/>+=<sp/>offset_part;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1a6b093922e9b1b191b4c2f865e030e067" kindref="member">parts</ref>[part_offset];</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>point_index<sp/>+<sp/>start;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lat<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1a21cd35c83e2c8f83c3cd9ca918a39d76" kindref="member">y</ref>[k],<sp/>lng<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1aa4b142edec07a60c3ccebebd75ec1807" kindref="member">x</ref>[k];</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>pt.set&lt;0&gt;(lng);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>pt.set&lt;1&gt;(lat);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pt;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_polygon_collection_1addc989726ed3ddb6237aa1ea2e10d63a" kindref="member">PolygonCollection::get_num_parts</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>polygon_index)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" kindref="member">sizes</ref>[polygon_index];<sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_polygon_collection_1a8a6d0fa2021b81137847394d47591d2c" kindref="member">PolygonCollection::get_num_points</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>polygon_index)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_parts<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" kindref="member">sizes</ref>[polygon_index];</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>part_offset<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>polygon_index;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>an<sp/>empty<sp/>polygon<sp/>(num_parts==0)<sp/>should<sp/>offset<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset_part<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" kindref="member">sizes</ref>[i]<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/><ref refid="classgeoda_1_1_geometry_collection_1ae918c6023877c8b4b0d4b2cae0cd44d7" kindref="member">sizes</ref>[i];</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>part_offset<sp/>+=<sp/>offset_part;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start<sp/>=<sp/><ref refid="classgeoda_1_1_geometry_collection_1a6b093922e9b1b191b4c2f865e030e067" kindref="member">parts</ref>[part_offset];</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end<sp/>=<sp/>part_offset<sp/>+<sp/>num_parts<sp/>&gt;=<sp/><ref refid="classgeoda_1_1_geometry_collection_1a6b093922e9b1b191b4c2f865e030e067" kindref="member">parts</ref>.size()<sp/>?<sp/><ref refid="classgeoda_1_1_geometry_collection_1aa4b142edec07a60c3ccebebd75ec1807" kindref="member">x</ref>.size()<sp/>:<sp/><ref refid="classgeoda_1_1_geometry_collection_1a6b093922e9b1b191b4c2f865e030e067" kindref="member">parts</ref>[part_offset<sp/>+<sp/>num_parts];</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>end<sp/>-<sp/>start;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal">std::vector&lt;std::vector&lt;double&gt;&gt;<sp/><ref refid="classgeoda_1_1_polygon_collection_1a2c89fb3c1d3fcec6c76d9275a8e1ecac" kindref="member">PolygonCollection::get_centroids</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/>centroids(<ref refid="classgeoda_1_1_polygon_collection_1af147a9fc1724c0a17a29e544df674499" kindref="member">polygons</ref>.size());</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="classgeoda_1_1_polygon_collection_1af147a9fc1724c0a17a29e544df674499" kindref="member">polygons</ref>.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref><sp/>pt;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classgeoda_1_1_polygon_collection_1af147a9fc1724c0a17a29e544df674499" kindref="member">polygons</ref>[i].<ref refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" kindref="member">size</ref>()<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bg::centroid(<ref refid="classgeoda_1_1_polygon_collection_1af147a9fc1724c0a17a29e544df674499" kindref="member">polygons</ref>[i],<sp/>pt);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>centroids[i].push_back(bg::get&lt;0&gt;(pt));</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>centroids[i].push_back(bg::get&lt;1&gt;(pt));</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>centroids;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><ref refid="classgeoda_1_1_line_collection_1a4e7fac56dd2478463cd8c685d3c59331" kindref="member">LineCollection::LineCollection</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_y,</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>parts,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>sizes,</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>convert_to_UTM)</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref>(in_x,<sp/>in_y,<sp/>parts,<sp/>sizes,<sp/>convert_to_UTM)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_points<sp/>=<sp/>x.<ref refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_lines<sp/>=<sp/>sizes.size();</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_all_parts<sp/>=<sp/>parts.size();</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>part_index<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>north,<sp/>east;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>utm_zones.resize(num_lines);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_lines;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>extract<sp/>and<sp/>create<sp/>multiline_type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="geometry_8h_1a4cace7380b22e2b7925d0b7f9847d782" kindref="member">multiline_type</ref><sp/>boost_line;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_parts<sp/>=<sp/>sizes[i];</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>part_index;<sp/>j<sp/>&lt;<sp/>part_index<sp/>+<sp/>num_parts;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start<sp/>=<sp/>parts[j];</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end<sp/>=<sp/>j<sp/>==<sp/>num_all_parts<sp/>-<sp/>1<sp/>?<sp/>num_points<sp/>:<sp/>parts[j<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="geometry_8h_1a5c9c3c04451f5dc409a51bc32a92b72d" kindref="member">line_type</ref><sp/>boost_l;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>start;<sp/>k<sp/>&lt;<sp/>end;<sp/>++k)<sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lat<sp/>=<sp/>y[k],<sp/>lng<sp/>=<sp/>x[k];</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(convert_to_UTM)<sp/>{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ConvertToUTM(i,<sp/>lat,<sp/>lng,<sp/>north,<sp/>east);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lat<sp/>=<sp/>north;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lng<sp/>=<sp/>east;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bg::append(boost_l,<sp/><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref>(lng,<sp/>lat));</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>boost_line.push_back(boost_l);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>offset<sp/>the<sp/>index<sp/>to<sp/>visit<sp/>parts[]:<sp/>an<sp/>empty<sp/>polygon<sp/>(num_parts==0)<sp/>should<sp/>offset<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset_part<sp/>=<sp/>num_parts<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/>num_parts;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>part_index<sp/>+=<sp/>offset_part;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>lines.push_back(boost_line);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal">std::vector&lt;std::vector&lt;double&gt;&gt;<sp/><ref refid="classgeoda_1_1_line_collection_1a8253fc2d9b5ca547f3b027b2ad161e6e" kindref="member">LineCollection::get_centroids</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/>centroids(<ref refid="classgeoda_1_1_line_collection_1a95fdd8627a9ecab6dcbf4772fa609beb" kindref="member">lines</ref>.size());</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="classgeoda_1_1_line_collection_1a95fdd8627a9ecab6dcbf4772fa609beb" kindref="member">lines</ref>.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref><sp/>pt;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>bg::centroid(<ref refid="classgeoda_1_1_line_collection_1a95fdd8627a9ecab6dcbf4772fa609beb" kindref="member">lines</ref>[i],<sp/>pt);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>centroids[i].push_back(bg::get&lt;0&gt;(pt));</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>centroids[i].push_back(bg::get&lt;1&gt;(pt));</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>centroids;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><ref refid="classgeoda_1_1_point_collection_1a14a4a07a9764a873c484ca2ce848fe9f" kindref="member">PointCollection::PointCollection</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>in_y,</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>parts,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>sizes,</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>convert_to_UTM)</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classgeoda_1_1_geometry_collection" kindref="compound">GeometryCollection</ref>(in_x,<sp/>in_y,<sp/>parts,<sp/>sizes,<sp/>convert_to_UTM)<sp/>{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_points<sp/>=<sp/>x.<ref refid="classgeoda_1_1_geometry_collection_1ac84ddf06ab4559e822276f376a24f41f" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_parts<sp/>=<sp/>parts.size();</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>north,<sp/>east;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/>utm_zones.resize(num_parts);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_parts;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>extract<sp/>and<sp/>create<sp/>multipoint_type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="geometry_8h_1adabc488e138eb16d35bb5ab9437ed3e2" kindref="member">multipoint_type</ref><sp/>boost_point;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start<sp/>=<sp/>parts[i];</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end<sp/>=<sp/>i<sp/>==<sp/>num_parts<sp/>-<sp/>1<sp/>?<sp/>num_points<sp/>:<sp/>parts[i<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>start;<sp/>k<sp/>&lt;<sp/>end;<sp/>++k)<sp/>{</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lat<sp/>=<sp/>y[k],<sp/>lng<sp/>=<sp/>x[k];</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(convert_to_UTM)<sp/>{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ConvertToUTM(i,<sp/>lat,<sp/>lng,<sp/>north,<sp/>east);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lat<sp/>=<sp/>north;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lng<sp/>=<sp/>east;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref><sp/>boost_p(lng,<sp/>lat);</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>boost_point.push_back(boost_p);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>points.push_back(boost_point);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal">std::vector&lt;std::vector&lt;double&gt;&gt;<sp/><ref refid="classgeoda_1_1_point_collection_1a0aecf4ebc56a1b826ed560247400b667" kindref="member">PointCollection::get_centroids</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/>centroids(<ref refid="classgeoda_1_1_point_collection_1a6ed0c3ce70517956fe772e04be10ab64" kindref="member">points</ref>.size());</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="classgeoda_1_1_point_collection_1a6ed0c3ce70517956fe772e04be10ab64" kindref="member">points</ref>.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="geometry_8h_1a4955b56f005be86f2d38486958dba53b" kindref="member">point_type</ref><sp/>pt;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>bg::centroid(<ref refid="classgeoda_1_1_point_collection_1a6ed0c3ce70517956fe772e04be10ab64" kindref="member">points</ref>[i],<sp/>pt);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>centroids[i].push_back(bg::get&lt;0&gt;(pt));</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>centroids[i].push_back(bg::get&lt;1&gt;(pt));</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>centroids;</highlight></codeline>
+<codeline lineno="294"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/geometry/geometry.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="vector-weight_8cpp" kind="file" language="C++">
+    <compoundname>vector-weight.cpp</compoundname>
+    <includes refid="vector-weight_8h" local="yes">weights/vector-weight.h</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">map</includes>
+    <includes local="no">string</includes>
+    <incdepgraph>
+      <node id="12">
+        <label>geometry/geometry.h</label>
+        <link refid="geometry_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>weights/gal.h</label>
+        <link refid="gal_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>weights/geoda-weight.h</label>
+        <link refid="geoda-weight_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/weights/vector-weight.cpp</label>
+        <link refid="vector-weight_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>weights/vector-weight.h</label>
+        <link refid="vector-weight_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>weights/weights.h</label>
+        <link refid="weights_2_weights_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="13">
+        <label>boost/geometry.hpp</label>
+      </node>
+      <node id="7">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>iostream</label>
+      </node>
+      <node id="14">
+        <label>limits</label>
+      </node>
+      <node id="8">
+        <label>map</label>
+      </node>
+      <node id="9">
+        <label>set</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="vector-weight_8h" kindref="compound">weights/vector-weight.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacegeoda" kindref="compound">geoda</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><ref refid="class_vector_weight_1a5b523d61d8c992dfbf225e89e6332c11" kindref="member">VectorWeight::VectorWeight</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::vector&lt;unsigned<sp/>int&gt;&gt;&amp;<sp/>neighbors)<sp/>:<sp/>gal(0)<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>weight_type<sp/>=<sp/>gal_type;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>a<sp/>new<sp/>GalElement<sp/>object<sp/>using<sp/>the<sp/>neighbors<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>this-&gt;num_obs<sp/>=<sp/>neighbors.size();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>this-&gt;sparsity<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>this-&gt;min_nbrs<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>this-&gt;max_nbrs<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>this-&gt;mean_nbrs<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>this-&gt;median_nbrs<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>this-&gt;is_internal_use<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>this-&gt;gal<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classgeoda_1_1_gal_element" kindref="compound">GalElement</ref>[num_obs];</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_obs;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;gal[i].SetSizeNbrs(neighbors[i].size());</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>neighbors[i].size();<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;gal[i].SetNbr(j,<sp/>neighbors[i][j]);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><ref refid="class_vector_weight_1a5b523d61d8c992dfbf225e89e6332c11" kindref="member">VectorWeight::VectorWeight</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight" kindref="compound">VectorWeight</ref>&amp;<sp/>gw)<sp/>:<sp/><ref refid="class_geo_da_weight" kindref="compound">GeoDaWeight</ref>(gw)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>weight_type<sp/>=<sp/>gw.<ref refid="class_geo_da_weight_1a19c17fc62099cb6b1a16565e723b8837" kindref="member">weight_type</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="class_vector_weight_1afa2b1eb5eb6c7b4baef9d648f83fc16b" kindref="member">VectorWeight::operator=</ref>(gw);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><ref refid="class_vector_weight" kindref="compound">VectorWeight</ref>&amp;<sp/><ref refid="class_vector_weight_1afa2b1eb5eb6c7b4baef9d648f83fc16b" kindref="member">VectorWeight::operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight" kindref="compound">VectorWeight</ref>&amp;<sp/>gw)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>!=<sp/>&amp;gw)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_geo_da_weight_1a19c17fc62099cb6b1a16565e723b8837" kindref="member">weight_type</ref><sp/>=<sp/>gw.<ref refid="class_geo_da_weight_1a19c17fc62099cb6b1a16565e723b8837" kindref="member">weight_type</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>GalElement[gw.<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>];</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>gw.<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[i].SetNbrs(gw.<ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[i]);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref><sp/>=<sp/>gw.<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_geo_da_weight_1af9a8fa5c60b25e06c333073963ccb341" kindref="member">wflnm</ref><sp/>=<sp/>gw.<ref refid="class_geo_da_weight_1af9a8fa5c60b25e06c333073963ccb341" kindref="member">wflnm</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_geo_da_weight_1ad004f777fe889ed0b1c6f95c3f04db90" kindref="member">id_field</ref><sp/>=<sp/>gw.<ref refid="class_geo_da_weight_1ad004f777fe889ed0b1c6f95c3f04db90" kindref="member">id_field</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1af184320e3030f5d1d0d45d900a4eff43" kindref="member">VectorWeight::HasIsolates</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Implement<sp/>the<sp/>HasIsolates<sp/>function<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[i].Size()<sp/>&lt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1aa926828334446048eb4f00a262f4df76" kindref="member">VectorWeight::Update</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;bool&gt;&amp;<sp/>undefs)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[i].Update(undefs);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1aed5a3d8ffab28ee7fabd99f50c843469" kindref="member">VectorWeight::CheckNeighbor</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_idx,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nbr_idx)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[obs_idx].Check(nbr_idx);<sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;<sp/><ref refid="class_vector_weight_1a11e72fa70f837b222c733681ece4459f" kindref="member">VectorWeight::GetNeighbors</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_idx)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[obs_idx].GetNbrs();<sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_vector_weight_1a8a0ce2cb9ee5ca063b536daffdffbf8b" kindref="member">VectorWeight::GetNeighborWeights</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_idx)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[obs_idx].GetNbrWeights();<sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1a882ceaacee73eea655d521f72759be91" kindref="member">VectorWeight::GetNbrStats</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>other</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sum_nnbrs<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>nnbrs_array;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>std::map&lt;int,<sp/>int&gt;<sp/>e_dict;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_nbrs<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>nbrs<sp/>=<sp/><ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[i].GetNbrs();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>nbrs.size();<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nbr<sp/>=<sp/>nbrs[j];</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>!=<sp/>nbr)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n_nbrs++;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e_dict[i]<sp/>=<sp/>nbr;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e_dict[nbr]<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>sum_nnbrs<sp/>+=<sp/>n_nbrs;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>0<sp/>||<sp/>n_nbrs<sp/>&lt;<sp/><ref refid="class_geo_da_weight_1a1e3e270f84f87f3b318a39b01b5f85b3" kindref="member">min_nbrs</ref>)<sp/><ref refid="class_geo_da_weight_1a1e3e270f84f87f3b318a39b01b5f85b3" kindref="member">min_nbrs</ref><sp/>=<sp/>n_nbrs;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>0<sp/>||<sp/>n_nbrs<sp/>&gt;<sp/><ref refid="class_geo_da_weight_1a77519fd84a63f54e521728fa162e13c1" kindref="member">max_nbrs</ref>)<sp/><ref refid="class_geo_da_weight_1a77519fd84a63f54e521728fa162e13c1" kindref="member">max_nbrs</ref><sp/>=<sp/>n_nbrs;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>nnbrs_array.push_back(n_nbrs);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>double<sp/>n_edges<sp/>=<sp/>e_dict.size()<sp/>/<sp/>2.0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>std::cout<sp/>&lt;&lt;<sp/>sum_nnbrs<sp/>&lt;&lt;<sp/>&quot;/&quot;<sp/>&lt;&lt;<sp/>(double)(num_obs<sp/>*<sp/>num_obs)<sp/>&lt;&lt;<sp/>std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="class_geo_da_weight_1a3171780e2956a0c7cb1d97a5973ba391" kindref="member">sparsity</ref><sp/>=<sp/>sum_nnbrs<sp/>/<sp/>(<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref><sp/>*<sp/><ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref><sp/>&gt;<sp/>0)<sp/><ref refid="class_geo_da_weight_1a68ed374b7f312f1604bc948a02dea3b9" kindref="member">mean_nbrs</ref><sp/>=<sp/>sum_nnbrs<sp/>/<sp/><ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>std::sort(nnbrs_array.begin(),<sp/>nnbrs_array.end());</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref><sp/>%<sp/>2<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_geo_da_weight_1aefae6005ee5e45f7a47230f2d8eaab38" kindref="member">median_nbrs</ref><sp/>=<sp/>(nnbrs_array[<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref><sp/>/<sp/>2<sp/>-<sp/>1]<sp/>+<sp/>nnbrs_array[<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref><sp/>/<sp/>2])<sp/>/<sp/>2.0;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_geo_da_weight_1aefae6005ee5e45f7a47230f2d8eaab38" kindref="member">median_nbrs</ref><sp/>=<sp/>nnbrs_array[<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref><sp/>/<sp/>2];</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1aedcc6d5eb68d031f2053c21d4ae4d325" kindref="member">VectorWeight::GetNbrSize</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_idx)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[obs_idx].Size();<sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1a959edbca5d1f2a4373a4a40c11a7a50d" kindref="member">VectorWeight::SpatialLag</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>obs_idx,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>data)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[obs_idx].SpatialLag(data);<sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1ac6ab3f64896c3b99218ecf740f61eaa8" kindref="member">VectorWeight::Save</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ofname,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>layer_name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>id_var_name,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>id_vec)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Implement<sp/>the<sp/>Save<sp/>function<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::runtime_error(</highlight><highlight class="stringliteral">&quot;VectorWeight::Save()<sp/>Not<sp/>implemented&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1ac6ab3f64896c3b99218ecf740f61eaa8" kindref="member">VectorWeight::Save</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ofname,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>layer_name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>id_var_name,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;&amp;<sp/>id_vec)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Implement<sp/>the<sp/>Save<sp/>function<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::runtime_error(</highlight><highlight class="stringliteral">&quot;VectorWeight::Save()<sp/>Not<sp/>implemented&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1a738e62ba4776570ef1818687e1f2a284" kindref="member">VectorWeight::SetNeighbors</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>nbr_ids)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(id<sp/>&lt;<sp/>0<sp/>||<sp/>id<sp/>&gt;=<sp/>this-&gt;<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_nbrs<sp/>=<sp/>nbr_ids.size();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(num_nbrs<sp/>&lt;=<sp/>0<sp/>||<sp/>num_nbrs<sp/>&gt;<sp/><ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref><sp/>-<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[id].SetSizeNbrs(num_nbrs,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_nbrs;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nbr_ids[i]<sp/>&lt;<sp/>0<sp/>||<sp/>nbr_ids[i]<sp/>&gt;<sp/><ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref><sp/>-<sp/>1<sp/>||<sp/>nbr_ids[i]<sp/>==<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[id].SetNbr(i,<sp/>nbr_ids[i]);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vector_weight_1a59ecfc42670cfdc120ed40e12b2e39cd" kindref="member">VectorWeight::SetNeighborsAndWeights</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>nbr_ids,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>w)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(id<sp/>&lt;<sp/>0<sp/>||<sp/>id<sp/>&gt;=<sp/>this-&gt;<ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_nbrs<sp/>=<sp/>nbr_ids.size();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(num_nbrs<sp/>&lt;=<sp/>0<sp/>||<sp/>num_nbrs<sp/>&gt;<sp/><ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref><sp/>-<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[id].SetSizeNbrs(num_nbrs,<sp/>w.empty());</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>num_nbrs;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nbr_ids[i]<sp/>&lt;<sp/>0<sp/>||<sp/>nbr_ids[i]<sp/>&gt;<sp/><ref refid="class_geo_da_weight_1adb96b8f8109f295755ef01cbce08c611" kindref="member">num_obs</ref><sp/>-<sp/>1<sp/>||<sp/>nbr_ids[i]<sp/>==<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(w.empty())<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[id].SetNbr(i,<sp/>nbr_ids[i]);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_vector_weight_1a513e5e74d9cb571b89697eb4075f27a8" kindref="member">gal</ref>[id].SetNbr(i,<sp/>nbr_ids[i],<sp/>w[i]);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/weights/vector-weight.cpp"/>
+  </compounddef>
+</doxygen>

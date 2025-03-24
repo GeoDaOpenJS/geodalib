@@ -1,7 +1,3 @@
-[**geoda-wasm**](README.md)
-
-***
-
 # geoda-wasm
 
 ## Enumerations

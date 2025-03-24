@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="_sparse_vector_8h" kind="file" language="C++">
+    <compoundname>SparseVector.h</compoundname>
+    <includes local="no">algorithm</includes>
+    <includedby refid="_sparse_matrix_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/regression/SparseMatrix.h</includedby>
+    <includedby refid="_sparse_row_8h" local="yes">/Users/xun/github/geoda-lib/src/cpp/regression/SparseRow.h</includedby>
+    <includedby refid="_sparse_vector_8cpp" local="yes">/Users/xun/github/geoda-lib/src/cpp/regression/SparseVector.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseVector.h</label>
+        <link refid="_sparse_vector_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithm</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/ML_im.cpp</label>
+        <link refid="_m_l__im_8cpp"/>
+      </node>
+      <node id="3">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/ML_im.h</label>
+        <link refid="_m_l__im_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseMatrix.cpp</label>
+        <link refid="_sparse_matrix_8cpp"/>
+      </node>
+      <node id="2">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseMatrix.h</label>
+        <link refid="_sparse_matrix_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseRow.cpp</label>
+        <link refid="_sparse_row_8cpp"/>
+      </node>
+      <node id="7">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseRow.h</label>
+        <link refid="_sparse_row_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseVector.cpp</label>
+        <link refid="_sparse_vector_8cpp"/>
+      </node>
+      <node id="1">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/SparseVector.h</label>
+        <link refid="_sparse_vector_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/Users/xun/github/geoda-lib/src/cpp/regression/smile2.cpp</label>
+        <link refid="smile2_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_sparse_vector" prot="public">SparseVector</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__GEODA_CENTER_SPARSE_VECTOR_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__GEODA_CENTER_SPARSE_VECTOR_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>---<sp/><sp/>SparseVector<sp/><sp/>---<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="class_sparse_vector" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_sparse_vector_1aca14a5984823c214b7d2ac49a89f9da7" kindref="member">SparseVector</ref><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1aca14a5984823c214b7d2ac49a89f9da7" kindref="member">SparseVector</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sz);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1abe57a9753a7c596a0f76a6462b13b408" kindref="member">~SparseVector</ref>();</highlight></codeline>
+<codeline lineno="11" refid="class_sparse_vector_1a56d0a0b1ad231ce13216f483c3f2bdf1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1a56d0a0b1ad231ce13216f483c3f2bdf1" kindref="member">getNzEntries</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nzEntries;<sp/>}</highlight></codeline>
+<codeline lineno="12" refid="class_sparse_vector_1a0c3bd6f0134154111b3956ea0197aabb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1a0c3bd6f0134154111b3956ea0197aabb" kindref="member">isNonZero</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ix)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>isNz[ix];<sp/>}</highlight></codeline>
+<codeline lineno="13" refid="class_sparse_vector_1a3eaf794e7aceb9055f42b69b7e219b2d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1a3eaf794e7aceb9055f42b69b7e219b2d" kindref="member">getIx</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>elt)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nz[elt];<sp/>}</highlight></codeline>
+<codeline lineno="14" refid="class_sparse_vector_1a39b8aab5bb3957b644e4b32b51277259" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1a39b8aab5bb3957b644e4b32b51277259" kindref="member">getValue</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ix)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val[ix];<sp/>}</highlight></codeline>
+<codeline lineno="15" refid="class_sparse_vector_1a780b513f1cb1bdf8a21381b14162c94a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1a780b513f1cb1bdf8a21381b14162c94a" kindref="member">setAt</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ix,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;v)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>checkin(ix);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>val[ix]<sp/>=<sp/>v;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19" refid="class_sparse_vector_1a5490bf623beb457d0ff113515d0c7eac" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1a5490bf623beb457d0ff113515d0c7eac" kindref="member">plusAt</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ix,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;v)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>checkin(ix);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>val[ix]<sp/>+=<sp/>v;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1ae86a19da23b15dc34270f6f92bc56844" kindref="member">addTimes</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector" kindref="compound">SparseVector</ref><sp/>&amp;v,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;w);</highlight></codeline>
+<codeline lineno="24" refid="class_sparse_vector_1ab144815479ee95f102ee3c15ea1e825b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1ab144815479ee95f102ee3c15ea1e825b" kindref="member">reset</ref>()<sp/>{<sp/>checkout();<sp/>}</highlight></codeline>
+<codeline lineno="25" refid="class_sparse_vector_1a668688ee8ab05dd43bb5598302ced419" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1a668688ee8ab05dd43bb5598302ced419" kindref="member">makeDenseReady</ref>();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1a29cb480eb814f92663d501522c71af40" kindref="member">minus</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1aca14a5984823c214b7d2ac49a89f9da7" kindref="member">SparseVector</ref><sp/>&amp;a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1aca14a5984823c214b7d2ac49a89f9da7" kindref="member">SparseVector</ref><sp/>&amp;b);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1a35bc9e964d0dcb30ca4d8eeab64c6b49" kindref="member">norm</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1aa3bf9fefbc47929d97935e0ec4515c6d" kindref="member">product</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1aca14a5984823c214b7d2ac49a89f9da7" kindref="member">SparseVector</ref><sp/>&amp;a)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1a22933b654d37b53c4f1f2e586944d01f" kindref="member">copy</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1aca14a5984823c214b7d2ac49a89f9da7" kindref="member">SparseVector</ref><sp/>&amp;a);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1a954ba850f0cb9d357f4df94d5c45ea12" kindref="member">timesPlus</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1aca14a5984823c214b7d2ac49a89f9da7" kindref="member">SparseVector</ref><sp/>&amp;a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;s);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sparse_vector_1afc0a2a71d9794e5d1e859424e1d9fd10" kindref="member">dropZeros</ref>();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>vector<sp/>size<sp/>(==<sp/>allocation<sp/>of<sp/>the<sp/>arrays)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nzEntries;<sp/><sp/></highlight><highlight class="comment">//<sp/>number<sp/>of<sp/>non-zero<sp/>entries;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>denseReady;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*val;<sp/><sp/></highlight><highlight class="comment">//<sp/>values<sp/>of<sp/>all<sp/>elements</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*nz;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>list<sp/>of<sp/>indices<sp/>of<sp/>non-zero<sp/>elements;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>*isNz;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>indicator<sp/>of<sp/>non-zero<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>checkin(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ix)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isNz[ix])<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>isNz[ix]<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>nz[nzEntries++]<sp/>=<sp/>ix;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>checkout();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/xun/github/geoda-lib/src/cpp/regression/SparseVector.h"/>
+  </compounddef>
+</doxygen>
