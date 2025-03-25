@@ -4,10 +4,14 @@
 
 > **percentileBreaks**(`data`): `Promise`\<`number`[]\>
 
-Defined in: [src/mapping/percentile-breaks.ts:11](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/mapping/percentile-breaks.ts#L11)
+Defined in: [src/mapping/percentile-breaks.ts:25](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/mapping/percentile-breaks.ts#L25)
 
-The percentile breaks implementation.
-The percentile breaks include: <= 1%, (1-10]%, (10-50]%, (50-90)%, [90-99)%, >= 99%
+## Description
+Percentile Breaks divides the data into six ranges: the lowest 1%, 1-10%, 10-50%, 50-90%, 90-99% and the top 1%.
+
+## Characteristics
+- Fixed categories
+- Effective for identifying spatial outliers and extreme values
 
 ## Parameters
 
@@ -22,3 +26,14 @@ The numeric values to be classified.
 `Promise`\<`number`[]\>
 
 The breaks values.
+
+## Example
+
+```ts
+import { percentileBreaks } from 'geoda-wasm';
+
+const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const breaks = await percentileBreaks(data);
+
+// breaks = [1, 1.4, 5, 8.6, 9]
+```

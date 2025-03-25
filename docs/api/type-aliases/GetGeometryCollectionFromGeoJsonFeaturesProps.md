@@ -4,7 +4,7 @@
 
 > **GetGeometryCollectionFromGeoJsonFeaturesProps**: `object`
 
-Defined in: [src/geometry/geojson-geometry.ts:32](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/geometry/geojson-geometry.ts#L32)
+Defined in: [src/geometry/geojson-geometry.ts:28](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/geometry/geojson-geometry.ts#L28)
 
 The type of the props for getGeometryCollectionFromGeoJson
 
@@ -14,22 +14,10 @@ The type of the props for getGeometryCollectionFromGeoJson
 
 > **features**: `Feature`[]
 
+The features to convert
+
 ### wasm
 
 > **wasm**: [`GeoDaInterface`](../interfaces/GeoDaInterface.md)
 
-## Param
-
-the geometry input
-
-## Param
-
-the wasm module
-
-## Param
-
-the start index
-
-## Param
-
-the end index
+The wasm module

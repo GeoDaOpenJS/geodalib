@@ -4,7 +4,7 @@
 
 > **bivariateLocalMoran**(`props`): `Promise`\<[`LocalMoranResult`](../type-aliases/LocalMoranResult.md)\>
 
-Defined in: [src/sa/local-moran.ts:127](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/sa/local-moran.ts#L127)
+Defined in: [src/sa/local-moran.ts:127](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/sa/local-moran.ts#L127)
 
 Calculates bivariate Local Moran's I statistics to measure spatial correlation
 between two variables

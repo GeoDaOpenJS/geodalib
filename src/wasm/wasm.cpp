@@ -36,7 +36,8 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::register_vector<std::vector<double>>("VecVecDouble");
   emscripten::register_vector<std::string>("VectorString");
 
-  emscripten::class_<geoda::GeometryCollection>("GeometryCollection");
+  emscripten::class_<geoda::GeometryCollection>("GeometryCollection")
+      .function("getType", &geoda::GeometryCollection::get_type);
   emscripten::class_<geoda::PolygonCollection, emscripten::base<geoda::GeometryCollection>>("PolygonCollection")
       .constructor<std::vector<double>, std::vector<double>, std::vector<unsigned int>, std::vector<unsigned int>,
                    std::vector<unsigned int>, bool, bool>()

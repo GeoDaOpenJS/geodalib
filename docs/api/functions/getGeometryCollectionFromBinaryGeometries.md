@@ -4,9 +4,9 @@
 
 > **getGeometryCollectionFromBinaryGeometries**(`geometryType`, `binaryFeaturesChunks`, `wasm`): `Promise`\<`GeometryCollection`\>
 
-Defined in: [src/geometry/binary-geometry.ts:25](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/geometry/binary-geometry.ts#L25)
+Defined in: [src/geometry/binary-geometry.ts:32](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/geometry/binary-geometry.ts#L32)
 
-create geoda.GeometryCollection from dataToFeatures[] in GeojsonLayer
+Creates a GeoDa GeometryCollection from binary geometry features
 
 ## Parameters
 
@@ -14,14 +14,26 @@ create geoda.GeometryCollection from dataToFeatures[] in GeojsonLayer
 
 [`BinaryGeometryType`](../type-aliases/BinaryGeometryType.md)
 
+The type of geometry to create
+
 ### binaryFeaturesChunks
 
 `BinaryFeatureCollection`[]
+
+Array of binary feature collections. See BinaryFeatureCollection in `@loaders.gl/schema`
 
 ### wasm
 
 [`GeoDaInterface`](../interfaces/GeoDaInterface.md)
 
+The initialized GeoDa WASM module
+
 ## Returns
 
 `Promise`\<`GeometryCollection`\>
+
+A GeoDa geometry collection
+
+## Throws
+
+If WASM module is not initialized or geometry type is unknown

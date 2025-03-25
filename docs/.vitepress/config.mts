@@ -5,6 +5,9 @@ export default defineConfig({
   title: 'GeoDaLib',
   description: 'a modern Javascript library for spatial data analysis',
   base: '/geoda-lib/',
+  markdown: {
+    math: true
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -23,13 +26,13 @@ export default defineConfig({
       {
         text: 'API Reference',
         items: [
-          { text: 'Spatial Operations', link: '/spatial-operations' },
           { text: 'Mapping', link: '/reference/mapping' },
-          { text: 'Data Exploration', link: '/data-exploration' },
-          { text: 'Spatial Weights', link: '/spatial-weights' },
-          { text: 'Spatial Autocorrelation Analysis', link: '/spatial-autocorrelation-analysis' },
-          { text: 'Spatial Clustering', link: '/spatial-clustering' },
-          { text: 'Spatial Regression', link: '/spatial-regression' },
+          { text: 'Data Exploration', link: '/reference/data-exploration' },
+          { text: 'Spatial Weights', link: '/reference/spatial-weights' },
+          { text: 'Spatial Autocorrelation Analysis', link: '/reference/spatial-autocorrelation-analysis' },
+          { text: 'Spatial Clustering', link: '/reference/spatial-clustering' },
+          { text: 'Spatial Regression', link: '/reference/spatial-regression' },
+          { text: 'Spatial Operations', link: '/reference/spatial-operations' },
         ],
       },
       {

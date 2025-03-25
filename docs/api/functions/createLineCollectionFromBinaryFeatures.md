@@ -4,9 +4,9 @@
 
 > **createLineCollectionFromBinaryFeatures**(`linesArray`, `wasm`): `LineCollection`
 
-Defined in: [src/geometry/binary-geometry.ts:100](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/geometry/binary-geometry.ts#L100)
+Defined in: [src/geometry/binary-geometry.ts:109](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/geometry/binary-geometry.ts#L109)
 
-create geoda lineCollection from dataToFeatures[] in GeojsonLayer
+Creates a GeoDa LineCollection from binary line features
 
 ## Parameters
 
@@ -14,14 +14,16 @@ create geoda lineCollection from dataToFeatures[] in GeojsonLayer
 
 (`undefined` \| `BinaryLineFeature`)[]
 
-BinaryFeatureCollection['lines'][] An array of binary line features from chunks of geoarrow
+Array of binary line features from GeoArrow chunks
 
 ### wasm
 
 [`GeoDaInterface`](../interfaces/GeoDaInterface.md)
 
+The initialized GeoDa WASM module
+
 ## Returns
 
 `LineCollection`
 
-LineCollection | null
+A GeoDa line collection

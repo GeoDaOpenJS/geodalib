@@ -12,7 +12,11 @@
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
     "typedoc": "typedoc",
+    "typedoc:watch": "typedoc --watch",
     "doxygen": "doxygen Doxyfile",
     "cpp": "pnpm run doxygen && ./node_modules/moxygen/bin/moxygen.js -c ./cpp/xml -o ./cpp/api-%s.md"
+  },
+  "dependencies": {
+    "markdown-it-mathjax3": "^4.3.2"
   }
 }

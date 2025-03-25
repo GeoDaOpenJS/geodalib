@@ -4,7 +4,7 @@
 
 > **SpatialJoinGeometryCollectionProps**: `object`
 
-Defined in: [src/geometry/spatial-join.ts:239](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/geometry/spatial-join.ts#L239)
+Defined in: [src/geometry/spatial-join.ts:267](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/geometry/spatial-join.ts#L267)
 
 The type of the props for spatialJoinGeometryCollection
 

@@ -4,20 +4,23 @@
 
 > **getContiguityNeighborsFromBinaryGeometries**(`input`): `Promise`\<`number`[][]\>
 
-Defined in: [src/weights/contiguity-neighbors.ts:27](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/weights/contiguity-neighbors.ts#L27)
+Defined in: [src/weights/contiguity-neighbors.ts:94](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/weights/contiguity-neighbors.ts#L94)
 
-Calculates the nearest neighbors for a given set of geometries or latitude/longitude arrays.
+Calculates contiguity-based neighbors for a set of binary geometries.
+
+This function processes binary geometry features to determine spatial relationships
+between geometries based on their contiguity (shared boundaries or vertices).
 
 ## Parameters
 
 ### input
 
-`ContiguityNeighborsFromBinaryGeometriesProps`
+[`ContiguityNeighborsFromBinaryGeometriesProps`](../type-aliases/ContiguityNeighborsFromBinaryGeometriesProps.md)
 
-The input parameters.
+Configuration object for neighbor calculation
 
 ## Returns
 
 `Promise`\<`number`[][]\>
 
-- The nearest neighbors as an array of indices.
+Array where each element contains indices of neighboring geometries

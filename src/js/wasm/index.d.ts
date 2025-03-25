@@ -22,6 +22,7 @@ export class GeometryCollection {
    */
   constructor();
   delete(): void;
+  getType(): number;
 }
 
 /**

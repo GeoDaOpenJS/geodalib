@@ -2,8 +2,25 @@ import {initWASM} from '../init';
 import {vecDoubleToNumber} from '../utils';
 
 /**
- * The standard deviation breaks implementation.
+ * ## Description
+ * The standard deviation breaks classes based on distance from the mean in standard deviation units.
  * The standard deviation breaks include: < -2 std dev, [-2, -1) std dev, [-1, 0) std dev, [0, 1] std dev, (1, 2] std dev, > 2 std dev
+ *
+ * ## Characteristics
+ * - Centers on the mean value
+ * - Classes represent standard deviation intervals
+ * - Most appropriate for normally distributed data
+ * - Helps identify areas that deviate significantly from the mean
+ *
+ * @example
+ * ```ts
+ * import { standardDeviationBreaks } from 'geoda-wasm';
+ *
+ * const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+ * const breaks = await standardDeviationBreaks(data);
+ *
+ * // breaks = [-0.47722557505166, 2.26138721247417, 5, 7.73861278752583, 10.47722557505166]
+ * ```
  *
  * @param data The numeric values to be classified.
  * @returns The breaks values.

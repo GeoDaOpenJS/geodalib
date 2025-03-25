@@ -4,9 +4,9 @@
 
 > **createPointCollectionFromBinaryFeatures**(`pointsArray`, `wasm`): `PointCollection`
 
-Defined in: [src/geometry/binary-geometry.ts:52](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/geometry/binary-geometry.ts#L52)
+Defined in: [src/geometry/binary-geometry.ts:60](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/geometry/binary-geometry.ts#L60)
 
-create geoda pointCollection from dataToFeatures[] in GeojsonLayer
+Creates a GeoDa PointCollection from binary point features
 
 ## Parameters
 
@@ -14,14 +14,16 @@ create geoda pointCollection from dataToFeatures[] in GeojsonLayer
 
 (`undefined` \| `BinaryPointFeature`)[]
 
-BinaryFeatureCollection['points'] An array of binary point features from chunks of geoarrow
+Array of binary point features from GeoArrow chunks
 
 ### wasm
 
 [`GeoDaInterface`](../interfaces/GeoDaInterface.md)
 
+The initialized GeoDa WASM module
+
 ## Returns
 
 `PointCollection`
 
-pointCollection | null
+A GeoDa point collection

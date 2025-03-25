@@ -24,13 +24,15 @@ export type GeometryInput = {
 
 /**
  * The type of the props for getGeometryCollectionFromGeoJson
- * @param input - the geometry input
- * @param wasm - the wasm module
- * @param start - the start index
- * @param end - the end index
  */
 export type GetGeometryCollectionFromGeoJsonFeaturesProps = {
+  /**
+   * The features to convert
+   */
   features: Feature[];
+  /**
+   * The wasm module
+   */
   wasm: GeoDaModule;
 };
 

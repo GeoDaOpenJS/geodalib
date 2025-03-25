@@ -2,10 +2,30 @@ import {initWASM} from '../init';
 import {vecDoubleToNumber} from '../utils';
 
 /**
- * The quantile breaks algorithm to determine the best way to break up the data into k groups. Each group has the same number of observations.
+ * ## Description
+ * 
+ * Creates classes with equal number of observations by:
+ * - Sorting values in ascending order
+ * - Dividing sorted values into bins with equal number of observations
+ *
+ * ## Characteristics
+ * - Well-suited for ordinal data
+ * - May place similar values in different classes
+ * - Useful for comparing relative rankings across different areas
+ *
+ * @example
+ * ```ts
+ * import { quantileBreaks } from 'geoda-wasm';
+ *
+ * const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+ * const k = 3;
+ * const breaks = await quantileBreaks(k, data);
+ * // breaks = [3.5, 6.5]
+ * ```
+ *
  * @param k The number of classes/categories
- * @param data The numeric values to be classified.
- * @returns The breaks values.
+ * @param data The numeric values to be classified
+ * @returns The breaks values
  */
 export async function quantileBreaks(k: number, data: number[] | Float32Array): Promise<number[]> {
   const wasm = await initWASM();

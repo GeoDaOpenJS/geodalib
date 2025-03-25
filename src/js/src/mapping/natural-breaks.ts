@@ -2,11 +2,31 @@ import {initWASM} from '../init';
 import {vecDoubleToNumber} from '../utils';
 
 /**
- * The natural breaks (Jenks) algorithm to determine the best way to break up the data into k different groups.
- * The values in each group are as similar as possible to each other, and as different as possible from the values in the other groups.
- * @param k The number of classes/categories
- * @param data The numeric values to be classified.
- * @returns The breaks values.
+ * ## Description
+ * The natural breaks (Jenks) algorithm breaks up the data into k classes by minimizing within-class variance 
+ * and maximizing between-class variance. The values in each group are as similar as possible to each other, 
+ * and as different as possible from the values in the other groups.
+ * 
+ * ## Characteristics
+ * - Based on natural groupings inherent in the data
+ * - Similar values are grouped together
+ * - Boundaries are set where there are relatively big jumps in data values
+ * - Best for data with clear "breaks" in distribution
+ * 
+ * @example
+ * ```ts
+ * import { naturalBreaks } from 'geoda-wasm';
+ * 
+ * const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+ * const k = 3;
+ * const breaks = await naturalBreaks(k, data);
+ * 
+ * // breaks = [4, 7]
+ * ```
+ * 
+ * @param {number} k - The number of classes/categories
+ * @param {(number[]|Float32Array)} data - The numeric values to be classified
+ * @returns {Promise<number[]>} The breaks values
  */
 export async function naturalBreaks(k: number, data: number[] | Float32Array): Promise<number[]> {
   const wasm = await initWASM();

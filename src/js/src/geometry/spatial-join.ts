@@ -24,12 +24,35 @@ type HexagonIdLayerData = {
   centroid: [number, number];
 };
 
-export type SpatialJoinGeometries =
+/**
+ * The type of the geometries used in the GeoDaLib
+ */
+export type SpatialGeometry =
+  /**
+   * GeoJSON features
+   */
   | Feature[]
+  /**
+   * Binary feature collection
+   */
   | BinaryFeatureCollection[]
+  /**
+   * Point layer data
+   */
   | PointLayerData[]
+  /**
+   * Arc layer data
+   */
   | ArcLayerData[]
+  /**
+   * Hexagon id layer data
+   */
   | HexagonIdLayerData[];
+
+/**
+ * The type of the geometries used in the GeoDaLib
+ */
+export type SpatialJoinGeometries = SpatialGeometry;
 
 export enum SpatialJoinGeometryType {
   GeoJsonFeature = 'GeoJsonFeature',
@@ -82,7 +105,12 @@ function isHexagonIdLayerData(geometry: unknown): geometry is HexagonIdLayerData
   );
 }
 
-function CheckGeometryType(geometries: SpatialJoinGeometries): SpatialJoinGeometryType {
+/**
+ * Check the type of the geometries
+ * @param geometries - the geometries to check. See {@link SpatialJoinGeometries} for more information.
+ * @returns the type of the geometries. See {@link SpatialJoinGeometryType} for more information.
+ */
+export function CheckGeometryType(geometries: SpatialJoinGeometries): SpatialJoinGeometryType {
   if (!geometries) {
     throw new Error('CheckGeometryType: Geometry type is unknown.');
   }
@@ -195,7 +223,7 @@ function getBinaryGeometryType(geometries: BinaryFeatureCollection[]): BinaryGeo
  * @param props - the props for getGeometryCollection see {@link GetGeometryCollectionProps}
  * @returns GeometryCollection - the geometry collection see src/spatial_features.h
  */
-async function getGeometryCollection({
+export async function getGeometryCollection({
   geometries,
   wasmInstance
 }: {

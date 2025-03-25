@@ -4,7 +4,7 @@
 
 > **getDistanceThresholds**(`__namedParameters`): `Promise`\<[`DistanceThresholds`](../type-aliases/DistanceThresholds.md)\>
 
-Defined in: [src/weights/distance-neighbors.ts:80](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/weights/distance-neighbors.ts#L80)
+Defined in: [src/weights/distance-neighbors.ts:80](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/weights/distance-neighbors.ts#L80)
 
 Get the distance thresholds for a given set of geometries or latitude/longitude arrays:
 The thresholds are calculated based on the minimum, maximum, and maximum pair distances.

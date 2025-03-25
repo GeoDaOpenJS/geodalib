@@ -4,10 +4,32 @@
 
 > **excessRisk**(`baseValues`, `eventValues`): `number`[]
 
-Defined in: [src/sa/rates.ts:71](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/sa/rates.ts#L71)
+Defined in: [src/sa/rates.ts:101](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/sa/rates.ts#L101)
 
-Compute excess risk (relative risk), the ratio of the observed number of cases
-to the expected number of cases in the population.
+## Description
+Compute excess risk (relative risk), the ratio of the observed rate at a location to some reference rate.
+
+The reference risk ($\bar{\pi}$) is estimated from the aggregate of all observations as:
+$\bar{\pi} = \frac{\sum O_i}{\sum P_i}$
+where $O_i$ is the observed number of events and $P_i$ is the population/denominator.
+This is not a simple average of rates, but rather a population-weighted average
+that properly assigns the contribution of each area to the overall total.
+
+The expected value ($E_i$) for each observation is then calculated as:
+$E_i = \bar{\pi} \times P_i$
+
+The relative risk ($RR_i$) then follows as:
+$RR_i = \frac{r_i}{\bar{\pi_i}} = \frac{O_i/P_i}{E_i/P_i} = \frac{O_i}{E_i}$
+
+If an area matches the (regional) reference rate, the corresponding relative risk is one. Values greater
+than one suggest an excess, whereas values smaller than one suggest a shortfall. The interpretation
+depends on the context. For example, in disease analysis, a relative risk larger than one would indicate
+an area where the prevalence of the disease is greater than would be expected. In regional economics,
+a location quotient greater than one, suggests employment in a sector that exceeds the local needs,
+implying an export sector.
+
+In public health, this ratio is known as standardized mortality rate (SMR).
+In regional economics, when applied to employment sectors, it's called a location quotient (LQ).
 
 ## Parameters
 
@@ -28,3 +50,12 @@ The values of event variable.
 `number`[]
 
 The rates values.
+
+## Example
+
+```ts
+import { excessRisk } from 'geoda-lib';
+const baseValues = [100, 200, 300, 400, 500];
+const eventValues = [10, 20, 30, 40, 50];
+const rates = excessRisk(baseValues, eventValues);
+```

@@ -2,8 +2,22 @@ import {initWASM} from '../init';
 import {vecDoubleToNumber} from '../utils';
 
 /**
- * The percentile breaks implementation.
- * The percentile breaks include: <= 1%, (1-10]%, (10-50]%, (50-90)%, [90-99)%, >= 99%
+ * ## Description
+ * Percentile Breaks divides the data into six ranges: the lowest 1%, 1-10%, 10-50%, 50-90%, 90-99% and the top 1%.
+ *
+ * ## Characteristics
+ * - Fixed categories
+ * - Effective for identifying spatial outliers and extreme values
+ *
+ * @example
+ * ```ts
+ * import { percentileBreaks } from 'geoda-wasm';
+ *
+ * const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+ * const breaks = await percentileBreaks(data);
+ *
+ * // breaks = [1, 1.4, 5, 8.6, 9]
+ * ```
  *
  * @param data The numeric values to be classified.
  * @returns The breaks values.

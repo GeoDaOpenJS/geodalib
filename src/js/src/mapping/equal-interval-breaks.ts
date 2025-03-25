@@ -2,11 +2,29 @@ import {initWASM} from '../init';
 import {vecDoubleToNumber} from '../utils';
 
 /**
- * The equal interval breaks implementation.
- *
+ * ## Description
+ * Divides the range of values into equal-sized intervals.
+ * 
+ * ## Characteristics
+ * - Simple to understand and interpret
+ * - Best for evenly distributed data
+ * - May not represent data well when distribution is skewed
+ * - Interval size = (maximum value - minimum value) / number of classes
+ * 
+ * @example
+ * ```ts
+ * import { equalIntervalBreaks } from 'geoda-wasm';
+ * 
+ * const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+ * const k = 3;
+ * const breaks = await equalIntervalBreaks(k, data);
+ * 
+ * // breaks = [3.66666666666667, 6.33333333333333]
+ * ```
+ * 
  * @param k The number of classes/categories
- * @param data The numeric values to be classified.
- * @returns The breaks values.
+ * @param data The numeric values to be classified
+ * @returns The breaks values
  */
 export async function equalIntervalBreaks(
   k: number,

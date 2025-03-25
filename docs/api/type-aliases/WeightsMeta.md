@@ -4,70 +4,98 @@
 
 > **WeightsMeta**: `object`
 
-Defined in: [src/weights/weights-stats.ts:1](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/weights/weights-stats.ts#L1)
+Defined in: [src/weights/weights-stats.ts:4](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/weights/weights-stats.ts#L4)
+
+The meta data for the weights
 
 ## Type declaration
-
-## Index Signature
-
-\[`key`: `string`\]: `unknown`
 
 ### distanceMetric?
 
 > `optional` **distanceMetric**: `"euclidean"` \| `"manhattan"` \| `"arc"` \| `"projected"`
 
+The distance metric for the weights
+
 ### distanceUnit?
 
 > `optional` **distanceUnit**: `"Foot_US"` \| `"Yard_US"` \| `"Meter"` \| `"Kilometer"` \| `"NauticalMile"` \| `"Degree"` \| `"Radian"`
+
+The unit of the distance metric
 
 ### id?
 
 > `optional` **id**: `string`
 
-### incLowerOrder?
+The id of the weights
 
-> `optional` **incLowerOrder**: `boolean`
+### includeLowerOrder?
+
+> `optional` **includeLowerOrder**: `boolean`
+
+Whether to include lower order neighbors
 
 ### k?
 
 > `optional` **k**: `number`
 
+The k value for k-nearest neighbors
+
 ### maxNeighbors
 
 > **maxNeighbors**: `number`
+
+The maximum number of neighbors
 
 ### meanNeighbors
 
 > **meanNeighbors**: `number`
 
+The mean number of neighbors
+
 ### medianNeighbors
 
 > **medianNeighbors**: `number`
+
+The median number of neighbors
 
 ### minNeighbors
 
 > **minNeighbors**: `number`
 
+The minimum number of neighbors
+
 ### numberOfObservations
 
 > **numberOfObservations**: `number`
+
+The number of observations
 
 ### order?
 
 > `optional` **order**: `number`
 
+The order of the weights
+
 ### pctNoneZero
 
 > **pctNoneZero**: `number`
+
+The percentage of non-zero neighbors
 
 ### symmetry?
 
 > `optional` **symmetry**: `"symmetric"` \| `"asymmetric"`
 
+The symmetry of the weights
+
 ### threshold?
 
 > `optional` **threshold**: `number`
 
+The threshold for the weights
+
 ### type?
 
 > `optional` **type**: `"knn"` \| `"threshold"` \| `"queen"` \| `"rook"`
+
+The type of the weights

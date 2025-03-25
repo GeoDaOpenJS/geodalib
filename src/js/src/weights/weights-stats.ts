@@ -1,19 +1,66 @@
+/**
+ * The meta data for the weights
+ */
 export type WeightsMeta = {
-  [key: string]: unknown;
+  /**
+   * The id of the weights
+   */
   id?: string;
+  /**
+   * The type of the weights
+   */
   type?: 'knn' | 'threshold' | 'queen' | 'rook';
+  /**
+   * The symmetry of the weights
+   */
   symmetry?: 'symmetric' | 'asymmetric';
+  /**
+   * The number of observations
+   */
   numberOfObservations: number;
+  /**
+   * The minimum number of neighbors
+   */
   minNeighbors: number;
+  /**
+   * The maximum number of neighbors
+   */
   maxNeighbors: number;
+  /**
+   * The mean number of neighbors
+   */
   meanNeighbors: number;
+  /**
+   * The median number of neighbors
+   */
   medianNeighbors: number;
+  /**
+   * The percentage of non-zero neighbors
+   */
   pctNoneZero: number;
+  /**
+   * The order of the weights
+   */
   order?: number;
-  incLowerOrder?: boolean;
+  /**
+   * Whether to include lower order neighbors
+   */
+  includeLowerOrder?: boolean;
+  /**
+   * The k value for k-nearest neighbors
+   */
   k?: number;
+  /**
+   * The threshold for the weights
+   */
   threshold?: number;
+  /**
+   * The distance metric for the weights
+   */
   distanceMetric?: 'euclidean' | 'manhattan' | 'arc' | 'projected';
+  /**
+   * The unit of the distance metric
+   */
   distanceUnit?:
     | 'Foot_US'
     | 'Yard_US'

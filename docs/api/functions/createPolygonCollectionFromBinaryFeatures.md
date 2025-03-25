@@ -4,9 +4,9 @@
 
 > **createPolygonCollectionFromBinaryFeatures**(`polygonsArray`, `wasm`): `PolygonCollection`
 
-Defined in: [src/geometry/binary-geometry.ts:154](https://github.com/GeoDaCenter/geoda-lib/blob/92ce80b2e81e5a6276ad0890a9a8fe638734b201/src/js/src/geometry/binary-geometry.ts#L154)
+Defined in: [src/geometry/binary-geometry.ts:164](https://github.com/GeoDaCenter/geoda-lib/blob/d16e85157b1f26754a712ea4c9a3cf18ab0e7b74/src/js/src/geometry/binary-geometry.ts#L164)
 
-create geoda polygonCollection from dataToFeatures[] in GeojsonLayer
+Creates a GeoDa PolygonCollection from binary polygon features
 
 ## Parameters
 
@@ -14,14 +14,16 @@ create geoda polygonCollection from dataToFeatures[] in GeojsonLayer
 
 (`undefined` \| `BinaryPolygonFeature`)[]
 
-BinaryFeatureCollection['polygons'][] An array of binary polygon features from chunks of geoarrow
+Array of binary polygon features from GeoArrow chunks
 
 ### wasm
 
 [`GeoDaInterface`](../interfaces/GeoDaInterface.md)
 
+The initialized GeoDa WASM module
+
 ## Returns
 
 `PolygonCollection`
 
-PolygonCollection | null
+A GeoDa polygon collection

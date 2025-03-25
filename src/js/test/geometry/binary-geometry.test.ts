@@ -14,7 +14,7 @@ import {reducePrecision} from '../utils';
  * test createPointCollectionFromBinaryFeatures, simple points
  */
 test('Test createPointCollectionFromBinaryFeatures(), simple points', async t => {
-  const wasmInstance = await initWASM();
+  const wasmInstance = await initWASM('./dist/geoda.wasm');
 
   // featureTypes: {polygon: false, point: true, line: false},
   const pointBinaryGeometry: Array<BinaryFeatureCollection> = [
