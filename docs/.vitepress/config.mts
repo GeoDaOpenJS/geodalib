@@ -1,4 +1,5 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress';
+import { generateApiReferences } from './buildApiOverview.mts';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -6,14 +7,20 @@ export default defineConfig({
   description: 'a modern Javascript library for spatial data analysis',
   base: '/geoda-lib/',
   markdown: {
-    math: true
+    math: true,
+  },
+  lastUpdated: true,
+  ignoreDeadLinks: true,
+  async buildEnd() {
+    await generateApiReferences();
   },
   themeConfig: {
+    search: {
+      provider: 'local',
+    },
+
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
-    ],
+    nav: [{ text: 'Home', link: '/' }],
 
     sidebar: [
       {
@@ -29,17 +36,13 @@ export default defineConfig({
           { text: 'Mapping', link: '/reference/mapping' },
           { text: 'Data Exploration', link: '/reference/data-exploration' },
           { text: 'Spatial Weights', link: '/reference/spatial-weights' },
-          { text: 'Spatial Autocorrelation Analysis', link: '/reference/spatial-autocorrelation-analysis' },
+          {
+            text: 'Spatial Autocorrelation Analysis',
+            link: '/reference/spatial-autocorrelation-analysis',
+          },
           { text: 'Spatial Clustering', link: '/reference/spatial-clustering' },
           { text: 'Spatial Regression', link: '/reference/spatial-regression' },
           { text: 'Spatial Operations', link: '/reference/spatial-operations' },
-        ],
-      },
-      {
-        text: 'Examples',
-        items: [
-          { text: 'React Examples', link: '/react-examples' },
-          { text: 'Node Examples', link: '/node-examples' },
         ],
       },
       {
@@ -50,6 +53,14 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/geodacenter/geoda-lib' },
+      {
+        icon: 'linkedin',
+        link: 'https://www.linkedin.com/company/center-for-spatial-data-science',
+      },
+      {
+        icon: 'x',
+        link: 'https://x.com/GeoDaCenter',
+      },
     ],
   },
 });
