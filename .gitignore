@@ -54,3 +54,5 @@ src/js/*.tgz
 meta.json
 
 .vitepress
+.yarn
+dist/

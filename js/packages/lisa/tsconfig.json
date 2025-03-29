@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*", "wasm"],
+  "exclude": ["node_modules", "dist", "../node_modules/**/*"]
+}

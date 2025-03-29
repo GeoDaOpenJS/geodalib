@@ -1,0 +1,34 @@
+{
+  "name": "@geoda/regression",
+  "description": "Spatial Regression module for GeoDaLib",
+  "version": "0.0.0",
+  "author": "Xun Li <lixun910@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "src/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "wasm",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "clean": "rimraf dist/",
+    "lint": "eslint --max-warnings 0 .",
+    "typecheck": "./node_modules/.bin/tsc",
+    "wasm": "../../../cpp/wasm/build-wasm.sh ./wasm geoda-regression",
+    "test": "node --loader esbuild-register/loader -r esbuild-register test/index.ts"
+  },
+  "devDependencies": {
+    "@geoda/common": "workspace:*",
+    "tape": "^5.6.3"
+  },
+  "volta": {
+    "node": "18.19.0",
+    "yarn": "4.0.0"
+  }
+}

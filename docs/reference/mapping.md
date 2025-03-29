@@ -23,4 +23,4 @@ outline: deep
 
 ## Cartogram
 
-- [Cartogram](/api/functions/cartogram)
+- Cartogram
