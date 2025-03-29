@@ -1,10 +1,10 @@
-import {BinaryFeatureCollection} from '@loaders.gl/schema';
+import { BinaryFeatureCollection } from '@loaders.gl/schema';
 
 import {
   BinaryGeometryType,
-  getGeometryCollectionFromBinaryGeometries
+  getGeometryCollectionFromBinaryGeometries,
 } from '../geometry/binary-geometry';
-import {initWASM} from '../init';
+import { initWASM } from '../init';
 
 /**
  * Type of Distance based Neighbors from binary geometries arguments.
@@ -25,7 +25,7 @@ export async function getDistanceNeighborsFromBinaryGeometries({
   distanceThreshold,
   isMile = false,
   binaryGeometryType,
-  binaryGeometries
+  binaryGeometries,
 }: DistanceNeighborsFromBinaryGeometriesProps): Promise<number[][]> {
   if (!binaryGeometries || binaryGeometries.length === 0) {
     return [];
@@ -80,7 +80,7 @@ export type DistanceThresholdsProps = {
 export async function getDistanceThresholds({
   isMile = false,
   binaryGeometryType,
-  binaryGeometries
+  binaryGeometries,
 }: DistanceThresholdsProps): Promise<DistanceThresholds> {
   const wasmInstance = await initWASM();
   const geomCollection = await getGeometryCollectionFromBinaryGeometries(
@@ -93,12 +93,12 @@ export async function getDistanceThresholds({
     return {
       minDistance: thresValues.get(0),
       maxDistance: thresValues.get(1),
-      maxPairDistance: thresValues.get(2)
+      maxPairDistance: thresValues.get(2),
     };
   }
   return {
     minDistance: 0,
     maxDistance: 0,
-    maxPairDistance: 0
+    maxPairDistance: 0,
   };
 }

@@ -1,6 +1,6 @@
-import {LocalMoranResult} from './local-moran';
-import {initWASM} from '../init';
-import {vecDoubleToNumber, vecIntToNumber, vecStringToArray} from '@geoda/common';
+import { LocalMoranResult } from './local-moran';
+import { initWASM } from '../init';
+import { vecDoubleToNumber, vecIntToNumber, vecStringToArray } from '@geoda/common';
 
 export type LocalGearyProps = {
   data: number[] | Float32Array;
@@ -16,7 +16,7 @@ export async function localGeary({
   neighbors,
   permutation,
   significanceCutoff = 0.05,
-  seed = 1234567890
+  seed = 1234567890,
 }: LocalGearyProps): Promise<LocalMoranResult> {
   const wasm = await initWASM();
 
@@ -57,7 +57,7 @@ export async function localGeary({
     sigCategories: vecIntToNumber(result.getSignificanceCategories()),
     nn: vecIntToNumber(result.getNN()),
     labels: vecStringToArray(result.getLabels()),
-    colors: vecStringToArray(result.getColors())
+    colors: vecStringToArray(result.getColors()),
   };
 }
 
@@ -75,7 +75,7 @@ export async function multivariateLocalGeary({
   neighbors,
   permutation,
   significanceCutoff = 0.05,
-  seed = 1234567890
+  seed = 1234567890,
 }: MultivariateLocalGearyProps): Promise<LocalMoranResult> {
   const wasm = await initWASM();
 
@@ -119,6 +119,6 @@ export async function multivariateLocalGeary({
     sigCategories: vecIntToNumber(result.getSignificanceCategories()),
     nn: vecIntToNumber(result.getNN()),
     labels: vecStringToArray(result.getLabels()),
-    colors: vecStringToArray(result.getColors())
+    colors: vecStringToArray(result.getColors()),
   };
 }

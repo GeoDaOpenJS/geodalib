@@ -1,5 +1,5 @@
-import {initWASM} from '../init';
-import {vecDoubleToNumber} from '@geoda/common';
+import { initWASM } from '../init';
+import { vecDoubleToNumber } from '@geoda/common';
 
 /**
  * ## Description

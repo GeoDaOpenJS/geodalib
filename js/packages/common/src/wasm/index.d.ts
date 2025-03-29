@@ -963,10 +963,7 @@ export interface GeoDaModule {
    * @param right The right collection of geometries
    * @returns The indices of the right geometries that are spatially joined to the left geometries
    */
-  spatialJoin(
-    left: GeometryCollection,
-    right: GeometryCollection
-  ): VecVecUInt;
+  spatialJoin(left: GeometryCollection, right: GeometryCollection): VecVecUInt;
 
   GeometryCollection: typeof GeometryCollection;
   PolygonCollection: typeof PolygonCollection;

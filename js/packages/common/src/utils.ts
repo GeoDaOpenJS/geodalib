@@ -1,4 +1,4 @@
-import {VectorDouble, VectorInt, VectorString} from './wasm/index.d';
+import { VectorDouble, VectorInt, VectorString } from './wasm/index.d';
 
 export const earthRadius = 6371008.8;
 const mileToMeters = 1609.344;
@@ -7,7 +7,7 @@ const mileToMeters = 1609.344;
 // in the unit of mile or kilometer (KM)
 export enum DistanceUnit {
   Mile = 'Mile',
-  KM = 'KM'
+  KM = 'KM',
 }
 
 /**

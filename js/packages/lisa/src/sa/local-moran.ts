@@ -1,9 +1,9 @@
-import {initWASM} from '../init';
-import {vecDoubleToNumber, vecIntToNumber, vecStringToArray} from '@geoda/common';
+import { initWASM } from '../init';
+import { vecDoubleToNumber, vecIntToNumber, vecStringToArray } from '@geoda/common';
 
 /**
  * Result object containing Local Moran's I statistics and cluster information
- * 
+ *
  * @typedef {Object} LocalMoranResult
  * @property {boolean} isValid - Indicates if the analysis was successful
  * @property {number[]} clusters - Cluster assignments for each observation
@@ -54,7 +54,7 @@ export async function localMoran({
   neighbors,
   permutation,
   significanceCutoff = 0.05,
-  seed = 1234567890
+  seed = 1234567890,
 }: LocalMoranProps): Promise<LocalMoranResult> {
   const wasm = await initWASM();
 
@@ -95,7 +95,7 @@ export async function localMoran({
     sigCategories: vecIntToNumber(result.getSignificanceCategories()),
     nn: vecIntToNumber(result.getNN()),
     labels: vecStringToArray(result.getLabels()),
-    colors: vecStringToArray(result.getColors())
+    colors: vecStringToArray(result.getColors()),
   };
 }
 
@@ -130,7 +130,7 @@ export async function bivariateLocalMoran({
   neighbors,
   permutation,
   significanceCutoff = 0.05,
-  seed = 1234567890
+  seed = 1234567890,
 }: BivariateLocalMoranProps): Promise<LocalMoranResult> {
   const wasm = await initWASM();
 
@@ -177,6 +177,6 @@ export async function bivariateLocalMoran({
     sigCategories: vecIntToNumber(result.getSignificanceCategories()),
     nn: vecIntToNumber(result.getNN()),
     labels: vecStringToArray(result.getLabels()),
-    colors: vecStringToArray(result.getColors())
+    colors: vecStringToArray(result.getColors()),
   };
 }

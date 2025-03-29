@@ -1,7 +1,7 @@
 import test from 'tape';
 
-import {standardDeviationBreaks} from '../../src/mapping/stddev-breaks';
-import {reducePrecision} from '../utils';
+import { standardDeviationBreaks } from '../../src/mapping/stddev-breaks';
+import { reducePrecision } from '../utils';
 
 test('Test standardDeviationBreaks()', async t => {
   const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];

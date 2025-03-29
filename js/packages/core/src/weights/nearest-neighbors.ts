@@ -1,10 +1,10 @@
-import {BinaryFeatureCollection} from '@loaders.gl/schema';
+import { BinaryFeatureCollection } from '@loaders.gl/schema';
 
 import {
   BinaryGeometryType,
-  getGeometryCollectionFromBinaryGeometries
+  getGeometryCollectionFromBinaryGeometries,
 } from '../geometry/binary-geometry';
-import {initWASM} from '../init';
+import { initWASM } from '../init';
 
 /**
  * Type of Nearest Neighbors from binary geometries arguments.
@@ -23,7 +23,7 @@ type NearestNeighborsFromBinaryGeometriesProps = {
 export async function getNearestNeighborsFromBinaryGeometries({
   k,
   binaryGeometryType,
-  binaryGeometries
+  binaryGeometries,
 }: NearestNeighborsFromBinaryGeometriesProps): Promise<number[][]> {
   if (!binaryGeometries || binaryGeometries.length === 0) {
     return [];

@@ -1,7 +1,7 @@
 import test from 'tape';
 
-import {equalIntervalBreaks} from '../../src/mapping/equal-interval-breaks';
-import {reducePrecision} from '../utils';
+import { equalIntervalBreaks } from '../../src/mapping/equal-interval-breaks';
+import { reducePrecision } from '../utils';
 
 test('Test equalIntervalBreaks()', async t => {
   const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];

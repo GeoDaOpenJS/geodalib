@@ -1,7 +1,7 @@
 import test from 'tape';
 
-import {percentileBreaks} from '../../src/mapping/percentile-breaks';
-import {reducePrecision} from '../utils';
+import { percentileBreaks } from '../../src/mapping/percentile-breaks';
+import { reducePrecision } from '../utils';
 
 test('Test percentileBreaks()', async t => {
   const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];

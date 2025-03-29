@@ -1,6 +1,6 @@
-import {LocalMoranResult} from './local-moran';
-import {initWASM} from '../init';
-import {vecDoubleToNumber, vecIntToNumber, vecStringToArray} from '@geoda/common';
+import { LocalMoranResult } from './local-moran';
+import { initWASM } from '../init';
+import { vecDoubleToNumber, vecIntToNumber, vecStringToArray } from '@geoda/common';
 
 export type LocalGProps = {
   data: number[] | Float32Array;
@@ -16,9 +16,9 @@ export async function localGStar({
   neighbors,
   permutation,
   significanceCutoff = 0.05,
-  seed = 1234567890
+  seed = 1234567890,
 }: LocalGProps): Promise<LocalMoranResult> {
-  return localG({data, neighbors, permutation, significanceCutoff, seed, isGStar: true});
+  return localG({ data, neighbors, permutation, significanceCutoff, seed, isGStar: true });
 }
 
 // Get local Getis-Ord statistics
@@ -28,7 +28,7 @@ export async function localG({
   permutation,
   significanceCutoff = 0.05,
   seed = 1234567890,
-  isGStar = false
+  isGStar = false,
 }: LocalGProps): Promise<LocalMoranResult> {
   const wasm = await initWASM();
 
@@ -69,6 +69,6 @@ export async function localG({
     sigCategories: vecIntToNumber(result.getSignificanceCategories()),
     nn: vecIntToNumber(result.getNN()),
     labels: vecStringToArray(result.getLabels()),
-    colors: vecStringToArray(result.getColors())
+    colors: vecStringToArray(result.getColors()),
   };
 }

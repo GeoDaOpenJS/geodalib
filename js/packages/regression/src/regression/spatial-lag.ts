@@ -1,5 +1,5 @@
-import {LinearRegressionProps, printNumber, printVariableCoefficients} from './linear-regression';
-import {initWASM} from '../init';
+import { LinearRegressionProps, printNumber, printVariableCoefficients } from './linear-regression';
+import { initWASM } from '../init';
 
 export type SpatialLagResult = {
   type: string;
@@ -55,7 +55,7 @@ export async function spatialLagRegression({
   yName,
   datasetName,
   xUndefs,
-  yUndefs
+  yUndefs,
 }: LinearRegressionProps): Promise<SpatialLagResult> {
   const wasmInstance = await initWASM();
   // Create a new vector of doubles
@@ -140,7 +140,7 @@ export async function spatialLagRegression({
       Coefficient: regReport.GetCoefficient(i),
       'Std Error': regReport.GetStdError(i),
       't-Statistic': regReport.GetZValue(i),
-      Probability: regReport.GetProbability(i)
+      Probability: regReport.GetProbability(i),
     });
   }
 
@@ -169,17 +169,17 @@ export async function spatialLagRegression({
         Test: 'Breusch-Pagan test',
         'Breusch-Pagan DF': regReport.GetBPtest(0),
         'Breusch-Pagan Value': regReport.GetBPtest(1),
-        'Breusch-Pagan Probability': regReport.GetBPtest(2)
-      }
+        'Breusch-Pagan Probability': regReport.GetBPtest(2),
+      },
     },
     'DIAGNOSTICS FOR SPATIAL DEPENDENCE': {
       'LIKELIHOOD RATIO TEST': {
         Test: 'Likelihood Ratio Test',
         'Likelihood Ratio DF': regReport.GetLRTestValue(0),
         'Likelihood Ratio Value': regReport.GetLRTestValue(1),
-        'Likelihood Ratio Probability': regReport.GetLRTestValue(2)
-      }
-    }
+        'Likelihood Ratio Probability': regReport.GetLRTestValue(2),
+      },
+    },
   };
 
   return result;

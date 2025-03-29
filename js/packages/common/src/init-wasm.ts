@@ -1,13 +1,13 @@
 import type { GeoDaModule } from './wasm';
 
 export type WasmModule = (
-  options: { locateFile: () => string } | {}
+  options: { locateFile: () => string } | Record<string, never>
 ) => Promise<GeoDaModule>;
 
 /**
  * Manages WebAssembly (WASM) initialization and configuration for GeoDa
  * Handles custom WASM URL settings and instance creation
- * 
+ *
  * @class WASMManager
  */
 class WASMManager {
@@ -26,8 +26,7 @@ class WASMManager {
     this.customWASMUrl = null;
     // random id
     this.id =
-      Math.random().toString(36).substring(2, 15) +
-      Math.random().toString(36).substring(2, 15);
+      Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   }
 
   /**
@@ -86,5 +85,4 @@ class WASMManager {
  * @returns {WASMManager} A new WASMManager instance
  * @see {@link WASMManager} for detailed documentation of the manager class
  */
-export const createWASMManager = (wasmModule: WasmModule) =>
-  new WASMManager(wasmModule);
+export const createWASMManager = (wasmModule: WasmModule) => new WASMManager(wasmModule);

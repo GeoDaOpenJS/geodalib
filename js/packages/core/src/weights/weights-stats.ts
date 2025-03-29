@@ -115,6 +115,6 @@ export function getMetaFromWeights(weights: number[][], isDistanceWeights = fals
     maxNeighbors,
     meanNeighbors,
     medianNeighbors,
-    pctNoneZero
+    pctNoneZero,
   };
 }

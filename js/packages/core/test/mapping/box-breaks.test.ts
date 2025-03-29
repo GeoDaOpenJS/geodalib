@@ -1,7 +1,7 @@
 import test from 'tape';
 
-import {hinge15Breaks, hinge30Breaks} from '../../src/mapping/box-breaks';
-import {reducePrecision} from '../utils';
+import { hinge15Breaks, hinge30Breaks } from '../../src/mapping/box-breaks';
+import { reducePrecision } from '../utils';
 
 test('Test hinge15Breaks()', async t => {
   const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];

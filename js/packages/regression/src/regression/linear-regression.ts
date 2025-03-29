@@ -1,6 +1,6 @@
-import {initWASM} from '../init';
-import {SpatialErrorResult} from './spatial-error';
-import {SpatialLagResult} from './spatial-lag';
+import { initWASM } from '../init';
+import { SpatialErrorResult } from './spatial-error';
+import { SpatialLagResult } from './spatial-lag';
 
 export async function dotProduct(x: number[], y: number[]): Promise<number> {
   // check if x and y are of the same length
@@ -140,7 +140,7 @@ export async function linearRegression({
   yName,
   datasetName,
   xUndefs,
-  yUndefs
+  yUndefs,
 }: LinearRegressionProps): Promise<LinearRegressionResult> {
   const wasmInstance = await initWASM();
   // Create a new vector of doubles
@@ -224,7 +224,7 @@ export async function linearRegression({
       Coefficient: regReport.GetCoefficient(i),
       'Std Error': regReport.GetStdError(i),
       't-Statistic': regReport.GetZValue(i),
-      Probability: regReport.GetProbability(i)
+      Probability: regReport.GetProbability(i),
     });
   }
 
@@ -259,61 +259,61 @@ export async function linearRegression({
         Test: 'Jarque-Bera',
         'Jarque-Bera DF': regReport.GetJBtest(0),
         'Jarque-Bera Value': regReport.GetJBtest(1),
-        'Jarque-Bera Probability': regReport.GetJBtest(2)
-      }
+        'Jarque-Bera Probability': regReport.GetJBtest(2),
+      },
     },
     'DIAGNOSTICS FOR HETEROSKEDASTICITY': {
       'BREUSCH-PAGAN TEST': {
         Test: 'Breusch-Pagan',
         'Breusch-Pagan DF': regReport.GetBPtest(0),
         'Breusch-Pagan Value': regReport.GetBPtest(1),
-        'Breusch-Pagan Probability': regReport.GetBPtest(2)
+        'Breusch-Pagan Probability': regReport.GetBPtest(2),
       },
       'KOENKER-Bassett TEST': {
         Test: 'Koenker-Bassett',
         'Koenker-Bassett DF': regReport.GetKBtest(0),
         'Koenker-Bassett Value': regReport.GetKBtest(1),
-        'Koenker-Bassett Probability': regReport.GetKBtest(2)
-      }
+        'Koenker-Bassett Probability': regReport.GetKBtest(2),
+      },
     },
     'DIAGNOSTICS FOR SPATIAL DEPENDENCE': {
       "Moran's I (error)": {
         Test: "Moran's I (error)",
         "Moran's I (error)": regReport.GetMoranI(0),
         'Moran’s I (error) Z': regReport.GetMoranI(1),
-        'Moran’s I (error) Probability': regReport.GetMoranI(2)
+        'Moran’s I (error) Probability': regReport.GetMoranI(2),
       },
       'Lagrange Multiplier (lag)': {
         Test: 'Lagrange Multiplier (lag)',
         'Lagrange Multiplier (lag) DF': regReport.GetLMLAG(0),
         'Lagrange Multiplier (lag) Value': regReport.GetLMLAG(1),
-        'Lagrange Multiplier (lag) Probability': regReport.GetLMLAG(2)
+        'Lagrange Multiplier (lag) Probability': regReport.GetLMLAG(2),
       },
       'Robust LM (lag)': {
         Test: 'Robust LM (lag)',
         'Robust LM (lag) DF': regReport.GetLMLAGRob(0),
         'Robust LM (lag) Value': regReport.GetLMLAGRob(1),
-        'Robust LM (lag) Probability': regReport.GetLMLAGRob(2)
+        'Robust LM (lag) Probability': regReport.GetLMLAGRob(2),
       },
       'Lagrange Multiplier (error)': {
         Test: 'Lagrange Multiplier (error)',
         'Lagrange Multiplier (error) DF': regReport.GetLMERR(0),
         'Lagrange Multiplier (error) Value': regReport.GetLMERR(1),
-        'Lagrange Multiplier (error) Probability': regReport.GetLMERR(2)
+        'Lagrange Multiplier (error) Probability': regReport.GetLMERR(2),
       },
       'Robust LM (error)': {
         Test: 'Robust LM (error)',
         'Robust LM (error) DF': regReport.GetLMERRRob(0),
         'Robust LM (error) Value': regReport.GetLMERRRob(1),
-        'Robust LM (error) Probability': regReport.GetLMERRRob(2)
+        'Robust LM (error) Probability': regReport.GetLMERRRob(2),
       },
       'Lagrange Multiplier (SARMA)': {
         Test: 'Lagrange Multiplier (SARMA)',
         'Lagrange Multiplier (SARMA) DF': regReport.GetLMSarma(0),
         'Lagrange Multiplier (SARMA) Value': regReport.GetLMSarma(1),
-        'Lagrange Multiplier (SARMA) Probability': regReport.GetLMSarma(2)
-      }
-    }
+        'Lagrange Multiplier (SARMA) Probability': regReport.GetLMSarma(2),
+      },
+    },
   };
 
   return result;

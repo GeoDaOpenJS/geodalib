@@ -5,7 +5,7 @@
 export function reducePrecision(o: unknown, precision = 14): unknown {
   if (!o) return o;
   if (Array.isArray(o)) {
-    return o.map((el) => reducePrecision(el, precision));
+    return o.map(el => reducePrecision(el, precision));
   }
   if (typeof o === 'object') {
     return Object.keys(o).reduce((map, k) => {

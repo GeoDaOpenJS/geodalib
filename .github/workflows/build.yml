@@ -1,0 +1,37 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup CMake
+      uses: lukka/get-cmake@latest
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.19.0'
+        
+    - name: Install Yarn
+      run: npm install -g yarn@4.0.0
+      
+    - name: Install Dependencies
+      working-directory: js
+      run: yarn install
+      
+    - name: Build
+      working-directory: js
+      run: yarn build
+      
+    - name: Test
+      working-directory: js
+      run: yarn test

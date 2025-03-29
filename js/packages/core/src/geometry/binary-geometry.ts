@@ -1,11 +1,11 @@
-import {BinaryFeatureCollection} from '@loaders.gl/schema';
+import { BinaryFeatureCollection } from '@loaders.gl/schema';
 
 import {
   GeoDaModule,
   PolygonCollection,
   PointCollection,
   LineCollection,
-  GeometryCollection
+  GeometryCollection,
 } from '@geoda/common';
 
 /**

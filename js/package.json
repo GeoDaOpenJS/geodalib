@@ -6,10 +6,37 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "build": "lerna run build --npm-client=yarn",
+    "test": "lerna run test --npm-client=yarn",
+    "lint": "lerna run lint --npm-client=yarn -- --fix",
+    "version-prerelease": "lerna version prerelease --sync-workspace-lock --force-publish",
+    "version-patch": "lerna version patch --no-push --sync-workspace-lock --force-publish",
+    "version-minor": "lerna version minor --no-push --sync-workspace-lock --force-publish",
+    "version-major": "lerna version major --no-push --sync-workspace-lock --force-publish",
+    "publish-dry-run": "turbo run publish && lerna publish from-package --yes --dry-run",
+    "publish-preview": "turbo run publish && lerna publish from-package --yes --dist-tag preview",
+    "publish-release": "turbo run publish && lerna publish from-package --yes"
+  },
   "devDependencies": {
+    "@lerna-lite/cli": "^3.11.0",
+    "@lerna-lite/publish": "^3.11.0",
+    "@lerna-lite/run": "^3.12.1",
+    "@lerna-lite/version": "^3.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "esbuild": "0.17.15",
     "esbuild-plugin-d.ts": "^1.3.1",
     "esbuild-plugin-polyfill-node": "^0.3.0",
-    "typescript": "^5.0.3"
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
+    "turbo": "^2.4.2",
+    "typescript": "~5.3.3"
+  },
+  "volta": {
+    "node": "18.19.0",
+    "yarn": "4.0.0"
   }
 }

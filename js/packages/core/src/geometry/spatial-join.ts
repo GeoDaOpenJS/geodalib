@@ -1,10 +1,10 @@
-import {BinaryFeatureCollection} from '@loaders.gl/schema';
-import {Feature} from 'geojson';
-import {BinaryGeometryType, getGeometryCollectionFromBinaryGeometries} from './binary-geometry';
-import {initWASM} from '../init';
-import {GeometryCollection, GeoDaModule} from '@geoda/common';
-import {getGeometryCollectionFromGeoJsonFeatures} from './geojson-geometry';
-import {getGeometryCollectionFromPointLayerData} from './point-layer-geometry';
+import { BinaryFeatureCollection } from '@loaders.gl/schema';
+import { Feature } from 'geojson';
+import { BinaryGeometryType, getGeometryCollectionFromBinaryGeometries } from './binary-geometry';
+import { initWASM } from '../init';
+import { GeometryCollection, GeoDaModule } from '@geoda/common';
+import { getGeometryCollectionFromGeoJsonFeatures } from './geojson-geometry';
+import { getGeometryCollectionFromPointLayerData } from './point-layer-geometry';
 
 export type PointLayerData = {
   position: number[];
@@ -59,7 +59,7 @@ export enum SpatialJoinGeometryType {
   BinaryFeatureCollection = 'BinaryFeatureCollection',
   PointLayerData = 'PointLayerData',
   ArcLayerData = 'ArcLayerData',
-  HexagonIdLayerData = 'HexagonIdLayerData'
+  HexagonIdLayerData = 'HexagonIdLayerData',
 }
 
 function isGeoJsonFeature(geometry: unknown): geometry is Feature {
@@ -166,7 +166,7 @@ export type SpatialJoinProps = {
  */
 export async function spatialJoin({
   leftGeometries,
-  rightGeometries
+  rightGeometries,
 }: SpatialJoinProps): Promise<number[][]> {
   if (!leftGeometries || !rightGeometries) {
     return [];
@@ -176,17 +176,17 @@ export async function spatialJoin({
 
     const leftGeomCollection: GeometryCollection = await getGeometryCollection({
       geometries: leftGeometries,
-      wasmInstance
+      wasmInstance,
     });
 
     const rightGeomCollection: GeometryCollection = await getGeometryCollection({
       geometries: rightGeometries,
-      wasmInstance
+      wasmInstance,
     });
 
     const joinIndexes = await spatialJoinGeometryCollection({
       leftGeomCollection,
-      rightGeomCollection
+      rightGeomCollection,
     });
 
     return joinIndexes;
@@ -201,20 +201,20 @@ function getBinaryGeometryType(geometries: BinaryFeatureCollection[]): BinaryGeo
     return {
       point: false,
       line: true,
-      polygon: false
+      polygon: false,
     };
   }
   if (geometries[0]?.polygons?.featureIds?.value?.length || 0 > 0) {
     return {
       point: false,
       line: false,
-      polygon: true
+      polygon: true,
     };
   }
   return {
     point: true,
     line: false,
-    polygon: false
+    polygon: false,
   };
 }
 
@@ -225,7 +225,7 @@ function getBinaryGeometryType(geometries: BinaryFeatureCollection[]): BinaryGeo
  */
 export async function getGeometryCollection({
   geometries,
-  wasmInstance
+  wasmInstance,
 }: {
   geometries: SpatialJoinGeometries;
   wasmInstance: GeoDaModule;
@@ -247,12 +247,12 @@ export async function getGeometryCollection({
     case SpatialJoinGeometryType.GeoJsonFeature:
       return await getGeometryCollectionFromGeoJsonFeatures({
         features: geometries as Feature[],
-        wasm: wasmInstance
+        wasm: wasmInstance,
       });
     case SpatialJoinGeometryType.PointLayerData:
       return await getGeometryCollectionFromPointLayerData({
         pointLayerData: geometries as PointLayerData[],
-        wasm: wasmInstance
+        wasm: wasmInstance,
       });
     default:
       throw new Error('Geometry type is unknown.');
@@ -276,7 +276,7 @@ export type SpatialJoinGeometryCollectionProps = {
  */
 export async function spatialJoinGeometryCollection({
   leftGeomCollection,
-  rightGeomCollection
+  rightGeomCollection,
 }: SpatialJoinGeometryCollectionProps): Promise<number[][]> {
   const result: number[][] = [];
   const wasmInstance = await initWASM();

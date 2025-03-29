@@ -1,9 +1,9 @@
-import {initWASM} from '../init';
-import {vecDoubleToNumber} from '@geoda/common';
+import { initWASM } from '../init';
+import { vecDoubleToNumber } from '@geoda/common';
 
 /**
  * ## Description
- * 
+ *
  * Creates classes with equal number of observations by:
  * - Sorting values in ascending order
  * - Dividing sorted values into bins with equal number of observations

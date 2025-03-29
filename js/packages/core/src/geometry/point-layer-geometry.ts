@@ -1,5 +1,5 @@
-import {GeoDaModule, GeometryCollection} from '@geoda/common';
-import {PointLayerData} from './spatial-join';
+import { GeoDaModule, GeometryCollection } from '@geoda/common';
+import { PointLayerData } from './spatial-join';
 
 /**
  * The type of the props for getGeometryCollectionFromGeoJson
@@ -18,7 +18,7 @@ export type GetGeometryCollectionFromPointLayerDataProps = {
  */
 export function getGeometryCollectionFromPointLayerData({
   pointLayerData,
-  wasm
+  wasm,
 }: GetGeometryCollectionFromPointLayerDataProps): GeometryCollection {
   if (!pointLayerData || pointLayerData.length === 0) {
     throw new Error('No pointLayerData to convert');

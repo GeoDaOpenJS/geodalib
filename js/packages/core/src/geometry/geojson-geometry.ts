@@ -1,11 +1,11 @@
-import {Feature, Geometry, Position} from 'geojson';
+import { Feature, Geometry, Position } from 'geojson';
 
 import {
   GeoDaModule,
   GeometryCollection,
   PolygonCollection,
   PointCollection,
-  LineCollection
+  LineCollection,
 } from '@geoda/common';
 
 /**
@@ -43,7 +43,7 @@ export type GetGeometryCollectionFromGeoJsonFeaturesProps = {
  */
 export function getGeometryCollectionFromGeoJsonFeatures({
   features,
-  wasm
+  wasm,
 }: GetGeometryCollectionFromGeoJsonFeaturesProps): GeometryCollection {
   if (!features || features.length === 0) {
     throw new Error('No features to convert');
@@ -55,13 +55,13 @@ export function getGeometryCollectionFromGeoJsonFeatures({
   switch (geomType) {
     case 'Polygon':
     case 'MultiPolygon':
-      return getPolygonCollection({features, wasm});
+      return getPolygonCollection({ features, wasm });
     case 'LineString':
     case 'MultiLineString':
-      return getLineCollection({features, wasm});
+      return getLineCollection({ features, wasm });
     case 'Point':
     case 'MultiPoint':
-      return getPointCollection({features, wasm});
+      return getPointCollection({ features, wasm });
     default:
       throw new Error('Unsupported GeoJSON geometry type');
   }
@@ -90,7 +90,7 @@ export function getPolygonCollection({
   features,
   wasm,
   fixPolygon,
-  convertToUTM
+  convertToUTM,
 }: GetPolygonCollectionProps): PolygonCollection {
   let ptIndex = 0;
   const xs = new wasm.VectorDouble();
@@ -174,7 +174,7 @@ export type GetLineCollectionProps = {
 export function getLineCollection({
   features,
   wasm,
-  convertToUTM
+  convertToUTM,
 }: GetLineCollectionProps): LineCollection {
   let ptIndex = 0;
   const xs = new wasm.VectorDouble();
@@ -235,7 +235,7 @@ export type GetPointCollectionProps = {
 export function getPointCollection({
   features,
   wasm,
-  convertToUTM
+  convertToUTM,
 }: GetPointCollectionProps): PointCollection {
   let ptIndex = 0;
   const xs = new wasm.VectorDouble();
@@ -302,7 +302,7 @@ export function getPointCollectionFromLatLng({
   lng,
   wasm,
   start,
-  end
+  end,
 }: GetPointCollectionFromLatLngProps): PointCollection {
   let ptIndex = 0;
   const xs = new wasm.VectorDouble();

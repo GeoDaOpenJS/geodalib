@@ -1,13 +1,13 @@
-import {BinaryFeatureCollection} from '@loaders.gl/schema';
-import type {GeometryCollection, GeoDaModule} from '@geoda/common';
+import { BinaryFeatureCollection } from '@loaders.gl/schema';
+import type { GeometryCollection, GeoDaModule } from '@geoda/common';
 
 import {
   BinaryGeometryType,
-  getGeometryCollectionFromBinaryGeometries
+  getGeometryCollectionFromBinaryGeometries,
 } from '../geometry/binary-geometry';
-import {initWASM} from '../init';
-import {getMetaFromWeights, WeightsMeta} from './weights-stats';
-import {getGeometryCollection, SpatialGeometry} from '../geometry/spatial-join';
+import { initWASM } from '../init';
+import { getMetaFromWeights, WeightsMeta } from './weights-stats';
+import { getGeometryCollection, SpatialGeometry } from '../geometry/spatial-join';
 
 async function createWeights(
   wasmInstance: GeoDaModule,
@@ -98,7 +98,7 @@ export async function getContiguityNeighborsFromBinaryGeometries({
   useCentroids,
   precisionThreshold = 0.0,
   orderOfContiguity = 1,
-  includeLowerOrder = false
+  includeLowerOrder = false,
 }: ContiguityNeighborsFromBinaryGeometriesProps): Promise<number[][]> {
   if (!binaryGeometries || binaryGeometries.length === 0) {
     return [];
@@ -154,7 +154,7 @@ export async function queenWeights(
   const wasmInstance = await initWASM();
   const geomCollection = await getGeometryCollection({
     geometries,
-    wasmInstance
+    wasmInstance,
   });
 
   const geometryType = geomCollection.getType();
@@ -203,7 +203,7 @@ export async function rookWeights(
   const wasmInstance = await initWASM();
   const geomCollection = await getGeometryCollection({
     geometries,
-    wasmInstance
+    wasmInstance,
   });
 
   const geometryType = geomCollection.getType();

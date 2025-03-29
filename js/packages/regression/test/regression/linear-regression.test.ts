@@ -1,7 +1,7 @@
 import test from 'tape';
-import {initWASM} from '../../src/init';
-import {dotProduct, linearRegression} from '../../src/regression/linear-regression';
-import {TEST_HR60, TEST_PO60, TEST_UE60, TEST_QUEEN_WEIGHTS} from '../data';
+import { initWASM } from '../../src/init';
+import { dotProduct, linearRegression } from '../../src/regression/linear-regression';
+import { TEST_HR60, TEST_PO60, TEST_UE60, TEST_QUEEN_WEIGHTS } from '../data';
 
 test('Test dotProduct()', async t => {
   await initWASM('./wasm/geoda-regression.wasm');
@@ -17,7 +17,7 @@ test('Test dotProduct()', async t => {
 test('Test linearRegression()', async t => {
   const x = [
     [1, 2, 3],
-    [4, 5, 6]
+    [4, 5, 6],
   ];
   const y = [7, 8, 9];
   const xNames = ['a', 'b'];
@@ -26,9 +26,9 @@ test('Test linearRegression()', async t => {
   const weights = [
     [1, 2],
     [0, 2],
-    [0, 1]
+    [0, 1],
   ];
-  const result = await linearRegression({x, y, weights, xNames, yName, datasetName});
+  const result = await linearRegression({ x, y, weights, xNames, yName, datasetName });
 
   t.deepEqual(result.type, 'linearRegression');
   t.end();
@@ -42,7 +42,7 @@ test('Test linearRegression1()', async t => {
   const datasetName = 'natregimes';
   const weights = TEST_QUEEN_WEIGHTS;
 
-  const result = await linearRegression({x, y, weights, xNames, yName, datasetName});
+  const result = await linearRegression({ x, y, weights, xNames, yName, datasetName });
   t.deepEqual(result.type, 'linearRegression');
 
   t.end();

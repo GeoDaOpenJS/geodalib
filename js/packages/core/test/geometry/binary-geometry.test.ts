@@ -1,14 +1,14 @@
-import {getBinaryGeometryTemplate} from '@loaders.gl/arrow';
-import {BinaryFeatureCollection} from '@loaders.gl/schema';
+import { getBinaryGeometryTemplate } from '@loaders.gl/arrow';
+import { BinaryFeatureCollection } from '@loaders.gl/schema';
 import test from 'tape';
 
 import {
   createPointCollectionFromBinaryFeatures,
   createLineCollectionFromBinaryFeatures,
-  createPolygonCollectionFromBinaryFeatures
+  createPolygonCollectionFromBinaryFeatures,
 } from '../../src/geometry/binary-geometry';
-import {initWASM} from '../../src/init';
-import {reducePrecision} from '../utils';
+import { initWASM } from '../../src/init';
+import { reducePrecision } from '../utils';
 
 /**
  * test createPointCollectionFromBinaryFeatures, simple points
@@ -23,23 +23,23 @@ test('Test createPointCollectionFromBinaryFeatures(), simple points', async t =>
       points: {
         ...getBinaryGeometryTemplate(),
         type: 'Point',
-        globalFeatureIds: {value: new Uint32Array([0, 1]), size: 1},
-        positions: {value: new Float64Array([1, 1, 2, 2]), size: 2},
-        properties: [{index: 0}, {index: 1}],
-        featureIds: {value: new Uint32Array([0, 1]), size: 1}
+        globalFeatureIds: { value: new Uint32Array([0, 1]), size: 1 },
+        positions: { value: new Float64Array([1, 1, 2, 2]), size: 2 },
+        properties: [{ index: 0 }, { index: 1 }],
+        featureIds: { value: new Uint32Array([0, 1]), size: 1 },
       },
       lines: {
         ...getBinaryGeometryTemplate(),
         type: 'LineString',
-        pathIndices: {value: new Uint16Array(0), size: 1}
+        pathIndices: { value: new Uint16Array(0), size: 1 },
       },
       polygons: {
         ...getBinaryGeometryTemplate(),
         type: 'Polygon',
-        polygonIndices: {value: new Uint16Array(0), size: 1},
-        primitivePolygonIndices: {value: new Uint16Array(0), size: 1}
-      }
-    }
+        polygonIndices: { value: new Uint16Array(0), size: 1 },
+        primitivePolygonIndices: { value: new Uint16Array(0), size: 1 },
+      },
+    },
   ];
 
   const pointsArray = pointBinaryGeometry.map(chunk => chunk.points);
@@ -53,12 +53,12 @@ test('Test createPointCollectionFromBinaryFeatures(), simple points', async t =>
 
   const expectedCentroids = [
     [1, 1],
-    [2, 2]
+    [2, 2],
   ];
 
   const actualCentroids = [
     [centroids.get(0).get(0), centroids.get(0).get(1)],
-    [centroids.get(1).get(0), centroids.get(1).get(1)]
+    [centroids.get(1).get(0), centroids.get(1).get(1)],
   ];
 
   t.deepEqual(actualCentroids, expectedCentroids, 'should return correct centroids');
@@ -78,23 +78,23 @@ test('Test createPointCollectionFromBinaryFeatures(), multi-point features', asy
       points: {
         ...getBinaryGeometryTemplate(),
         type: 'Point',
-        globalFeatureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 1},
-        positions: {value: new Float64Array([1, 1, 2, 2, 3, 3, 4, 4]), size: 1},
-        properties: [{index: 0}, {index: 1}],
-        featureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 1}
+        globalFeatureIds: { value: new Uint32Array([0, 0, 1, 1]), size: 1 },
+        positions: { value: new Float64Array([1, 1, 2, 2, 3, 3, 4, 4]), size: 1 },
+        properties: [{ index: 0 }, { index: 1 }],
+        featureIds: { value: new Uint32Array([0, 0, 1, 1]), size: 1 },
       },
       lines: {
         ...getBinaryGeometryTemplate(),
         type: 'LineString',
-        pathIndices: {value: new Uint16Array(0), size: 0}
+        pathIndices: { value: new Uint16Array(0), size: 0 },
       },
       polygons: {
         ...getBinaryGeometryTemplate(),
         type: 'Polygon',
-        polygonIndices: {value: new Uint16Array(0), size: 0},
-        primitivePolygonIndices: {value: new Uint16Array(0), size: 0}
-      }
-    }
+        polygonIndices: { value: new Uint16Array(0), size: 0 },
+        primitivePolygonIndices: { value: new Uint16Array(0), size: 0 },
+      },
+    },
   ];
 
   const pointsArray = pointBinaryGeometry.map(chunk => chunk.points);
@@ -108,12 +108,12 @@ test('Test createPointCollectionFromBinaryFeatures(), multi-point features', asy
 
   const expectedCentroids = [
     [1.5, 1.5],
-    [3.5, 3.5]
+    [3.5, 3.5],
   ];
 
   const actualCentroids = [
     [centroids.get(0).get(0), centroids.get(0).get(1)],
-    [centroids.get(1).get(0), centroids.get(1).get(1)]
+    [centroids.get(1).get(0), centroids.get(1).get(1)],
   ];
 
   t.deepEqual(actualCentroids, expectedCentroids, 'should return correct centroids');
@@ -133,24 +133,24 @@ test('Test createLineCollectionFromBinaryFeatures(), simple lines', async t => {
       shape: 'binary-feature-collection',
       points: {
         ...getBinaryGeometryTemplate(),
-        type: 'Point'
+        type: 'Point',
       },
       lines: {
         ...getBinaryGeometryTemplate(),
         type: 'LineString',
-        globalFeatureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 1},
-        positions: {value: new Float64Array([0, 0, 1, 1, 2, 2, 3, 3]), size: 2},
-        properties: [{index: 0}, {index: 1}],
-        featureIds: {value: new Uint32Array([0, 0, 1, 1]), size: 1},
-        pathIndices: {value: new Int32Array([0, 2, 4]), size: 1}
+        globalFeatureIds: { value: new Uint32Array([0, 0, 1, 1]), size: 1 },
+        positions: { value: new Float64Array([0, 0, 1, 1, 2, 2, 3, 3]), size: 2 },
+        properties: [{ index: 0 }, { index: 1 }],
+        featureIds: { value: new Uint32Array([0, 0, 1, 1]), size: 1 },
+        pathIndices: { value: new Int32Array([0, 2, 4]), size: 1 },
       },
       polygons: {
         ...getBinaryGeometryTemplate(),
         type: 'Polygon',
-        polygonIndices: {value: new Uint16Array(0), size: 0},
-        primitivePolygonIndices: {value: new Uint16Array(0), size: 0}
-      }
-    }
+        polygonIndices: { value: new Uint16Array(0), size: 0 },
+        primitivePolygonIndices: { value: new Uint16Array(0), size: 0 },
+      },
+    },
   ];
 
   const linesArray = lineBinaryGeometry.map(chunk => chunk.lines);
@@ -164,12 +164,12 @@ test('Test createLineCollectionFromBinaryFeatures(), simple lines', async t => {
 
   const expectedCentroids = [
     [0.5, 0.5],
-    [2.5, 2.5]
+    [2.5, 2.5],
   ];
 
   const actualCentroids = [
     [centroids.get(0).get(0), centroids.get(0).get(1)],
-    [centroids.get(1).get(0), centroids.get(1).get(1)]
+    [centroids.get(1).get(0), centroids.get(1).get(1)],
   ];
 
   t.deepEqual(actualCentroids, expectedCentroids, 'should return correct centroids');
@@ -189,27 +189,27 @@ test('Test createLineCollectionFromBinaryFeatures(), multilines', async t => {
       shape: 'binary-feature-collection',
       points: {
         ...getBinaryGeometryTemplate(),
-        type: 'Point'
+        type: 'Point',
       },
       lines: {
         ...getBinaryGeometryTemplate(),
         type: 'LineString',
-        globalFeatureIds: {value: new Uint32Array([0, 0, 0, 0, 1, 1, 1, 1]), size: 1},
+        globalFeatureIds: { value: new Uint32Array([0, 0, 0, 0, 1, 1, 1, 1]), size: 1 },
         positions: {
           value: new Float64Array([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8]),
-          size: 2
+          size: 2,
         },
-        properties: [{index: 0}, {index: 1}],
-        featureIds: {value: new Uint32Array([0, 0, 0, 0, 1, 1, 1, 1]), size: 1},
-        pathIndices: {value: new Int32Array([0, 2, 4, 6, 8]), size: 1}
+        properties: [{ index: 0 }, { index: 1 }],
+        featureIds: { value: new Uint32Array([0, 0, 0, 0, 1, 1, 1, 1]), size: 1 },
+        pathIndices: { value: new Int32Array([0, 2, 4, 6, 8]), size: 1 },
       },
       polygons: {
         ...getBinaryGeometryTemplate(),
         type: 'Polygon',
-        polygonIndices: {value: new Uint16Array(0), size: 1},
-        primitivePolygonIndices: {value: new Uint16Array(0), size: 1}
-      }
-    }
+        polygonIndices: { value: new Uint16Array(0), size: 1 },
+        primitivePolygonIndices: { value: new Uint16Array(0), size: 1 },
+      },
+    },
   ];
 
   const linesArray = lineBinaryGeometry.map(chunk => chunk.lines);
@@ -223,12 +223,12 @@ test('Test createLineCollectionFromBinaryFeatures(), multilines', async t => {
 
   const expectedCentroids = [
     [2.5, 2.5],
-    [6.5, 6.5]
+    [6.5, 6.5],
   ];
 
   const actualCentroids = reducePrecision([
     [centroids.get(0).get(0), centroids.get(0).get(1)],
-    [centroids.get(1).get(0), centroids.get(1).get(1)]
+    [centroids.get(1).get(0), centroids.get(1).get(1)],
   ]);
 
   t.deepEqual(actualCentroids, expectedCentroids, 'should return correct centroids');
@@ -248,32 +248,32 @@ test('Test createPolygonCollectionFromBinaryFeatures(), simple polygons', async 
       shape: 'binary-feature-collection',
       points: {
         ...getBinaryGeometryTemplate(),
-        type: 'Point'
+        type: 'Point',
       },
       lines: {
         ...getBinaryGeometryTemplate(),
         type: 'LineString',
-        pathIndices: {value: new Uint16Array(0), size: 1}
+        pathIndices: { value: new Uint16Array(0), size: 1 },
       },
       polygons: {
         ...getBinaryGeometryTemplate(),
         type: 'Polygon',
         globalFeatureIds: {
           value: new Uint32Array([0, 0, 0, 0, 0, 1, 1, 1, 1, 1]),
-          size: 1
+          size: 1,
         },
         positions: {
           value: new Float64Array([
-            0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 10, 10, 10, 11, 11, 11, 11, 10, 10, 10
+            0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 10, 10, 10, 11, 11, 11, 11, 10, 10, 10,
           ]),
-          size: 2
+          size: 2,
         },
-        properties: [{index: 0}, {index: 1}],
-        featureIds: {value: new Uint32Array([0, 0, 0, 0, 0, 1, 1, 1, 1, 1]), size: 1},
-        polygonIndices: {value: new Int32Array([0, 5, 10]), size: 1},
-        primitivePolygonIndices: {value: new Int32Array([0, 5, 10]), size: 1}
-      }
-    }
+        properties: [{ index: 0 }, { index: 1 }],
+        featureIds: { value: new Uint32Array([0, 0, 0, 0, 0, 1, 1, 1, 1, 1]), size: 1 },
+        polygonIndices: { value: new Int32Array([0, 5, 10]), size: 1 },
+        primitivePolygonIndices: { value: new Int32Array([0, 5, 10]), size: 1 },
+      },
+    },
   ];
 
   const polygonsArray = polygonBinaryGeometry.map(chunk => chunk.polygons);
@@ -287,12 +287,12 @@ test('Test createPolygonCollectionFromBinaryFeatures(), simple polygons', async 
 
   const expectedCentroids = [
     [0.5, 0.5],
-    [10.5, 10.5]
+    [10.5, 10.5],
   ];
 
   const actualCentroids = [
     [centroids.get(0).get(0), centroids.get(0).get(1)],
-    [centroids.get(1).get(0), centroids.get(1).get(1)]
+    [centroids.get(1).get(0), centroids.get(1).get(1)],
   ];
 
   t.deepEqual(actualCentroids, expectedCentroids, 'should return correct centroids');
@@ -312,33 +312,33 @@ test('Test createPolygonCollectionFromBinaryFeatures(), multi polygons', async t
       shape: 'binary-feature-collection',
       points: {
         ...getBinaryGeometryTemplate(),
-        type: 'Point'
+        type: 'Point',
       },
       lines: {
         ...getBinaryGeometryTemplate(),
         type: 'LineString',
-        pathIndices: {value: new Uint16Array(0), size: 1}
+        pathIndices: { value: new Uint16Array(0), size: 1 },
       },
       polygons: {
         ...getBinaryGeometryTemplate(),
         type: 'Polygon',
         globalFeatureIds: {
           value: new Uint32Array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
-          size: 1
+          size: 1,
         },
         positions: {
           value: new Float64Array([0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2]),
-          size: 2
+          size: 2,
         },
-        properties: [{index: 0}],
+        properties: [{ index: 0 }],
         featureIds: {
           value: new Uint32Array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
-          size: 1
+          size: 1,
         },
-        polygonIndices: {value: new Int32Array([0, 5, 10]), size: 1},
-        primitivePolygonIndices: {value: new Int32Array([0, 5, 10]), size: 1}
-      }
-    }
+        polygonIndices: { value: new Int32Array([0, 5, 10]), size: 1 },
+        primitivePolygonIndices: { value: new Int32Array([0, 5, 10]), size: 1 },
+      },
+    },
   ];
 
   const polygonsArray = polygonBinaryGeometry.map(chunk => chunk.polygons);
@@ -371,42 +371,44 @@ test('Test createPolygonCollectionFromBinaryFeatures(), multi polygons with hole
       shape: 'binary-feature-collection',
       points: {
         ...getBinaryGeometryTemplate(),
-        type: 'Point'
+        type: 'Point',
       },
       lines: {
         ...getBinaryGeometryTemplate(),
         type: 'LineString',
-        pathIndices: {value: new Uint16Array(0), size: 1}
+        pathIndices: { value: new Uint16Array(0), size: 1 },
       },
       polygons: {
         ...getBinaryGeometryTemplate(),
         type: 'Polygon',
         globalFeatureIds: {
           value: new Uint32Array([
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+            1,
           ]),
-          size: 1
+          size: 1,
         },
         positions: {
           value: new Float64Array([
             0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0.25, 0.25, 0.25, 0.75, 0.75, 0.75, 0.75, 0.25, 0.25,
             0.25, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 10, 10, 10, 11, 11, 11, 11, 10, 10, 10, 10.25,
             10.25, 10.25, 10.75, 10.75, 10.75, 10.75, 10.25, 10.25, 10.25, 12, 12, 12, 13, 13, 13,
-            13, 12, 12, 12
+            13, 12, 12, 12,
           ]),
-          size: 2
+          size: 2,
         },
-        properties: [{index: 0}, {index: 1}],
+        properties: [{ index: 0 }, { index: 1 }],
         featureIds: {
           value: new Uint32Array([
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+            1,
           ]),
-          size: 1
+          size: 1,
         },
-        polygonIndices: {value: new Int32Array([0, 10, 15, 25, 30]), size: 1},
-        primitivePolygonIndices: {value: new Int32Array([0, 5, 10, 15, 20, 25, 30]), size: 1}
-      }
-    }
+        polygonIndices: { value: new Int32Array([0, 10, 15, 25, 30]), size: 1 },
+        primitivePolygonIndices: { value: new Int32Array([0, 5, 10, 15, 20, 25, 30]), size: 1 },
+      },
+    },
   ];
 
   const polygonsArray = polygonBinaryGeometry.map(chunk => chunk.polygons);
@@ -420,12 +422,12 @@ test('Test createPolygonCollectionFromBinaryFeatures(), multi polygons with hole
 
   const expectedCentroids = [
     [1.6428571428571428, 1.6428571428571428],
-    [11.642857142857142, 11.642857142857142]
+    [11.642857142857142, 11.642857142857142],
   ];
 
   const actualCentroids = [
     [centroids.get(0).get(0), centroids.get(0).get(1)],
-    [centroids.get(1).get(0), centroids.get(1).get(1)]
+    [centroids.get(1).get(0), centroids.get(1).get(1)],
   ];
 
   t.deepEqual(actualCentroids, expectedCentroids, 'should return correct centroids');

@@ -1,5 +1,5 @@
-import {initWASM} from '../init';
-import {vecDoubleToNumber} from '@geoda/common';
+import { initWASM } from '../init';
+import { vecDoubleToNumber } from '@geoda/common';
 
 async function boxBreaks(data: number[] | Float32Array, hingeFactor: number): Promise<number[]> {
   const wasm = await initWASM();
