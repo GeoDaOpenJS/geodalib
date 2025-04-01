@@ -1,12 +1,19 @@
 import { createWASMManager } from '@geoda/common';
+import { VERSION } from '@geoda/common';
+// @ts-expect-error wasm module is not typed by emscripten
 import wasmModule from '../wasm/index.cjs';
 
 const wasmManager = createWASMManager(wasmModule);
 
-wasmManager.setDeliveryWASM('https://cdn.jsdelivr.net/npm/@geoda/lisa@latest/dist/geoda-lisa.wasm');
+wasmManager.setDeliveryWASM(
+  `https://cdn.jsdelivr.net/npm/@geoda/lisa@${VERSION}/wasm/geoda-lisa.wasm`
+);
+
+export function setDeliveryWASM(wasmURL: string) {
+  wasmManager.setDeliveryWASM(wasmURL);
+}
 
 export async function initWASM(wasmURL?: string) {
-  console.log('wasmManager', wasmManager.id);
   return await wasmManager.initWASM(wasmURL);
 }
 

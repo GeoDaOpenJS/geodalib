@@ -1,6 +1,6 @@
 export type { GeoDaModule as GeoDaInterface } from '@geoda/common';
 
-export { initWASM, resetWASM } from './init';
+export * from './init';
 
 export * from './weights/distance-neighbors';
 export * from './weights/nearest-neighbors';

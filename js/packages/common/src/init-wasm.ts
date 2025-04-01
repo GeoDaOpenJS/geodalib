@@ -59,12 +59,9 @@ class WASMManager {
     if (this.customWASMUrl === null) {
       throw new Error('Custom WASM URL is not set');
     }
-    console.log('initWASM', this.customWASMUrl);
     if (this.wasmInstancePromise === null) {
-      this.wasmInstancePromise = this.wasmModule(
-        this.customWASMUrl ? { locateFile: () => this.customWASMUrl } : {}
-      );
-      console.log('creating new geodaModule');
+      const wasmUrl = this.customWASMUrl;
+      this.wasmInstancePromise = this.wasmModule(wasmUrl ? { locateFile: () => wasmUrl } : {});
     }
     return this.wasmInstancePromise;
   }

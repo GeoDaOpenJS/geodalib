@@ -10,10 +10,10 @@
     "build": "lerna run build --npm-client=yarn",
     "test": "lerna run test --npm-client=yarn",
     "lint": "lerna run lint --npm-client=yarn -- --fix",
-    "version-prerelease": "lerna version prerelease --sync-workspace-lock --force-publish",
-    "version-patch": "lerna version patch --no-push --sync-workspace-lock --force-publish",
-    "version-minor": "lerna version minor --no-push --sync-workspace-lock --force-publish",
-    "version-major": "lerna version major --no-push --sync-workspace-lock --force-publish",
+    "version-prerelease": "lerna version prerelease --sync-workspace-lock --force-publish && ts-node scripts/update-version.mjs",
+    "version-patch": "lerna version patch --no-push --sync-workspace-lock --force-publish && ts-node scripts/update-version.mjs",
+    "version-minor": "lerna version minor --no-push --sync-workspace-lock --force-publish && ts-node scripts/update-version.mjs",
+    "version-major": "lerna version major --no-push --sync-workspace-lock --force-publish && ts-node scripts/update-version.mjs",
     "publish-dry-run": "turbo run publish && lerna publish from-package --yes --dry-run",
     "publish-preview": "turbo run publish && lerna publish from-package --yes --dist-tag preview",
     "publish-release": "turbo run publish && lerna publish from-package --yes"
@@ -32,6 +32,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
     "turbo": "^2.4.2",
     "typescript": "~5.3.3"
   },

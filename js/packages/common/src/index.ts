@@ -3,3 +3,4 @@ export * from './init-wasm';
 export * from './wasm/index.d';
 
 export * from './utils';
+export * from './version';

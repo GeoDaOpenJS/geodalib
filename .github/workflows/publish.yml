@@ -1,0 +1,29 @@
+name: Publish to NPM
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger on version tags
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Volta
+        uses: volta-cli/action@v1
+        with:
+          node-version: '22.14.0'
+          yarn-version: '4.0.0'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build packages
+        run: yarn build
+
+      - name: Publish to NPM
+        run: yarn publish-release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

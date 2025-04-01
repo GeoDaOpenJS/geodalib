@@ -8,11 +8,14 @@ export function reducePrecision(o: unknown, precision = 14): unknown {
     return o.map(el => reducePrecision(el, precision));
   }
   if (typeof o === 'object') {
-    return Object.keys(o).reduce((map, k) => {
-      // @ts-expect-error Unsure how to index into an object with a string key
-      map[k] = reducePrecision(o[k], precision);
-      return map;
-    }, {});
+    return Object.keys(o).reduce(
+      (map, k) => {
+        const obj = o as Record<string, unknown>;
+        map[k] = reducePrecision(obj[k], precision);
+        return map;
+      },
+      {} as Record<string, unknown>
+    );
   }
   if (typeof o === 'number') {
     return Number(o.toFixed(precision));
