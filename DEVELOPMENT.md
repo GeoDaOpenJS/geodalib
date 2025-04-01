@@ -101,6 +101,14 @@ The `publish-dry-run` command:
   lerna info dry-run finished
   ```
 
+  You may need to update the gitHead in the package.json files after running the `publish-dry-run` command.
+
+```bash
+git add .
+git commit -am "chore: update version number to X.Y.Z"
+git push
+```
+
 ~~The `publish-preview` command~~ (Don't run this command, publish will be triggered by the GitHub workflow):
 
 - Publishes packages with the 'preview' tag on NPM
@@ -122,23 +130,11 @@ git tag -a v0.0.2-alpha.11 -m "chore: update version number to 0.0.2-alpha.11"
 git push origin --tags
 ```
 
-You also need to update the gitHead in the package.json files.
-
-```bash
-git add .
-git commit -am "chore: update version number to X.Y.Z"
-git push
-```
-
 If you want to remove the tag and the version number, you can run the following commands:
 
 ```bash
-git tag -d @geoda/core@0.0.2-alpha.7
-git tag -d @geoda/lisa@0.0.2-alpha.7
-git tag -d @geoda/regression@0.0.2-alpha.7
-git push origin --delete @geoda/core@0.0.2-alpha.7
-git push origin --delete @geoda/lisa@0.0.2-alpha.7
-git push origin --delete @geoda/regression@0.0.2-alpha.7
+git tag -d v0.0.2-alpha.11
+git push origin --delete v0.0.2-alpha.11
 ```
 
 This will:
