@@ -2,7 +2,7 @@
   "name": "@geoda/common",
   "description": "Common module for GeoDaLib",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Xun Li <lixun910@gmail.com>",
   "license": "MIT",
   "type": "module",
@@ -20,10 +20,6 @@
     "clean": "rimraf dist/",
     "lint": "eslint --max-warnings 0 .",
     "wasm": "../../../cpp/wasm/build-wasm.sh ./wasm geoda-core"
-  },
-  "volta": {
-    "node": "18.19.0",
-    "yarn": "4.0.0"
   },
   "devDependencies": {
     "esbuild-plugin-copy": "^2.1.1"
