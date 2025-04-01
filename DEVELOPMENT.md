@@ -64,7 +64,7 @@ yarn run version-major
 yarn run version-prerelease
 ```
 
-Then, you need to commit the changes of version number in all package.json files.
+Then, you need to commit the changes of version number in all package.json files, especially the lockfile.
 
 ```bash
 yarn install
