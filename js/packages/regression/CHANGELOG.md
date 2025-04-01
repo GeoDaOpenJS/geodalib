@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.2-alpha.4](https://github.com/GeoDaCenter/geoda-lib/compare/@geoda/regression@0.0.2-alpha.3...@geoda/regression@0.0.2-alpha.4) (2025-04-01)
+
+**Note:** Version bump only for package @geoda/regression
+
 ## [0.0.2-alpha.3](https://github.com/GeoDaCenter/geoda-lib/compare/@geoda/regression@0.0.2-alpha.2...@geoda/regression@0.0.2-alpha.3) (2025-04-01)
 
 **Note:** Version bump only for package @geoda/regression
