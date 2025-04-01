@@ -118,8 +118,16 @@ The `publish-dry-run` command:
 Create a new version tag:
 
 ```bash
-git tag -a @geoda/all@0.0.2-alpha.7 -m "chore: update version number to 0.0.2-alpha.7"
+git tag -a @geoda/all@0.0.2-alpha.11 -m "chore: update version number to 0.0.2-alpha.11"
 git push origin --tags
+```
+
+You also need to update the gitHead in the package.json files.
+
+```bash
+git add .
+git commit -am "chore: update version number to X.Y.Z"
+git push
 ```
 
 If you want to remove the tag and the version number, you can run the following commands:
