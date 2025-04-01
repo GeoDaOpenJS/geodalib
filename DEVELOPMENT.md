@@ -111,9 +111,10 @@ The `publish-dry-run` command:
 First, you need to commit the changes of version number in all package.json files.
 
 ```bash
+yarn install
 git add .
-git commit -m "chore: update version number"
-git push origin
+git commit --amend --no-edit
+git push -f
 ```
 
 Then, push the tag to GitHub:
