@@ -20,11 +20,12 @@
   ],
   "scripts": {
     "build": "node esbuild.config.mjs",
-    "clean": "rimraf dist/",
+    "clean": "rimraf dist/ && rimraf wasm/",
     "lint": "eslint --max-warnings 0 .",
     "typecheck": "tsc",
     "wasm": "../../../cpp/wasm/build-wasm.sh ./wasm geoda-core",
-    "test": "jest"
+    "test": "jest",
+    "production": "yarn clean && yarn wasm && yarn build && yarn lint && yarn test"
   },
   "dependencies": {
     "@loaders.gl/schema": "^4.1.0-alpha.4",

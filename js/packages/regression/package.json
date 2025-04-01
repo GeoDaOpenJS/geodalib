@@ -21,7 +21,8 @@
     "lint": "eslint --max-warnings 0 .",
     "typecheck": "./node_modules/.bin/tsc",
     "wasm": "../../../cpp/wasm/build-wasm.sh ./wasm geoda-regression",
-    "test": "jest"
+    "test": "jest",
+    "production": "yarn clean && yarn wasm && yarn build && yarn lint && yarn test"
   },
   "devDependencies": {
     "@geoda/common": "^0.0.2-alpha.5",

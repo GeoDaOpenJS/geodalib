@@ -18,8 +18,7 @@
   "scripts": {
     "build": "node esbuild.config.mjs",
     "clean": "rimraf dist/",
-    "lint": "eslint --max-warnings 0 .",
-    "wasm": "../../../cpp/wasm/build-wasm.sh ./wasm geoda-core"
+    "lint": "eslint --max-warnings 0 ."
   },
   "devDependencies": {
     "esbuild-plugin-copy": "^2.1.1"

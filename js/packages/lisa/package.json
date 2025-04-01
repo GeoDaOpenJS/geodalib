@@ -20,7 +20,8 @@
     "lint": "eslint --max-warnings 0 .",
     "typecheck": "./node_modules/.bin/tsc",
     "wasm": "../../../cpp/wasm/build-wasm.sh ./wasm geoda-lisa",
-    "test": "jest"
+    "test": "jest",
+    "production": "yarn clean && yarn wasm && yarn build && yarn lint && yarn test"
   },
   "dependencies": {
     "@loaders.gl/schema": "^4.1.0-alpha.4",
