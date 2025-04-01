@@ -118,7 +118,7 @@ The `publish-dry-run` command:
 Create a new version tag:
 
 ```bash
-git tag -a @geoda/all@0.0.2-alpha.11 -m "chore: update version number to 0.0.2-alpha.11"
+git tag -a v0.0.2-alpha.11 -m "chore: update version number to 0.0.2-alpha.11"
 git push origin --tags
 ```
 
