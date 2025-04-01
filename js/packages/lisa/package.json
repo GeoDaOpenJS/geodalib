@@ -1,7 +1,7 @@
 {
   "name": "@geoda/lisa",
   "description": "Local Indicators of Spatial Association module for GeoDaLib",
-  "version": "0.0.2-alpha.5",
+  "version": "0.0.2-alpha.6",
   "author": "Xun Li <lixun910@gmail.com>",
   "license": "MIT",
   "type": "module",
@@ -28,12 +28,12 @@
     "geojson": "^0.5.0"
   },
   "devDependencies": {
-    "@geoda/common": "^0.0.2-alpha.5",
+    "@geoda/common": "^0.0.2-alpha.6",
     "@loaders.gl/arrow": "^4.1.0-alpha.4",
     "@types/geojson": "^7946.0.10",
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.2"
   },
-  "gitHead": "be43a86bd76395fe220d23e27d86e1f08170eec1"
+  "gitHead": "aee832b99552370fb20e33b5a2dd218dc4eb0d11"
 }
