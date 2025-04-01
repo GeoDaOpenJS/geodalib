@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.2-alpha.5](https://github.com/GeoDaCenter/geoda-lib/compare/@geoda/lisa@0.0.2-alpha.4...@geoda/lisa@0.0.2-alpha.5) (2025-04-01)
+
+### Features
+
+* release packages core, lisa and regression ([347dcf7](https://github.com/GeoDaCenter/geoda-lib/commit/347dcf7f1a9fa11cae215856da02d4f664b84636))
+
 ## [0.0.2-alpha.4](https://github.com/GeoDaCenter/geoda-lib/compare/@geoda/lisa@0.0.2-alpha.3...@geoda/lisa@0.0.2-alpha.4) (2025-04-01)
 
 **Note:** Version bump only for package @geoda/lisa
