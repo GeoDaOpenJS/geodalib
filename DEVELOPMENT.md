@@ -64,6 +64,13 @@ yarn run version-major
 yarn run version-prerelease
 ```
 
+Then, you need to commit the changes of version number in all package.json files.
+
+```bash
+yarn install
+git commit -am "chore: update version number to X.Y.Z"
+```
+
 2. Before pushing the tag, you can test the publishing process:
 
 ```bash
@@ -108,13 +115,11 @@ The `publish-dry-run` command:
 
 3. Push the version tag to GitHub:
 
-First, you need to commit the changes of version number in all package.json files.
+Create a new version tag:
 
 ```bash
-yarn install
-git add .
-git commit --amend --no-edit
-git push -f --tags
+git tag -a @geoda/all@0.0.2-alpha.7 -m "chore: update version number to 0.0.2-alpha.7"
+git push origin --tags
 ```
 
 If you want to remove the tag and the version number, you can run the following commands:
