@@ -114,12 +114,7 @@ First, you need to commit the changes of version number in all package.json file
 yarn install
 git add .
 git commit --amend --no-edit
-git push -f
-```
-
-Then, push the tag to GitHub:
-```bash
-git push origin --tags
+git push -f --tags
 ```
 
 If you want to remove the tag and the version number, you can run the following commands:
