@@ -1,7 +1,5 @@
 # @geoda/core
 
-A powerful JavaScript/TypeScript library for spatial data analysis and visualization.
-
 ## Features
 
 ### Mapping
