@@ -1,33 +1,23 @@
-const { GeoDa } = require('@geoda/core');
+const { quantileBreaks } = require('@geoda/core');
 
 // Example data
-const data = {
-    values: [1, 2, 3, 4, 5],
-    geometry: {
-        type: "Polygon",
-        coordinates: [[[0, 0], [0, 1], [1, 1], [1, 0], [0, 0]]]
-    }
-};
+const data = [1, 2, 3, 4, 5];
 
 async function main() {
-    try {
-        // Create a new GeoDa instance
-        const geoda = new GeoDa();
-        
-        // Load data
-        await geoda.loadData(data);
-        
-        // Get basic statistics
-        const stats = await geoda.getStatistics();
-        console.log('Basic Statistics:', stats);
-        
-        // Get spatial weights
-        const weights = await geoda.getSpatialWeights();
-        console.log('Spatial Weights:', weights);
-        
-    } catch (error) {
-        console.error('Error:', error);
-    }
+  try {
+    console.log('Data:', data);
+    const breaks = await quantileBreaks(2, data);
+    console.log('Breaks:', breaks);
+    return breaks;
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
 }
 
-main(); 
+// Only run if this file is being run directly
+if (require.main === module) {
+  main();
+}
+
+module.exports = { main, quantileBreaks };

@@ -11,7 +11,9 @@
   "dependencies": {
     "@geoda/regression": "0.0.2-alpha.13",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@geoda/lisa": "0.0.3-alpha.4",
+    "@geoda/core": "0.0.3-alpha.4"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",

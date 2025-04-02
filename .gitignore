@@ -58,3 +58,4 @@ meta.json
 dist/
 .turbo/
 .parcel-cache/
+*.tgz

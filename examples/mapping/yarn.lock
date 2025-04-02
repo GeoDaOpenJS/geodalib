@@ -373,13 +373,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@geoda/core@npm:0.0.2-alpha.13":
-  version: 0.0.2-alpha.13
-  resolution: "@geoda/core@npm:0.0.2-alpha.13"
+"@geoda/core@file:../../js/packages/core/geoda-core-0.0.3-alpha.3.tgz::locator=geoda-quantile-example%40workspace%3A.":
+  version: 0.0.3-alpha.3
+  resolution: "@geoda/core@file:../../js/packages/core/geoda-core-0.0.3-alpha.3.tgz#../../js/packages/core/geoda-core-0.0.3-alpha.3.tgz::hash=b144b5&locator=geoda-quantile-example%40workspace%3A."
   dependencies:
     "@loaders.gl/schema": "npm:^4.1.0-alpha.4"
     geojson: "npm:^0.5.0"
-  checksum: 4c7d969dbd23bc2bd40b58583a91eddd6a5f84347b77571d7eb687dd41c4fd81064dae441f81e558da7e3160e9c52d5d19a5381d3c3a1eff9f04978f61f18301
+  checksum: d474f409c01a3c2d2ed7b349f9850f608d730568a975c4ba3e60f3ea9b578c01a1cbd89c99fdf30e4814076e02291236b8c0b923862dee515ad5be2c02e54260
   languageName: node
   linkType: hard
 
@@ -1100,7 +1100,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "geoda-quantile-example@workspace:."
   dependencies:
-    "@geoda/core": "npm:0.0.2-alpha.13"
+    "@geoda/core": ../../js/packages/core/geoda-core-0.0.3-alpha.3.tgz
     "@types/node": "npm:^20.11.0"
     "@types/react": "npm:^18.2.0"
     "@types/react-dom": "npm:^18.2.0"

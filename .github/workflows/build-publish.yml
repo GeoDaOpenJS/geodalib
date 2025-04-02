@@ -43,5 +43,13 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           yarn publish-release
+          yarn update-examples
+          # commit changes
+          git config --global user.email "lixun910@gmail.com"
+          git config --global user.name "github-actions[bot]"
+          cd ..
+          git add .
+          git commit -m "Update examples to version ${GITHUB_REF_NAME}"
+          git push
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
