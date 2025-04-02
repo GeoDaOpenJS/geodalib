@@ -4,10 +4,9 @@
   "version": "0.0.3-alpha.1",
   "author": "Xun Li <lixun910@gmail.com>",
   "license": "MIT",
-  "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/src/index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.cjs",

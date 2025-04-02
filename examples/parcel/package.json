@@ -1,5 +1,5 @@
 {
-  "name": "example-parcel",
+  "name": "geoda-example-parcel",
   "version": "1.0.0",
   "description": "The JavaScript example using geoda-lib with Parcel",
   "scripts": {

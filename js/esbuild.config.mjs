@@ -1,10 +1,10 @@
 import esbuild from 'esbuild';
 import fs from 'fs';
 
+const isDev = process.argv.includes('--dev');
+
 // Create base configuration factory
 export const createBaseConfig = (options = {}) => {
-  const isDev = process.argv.includes('--dev');
-
   return {
     bundle: true,
     minify: !isDev,
@@ -31,10 +31,11 @@ export const buildFormat = async (config, format, outfile) => {
     ...(outfile ? { outfile } : {}),
   });
 
-  const metaFile = outfile
-    ? outfile.replace('.js', '.meta.json')
-    : 'dist/meta.json';
-  fs.writeFileSync(metaFile, JSON.stringify(result.metafile));
+  const metaFile = outfile ? outfile.replace(/\.(js|cjs)$/, '.meta.json') : 'dist/meta.json';
+  if (isDev) {
+    fs.writeFileSync(metaFile, JSON.stringify(result.metafile));
+  }
+
   console.log(`${format.toUpperCase()} build complete! ✨`);
 
   return result;

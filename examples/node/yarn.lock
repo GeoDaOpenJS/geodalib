@@ -50,13 +50,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@geoda/core@npm:0.0.3-alpha.0":
-  version: 0.0.3-alpha.0
-  resolution: "@geoda/core@npm:0.0.3-alpha.0"
+"@geoda/core@npm:0.0.3-alpha.1":
+  version: 0.0.3-alpha.1
+  resolution: "@geoda/core@npm:0.0.3-alpha.1"
   dependencies:
     "@loaders.gl/schema": "npm:^4.1.0-alpha.4"
     geojson: "npm:^0.5.0"
-  checksum: f56babc57d94e983418c8a8be3777938a1f7dbd6f032343641f1774e4489c7a38158a61fd6579de18e75e8e283d25466213b29a743594a6d6ec507498e8684de
+  checksum: 446f2de3216c88cef11bd559fc76435dbf8bcf4439448ac8429ca6f6df81bb9a03af26affa72419466fbde270cb808b22b0fc543366ef1bff900912b87c692f1
   languageName: node
   linkType: hard
 
@@ -95,15 +95,6 @@ __metadata:
   checksum: 1ff24a288bd5860b766b073ead337d31d73bdc715e5b50a2cee5cb0af57a1ed02cc04ef295f5fa68dc40fe3e4f104dd31282b2b818a5ba3231bc1001ba084e3c
   languageName: node
   linkType: hard
-
-"Example using geoda-lib with Node.js@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "Example using geoda-lib with Node.js@workspace:."
-  dependencies:
-    "@geoda/core": "npm:0.0.3-alpha.0"
-    eslint: "npm:^7.2.0"
-  languageName: unknown
-  linkType: soft
 
 "acorn-jsx@npm:^5.3.1":
   version: 5.3.2
@@ -560,6 +551,15 @@ __metadata:
   checksum: 5959eed0375803d9924f47688479bb017e0c6816a0e5ac151e22ba6bfe1d12c41de2f339188885e0aa8eeea2072dad509d8e4448467e816bde0a2ca86a0670d3
   languageName: node
   linkType: hard
+
+"geoda-example-node@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "geoda-example-node@workspace:."
+  dependencies:
+    "@geoda/core": "npm:0.0.3-alpha.1"
+    eslint: "npm:^7.2.0"
+  languageName: unknown
+  linkType: soft
 
 "geojson@npm:^0.5.0":
   version: 0.5.0

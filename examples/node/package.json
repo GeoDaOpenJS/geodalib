@@ -1,5 +1,5 @@
 {
-  "name": "Example using geoda-lib with Node.js",
+  "name": "geoda-example-node",
   "version": "1.0.0",
   "description": "The JavaScript example using geoda-lib with Node.js",
   "scripts": {
@@ -14,6 +14,6 @@
     "node.js"
   ],
   "dependencies": {
-    "@geoda/core": "0.0.3-alpha.0"
+    "@geoda/core": "0.0.3-alpha.1"
   }
 }
