@@ -2,13 +2,19 @@
   "name": "@geoda/common",
   "description": "Common module for GeoDaLib",
   "private": true,
-  "version": "0.0.3-alpha.0",
+  "version": "0.0.3-alpha.1",
   "author": "Xun Li <lixun910@gmail.com>",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "dist",
     "wasm",

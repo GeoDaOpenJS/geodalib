@@ -1,7 +1,7 @@
 {
-  "name": "javascript",
+  "name": "example-parcel",
   "version": "1.0.0",
-  "description": "The JavaScript template",
+  "description": "The JavaScript example using geoda-lib with Parcel",
   "scripts": {
     "start": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html"

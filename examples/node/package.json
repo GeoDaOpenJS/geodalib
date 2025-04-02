@@ -1,0 +1,19 @@
+{
+  "name": "Example using geoda-lib with Node.js",
+  "version": "1.0.0",
+  "description": "The JavaScript example using geoda-lib with Node.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "build": "node ./src/index.js"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0"
+  },
+  "keywords": [
+    "geoda-lib",
+    "node.js"
+  ],
+  "dependencies": {
+    "@geoda/core": "0.0.3-alpha.0"
+  }
+}
