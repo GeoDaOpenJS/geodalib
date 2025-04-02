@@ -43,6 +43,8 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           yarn publish-release
+          # wait for 2 seconds
+          sleep 2
           yarn update-examples
           # commit changes
           git config --global user.email "lixun910@gmail.com"

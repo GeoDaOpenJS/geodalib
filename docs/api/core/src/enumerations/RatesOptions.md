@@ -2,7 +2,7 @@
 
 # Enumeration: RatesOptions
 
-Defined in: core/src/mapping/rates.ts:1
+Defined in: [core/src/mapping/rates.ts:1](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/mapping/rates.ts#L1)
 
 ## Enumeration Members
 
@@ -10,7 +10,7 @@ Defined in: core/src/mapping/rates.ts:1
 
 > **EBRateStandardization**: `"EB Rate Standardization"`
 
-Defined in: core/src/mapping/rates.ts:7
+Defined in: [core/src/mapping/rates.ts:7](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/mapping/rates.ts#L7)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: core/src/mapping/rates.ts:7
 
 > **EmpiricalRisk**: `"Empirical Risk"`
 
-Defined in: core/src/mapping/rates.ts:4
+Defined in: [core/src/mapping/rates.ts:4](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/mapping/rates.ts#L4)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: core/src/mapping/rates.ts:4
 
 > **ExcessRisk**: `"Excess Risk"`
 
-Defined in: core/src/mapping/rates.ts:3
+Defined in: [core/src/mapping/rates.ts:3](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/mapping/rates.ts#L3)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: core/src/mapping/rates.ts:3
 
 > **RawRates**: `"Raw Rates"`
 
-Defined in: core/src/mapping/rates.ts:2
+Defined in: [core/src/mapping/rates.ts:2](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/mapping/rates.ts#L2)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: core/src/mapping/rates.ts:2
 
 > **SpatialEmpiricalRates**: `"Spatial Empirical Rates"`
 
-Defined in: core/src/mapping/rates.ts:6
+Defined in: [core/src/mapping/rates.ts:6](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/mapping/rates.ts#L6)
 
 ***
 
@@ -50,4 +50,4 @@ Defined in: core/src/mapping/rates.ts:6
 
 > **SpatialRates**: `"Spatial Rates"`
 
-Defined in: core/src/mapping/rates.ts:5
+Defined in: [core/src/mapping/rates.ts:5](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/mapping/rates.ts#L5)

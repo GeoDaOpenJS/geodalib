@@ -2,7 +2,7 @@
 
 # Enumeration: SpatialJoinGeometryType
 
-Defined in: [core/src/geometry/spatial-join.ts:57](https://github.com/GeoDaCenter/geoda-lib/blob/5c8fba7800a0ff8c8ed4b8b260cc40d1229fb38a/js/packages/core/src/geometry/spatial-join.ts#L57)
+Defined in: [core/src/geometry/spatial-join.ts:57](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/geometry/spatial-join.ts#L57)
 
 ## Enumeration Members
 
@@ -10,7 +10,7 @@ Defined in: [core/src/geometry/spatial-join.ts:57](https://github.com/GeoDaCente
 
 > **ArcLayerData**: `"ArcLayerData"`
 
-Defined in: [core/src/geometry/spatial-join.ts:61](https://github.com/GeoDaCenter/geoda-lib/blob/5c8fba7800a0ff8c8ed4b8b260cc40d1229fb38a/js/packages/core/src/geometry/spatial-join.ts#L61)
+Defined in: [core/src/geometry/spatial-join.ts:61](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/geometry/spatial-join.ts#L61)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [core/src/geometry/spatial-join.ts:61](https://github.com/GeoDaCente
 
 > **BinaryFeatureCollection**: `"BinaryFeatureCollection"`
 
-Defined in: [core/src/geometry/spatial-join.ts:59](https://github.com/GeoDaCenter/geoda-lib/blob/5c8fba7800a0ff8c8ed4b8b260cc40d1229fb38a/js/packages/core/src/geometry/spatial-join.ts#L59)
+Defined in: [core/src/geometry/spatial-join.ts:59](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/geometry/spatial-join.ts#L59)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [core/src/geometry/spatial-join.ts:59](https://github.com/GeoDaCente
 
 > **GeoJsonFeature**: `"GeoJsonFeature"`
 
-Defined in: [core/src/geometry/spatial-join.ts:58](https://github.com/GeoDaCenter/geoda-lib/blob/5c8fba7800a0ff8c8ed4b8b260cc40d1229fb38a/js/packages/core/src/geometry/spatial-join.ts#L58)
+Defined in: [core/src/geometry/spatial-join.ts:58](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/geometry/spatial-join.ts#L58)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [core/src/geometry/spatial-join.ts:58](https://github.com/GeoDaCente
 
 > **HexagonIdLayerData**: `"HexagonIdLayerData"`
 
-Defined in: [core/src/geometry/spatial-join.ts:62](https://github.com/GeoDaCenter/geoda-lib/blob/5c8fba7800a0ff8c8ed4b8b260cc40d1229fb38a/js/packages/core/src/geometry/spatial-join.ts#L62)
+Defined in: [core/src/geometry/spatial-join.ts:62](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/geometry/spatial-join.ts#L62)
 
 ***
 
@@ -42,4 +42,4 @@ Defined in: [core/src/geometry/spatial-join.ts:62](https://github.com/GeoDaCente
 
 > **PointLayerData**: `"PointLayerData"`
 
-Defined in: [core/src/geometry/spatial-join.ts:60](https://github.com/GeoDaCenter/geoda-lib/blob/5c8fba7800a0ff8c8ed4b8b260cc40d1229fb38a/js/packages/core/src/geometry/spatial-join.ts#L60)
+Defined in: [core/src/geometry/spatial-join.ts:60](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/geometry/spatial-join.ts#L60)

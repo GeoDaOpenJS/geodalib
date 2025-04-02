@@ -4,7 +4,7 @@
 
 > **spatialEmpiricalBayes**(`baseValues`, `eventValues`, `neighbors`): `number`[]
 
-Defined in: core/src/mapping/rates.ts:240
+Defined in: [core/src/mapping/rates.ts:240](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/mapping/rates.ts#L240)
 
 ## Description
 Compute the spatial empirical Bayes smoothed rates using a local reference rate for each observation.

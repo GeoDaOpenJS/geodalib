@@ -25,16 +25,19 @@ GeoDaLib's architecture is beautifully simple:
 
 ## 🛠️ Available Functions
 
-GeoDaLib comes packed with powerful spatial analysis tools:
+GeoDaLib comes packed with powerful spatial analysis tools into 4 packages:
 
-- 🗺️ Mapping
-- 📊 Data Exploration
-- ⚖️ Spatial Weights
-- 📐 Spatial Autocorrelation Analysis
-- 📍 Spatial Clustering
-- 📈 Spatial Regression
-- ⚡ Spatial Operations
-
+- 📦 @geoda/core
+  - ️ Mapping
+  - 📊 Data Exploration
+  - ⚖️ Spatial Weights
+  - ⚡ Spatial Operations
+- 📦 @geoda/lisa
+  - 📐 Spatial Autocorrelation Analysis
+- 📦 @geoda/regression
+  - 📈 Spatial Regression
+- 📦 @geoda/clustering
+  - 📍 Spatial Clustering
 
 Dive deeper in our [API Overview](./api-overview)!
 

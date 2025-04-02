@@ -4,13 +4,20 @@ GeoDa WASM is a WebAssembly module that provides spatial data analysis capabilit
 
 ## ✨ Features
 
+@geoda/core
 - 🗺️ Mapping
 - 📊 Data Exploration
 - ⚖️ Spatial Weights
-- 📐 Spatial Autocorrelation Analysis
-- 📍 Spatial Clustering
-- 📈 Spatial Regression
 - ⚡ Spatial Operations
+
+@geoda/lisa
+- 📐 Spatial Autocorrelation Analysis
+
+@geoda/regression
+- 📈 Spatial Regression
+
+@geoda/clustering (WIP)
+- 📍 Spatial Clustering
 
 Dive deeper in our [API Overview](https://geodacenter.github.io/geoda-lib/api-overview)!
 
@@ -19,15 +26,17 @@ Dive deeper in our [API Overview](https://geodacenter.github.io/geoda-lib/api-ov
 Get started in a flash with your favorite package manager:
 
 ```bash
-npm install geoda-wasm
+npm install @geoda/core
 ```
+
+Each package works independently, so you can install only the packages you need.
 
 ## 🛠️ Example
 
 Here is a quick example of using GeoDaLib to apply Local Moran statistics on some example data:
 
 ```js
-import {localMoran} from 'geoda-wasm';
+import {localMoran} from '@geoda/lisa';
 
 // exmaple data
 const data = [3.0, 3.0, 0.0, 9.0, 8.0, 8.5];
@@ -44,7 +53,7 @@ const result = await localMoran({data, neighbors, permutation});
 
 - CMake (3.5 or higher)
 - Emscripten
-- Node.js (18.19.0 recommended)
+- Node.js (22.11.0 recommended)
 - Yarn (4.0.0 recommended)
 
 ### 🛠️ Build Steps
@@ -53,7 +62,7 @@ const result = await localMoran({data, neighbors, permutation});
 2. Build the WASM module:
 
 ```bash
-cd src/js
+cd js
 yarn install
 yarn wasm
 ```
@@ -64,15 +73,11 @@ yarn wasm
 yarn build
 ```
 
+4. Run the tests:
+
 ```bash
-cd src/js
 yarn test
 ```
-
-* NOTE for release
-
-- DCMAKE_BUILD_TYPE=Release
-- set(CMAKE_CXX_FLAGS "-O3 -DNDEBUG -s ASSERTIONS=0")
 
 ## 📜 License
 

@@ -373,10 +373,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@geoda/regression@npm:0.0.2-alpha.13":
-  version: 0.0.2-alpha.13
-  resolution: "@geoda/regression@npm:0.0.2-alpha.13"
-  checksum: 0d89189f172b80a3acab42ab6030e448938a9c754f97d0eed2a409f4f70249846ab1d5e79a2073d37df2e57c36b9ccbb54e15f879042d76272ca39fae7a2ac6e
+"@geoda/core@npm:0.0.3-alpha.4":
+  version: 0.0.3-alpha.4
+  resolution: "@geoda/core@npm:0.0.3-alpha.4"
+  dependencies:
+    "@loaders.gl/schema": "npm:^4.1.0-alpha.4"
+    geojson: "npm:^0.5.0"
+  checksum: 9ab76d406c7ae68e348434ceef395a1b4eb80016232648bcf1aaf7cf43b2687aabff0640279b66fd07130e2435e83bbfba5f522638dba0544bbbce311ec16774
+  languageName: node
+  linkType: hard
+
+"@geoda/lisa@npm:0.0.3-alpha.4":
+  version: 0.0.3-alpha.4
+  resolution: "@geoda/lisa@npm:0.0.3-alpha.4"
+  dependencies:
+    "@loaders.gl/schema": "npm:^4.1.0-alpha.4"
+    geojson: "npm:^0.5.0"
+  checksum: 31fe100dbf7a67f2695b4bf12787a9f6422c31ef4db8f20cb176631faedf0733b2b8f4fe366c700b153332574b747909241d3b9e765bd98d0e62a29bdea049ae
+  languageName: node
+  linkType: hard
+
+"@geoda/regression@npm:0.0.3-alpha.4":
+  version: 0.0.3-alpha.4
+  resolution: "@geoda/regression@npm:0.0.3-alpha.4"
+  checksum: a1169335d069d3703b96753c3e9333bb480128188b6b92d49294512c48068a7ba4c299b6c68c9d805ff7ff458bb55106d9f5f14aa9d85b2928f7486624e550b7
   languageName: node
   linkType: hard
 
@@ -442,6 +462,17 @@ __metadata:
     "@jridgewell/resolve-uri": "npm:^3.1.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
   checksum: 3d1ce6ebc69df9682a5a8896b414c6537e428a1d68b02fcc8363b04284a8ca0df04d0ee3013132252ab14f2527bc13bea6526a912ecb5658f0e39fd2860b4df4
+  languageName: node
+  linkType: hard
+
+"@loaders.gl/schema@npm:^4.1.0-alpha.4":
+  version: 4.3.3
+  resolution: "@loaders.gl/schema@npm:4.3.3"
+  dependencies:
+    "@types/geojson": "npm:^7946.0.7"
+  peerDependencies:
+    "@loaders.gl/core": ^4.3.0
+  checksum: abc83524fd03f0964a8964e4338667ef9a5de367301cbc73587564b764b7e33e6777f6b61ce8939300fac973f63eca3ccca5353da6384a53504428aedd37d918
   languageName: node
   linkType: hard
 
@@ -659,6 +690,13 @@ __metadata:
   version: 1.0.7
   resolution: "@types/estree@npm:1.0.7"
   checksum: be815254316882f7c40847336cd484c3bc1c3e34f710d197160d455dc9d6d050ffbf4c3bc76585dba86f737f020ab20bdb137ebe0e9116b0c86c7c0342221b8c
+  languageName: node
+  linkType: hard
+
+"@types/geojson@npm:^7946.0.7":
+  version: 7946.0.16
+  resolution: "@types/geojson@npm:7946.0.16"
+  checksum: 1ff24a288bd5860b766b073ead337d31d73bdc715e5b50a2cee5cb0af57a1ed02cc04ef295f5fa68dc40fe3e4f104dd31282b2b818a5ba3231bc1001ba084e3c
   languageName: node
   linkType: hard
 
@@ -1079,7 +1117,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "geoda-regression-example@workspace:."
   dependencies:
-    "@geoda/regression": "npm:0.0.2-alpha.13"
+    "@geoda/core": "npm:0.0.3-alpha.4"
+    "@geoda/lisa": "npm:0.0.3-alpha.4"
+    "@geoda/regression": "npm:0.0.3-alpha.4"
     "@types/node": "npm:^20.11.0"
     "@types/react": "npm:^18.2.0"
     "@types/react-dom": "npm:^18.2.0"
@@ -1090,6 +1130,13 @@ __metadata:
     vite: "npm:^5.0.0"
   languageName: unknown
   linkType: soft
+
+"geojson@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "geojson@npm:0.5.0"
+  checksum: d7fd376c201933dea1307b7c08032f249f73b9399d6287211f6a523d0efa9260caf2a38319f55075682d53dc4cb4c52b9f9c845f2fd03bef9832903f16177ab0
+  languageName: node
+  linkType: hard
 
 "glob@npm:^10.2.2":
   version: 10.4.5

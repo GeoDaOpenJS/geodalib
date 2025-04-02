@@ -422,23 +422,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@geoda/core@file:../../js/packages/core/geoda-core-0.0.3-alpha.3.tgz::locator=geoda-example-node%40workspace%3A.":
-  version: 0.0.3-alpha.3
-  resolution: "@geoda/core@file:../../js/packages/core/geoda-core-0.0.3-alpha.3.tgz#../../js/packages/core/geoda-core-0.0.3-alpha.3.tgz::hash=b144b5&locator=geoda-example-node%40workspace%3A."
+"@geoda/core@npm:0.0.3-alpha.4":
+  version: 0.0.3-alpha.4
+  resolution: "@geoda/core@npm:0.0.3-alpha.4"
   dependencies:
     "@loaders.gl/schema": "npm:^4.1.0-alpha.4"
     geojson: "npm:^0.5.0"
-  checksum: d474f409c01a3c2d2ed7b349f9850f608d730568a975c4ba3e60f3ea9b578c01a1cbd89c99fdf30e4814076e02291236b8c0b923862dee515ad5be2c02e54260
+  checksum: 9ab76d406c7ae68e348434ceef395a1b4eb80016232648bcf1aaf7cf43b2687aabff0640279b66fd07130e2435e83bbfba5f522638dba0544bbbce311ec16774
   languageName: node
   linkType: hard
 
-"@geoda/lisa@file:../../js/packages/lisa/geoda-lisa-0.0.3-alpha.3.tgz::locator=geoda-example-node%40workspace%3A.":
-  version: 0.0.3-alpha.3
-  resolution: "@geoda/lisa@file:../../js/packages/lisa/geoda-lisa-0.0.3-alpha.3.tgz#../../js/packages/lisa/geoda-lisa-0.0.3-alpha.3.tgz::hash=cabdb0&locator=geoda-example-node%40workspace%3A."
+"@geoda/lisa@npm:0.0.3-alpha.4":
+  version: 0.0.3-alpha.4
+  resolution: "@geoda/lisa@npm:0.0.3-alpha.4"
   dependencies:
     "@loaders.gl/schema": "npm:^4.1.0-alpha.4"
     geojson: "npm:^0.5.0"
-  checksum: 8e9c8be2c278751b40d369ad3871e1c15e3648ed02ea9f7c766be2d5cd5688b19423e73cdbcfa3599d1ceeaf0cafbf31199bf3023a8c7badee14294e16b18385
+  checksum: 31fe100dbf7a67f2695b4bf12787a9f6422c31ef4db8f20cb176631faedf0733b2b8f4fe366c700b153332574b747909241d3b9e765bd98d0e62a29bdea049ae
   languageName: node
   linkType: hard
 
@@ -1956,8 +1956,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "geoda-example-node@workspace:."
   dependencies:
-    "@geoda/core": ../../js/packages/core/geoda-core-0.0.3-alpha.3.tgz
-    "@geoda/lisa": ../../js/packages/lisa/geoda-lisa-0.0.3-alpha.3.tgz
+    "@geoda/core": "npm:0.0.3-alpha.4"
+    "@geoda/lisa": "npm:0.0.3-alpha.4"
     eslint: "npm:^7.2.0"
     jest: "npm:^29.7.0"
   languageName: unknown

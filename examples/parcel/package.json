@@ -17,6 +17,6 @@
     "javascript"
   ],
   "dependencies": {
-    "@geoda/core": "0.0.2"
+    "@geoda/core": "0.0.3-alpha.4"
   }
 }

@@ -150,3 +150,9 @@ Additional publishing commands:
 - `yarn run publish-dry-run`: Test the publishing process without actually publishing
 - `yarn run publish-preview`: Publish with the 'preview' tag (useful for testing)
 - `yarn run publish-release`: Publish the latest version to NPM
+
+
+* NOTE for release
+
+- DCMAKE_BUILD_TYPE=Release
+- set(CMAKE_CXX_FLAGS "-O3 -DNDEBUG -s ASSERTIONS=0")

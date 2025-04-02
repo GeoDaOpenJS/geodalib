@@ -128,13 +128,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@geoda/core@npm:0.0.2":
-  version: 0.0.2
-  resolution: "@geoda/core@npm:0.0.2"
+"@geoda/core@npm:0.0.3-alpha.4":
+  version: 0.0.3-alpha.4
+  resolution: "@geoda/core@npm:0.0.3-alpha.4"
   dependencies:
     "@loaders.gl/schema": "npm:^4.1.0-alpha.4"
     geojson: "npm:^0.5.0"
-  checksum: 2f15da4eaa1bca79b157a8c1d9033438a08999743dbe63eebefc35ffbc9b6d0b3dd195f27ce7f4c08fb0618322d5f84a5869f4bb683bfb359f2706fe14b5ad84
+  checksum: 9ab76d406c7ae68e348434ceef395a1b4eb80016232648bcf1aaf7cf43b2687aabff0640279b66fd07130e2435e83bbfba5f522638dba0544bbbce311ec16774
   languageName: node
   linkType: hard
 
@@ -2262,6 +2262,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"geoda-example-parcel@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "geoda-example-parcel@workspace:."
+  dependencies:
+    "@geoda/core": "npm:0.0.3-alpha.4"
+    babel-eslint: "npm:^10.1.0"
+    eslint: "npm:^7.2.0"
+    parcel: "npm:^2.14.4"
+    process: "npm:^0.11.10"
+  languageName: unknown
+  linkType: soft
+
 "geojson@npm:^0.5.0":
   version: 0.5.0
   resolution: "geojson@npm:0.5.0"
@@ -2588,18 +2600,6 @@ __metadata:
   checksum: 6acc10d139eaefdbe04d2f679e6191b3abf073f111edf10b1de5302c97ec93fffeb2fdd8681ed17f16268aa9dd4f8c588ed9d1d3bffbbfa6e8bf897cbb3149b9
   languageName: node
   linkType: hard
-
-"javascript@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "javascript@workspace:."
-  dependencies:
-    "@geoda/core": "npm:0.0.2"
-    babel-eslint: "npm:^10.1.0"
-    eslint: "npm:^7.2.0"
-    parcel: "npm:^2.14.4"
-    process: "npm:^0.11.10"
-  languageName: unknown
-  linkType: soft
 
 "js-tokens@npm:^4.0.0":
   version: 4.0.0

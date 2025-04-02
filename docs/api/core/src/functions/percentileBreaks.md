@@ -4,7 +4,7 @@
 
 > **percentileBreaks**(`data`): `Promise`\<`number`[]\>
 
-Defined in: [core/src/mapping/percentile-breaks.ts:25](https://github.com/GeoDaCenter/geoda-lib/blob/5c8fba7800a0ff8c8ed4b8b260cc40d1229fb38a/js/packages/core/src/mapping/percentile-breaks.ts#L25)
+Defined in: [core/src/mapping/percentile-breaks.ts:25](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/mapping/percentile-breaks.ts#L25)
 
 ## Description
 Percentile Breaks divides the data into six ranges: the lowest 1%, 1-10%, 10-50%, 50-90%, 90-99% and the top 1%.
