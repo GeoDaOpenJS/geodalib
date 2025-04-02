@@ -8,6 +8,6 @@
     "module": "ESNext",
     "moduleResolution": "node"
   },
-  "include": ["src/**/*", "wasm", "test/**/*"],
+  "include": ["src/**/*", "wasm", "test/**/*", "src/sa/spatial-lag.ts", "../core/src/mapping/rates.ts", "../core/test/mapping/rates.test.ts"],
   "exclude": ["node_modules", "dist", "../node_modules/**/*"]
 }

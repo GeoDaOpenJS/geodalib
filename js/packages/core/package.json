@@ -1,7 +1,7 @@
 {
   "name": "@geoda/core",
   "description": "Core module for GeoDaLib",
-  "version": "0.0.2",
+  "version": "0.0.3-alpha.0",
   "author": "Xun Li <lixun910@gmail.com>",
   "license": "MIT",
   "type": "module",
@@ -12,6 +12,12 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "dist",
     "wasm",
@@ -32,7 +38,7 @@
     "geojson": "^0.5.0"
   },
   "devDependencies": {
-    "@geoda/common": "^0.0.2",
+    "@geoda/common": "^0.0.3-alpha.0",
     "@jest/globals": "^29.7.0",
     "@loaders.gl/arrow": "^4.1.0-alpha.4",
     "@types/geojson": "^7946.0.10",

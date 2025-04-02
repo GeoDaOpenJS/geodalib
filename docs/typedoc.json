@@ -1,5 +1,9 @@
 {
-  "entryPoints": ["../src/js/src/index.ts"],
+  "entryPoints": [
+    "../js/packages/core/src/index.ts",
+    "../js/packages/lisa/src/index.ts",
+    "../js/packages/regression/src/index.ts"
+  ],
   "plugin": ["typedoc-plugin-markdown", "typedoc-vitepress-theme"],
   // "theme": "typedoc-vitepress-theme",
   "out": "api",

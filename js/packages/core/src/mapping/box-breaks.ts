@@ -34,7 +34,7 @@ async function boxBreaks(data: number[] | Float32Array, hingeFactor: number): Pr
  *
  * @example
  * ```ts
- * import { hinge15Breaks } from 'geoda-wasm';
+ * import { hinge15Breaks } from '@geoda/core';
  *
  * const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
  * const breaks = await hinge15Breaks(data);
@@ -62,7 +62,7 @@ export async function hinge15Breaks(data: number[] | Float32Array): Promise<numb
  *
  * @example
  * ```ts
- * import { hinge15Breaks } from 'geoda-wasm';
+ * import { hinge15Breaks } from '@geoda/core';
  *
  * const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
  * const breaks = await hinge15Breaks(data);

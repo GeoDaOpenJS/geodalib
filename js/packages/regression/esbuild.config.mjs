@@ -10,7 +10,10 @@ const baseConfig = createBaseConfig({
 });
 
 // Build all formats
-Promise.all([buildFormat(baseConfig, 'esm', 'dist/index.js')]).catch(error => {
+Promise.all([
+  buildFormat(baseConfig, 'esm', 'dist/index.js'),
+  buildFormat(baseConfig, 'cjs', 'dist/index.cjs'),
+]).catch(error => {
   console.error(error);
   process.exit(1);
 });

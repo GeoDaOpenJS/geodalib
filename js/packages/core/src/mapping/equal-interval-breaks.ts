@@ -13,7 +13,7 @@ import { vecDoubleToNumber } from '@geoda/common';
  *
  * @example
  * ```ts
- * import { equalIntervalBreaks } from 'geoda-wasm';
+ * import { equalIntervalBreaks } from '@geoda/core';
  *
  * const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
  * const k = 3;

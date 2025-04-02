@@ -1,7 +1,7 @@
 {
   "name": "@geoda/regression",
   "description": "Spatial Regression module for GeoDaLib",
-  "version": "0.0.2",
+  "version": "0.0.3-alpha.0",
   "author": "Xun Li <lixun910@gmail.com>",
   "license": "MIT",
   "type": "module",
@@ -9,6 +9,12 @@
   "main": "src/index.js",
   "module": "dist/index.js",
   "types": "dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "dist",
     "wasm",
@@ -25,7 +31,7 @@
     "production": "yarn clean && yarn wasm && yarn build && yarn lint && yarn test"
   },
   "devDependencies": {
-    "@geoda/common": "^0.0.2",
+    "@geoda/common": "^0.0.3-alpha.0",
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.2"

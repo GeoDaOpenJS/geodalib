@@ -57,3 +57,4 @@ meta.json
 .yarn
 dist/
 .turbo/
+.parcel-cache/

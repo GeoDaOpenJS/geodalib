@@ -71,7 +71,7 @@ yarn install
 git commit -am "chore: update version number to X.Y.Z"
 ```
 
-2. Before pushing the tag, you can test the publishing process:
+2. (Optional)Before pushing the tag, you can test the publishing process:
 
 ```bash
 # Test publishing without actually publishing

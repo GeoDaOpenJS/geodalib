@@ -8,13 +8,14 @@
   ],
   "scripts": {
     "production": "lerna run production --npm-client=yarn",
+    "wasm": "lerna run wasm --npm-client=yarn",
     "build": "lerna run build --npm-client=yarn",
     "test": "lerna run test --npm-client=yarn",
     "lint": "lerna run lint --npm-client=yarn -- --fix",
-    "version-prerelease": "lerna version prerelease --no-push --sync-workspace-lock --no-git-tag-version --force-publish && ts-node scripts/update-version.mjs",
-    "version-patch": "lerna version patch --no-push --sync-workspace-lock --no-git-tag-version --force-publish && ts-node scripts/update-version.mjs",
-    "version-minor": "lerna version minor --no-push --sync-workspace-lock --no-git-tag-version --force-publish && ts-node scripts/update-version.mjs",
-    "version-major": "lerna version major --no-push --sync-workspace-lock --no-git-tag-version --force-publish && ts-node scripts/update-version.mjs",
+    "version-prerelease": "lerna version prerelease --no-push --sync-workspace-lock --no-git-tag-version --force-publish && ts-node scripts/update-version.mjs && yarn install",
+    "version-patch": "lerna version patch --no-push --sync-workspace-lock --no-git-tag-version --force-publish && ts-node scripts/update-version.mjs && yarn install",
+    "version-minor": "lerna version minor --no-push --sync-workspace-lock --no-git-tag-version --force-publish && ts-node scripts/update-version.mjs && yarn install",
+    "version-major": "lerna version major --no-push --sync-workspace-lock --no-git-tag-version --force-publish && ts-node scripts/update-version.mjs && yarn install",
     "publish-dry-run": "turbo run publish && lerna publish from-package --yes --dry-run",
     "publish-preview": "turbo run publish && lerna publish from-package --yes --dist-tag preview",
     "publish-release": "turbo run publish && lerna publish from-package --yes"

@@ -6,6 +6,6 @@
     "types": ["jest", "node"],
     "esModuleInterop": true
   },
-  "include": ["src/**/*", "wasm", "test/**/*"],
+  "include": ["src/**/*", "wasm", "test/**/*", "../lisa/src/sa/spatial-lag.ts"],
   "exclude": ["node_modules", "dist", "../node_modules/**/*"]
 }

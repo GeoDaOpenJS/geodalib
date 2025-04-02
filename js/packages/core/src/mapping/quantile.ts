@@ -15,7 +15,7 @@ import { vecDoubleToNumber } from '@geoda/common';
  *
  * @example
  * ```ts
- * import { quantileBreaks } from 'geoda-wasm';
+ * import { quantileBreaks } from '@geoda/core';
  *
  * const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
  * const k = 3;

@@ -4,12 +4,15 @@ GeoDa WASM is a WebAssembly module that provides spatial data analysis capabilit
 
 ## ✨ Features
 
-- 🗺️ **Spatial Data Analysis Tools**: Dive into a world of spatial insights.
-- 📐 **Support for Various Geometry Types**: Points, Lines, Polygons - we've got you covered!
-- 🔄 **Spatial Weights Calculations**: Calculate with precision.
-- 📊 **Local Spatial Autocorrelation Statistics (LISA)**: Discover patterns like never before.
-- 📈 **Spatial Regression Analysis**: Uncover relationships in your data.
-- 🗺️ **Mapping and Classification Methods**: Visualize your data beautifully.
+- 🗺️ Mapping
+- 📊 Data Exploration
+- ⚖️ Spatial Weights
+- 📐 Spatial Autocorrelation Analysis
+- 📍 Spatial Clustering
+- 📈 Spatial Regression
+- ⚡ Spatial Operations
+
+Dive deeper in our [API Overview](https://geodacenter.github.io/geoda-lib/api-overview)!
 
 ## 🚀 Installation
 
@@ -19,46 +22,23 @@ Get started in a flash with your favorite package manager:
 npm install geoda-wasm
 ```
 
-or
+## 🛠️ Example
 
-```bash
-yarn add geoda-wasm
+Here is a quick example of using GeoDaLib to apply Local Moran statistics on some example data:
+
+```js
+import {localMoran} from 'geoda-wasm';
+
+// exmaple data
+const data = [3.0, 3.0, 0.0, 9.0, 8.0, 8.5];
+const neighbors = [[1], [0], [], [4, 5], [3, 5], [3, 4]];
+const permutation = 99;
+
+// call local moran
+const result = await localMoran({data, neighbors, permutation});
 ```
 
-## 🛠️ Usage
-
-### 🔧 Basic Initialization
-
-```ts
-typescript
-import {initGeoDa} from 'geoda-wasm';
-// Initialize using CDN-hosted WASM file
-const geoda = await initGeoDa();
-```
-
-### 🏗️ Working with Geometries
-
-The library supports three main geometry types:
-- Points
-- Lines
-- Polygons
-
-You can create geometry collections from various data formats:
-- GeoJSON
-- Binary Features (Arrow format)
-- Point Layer Data
-
-```typescript
-import {
-createPointCollectionFromBinaryFeatures,
-createLineCollectionFromBinaryFeatures,
-createPolygonCollectionFromBinaryFeatures
-} from 'geoda-wasm';
-// Example with point data
-const pointCollection = createPointCollectionFromBinaryFeatures(pointsArray, geoda);
-```
-
-## 🏗️ Building from Source
+## 🏗️ Development
 
 ### 📋 Prerequisites
 
@@ -88,6 +68,11 @@ yarn build
 cd src/js
 yarn test
 ```
+
+* NOTE for release
+
+- DCMAKE_BUILD_TYPE=Release
+- set(CMAKE_CXX_FLAGS "-O3 -DNDEBUG -s ASSERTIONS=0")
 
 ## 📜 License
 

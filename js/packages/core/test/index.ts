@@ -9,3 +9,4 @@ import './mapping/equal-interval-breaks.test';
 import './mapping/percentile-breaks.test';
 import './mapping/box-breaks.test';
 import './mapping/stddev-breaks.test';
+import './mapping/rates.test';

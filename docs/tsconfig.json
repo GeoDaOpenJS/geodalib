@@ -22,12 +22,11 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "lib": [
-      "ES6",
-      "webworker"
-    ]
+    "lib": ["ES6", "webworker"]
   },
   "include": [
-    "../src/js/src/**/*",
+    "../js/packages/core/src/**/*",
+    "../js/packages/lisa/src/**/*",
+    "../js/packages/regression/src/**/*"
   ]
 }
