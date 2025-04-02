@@ -46,6 +46,12 @@ jobs:
           # wait for 2 seconds
           sleep 2
           yarn update-examples
+          # update locker files in each example
+          cd ../examples/lisa && yarn install
+          cd ../mapping && yarn install
+          cd ../node && yarn install
+          cd ../parcel && yarn install
+          cd ../regression && yarn install
           # commit changes
           git config --global user.email "lixun910@gmail.com"
           git config --global user.name "github-actions[bot]"

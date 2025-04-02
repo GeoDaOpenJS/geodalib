@@ -1,7 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { execSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -27,8 +26,6 @@ function updateExamplesPackageJson(projectName) {
     examplesPackageJson.dependencies['@geoda/regression'] = `${packageJson.version}`;
   }
   writeFileSync(join(examplesDir, 'package.json'), JSON.stringify(examplesPackageJson, null, 2));
-  // run yarn install under the examples directory
-  execSync('yarn install', { cwd: examplesDir });
 }
 
 updateExamplesPackageJson('lisa');
