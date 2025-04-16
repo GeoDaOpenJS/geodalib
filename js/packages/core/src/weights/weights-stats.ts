@@ -55,6 +55,10 @@ export type WeightsMeta = {
    */
   threshold?: number;
   /**
+   * Whether the distance is in miles
+   */
+  isMile?: boolean;
+  /**
    * The distance metric for the weights
    */
   distanceMetric?: 'euclidean' | 'manhattan' | 'arc' | 'projected';
@@ -98,7 +102,7 @@ export function getMetaFromWeights(weights: number[][], isDistanceWeights = fals
     medianNeighbors = weights.map(w => w.length / 2).sort((a, b) => a - b)[Math.floor(n / 2)];
   } else {
     for (let i = 0; i < weights.length; i++) {
-      const len = isDistanceWeights ? weights[i].length / 2 : weights[i].length;
+      const len = weights[i].length;
       if (len < minNeighbors) minNeighbors = len;
       if (len > maxNeighbors) maxNeighbors = len;
       sumofNeighbors += len;

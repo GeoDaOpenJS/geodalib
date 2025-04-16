@@ -4,6 +4,7 @@ import { describe, it, expect } from '@jest/globals';
 
 import { getContiguityNeighborsFromBinaryGeometries } from '../../src/weights/contiguity-neighbors';
 import { getMetaFromWeights } from '../../src/weights/weights-stats';
+import { createWeights } from '../../src/weights/utils';
 
 describe('Contiguity Neighbors', () => {
   it('should calculate contiguity neighbors correctly', async () => {
@@ -42,12 +43,10 @@ describe('Contiguity Neighbors', () => {
     ];
 
     const isQueen = true;
-    const useCentroids = false;
     const result = await getContiguityNeighborsFromBinaryGeometries({
       binaryGeometryType,
       binaryGeometries,
       isQueen,
-      useCentroids,
     });
 
     expect(result).toEqual([[1, 2, 4], [0], [0, 4], [4], [0, 2, 3]]);
@@ -61,6 +60,28 @@ describe('Contiguity Neighbors', () => {
       meanNeighbors: 2,
       medianNeighbors: 2,
       pctNoneZero: 0.4,
+    });
+
+    const { weights, weightsMeta } = await createWeights({
+      weightsType: isQueen ? 'queen' : 'rook',
+      geometries: binaryGeometries,
+      isQueen,
+    });
+
+    expect(weights).toEqual([[1, 2, 4], [0], [0, 4], [4], [0, 2, 3]]);
+
+    expect(weightsMeta).toEqual({
+      numberOfObservations: 5,
+      minNeighbors: 1,
+      maxNeighbors: 3,
+      meanNeighbors: 2,
+      medianNeighbors: 2,
+      pctNoneZero: 0.4,
+      type: isQueen ? 'queen' : 'rook',
+      symmetry: 'symmetric',
+      includeLowerOrder: false,
+      order: 1,
+      threshold: 0,
     });
   });
 });

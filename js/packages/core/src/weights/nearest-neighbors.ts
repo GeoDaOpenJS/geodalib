@@ -1,5 +1,5 @@
 import { BinaryFeatureCollection } from '@loaders.gl/schema';
-
+import { GeometryCollection } from '@geoda/common';
 import {
   BinaryGeometryType,
   getGeometryCollectionFromBinaryGeometries,
@@ -29,14 +29,41 @@ export async function getNearestNeighborsFromBinaryGeometries({
     return [];
   }
 
-  const neighbors: number[][] = [];
-
   const wasmInstance = await initWASM();
   const geomCollection = await getGeometryCollectionFromBinaryGeometries(
     binaryGeometryType,
     binaryGeometries,
     wasmInstance
   );
+
+  const neighbors = await getNearestNeighborsFromGeomCollection({
+    k,
+    geomCollection,
+  });
+
+  return neighbors;
+}
+
+/**
+ * Calculates the nearest neighbors for a given set of geometries.
+ * @returns {Promise<number[][]>} - The nearest neighbors as an array of indices.
+ */
+export async function getNearestNeighborsFromGeomCollection({
+  k,
+  geomCollection,
+}: {
+  /**
+   * The number of nearest neighbors to calculate.
+   */
+  k: number;
+  /**
+   * The geometry collection to calculate the nearest neighbors for.
+   */
+  geomCollection: GeometryCollection;
+}): Promise<number[][]> {
+  const neighbors: number[][] = [];
+
+  const wasmInstance = await initWASM();
 
   if (geomCollection) {
     const result = wasmInstance.getNearestNeighbors(geomCollection, k);

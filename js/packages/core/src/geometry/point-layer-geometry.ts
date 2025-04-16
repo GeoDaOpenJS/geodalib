@@ -1,5 +1,5 @@
 import { GeoDaModule, GeometryCollection } from '@geoda/common';
-import { PointLayerData } from './spatial-join';
+import { PointLayerData } from './utils';
 
 /**
  * The type of the props for getGeometryCollectionFromGeoJson

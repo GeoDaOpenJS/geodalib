@@ -7,9 +7,9 @@ import {
 } from '../geometry/binary-geometry';
 import { initWASM } from '../init';
 import { getMetaFromWeights, WeightsMeta } from './weights-stats';
-import { getGeometryCollection, SpatialGeometry } from '../geometry/spatial-join';
+import { getGeometryCollection, SpatialGeometry } from '../geometry/utils';
 
-async function createWeights(
+async function createWeightsUtil(
   wasmInstance: GeoDaModule,
   geomCollection: GeometryCollection,
   pointWeights: boolean,
@@ -63,7 +63,7 @@ export type ContiguityNeighborsFromBinaryGeometriesProps = {
   /**
    * Whether to use centroids for neighbor calculations
    */
-  useCentroids: boolean;
+  useCentroids?: boolean;
   /**
    * Whether to use queen contiguity (true) or rook contiguity (false)
    */
@@ -81,6 +81,67 @@ export type ContiguityNeighborsFromBinaryGeometriesProps = {
    */
   includeLowerOrder?: boolean;
 };
+
+/**
+ * Interface for the arguments used in calculating contiguity neighbors from a geometry collection.
+ */
+export type ContiguityNeighborsFromGeomCollectionProps = {
+  /**
+   * The geometry collection to calculate the neighbors for
+   */
+  geomCollection: GeometryCollection;
+  /**
+   * Whether to use queen contiguity (true) or rook contiguity (false)
+   */
+  isQueen: boolean;
+  /**
+   * Whether to use centroids for neighbor calculations
+   */
+  useCentroids?: boolean;
+  /**
+   * Threshold for considering points as neighbors
+   */
+  precisionThreshold?: number;
+  /**
+   * The order of contiguity to calculate
+   */
+  orderOfContiguity?: number;
+  /**
+   * Whether to include lower orders in the results
+   */
+  includeLowerOrder?: boolean;
+};
+
+/**
+ * Calculates contiguity-based neighbors for a set of geometries.
+ *
+ * This function processes geometries to determine spatial relationships
+ * between them based on their contiguity (shared boundaries or vertices).
+ *
+ * @param {ContiguityNeighborsFromGeomCollectionProps} input - Configuration object for neighbor calculation See {@link ContiguityNeighborsFromGeomCollectionProps} for more information.
+ * @returns {Promise<number[][]>} Array where each element contains indices of neighboring geometries
+ */
+export async function getContiguityNeighborsFromGeomCollection({
+  geomCollection,
+  isQueen,
+  useCentroids = true,
+  precisionThreshold = 0.0,
+  orderOfContiguity = 1,
+  includeLowerOrder = false,
+}: ContiguityNeighborsFromGeomCollectionProps): Promise<number[][]> {
+  const wasmInstance = await initWASM();
+
+  const neighbors = await createWeightsUtil(
+    wasmInstance,
+    geomCollection,
+    useCentroids,
+    isQueen,
+    precisionThreshold,
+    orderOfContiguity,
+    includeLowerOrder
+  );
+  return neighbors;
+}
 
 /**
  * Calculates contiguity-based neighbors for a set of binary geometries.
@@ -110,9 +171,9 @@ export async function getContiguityNeighborsFromBinaryGeometries({
     binaryGeometries,
     wasmInstance
   );
-  const pointWeights = useCentroids || binaryGeometryType.point || binaryGeometryType.line;
+  const pointWeights = useCentroids || binaryGeometryType.point || binaryGeometryType.line || true;
 
-  const neighbors = await createWeights(
+  const neighbors = await createWeightsUtil(
     wasmInstance,
     geomCollection,
     pointWeights,
@@ -154,7 +215,6 @@ export async function queenWeights(
   const wasmInstance = await initWASM();
   const geomCollection = await getGeometryCollection({
     geometries,
-    wasmInstance,
   });
 
   const geometryType = geomCollection.getType();
@@ -163,7 +223,7 @@ export async function queenWeights(
 
   const isQueen = true;
 
-  const neighbors = await createWeights(
+  const neighbors = await createWeightsUtil(
     wasmInstance,
     geomCollection,
     pointWeights,
@@ -203,7 +263,6 @@ export async function rookWeights(
   const wasmInstance = await initWASM();
   const geomCollection = await getGeometryCollection({
     geometries,
-    wasmInstance,
   });
 
   const geometryType = geomCollection.getType();
@@ -212,7 +271,7 @@ export async function rookWeights(
 
   const isQueen = false;
 
-  const neighbors = await createWeights(
+  const neighbors = await createWeightsUtil(
     wasmInstance,
     geomCollection,
     pointWeights,

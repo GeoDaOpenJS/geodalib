@@ -7,6 +7,7 @@ import {
   getDistanceThresholds,
 } from '../../src/weights/distance-neighbors';
 import { getMetaFromWeights } from '../../src/weights/weights-stats';
+import { createWeights } from '../../src/weights/utils';
 
 describe('Distance Neighbors', () => {
   it('should calculate distance neighbors correctly', async () => {
@@ -77,6 +78,27 @@ describe('Distance Neighbors', () => {
       meanNeighbors: 0.4,
       medianNeighbors: 0,
       pctNoneZero: 0.08,
+    });
+
+    const { weights, weightsMeta } = await createWeights({
+      weightsType: 'threshold',
+      distanceThreshold: minDistance,
+      geometries: binaryGeometries,
+    });
+
+    expect(weights).toEqual([[2, 111.16185827369097], [], [0, 111.16185827369097], [], []]);
+
+    expect(weightsMeta).toEqual({
+      numberOfObservations: 5,
+      minNeighbors: 0,
+      maxNeighbors: 1,
+      meanNeighbors: 0.4,
+      medianNeighbors: 0,
+      pctNoneZero: 0.08,
+      type: 'threshold',
+      symmetry: 'symmetric',
+      threshold: minDistance,
+      isMile,
     });
   });
 });

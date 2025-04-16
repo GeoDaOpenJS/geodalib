@@ -1,4 +1,5 @@
 export type { GeoDaModule as GeoDaInterface } from '@geoda/common';
+export type { GeometryCollection } from '@geoda/common';
 
 export * from './init';
 
@@ -6,7 +7,9 @@ export * from './weights/distance-neighbors';
 export * from './weights/nearest-neighbors';
 export * from './weights/contiguity-neighbors';
 export * from './weights/weights-stats';
+export * from './weights/utils';
 
+export * from './geometry/utils';
 export * from './geometry/geojson-geometry';
 export * from './geometry/binary-geometry';
 export * from './geometry/point-layer-geometry';

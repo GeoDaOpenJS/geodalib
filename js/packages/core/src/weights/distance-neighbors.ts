@@ -1,4 +1,5 @@
 import { BinaryFeatureCollection } from '@loaders.gl/schema';
+import { GeometryCollection } from '@geoda/common';
 
 import {
   BinaryGeometryType,
@@ -31,8 +32,6 @@ export async function getDistanceNeighborsFromBinaryGeometries({
     return [];
   }
 
-  const neighbors: number[][] = [];
-
   const wasmInstance = await initWASM();
   const geomCollection = await getGeometryCollectionFromBinaryGeometries(
     binaryGeometryType,
@@ -40,6 +39,26 @@ export async function getDistanceNeighborsFromBinaryGeometries({
     wasmInstance
   );
 
+  const neighbors = await getDistanceNeighborsFromGeomCollection({
+    geomCollection,
+    distanceThreshold,
+    isMile,
+  });
+
+  return neighbors;
+}
+
+export async function getDistanceNeighborsFromGeomCollection({
+  geomCollection,
+  distanceThreshold,
+  isMile = false,
+}: {
+  geomCollection: GeometryCollection;
+  distanceThreshold: number;
+  isMile?: boolean;
+}): Promise<number[][]> {
+  const wasmInstance = await initWASM();
+  const neighbors: number[][] = [];
   if (geomCollection) {
     const result = wasmInstance.getDistanceWeights(geomCollection, distanceThreshold, isMile);
     for (let i = 0; i < result.size(); ++i) {
@@ -51,7 +70,6 @@ export async function getDistanceNeighborsFromBinaryGeometries({
       neighbors[i] = nbrIndices;
     }
   }
-
   return neighbors;
 }
 
