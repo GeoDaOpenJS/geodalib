@@ -373,13 +373,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@geoda/lisa@npm:0.0.3-alpha.4":
-  version: 0.0.3-alpha.4
-  resolution: "@geoda/lisa@npm:0.0.3-alpha.4"
+"@geoda/lisa@npm:0.0.5":
+  version: 0.0.5
+  resolution: "@geoda/lisa@npm:0.0.5"
   dependencies:
     "@loaders.gl/schema": "npm:^4.1.0-alpha.4"
     geojson: "npm:^0.5.0"
-  checksum: 31fe100dbf7a67f2695b4bf12787a9f6422c31ef4db8f20cb176631faedf0733b2b8f4fe366c700b153332574b747909241d3b9e765bd98d0e62a29bdea049ae
+  checksum: 7d38374477bb9faff5296580153b8ac60d747318d524e5a143ee20e91946a55904de8d0c1ac4ba8b701be77c365700c7f47d1c2efd003e51bfef17930006b40a
   languageName: node
   linkType: hard
 
@@ -1100,7 +1100,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "geoda-lisa-example@workspace:."
   dependencies:
-    "@geoda/lisa": "npm:0.0.3-alpha.4"
+    "@geoda/lisa": "npm:0.0.5"
     "@types/node": "npm:^20.11.0"
     "@types/react": "npm:^18.2.0"
     "@types/react-dom": "npm:^18.2.0"

@@ -128,13 +128,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@geoda/core@npm:0.0.3-alpha.4":
-  version: 0.0.3-alpha.4
-  resolution: "@geoda/core@npm:0.0.3-alpha.4"
+"@geoda/core@npm:0.0.5":
+  version: 0.0.5
+  resolution: "@geoda/core@npm:0.0.5"
   dependencies:
     "@loaders.gl/schema": "npm:^4.1.0-alpha.4"
     geojson: "npm:^0.5.0"
-  checksum: 9ab76d406c7ae68e348434ceef395a1b4eb80016232648bcf1aaf7cf43b2687aabff0640279b66fd07130e2435e83bbfba5f522638dba0544bbbce311ec16774
+  checksum: 0f8efa6531f826f46a9da60a9e4092254e3f311330d416e5b111e0e629500eeb347819eea4bd4a4b9d644bd6ff27493cc7057d1cdd1e9c87be6c74ac81601322
   languageName: node
   linkType: hard
 
@@ -2266,7 +2266,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "geoda-example-parcel@workspace:."
   dependencies:
-    "@geoda/core": "npm:0.0.3-alpha.4"
+    "@geoda/core": "npm:0.0.5"
     babel-eslint: "npm:^10.1.0"
     eslint: "npm:^7.2.0"
     parcel: "npm:^2.14.4"

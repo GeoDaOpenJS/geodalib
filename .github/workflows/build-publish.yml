@@ -43,8 +43,8 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           yarn publish-release
-          # wait for 2 seconds
-          sleep 2
+          # wait for 10 seconds
+          sleep 10
           yarn update-examples
           # update locker files in each example
           cd ../examples/lisa && yarn install
