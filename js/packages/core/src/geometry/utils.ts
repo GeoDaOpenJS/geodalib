@@ -1,6 +1,6 @@
 import { BinaryFeatureCollection } from '@loaders.gl/schema';
 import { Feature } from 'geojson';
-import { GeometryCollection } from '@geoda/common';
+import { GeometryCollection, Polygon } from '@geoda/common';
 import { getGeometryCollectionFromBinaryGeometries, BinaryGeometryType } from './binary-geometry';
 import { getGeometryCollectionFromGeoJsonFeatures } from './geojson-geometry';
 import { getGeometryCollectionFromPointLayerData } from './point-layer-geometry';
@@ -170,14 +170,33 @@ function getBinaryGeometryType(geometries: BinaryFeatureCollection[]): BinaryGeo
 }
 
 /**
- * Get GeometryCollection from input geometries
+ * Get GeometryCollection from input geometries. The input geometries can be
+ * 1. GeoJSON features
+ * 2. binary feature collections
+ * 3. point layer data
+ * 4. arc layer data
+ * 5. hexagon id layer data
+ *
+ * @example
+ * ```ts
+ * const geoms = [
+ *   { type: 'Feature', geometry: { type: 'Polygon', coordinates: [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]] }, properties: { index: 0 } },
+ * ];
+ * const geometryCollection = await getGeometryCollection({ geometries: geoms });
+ * ```
  * @returns GeometryCollection - the geometry collection used in GeoDaLib see src/spatial_features.h
  */
 export async function getGeometryCollection({
   geometries,
+  fixPolygon = true,
+  convertToUTM = false,
 }: {
   /** input geometries see {@link SpatialGeometry} */
   geometries: SpatialGeometry;
+  /** fix polygon */
+  fixPolygon?: boolean;
+  /** convert to UTM */
+  convertToUTM?: boolean;
 }): Promise<GeometryCollection> {
   const wasmInstance = await initWASM();
   const geometryType = CheckGeometryType(geometries);
@@ -191,20 +210,103 @@ export async function getGeometryCollection({
       return await getGeometryCollectionFromBinaryGeometries(
         binaryGeometryType,
         geometries as BinaryFeatureCollection[],
-        wasmInstance
+        wasmInstance,
+        fixPolygon,
+        convertToUTM
       );
     }
     case SpatialJoinGeometryType.GeoJsonFeature:
       return await getGeometryCollectionFromGeoJsonFeatures({
         features: geometries as Feature[],
         wasm: wasmInstance,
+        fixPolygon,
+        convertToUTM,
       });
     case SpatialJoinGeometryType.PointLayerData:
       return await getGeometryCollectionFromPointLayerData({
         pointLayerData: geometries as PointLayerData[],
         wasm: wasmInstance,
+        convertToUTM,
       });
     default:
       throw new Error('Geometry type is unknown.');
+  }
+}
+
+/**
+ * Convert a Polygon to a GeoJSON Feature
+ * @param polygon - The polygon to convert
+ * @returns The converted GeoJSON Feature
+ *
+ * @example
+ * ```ts
+ * const polygon = new Polygon(new VectorDouble([0, 0, 1, 0, 1, 1, 0, 1, 0, 0]), new VectorUInt([0, 1, 2, 3, 4]), new VectorUInt([0, 1, 2, 3, 4]), new VectorUInt([0, 1, 2, 3, 4]), true, false);
+ * const feature = await polygonToFeature(polygon);
+ * ```
+ */
+export async function polygonToFeature(polygon: Polygon): Promise<Feature> {
+  const xs = polygon.getX();
+  const ys = polygon.getY();
+  const parts = polygon.getParts();
+  const holes = polygon.getHoles();
+
+  const numPoints = xs.size();
+  const numParts = parts.size();
+
+  let numExtRings = 0;
+  for (let i = 0; i < numParts; ++i) {
+    if (holes.get(i) === 0) {
+      numExtRings += 1;
+    }
+  }
+
+  const isMultiPolygon = numExtRings > 1;
+
+  if (isMultiPolygon) {
+    // multipolygon structure: [[extRing, hole, hole], [extRing, hole]]
+    const multiPoly = Array(numExtRings);
+    let polyIndex = -1;
+    for (let i = 0; i < numParts; ++i) {
+      if (holes.get(i) === 0) {
+        // extRing
+        polyIndex += 1;
+        multiPoly[polyIndex] = [];
+      }
+      const ring: number[][] = [];
+      const start = parts.get(i);
+      const end = i === numParts - 1 ? numPoints : parts.get(i + 1);
+      for (let j = start; j < end; ++j) {
+        ring.push([xs.get(j), ys.get(j)]);
+      }
+      multiPoly[polyIndex].push(ring);
+    }
+    return {
+      type: 'Feature',
+      geometry: {
+        type: 'MultiPolygon',
+        coordinates: multiPoly,
+      },
+      properties: {},
+    };
+  } else {
+    // polygon structure: [extRing, hole, hole]
+    const coordinates = Array(numParts);
+    for (let i = 0; i < numParts; ++i) {
+      const ring: number[][] = [];
+      const start = parts.get(i);
+      const end = i === numParts - 1 ? numPoints : parts.get(i + 1);
+      for (let j = start; j < end; ++j) {
+        ring.push([xs.get(j), ys.get(j)]);
+      }
+      coordinates[i] = ring;
+    }
+    return {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates,
+      },
+      properties: {},
+    };
   }
 }

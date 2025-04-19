@@ -18,9 +18,18 @@ export type SpatialJoinProps = {
 };
 
 /**
- * Spatial join two geometries
- * @param props - the props for spatialJoin see {@link SpatialJoinProps}
- * @returns the join indexes
+ * Spatial join two geometries. The result is an array of arrays, where each sub-array contains the indexes of the geometries (right) that intersect.
+ *
+ * @example
+ * ```ts
+ * const leftGeometries = [
+ *   { type: 'Feature', geometry: { type: 'Polygon', coordinates: [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]] }, properties: { index: 0 } },
+ * ];
+ * const rightGeometries = [
+ *   { type: 'Feature', geometry: { type: 'Polygon', coordinates: [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]] }, properties: { index: 1 } },
+ * ];
+ * const joinIndexes = await spatialJoin({ leftGeometries, rightGeometries });
+ * ```
  */
 export async function spatialJoin({
   leftGeometries,

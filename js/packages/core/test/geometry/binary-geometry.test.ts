@@ -394,8 +394,8 @@ describe('createPolygonCollectionFromBinaryFeatures', () => {
     expect(centroids?.size()).toBe(2);
 
     const expectedCentroids = [
-      [1.6428571428571428, 1.6428571428571428],
-      [11.642857142857142, 11.642857142857142],
+      [1.3888888888888888, 1.3888888888888888],
+      [11.388888888888889, 11.388888888888889],
     ];
 
     const actualCentroids = [

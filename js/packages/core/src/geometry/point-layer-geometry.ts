@@ -9,6 +9,7 @@ import { PointLayerData } from './utils';
 export type GetGeometryCollectionFromPointLayerDataProps = {
   pointLayerData: PointLayerData[];
   wasm: GeoDaModule;
+  convertToUTM?: boolean;
 };
 
 /**
@@ -19,6 +20,7 @@ export type GetGeometryCollectionFromPointLayerDataProps = {
 export function getGeometryCollectionFromPointLayerData({
   pointLayerData,
   wasm,
+  convertToUTM,
 }: GetGeometryCollectionFromPointLayerDataProps): GeometryCollection {
   if (!pointLayerData || pointLayerData.length === 0) {
     throw new Error('No pointLayerData to convert');
@@ -37,6 +39,6 @@ export function getGeometryCollectionFromPointLayerData({
     parts.push_back(i);
   }
 
-  const pc = new wasm.PointCollection(xs, ys, parts, sizes, false);
+  const pc = new wasm.PointCollection(xs, ys, parts, sizes, convertToUTM || false);
   return pc;
 }

@@ -6,8 +6,6 @@ describe('Rates Tests', () => {
     const eventValues = [10, 20, 30, 40, 50];
     const rates = excessRisk(baseValues, eventValues);
 
-    console.log(rates);
-
     expect(rates).toEqual([1, 1, 1, 1, 1]);
   });
 
@@ -15,8 +13,6 @@ describe('Rates Tests', () => {
     const baseValues = [100, 200, 300, 400, 500];
     const eventValues = [10, 20, 30, 40, 50];
     const rates = empiricalBayes(baseValues, eventValues);
-
-    console.log(rates);
 
     expect(rates).toEqual([0.1, 0.1, 0.1, 0.1, 0.1]);
   });
@@ -32,8 +28,6 @@ describe('Rates Tests', () => {
       [2, 3],
     ];
     const rates = spatialEmpiricalBayes(baseValues, eventValues, neighbors);
-
-    console.log(rates);
 
     expect(rates).toEqual([0.1, 0.1, 0.1, 0.1, 0.1]);
   });

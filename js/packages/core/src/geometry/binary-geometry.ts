@@ -32,7 +32,9 @@ export type BinaryGeometryType = {
 export async function getGeometryCollectionFromBinaryGeometries(
   geometryType: BinaryGeometryType,
   binaryFeaturesChunks: BinaryFeatureCollection[],
-  wasm: GeoDaModule
+  wasm: GeoDaModule,
+  fixPolygon?: boolean,
+  convertToUTM?: boolean
 ): Promise<GeometryCollection> {
   if (!wasm) {
     throw new Error('GeoDa WASM module is not initialized');
@@ -40,13 +42,13 @@ export async function getGeometryCollectionFromBinaryGeometries(
 
   if (geometryType.point) {
     const pointsArray = binaryFeaturesChunks.map(chunk => chunk.points);
-    return createPointCollectionFromBinaryFeatures(pointsArray, wasm);
+    return createPointCollectionFromBinaryFeatures(pointsArray, wasm, convertToUTM);
   } else if (geometryType.line) {
     const linesArray = binaryFeaturesChunks.map(chunk => chunk.lines);
-    return createLineCollectionFromBinaryFeatures(linesArray, wasm);
+    return createLineCollectionFromBinaryFeatures(linesArray, wasm, convertToUTM);
   } else if (geometryType.polygon) {
     const polygonsArray = binaryFeaturesChunks.map(chunk => chunk.polygons);
-    return createPolygonCollectionFromBinaryFeatures(polygonsArray, wasm);
+    return createPolygonCollectionFromBinaryFeatures(polygonsArray, wasm, fixPolygon, convertToUTM);
   }
   throw new Error('getGeometryCollectionFromBinaryGeometries: Binary geometry type is unknown.');
 }
@@ -59,14 +61,14 @@ export async function getGeometryCollectionFromBinaryGeometries(
  */
 export function createPointCollectionFromBinaryFeatures(
   pointsArray: Array<BinaryFeatureCollection['points']>,
-  wasm: GeoDaModule
+  wasm: GeoDaModule,
+  convertToUTM?: boolean
 ): PointCollection {
   // create PointCollection from binaryFeatures
   const xs = new wasm.VectorDouble();
   const ys = new wasm.VectorDouble();
   const parts = new wasm.VectorUInt();
   const sizes = new wasm.VectorUInt();
-  const convertToUTM = false;
 
   for (let chunkIndex = 0; chunkIndex < pointsArray.length; chunkIndex++) {
     const points = pointsArray[chunkIndex];
@@ -96,7 +98,7 @@ export function createPointCollectionFromBinaryFeatures(
       }
     }
   }
-  const pointCollection = new wasm.PointCollection(xs, ys, parts, sizes, convertToUTM);
+  const pointCollection = new wasm.PointCollection(xs, ys, parts, sizes, convertToUTM || false);
   return pointCollection;
 }
 
@@ -108,14 +110,14 @@ export function createPointCollectionFromBinaryFeatures(
  */
 export function createLineCollectionFromBinaryFeatures(
   linesArray: Array<BinaryFeatureCollection['lines']>,
-  wasm: GeoDaModule
+  wasm: GeoDaModule,
+  convertToUTM?: boolean
 ): LineCollection {
   // create LineCollection from array of binaryFeatures
   const xs = new wasm.VectorDouble();
   const ys = new wasm.VectorDouble();
   const parts = new wasm.VectorUInt();
   const sizes = new wasm.VectorUInt();
-  const convertToUTM = false;
 
   let lastStartPointIndex = 0;
   for (let lineIndex = 0; lineIndex < linesArray.length; lineIndex++) {
@@ -151,7 +153,7 @@ export function createLineCollectionFromBinaryFeatures(
     }
   }
 
-  const lineCollection = new wasm.LineCollection(xs, ys, parts, sizes, convertToUTM);
+  const lineCollection = new wasm.LineCollection(xs, ys, parts, sizes, convertToUTM || false);
   return lineCollection;
 }
 
@@ -163,7 +165,9 @@ export function createLineCollectionFromBinaryFeatures(
  */
 export function createPolygonCollectionFromBinaryFeatures(
   polygonsArray: Array<BinaryFeatureCollection['polygons']>,
-  wasm: GeoDaModule
+  wasm: GeoDaModule,
+  fixPolygon?: boolean,
+  convertToUTM?: boolean
 ): PolygonCollection {
   // create PolygonCollection from array of binaryFeatures
   const xs = new wasm.VectorDouble();
@@ -171,8 +175,6 @@ export function createPolygonCollectionFromBinaryFeatures(
   const parts = new wasm.VectorUInt();
   const holes = new wasm.VectorUInt();
   const sizes = new wasm.VectorUInt();
-  const fixPolygon = true;
-  const convertToUTM = false;
 
   let lastPrimitiveIndex = 0;
   for (let chunkIndex = 0; chunkIndex < polygonsArray.length; chunkIndex++) {
@@ -220,8 +222,8 @@ export function createPolygonCollectionFromBinaryFeatures(
     parts,
     holes,
     sizes,
-    fixPolygon,
-    convertToUTM
+    fixPolygon || false,
+    convertToUTM || false
   );
   return polygonCollection;
 }

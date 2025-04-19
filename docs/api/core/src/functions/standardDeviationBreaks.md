@@ -4,7 +4,7 @@
 
 > **standardDeviationBreaks**(`data`): `Promise`\<`number`[]\>
 
-Defined in: [core/src/mapping/stddev-breaks.ts:28](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/mapping/stddev-breaks.ts#L28)
+Defined in: [core/src/mapping/stddev-breaks.ts:28](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/mapping/stddev-breaks.ts#L28)
 
 ## Description
 The standard deviation breaks classes based on distance from the mean in standard deviation units.

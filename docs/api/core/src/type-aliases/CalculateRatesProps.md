@@ -4,7 +4,7 @@
 
 > **CalculateRatesProps**: `object`
 
-Defined in: [core/src/mapping/rates.ts:10](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/mapping/rates.ts#L10)
+Defined in: [core/src/mapping/rates.ts:10](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/mapping/rates.ts#L10)
 
 ## Type declaration
 

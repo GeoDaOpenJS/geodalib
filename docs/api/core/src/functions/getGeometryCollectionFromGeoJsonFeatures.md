@@ -2,9 +2,9 @@
 
 # Function: getGeometryCollectionFromGeoJsonFeatures()
 
-> **getGeometryCollectionFromGeoJsonFeatures**(`props`): `GeometryCollection`
+> **getGeometryCollectionFromGeoJsonFeatures**(`props`): [`GeometryCollection`](../classes/GeometryCollection.md)
 
-Defined in: [core/src/geometry/geojson-geometry.ts:44](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/geometry/geojson-geometry.ts#L44)
+Defined in: [core/src/geometry/geojson-geometry.ts:52](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/geometry/geojson-geometry.ts#L52)
 
 Get GeometryCollection from GeoJson featurers
 
@@ -14,10 +14,10 @@ Get GeometryCollection from GeoJson featurers
 
 [`GetGeometryCollectionFromGeoJsonFeaturesProps`](../type-aliases/GetGeometryCollectionFromGeoJsonFeaturesProps.md)
 
-the props for getGeometryCollectionFromGeoJson see GetGeometryCollectionFromGeoJsonProps
+the props for getGeometryCollectionFromGeoJson see [GetGeometryCollectionFromGeoJsonFeaturesProps](../type-aliases/GetGeometryCollectionFromGeoJsonFeaturesProps.md)
 
 ## Returns
 
-`GeometryCollection`
+[`GeometryCollection`](../classes/GeometryCollection.md)
 
 GeometryCollection - the geometry collection see src/spatial_features.h

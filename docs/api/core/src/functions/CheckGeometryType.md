@@ -4,7 +4,7 @@
 
 > **CheckGeometryType**(`geometries`): [`SpatialJoinGeometryType`](../enumerations/SpatialJoinGeometryType.md)
 
-Defined in: [core/src/geometry/spatial-join.ts:113](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/geometry/spatial-join.ts#L113)
+Defined in: [core/src/geometry/utils.ts:111](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/geometry/utils.ts#L111)
 
 Check the type of the geometries
 

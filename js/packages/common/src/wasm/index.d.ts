@@ -22,7 +22,13 @@ export class GeometryCollection {
    */
   constructor();
   delete(): void;
+  size(): number;
   getType(): number;
+  getCentroids(): VecVecDouble;
+  buffer(index: number, dist: number, pointsPerCircle: number): Polygon;
+  getArea(index: number): Double;
+  getLength(index: number): Double;
+  getPerimeter(index: number): Double;
 }
 
 /**
@@ -49,7 +55,6 @@ export class PolygonCollection extends GeometryCollection {
     convertToUTM: boolean
   );
 
-  getCentroids(): VecVecDouble;
   delete(): void;
 }
 
@@ -73,7 +78,6 @@ export class LineCollection extends GeometryCollection {
     convertToUTM: boolean
   );
 
-  getCentroids(): VecVecDouble;
   delete(): void;
 }
 
@@ -115,7 +119,6 @@ export class PointCollection extends GeometryCollection {
     convertToUTM: boolean
   );
 
-  getCentroids(): VecVecDouble;
   delete(): void;
 }
 
@@ -964,6 +967,13 @@ export interface GeoDaModule {
    * @returns The indices of the right geometries that are spatially joined to the left geometries
    */
   spatialJoin(left: GeometryCollection, right: GeometryCollection): VecVecUInt;
+
+  /**
+   * Spatial Dissolve of a collection of polygons
+   * @param polys The collection of polygons
+   * @returns The dissolved polygon
+   */
+  spatialDissolve(polys: GeometryCollection): Polygon;
 
   GeometryCollection: typeof GeometryCollection;
   PolygonCollection: typeof PolygonCollection;

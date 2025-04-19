@@ -4,7 +4,7 @@
 
 > **ContiguityNeighborsFromBinaryGeometriesProps**: `object`
 
-Defined in: [core/src/weights/contiguity-neighbors.ts:54](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/weights/contiguity-neighbors.ts#L54)
+Defined in: [core/src/weights/contiguity-neighbors.ts:54](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/weights/contiguity-neighbors.ts#L54)
 
 Interface for the arguments used in calculating contiguity neighbors from binary geometries.
 
@@ -46,8 +46,8 @@ The order of contiguity to calculate
 
 Threshold for considering points as neighbors
 
-### useCentroids
+### useCentroids?
 
-> **useCentroids**: `boolean`
+> `optional` **useCentroids**: `boolean`
 
 Whether to use centroids for neighbor calculations

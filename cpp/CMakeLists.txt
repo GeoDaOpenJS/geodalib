@@ -204,7 +204,7 @@ endif()
 # "integer s_cat(char *lp, char *rpp[], ftnint rnp[], ftnint *np, ftnlen ll)" 
 # in file ${CLAPACK_SRC_DIR}/F2CLIBS/libf2c/s_cat.c
 file(READ ${CLAPACK_SRC_DIR}/F2CLIBS/libf2c/s_cat.c S_CAT_C_CONTENT)
-if (NOT S_CAT_C_CONTENT MATCHES "integer s_cat")
+if (S_CAT_C_CONTENT MATCHES " VOID")
     message(STATUS "replace 'void s_cat' with 'integer s_cat' in file ${CLAPACK_SRC_DIR}/F2CLIBS/libf2c/s_cat.c")
     string(REPLACE " VOID" " integer" S_CAT_C_CONTENT "${S_CAT_C_CONTENT}")
     file(WRITE ${CLAPACK_SRC_DIR}/F2CLIBS/libf2c/s_cat.c "${S_CAT_C_CONTENT}")

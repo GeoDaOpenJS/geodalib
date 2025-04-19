@@ -4,7 +4,7 @@
 
 > **spatialLag**(`values`, `neighbors`, `rowStandardize`, `weights`?, `useSelfNeighbor`?): `number`[]
 
-Defined in: [lisa/src/sa/spatial-lag.ts:11](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/lisa/src/sa/spatial-lag.ts#L11)
+Defined in: [lisa/src/sa/spatial-lag.ts:11](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/lisa/src/sa/spatial-lag.ts#L11)
 
 Compute spatial lag of a list of values based on a list of neighbors and weights.
 

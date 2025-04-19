@@ -57,7 +57,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           cd ..
           git add .
-          git commit -m "Update examples to version ${GITHUB_REF_NAME}"
+          git commit -m "chore: update examples to version ${GITHUB_REF_NAME}"
           git push
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

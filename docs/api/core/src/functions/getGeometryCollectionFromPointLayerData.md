@@ -2,9 +2,9 @@
 
 # Function: getGeometryCollectionFromPointLayerData()
 
-> **getGeometryCollectionFromPointLayerData**(`props`): `GeometryCollection`
+> **getGeometryCollectionFromPointLayerData**(`props`): [`GeometryCollection`](../classes/GeometryCollection.md)
 
-Defined in: [core/src/geometry/point-layer-geometry.ts:19](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/geometry/point-layer-geometry.ts#L19)
+Defined in: [core/src/geometry/point-layer-geometry.ts:20](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/geometry/point-layer-geometry.ts#L20)
 
 Get PointCollection from PointLayerData: lat/lng pairs
 
@@ -18,6 +18,6 @@ the props for getGeometryCollectionFromPointLayerData see [GetGeometryCollection
 
 ## Returns
 
-`GeometryCollection`
+[`GeometryCollection`](../classes/GeometryCollection.md)
 
 PointCollection - the point collection see src/spatial_features.h

@@ -34,16 +34,26 @@ export type GetGeometryCollectionFromGeoJsonFeaturesProps = {
    * The wasm module
    */
   wasm: GeoDaModule;
+  /**
+   * Whether to fix the polygon
+   */
+  fixPolygon?: boolean;
+  /**
+   * Whether to convert to UTM
+   */
+  convertToUTM?: boolean;
 };
 
 /**
  * Get GeometryCollection from GeoJson featurers
- * @param props - the props for getGeometryCollectionFromGeoJson see {@link GetGeometryCollectionFromGeoJsonProps}
+ * @param props - the props for getGeometryCollectionFromGeoJson see {@link GetGeometryCollectionFromGeoJsonFeaturesProps}
  * @returns GeometryCollection - the geometry collection see src/spatial_features.h
  */
 export function getGeometryCollectionFromGeoJsonFeatures({
   features,
   wasm,
+  fixPolygon,
+  convertToUTM,
 }: GetGeometryCollectionFromGeoJsonFeaturesProps): GeometryCollection {
   if (!features || features.length === 0) {
     throw new Error('No features to convert');
@@ -55,13 +65,13 @@ export function getGeometryCollectionFromGeoJsonFeatures({
   switch (geomType) {
     case 'Polygon':
     case 'MultiPolygon':
-      return getPolygonCollection({ features, wasm });
+      return getPolygonCollection({ features, wasm, fixPolygon, convertToUTM });
     case 'LineString':
     case 'MultiLineString':
-      return getLineCollection({ features, wasm });
+      return getLineCollection({ features, wasm, convertToUTM });
     case 'Point':
     case 'MultiPoint':
-      return getPointCollection({ features, wasm });
+      return getPointCollection({ features, wasm, convertToUTM });
     default:
       throw new Error('Unsupported GeoJSON geometry type');
   }
@@ -89,7 +99,7 @@ export type GetPolygonCollectionProps = {
 export function getPolygonCollection({
   features,
   wasm,
-  fixPolygon,
+  fixPolygon = true,
   convertToUTM,
 }: GetPolygonCollectionProps): PolygonCollection {
   let ptIndex = 0;

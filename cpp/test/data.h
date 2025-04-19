@@ -1,7 +1,9 @@
 #ifndef DATA_H
 #define DATA_H
 
-#include <geometry/geometry.h>
+#include <geometry/polygon.h>
+#include <geometry/point.h>
+#include <geometry/line.h>
 
 #include <vector>
 

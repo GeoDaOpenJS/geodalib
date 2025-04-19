@@ -4,7 +4,7 @@
 
 > **getMetaFromWeights**(`weights`, `isDistanceWeights`): [`WeightsMeta`](../type-aliases/WeightsMeta.md)
 
-Defined in: [core/src/weights/weights-stats.ts:79](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/weights/weights-stats.ts#L79)
+Defined in: [core/src/weights/weights-stats.ts:83](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/weights/weights-stats.ts#L83)
 
 Get the meta data from the weights structure
 

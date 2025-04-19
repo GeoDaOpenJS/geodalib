@@ -5,12 +5,16 @@
 #include <iostream>
 
 #include "geometry/geometry.h"
+#include "geometry/line.h"
+#include "geometry/point.h"
+#include "geometry/polygon.h"
+#include "geometry/spatial-dissolve.h"
 #include "geometry/spatial-join.h"
-#include "sa/lisa-api.h"
-#include "weights/weights.h"
 #include "mapping/mapping.h"
 #include "regression/diagnostic-report.h"
 #include "regression/regression.h"
+#include "sa/lisa-api.h"
+#include "weights/weights.h"
 
 template <typename T>
 emscripten::class_<std::vector<T>> register_vector_with_smart_ptrs(const char* name) {
@@ -37,19 +41,25 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::register_vector<std::string>("VectorString");
 
   emscripten::class_<geoda::GeometryCollection>("GeometryCollection")
+      .function("getCentroids", &geoda::GeometryCollection::get_centroids)
+      .function("buffer", &geoda::GeometryCollection::buffer)
+      .function("size", &geoda::GeometryCollection::size)
+      .function("getArea", &geoda::GeometryCollection::get_area)
+      .function("getLength", &geoda::GeometryCollection::get_length)
+      .function("getPerimeter", &geoda::GeometryCollection::get_perimeter)
       .function("getType", &geoda::GeometryCollection::get_type);
   emscripten::class_<geoda::PolygonCollection, emscripten::base<geoda::GeometryCollection>>("PolygonCollection")
       .constructor<std::vector<double>, std::vector<double>, std::vector<unsigned int>, std::vector<unsigned int>,
                    std::vector<unsigned int>, bool, bool>()
-      .function("getCentroids", &geoda::PolygonCollection::get_centroids);
+      .function("getType", &geoda::PolygonCollection::get_type);
   emscripten::class_<geoda::LineCollection, emscripten::base<geoda::GeometryCollection>>("LineCollection")
       .constructor<std::vector<double>, std::vector<double>, std::vector<unsigned int>, std::vector<unsigned int>,
                    bool>()
-      .function("getCentroids", &geoda::LineCollection::get_centroids);
+      .function("getType", &geoda::LineCollection::get_type);
   emscripten::class_<geoda::PointCollection, emscripten::base<geoda::GeometryCollection>>("PointCollection")
       .constructor<std::vector<double>, std::vector<double>, std::vector<unsigned int>, std::vector<unsigned int>,
                    bool>()
-      .function("getCentroids", &geoda::PointCollection::get_centroids);
+      .function("getType", &geoda::PointCollection::get_type);
 
   emscripten::class_<geoda::Point>("Point")
       .constructor()
@@ -66,13 +76,13 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
 
   emscripten::register_vector<geoda::Polygon>("VectorPolygon");
   emscripten::function("spatialJoin", &geoda::spatial_join);
+  emscripten::function("spatialDissolve", &geoda::spatial_dissolve);
 
   emscripten::function("getNearestNeighbors", &geoda::knearest_neighbors);
   emscripten::function("getDistanceWeights", &geoda::distance_weights);
   emscripten::function("getDistanceThresholds", &geoda::get_distance_thresholds);
   emscripten::function("getPolygonContiguityWeights", &geoda::polygon_contiguity_weights);
   emscripten::function("getPointContiguityWeights", &geoda::point_contiguity_weights);
-
 
   emscripten::function("quantileBreaks", &geoda::quantile_breaks);
   emscripten::function("naturalBreaks", &geoda::natural_breaks);

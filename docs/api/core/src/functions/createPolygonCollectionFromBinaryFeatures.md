@@ -2,9 +2,9 @@
 
 # Function: createPolygonCollectionFromBinaryFeatures()
 
-> **createPolygonCollectionFromBinaryFeatures**(`polygonsArray`, `wasm`): `PolygonCollection`
+> **createPolygonCollectionFromBinaryFeatures**(`polygonsArray`, `wasm`, `fixPolygon`?, `convertToUTM`?): `PolygonCollection`
 
-Defined in: [core/src/geometry/binary-geometry.ts:164](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/geometry/binary-geometry.ts#L164)
+Defined in: [core/src/geometry/binary-geometry.ts:166](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/geometry/binary-geometry.ts#L166)
 
 Creates a GeoDa PolygonCollection from binary polygon features
 
@@ -21,6 +21,14 @@ Array of binary polygon features from GeoArrow chunks
 [`GeoDaInterface`](../interfaces/GeoDaInterface.md)
 
 The initialized GeoDa WASM module
+
+### fixPolygon?
+
+`boolean`
+
+### convertToUTM?
+
+`boolean`
 
 ## Returns
 

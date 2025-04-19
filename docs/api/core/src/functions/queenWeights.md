@@ -4,7 +4,7 @@
 
 > **queenWeights**(`geometries`, `useCentroids`?, `precisionThreshold`?, `orderOfContiguity`?, `includeLowerOrder`?): `Promise`\<[`WeightsMeta`](../type-aliases/WeightsMeta.md)\>
 
-Defined in: [core/src/weights/contiguity-neighbors.ts:147](https://github.com/GeoDaCenter/geoda-lib/blob/246bf05338fdf79294f778f8829940c18b17a0f8/js/packages/core/src/weights/contiguity-neighbors.ts#L147)
+Defined in: [core/src/weights/contiguity-neighbors.ts:208](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/weights/contiguity-neighbors.ts#L208)
 
 ## Description
 Create Queen contiguity weights for GeoJSON features.
