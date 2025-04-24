@@ -25,6 +25,8 @@ VectorWeight::VectorWeight(const std::vector<std::vector<unsigned int>>& neighbo
       this->gal[i].SetNbr(j, neighbors[i][j]);
     }
   }
+
+  this->GetNbrStats();
 }
 
 VectorWeight::VectorWeight(const VectorWeight& gw) : GeoDaWeight(gw) {
@@ -44,6 +46,7 @@ VectorWeight& VectorWeight::operator=(const VectorWeight& gw) {
     this->num_obs = gw.num_obs;
     this->wflnm = gw.wflnm;
     this->id_field = gw.id_field;
+    this->GetNbrStats();
   }
   return *this;
 }

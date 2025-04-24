@@ -68,11 +68,11 @@ export async function createWeights({
   if (weightsType === 'queen' || weightsType === 'rook') {
     weights = await getContiguityNeighborsFromGeomCollection({
       geomCollection,
-      isQueen: isQueen || true,
-      useCentroids: useCentroids || true,
+      isQueen: isQueen !== undefined ? isQueen : true,
+      useCentroids: useCentroids !== undefined ? useCentroids : true,
       precisionThreshold: precisionThreshold || 0.0,
       orderOfContiguity: orderOfContiguity || 1,
-      includeLowerOrder: includeLowerOrder || false,
+      includeLowerOrder: includeLowerOrder !== undefined ? includeLowerOrder : false,
     });
 
     weightsMeta = {

@@ -11,9 +11,9 @@ describe('quantileLisa', () => {
     const result = await quantileLisa({ k, quantile, data, neighbors, permutation });
 
     expect(result.isValid).toBe(true);
-    expect(result.pValues).toEqual([0.02, 0.02, 0, -1, -1, -1]);
+    expect(result.pValues).toEqual([0.06, 0.06, 0, -1, -1, -1]);
     expect(result.lagValues).toEqual([0, 0, 0, 0, 0, 0]);
     expect(result.lisaValues).toEqual([1, 1, 0, 0, 0, 0]);
-    expect(result.clusters).toEqual([1, 1, 0, 0, 0, 0]);
+    expect(result.clusters).toEqual([0, 0, 0, 0, 0, 0]);
   });
 });
