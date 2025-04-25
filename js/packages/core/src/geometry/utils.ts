@@ -3,7 +3,10 @@ import { Feature } from 'geojson';
 import { GeometryCollection, Polygon } from '@geoda/common';
 import { getGeometryCollectionFromBinaryGeometries, BinaryGeometryType } from './binary-geometry';
 import { getGeometryCollectionFromGeoJsonFeatures } from './geojson-geometry';
-import { getGeometryCollectionFromPointLayerData } from './point-layer-geometry';
+import {
+  getGeometryCollectionFromArcLayerData,
+  getGeometryCollectionFromPointLayerData,
+} from './point-layer-geometry';
 import { initWASM } from '../init';
 
 /**
@@ -15,13 +18,19 @@ export type PointLayerData = {
   neighbors: number[];
 };
 
-type ArcLayerData = {
+/**
+ * The type of the arc layer data. See ArcLayerData in kepler.gl
+ */
+export type ArcLayerData = {
   index: number;
   sourcePosition: [number, number, number];
   targetPosition: [number, number, number];
 };
 
-type HexagonIdLayerData = {
+/**
+ * The type of the hexagon id layer data. See HexagonIdLayerData in kepler.gl
+ */
+export type HexagonIdLayerData = {
   index: number;
   id: number;
   centroid: [number, number];
@@ -220,6 +229,13 @@ export async function getGeometryCollection({
         features: geometries as Feature[],
         wasm: wasmInstance,
         fixPolygon,
+        convertToUTM,
+      });
+
+    case SpatialJoinGeometryType.ArcLayerData:
+      return await getGeometryCollectionFromArcLayerData({
+        arcLayerData: geometries as ArcLayerData[],
+        wasm: wasmInstance,
         convertToUTM,
       });
     case SpatialJoinGeometryType.PointLayerData:

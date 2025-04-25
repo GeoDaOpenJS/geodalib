@@ -69,7 +69,7 @@ export async function createWeights({
     weights = await getContiguityNeighborsFromGeomCollection({
       geomCollection,
       isQueen: isQueen !== undefined ? isQueen : true,
-      useCentroids: useCentroids !== undefined ? useCentroids : true,
+      useCentroids: useCentroids !== undefined ? useCentroids : false,
       precisionThreshold: precisionThreshold || 0.0,
       orderOfContiguity: orderOfContiguity || 1,
       includeLowerOrder: includeLowerOrder !== undefined ? includeLowerOrder : false,
