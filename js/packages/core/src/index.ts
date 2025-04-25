@@ -9,11 +9,15 @@ export * from './weights/contiguity-neighbors';
 export * from './weights/weights-stats';
 export * from './weights/utils';
 
-export * from './geometry/utils';
-export * from './geometry/geojson-geometry';
+export * from './geometry/attributes';
 export * from './geometry/binary-geometry';
+export * from './geometry/buffer';
+export * from './geometry/centroid';
+export * from './geometry/geojson-geometry';
 export * from './geometry/point-layer-geometry';
+export * from './geometry/spatial-dissolve';
 export * from './geometry/spatial-join';
+export * from './geometry/utils';
 
 export * from './mapping/quantile';
 export * from './mapping/natural-breaks';
