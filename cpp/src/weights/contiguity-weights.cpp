@@ -165,8 +165,6 @@ std::vector<std::vector<unsigned int>> convert_to_weights(const std::vector<std:
 std::vector<std::vector<unsigned int>> geoda::simple_polygon_queen_weights(const geoda::GeometryCollection& geoms,
                                                                            unsigned int order_contiguity,
                                                                            bool include_lower_order) {
-  std::cout << "simple_polygon_queen_weights 1" << std::endl;
-
   // create a dictionary using the points of the polygon as keys and the polygon indexes as values
   boost::unordered_map<double, boost::unordered_map<double, std::set<int>>> point_to_polygon;
   const std::vector<unsigned int>& sizes = geoms.sizes;
@@ -192,8 +190,6 @@ std::vector<std::vector<unsigned int>> geoda::simple_polygon_queen_weights(const
     part_index += offset_part;
   }
 
-  std::cout << "simple_polygon_queen_weights 2" << std::endl;
-
   // Create neighbor map
   std::vector<std::set<int>> nbr_map(geoms.size());
 
@@ -217,7 +213,6 @@ std::vector<std::vector<unsigned int>> geoda::simple_polygon_queen_weights(const
     }
   }
 
-  std::cout << "simple_polygon_queen_weights 3" << std::endl;
   return convert_to_weights(nbr_map, order_contiguity, include_lower_order);
 }
 

@@ -90,6 +90,7 @@ The `publish-dry-run` command:
   - Dependencies that would be published
 - Useful for catching issues before actual publishing
 - Example output:
+
   ```
   lerna notice cli v3.11.0
   lerna info dry-run enabled
@@ -151,8 +152,24 @@ Additional publishing commands:
 - `yarn run publish-preview`: Publish with the 'preview' tag (useful for testing)
 - `yarn run publish-release`: Publish the latest version to NPM
 
-
 * NOTE for release
 
 - DCMAKE_BUILD_TYPE=Release
 - set(CMAKE_CXX_FLAGS "-O3 -DNDEBUG -s ASSERTIONS=0")
+
+4. Update the version in Examples
+
+```bash
+yarn update-examples
+cd ../examples/lisa && yarn install
+cd ../mapping && yarn install
+cd ../node && yarn install
+cd ../parcel && yarn install
+cd ../regression && yarn install
+
+cd ..
+git add .
+git commit -m "chore: update examples to version ${GITHUB_REF_NAME}"
+git push
+```
+

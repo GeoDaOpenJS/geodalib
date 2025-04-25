@@ -42,22 +42,6 @@ jobs:
         working-directory: js
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-          yarn publish-release
-          # wait for 10 seconds
-          sleep 10
-          yarn update-examples
-          # update locker files in each example
-          cd ../examples/lisa && yarn install
-          cd ../mapping && yarn install
-          cd ../node && yarn install
-          cd ../parcel && yarn install
-          cd ../regression && yarn install
-          # commit changes
-          git config --global user.email "lixun910@gmail.com"
-          git config --global user.name "github-actions[bot]"
-          cd ..
-          git add .
-          git commit -m "chore: update examples to version ${GITHUB_REF_NAME}"
-          git push
+          yarn publish-release          
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
