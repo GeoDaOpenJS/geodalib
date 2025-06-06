@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.11](https://github.com/GeoDaCenter/geoda-lib/compare/@geoda/common@0.0.2-alpha.7...@geoda/common@0.0.11) (2025-06-06)
+
+### Features
+
+* mad, range adjust, range std, deviation, thiessen polygon ([08d7ccd](https://github.com/GeoDaCenter/geoda-lib/commit/08d7ccdf78b651ff798dc6ac7058d2a42bbef988))
+
+## 0.0.10 (2025-04-25)
+
+## 0.0.8 (2025-04-25)
+
+## 0.0.7 (2025-04-24)
+
+## 0.0.6 (2025-04-19)
+
+### Features
+
+* add spatial dissolve; add spatial ops ([e4f09e1](https://github.com/GeoDaCenter/geoda-lib/commit/e4f09e1954ecff6a054b7b51f06ed1074750ffbb))
+
+## 0.0.5 (2025-04-16)
+
+## 0.0.4 (2025-04-15)
+
+## 0.0.3 (2025-04-02)
+
+## 0.0.3-alpha.4 (2025-04-02)
+
+## 0.0.3-alpha.3 (2025-04-02)
+
+## 0.0.3-alpha.2 (2025-04-02)
+
+## 0.0.3-alpha.1 (2025-04-02)
+
+## 0.0.3-alpha.0 (2025-04-02)
+
+## 0.0.2 (2025-04-01)
+
+## 0.0.2-alpha.13 (2025-04-01)
+
+## 0.0.2-alpha.12 (2025-04-01)
+
 ## [0.0.10](https://github.com/GeoDaCenter/geoda-lib/compare/@geoda/common@0.0.2-alpha.7...@geoda/common@0.0.10) (2025-06-06)
 
 ### Features
