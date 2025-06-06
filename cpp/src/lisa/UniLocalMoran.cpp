@@ -5,7 +5,7 @@
 
 #include "UniLocalMoran.h"
 
-#include "utils/data.h"
+#include "utils/standardize.h"
 #include "weights/geoda-weight.h"
 
 UniLocalMoran::~UniLocalMoran() {}

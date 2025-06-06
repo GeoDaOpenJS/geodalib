@@ -25,6 +25,7 @@ class Polygon : public Geometry {
   ShapeType get_type() const override { return ShapeType::POLYGON; }
 
   void add(const std::vector<double>& in_x, const std::vector<double>& in_y, bool is_hole);
+  void copy(const Polygon& poly);
 };
 
 class PolygonCollection : public GeometryCollection {

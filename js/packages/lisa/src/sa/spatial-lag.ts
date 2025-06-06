@@ -1,5 +1,6 @@
 /**
  * Compute spatial lag of a list of values based on a list of neighbors and weights.
+ *
  * @param values The numeric values to compute spatial lag for.
  * @param neighbors The list of neighbors for each value.
  * @param weights The weight values for each neighbor.

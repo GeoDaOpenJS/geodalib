@@ -10,11 +10,17 @@
 #include "geometry/polygon.h"
 #include "geometry/spatial-dissolve.h"
 #include "geometry/spatial-join.h"
+#include "geometry/thiessen-polygon.h"
 #include "mapping/mapping.h"
 #include "regression/diagnostic-report.h"
 #include "regression/regression.h"
 #include "sa/lisa-api.h"
 #include "weights/weights.h"
+#include "utils/deviation.h"
+#include "utils/mad.h"
+#include "utils/range_adjust.h"
+#include "utils/range_standardize.h"
+#include "utils/standardize.h"
 
 template <typename T>
 emscripten::class_<std::vector<T>> register_vector_with_smart_ptrs(const char* name) {
@@ -77,6 +83,7 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::register_vector<geoda::Polygon>("VectorPolygon");
   emscripten::function("spatialJoin", &geoda::spatial_join);
   emscripten::function("spatialDissolve", &geoda::spatial_dissolve);
+  emscripten::function("thiessenPolygon", &geoda::thiessen_polygon);
 
   emscripten::function("getNearestNeighbors", &geoda::knearest_neighbors);
   emscripten::function("getDistanceWeights", &geoda::distance_weights);
@@ -90,5 +97,11 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::function("percentileBreaks", &geoda::percentile_breaks);
   emscripten::function("boxBreaks", &geoda::box_breaks);
   emscripten::function("standardDeviationBreaks", &geoda::std_dev_breaks);
+
+  emscripten::function("deviationFromMean", &geoda::deviation_from_mean_wasm);
+  emscripten::function("standardizeMAD", &geoda::standardize_mad_wasm);
+  emscripten::function("rangeAdjust", &geoda::range_adjust_wasm);
+  emscripten::function("rangeStandardize", &geoda::range_standardize_wasm);
+  emscripten::function("standardize", &geoda::standardize_data_wasm);
 }
 #endif

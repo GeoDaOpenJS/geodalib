@@ -45,7 +45,7 @@ export type SpatialGeometry =
    */
   | Feature[]
   /**
-   * Binary feature collection
+   * Binary feature collection. Use array of binary features because large binary files are chunked into multiple binary feature collections.
    */
   | BinaryFeatureCollection[]
   /**

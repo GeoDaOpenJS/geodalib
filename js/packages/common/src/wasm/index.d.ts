@@ -666,6 +666,54 @@ export class DiagnosticReport {
 
 export interface GeoDaModule {
   /**
+   * Calculate the Thiessen polygons
+   * @param x - The centroid x coordinates
+   * @param y - The centroid y coordinates
+   * @returns The Thiessen polygons
+   */
+  thiessenPolygon(x: VectorDouble, y: VectorDouble): VectorPolygon;
+
+  /**
+   * Calculate the deviation from the mean
+   * @param data - The data values
+   * @param undefs - The undefined values
+   * @returns The deviation from the mean
+   */
+  deviationFromMean(data: VectorDouble, undefs: VectorUInt): VectorDouble;
+
+  /**
+   * Standardize the data using the Median Absolute Deviation (MAD)
+   * @param data - The data values
+   * @param undefs - The undefined values
+   * @returns The standardized data
+   */
+  standardizeMAD(data: VectorDouble, undefs: VectorUInt): VectorDouble;
+
+  /**
+   * Range adjust the data
+   * @param data - The data values
+   * @param undefs - The undefined values
+   * @returns The range adjusted data
+   */
+  rangeAdjust(data: VectorDouble, undefs: VectorUInt): VectorDouble;
+
+  /**
+   * Range standardize the data
+   * @param data - The data values
+   * @param undefs - The undefined values
+   * @returns The range standardized data
+   */
+  rangeStandardize(data: VectorDouble, undefs: VectorUInt): VectorDouble;
+
+  /**
+   * Standardize the data
+   * @param data - The data values
+   * @param undefs - The undefined values
+   * @returns The standardized data
+   */
+  standardize(data: VectorDouble, undefs: VectorUInt): VectorDouble;
+
+  /**
    * get the contiguity neighbors using the centroids of a collection of geometries
    * @param geometries
    * @param isQueen

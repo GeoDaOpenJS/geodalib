@@ -17,6 +17,7 @@ export * from './geometry/geojson-geometry';
 export * from './geometry/point-layer-geometry';
 export * from './geometry/spatial-dissolve';
 export * from './geometry/spatial-join';
+export * from './geometry/thiessen-polygon';
 export * from './geometry/utils';
 
 export * from './mapping/quantile';
@@ -26,3 +27,9 @@ export * from './mapping/percentile-breaks';
 export * from './mapping/box-breaks';
 export * from './mapping/stddev-breaks';
 export * from './mapping/rates';
+
+export * from './data/deviation';
+export * from './data/mad';
+export * from './data/rangeAdjust';
+export * from './data/rangeStandardize';
+export * from './data/standardize';

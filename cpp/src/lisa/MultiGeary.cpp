@@ -5,7 +5,7 @@
 #include "MultiGeary.h"
 
 #include "weights/geoda-weight.h"
-#include "utils/data.h"
+#include "utils/standardize.h"
 
 MultiGeary::MultiGeary(int num_obs, GeoDaWeight* w, const std::vector<std::vector<double> >& _data,
                        const std::vector<std::vector<bool> >& _undefs, double significance_cutoff, int _nCPUs,

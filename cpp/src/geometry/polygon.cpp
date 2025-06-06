@@ -17,6 +17,13 @@ void Polygon::add(const std::vector<double>& in_x, const std::vector<double>& in
   }
 }
 
+void Polygon::copy(const Polygon& poly) {
+  std::copy(poly.x.begin(), poly.x.end(), std::back_inserter(x));
+  std::copy(poly.y.begin(), poly.y.end(), std::back_inserter(y));
+  std::copy(poly.parts.begin(), poly.parts.end(), std::back_inserter(parts));
+  std::copy(poly.holes.begin(), poly.holes.end(), std::back_inserter(holes));
+}
+
 PolygonCollection::PolygonCollection(const std::vector<double>& in_x, const std::vector<double>& in_y,
                                      const std::vector<unsigned int>& parts, const std::vector<unsigned int>& holes,
                                      const std::vector<unsigned int>& sizes, bool fix_polygon, bool convert_to_UTM)

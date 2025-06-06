@@ -13,6 +13,7 @@ set (CORE_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/point.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/line.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/polygon.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/geometry/thiessen-polygon.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/quantile-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/natural-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/equal-interval-breaks.cpp
@@ -67,6 +68,7 @@ set (GEODA_HEADER_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/point.h
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/line.h
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/polygon.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/geometry/thiessen-polygon.h
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/spatial-join.h
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/spatial-dissolve.h
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/lisa.h

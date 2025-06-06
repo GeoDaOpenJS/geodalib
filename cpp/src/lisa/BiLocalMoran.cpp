@@ -5,7 +5,7 @@
 #include "BiLocalMoran.h"
 
 #include "weights/geoda-weight.h"
-#include "utils/data.h"
+#include "utils/standardize.h"
 
 BiLocalMoran::~BiLocalMoran() {}
 

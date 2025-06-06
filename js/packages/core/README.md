@@ -20,8 +20,10 @@
 - **Cartogram**
 
 ### Data Exploration
-- Standardization
-- MAD (Median Absolute Deviation)
+- Standardization (Z)
+- Standardization (MAD: Median Absolute Deviation)
+- Range adjustment
+- Range standardization
 - PCA (Principal Component Analysis)
 - Diff-in-Diff analysis
 - Spatial lagged variables
@@ -49,7 +51,7 @@
   - Spatial join
 
 - **Other Operations**
-  - Voronoi diagrams
+  - Thiessen polygons
 
 ## Installation
 

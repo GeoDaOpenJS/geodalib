@@ -1,8 +1,8 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "test/data.h"
 #include "weights/weights.h"
+#include "test/data.h"
 
 using namespace testing;
 
