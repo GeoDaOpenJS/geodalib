@@ -130,42 +130,6 @@ const POLYGON_FEATURES: Feature[] = [
   },
 ];
 
-// Test data: Mixed geometry types
-const MIXED_FEATURES: Feature[] = [
-  {
-    type: 'Feature',
-    geometry: { type: 'Point', coordinates: [0, 0] },
-    properties: { id: 1 },
-  },
-  {
-    type: 'Feature',
-    geometry: {
-      type: 'Polygon',
-      coordinates: [
-        [
-          [2, 2],
-          [4, 2],
-          [4, 4],
-          [2, 4],
-          [2, 2],
-        ],
-      ],
-    },
-    properties: { id: 2 },
-  },
-  {
-    type: 'Feature',
-    geometry: {
-      type: 'LineString',
-      coordinates: [
-        [5, 0],
-        [6, 1],
-      ],
-    },
-    properties: { id: 3 },
-  },
-];
-
 // Test data: Real world city coordinates
 const CITY_POINTS: Feature[] = [
   {

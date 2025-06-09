@@ -1,4 +1,4 @@
-import { Feature, LineString } from 'geojson';
+import { Feature } from 'geojson';
 import { initWASM } from '../init';
 import { getGeometryCollection, SpatialGeometry, lineToFeature } from './utils';
 
