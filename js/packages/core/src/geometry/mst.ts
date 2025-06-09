@@ -18,7 +18,7 @@ import { getGeometryCollection, SpatialGeometry, lineToFeature } from './utils';
  * @param geoms - The geometries to get the Minimum Spanning Tree for
  * @returns The Minimum Spanning Tree
  */
-export async function getMST({ geoms }: { geoms: SpatialGeometry }) {
+export async function getMinimumSpanningTree({ geoms }: { geoms: SpatialGeometry }) {
   // Handle empty input
   if (!geoms || (Array.isArray(geoms) && geoms.length === 0)) {
     return [];

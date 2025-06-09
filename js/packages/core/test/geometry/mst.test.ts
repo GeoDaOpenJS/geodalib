@@ -1,5 +1,5 @@
 import { describe, it, expect } from '@jest/globals';
-import { getMST } from '../../src/geometry/mst';
+import { getMinimumSpanningTree } from '../../src/geometry/mst';
 import { Feature, LineString } from 'geojson';
 
 // Test data: Simple point features for basic MST generation
@@ -168,7 +168,7 @@ const CITY_POINTS: Feature[] = [
 
 describe('Minimum Spanning Tree (MST)', () => {
   it('should generate MST for simple point features', async () => {
-    const result = await getMST({ geoms: SIMPLE_POINTS });
+    const result = await getMinimumSpanningTree({ geoms: SIMPLE_POINTS });
 
     // MST should have n-1 edges for n points
     expect(result).toHaveLength(SIMPLE_POINTS.length - 1);
@@ -188,7 +188,7 @@ describe('Minimum Spanning Tree (MST)', () => {
   });
 
   it('should generate MST for grid points', async () => {
-    const result = await getMST({ geoms: GRID_POINTS });
+    const result = await getMinimumSpanningTree({ geoms: GRID_POINTS });
 
     // MST should have n-1 edges for n points
     expect(result).toHaveLength(GRID_POINTS.length - 1);
@@ -213,7 +213,7 @@ describe('Minimum Spanning Tree (MST)', () => {
   });
 
   it('should handle collinear points correctly', async () => {
-    const result = await getMST({ geoms: COLLINEAR_POINTS });
+    const result = await getMinimumSpanningTree({ geoms: COLLINEAR_POINTS });
 
     // MST should have n-1 edges for n points
     expect(result).toHaveLength(COLLINEAR_POINTS.length - 1);
@@ -228,7 +228,7 @@ describe('Minimum Spanning Tree (MST)', () => {
   });
 
   it('should handle polygon features by using their centroids', async () => {
-    const result = await getMST({ geoms: POLYGON_FEATURES });
+    const result = await getMinimumSpanningTree({ geoms: POLYGON_FEATURES });
 
     // MST should have n-1 edges for n polygons
     expect(result).toHaveLength(POLYGON_FEATURES.length - 1);
@@ -246,7 +246,7 @@ describe('Minimum Spanning Tree (MST)', () => {
   });
 
   it('should generate MST for real world city coordinates', async () => {
-    const result = await getMST({ geoms: CITY_POINTS });
+    const result = await getMinimumSpanningTree({ geoms: CITY_POINTS });
 
     // MST should have n-1 edges for n cities
     expect(result).toHaveLength(CITY_POINTS.length - 1);
@@ -265,7 +265,7 @@ describe('Minimum Spanning Tree (MST)', () => {
 
   it('should handle single point input', async () => {
     const singlePoint = [SIMPLE_POINTS[0]];
-    const result = await getMST({ geoms: singlePoint });
+    const result = await getMinimumSpanningTree({ geoms: singlePoint });
 
     // MST of single point should have 0 edges
     expect(result).toHaveLength(0);
@@ -273,7 +273,7 @@ describe('Minimum Spanning Tree (MST)', () => {
 
   it('should handle two points input', async () => {
     const twoPoints = SIMPLE_POINTS.slice(0, 2);
-    const result = await getMST({ geoms: twoPoints });
+    const result = await getMinimumSpanningTree({ geoms: twoPoints });
 
     // MST of two points should have 1 edge
     expect(result).toHaveLength(1);
@@ -286,7 +286,7 @@ describe('Minimum Spanning Tree (MST)', () => {
   });
 
   it('should validate MST properties - connected graph', async () => {
-    const result = await getMST({ geoms: GRID_POINTS });
+    const result = await getMinimumSpanningTree({ geoms: GRID_POINTS });
 
     // MST should be a connected graph
     expect(result).toHaveLength(GRID_POINTS.length - 1);
@@ -305,7 +305,7 @@ describe('Minimum Spanning Tree (MST)', () => {
   });
 
   it('should validate MST properties - minimal total weight', async () => {
-    const result = await getMST({ geoms: SIMPLE_POINTS });
+    const result = await getMinimumSpanningTree({ geoms: SIMPLE_POINTS });
 
     // Calculate total weight
     const totalWeight = result.reduce((sum, feature) => {
@@ -320,7 +320,7 @@ describe('Minimum Spanning Tree (MST)', () => {
   });
 
   it('should handle empty input gracefully', async () => {
-    const result = await getMST({ geoms: [] });
+    const result = await getMinimumSpanningTree({ geoms: [] });
 
     // Empty input should return empty result
     expect(result).toHaveLength(0);
