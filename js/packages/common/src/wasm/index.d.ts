@@ -156,6 +156,14 @@ export class Polygon {
   delete(): void;
 }
 
+export class Line {
+  constructor();
+  getX(): VectorDouble;
+  getY(): VectorDouble;
+  getParts(): VectorUInt;
+  add(arg0: VectorDouble, arg1: VectorDouble): void;
+}
+
 /**
  * Vector class for unsigned integers
  */
@@ -416,6 +424,17 @@ export class VectorPolygon {
 }
 
 /**
+ * Vector class for storing lines
+ */
+export class VectorLine {
+  constructor();
+  push_back(arg0: Line): void;
+  resize(arg0: UnsignedLong, arg1: Line): void;
+  size(): UnsignedLong;
+  get(arg0: UnsignedLong): any;
+}
+
+/**
  * Vector class for storing strings
  */
 export class VectorString {
@@ -672,6 +691,15 @@ export interface GeoDaModule {
    * @returns The Thiessen polygons
    */
   thiessenPolygon(x: VectorDouble, y: VectorDouble): VectorPolygon;
+
+  /**
+   * Calculate the Minimum Spanning Tree
+   * @param x - The centroid x coordinates
+   * @param y - The centroid y coordinates
+   * @param weights - The weights of the edges
+   * @returns The Minimum Spanning Tree
+   */
+  mst(x: VectorDouble, y: VectorDouble, weights: VectorDouble): VectorLine;
 
   /**
    * Calculate the deviation from the mean
@@ -1028,6 +1056,7 @@ export interface GeoDaModule {
   LineCollection: typeof LineCollection;
   PointCollection: typeof PointCollection;
   Polygon: typeof Polygon;
+  Line: typeof Line;
   VectorUInt: typeof VectorUInt;
   VecVecUInt: typeof VecVecUInt;
   VectorInt: typeof VectorInt;
@@ -1035,6 +1064,7 @@ export interface GeoDaModule {
   VectorDouble: typeof VectorDouble;
   VecVecDouble: typeof VecVecDouble;
   VectorPolygon: typeof VectorPolygon;
+  VectorLine: typeof VectorLine;
   VectorString: typeof VectorString;
   LisaResult: typeof LisaResult;
   DiagnosticReport: typeof DiagnosticReport;

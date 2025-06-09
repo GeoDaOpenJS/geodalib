@@ -165,10 +165,11 @@ ThiessenPolygon::ThiessenPolygon(const std::vector<double>& x, const std::vector
       double y0 = (edge_y0 / p) + y_orig_min;
       double x1 = (edge_x1 / p) + x_orig_min;
       double y1 = (edge_y1 / p) + y_orig_min;
-      if (edge_cnt == 0) {
-        x_init = x0;
-        y_init = y0;
-      }
+      // The following code is commented out because it will generate a triangle instead of a polygon
+      // if (edge_cnt == 0) {
+      //   x_init = x0;
+      //   y_init = y0;
+      // }
       pts[edge_cnt].x = x0;
       pts[edge_cnt].y = y0;
 

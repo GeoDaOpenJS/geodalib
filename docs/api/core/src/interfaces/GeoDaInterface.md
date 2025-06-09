@@ -2,7 +2,7 @@
 
 # Interface: GeoDaInterface
 
-Defined in: common/dist/wasm/index.d.ts:667
+Defined in: common/dist/wasm/index.d.ts:686
 
 ## Properties
 
@@ -10,7 +10,7 @@ Defined in: common/dist/wasm/index.d.ts:667
 
 > **DiagnosticReport**: *typeof* `DiagnosticReport`
 
-Defined in: common/dist/wasm/index.d.ts:992
+Defined in: common/dist/wasm/index.d.ts:1068
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: common/dist/wasm/index.d.ts:992
 
 > **GeometryCollection**: *typeof* [`GeometryCollection`](../classes/GeometryCollection.md)
 
-Defined in: common/dist/wasm/index.d.ts:978
+Defined in: common/dist/wasm/index.d.ts:1054
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: common/dist/wasm/index.d.ts:978
 
 > **LineCollection**: *typeof* `LineCollection`
 
-Defined in: common/dist/wasm/index.d.ts:980
+Defined in: common/dist/wasm/index.d.ts:1056
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: common/dist/wasm/index.d.ts:980
 
 > **LisaResult**: *typeof* `LisaResult`
 
-Defined in: common/dist/wasm/index.d.ts:991
+Defined in: common/dist/wasm/index.d.ts:1067
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: common/dist/wasm/index.d.ts:991
 
 > **PointCollection**: *typeof* `PointCollection`
 
-Defined in: common/dist/wasm/index.d.ts:981
+Defined in: common/dist/wasm/index.d.ts:1057
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: common/dist/wasm/index.d.ts:981
 
 > **Polygon**: *typeof* `Polygon`
 
-Defined in: common/dist/wasm/index.d.ts:982
+Defined in: common/dist/wasm/index.d.ts:1058
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: common/dist/wasm/index.d.ts:982
 
 > **PolygonCollection**: *typeof* `PolygonCollection`
 
-Defined in: common/dist/wasm/index.d.ts:979
+Defined in: common/dist/wasm/index.d.ts:1055
 
 ***
 
@@ -66,7 +66,7 @@ Defined in: common/dist/wasm/index.d.ts:979
 
 > **VectorDouble**: *typeof* `VectorDouble`
 
-Defined in: common/dist/wasm/index.d.ts:987
+Defined in: common/dist/wasm/index.d.ts:1063
 
 ***
 
@@ -74,7 +74,7 @@ Defined in: common/dist/wasm/index.d.ts:987
 
 > **VectorInt**: *typeof* `VectorInt`
 
-Defined in: common/dist/wasm/index.d.ts:985
+Defined in: common/dist/wasm/index.d.ts:1061
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: common/dist/wasm/index.d.ts:985
 
 > **VectorPolygon**: *typeof* `VectorPolygon`
 
-Defined in: common/dist/wasm/index.d.ts:989
+Defined in: common/dist/wasm/index.d.ts:1065
 
 ***
 
@@ -90,7 +90,7 @@ Defined in: common/dist/wasm/index.d.ts:989
 
 > **VectorString**: *typeof* `VectorString`
 
-Defined in: common/dist/wasm/index.d.ts:990
+Defined in: common/dist/wasm/index.d.ts:1066
 
 ***
 
@@ -98,7 +98,7 @@ Defined in: common/dist/wasm/index.d.ts:990
 
 > **VectorUInt**: *typeof* `VectorUInt`
 
-Defined in: common/dist/wasm/index.d.ts:983
+Defined in: common/dist/wasm/index.d.ts:1059
 
 ***
 
@@ -106,7 +106,7 @@ Defined in: common/dist/wasm/index.d.ts:983
 
 > **VecVecDouble**: *typeof* `VecVecDouble`
 
-Defined in: common/dist/wasm/index.d.ts:988
+Defined in: common/dist/wasm/index.d.ts:1064
 
 ***
 
@@ -114,7 +114,7 @@ Defined in: common/dist/wasm/index.d.ts:988
 
 > **VecVecInt**: *typeof* `VecVecInt`
 
-Defined in: common/dist/wasm/index.d.ts:986
+Defined in: common/dist/wasm/index.d.ts:1062
 
 ***
 
@@ -122,7 +122,7 @@ Defined in: common/dist/wasm/index.d.ts:986
 
 > **VecVecUInt**: *typeof* `VecVecUInt`
 
-Defined in: common/dist/wasm/index.d.ts:984
+Defined in: common/dist/wasm/index.d.ts:1060
 
 ## Methods
 
@@ -130,7 +130,7 @@ Defined in: common/dist/wasm/index.d.ts:984
 
 > **bivariateLocalMoran**(`data1`, `data2`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`): `LisaResult`
 
-Defined in: common/dist/wasm/index.d.ts:800
+Defined in: common/dist/wasm/index.d.ts:876
 
 Bivariate Local Moran statistics
 
@@ -188,7 +188,7 @@ the last seed
 
 > **boxBreaks**(`data`, `undefs`, `hinge`): `VectorDouble`
 
-Defined in: common/dist/wasm/index.d.ts:763
+Defined in: common/dist/wasm/index.d.ts:839
 
 Box breaks classification: Lower outlier, < 25%, [25-50)%, [50-75)%, >= 75%, Upper outlier
 
@@ -218,11 +218,41 @@ the hinge value, default is 1.5 and could be 3.0
 
 ***
 
+### deviationFromMean()
+
+> **deviationFromMean**(`data`, `undefs`): `VectorDouble`
+
+Defined in: common/dist/wasm/index.d.ts:710
+
+Calculate the deviation from the mean
+
+#### Parameters
+
+##### data
+
+`VectorDouble`
+
+The data values
+
+##### undefs
+
+`VectorUInt`
+
+The undefined values
+
+#### Returns
+
+`VectorDouble`
+
+The deviation from the mean
+
+***
+
 ### dotProduct()
 
 > **dotProduct**(`x`, `y`): `number`
 
-Defined in: common/dist/wasm/index.d.ts:889
+Defined in: common/dist/wasm/index.d.ts:965
 
 #### Parameters
 
@@ -244,7 +274,7 @@ Defined in: common/dist/wasm/index.d.ts:889
 
 > **equalIntervalBreaks**(`k`, `data`, `undefs`?): `VectorDouble`
 
-Defined in: common/dist/wasm/index.d.ts:748
+Defined in: common/dist/wasm/index.d.ts:824
 
 Equal interval breaks classification
 
@@ -278,7 +308,7 @@ the flags of undefined values
 
 > **getDistanceThresholds**(`geometries`, `isMile`): `VectorDouble`
 
-Defined in: common/dist/wasm/index.d.ts:724
+Defined in: common/dist/wasm/index.d.ts:800
 
 get the distance thresholds of a collection of geometries that guarantee 1 nearest neighbors
 
@@ -306,7 +336,7 @@ the unit of distance
 
 > **getDistanceWeights**(`geometries`, `threshold`, `isMile`): `VecVecUInt`
 
-Defined in: common/dist/wasm/index.d.ts:713
+Defined in: common/dist/wasm/index.d.ts:789
 
 get the nearest neighbors of a collection of geometries
 
@@ -340,7 +370,7 @@ the unit of distance
 
 > **getNearestNeighbors**(`geometries`, `k`): `VecVecUInt`
 
-Defined in: common/dist/wasm/index.d.ts:705
+Defined in: common/dist/wasm/index.d.ts:781
 
 get the nearest neighbors of a collection of geometries
 
@@ -368,7 +398,7 @@ the number of nearest neighbors
 
 > **getPointContiguityWeights**(`geometries`, `isQueen`, `precisionThreshold`, `orderOfContiguity`, `includeLowerOrder`): `VecVecUInt`
 
-Defined in: common/dist/wasm/index.d.ts:676
+Defined in: common/dist/wasm/index.d.ts:752
 
 get the contiguity neighbors using the centroids of a collection of geometries
 
@@ -404,7 +434,7 @@ get the contiguity neighbors using the centroids of a collection of geometries
 
 > **getPolygonContiguityWeights**(`geometries`, `isQueen`, `precisionThreshold`, `orderOfContiguity`, `includeLowerOrder`): `VecVecUInt`
 
-Defined in: common/dist/wasm/index.d.ts:692
+Defined in: common/dist/wasm/index.d.ts:768
 
 get the contiguity neighbors of a collection of polygons
 
@@ -440,7 +470,7 @@ get the contiguity neighbors of a collection of polygons
 
 > **linearRegression**(`dep`, `indeps`, `weights`, `weightsValues`, `depName`, `indepNames`, `datasetName`, `depUndefs`, `indepUndefs`): `DiagnosticReport`
 
-Defined in: common/dist/wasm/index.d.ts:903
+Defined in: common/dist/wasm/index.d.ts:979
 
 #### Parameters
 
@@ -508,7 +538,7 @@ The 2D array of 0/1 indicating the undefined values of the independent variables
 
 > **localG**(`data`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`, `isGStar`): `LisaResult`
 
-Defined in: common/dist/wasm/index.d.ts:820
+Defined in: common/dist/wasm/index.d.ts:896
 
 Local Getis-Ord statistics
 
@@ -566,7 +596,7 @@ whether to use G* or G
 
 > **localGeary**(`data`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`): `LisaResult`
 
-Defined in: common/dist/wasm/index.d.ts:839
+Defined in: common/dist/wasm/index.d.ts:915
 
 Local Geary statistics
 
@@ -618,7 +648,7 @@ the last seed
 
 > **localMoran**(`data`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`): `LisaResult`
 
-Defined in: common/dist/wasm/index.d.ts:781
+Defined in: common/dist/wasm/index.d.ts:857
 
 Local Moran statistics
 
@@ -666,11 +696,47 @@ the last seed
 
 ***
 
+### mst()
+
+> **mst**(`x`, `y`, `weights`): `VectorLine`
+
+Defined in: common/dist/wasm/index.d.ts:702
+
+Calculate the Minimum Spanning Tree
+
+#### Parameters
+
+##### x
+
+`VectorDouble`
+
+The centroid x coordinates
+
+##### y
+
+`VectorDouble`
+
+The centroid y coordinates
+
+##### weights
+
+`VectorDouble`
+
+The weights of the edges
+
+#### Returns
+
+`VectorLine`
+
+The Minimum Spanning Tree
+
+***
+
 ### multivariateLocalGeary()
 
 > **multivariateLocalGeary**(`data`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`): `LisaResult`
 
-Defined in: common/dist/wasm/index.d.ts:857
+Defined in: common/dist/wasm/index.d.ts:933
 
 Multivariate Local Geary statistics
 
@@ -722,7 +788,7 @@ the last seed
 
 > **naturalBreaks**(`k`, `data`, `undefs`?): `VectorDouble`
 
-Defined in: common/dist/wasm/index.d.ts:740
+Defined in: common/dist/wasm/index.d.ts:816
 
 Natural Jenks breaks classification
 
@@ -756,7 +822,7 @@ the indices of data that are undefined
 
 > **percentileBreaks**(`data`, `undefs`?): `VectorDouble`
 
-Defined in: common/dist/wasm/index.d.ts:755
+Defined in: common/dist/wasm/index.d.ts:831
 
 Percentile breaks classification: <1%, 1-10%, 10-50%, 50-90%, 90-99%, >99%
 
@@ -784,7 +850,7 @@ the flags of undefined values
 
 > **quantileBreaks**(`k`, `data`, `undefs`?): `VectorDouble`
 
-Defined in: common/dist/wasm/index.d.ts:732
+Defined in: common/dist/wasm/index.d.ts:808
 
 #### Parameters
 
@@ -816,7 +882,7 @@ the indices of data that are undefined
 
 > **quantileLisa**(`k`, `quantile`, `data`, `neighbors`, `undefs`, `significanceCutoff`, `permuations`, `lastSeed`): `LisaResult`
 
-Defined in: common/dist/wasm/index.d.ts:877
+Defined in: common/dist/wasm/index.d.ts:953
 
 Local Quantile LISA statistics
 
@@ -876,11 +942,71 @@ the last seed
 
 ***
 
+### rangeAdjust()
+
+> **rangeAdjust**(`data`, `undefs`): `VectorDouble`
+
+Defined in: common/dist/wasm/index.d.ts:726
+
+Range adjust the data
+
+#### Parameters
+
+##### data
+
+`VectorDouble`
+
+The data values
+
+##### undefs
+
+`VectorUInt`
+
+The undefined values
+
+#### Returns
+
+`VectorDouble`
+
+The range adjusted data
+
+***
+
+### rangeStandardize()
+
+> **rangeStandardize**(`data`, `undefs`): `VectorDouble`
+
+Defined in: common/dist/wasm/index.d.ts:734
+
+Range standardize the data
+
+#### Parameters
+
+##### data
+
+`VectorDouble`
+
+The data values
+
+##### undefs
+
+`VectorUInt`
+
+The undefined values
+
+#### Returns
+
+`VectorDouble`
+
+The range standardized data
+
+***
+
 ### spatialDissolve()
 
 > **spatialDissolve**(`polys`): `Polygon`
 
-Defined in: common/dist/wasm/index.d.ts:976
+Defined in: common/dist/wasm/index.d.ts:1052
 
 Spatial Dissolve of a collection of polygons
 
@@ -904,7 +1030,7 @@ The dissolved polygon
 
 > **spatialError**(`dep`, `indeps`, `weights`, `weightsValues`, `depName`, `indepNames`, `datasetName`, `depUndefs`, `indepUndefs`): `DiagnosticReport`
 
-Defined in: common/dist/wasm/index.d.ts:951
+Defined in: common/dist/wasm/index.d.ts:1027
 
 Spatial Error regression
 
@@ -974,7 +1100,7 @@ The 2D array of 0/1 indicating the undefined values of the independent variables
 
 > **spatialJoin**(`left`, `right`): `VecVecUInt`
 
-Defined in: common/dist/wasm/index.d.ts:969
+Defined in: common/dist/wasm/index.d.ts:1045
 
 Spatial Join of two collections of geometries
 
@@ -1004,7 +1130,7 @@ The indices of the right geometries that are spatially joined to the left geomet
 
 > **spatialLag**(`dep`, `indeps`, `weights`, `weightsValues`, `depName`, `indepNames`, `datasetName`, `depUndefs`, `indepUndefs`): `DiagnosticReport`
 
-Defined in: common/dist/wasm/index.d.ts:927
+Defined in: common/dist/wasm/index.d.ts:1003
 
 Spatial Lag regression
 
@@ -1074,7 +1200,7 @@ The 2D array of 0/1 indicating the undefined values of the independent variables
 
 > **standardDeviationBreaks**(`data`, `undefs`): `VectorDouble`
 
-Defined in: common/dist/wasm/index.d.ts:770
+Defined in: common/dist/wasm/index.d.ts:846
 
 Standard deviation breaks classification
 
@@ -1095,3 +1221,93 @@ the flags of undefined values
 #### Returns
 
 `VectorDouble`
+
+***
+
+### standardize()
+
+> **standardize**(`data`, `undefs`): `VectorDouble`
+
+Defined in: common/dist/wasm/index.d.ts:742
+
+Standardize the data
+
+#### Parameters
+
+##### data
+
+`VectorDouble`
+
+The data values
+
+##### undefs
+
+`VectorUInt`
+
+The undefined values
+
+#### Returns
+
+`VectorDouble`
+
+The standardized data
+
+***
+
+### standardizeMAD()
+
+> **standardizeMAD**(`data`, `undefs`): `VectorDouble`
+
+Defined in: common/dist/wasm/index.d.ts:718
+
+Standardize the data using the Median Absolute Deviation (MAD)
+
+#### Parameters
+
+##### data
+
+`VectorDouble`
+
+The data values
+
+##### undefs
+
+`VectorUInt`
+
+The undefined values
+
+#### Returns
+
+`VectorDouble`
+
+The standardized data
+
+***
+
+### thiessenPolygon()
+
+> **thiessenPolygon**(`x`, `y`): `VectorPolygon`
+
+Defined in: common/dist/wasm/index.d.ts:693
+
+Calculate the Thiessen polygons
+
+#### Parameters
+
+##### x
+
+`VectorDouble`
+
+The centroid x coordinates
+
+##### y
+
+`VectorDouble`
+
+The centroid y coordinates
+
+#### Returns
+
+`VectorPolygon`
+
+The Thiessen polygons

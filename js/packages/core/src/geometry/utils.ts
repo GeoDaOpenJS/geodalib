@@ -1,6 +1,6 @@
 import { BinaryFeatureCollection } from '@loaders.gl/schema';
 import { Feature } from 'geojson';
-import { GeometryCollection, Polygon } from '@geoda/common';
+import { GeometryCollection, Line, Polygon } from '@geoda/common';
 import { getGeometryCollectionFromBinaryGeometries, BinaryGeometryType } from './binary-geometry';
 import { getGeometryCollectionFromGeoJsonFeatures } from './geojson-geometry';
 import {
@@ -320,6 +320,52 @@ export async function polygonToFeature(polygon: Polygon): Promise<Feature> {
       type: 'Feature',
       geometry: {
         type: 'Polygon',
+        coordinates,
+      },
+      properties: {},
+    };
+  }
+}
+
+export async function lineToFeature(line: Line): Promise<Feature> {
+  const xs = line.getX();
+  const ys = line.getY();
+  const parts = line.getParts();
+
+  // For MST, we expect simple LineStrings with just 2 points (start and end)
+  // If there are multiple parts, we'll create a MultiLineString
+  if (parts.size() === 1) {
+    // Simple LineString
+    const coordinates: number[][] = [];
+    const start = parts.get(0);
+    const end = xs.size();
+    for (let j = start; j < end; ++j) {
+      coordinates.push([xs.get(j), ys.get(j)]);
+    }
+    return {
+      type: 'Feature',
+      geometry: {
+        type: 'LineString',
+        coordinates,
+      },
+      properties: {},
+    };
+  } else {
+    // MultiLineString
+    const coordinates: number[][][] = [];
+    for (let i = 0; i < parts.size(); ++i) {
+      const start = parts.get(i);
+      const end = i === parts.size() - 1 ? xs.size() : parts.get(i + 1);
+      const lineCoords: number[][] = [];
+      for (let j = start; j < end; ++j) {
+        lineCoords.push([xs.get(j), ys.get(j)]);
+      }
+      coordinates.push(lineCoords);
+    }
+    return {
+      type: 'Feature',
+      geometry: {
+        type: 'MultiLineString',
         coordinates,
       },
       properties: {},

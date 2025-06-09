@@ -2,7 +2,7 @@
 
 # Enumeration: SpatialJoinGeometryType
 
-Defined in: [core/src/geometry/utils.ts:98](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/geometry/utils.ts#L98)
+Defined in: [core/src/geometry/utils.ts:107](https://github.com/GeoDaCenter/geoda-lib/blob/3f9453a08cf3d7f96b1a0d65d18359804129d8d2/js/packages/core/src/geometry/utils.ts#L107)
 
 ## Enumeration Members
 
@@ -10,7 +10,7 @@ Defined in: [core/src/geometry/utils.ts:98](https://github.com/GeoDaCenter/geoda
 
 > **ArcLayerData**: `"ArcLayerData"`
 
-Defined in: [core/src/geometry/utils.ts:102](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/geometry/utils.ts#L102)
+Defined in: [core/src/geometry/utils.ts:111](https://github.com/GeoDaCenter/geoda-lib/blob/3f9453a08cf3d7f96b1a0d65d18359804129d8d2/js/packages/core/src/geometry/utils.ts#L111)
 
 ***
 
@@ -18,7 +18,7 @@ Defined in: [core/src/geometry/utils.ts:102](https://github.com/GeoDaCenter/geod
 
 > **BinaryFeatureCollection**: `"BinaryFeatureCollection"`
 
-Defined in: [core/src/geometry/utils.ts:100](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/geometry/utils.ts#L100)
+Defined in: [core/src/geometry/utils.ts:109](https://github.com/GeoDaCenter/geoda-lib/blob/3f9453a08cf3d7f96b1a0d65d18359804129d8d2/js/packages/core/src/geometry/utils.ts#L109)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [core/src/geometry/utils.ts:100](https://github.com/GeoDaCenter/geod
 
 > **GeoJsonFeature**: `"GeoJsonFeature"`
 
-Defined in: [core/src/geometry/utils.ts:99](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/geometry/utils.ts#L99)
+Defined in: [core/src/geometry/utils.ts:108](https://github.com/GeoDaCenter/geoda-lib/blob/3f9453a08cf3d7f96b1a0d65d18359804129d8d2/js/packages/core/src/geometry/utils.ts#L108)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [core/src/geometry/utils.ts:99](https://github.com/GeoDaCenter/geoda
 
 > **HexagonIdLayerData**: `"HexagonIdLayerData"`
 
-Defined in: [core/src/geometry/utils.ts:103](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/geometry/utils.ts#L103)
+Defined in: [core/src/geometry/utils.ts:112](https://github.com/GeoDaCenter/geoda-lib/blob/3f9453a08cf3d7f96b1a0d65d18359804129d8d2/js/packages/core/src/geometry/utils.ts#L112)
 
 ***
 
@@ -42,4 +42,4 @@ Defined in: [core/src/geometry/utils.ts:103](https://github.com/GeoDaCenter/geod
 
 > **PointLayerData**: `"PointLayerData"`
 
-Defined in: [core/src/geometry/utils.ts:101](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/geometry/utils.ts#L101)
+Defined in: [core/src/geometry/utils.ts:110](https://github.com/GeoDaCenter/geoda-lib/blob/3f9453a08cf3d7f96b1a0d65d18359804129d8d2/js/packages/core/src/geometry/utils.ts#L110)

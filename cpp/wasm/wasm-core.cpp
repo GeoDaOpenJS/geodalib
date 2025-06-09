@@ -11,6 +11,7 @@
 #include "geometry/spatial-dissolve.h"
 #include "geometry/spatial-join.h"
 #include "geometry/thiessen-polygon.h"
+#include "geometry/mst.h"
 #include "mapping/mapping.h"
 #include "regression/diagnostic-report.h"
 #include "regression/regression.h"
@@ -80,10 +81,19 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
       .function("getParts", &geoda::Polygon::get_parts)
       .function("addPart", &geoda::Polygon::add);
 
+  emscripten::class_<geoda::Line>("Line")
+      .constructor()
+      .function("getX", &geoda::Line::get_x)
+      .function("getY", &geoda::Line::get_y)
+      .function("getParts", &geoda::Line::get_parts)
+      .function("add", &geoda::Line::add);
+
   emscripten::register_vector<geoda::Polygon>("VectorPolygon");
+  emscripten::register_vector<geoda::Line>("VectorLine");
   emscripten::function("spatialJoin", &geoda::spatial_join);
   emscripten::function("spatialDissolve", &geoda::spatial_dissolve);
   emscripten::function("thiessenPolygon", &geoda::thiessen_polygon);
+  emscripten::function("mst", &geoda::mst);
 
   emscripten::function("getNearestNeighbors", &geoda::knearest_neighbors);
   emscripten::function("getDistanceWeights", &geoda::distance_weights);

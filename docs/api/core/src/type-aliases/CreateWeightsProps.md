@@ -4,7 +4,7 @@
 
 > **CreateWeightsProps**: `object`
 
-Defined in: [core/src/weights/utils.ts:8](https://github.com/GeoDaCenter/geoda-lib/blob/9716a45cca9cf3b644d6187deeb842d47f2b7a3a/js/packages/core/src/weights/utils.ts#L8)
+Defined in: [core/src/weights/utils.ts:8](https://github.com/GeoDaCenter/geoda-lib/blob/3f9453a08cf3d7f96b1a0d65d18359804129d8d2/js/packages/core/src/weights/utils.ts#L8)
 
 ## Type declaration
 
@@ -20,8 +20,8 @@ The geometries to create the weights for. See [SpatialGeometry](SpatialGeometry.
 - GeoJSON features: Feature from geojson
 - Binary feature collection: BinaryFeatureCollection from loaders.gl/schema
 - Point layer data: [PointLayerData](PointLayerData.md) from kepler.gl
-- Arc layer data: ArcLayerData from kepler.gl
-- Hexagon id layer data: HexagonIdLayerData from kepler.gl
+- Arc layer data: [ArcLayerData](ArcLayerData.md) from kepler.gl
+- Hexagon id layer data: [HexagonIdLayerData](HexagonIdLayerData.md) from kepler.gl
 
 ### includeLowerOrder?
 
