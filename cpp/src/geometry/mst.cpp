@@ -53,20 +53,21 @@ MST::MST(const std::vector<double>& x, const std::vector<double>& y, std::vector
 
   for (int i = 0; i < mst_edges.size(); i++) {
     const std::pair<int, int>& s_t = mst_edges[i];
-    int source = s_t.first;
-    int target = s_t.second;
-    if (source == target) {
+    int f_idx = s_t.first;
+    int t_idx = s_t.second;
+    if (f_idx == t_idx) {
       continue;
     }
 
-    double cost = distance_matrix_[source][target];
+    double cost =
+        t_idx > f_idx ? distance_matrix_[f_idx][t_idx - f_idx - 1] : distance_matrix_[t_idx][f_idx - t_idx - 1];
 
     std::vector<double> x_coords;
     std::vector<double> y_coords;
-    x_coords.push_back(x_[source]);
-    y_coords.push_back(y_[source]);
-    x_coords.push_back(x_[target]);
-    y_coords.push_back(y_[target]);
+    x_coords.push_back(x_[f_idx]);
+    y_coords.push_back(y_[f_idx]);
+    x_coords.push_back(x_[t_idx]);
+    y_coords.push_back(y_[t_idx]);
 
     this->lines_[i].add(x_coords, y_coords);
     weights.push_back(cost);

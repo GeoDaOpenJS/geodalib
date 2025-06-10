@@ -364,8 +364,6 @@ describe('Spatial Dissolve', () => {
   it('should handle three polygons in the first group', async () => {
     const result = await spatialDissolve(INPUT_POLYGONS_THREE_IN_FIRST_GROUP);
 
-    console.log(JSON.stringify(result));
-
     expect(result).toHaveLength(2);
 
     // Verify the first merged polygon group (indices 0, 1, 4)
