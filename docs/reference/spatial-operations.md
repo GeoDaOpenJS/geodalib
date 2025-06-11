@@ -6,12 +6,12 @@ outline: deep
 
 ## Geometric Operations
 
-- [Centroid](/api/functions/getCentroids)
-- [Buffer](/api/functions/getBuffers)
-- [Spatial Dissolve](/api/functions/spatialDissolve)
-- [Spatial Join](/api/functions/spatialJoin)
+- [Centroid](/api/core/src/functions/getCentroids)
+- [Buffer](/api/core/src/functions/getBuffers)
+- [Spatial Dissolve](/api/core/src/functions/spatialDissolve)
+- [Spatial Join](/api/core/src/functions/spatialJoin)
 
 ## Other Operations
 
-- [Thiessen Polygons](/api/functions/thiessenPolygons)
-- [Minimum Spanning Tree](/api/functions/getMinimumSpanningTree)
+- [Thiessen Polygons](/api/core/src/functions/thiessenPolygons)
+- [Minimum Spanning Tree](/api/core/src/functions/getMinimumSpanningTree)
