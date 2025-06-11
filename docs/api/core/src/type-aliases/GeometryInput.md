@@ -4,7 +4,7 @@
 
 > **GeometryInput**: `object`
 
-Defined in: [core/src/geometry/geojson-geometry.ts:18](https://github.com/GeoDaCenter/geoda-lib/blob/fd732718ef3d9fb5e87d0aa5ef9ee659a7cf3f31/js/packages/core/src/geometry/geojson-geometry.ts#L18)
+Defined in: [core/src/geometry/geojson-geometry.ts:18](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/geometry/geojson-geometry.ts#L18)
 
 The type of the input for getGeometryCollectionFromGeoJson
 

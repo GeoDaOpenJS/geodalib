@@ -4,7 +4,7 @@
 
 > **getGeometryCollection**(`__namedParameters`): `Promise`\<[`GeometryCollection`](../classes/GeometryCollection.md)\>
 
-Defined in: [core/src/geometry/utils.ts:198](https://github.com/GeoDaCenter/geoda-lib/blob/fd732718ef3d9fb5e87d0aa5ef9ee659a7cf3f31/js/packages/core/src/geometry/utils.ts#L198)
+Defined in: [core/src/geometry/utils.ts:198](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/geometry/utils.ts#L198)
 
 Get GeometryCollection from input geometries. The input geometries can be
 1. GeoJSON features

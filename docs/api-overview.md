@@ -33,10 +33,11 @@ outline: deep
 
 ## Data Exploration
 
-- [Standardization](/api/functions/standardization)
-- [MAD](/api/functions/mad)
-- [PCA](/api/functions/pca)
-- [Diff-in-Diff](/api/functions/diff-in-diff)
+- [Standardization (Z-Score)](/api/functions/standardize)
+- [Deviation from Mean](/api/functions/deviationFromMean)
+- [Standardization (MAD)](/api/functions/standardizeMAD)
+- [Range Adjustment](/api/functions/rangeAdjust)
+- [Range Standardization](/api/functions/rangeStandardize)
 - [Spatial Lagged Variable](/api/functions/spatialLag)
 
 
@@ -122,14 +123,14 @@ outline: deep
 
 ### Geometric Operations
 
-- [Centroid](/api/functions/centroid)
-- [Buffer](/api/functions/buffer)
-- [Convex Hull](/api/functions/convexHull)
-- [Spatial Dissolve](/api/functions/dissolve)
+- [Centroid](/api/functions/getCentroids)
+- [Buffer](/api/functions/getBuffers)
+- [Spatial Dissolve](/api/functions/spatialDissolve)
 - [Spatial Join](/api/functions/spatialJoin)
 
 ### Other Operations
 
-- [Voronoi](/api/functions/voronoi)
+- [Thiessen Polygons](/api/functions/thiessenPolygons)
+- [Minimum Spanning Tree](/api/functions/getMinimumSpanningTree)
 
 

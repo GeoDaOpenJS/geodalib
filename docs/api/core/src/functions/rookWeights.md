@@ -4,7 +4,7 @@
 
 > **rookWeights**(`geometries`, `useCentroids`?, `precisionThreshold`?, `orderOfContiguity`?, `includeLowerOrder`?): `Promise`\<[`WeightsMeta`](../type-aliases/WeightsMeta.md)\>
 
-Defined in: [core/src/weights/contiguity-neighbors.ts:256](https://github.com/GeoDaCenter/geoda-lib/blob/fd732718ef3d9fb5e87d0aa5ef9ee659a7cf3f31/js/packages/core/src/weights/contiguity-neighbors.ts#L256)
+Defined in: [core/src/weights/contiguity-neighbors.ts:256](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/weights/contiguity-neighbors.ts#L256)
 
 ## Description
 Create Rook contiguity weights for GeoJSON features.

@@ -1,6 +1,6 @@
 import { describe, it, expect } from '@jest/globals';
 import { spatialDissolve } from '../../src/geometry/spatial-dissolve';
-import { Feature } from 'geojson';
+import { Feature, Polygon, MultiPolygon } from 'geojson';
 
 const INPUT_POLYGONS: Feature[] = [
   {
@@ -37,26 +37,23 @@ const INPUT_POLYGONS: Feature[] = [
   },
 ];
 
-const EXPECTED_RESULT = {
-  features: [
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [2, 1],
-            [2, 0],
-            [1, 0],
-            [0, 0],
-            [0, 1],
-            [2, 1],
-          ],
-        ],
-      },
-      properties: {},
-    },
-  ],
+// Expected result for dissolving two adjacent polygons into one
+const EXPECTED_DISSOLVED_POLYGON = {
+  type: 'Feature',
+  geometry: {
+    type: 'Polygon',
+    coordinates: [
+      [
+        [2, 1],
+        [2, 0],
+        [1, 0],
+        [0, 0],
+        [0, 1],
+        [2, 1],
+      ],
+    ],
+  },
+  properties: {},
 };
 
 const INPUT_POLYGONS_WITH_SEPARATE: Feature[] = [
@@ -79,42 +76,34 @@ const INPUT_POLYGONS_WITH_SEPARATE: Feature[] = [
   },
 ];
 
-const EXPECTED_RESULT_WITH_SEPARATE = {
-  features: [
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [2, 1],
-            [2, 0],
-            [1, 0],
-            [0, 0],
-            [0, 1],
-            [2, 1],
-          ],
+// Expected result for mixed mergeable and separate polygons - should be a MultiPolygon
+const EXPECTED_MIXED_RESULT = {
+  type: 'Feature',
+  geometry: {
+    type: 'MultiPolygon',
+    coordinates: [
+      [
+        [
+          [2, 1],
+          [2, 0],
+          [1, 0],
+          [0, 0],
+          [0, 1],
+          [2, 1],
         ],
-      },
-      properties: {},
-    },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [5, 5],
-            [5, 6],
-            [6, 6],
-            [6, 5],
-            [5, 5],
-          ],
+      ],
+      [
+        [
+          [5, 5],
+          [5, 6],
+          [6, 6],
+          [6, 5],
+          [5, 5],
         ],
-      },
-      properties: {},
-    },
-  ],
+      ],
+    ],
+  },
+  properties: {},
 };
 
 const INPUT_POLYGONS_TWO_GROUPS: Feature[] = [
@@ -137,43 +126,35 @@ const INPUT_POLYGONS_TWO_GROUPS: Feature[] = [
   },
 ];
 
-const EXPECTED_RESULT_TWO_GROUPS = {
-  features: [
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [2, 1],
-            [2, 0],
-            [1, 0],
-            [0, 0],
-            [0, 1],
-            [2, 1],
-          ],
+// Expected result for two groups of merged polygons - should be a MultiPolygon
+const EXPECTED_TWO_GROUPS_RESULT = {
+  type: 'Feature',
+  geometry: {
+    type: 'MultiPolygon',
+    coordinates: [
+      [
+        [
+          [2, 1],
+          [2, 0],
+          [1, 0],
+          [0, 0],
+          [0, 1],
+          [2, 1],
         ],
-      },
-      properties: {},
-    },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [7, 6],
-            [7, 5],
-            [6, 5],
-            [5, 5],
-            [5, 6],
-            [7, 6],
-          ],
+      ],
+      [
+        [
+          [7, 6],
+          [7, 5],
+          [6, 5],
+          [5, 5],
+          [5, 6],
+          [7, 6],
         ],
-      },
-      properties: {},
-    },
-  ],
+      ],
+    ],
+  },
+  properties: {},
 };
 
 const INPUT_POLYGONS_TWO_GROUPS_PLUS_SEPARATE: Feature[] = [
@@ -196,59 +177,44 @@ const INPUT_POLYGONS_TWO_GROUPS_PLUS_SEPARATE: Feature[] = [
   },
 ];
 
-const EXPECTED_RESULT_TWO_GROUPS_PLUS_SEPARATE = {
-  features: [
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [2, 1],
-            [2, 0],
-            [1, 0],
-            [0, 0],
-            [0, 1],
-            [2, 1],
-          ],
+// Expected result for two groups plus separate polygon - should be a MultiPolygon
+const EXPECTED_TWO_GROUPS_PLUS_SEPARATE_RESULT = {
+  type: 'Feature',
+  geometry: {
+    type: 'MultiPolygon',
+    coordinates: [
+      [
+        [
+          [2, 1],
+          [2, 0],
+          [1, 0],
+          [0, 0],
+          [0, 1],
+          [2, 1],
         ],
-      },
-      properties: {},
-    },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [7, 6],
-            [7, 5],
-            [6, 5],
-            [5, 5],
-            [5, 6],
-            [7, 6],
-          ],
+      ],
+      [
+        [
+          [7, 6],
+          [7, 5],
+          [6, 5],
+          [5, 5],
+          [5, 6],
+          [7, 6],
         ],
-      },
-      properties: {},
-    },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [8, 8],
-            [8, 9],
-            [9, 9],
-            [9, 8],
-            [8, 8],
-          ],
+      ],
+      [
+        [
+          [8, 8],
+          [8, 9],
+          [9, 9],
+          [9, 8],
+          [8, 8],
         ],
-      },
-      properties: {},
-    },
-  ],
+      ],
+    ],
+  },
+  properties: {},
 };
 
 const INPUT_POLYGONS_THREE_IN_FIRST_GROUP: Feature[] = [
@@ -271,122 +237,105 @@ const INPUT_POLYGONS_THREE_IN_FIRST_GROUP: Feature[] = [
   },
 ];
 
-const EXPECTED_RESULT_THREE_IN_FIRST_GROUP = {
-  features: [
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [7, 6],
-            [7, 5],
-            [6, 5],
-            [5, 5],
-            [5, 6],
-            [7, 6],
-          ],
+// Expected result for three polygons in first group - should be a MultiPolygon
+const EXPECTED_THREE_IN_FIRST_GROUP_RESULT = {
+  type: 'Feature',
+  geometry: {
+    type: 'MultiPolygon',
+    coordinates: [
+      [
+        [
+          [7, 6],
+          [7, 5],
+          [6, 5],
+          [5, 5],
+          [5, 6],
+          [7, 6],
         ],
-      },
-      properties: {},
-    },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [
-          [
-            [0, 0],
-            [0, 1],
-            [2, 1],
-            [3, 1],
-            [3, 0],
-            [0, 0],
-          ],
+      ],
+      [
+        [
+          [0, 0],
+          [0, 1],
+          [2, 1],
+          [3, 1],
+          [3, 0],
+          [0, 0],
         ],
-      },
-      properties: {},
-    },
-  ],
+      ],
+    ],
+  },
+  properties: {},
 };
 
 describe('Spatial Dissolve', () => {
-  it('should dissolve polygons correctly', async () => {
+  it('should dissolve two adjacent polygons into one polygon', async () => {
     const result = await spatialDissolve(INPUT_POLYGONS);
-    expect(result.dissolvedPolygons).toEqual(EXPECTED_RESULT.features);
+
+    expect(result.type).toBe('Feature');
+    expect(result.geometry.type).toBe('Polygon');
+    expect((result.geometry as Polygon).coordinates).toEqual(
+      EXPECTED_DISSOLVED_POLYGON.geometry.coordinates
+    );
   });
 
-  it('should handle mixed mergeable and separate polygons correctly', async () => {
+  it('should handle mixed mergeable and separate polygons as MultiPolygon', async () => {
     const result = await spatialDissolve(INPUT_POLYGONS_WITH_SEPARATE);
 
-    expect(result.dissolvedPolygons).toHaveLength(2);
+    expect(result.type).toBe('Feature');
+    expect(result.geometry.type).toBe('MultiPolygon');
 
-    // Verify the merged polygon (first two polygons combined)
-    expect(result.dissolvedPolygons[0].geometry).toEqual(
-      EXPECTED_RESULT_WITH_SEPARATE.features[0].geometry
-    );
+    // Check that we have 2 polygons in the MultiPolygon
+    expect((result.geometry as MultiPolygon).coordinates).toHaveLength(2);
 
-    // Verify the separate polygon remains unchanged
-    expect(result.dissolvedPolygons[1].geometry).toEqual(
-      EXPECTED_RESULT_WITH_SEPARATE.features[1].geometry
+    // Verify the geometry coordinates match expected result
+    expect((result.geometry as MultiPolygon).coordinates).toEqual(
+      EXPECTED_MIXED_RESULT.geometry.coordinates
     );
   });
 
-  it('should handle two groups of merged polygons correctly', async () => {
+  it('should handle two groups of merged polygons as MultiPolygon', async () => {
     const result = await spatialDissolve(INPUT_POLYGONS_TWO_GROUPS);
 
-    expect(result.dissolvedPolygons).toHaveLength(2);
+    expect(result.type).toBe('Feature');
+    expect(result.geometry.type).toBe('MultiPolygon');
 
-    // Verify the first merged polygon group (indices 0, 1)
-    expect(result.dissolvedPolygons[0].geometry).toEqual(
-      EXPECTED_RESULT_TWO_GROUPS.features[0].geometry
-    );
+    // Check that we have 2 polygons in the MultiPolygon
+    expect((result.geometry as MultiPolygon).coordinates).toHaveLength(2);
 
-    // Verify the second merged polygon group (indices 2, 3)
-    expect(result.dissolvedPolygons[1].geometry).toEqual(
-      EXPECTED_RESULT_TWO_GROUPS.features[1].geometry
+    // Verify the geometry coordinates match expected result
+    expect((result.geometry as MultiPolygon).coordinates).toEqual(
+      EXPECTED_TWO_GROUPS_RESULT.geometry.coordinates
     );
   });
 
-  it('should handle two groups of merged polygons plus one separate polygon correctly', async () => {
+  it('should handle two groups plus one separate polygon as MultiPolygon', async () => {
     const result = await spatialDissolve(INPUT_POLYGONS_TWO_GROUPS_PLUS_SEPARATE);
 
-    expect(result.dissolvedPolygons).toHaveLength(3);
+    expect(result.type).toBe('Feature');
+    expect(result.geometry.type).toBe('MultiPolygon');
 
-    // Verify the first merged polygon group (indices 0, 1)
-    expect(result.dissolvedPolygons[0].geometry).toEqual(
-      EXPECTED_RESULT_TWO_GROUPS_PLUS_SEPARATE.features[0].geometry
-    );
+    // Check that we have 3 polygons in the MultiPolygon
+    expect((result.geometry as MultiPolygon).coordinates).toHaveLength(3);
 
-    // Verify the second merged polygon group (indices 2, 3)
-    expect(result.dissolvedPolygons[1].geometry).toEqual(
-      EXPECTED_RESULT_TWO_GROUPS_PLUS_SEPARATE.features[1].geometry
-    );
-
-    // Verify the separate polygon remains unchanged (index 4)
-    expect(result.dissolvedPolygons[2].geometry).toEqual(
-      EXPECTED_RESULT_TWO_GROUPS_PLUS_SEPARATE.features[2].geometry
+    // Verify the geometry coordinates match expected result
+    expect((result.geometry as MultiPolygon).coordinates).toEqual(
+      EXPECTED_TWO_GROUPS_PLUS_SEPARATE_RESULT.geometry.coordinates
     );
   });
 
-  it('should handle three polygons in the first group', async () => {
+  it('should handle three polygons in the first group as MultiPolygon', async () => {
     const result = await spatialDissolve(INPUT_POLYGONS_THREE_IN_FIRST_GROUP);
 
-    expect(result.dissolvedPolygons).toHaveLength(2);
+    expect(result.type).toBe('Feature');
+    expect(result.geometry.type).toBe('MultiPolygon');
 
-    // Verify the first merged polygon group (indices 0, 1, 4)
-    expect(result.dissolvedPolygons[0].geometry).toEqual(
-      EXPECTED_RESULT_THREE_IN_FIRST_GROUP.features[0].geometry
+    // Check that we have 2 polygons in the MultiPolygon
+    expect((result.geometry as MultiPolygon).coordinates).toHaveLength(2);
+
+    // Verify the geometry coordinates match expected result
+    expect((result.geometry as MultiPolygon).coordinates).toEqual(
+      EXPECTED_THREE_IN_FIRST_GROUP_RESULT.geometry.coordinates
     );
-
-    // Verify the second merged polygon group (indices 2, 3)
-    expect(result.dissolvedPolygons[1].geometry).toEqual(
-      EXPECTED_RESULT_THREE_IN_FIRST_GROUP.features[1].geometry
-    );
-
-    expect(result.dissolvedGroups).toEqual([
-      [2, 3],
-      [0, 1, 4],
-    ]);
   });
 });

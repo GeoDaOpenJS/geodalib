@@ -4,7 +4,7 @@
 
 > **rangeAdjust**(`data`): `Promise`\<`number`[]\>
 
-Defined in: [core/src/data/rangeAdjust.ts:19](https://github.com/GeoDaCenter/geoda-lib/blob/fd732718ef3d9fb5e87d0aa5ef9ee659a7cf3f31/js/packages/core/src/data/rangeAdjust.ts#L19)
+Defined in: [core/src/data/rangeAdjust.ts:19](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/data/rangeAdjust.ts#L19)
 
 Adjusts the range of data to [0, 1] by subtracting the minimum value
 and dividing by the range (max - min).

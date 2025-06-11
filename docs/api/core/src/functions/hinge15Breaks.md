@@ -4,7 +4,7 @@
 
 > **hinge15Breaks**(`data`): `Promise`\<`number`[]\>
 
-Defined in: [core/src/mapping/box-breaks.ts:48](https://github.com/GeoDaCenter/geoda-lib/blob/fd732718ef3d9fb5e87d0aa5ef9ee659a7cf3f31/js/packages/core/src/mapping/box-breaks.ts#L48)
+Defined in: [core/src/mapping/box-breaks.ts:48](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/box-breaks.ts#L48)
 
 ## Description
 Hinge Box Breaks calculates a list of breakpoints, including the top, bottom, median, and two quartiles of the data, with hinge value 1.5.

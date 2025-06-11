@@ -4,7 +4,7 @@
 
 > **spatialError**(`__namedParameters`): `Promise`\<[`SpatialErrorResult`](../type-aliases/SpatialErrorResult.md)\>
 
-Defined in: [regression/src/regression/spatial-error.ts:49](https://github.com/GeoDaCenter/geoda-lib/blob/fd732718ef3d9fb5e87d0aa5ef9ee659a7cf3f31/js/packages/regression/src/regression/spatial-error.ts#L49)
+Defined in: [regression/src/regression/spatial-error.ts:49](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/regression/src/regression/spatial-error.ts#L49)
 
 ## Parameters
 

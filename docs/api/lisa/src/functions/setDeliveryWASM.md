@@ -4,7 +4,7 @@
 
 > **setDeliveryWASM**(`wasmURL`): `void`
 
-Defined in: [lisa/src/init.ts:27](https://github.com/GeoDaCenter/geoda-lib/blob/fd732718ef3d9fb5e87d0aa5ef9ee659a7cf3f31/js/packages/lisa/src/init.ts#L27)
+Defined in: [lisa/src/init.ts:27](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/lisa/src/init.ts#L27)
 
 ## Parameters
 
