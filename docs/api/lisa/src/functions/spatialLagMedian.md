@@ -4,7 +4,7 @@
 
 > **spatialLagMedian**(`values`, `neighbors`): `number`[]
 
-Defined in: [lisa/src/sa/spatial-lag.ts:82](https://github.com/GeoDaCenter/geoda-lib/blob/3f9453a08cf3d7f96b1a0d65d18359804129d8d2/js/packages/lisa/src/sa/spatial-lag.ts#L82)
+Defined in: [lisa/src/sa/spatial-lag.ts:82](https://github.com/GeoDaCenter/geoda-lib/blob/fd732718ef3d9fb5e87d0aa5ef9ee659a7cf3f31/js/packages/lisa/src/sa/spatial-lag.ts#L82)
 
 Compute the median spatial lag of a list of values based on a list of neighbors and weights using the mean function.
 

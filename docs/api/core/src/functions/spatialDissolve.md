@@ -2,9 +2,9 @@
 
 # Function: spatialDissolve()
 
-> **spatialDissolve**(`polys`): `Promise`\<`Feature`\<`Geometry`, `GeoJsonProperties`\>\>
+> **spatialDissolve**(`polys`): `Promise`\<\{ `dissolvedGroups`: `number`[][]; `dissolvedPolygons`: `Feature`\<`Geometry`, `GeoJsonProperties`\>[]; \}\>
 
-Defined in: [core/src/geometry/spatial-dissolve.ts:19](https://github.com/GeoDaCenter/geoda-lib/blob/3f9453a08cf3d7f96b1a0d65d18359804129d8d2/js/packages/core/src/geometry/spatial-dissolve.ts#L19)
+Defined in: [core/src/geometry/spatial-dissolve.ts:20](https://github.com/GeoDaCenter/geoda-lib/blob/fd732718ef3d9fb5e87d0aa5ef9ee659a7cf3f31/js/packages/core/src/geometry/spatial-dissolve.ts#L20)
 
 Dissolve the polygons by merging them into a single polygon
 
@@ -18,7 +18,7 @@ The polygons to dissolve
 
 ## Returns
 
-`Promise`\<`Feature`\<`Geometry`, `GeoJsonProperties`\>\>
+`Promise`\<\{ `dissolvedGroups`: `number`[][]; `dissolvedPolygons`: `Feature`\<`Geometry`, `GeoJsonProperties`\>[]; \}\>
 
 The dissolved polygon
 
@@ -29,5 +29,5 @@ const polys = [
   { type: 'Feature', geometry: { type: 'Polygon', coordinates: [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]] }, properties: { index: 0 } },
   { type: 'Feature', geometry: { type: 'Polygon', coordinates: [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]] }, properties: { index: 1 } },
 ];
-const dissolved = await spatialDissolve(polys);
+const { dissolvedPolygons, dissolvedGroups } = await spatialDissolve(polys);
 ```

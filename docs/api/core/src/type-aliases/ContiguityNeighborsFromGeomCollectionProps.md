@@ -4,7 +4,7 @@
 
 > **ContiguityNeighborsFromGeomCollectionProps**: `object`
 
-Defined in: [core/src/weights/contiguity-neighbors.ts:88](https://github.com/GeoDaCenter/geoda-lib/blob/3f9453a08cf3d7f96b1a0d65d18359804129d8d2/js/packages/core/src/weights/contiguity-neighbors.ts#L88)
+Defined in: [core/src/weights/contiguity-neighbors.ts:88](https://github.com/GeoDaCenter/geoda-lib/blob/fd732718ef3d9fb5e87d0aa5ef9ee659a7cf3f31/js/packages/core/src/weights/contiguity-neighbors.ts#L88)
 
 Interface for the arguments used in calculating contiguity neighbors from a geometry collection.
 

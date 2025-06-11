@@ -1,4 +1,5 @@
 import { initWASM } from '../init';
+import { spatialJoin } from './spatial-join';
 import { SpatialGeometry, getGeometryCollection } from './utils';
 import { Feature, Polygon } from 'geojson';
 
@@ -13,13 +14,16 @@ import { Feature, Polygon } from 'geojson';
  *   { type: 'Feature', geometry: { type: 'Polygon', coordinates: [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]] }, properties: { index: 0 } },
  *   { type: 'Feature', geometry: { type: 'Polygon', coordinates: [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]] }, properties: { index: 1 } },
  * ];
- * const dissolved = await spatialDissolve(polys);
+ * const { dissolvedPolygons, dissolvedGroups } = await spatialDissolve(polys);
  * ```
  */
-export async function spatialDissolve(polys: SpatialGeometry): Promise<Feature[]> {
+export async function spatialDissolve(
+  polys: SpatialGeometry
+): Promise<{ dissolvedPolygons: Feature[]; dissolvedGroups: number[][] }> {
   const wasm = await initWASM();
 
   const geometryCollection = await getGeometryCollection({ geometries: polys });
+
   const polygon = await wasm.spatialDissolve(geometryCollection);
 
   const xs = polygon.getX();
@@ -88,5 +92,11 @@ export async function spatialDissolve(polys: SpatialGeometry): Promise<Feature[]
     });
   }
 
-  return features;
+  // run spatial join between original polys and dissolved polygons
+  const dissolvedGroupsArray = await spatialJoin({
+    leftGeometries: features,
+    rightGeometries: polys,
+  });
+
+  return { dissolvedPolygons: features, dissolvedGroups: dissolvedGroupsArray };
 }

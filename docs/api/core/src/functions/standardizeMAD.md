@@ -4,7 +4,7 @@
 
 > **standardizeMAD**(`data`): `Promise`\<`number`[]\>
 
-Defined in: [core/src/data/mad.ts:19](https://github.com/GeoDaCenter/geoda-lib/blob/3f9453a08cf3d7f96b1a0d65d18359804129d8d2/js/packages/core/src/data/mad.ts#L19)
+Defined in: [core/src/data/mad.ts:19](https://github.com/GeoDaCenter/geoda-lib/blob/fd732718ef3d9fb5e87d0aa5ef9ee659a7cf3f31/js/packages/core/src/data/mad.ts#L19)
 
 Standardizes data using Mean Absolute Deviation (MAD) normalization.
 

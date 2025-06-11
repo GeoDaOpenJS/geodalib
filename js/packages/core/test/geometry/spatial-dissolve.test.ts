@@ -313,50 +313,58 @@ const EXPECTED_RESULT_THREE_IN_FIRST_GROUP = {
 describe('Spatial Dissolve', () => {
   it('should dissolve polygons correctly', async () => {
     const result = await spatialDissolve(INPUT_POLYGONS);
-    expect(result).toEqual(EXPECTED_RESULT.features);
+    expect(result.dissolvedPolygons).toEqual(EXPECTED_RESULT.features);
   });
 
   it('should handle mixed mergeable and separate polygons correctly', async () => {
     const result = await spatialDissolve(INPUT_POLYGONS_WITH_SEPARATE);
 
-    expect(result).toHaveLength(2);
+    expect(result.dissolvedPolygons).toHaveLength(2);
 
     // Verify the merged polygon (first two polygons combined)
-    expect(result[0].geometry).toEqual(EXPECTED_RESULT_WITH_SEPARATE.features[0].geometry);
+    expect(result.dissolvedPolygons[0].geometry).toEqual(
+      EXPECTED_RESULT_WITH_SEPARATE.features[0].geometry
+    );
 
     // Verify the separate polygon remains unchanged
-    expect(result[1].geometry).toEqual(EXPECTED_RESULT_WITH_SEPARATE.features[1].geometry);
+    expect(result.dissolvedPolygons[1].geometry).toEqual(
+      EXPECTED_RESULT_WITH_SEPARATE.features[1].geometry
+    );
   });
 
   it('should handle two groups of merged polygons correctly', async () => {
     const result = await spatialDissolve(INPUT_POLYGONS_TWO_GROUPS);
 
-    expect(result).toHaveLength(2);
+    expect(result.dissolvedPolygons).toHaveLength(2);
 
     // Verify the first merged polygon group (indices 0, 1)
-    expect(result[0].geometry).toEqual(EXPECTED_RESULT_TWO_GROUPS.features[0].geometry);
+    expect(result.dissolvedPolygons[0].geometry).toEqual(
+      EXPECTED_RESULT_TWO_GROUPS.features[0].geometry
+    );
 
     // Verify the second merged polygon group (indices 2, 3)
-    expect(result[1].geometry).toEqual(EXPECTED_RESULT_TWO_GROUPS.features[1].geometry);
+    expect(result.dissolvedPolygons[1].geometry).toEqual(
+      EXPECTED_RESULT_TWO_GROUPS.features[1].geometry
+    );
   });
 
   it('should handle two groups of merged polygons plus one separate polygon correctly', async () => {
     const result = await spatialDissolve(INPUT_POLYGONS_TWO_GROUPS_PLUS_SEPARATE);
 
-    expect(result).toHaveLength(3);
+    expect(result.dissolvedPolygons).toHaveLength(3);
 
     // Verify the first merged polygon group (indices 0, 1)
-    expect(result[0].geometry).toEqual(
+    expect(result.dissolvedPolygons[0].geometry).toEqual(
       EXPECTED_RESULT_TWO_GROUPS_PLUS_SEPARATE.features[0].geometry
     );
 
     // Verify the second merged polygon group (indices 2, 3)
-    expect(result[1].geometry).toEqual(
+    expect(result.dissolvedPolygons[1].geometry).toEqual(
       EXPECTED_RESULT_TWO_GROUPS_PLUS_SEPARATE.features[1].geometry
     );
 
     // Verify the separate polygon remains unchanged (index 4)
-    expect(result[2].geometry).toEqual(
+    expect(result.dissolvedPolygons[2].geometry).toEqual(
       EXPECTED_RESULT_TWO_GROUPS_PLUS_SEPARATE.features[2].geometry
     );
   });
@@ -364,12 +372,21 @@ describe('Spatial Dissolve', () => {
   it('should handle three polygons in the first group', async () => {
     const result = await spatialDissolve(INPUT_POLYGONS_THREE_IN_FIRST_GROUP);
 
-    expect(result).toHaveLength(2);
+    expect(result.dissolvedPolygons).toHaveLength(2);
 
     // Verify the first merged polygon group (indices 0, 1, 4)
-    expect(result[0].geometry).toEqual(EXPECTED_RESULT_THREE_IN_FIRST_GROUP.features[0].geometry);
+    expect(result.dissolvedPolygons[0].geometry).toEqual(
+      EXPECTED_RESULT_THREE_IN_FIRST_GROUP.features[0].geometry
+    );
 
     // Verify the second merged polygon group (indices 2, 3)
-    expect(result[1].geometry).toEqual(EXPECTED_RESULT_THREE_IN_FIRST_GROUP.features[1].geometry);
+    expect(result.dissolvedPolygons[1].geometry).toEqual(
+      EXPECTED_RESULT_THREE_IN_FIRST_GROUP.features[1].geometry
+    );
+
+    expect(result.dissolvedGroups).toEqual([
+      [2, 3],
+      [0, 1, 4],
+    ]);
   });
 });

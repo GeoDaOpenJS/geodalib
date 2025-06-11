@@ -10,7 +10,7 @@ Defined in: common/dist/wasm/index.d.ts:686
 
 > **DiagnosticReport**: *typeof* `DiagnosticReport`
 
-Defined in: common/dist/wasm/index.d.ts:1068
+Defined in: common/dist/wasm/index.d.ts:1070
 
 ***
 
@@ -19,6 +19,14 @@ Defined in: common/dist/wasm/index.d.ts:1068
 > **GeometryCollection**: *typeof* [`GeometryCollection`](../classes/GeometryCollection.md)
 
 Defined in: common/dist/wasm/index.d.ts:1054
+
+***
+
+### Line
+
+> **Line**: *typeof* `Line`
+
+Defined in: common/dist/wasm/index.d.ts:1059
 
 ***
 
@@ -34,7 +42,7 @@ Defined in: common/dist/wasm/index.d.ts:1056
 
 > **LisaResult**: *typeof* `LisaResult`
 
-Defined in: common/dist/wasm/index.d.ts:1067
+Defined in: common/dist/wasm/index.d.ts:1069
 
 ***
 
@@ -66,7 +74,7 @@ Defined in: common/dist/wasm/index.d.ts:1055
 
 > **VectorDouble**: *typeof* `VectorDouble`
 
-Defined in: common/dist/wasm/index.d.ts:1063
+Defined in: common/dist/wasm/index.d.ts:1064
 
 ***
 
@@ -74,7 +82,15 @@ Defined in: common/dist/wasm/index.d.ts:1063
 
 > **VectorInt**: *typeof* `VectorInt`
 
-Defined in: common/dist/wasm/index.d.ts:1061
+Defined in: common/dist/wasm/index.d.ts:1062
+
+***
+
+### VectorLine
+
+> **VectorLine**: *typeof* `VectorLine`
+
+Defined in: common/dist/wasm/index.d.ts:1067
 
 ***
 
@@ -82,7 +98,7 @@ Defined in: common/dist/wasm/index.d.ts:1061
 
 > **VectorPolygon**: *typeof* `VectorPolygon`
 
-Defined in: common/dist/wasm/index.d.ts:1065
+Defined in: common/dist/wasm/index.d.ts:1066
 
 ***
 
@@ -90,7 +106,7 @@ Defined in: common/dist/wasm/index.d.ts:1065
 
 > **VectorString**: *typeof* `VectorString`
 
-Defined in: common/dist/wasm/index.d.ts:1066
+Defined in: common/dist/wasm/index.d.ts:1068
 
 ***
 
@@ -98,7 +114,7 @@ Defined in: common/dist/wasm/index.d.ts:1066
 
 > **VectorUInt**: *typeof* `VectorUInt`
 
-Defined in: common/dist/wasm/index.d.ts:1059
+Defined in: common/dist/wasm/index.d.ts:1060
 
 ***
 
@@ -106,7 +122,7 @@ Defined in: common/dist/wasm/index.d.ts:1059
 
 > **VecVecDouble**: *typeof* `VecVecDouble`
 
-Defined in: common/dist/wasm/index.d.ts:1064
+Defined in: common/dist/wasm/index.d.ts:1065
 
 ***
 
@@ -114,7 +130,7 @@ Defined in: common/dist/wasm/index.d.ts:1064
 
 > **VecVecInt**: *typeof* `VecVecInt`
 
-Defined in: common/dist/wasm/index.d.ts:1062
+Defined in: common/dist/wasm/index.d.ts:1063
 
 ***
 
@@ -122,7 +138,7 @@ Defined in: common/dist/wasm/index.d.ts:1062
 
 > **VecVecUInt**: *typeof* `VecVecUInt`
 
-Defined in: common/dist/wasm/index.d.ts:1060
+Defined in: common/dist/wasm/index.d.ts:1061
 
 ## Methods
 

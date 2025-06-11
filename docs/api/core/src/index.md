@@ -70,6 +70,7 @@
 - [getLength](functions/getLength.md)
 - [getLineCollection](functions/getLineCollection.md)
 - [getMetaFromWeights](functions/getMetaFromWeights.md)
+- [getMinimumSpanningTree](functions/getMinimumSpanningTree.md)
 - [getNearestNeighborsFromBinaryGeometries](functions/getNearestNeighborsFromBinaryGeometries.md)
 - [getNearestNeighborsFromGeomCollection](functions/getNearestNeighborsFromGeomCollection.md)
 - [getPerimeter](functions/getPerimeter.md)
