@@ -2,9 +2,14 @@
 #define GEODA_GEOMETRY_CARTOMAP_H
 
 #include <algorithm>
+#include <iomanip>  // for std::setprecision
 #include <iostream>
+#include <limits>  // for std::numeric_limits
 #include <vector>
+#include <cmath>  // for std::exp
+#include <memory>  // for std::unique_ptr
 
+#include "utils/standardize.h"
 #include "weights/gal.h"
 #include "weights/weights.h"
 
@@ -108,78 +113,94 @@ class Cartogram {
 
 inline CartogramResult cartogram(const GeometryCollection& geoms, const std::vector<double>& values, int iterations) {
   if (geoms.size() == 0 || geoms.size() != values.size()) {
-    // return empty vectors
     return CartogramResult{};
   }
 
-  int num_obs = geoms.size();
-  double data_min = *std::min_element(values.begin(), values.end());
-  double data_max = *std::max_element(values.begin(), values.end());
+  const int num_obs = static_cast<int>(geoms.size());
 
-  // create queen contiguity weights
+  // Pre-allocate vectors to avoid reallocations
+  std::vector<double> standardized_values(num_obs);
+  std::vector<double> x(num_obs);
+  std::vector<double> y(num_obs);
+
+  // Standardize values in a single pass
+  double sum = 0.0, sum_sq = 0.0;
+  for (int i = 0; i < num_obs; ++i) {
+    sum += values[i];
+    sum_sq += values[i] * values[i];
+  }
+  double mean = sum / num_obs;
+  double std_dev = std::sqrt((sum_sq / num_obs) - (mean * mean));
+
+  // Apply standardization and exponential transformation in one pass
+  double data_min = std::numeric_limits<double>::max();
+  double data_max = std::numeric_limits<double>::lowest();
+  for (int i = 0; i < num_obs; ++i) {
+    standardized_values[i] = std::exp((values[i] - mean) / std_dev);
+    data_min = std::min(data_min, standardized_values[i]);
+    data_max = std::max(data_max, standardized_values[i]);
+  }
+
+  // Create queen contiguity weights more efficiently
   bool is_queen = true;
   std::vector<std::vector<unsigned int>> nbrs = geoda::point_contiguity_weights(geoms, is_queen, 0.0);
-  GalElement* gal = new GalElement[num_obs];
+  std::unique_ptr<GalElement[]> gal(new GalElement[num_obs]);
   for (int i = 0; i < num_obs; i++) {
     gal[i].SetSizeNbrs(nbrs[i].size());
-    for (int j = 0; j < nbrs[i].size(); j++) {
-      if (nbrs[i][j] != i) {
+    for (size_t j = 0; j < nbrs[i].size(); j++) {
+      if (nbrs[i][j] != static_cast<unsigned int>(i)) {
         gal[i].SetNbr(j, nbrs[i][j]);
       }
     }
   }
 
-  // get centroids from geoms
-  std::vector<double> x(num_obs);
-  std::vector<double> y(num_obs);
+  // Get centroids more efficiently
   std::vector<std::vector<double>> cent = geoms.get_centroids();
   for (int i = 0; i < num_obs; i++) {
     x[i] = cent[i][0];
     y[i] = cent[i][1];
   }
 
-  // get original bounding box
-  double xmin = *std::min_element(x.begin(), x.end());
-  double xmax = *std::max_element(x.begin(), x.end());
-  double ymin = *std::min_element(y.begin(), y.end());
-  double ymax = *std::max_element(y.begin(), y.end());
+  // Calculate bounding box in a single pass
+  double xmin = x[0], xmax = x[0], ymin = y[0], ymax = y[0];
+  for (int i = 1; i < num_obs; i++) {
+    xmin = std::min(xmin, x[i]);
+    xmax = std::max(xmax, x[i]);
+    ymin = std::min(ymin, y[i]);
+    ymax = std::max(ymax, y[i]);
+  }
 
-  CartogramNeighbor* nbs = new CartogramNeighbor(gal, num_obs);
-  Cartogram* cart = new Cartogram(nbs, x, y, values, data_min, data_max);
+  std::unique_ptr<CartogramNeighbor> nbs(new CartogramNeighbor(gal.get(), num_obs));
+  std::unique_ptr<Cartogram> cart(new Cartogram(nbs.get(), x, y, standardized_values, data_min, data_max));
+
   cart->improve(iterations > 0 ? iterations : 100);
 
-  // reproject the cartogram to the original bounding box
-  double output_xmin = *std::min_element(cart->output_x.begin(), cart->output_x.end());
-  double output_xmax = *std::max_element(cart->output_x.begin(), cart->output_x.end());
-  double output_ymin = *std::min_element(cart->output_y.begin(), cart->output_y.end());
-  double output_ymax = *std::max_element(cart->output_y.begin(), cart->output_y.end());
-  double output_radius_min = *std::min_element(cart->output_radius.begin(), cart->output_radius.end());
-  double output_radius_max = *std::max_element(cart->output_radius.begin(), cart->output_radius.end());
-
+  // Pre-allocate result vectors
   std::vector<double> x_reproj(num_obs);
   std::vector<double> y_reproj(num_obs);
   std::vector<double> radius_reproj(num_obs);
 
-  // Calculate center points
-  double orig_center_x = (xmax + xmin) / 2.0;
-  double orig_center_y = (ymax + ymin) / 2.0;
-  double output_center_x = (output_xmax + output_xmin) / 2.0;
-  double output_center_y = (output_ymax + output_ymin) / 2.0;
-
-  // Calculate scale factors
-  double x_scale = (output_xmax - output_xmin) / (xmax - xmin);
-  double y_scale = (output_ymax - output_ymin) / (ymax - ymin);
-  double scale = std::min(x_scale, y_scale);  // Use single scale to preserve aspect ratio
-
   if (num_obs > 1) {
-    for (int i = 0; i < num_obs; i++) {
-      // Center around origin, scale, then translate back
-      x_reproj[i] = ((cart->output_x[i] - output_center_x) / scale) + orig_center_x;
-      y_reproj[i] = ((cart->output_y[i] - output_center_y) / scale) + orig_center_y;
+    // Calculate output bounds in a single pass
+    double output_xmin = cart->output_x[0], output_xmax = cart->output_x[0];
+    double output_ymin = cart->output_y[0], output_ymax = cart->output_y[0];
+    for (int i = 1; i < num_obs; i++) {
+      output_xmin = std::min(output_xmin, cart->output_x[i]);
+      output_xmax = std::max(output_xmax, cart->output_x[i]);
+      output_ymin = std::min(output_ymin, cart->output_y[i]);
+      output_ymax = std::max(output_ymax, cart->output_y[i]);
+    }
 
-      // Scale radius to maintain same units as x,y coordinates
-      double radius_scale = (output_xmax - output_xmin) / (xmax - xmin);
-      radius_reproj[i] = cart->output_radius[i] / radius_scale;
+    // Calculate scale factors
+    double x_scale = (output_xmax - output_xmin) / (xmax - xmin);
+    double y_scale = (output_ymax - output_ymin) / (ymax - ymin);
+    double scale = std::max(x_scale, y_scale);
+
+    // Apply reprojection in a single pass
+    for (int i = 0; i < num_obs; i++) {
+      x_reproj[i] = xmin + (cart->output_x[i] - output_xmin) / scale;
+      y_reproj[i] = ymin + (cart->output_y[i] - output_ymin) / scale;
+      radius_reproj[i] = cart->output_radius[i] / scale;
     }
   } else {
     x_reproj[0] = cent[0][0];
@@ -187,16 +208,7 @@ inline CartogramResult cartogram(const GeometryCollection& geoms, const std::vec
     radius_reproj[0] = cart->output_radius[0];
   }
 
-  CartogramResult result;
-  result.x = x_reproj;
-  result.y = y_reproj;
-  result.radius = radius_reproj;
-
-  delete cart;
-  delete nbs;
-  delete[] gal;
-
-  return result;
+  return CartogramResult{x_reproj, y_reproj, radius_reproj};
 }
 }  // namespace geoda
 

@@ -1,6 +1,7 @@
 #include "geometry/cartogram.h"
 
 #include <cmath>
+#include <iostream>
 
 namespace geoda {
 
@@ -154,6 +155,7 @@ void Cartogram::init_cartogram(const std::vector<double>& orig_x, const std::vec
   double min = orig_data_min;
   double max = orig_data_max;
   double range = max - min;
+
   for (int i = 0, its = orig_data.size(); i < its; i++) people[i + 1] = orig_data[i];
   if (min < 0) {
     double d = -min;

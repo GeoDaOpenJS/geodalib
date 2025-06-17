@@ -42,8 +42,8 @@ class CartogramTest : public ::testing::Test {
 
     // Set up a grid of points
     for (int i = 0; i < num_obs; i++) {
-      orig_x[i] = (i % 3) * 100.0;      // x coordinates: 0, 100, 200
-      orig_y[i] = (i / 3) * 100.0;      // y coordinates: 0, 100, 200
+      orig_x[i] = (i % 3) * 0.1;      // x coordinates: 0, 0.1, 0.2
+      orig_y[i] = (i / 3) * 0.1;      // y coordinates: 0, 0.1, 0.2
       orig_data[i] = 100.0 + i * 10.0;  // varying population data
     }
 

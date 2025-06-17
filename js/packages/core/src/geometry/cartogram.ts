@@ -1,8 +1,6 @@
 import { getGeometryCollection, SpatialGeometry } from './utils';
 import { initWASM } from '../init';
 import { Feature } from 'geojson';
-import { getBuffers } from './buffer';
-import { DistanceUnit } from '@geoda/common';
 
 /**
  * Get a cartogram of the given geometries and values.
@@ -13,7 +11,6 @@ import { DistanceUnit } from '@geoda/common';
  * @param geoms The geometries to get the cartogram of
  * @param values The values to use for the cartogram
  * @param iterations The number of iterations to run the cartogram algorithm
- * @param radiusCompensation The compensation factor for the radius. This is used to compensate for the fact that the radius is in the unit of degrees, but we want to use it in the unit of kilometers.
  * @param numberOfPointsPerCircle The number of points per circle. This is used to control the granularity of the buffers.
  * @returns The cartogram as a GeoJSON FeatureCollection
  */
@@ -21,7 +18,6 @@ export async function getCartogram(
   geoms: SpatialGeometry,
   values: number[],
   iterations: number = 100,
-  radiusCompensation: number = 1.0,
   numberOfPointsPerCircle: number = 30
 ): Promise<Feature[]> {
   const wasm = await initWASM();
@@ -52,30 +48,29 @@ export async function getCartogram(
       radius = values[i];
     }
 
-    // Convert radius from degrees to kilometers using Haversine formula
-    // At the equator, 1 degree is approximately 111.32 km
-    const radiusInKM = radius * 111.32 * radiusCompensation;
+    // create a circle with radius radius at lng, lat using 20 points on the circle and connect the points to form a polygon
+    const points = [];
+    for (let i = 0; i < numberOfPointsPerCircle; i++) {
+      const angle = (i / numberOfPointsPerCircle) * 2 * Math.PI;
+      const x = lng + radius * Math.cos(angle);
+      const y = lat + radius * Math.sin(angle);
+      points.push([x, y]);
+    }
+    // close the polygon
+    points.push(points[0]);
 
     const feature: Feature = {
       type: 'Feature',
       geometry: {
-        type: 'Point',
-        coordinates: [lng, lat],
+        type: 'Polygon',
+        coordinates: [points],
       },
       properties: {
         radius,
       },
     };
 
-    // do a buffer with the radius in meters for every point
-    const buffer = await getBuffers({
-      geoms: [feature],
-      bufferDistance: radiusInKM,
-      distanceUnit: DistanceUnit.KM,
-      pointsPerCircle: numberOfPointsPerCircle,
-    });
-
-    features.push(numberOfPoints > 1 ? buffer[0] : feature);
+    features.push(feature);
   }
 
   return features;

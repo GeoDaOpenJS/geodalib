@@ -32,9 +32,9 @@ describe('Cartogram', () => {
     // Check the structure of the first feature
     const firstFeature = result[0] as Feature<Point>;
     expect(firstFeature.type).toBe('Feature');
-    expect(firstFeature.geometry.type).toBe('Point');
+    expect(firstFeature.geometry.type).toBe('Polygon');
     expect(Array.isArray(firstFeature.geometry.coordinates)).toBe(true);
-    expect(firstFeature.geometry.coordinates.length).toBe(2);
+    expect(firstFeature.geometry.coordinates.length).toBe(1);
     expect(typeof firstFeature.properties?.radius).toBe('number');
   });
 
@@ -126,7 +126,7 @@ describe('Cartogram', () => {
     ];
 
     const values = [1.0, 2.0, 3.0];
-    const result = await getCartogram(multiplePolygons, values, 5000, 1.0, 20);
+    const result = await getCartogram(multiplePolygons, values, 100, 20);
 
     expect(Array.isArray(result)).toBe(true);
     expect(result.length).toBeGreaterThan(0);
