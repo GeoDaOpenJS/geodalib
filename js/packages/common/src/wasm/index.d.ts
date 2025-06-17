@@ -683,6 +683,15 @@ export class DiagnosticReport {
   GetSDevY(): number;
 }
 
+/**
+ * The result of the Cartogram
+ */
+export class CartogramResult {
+  getX(): VectorDouble;
+  getY(): VectorDouble;
+  getRadius(): VectorDouble;
+}
+
 export interface GeoDaModule {
   /**
    * Calculate the Thiessen polygons
@@ -700,6 +709,15 @@ export interface GeoDaModule {
    * @returns The Minimum Spanning Tree
    */
   mst(x: VectorDouble, y: VectorDouble, weights: VectorDouble): VectorLine;
+
+  /**
+   * Calculate the Cartogram
+   * @param geoms - The collection of geometries
+   * @param values - The values to be used for the cartogram
+   * @param iterations - The number of iterations to run the cartogram
+   * @returns The Cartogram
+   */
+  cartogram(geoms: GeometryCollection, values: VectorDouble, iterations: number): CartogramResult;
 
   /**
    * Calculate the deviation from the mean

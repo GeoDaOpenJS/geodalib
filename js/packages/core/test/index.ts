@@ -4,6 +4,7 @@ import './geometry/spatial-dissolve.test';
 import './geometry/centroid.test';
 import './geometry/buffer.test';
 import './geometry/attributes.test';
+import './geometry/cartogram.test';
 
 import './weights/contiguity-neighbors.test';
 import './weights/nearest-neighbors.test';

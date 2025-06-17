@@ -15,6 +15,7 @@ set (CORE_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/polygon.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/thiessen-polygon.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/mst.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/geometry/cartogram.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/quantile-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/natural-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/equal-interval-breaks.cpp
@@ -73,6 +74,7 @@ set (GEODA_HEADER_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/mst.h
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/spatial-join.h
     ${CMAKE_CURRENT_SOURCE_DIR}/geometry/spatial-dissolve.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/geometry/cartogram.h
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/lisa.h
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/weights.h
     ${CMAKE_CURRENT_SOURCE_DIR}/weights/gal.h

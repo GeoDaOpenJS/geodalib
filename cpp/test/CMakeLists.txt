@@ -7,7 +7,8 @@ set(TEST_SOURCE_FILES
     test_deviation.cpp
     test_range_adjust.cpp
     test_range_standardize.cpp
-    test_thiessen_polygon.cpp)
+    test_thiessen_polygon.cpp
+    test_cartogram.cpp)
 
 add_executable(runUnitTests ${TEST_SOURCE_FILES})
 add_compile_definitions(BOOST_NO_CXX98_FUNCTION_BASE)

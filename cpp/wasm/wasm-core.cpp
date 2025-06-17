@@ -4,24 +4,25 @@
 
 #include <iostream>
 
+#include "geometry/cartogram.h"
 #include "geometry/geometry.h"
 #include "geometry/line.h"
+#include "geometry/mst.h"
 #include "geometry/point.h"
 #include "geometry/polygon.h"
 #include "geometry/spatial-dissolve.h"
 #include "geometry/spatial-join.h"
 #include "geometry/thiessen-polygon.h"
-#include "geometry/mst.h"
 #include "mapping/mapping.h"
 #include "regression/diagnostic-report.h"
 #include "regression/regression.h"
 #include "sa/lisa-api.h"
-#include "weights/weights.h"
 #include "utils/deviation.h"
 #include "utils/mad.h"
 #include "utils/range_adjust.h"
 #include "utils/range_standardize.h"
 #include "utils/standardize.h"
+#include "weights/weights.h"
 
 template <typename T>
 emscripten::class_<std::vector<T>> register_vector_with_smart_ptrs(const char* name) {
@@ -88,12 +89,18 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
       .function("getParts", &geoda::Line::get_parts)
       .function("add", &geoda::Line::add);
 
+  emscripten::class_<geoda::CartogramResult>("CartogramResult")
+      .function("getX", &geoda::CartogramResult::get_x)
+      .function("getY", &geoda::CartogramResult::get_y)
+      .function("getRadius", &geoda::CartogramResult::get_radius);
+
   emscripten::register_vector<geoda::Polygon>("VectorPolygon");
   emscripten::register_vector<geoda::Line>("VectorLine");
   emscripten::function("spatialJoin", &geoda::spatial_join);
   emscripten::function("spatialDissolve", &geoda::spatial_dissolve);
   emscripten::function("thiessenPolygon", &geoda::thiessen_polygon);
   emscripten::function("mst", &geoda::mst);
+  emscripten::function("cartogram", &geoda::cartogram);
 
   emscripten::function("getNearestNeighbors", &geoda::knearest_neighbors);
   emscripten::function("getDistanceWeights", &geoda::distance_weights);
