@@ -22,7 +22,7 @@ export async function getCartogram(
   values: number[],
   iterations: number = 100,
   radiusCompensation: number = 1.0,
-  numberOfPointsPerCircle: number = 20
+  numberOfPointsPerCircle: number = 30
 ): Promise<Feature[]> {
   const wasm = await initWASM();
 

@@ -117,13 +117,15 @@ inline CartogramResult cartogram(const GeometryCollection& geoms, const std::vec
   double data_max = *std::max_element(values.begin(), values.end());
 
   // create queen contiguity weights
-  bool is_queen = num_obs > 2 ? false : true;
+  bool is_queen = true;
   std::vector<std::vector<unsigned int>> nbrs = geoda::point_contiguity_weights(geoms, is_queen, 0.0);
   GalElement* gal = new GalElement[num_obs];
   for (int i = 0; i < num_obs; i++) {
     gal[i].SetSizeNbrs(nbrs[i].size());
     for (int j = 0; j < nbrs[i].size(); j++) {
-      gal[i].SetNbr(j, nbrs[i][j]);
+      if (nbrs[i][j] != i) {
+        gal[i].SetNbr(j, nbrs[i][j]);
+      }
     }
   }
 
@@ -151,22 +153,33 @@ inline CartogramResult cartogram(const GeometryCollection& geoms, const std::vec
   double output_xmax = *std::max_element(cart->output_x.begin(), cart->output_x.end());
   double output_ymin = *std::min_element(cart->output_y.begin(), cart->output_y.end());
   double output_ymax = *std::max_element(cart->output_y.begin(), cart->output_y.end());
-  double output_data_min = *std::min_element(cart->output_radius.begin(), cart->output_radius.end());
+  double output_radius_min = *std::min_element(cart->output_radius.begin(), cart->output_radius.end());
+  double output_radius_max = *std::max_element(cart->output_radius.begin(), cart->output_radius.end());
 
   std::vector<double> x_reproj(num_obs);
   std::vector<double> y_reproj(num_obs);
   std::vector<double> radius_reproj(num_obs);
 
+  // Calculate center points
+  double orig_center_x = (xmax + xmin) / 2.0;
+  double orig_center_y = (ymax + ymin) / 2.0;
+  double output_center_x = (output_xmax + output_xmin) / 2.0;
+  double output_center_y = (output_ymax + output_ymin) / 2.0;
+
+  // Calculate scale factors
   double x_scale = (output_xmax - output_xmin) / (xmax - xmin);
   double y_scale = (output_ymax - output_ymin) / (ymax - ymin);
-  double max_scale = x_scale < y_scale ? x_scale : y_scale;
-  double max_offset = x_scale < y_scale ? xmin : ymin;
+  double scale = std::min(x_scale, y_scale);  // Use single scale to preserve aspect ratio
 
   if (num_obs > 1) {
     for (int i = 0; i < num_obs; i++) {
-      x_reproj[i] = (cart->output_x[i] - output_xmin) / max_scale + max_offset;
-      y_reproj[i] = (cart->output_y[i] - output_ymin) / max_scale + max_offset;
-      radius_reproj[i] = (cart->output_radius[i] - output_data_min) / max_scale + max_offset;
+      // Center around origin, scale, then translate back
+      x_reproj[i] = ((cart->output_x[i] - output_center_x) / scale) + orig_center_x;
+      y_reproj[i] = ((cart->output_y[i] - output_center_y) / scale) + orig_center_y;
+
+      // Scale radius to maintain same units as x,y coordinates
+      double radius_scale = (output_xmax - output_xmin) / (xmax - xmin);
+      radius_reproj[i] = cart->output_radius[i] / radius_scale;
     }
   } else {
     x_reproj[0] = cent[0][0];

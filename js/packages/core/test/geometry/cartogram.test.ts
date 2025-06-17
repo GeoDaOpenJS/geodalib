@@ -96,4 +96,49 @@ describe('Cartogram', () => {
     const values: number[] = [];
     await expect(getCartogram(emptyPolygons, values)).rejects.toThrow('Geometry type is unknown.');
   });
+
+  it('should create cartogram polygons from two points', async () => {
+    const multiplePolygons: Feature<Point>[] = [
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [-74.0685519999769, 40.6266110000091],
+        },
+        properties: {},
+      },
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [-74.068601000008, 40.6261790000242],
+        },
+        properties: {},
+      },
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [-73.86478011265667, 40.71790108586072],
+        },
+        properties: {},
+      },
+    ];
+
+    const values = [1.0, 2.0, 3.0];
+    const result = await getCartogram(multiplePolygons, values, 5000, 1.0, 20);
+
+    expect(Array.isArray(result)).toBe(true);
+    expect(result.length).toBeGreaterThan(0);
+
+    // Check that we have points for both polygons
+    const uniqueCoordinates = new Set(
+      result.map(
+        f =>
+          `${(f as Feature<Polygon>).geometry.coordinates[0][0]},${(f as Feature<Polygon>).geometry.coordinates[0][1]}`
+      )
+    );
+
+    expect(uniqueCoordinates.size).toBeGreaterThan(1);
+  });
 });
