@@ -92,7 +92,8 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::class_<geoda::CartogramResult>("CartogramResult")
       .function("getX", &geoda::CartogramResult::get_x)
       .function("getY", &geoda::CartogramResult::get_y)
-      .function("getRadius", &geoda::CartogramResult::get_radius);
+      .function("getRadius", &geoda::CartogramResult::get_radius)
+      .function("getCircles", &geoda::CartogramResult::get_circles);
 
   emscripten::register_vector<geoda::Polygon>("VectorPolygon");
   emscripten::register_vector<geoda::Line>("VectorLine");

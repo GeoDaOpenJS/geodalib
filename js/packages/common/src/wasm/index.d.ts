@@ -690,6 +690,7 @@ export class CartogramResult {
   getX(): VectorDouble;
   getY(): VectorDouble;
   getRadius(): VectorDouble;
+  getCircles(): VectorPolygon;
 }
 
 export interface GeoDaModule {
@@ -715,9 +716,14 @@ export interface GeoDaModule {
    * @param geoms - The collection of geometries
    * @param values - The values to be used for the cartogram
    * @param iterations - The number of iterations to run the cartogram
-   * @returns The Cartogram
+   * @returns The Cartogram Circles
    */
-  cartogram(geoms: GeometryCollection, values: VectorDouble, iterations: number): CartogramResult;
+  cartogram(
+    geoms: GeometryCollection,
+    values: VectorDouble,
+    iterations: number,
+    numberOfPointsPerCircle: number
+  ): CartogramResult;
 
   /**
    * Calculate the deviation from the mean

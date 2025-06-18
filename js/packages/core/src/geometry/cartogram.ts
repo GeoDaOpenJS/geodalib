@@ -1,4 +1,4 @@
-import { getGeometryCollection, SpatialGeometry } from './utils';
+import { getGeometryCollection, polygonToFeature, SpatialGeometry } from './utils';
 import { initWASM } from '../init';
 import { Feature } from 'geojson';
 
@@ -32,44 +32,28 @@ export async function getCartogram(
   const geometryCollection = await getGeometryCollection({ geometries: geoms });
 
   // Call the WASM cartogram function
-  const result = await wasm.cartogram(geometryCollection, valuesVec, iterations);
+  const result = await wasm.cartogram(
+    geometryCollection,
+    valuesVec,
+    iterations,
+    numberOfPointsPerCircle
+  );
 
-  // convert CartogramResult to GeoJSON
+  const circles = result.getCircles();
+  const x = result.getX();
+  const y = result.getY();
+  const radius = result.getRadius();
+
+  // convert VectorPolygon to GeoJSON
   const features: Array<Feature> = [];
-
-  const numberOfPoints = result.getX().size();
-
-  for (let i = 0; i < numberOfPoints; i++) {
-    const lat = result.getY().get(i);
-    const lng = result.getX().get(i);
-    let radius = result.getRadius().get(i);
-
-    if (!radius || isNaN(radius)) {
-      radius = values[i];
-    }
-
-    // create a circle with radius radius at lng, lat using 20 points on the circle and connect the points to form a polygon
-    const points = [];
-    for (let i = 0; i < numberOfPointsPerCircle; i++) {
-      const angle = (i / numberOfPointsPerCircle) * 2 * Math.PI;
-      const x = lng + radius * Math.cos(angle);
-      const y = lat + radius * Math.sin(angle);
-      points.push([x, y]);
-    }
-    // close the polygon
-    points.push(points[0]);
-
-    const feature: Feature = {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [points],
-      },
-      properties: {
-        radius,
-      },
+  for (let i = 0; i < circles.size(); i++) {
+    const polygon = circles.get(i);
+    const feature = await polygonToFeature(polygon);
+    feature.properties = {
+      x: x.get(i),
+      y: y.get(i),
+      radius: radius.get(i),
     };
-
     features.push(feature);
   }
 

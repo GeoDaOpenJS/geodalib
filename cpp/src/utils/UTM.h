@@ -255,6 +255,18 @@ static inline void UTMtoLL(const double UTMNorthing, const double UTMEasting, co
           cos(phi1Rad));
   Long = LongOrigin + Long * RAD_TO_DEG;
 }
+
+// Convert UTM length to length in degrees
+static inline double UTMtoDegrees(const double UTMLength, const double latitude_degrees) {
+  double lat_rad = latitude_degrees * DEG_TO_RAD;
+  double a = WGS84_A;
+  double e2 = UTM_E2;
+  double k0 = UTM_K0;  // UTM scale factor
+  double N = a / sqrt(1 - e2 * sin(lat_rad) * sin(lat_rad));
+  // Convert UTM distance (which is scaled by k0) to longitude degrees
+  return (UTMLength / k0) / (N * cos(lat_rad));
+}
+
 }  // end namespace UTM
 
 #endif  // _UTM_H

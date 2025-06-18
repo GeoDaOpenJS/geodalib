@@ -2,13 +2,15 @@
 #define GEODA_GEOMETRY_CARTOMAP_H
 
 #include <algorithm>
+#include <cmath>    // for std::exp
 #include <iomanip>  // for std::setprecision
 #include <iostream>
 #include <limits>  // for std::numeric_limits
-#include <vector>
-#include <cmath>  // for std::exp
 #include <memory>  // for std::unique_ptr
+#include <vector>
 
+#include "geometry/polygon.h"
+#include "utils/UTM.h"
 #include "utils/standardize.h"
 #include "weights/gal.h"
 #include "weights/weights.h"
@@ -19,10 +21,12 @@ struct CartogramResult {
   std::vector<double> x;
   std::vector<double> y;
   std::vector<double> radius;
+  std::vector<Polygon> circles;
 
   std::vector<double> get_x() const { return x; }
   std::vector<double> get_y() const { return y; }
   std::vector<double> get_radius() const { return radius; }
+  std::vector<Polygon> get_circles() const { return circles; }
 };
 
 struct CartogramLeaf {
@@ -111,9 +115,20 @@ class Cartogram {
   static const double pi;
 };
 
-inline CartogramResult cartogram(const GeometryCollection& geoms, const std::vector<double>& values, int iterations) {
+/**
+ * @brief Cartogram algorithm
+ *
+ * @param geoms The geometries to cartogram.
+ * convertToUTM = true in getGeometryCollection
+ * @param values The values to cartogram
+ * @param iterations The number of iterations to run the cartogram algorithm
+ * @param numberOfPointsPerCircle The number of points per circle
+ * @return CartogramResult The result of the cartogram algorithm
+ */
+inline CartogramResult cartogram(const GeometryCollection& geoms, const std::vector<double>& values, int iterations,
+                                 int numberOfPointsPerCircle) {
   if (geoms.size() == 0 || geoms.size() != values.size()) {
-    return CartogramResult{};
+    return CartogramResult();
   }
 
   const int num_obs = static_cast<int>(geoms.size());
@@ -135,7 +150,7 @@ inline CartogramResult cartogram(const GeometryCollection& geoms, const std::vec
   // Apply standardization and exponential transformation in one pass
   double data_min = std::numeric_limits<double>::max();
   double data_max = std::numeric_limits<double>::lowest();
-  for (int i = 0; i < num_obs; ++i) {
+  for (int i = 0; i < num_obs; i++) {
     standardized_values[i] = std::exp((values[i] - mean) / std_dev);
     data_min = std::min(data_min, standardized_values[i]);
     data_max = std::max(data_max, standardized_values[i]);
@@ -161,54 +176,109 @@ inline CartogramResult cartogram(const GeometryCollection& geoms, const std::vec
     y[i] = cent[i][1];
   }
 
-  // Calculate bounding box in a single pass
-  double xmin = x[0], xmax = x[0], ymin = y[0], ymax = y[0];
-  for (int i = 1; i < num_obs; i++) {
-    xmin = std::min(xmin, x[i]);
-    xmax = std::max(xmax, x[i]);
-    ymin = std::min(ymin, y[i]);
-    ymax = std::max(ymax, y[i]);
+  std::unique_ptr<CartogramNeighbor> nbs(new CartogramNeighbor(gal.get(), num_obs));
+
+  // use the first point to determine the UTM zone
+  double utm_x = x[0], utm_y = y[0];
+  char utm_zone[4] = {'\0'};                         // 4 chars is sufficient: 2 digits + 1 letter + null terminator
+  UTM::LLtoUTM(y[0], x[0], utm_y, utm_x, utm_zone);  // Fixed parameter order: lat, long
+
+  // Convert X, Y from degrees to UTM
+  std::vector<double> x_utm(num_obs);
+  std::vector<double> y_utm(num_obs);
+  for (int i = 0; i < num_obs; i++) {
+    double north, east;
+    UTM::LLtoUTM(y[i], x[i], north, east, utm_zone);
+    x_utm[i] = east;
+    y_utm[i] = north;
   }
 
-  std::unique_ptr<CartogramNeighbor> nbs(new CartogramNeighbor(gal.get(), num_obs));
-  std::unique_ptr<Cartogram> cart(new Cartogram(nbs.get(), x, y, standardized_values, data_min, data_max));
+  // Calculate bounding box in a single pass
+  double xmin = x_utm[0], xmax = x_utm[0], ymin = y_utm[0], ymax = y_utm[0];
+  for (int i = 1; i < num_obs; i++) {
+    xmin = std::min(xmin, x_utm[i]);
+    xmax = std::max(xmax, x_utm[i]);
+    ymin = std::min(ymin, y_utm[i]);
+    ymax = std::max(ymax, y_utm[i]);
+  }
+
+  std::unique_ptr<Cartogram> cart(new Cartogram(nbs.get(), x_utm, y_utm, standardized_values, data_min, data_max));
 
   cart->improve(iterations > 0 ? iterations : 100);
 
-  // Pre-allocate result vectors
-  std::vector<double> x_reproj(num_obs);
-  std::vector<double> y_reproj(num_obs);
-  std::vector<double> radius_reproj(num_obs);
-
-  if (num_obs > 1) {
-    // Calculate output bounds in a single pass
-    double output_xmin = cart->output_x[0], output_xmax = cart->output_x[0];
-    double output_ymin = cart->output_y[0], output_ymax = cart->output_y[0];
-    for (int i = 1; i < num_obs; i++) {
-      output_xmin = std::min(output_xmin, cart->output_x[i]);
-      output_xmax = std::max(output_xmax, cart->output_x[i]);
-      output_ymin = std::min(output_ymin, cart->output_y[i]);
-      output_ymax = std::max(output_ymax, cart->output_y[i]);
+  // create circles for each observation
+  std::vector<geoda::Polygon> polygons(num_obs);
+  for (int i = 0; i < num_obs; i++) {
+    double output_x = cart->output_x[i];
+    double output_y = cart->output_y[i];
+    double output_radius = cart->output_radius[i];
+    // create a circle with the radius using numberOfPointsPerCircle points on the circle and connect the points to form
+    // a polygon
+    std::vector<double> x_circle;
+    std::vector<double> y_circle;
+    for (int j = 0; j < numberOfPointsPerCircle; j++) {
+      double angle = (static_cast<double>(j) / numberOfPointsPerCircle) * 2 * M_PI;
+      x_circle.push_back(output_x + output_radius * cos(angle));
+      y_circle.push_back(output_y + output_radius * sin(angle));
     }
+    x_circle.push_back(x_circle[0]);
+    y_circle.push_back(y_circle[0]);
 
-    // Calculate scale factors
-    double x_scale = (output_xmax - output_xmin) / (xmax - xmin);
-    double y_scale = (output_ymax - output_ymin) / (ymax - ymin);
-    double scale = std::max(x_scale, y_scale);
-
-    // Apply reprojection in a single pass
-    for (int i = 0; i < num_obs; i++) {
-      x_reproj[i] = xmin + (cart->output_x[i] - output_xmin) / scale;
-      y_reproj[i] = ymin + (cart->output_y[i] - output_ymin) / scale;
-      radius_reproj[i] = cart->output_radius[i] / scale;
-    }
-  } else {
-    x_reproj[0] = cent[0][0];
-    y_reproj[0] = cent[0][1];
-    radius_reproj[0] = cart->output_radius[0];
+    bool is_hole = false;
+    polygons[i].add(x_circle, y_circle, is_hole);
   }
 
-  return CartogramResult{x_reproj, y_reproj, radius_reproj};
+  // rescale the polygons from Cartogram result original coordinates
+  // Calculate output bounds in a single pass
+  double output_xmin = cart->output_x[0], output_xmax = cart->output_x[0];
+  double output_ymin = cart->output_y[0], output_ymax = cart->output_y[0];
+  for (int i = 1; i < num_obs; i++) {
+    output_xmin = std::min(output_xmin, cart->output_x[i]);
+    output_xmax = std::max(output_xmax, cart->output_x[i]);
+    output_ymin = std::min(output_ymin, cart->output_y[i]);
+    output_ymax = std::max(output_ymax, cart->output_y[i]);
+  }
+
+  // Calculate scale factors
+  double x_scale = (output_xmax - output_xmin) / (xmax - xmin);
+  double y_scale = (output_ymax - output_ymin) / (ymax - ymin);
+  double scale = std::min(x_scale, y_scale);
+
+  std::vector<double> result_x(num_obs);
+  std::vector<double> result_y(num_obs);
+  std::vector<double> result_radius(num_obs);
+
+  // Apply rescale in a single pass
+  for (int i = 0; i < num_obs; i++) {
+    std::vector<double>& circle_x = polygons[i].x;
+    std::vector<double>& circle_y = polygons[i].y;
+    for (int j = 0; j < circle_x.size(); j++) {
+      circle_x[j] = xmin + (circle_x[j] - output_xmin) / scale;
+      circle_y[j] = ymin + (circle_y[j] - output_ymin) / scale;
+
+      // convert from UTM to degrees
+      double lat, lng;
+      UTM::UTMtoLL(circle_y[j], circle_x[j], utm_zone, lat, lng);
+      circle_x[j] = lng;
+      circle_y[j] = lat;
+
+      // convert x, y and radius
+      double output_x = xmin + (circle_x[j] - output_xmin) / scale;
+      double output_y = ymin + (circle_y[j] - output_ymin) / scale;
+      double output_radius = cart->output_radius[i] / scale;
+
+      // convert from UTM to degrees
+      UTM::UTMtoLL(output_y, output_x, utm_zone, lat, lng);
+
+      // convert radius from UTM to degrees
+      output_radius = UTM::UTMtoDegrees(output_radius, lat);
+      result_x[i] = lng;                 // x
+      result_y[i] = lat;                 // y
+      result_radius[i] = output_radius;  // radius
+    }
+  }
+
+  return CartogramResult{result_x, result_y, result_radius, polygons};
 }
 }  // namespace geoda
 
