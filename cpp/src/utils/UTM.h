@@ -267,6 +267,17 @@ static inline double UTMtoDegrees(const double UTMLength, const double latitude_
   return (UTMLength / k0) / (N * cos(lat_rad));
 }
 
+// Convert degrees to UTM length
+static inline double DegreesToUTM(const double degrees, const double latitude_degrees) {
+  double lat_rad = latitude_degrees * DEG_TO_RAD;
+  double a = WGS84_A;
+  double e2 = UTM_E2;
+  double k0 = UTM_K0;  // UTM scale factor
+  double N = a / sqrt(1 - e2 * sin(lat_rad) * sin(lat_rad));
+  // Convert longitude degrees to UTM distance (which is scaled by k0)
+  return (degrees * k0) * (N * cos(lat_rad));
+}
+
 }  // end namespace UTM
 
 #endif  // _UTM_H
