@@ -22,12 +22,19 @@ set (CORE_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/percentile-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/box-breaks.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/stddev-breaks.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/mapping/rates-map.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/deviation.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/mad.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/range_adjust.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/range_standardize.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/standardize.cpp
     ${WEIGHTS_SOURCE_FILES}
 )
 set (CORE_SOURCE_FILES ${CORE_SOURCE_FILES} PARENT_SCOPE)
 
 set (LISA_SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/mapping/quantile-breaks.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/standardize.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/local-moran.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/local-g.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sa/local-geary.cpp
@@ -83,4 +90,5 @@ set (GEODA_HEADER_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/jc_voronoi.h
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/UTM.h
     ${CMAKE_CURRENT_SOURCE_DIR}/regression/regression.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/data.h
     PARENT_SCOPE)

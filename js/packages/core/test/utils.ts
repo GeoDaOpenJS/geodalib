@@ -22,3 +22,20 @@ export function reducePrecision(o: unknown, precision = 14): unknown {
   }
   return o;
 }
+
+/**
+ * Helper function to compare arrays with tolerance for floating point precision.
+ * This function handles NaN, Infinity, and finite number comparisons.
+ */
+export function expectArraysNearEqual(expected: number[], actual: number[], tolerance = 1e-9) {
+  expect(actual.length).toBe(expected.length);
+  for (let i = 0; i < expected.length; i++) {
+    if (isNaN(expected[i])) {
+      expect(isNaN(actual[i])).toBe(true);
+    } else if (!isFinite(expected[i])) {
+      expect(actual[i]).toBe(expected[i]);
+    } else {
+      expect(Math.abs(actual[i] - expected[i])).toBeLessThan(tolerance);
+    }
+  }
+}

@@ -1,9 +1,9 @@
 export enum RatesOptions {
   RawRates = 'Raw Rates',
   ExcessRisk = 'Excess Risk',
-  EmpiricalRisk = 'Empirical Risk',
+  EmpiricalBayes = 'Empirical Bayes',
   SpatialRates = 'Spatial Rates',
-  SpatialEmpiricalRates = 'Spatial Empirical Rates',
+  SpatialEmpiricalBayes = 'Spatial Empirical Bayes',
   EBRateStandardization = 'EB Rate Standardization',
 }
 
@@ -25,11 +25,11 @@ export function calculateRates({
       return rawRates(baseValues, eventValues);
     case RatesOptions.ExcessRisk:
       return excessRisk(baseValues, eventValues);
-    case RatesOptions.EmpiricalRisk:
+    case RatesOptions.EmpiricalBayes:
       return empiricalBayes(baseValues, eventValues);
     case RatesOptions.SpatialRates:
       return neighbors ? spatialRates(baseValues, eventValues, neighbors) : [];
-    case RatesOptions.SpatialEmpiricalRates:
+    case RatesOptions.SpatialEmpiricalBayes:
       return neighbors ? spatialEmpiricalBayes(baseValues, eventValues, neighbors) : [];
     case RatesOptions.EBRateStandardization:
       return rateStandardizeEB(baseValues, eventValues);
@@ -88,7 +88,7 @@ export function rawRates(baseValues: number[], eventValues: number[]): number[] 
  *
  * @example
  * ```ts
- * import { excessRisk } from 'geoda-lib';
+ * import { excessRisk } from '@geoda/core';
  * const baseValues = [100, 200, 300, 400, 500];
  * const eventValues = [10, 20, 30, 40, 50];
  * const rates = excessRisk(baseValues, eventValues);

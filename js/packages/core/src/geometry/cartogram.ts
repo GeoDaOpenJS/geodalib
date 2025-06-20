@@ -3,11 +3,22 @@ import { initWASM } from '../init';
 import { Feature } from 'geojson';
 
 /**
- * Get a cartogram of the given geometries and values.
- * The cartogram is a set of buffers around the given geometries.
+ * Get a cartogram of the given geometries and values. The cartogram is a set of buffers around the given geometries.
  * The radius of the buffers is proportional to the values.
- * The cartogram is a set of buffers around the given geometries.
  *
+ * ## Example
+ * ```ts
+ * const geoms = [
+ *   { type: 'Point', coordinates: [0, 0] },
+ *   { type: 'Point', coordinates: [1, 1] },
+ * ];
+ *
+ * const values = [1, 2];
+ *
+ * const cartogram = await getCartogram(geoms, values);
+ *
+ * console.log(cartogram);
+ * ```
  * @param geoms The geometries to get the cartogram of
  * @param values The values to use for the cartogram
  * @param iterations The number of iterations to run the cartogram algorithm

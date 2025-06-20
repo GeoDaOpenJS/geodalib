@@ -766,6 +766,76 @@ export interface GeoDaModule {
   standardize(data: VectorDouble, undefs: VectorUInt): VectorDouble;
 
   /**
+   * Calculate the raw rate
+   * @param baseData - The base data values
+   * @param eventData - The event data values
+   * @param undefs - The undefined values
+   * @returns The raw rate
+   */
+  rawRate(baseData: VectorDouble, eventData: VectorDouble, undefs: VectorUInt): VectorDouble;
+
+  /**
+   * Calculate the excess risk
+   * @param baseData - The base data values
+   * @param eventData - The event data values
+   * @param undefs - The undefined values
+   * @returns The excess risk
+   */
+  excessRisk(baseData: VectorDouble, eventData: VectorDouble, undefs: VectorUInt): VectorDouble;
+
+  /**
+   * Calculate the empirical Bayes
+   * @param baseData - The base data values
+   * @param eventData - The event data values
+   * @param undefs - The undefined values
+   * @returns The empirical Bayes
+   */
+  empiricalBayes(baseData: VectorDouble, eventData: VectorDouble, undefs: VectorUInt): VectorDouble;
+
+  /**
+   * Calculate the spatial rate
+   * @param neighbors - The neighbors of each observation
+   * @param baseData - The base data values
+   * @param eventData - The event data values
+   * @param undefs - The undefined values
+   * @returns The spatial rate
+   */
+  spatialRate(
+    neighbors: VecVecUInt,
+    baseData: VectorDouble,
+    eventData: VectorDouble,
+    undefs: VectorUInt
+  ): VectorDouble;
+
+  /**
+   * Calculate the rate standardize empirical Bayes
+   * @param baseData - The base data values
+   * @param eventData - The event data values
+   * @param undefs - The undefined values
+   * @returns The rate standardize empirical Bayes
+   */
+  rateStandardizeEmpiricalBayes(
+    baseData: VectorDouble,
+    eventData: VectorDouble,
+    undefs: VectorUInt
+  ): VectorDouble;
+
+  /**
+   * Calculate the spatial empirical Bayes
+   * @param neighbors - The neighbors of each observation
+   * @param baseData - The base data values
+   * @param eventData - The event data values
+   * @param undefs - The undefined values
+   * @returns The spatial empirical Bayes
+   */
+  spatialEmpiricalBayes(
+    neighbors: VecVecUInt,
+    baseData: VectorDouble,
+    eventData: VectorDouble,
+    undefs: VectorUInt
+  ): VectorDouble;
+
+  /**
    * get the contiguity neighbors using the centroids of a collection of geometries
    * @param geometries
    * @param isQueen

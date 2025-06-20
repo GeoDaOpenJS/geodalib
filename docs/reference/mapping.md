@@ -23,4 +23,6 @@ outline: deep
 
 ## Cartogram
 
-- Cartogram
+- [Cartogram](/api/core/src/functions/cartogram)
+- [Thiessen Polygons](/api/core/src/functions/thiessenPolygons)
+- [Minimum Spanning Tree](/api/core/src/functions/getMinimumSpanningTree)

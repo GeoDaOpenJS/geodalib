@@ -4,7 +4,7 @@
 
 > **getThiessenPolygons**(`geoms`): `Promise`\<`Feature`\<`Geometry`, `GeoJsonProperties`\>[]\>
 
-Defined in: [core/src/geometry/thiessen-polygon.ts:25](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/geometry/thiessen-polygon.ts#L25)
+Defined in: [core/src/geometry/thiessen-polygon.ts:25](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/geometry/thiessen-polygon.ts#L25)
 
 Get the Thiessen polygons for the given geometries. If the given geometries are not points,
 the centroids will be used to create the Thiessen polygons.

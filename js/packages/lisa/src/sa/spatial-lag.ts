@@ -1,6 +1,18 @@
 /**
  * Compute spatial lag of a list of values based on a list of neighbors and weights.
  *
+ * ## Example
+ * ```ts
+ * import { spatialLag } from '@geoda/lisa';
+ *
+ * const values = [1, 2, 3, 4, 5];
+ * const neighbors = [[1], [0, 2], [1, 3], [2, 4], [3]];
+ *
+ * const result = spatialLag(values, neighbors);
+ *
+ * console.log(result);
+ * ```
+ *
  * @param values The numeric values to compute spatial lag for.
  * @param neighbors The list of neighbors for each value.
  * @param weights The weight values for each neighbor.
@@ -75,6 +87,19 @@ export function spatialLag(
 
 /**
  * Compute the median spatial lag of a list of values based on a list of neighbors and weights using the mean function.
+ *
+ * ## Example
+ * ```ts
+ * import { spatialLagMedian } from '@geoda/lisa';
+ *
+ * const values = [1, 2, 3, 4, 5];
+ * const neighbors = [[1], [0, 2], [1, 3], [2, 4], [3]];
+ *
+ * const result = spatialLagMedian(values, neighbors);
+ *
+ * console.log(result);
+ * ```
+ *
  * @param values The numeric values to compute spatial lag for.
  * @param neighbors The list of neighbors for each value.
  * @returns The spatial lag values.

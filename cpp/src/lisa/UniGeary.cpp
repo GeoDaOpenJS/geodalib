@@ -5,7 +5,7 @@
 #include "UniGeary.h"
 
 #include "weights/geoda-weight.h"
-#include "utils/standardize.h"
+#include "data/data.h"
 
 UniGeary::UniGeary(int num_obs, GeoDaWeight* w, const std::vector<double>& _data, const std::vector<bool>& _undefs,
                    double significance_cutoff, int _nCPUs, int _perm, const std::string& _permutation_method,

@@ -4,7 +4,7 @@
 
 > **naturalBreaks**(`k`, `data`): `Promise`\<`number`[]\>
 
-Defined in: [core/src/mapping/natural-breaks.ts:31](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/natural-breaks.ts#L31)
+Defined in: [core/src/mapping/natural-breaks.ts:31](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/mapping/natural-breaks.ts#L31)
 
 ## Description
 The natural breaks (Jenks) algorithm breaks up the data into k classes by minimizing within-class variance

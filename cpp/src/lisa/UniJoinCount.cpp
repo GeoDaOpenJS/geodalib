@@ -9,7 +9,7 @@
 #include <vector>
 
 #include "weights/geoda-weight.h"
-#include "utils/standardize.h"
+#include "data/data.h"
 #include "utils/rnd.h"
 #include "./GeoDaSet.h"
 

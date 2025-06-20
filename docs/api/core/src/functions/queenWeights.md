@@ -4,7 +4,7 @@
 
 > **queenWeights**(`geometries`, `useCentroids`?, `precisionThreshold`?, `orderOfContiguity`?, `includeLowerOrder`?): `Promise`\<[`WeightsMeta`](../type-aliases/WeightsMeta.md)\>
 
-Defined in: [core/src/weights/contiguity-neighbors.ts:208](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/weights/contiguity-neighbors.ts#L208)
+Defined in: [core/src/weights/contiguity-neighbors.ts:223](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/weights/contiguity-neighbors.ts#L223)
 
 ## Description
 Create Queen contiguity weights for GeoJSON features.
@@ -14,6 +14,21 @@ Queen contiguity defines neighbors as spatial units that share either:
 - A common vertex (corner)
 
 This is in contrast to Rook contiguity, which only considers shared edges.
+
+## Example
+```ts
+import { queenWeights } from '@geoda/core';
+
+const geometries = [
+  { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 0] } },
+  { type: 'Feature', geometry: { type: 'Point', coordinates: [1, 0] } },
+  { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 1] } },
+];
+
+const weights = await queenWeights(geometries);
+
+console.log(weights);
+```
 
 ## Parameters
 

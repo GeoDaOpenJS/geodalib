@@ -1,5 +1,6 @@
 import { standardize } from '../../src/data/standardize';
 import { isValidNumber } from '../../src/utils/validation';
+import { expectArraysNearEqual } from '../utils';
 
 describe('Standardize Tests', () => {
   describe('isValidNumber', () => {
@@ -27,6 +28,11 @@ describe('Standardize Tests', () => {
 
       // Check that the result has the expected length
       expect(result.length).toBe(data.length);
+
+      const expected = [
+        -1.2649110640673518, -0.6324555320336759, 0, 0.6324555320336759, 1.2649110640673518,
+      ];
+      expectArraysNearEqual(expected, result);
 
       // The function should produce valid numbers
       expect(result.every(val => typeof val === 'number')).toBe(true);

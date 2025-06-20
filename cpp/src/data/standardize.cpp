@@ -1,22 +1,7 @@
-#ifndef GEODA_STANDARDIZE_H
-#define GEODA_STANDARDIZE_H
+#include "data/data.h"
 
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#include <vector>
-
-namespace geoda {
-
-/**
- * Standardizes data by subtracting the mean and dividing by the standard deviation.
- * Values marked as undefined in the undefs vector are left unchanged.
- *
- * @param data The input data vector
- * @param undefs Boolean vector indicating which values are undefined (true = undefined)
- * @return Standardized data vector
- */
-inline std::vector<double> standardize_data(const std::vector<double>& data, const std::vector<bool>& undefs) {
+std::vector<double> geoda::standardize_data_wasm(const std::vector<double>& data,
+                                                 const std::vector<unsigned int>& undefs) {
   const size_t n = data.size();
 
   // Handle edge cases
@@ -29,7 +14,7 @@ inline std::vector<double> standardize_data(const std::vector<double>& data, con
   size_t valid_count = 0;
 
   for (size_t i = 0; i < n; ++i) {
-    if (!undefs[i]) {
+    if (undefs[i] == FALSE) {
       sum += data[i];
       ++valid_count;
     }
@@ -45,7 +30,7 @@ inline std::vector<double> standardize_data(const std::vector<double>& data, con
   // Second pass: calculate variance using numerically stable method
   double variance_sum = 0.0;
   for (size_t i = 0; i < n; ++i) {
-    if (!undefs[i]) {
+    if (undefs[i] == FALSE) {
       const double diff = data[i] - mean;
       variance_sum += diff * diff;
     }
@@ -61,7 +46,7 @@ inline std::vector<double> standardize_data(const std::vector<double>& data, con
   if (std_dev == 0.0) {
     // All valid values are the same - return mean-centered data
     for (size_t i = 0; i < n; ++i) {
-      if (undefs[i]) {
+      if (undefs[i] == FALSE) {
         result[i] = data[i];  // Keep undefined values unchanged
       } else {
         result[i] = 0.0;  // All values become 0 after standardization
@@ -70,26 +55,13 @@ inline std::vector<double> standardize_data(const std::vector<double>& data, con
   } else {
     // Standard case: subtract mean and divide by standard deviation
     for (size_t i = 0; i < n; ++i) {
-      if (undefs[i]) {
-        result[i] = data[i];  // Keep undefined values unchanged
-      } else {
+      if (undefs[i] == FALSE) {
         result[i] = (data[i] - mean) / std_dev;
+      } else {
+        result[i] = data[i];  // Keep undefined values unchanged
       }
     }
   }
 
   return result;
 }
-
-// wrapper function for WASM since boolean vector is not supported
-inline void standardize_data_wasm(const std::vector<double>& data, const std::vector<unsigned int>& undef) {
-  std::vector<bool> undef_bool(undef.size());
-  for (size_t i = 0; i < undef.size(); ++i) {
-    undef_bool[i] = undef[i] != 0;
-  }
-  standardize_data(data, undef_bool);
-}
-
-}  // namespace geoda
-
-#endif

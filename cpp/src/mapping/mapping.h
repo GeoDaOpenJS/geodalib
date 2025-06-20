@@ -15,12 +15,6 @@ bool dbl_int_pair_cmp_less(const dbl_int_pair_type& ind1, const dbl_int_pair_typ
 
 double percentile(double x, const dbl_int_pair_vec_type& v);
 
-// std::vector<std::vector<double> > demean(const std::vector<std::vector<double> >& data);
-
-// std::vector<std::vector<double> > standardize(const std::vector<std::vector<double> >& data);
-
-// std::vector<std::vector<double> > standardize_mad(const std::vector<std::vector<double> >& data);
-
 /**
  * @brief Compute natural breaks for a given data set and number of classes
  *
@@ -73,17 +67,81 @@ std::vector<double> equal_interval_breaks(int k, const std::vector<double>& data
 
 /**
  * @brief Compute standard deviation breaks for a given data set
- * 
+ *
  * @param data The data values
  * @param undefs The flags indicating which data value is undefined
  * @return std::vector<double> The values of standard deviation breaks
  */
 std::vector<double> std_dev_breaks(const std::vector<double>& data, const std::vector<int>& undefs);
 
-// void transform_inplace(std::vector<double>& vals, const std::string& method);
+/**
+ * @brief Compute raw rate for a given data set
+ *
+ * @param P The data values
+ * @param E The data values
+ * @param undefs The flags indicating which data value is undefined
+ * @return std::vector<double> The values of raw rate
+ */
+std::vector<double> raw_rate(const std::vector<double>& P, const std::vector<double>& E,
+                             const std::vector<int>& undefs);
 
-// bool rateStandardizeEB(const std::vector<double>& P, const std::vector<double>& E, std::vector<double>& results,
-//                        std::vector<bool>& undefined);
+/**
+ * @brief Compute excess risk for a given data set
+ *
+ * @param P The data values
+ * @param E The data values
+ * @param undefs The flags indicating which data value is undefined
+ * @return std::vector<double> The values of excess risk
+ */
+std::vector<double> excess_risk(const std::vector<double>& P, const std::vector<double>& E,
+                                const std::vector<int>& undefs);
+
+/**
+ * @brief Compute empirical Bayes for a given data set
+ *
+ * @param P The data values
+ * @param E The data values
+ * @param undefs The flags indicating which data value is undefined
+ * @return std::vector<double> The values of empirical Bayes
+ */
+std::vector<double> empirical_bayes(const std::vector<double>& P, const std::vector<double>& E,
+                                    const std::vector<int>& undefs);
+
+/**
+ * @brief Compute spatial rate for a given data set
+ *
+ * @param neighbors The neighbors of each observation
+ * @param P The data values
+ * @param E The data values
+ * @param undefs The flags indicating which data value is undefined
+ * @return std::vector<double> The values of spatial rate
+ */
+std::vector<double> spatial_rate(const std::vector<std::vector<unsigned int>>& neighbors, const std::vector<double>& P,
+                                 const std::vector<double>& E, const std::vector<int>& undefs);
+
+/**
+ * @brief Compute rate standardize empirical Bayes for a given data set
+ *
+ * @param P The data values
+ * @param E The data values
+ * @param undefs The flags indicating which data value is undefined
+ * @return std::vector<double> The values of rate standardize empirical Bayes
+ */
+std::vector<double> rate_standardize_empirical_bayes(const std::vector<double>& P, const std::vector<double>& E,
+                                                     const std::vector<int>& undefs);
+
+/**
+ * @brief Compute spatial empirical Bayes for a given data set
+ *
+ * @param neighbors The neighbors of each observation
+ * @param P The data values
+ * @param E The data values
+ * @param undefs The flags indicating which data value is undefined
+ * @return std::vector<double> The values of spatial empirical Bayes
+ */
+std::vector<double> spatial_empirical_bayes(const std::vector<std::vector<unsigned int>>& neighbors,
+                                            const std::vector<double>& P, const std::vector<double>& E,
+                                            const std::vector<int>& undefs);
 }  // namespace geoda
 
 #endif  // GEODA_MAPPING_H

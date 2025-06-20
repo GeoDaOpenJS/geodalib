@@ -2,7 +2,7 @@
 
 # Enumeration: RatesOptions
 
-Defined in: [core/src/mapping/rates.ts:1](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/rates.ts#L1)
+Defined in: [core/src/mapping/rates.ts:1](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/mapping/rates.ts#L1)
 
 ## Enumeration Members
 
@@ -10,15 +10,15 @@ Defined in: [core/src/mapping/rates.ts:1](https://github.com/GeoDaCenter/geoda-l
 
 > **EBRateStandardization**: `"EB Rate Standardization"`
 
-Defined in: [core/src/mapping/rates.ts:7](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/rates.ts#L7)
+Defined in: [core/src/mapping/rates.ts:7](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/mapping/rates.ts#L7)
 
 ***
 
-### EmpiricalRisk
+### EmpiricalBayes
 
-> **EmpiricalRisk**: `"Empirical Risk"`
+> **EmpiricalBayes**: `"Empirical Bayes"`
 
-Defined in: [core/src/mapping/rates.ts:4](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/rates.ts#L4)
+Defined in: [core/src/mapping/rates.ts:4](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/mapping/rates.ts#L4)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [core/src/mapping/rates.ts:4](https://github.com/GeoDaCenter/geoda-l
 
 > **ExcessRisk**: `"Excess Risk"`
 
-Defined in: [core/src/mapping/rates.ts:3](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/rates.ts#L3)
+Defined in: [core/src/mapping/rates.ts:3](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/mapping/rates.ts#L3)
 
 ***
 
@@ -34,15 +34,15 @@ Defined in: [core/src/mapping/rates.ts:3](https://github.com/GeoDaCenter/geoda-l
 
 > **RawRates**: `"Raw Rates"`
 
-Defined in: [core/src/mapping/rates.ts:2](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/rates.ts#L2)
+Defined in: [core/src/mapping/rates.ts:2](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/mapping/rates.ts#L2)
 
 ***
 
-### SpatialEmpiricalRates
+### SpatialEmpiricalBayes
 
-> **SpatialEmpiricalRates**: `"Spatial Empirical Rates"`
+> **SpatialEmpiricalBayes**: `"Spatial Empirical Bayes"`
 
-Defined in: [core/src/mapping/rates.ts:6](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/rates.ts#L6)
+Defined in: [core/src/mapping/rates.ts:6](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/mapping/rates.ts#L6)
 
 ***
 
@@ -50,4 +50,4 @@ Defined in: [core/src/mapping/rates.ts:6](https://github.com/GeoDaCenter/geoda-l
 
 > **SpatialRates**: `"Spatial Rates"`
 
-Defined in: [core/src/mapping/rates.ts:5](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/rates.ts#L5)
+Defined in: [core/src/mapping/rates.ts:5](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/mapping/rates.ts#L5)

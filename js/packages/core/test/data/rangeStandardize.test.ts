@@ -1,21 +1,8 @@
 import { rangeStandardize } from '../../src/data/rangeStandardize';
 import { isValidNumber } from '../../src/utils/validation';
+import { expectArraysNearEqual } from '../utils';
 
 describe('Range Standardize Tests', () => {
-  // Helper function to compare arrays with tolerance for floating point precision
-  const expectArraysNearEqual = (expected: number[], actual: number[], tolerance = 1e-9) => {
-    expect(actual.length).toBe(expected.length);
-    for (let i = 0; i < expected.length; i++) {
-      if (isNaN(expected[i])) {
-        expect(isNaN(actual[i])).toBe(true);
-      } else if (!isFinite(expected[i])) {
-        expect(actual[i]).toBe(expected[i]);
-      } else {
-        expect(Math.abs(actual[i] - expected[i])).toBeLessThan(tolerance);
-      }
-    }
-  };
-
   describe('isValidNumber', () => {
     test('should return true for valid finite numbers', () => {
       expect(isValidNumber(5)).toBe(true);
@@ -65,7 +52,6 @@ describe('Range Standardize Tests', () => {
       const data = [5, 5];
       const result = await rangeStandardize(data);
 
-      // Identical elements result in range = 0, so WASM sets all to 0
       expect(result).toEqual([0, 0]);
     });
 
@@ -178,7 +164,6 @@ describe('Range Standardize Tests', () => {
       const data = [5, 5, 5, 5];
       const result = await rangeStandardize(data);
 
-      // All values identical result in range = 0, so WASM sets all to 0
       expect(result).toEqual([0, 0, 0, 0]);
     });
 

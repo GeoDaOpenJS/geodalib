@@ -10,11 +10,28 @@ export type LocalGearyProps = {
   seed?: number;
 };
 
-// Get local geary statistics
+/**
+ * Get local Geary's C statistics.
+ *
+ * ## Example
+ * ```ts
+ * import { localGeary } from '@geoda/lisa';
+ *
+ * const data = [1, 2, 3, 4, 5];
+ * const neighbors = [[1], [0, 2], [1, 3], [2, 4], [3]];
+ *
+ * const result = await localGeary({
+ *   data,
+ *   neighbors,
+ * });
+ *
+ * console.log(result);
+ * ```
+ */
 export async function localGeary({
   data,
   neighbors,
-  permutation,
+  permutation = 999,
   significanceCutoff = 0.05,
   seed = 1234567890,
 }: LocalGearyProps): Promise<LocalMoranResult> {
@@ -69,11 +86,28 @@ export type MultivariateLocalGearyProps = {
   seed?: number;
 };
 
-// Get multivariate local geary statistics
+/**
+ * Get multivariate local Geary's C statistics.
+ *
+ * ## Example
+ * ```ts
+ * import { multivariateLocalGeary } from '@geoda/lisa';
+ *
+ * const data = [[1, 2], [3, 4], [5, 6]];
+ * const neighbors = [[1], [0, 2], [1, 3], [2, 4], [3]];
+ *
+ * const result = await multivariateLocalGeary({
+ *   data,
+ *   neighbors,
+ * });
+ *
+ * console.log(result);
+ * ```
+ */
 export async function multivariateLocalGeary({
   data,
   neighbors,
-  permutation,
+  permutation = 999,
   significanceCutoff = 0.05,
   seed = 1234567890,
 }: MultivariateLocalGearyProps): Promise<LocalMoranResult> {

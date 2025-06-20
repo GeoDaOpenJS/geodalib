@@ -48,8 +48,8 @@ export async function rangeStandardize(data: number[] | Float32Array): Promise<n
     return Array.from(data);
   }
 
-  wasm.rangeStandardize(wasmData, wasmUndefs);
-  const resultArray = vecDoubleToNumber(wasmData);
+  const result = wasm.rangeStandardize(wasmData, wasmUndefs);
+  const resultArray = vecDoubleToNumber(result);
 
   // assign invalid result to original value
   for (let i = 0; i < n; ++i) {

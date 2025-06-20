@@ -3,7 +3,7 @@
 #include "lisa/UniLocalMoran.h"
 #include "lisa/BiLocalMoran.h"
 #include "sa/lisa-api.h"
-#include "utils/standardize.h"
+#include "data/data.h"
 #include "weights/geoda-weight.h"
 #include "weights/vector-weight.h"
 

@@ -4,7 +4,7 @@
 
 > **rookWeights**(`geometries`, `useCentroids`?, `precisionThreshold`?, `orderOfContiguity`?, `includeLowerOrder`?): `Promise`\<[`WeightsMeta`](../type-aliases/WeightsMeta.md)\>
 
-Defined in: [core/src/weights/contiguity-neighbors.ts:256](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/weights/contiguity-neighbors.ts#L256)
+Defined in: [core/src/weights/contiguity-neighbors.ts:286](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/weights/contiguity-neighbors.ts#L286)
 
 ## Description
 Create Rook contiguity weights for GeoJSON features.
@@ -12,6 +12,21 @@ Create Rook contiguity weights for GeoJSON features.
 Rook contiguity defines neighbors as spatial units that only share common edge (border)
 
 This is in contrast to Queen contiguity, which considers shared edges and vertices.
+
+## Example
+```ts
+import { rookWeights } from '@geoda/core';
+
+const geometries = [
+  { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 0] } },
+  { type: 'Feature', geometry: { type: 'Point', coordinates: [1, 0] } },
+  { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 1] } },
+];
+
+const weights = await rookWeights(geometries);
+
+console.log(weights);
+```
 
 ## Parameters
 

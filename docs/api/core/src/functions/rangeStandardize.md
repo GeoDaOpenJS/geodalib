@@ -4,7 +4,7 @@
 
 > **rangeStandardize**(`data`): `Promise`\<`number`[]\>
 
-Defined in: [core/src/data/rangeStandardize.ts:19](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/data/rangeStandardize.ts#L19)
+Defined in: [core/src/data/rangeStandardize.ts:19](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/data/rangeStandardize.ts#L19)
 
 Standardizes the range of data to [0, 1] by subtracting the minimum value
 and dividing by the range (max - min).

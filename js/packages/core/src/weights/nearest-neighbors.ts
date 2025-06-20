@@ -46,6 +46,25 @@ export async function getNearestNeighborsFromBinaryGeometries({
 
 /**
  * Calculates the nearest neighbors for a given set of geometries.
+ *
+ * ## Example
+ * ```ts
+ * import { getNearestNeighborsFromGeomCollection } from '@geoda/core';
+ *
+ * const geometries = [
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 0] } },
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [1, 0] } },
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 1] } },
+ * ];
+ *
+ * const neighbors = await getNearestNeighborsFromGeomCollection({
+ *   k: 2,
+ *   geomCollection: geometries,
+ * });
+ *
+ * console.log(neighbors);
+ * ```
+ *
  * @returns {Promise<number[][]>} - The nearest neighbors as an array of indices.
  */
 export async function getNearestNeighborsFromGeomCollection({

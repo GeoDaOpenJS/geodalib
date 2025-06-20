@@ -195,6 +195,21 @@ export async function getContiguityNeighborsFromBinaryGeometries({
  *
  * This is in contrast to Rook contiguity, which only considers shared edges.
  *
+ * ## Example
+ * ```ts
+ * import { queenWeights } from '@geoda/core';
+ *
+ * const geometries = [
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 0] } },
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [1, 0] } },
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 1] } },
+ * ];
+ *
+ * const weights = await queenWeights(geometries);
+ *
+ * console.log(weights);
+ * ```
+ *
  * @param {SpatialGeometry} geometries - The geometries used to create the queen contiguity weights. See {@link SpatialGeometry} for more information.
  * @param {boolean} [useCentroids=false] - If true, uses geometry centroids for calculations
  * @param {number} [precisionThreshold=0.0] - Distance threshold for determining neighbors.
@@ -242,6 +257,21 @@ export async function queenWeights(
  * Rook contiguity defines neighbors as spatial units that only share common edge (border)
  *
  * This is in contrast to Queen contiguity, which considers shared edges and vertices.
+ *
+ * ## Example
+ * ```ts
+ * import { rookWeights } from '@geoda/core';
+ *
+ * const geometries = [
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 0] } },
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [1, 0] } },
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 1] } },
+ * ];
+ *
+ * const weights = await rookWeights(geometries);
+ *
+ * console.log(weights);
+ * ```
  *
  * @param {SpatialGeometry} geometries - The geometries used to create the rook contiguity weights. See {@link SpatialGeometry} for more information.
  * @param {boolean} [useCentroids=false] - If true, uses geometry centroids for calculations

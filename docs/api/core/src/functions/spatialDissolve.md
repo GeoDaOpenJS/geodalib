@@ -4,7 +4,7 @@
 
 > **spatialDissolve**(`polys`): `Promise`\<`Feature`\<`Geometry`, `GeoJsonProperties`\>\>
 
-Defined in: [core/src/geometry/spatial-dissolve.ts:24](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/geometry/spatial-dissolve.ts#L24)
+Defined in: [core/src/geometry/spatial-dissolve.ts:24](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/geometry/spatial-dissolve.ts#L24)
 
 Dissolve the polygons by merging them into a single polygon
 

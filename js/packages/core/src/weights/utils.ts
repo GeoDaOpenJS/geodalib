@@ -39,6 +39,27 @@ export type CreateWeightsProps = {
   geometries: SpatialGeometry;
 };
 
+/**
+ * Create weights for the given geometries.
+ *
+ * ## Example
+ * ```ts
+ * import { createWeights } from '@geoda/core';
+ *
+ * const geometries = [
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 0] } },
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [1, 0] } },
+ *   { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 1] } },
+ * ];
+ *
+ * const weights = await createWeights({
+ *   weightsType: 'queen',
+ *   geometries,
+ * });
+ *
+ * console.log(weights);
+ * ```
+ */
 export async function createWeights({
   weightsType,
   k,

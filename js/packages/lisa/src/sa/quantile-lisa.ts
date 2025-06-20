@@ -14,6 +14,22 @@ export type QuantileLisaProps = {
 
 /**
  * Get local Quantile Lisa statistics
+ *
+ * ## Example
+ * ```ts
+ * import { quantileLisa } from '@geoda/lisa';
+ *
+ * const data = [1, 2, 3, 4, 5];
+ * const neighbors = [[1], [0, 2], [1, 3], [2, 4], [3]];
+ *
+ * const result = await quantileLisa({
+ *   k: 3,
+ *   quantile: 0.5,
+ *   data,
+ *   neighbors,
+ * });
+ * ```
+ * 
  * @param k The number of classes/categories
  * @param quantile The quantile value
  * @param data The numeric values to be classified.
@@ -28,7 +44,7 @@ export async function quantileLisa({
   quantile,
   data,
   neighbors,
-  permutation,
+  permutation = 999,
   significanceCutoff = 0.05,
   seed = 1234567890,
 }: QuantileLisaProps): Promise<LocalMoranResult> {

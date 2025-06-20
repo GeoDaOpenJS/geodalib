@@ -4,7 +4,7 @@
 
 > **excessRisk**(`baseValues`, `eventValues`): `number`[]
 
-Defined in: [core/src/mapping/rates.ts:101](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/rates.ts#L101)
+Defined in: [core/src/mapping/rates.ts:101](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/mapping/rates.ts#L101)
 
 ## Description
 Compute excess risk (relative risk), the ratio of the observed rate at a location to some reference rate.
@@ -54,7 +54,7 @@ The rates values.
 ## Example
 
 ```ts
-import { excessRisk } from 'geoda-lib';
+import { excessRisk } from '@geoda/core';
 const baseValues = [100, 200, 300, 400, 500];
 const eventValues = [10, 20, 30, 40, 50];
 const rates = excessRisk(baseValues, eventValues);

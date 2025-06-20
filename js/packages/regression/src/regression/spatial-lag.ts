@@ -45,6 +45,42 @@ export type SpatialLagResult = {
   };
 };
 
+/**
+ * Perform a spatial lag regression analysis using maximum likelihood estimation.
+ *
+ * ## Example
+ * ```typescript
+ * import { spatialLagRegression } from '@geodash/regression';
+ *
+ * // two independent variables, one dependent variable, and weights
+ * // three observations
+ * const weights = [[1], [0, 2], [0]];
+ * const weightsValues = [1.0, 1.0, 1.0];
+ *
+ * const result = await spatialLagRegression({
+ *   x: [[1, 2, 3], [4, 5, 6]],
+ *   y: [1, 2, 3],
+ *   weightsId: 'weights',
+ *   weights,
+ *   weightsValues,
+ *   xNames: ['x1', 'x2'],
+ *   yName: 'y',
+ *   datasetName: 'dataset',
+ * });
+ * ```
+ * @param props - The properties for the spatial lag regression.
+ * @param props.x - The independent variables.
+ * @param props.y - The dependent variable.
+ * @param props.weightsId - The id of the weights.
+ * @param props.weights - The weights.
+ * @param props.weightsValues - The values of the weights.
+ * @param props.xNames - The names of the independent variables.
+ * @param props.yName - The name of the dependent variable.
+ * @param props.datasetName - The name of the dataset.
+ * @param props.xUndefs - The undefined values of the independent variables.
+ * @param props.yUndefs - The undefined values of the dependent variable.
+ * @returns The result of the spatial lag regression.
+ */
 export async function spatialLagRegression({
   x,
   y,

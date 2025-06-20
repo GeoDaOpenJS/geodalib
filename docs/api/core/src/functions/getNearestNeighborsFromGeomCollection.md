@@ -4,9 +4,27 @@
 
 > **getNearestNeighborsFromGeomCollection**(`__namedParameters`): `Promise`\<`number`[][]\>
 
-Defined in: [core/src/weights/nearest-neighbors.ts:51](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/weights/nearest-neighbors.ts#L51)
+Defined in: [core/src/weights/nearest-neighbors.ts:70](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/weights/nearest-neighbors.ts#L70)
 
 Calculates the nearest neighbors for a given set of geometries.
+
+## Example
+```ts
+import { getNearestNeighborsFromGeomCollection } from '@geoda/core';
+
+const geometries = [
+  { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 0] } },
+  { type: 'Feature', geometry: { type: 'Point', coordinates: [1, 0] } },
+  { type: 'Feature', geometry: { type: 'Point', coordinates: [0, 1] } },
+];
+
+const neighbors = await getNearestNeighborsFromGeomCollection({
+  k: 2,
+  geomCollection: geometries,
+});
+
+console.log(neighbors);
+```
 
 ## Parameters
 

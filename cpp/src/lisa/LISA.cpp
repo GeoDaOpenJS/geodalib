@@ -13,7 +13,7 @@
 #include <vector>
 
 #include "lisa/GeoDaSet.h"
-#include "utils/standardize.h"
+#include "data/data.h"
 #include "utils/rnd.h"
 #include "weights/geoda-weight.h"
 

@@ -4,9 +4,7 @@ outline: deep
 
 # API References
 
-
 ## Mapping
-
 
 ### Basic Mapping
 
@@ -25,63 +23,73 @@ outline: deep
 - [Spatial Rate](/api/core/src/functions/spatialRate)
 - [Spatial Empirical Bayes](/api/core/src/functions/spatialEmpiricalBayes)
 
-### Cartogram
+### Other
 
-- Cartogram
-
-
+- [Cartogram](/api/core/src/functions/cartogram)
+- [Thiessen Polygons](/api/core/src/functions/thiessenPolygons)
+- [Minimum Spanning Tree](/api/core/src/functions/getMinimumSpanningTree)
 
 ## Data Exploration
 
-- [Standardization (Z-Score)](/api/functions/standardize)
-- [Deviation from Mean](/api/functions/deviationFromMean)
-- [Standardization (MAD)](/api/functions/standardizeMAD)
-- [Range Adjustment](/api/functions/rangeAdjust)
-- [Range Standardization](/api/functions/rangeStandardize)
-- [Spatial Lagged Variable](/api/functions/spatialLag)
+- [Standardization (Z-Score)](/api/core/src/functions/standardize)
+- [Deviation from Mean](/api/core/src/functions/deviationFromMean)
+- [Standardization (MAD)](/api/core/src/functions/standardizeMAD)
+- [Range Adjustment](/api/core/src/functions/rangeAdjust)
+- [Range Standardization](/api/core/src/functions/rangeStandardize)
+- [Spatial Lagged Variable](/api/core/src/functions/spatialLag)
 
+## Spatial Operations
 
+### Geometric Operations
+
+- [Centroid](/api/core/src/functions/getCentroids)
+- [Buffer](/api/core/src/functions/getBuffers)
+- [Area](/api/core/src/functions/getArea)
+- [Length](/api/core/src/functions/getLength)
+- [Perimeter](/api/core/src/functions/getPerimeter)
+- [Spatial Dissolve](/api/core/src/functions/spatialDissolve)
+- [Spatial Join](/api/core/src/functions/spatialJoin)
 
 ## Spatial Weights
 
+- [Create Weights](/api/core/src/functions/createWeights)
 
 ### Contiguity Weights
 
-- [Queen Weights](/api/functions/queenWeights)
-- [Rook Weights](/api/functions/rookWeights)
+- [Queen Weights](/api/core/src/functions/queenWeights)
+- [Rook Weights](/api/core/src/functions/rookWeights)
 
 ### Distance Weights
 
-- [Min Distance Threshold](/api/functions/minDistanceThreshold)
-- [K-Nearest Neighbors](/api/functions/kNearestNeighbors)
-- [Distance based Weights](/api/functions/distanceBasedWeights)
+- [Min Distance Threshold](/api/core/src/functions/getDistanceThresholds)
+- [K-Nearest Neighbors](/api/core/src/functions/getNearestNeighborsFromBinaryGeometries)
+- [Distance based Weights](/api/core/src/functions/getDistanceNeighborsFromBinaryGeometries)
 
 ### Kernel Weights
 
-- [Kernel Weights](/api/functions/kernelWeights)
-- [Kernel K-Nearest Neighbors Weights](/api/functions/kernelKNearestNeighbors)
-
-
+- Kernel Weights
+- Kernel K-Nearest Neighbors Weights
 
 ## Spatial Autocorrelation Analysis
 
-
 ### Global Spatial Autocorrelation
 
-- [Moran's I](/api/functions/moransI)
+- Global Moran's I
 
 ### Local Spatial Autocorrelation
 
-- [Local Moran's I](/api/functions/localMoransI)
-- [Local Getis-Ord Gi*](/api/functions/localGetisOrdGiStar)
-- [Local Geary's C](/api/functions/localGearysC)
-- [Local Join Count](/api/functions/localJoinCount)
-- [Quantile LISA](/api/functions/quantileLISA)
-
-
+- [Local Moran's I](/api/lisa/src/functions/localMoran)
+- [Bivariate Local Moran's I](/api/lisa/src/functions/bivariateLocalMoran)
+- [Local Getis-Ord G](/api/lisa/src/functions/localG)
+- [Local Getis-Ord G\*](/api/lisa/src/functions/localGStar)
+- [Local Geary's C](/api/lisa/src/functions/localGeary)
+- [Multivariate Local Geary's C](/api/lisa/src/functions/multivariateLocalGeary)
+- Local Join Count
+- [Quantile LISA](/api/lisa/src/functions/quantileLisa)
+- [Spatial Lag](/api/lisa/src/functions/spatialLag)
+- [Spatial Lag Median](/api/lisa/src/functions/spatialLagMedian)
 
 ## Spatial Clustering
-
 
 ### Non-Spatial Clustering
 
@@ -108,29 +116,8 @@ outline: deep
 - [AZP](/api/functions/azp)
 - [Max-p](/api/functions/max-p)
 
-
-
 ## Spatial Regression
 
-- [OLS Regression](/api/functions/classicRegression)
-- [Spatial Lag Model](/api/functions/spatialLag)
-- [Spatial Error Model](/api/functions/spatialError)
-
-
-
-## Spatial Operations
-
-
-### Geometric Operations
-
-- [Centroid](/api/functions/getCentroids)
-- [Buffer](/api/functions/getBuffers)
-- [Spatial Dissolve](/api/functions/spatialDissolve)
-- [Spatial Join](/api/functions/spatialJoin)
-
-### Other Operations
-
-- [Thiessen Polygons](/api/functions/thiessenPolygons)
-- [Minimum Spanning Tree](/api/functions/getMinimumSpanningTree)
-
-
+- [OLS Regression](/api/regression/src/functions/linearRegression)
+- [Spatial Lag Model](/api/regression/src/functions/spatialLagRegression)
+- [Spatial Error Model](/api/regression/src/functions/spatialError)

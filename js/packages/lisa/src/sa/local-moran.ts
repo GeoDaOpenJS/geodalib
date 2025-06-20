@@ -46,13 +46,28 @@ export type LocalMoranProps = {
 
 /**
  * Calculates univariate Local Moran's I statistics for spatial autocorrelation
+ *
+ * ## Example
+ * ```ts
+ * import { localMoran } from '@geoda/lisa';
+ *
+ * const data = [1, 2, 3, 4, 5];
+ * const neighbors = [[1], [0, 2], [1, 3], [2, 4], [3]];
+ *
+ * const result = await localMoran({
+ *   data,
+ *   neighbors,
+ * });
+ *
+ * console.log(result);
+ * ```
  * @param {LocalMoranProps} props - Configuration object for Local Moran's I calculation
  * @returns {Promise<LocalMoranResult>} Promise resolving to Local Moran statistics and cluster assignments
  */
 export async function localMoran({
   data,
   neighbors,
-  permutation,
+  permutation = 999,
   significanceCutoff = 0.05,
   seed = 1234567890,
 }: LocalMoranProps): Promise<LocalMoranResult> {
@@ -121,6 +136,24 @@ export type BivariateLocalMoranProps = {
 /**
  * Calculates bivariate Local Moran's I statistics to measure spatial correlation
  * between two variables
+ *
+ * ## Example
+ * ```ts
+ * import { bivariateLocalMoran } from '@geoda/lisa';
+ *
+ * const data1 = [1, 2, 3, 4, 5];
+ * const data2 = [1, 2, 3, 4, 5];
+ * const neighbors = [[1], [0, 2], [1, 3], [2, 4], [3]];
+ *
+ * const result = await bivariateLocalMoran({
+ *   data1,
+ *   data2,
+ *   neighbors,
+ * });
+ *
+ * console.log(result);
+ * ```
+ *
  * @param {BivariateLocalMoranProps} props - Configuration object for bivariate Local Moran's I
  * @returns {Promise<LocalMoranResult>} Promise resolving to Local Moran statistics and cluster assignments
  */
@@ -128,7 +161,7 @@ export async function bivariateLocalMoran({
   data1,
   data2,
   neighbors,
-  permutation,
+  permutation = 999,
   significanceCutoff = 0.05,
   seed = 1234567890,
 }: BivariateLocalMoranProps): Promise<LocalMoranResult> {

@@ -130,6 +130,54 @@ export type LinearRegressionResult = {
   };
 };
 
+/**
+ * Perform a linear regression analysis using OLS.
+ *
+ * ## Example
+ * ```typescript
+ * import { linearRegression } from '@geodash/regression';
+ *
+ * const result = await linearRegression({
+ *   x: [[1, 2, 3], [4, 5, 6]],
+ *   y: [1, 2, 3],
+ *   xNames: ['x1', 'x2', 'x3'],
+ *   yName: 'y',
+ *   datasetName: 'dataset',
+ * });
+ * ```
+ *
+ * ## Example with spatial diagnostics
+ * ```typescript
+ * import { linearRegression } from '@geodash/regression';
+ *
+ * // two independent variables, one dependent variable, and weights
+ * // three observations
+ * const weights = [[1], [0, 2], [0]];
+ * const weightsValues = [1.0, 1.0, 1.0];
+ *
+ * const result = await linearRegression({
+ *   x: [[1, 2, 3], [4, 5, 6]],
+ *   y: [1, 2, 3],
+ *   xNames: ['x1', 'x2'],
+ *   yName: 'y',
+ *   datasetName: 'dataset',
+ *   weightsId: 'weights',
+ *   weights
+ * });
+ * ```
+ *
+ * @param x - The independent variables.
+ * @param y - The dependent variable.
+ * @param weightsId - The id of the weights to use.
+ * @param weights - The weights to use.
+ * @param weightsValues - The values of the weights.
+ * @param xNames - The names of the independent variables.
+ * @param yName - The name of the dependent variable.
+ * @param datasetName - The name of the dataset.
+ * @param xUndefs - The undefined values of the independent variables.
+ * @param yUndefs - The undefined values of the dependent variable.
+ * @returns The result of the linear regression analysis.
+ */
 export async function linearRegression({
   x,
   y,

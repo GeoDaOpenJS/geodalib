@@ -4,6 +4,6 @@ outline: deep
 
 # Spatial Regression
 
-- [OLS Regression](/api/functions/classicRegression)
-- [Spatial Lag Model](/api/functions/spatialLag)
-- [Spatial Error Model](/api/functions/spatialError)
+- [OLS Regression](/api/regression/src/functions/linearRegression)
+- [Spatial Lag Model](/api/regression/src/functions/spatialLagRegression)
+- [Spatial Error Model](/api/regression/src/functions/spatialError)

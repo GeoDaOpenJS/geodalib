@@ -9,6 +9,7 @@
 #include "sa/lisa-api.h"
 #include "weights/weights.h"
 #include "mapping/mapping.h"
+#include "data/data.h"
 #include "regression/diagnostic-report.h"
 #include "regression/regression.h"
 

@@ -17,11 +17,7 @@
 #include "regression/diagnostic-report.h"
 #include "regression/regression.h"
 #include "sa/lisa-api.h"
-#include "utils/deviation.h"
-#include "utils/mad.h"
-#include "utils/range_adjust.h"
-#include "utils/range_standardize.h"
-#include "utils/standardize.h"
+#include "data/data.h"
 #include "weights/weights.h"
 
 template <typename T>
@@ -116,10 +112,17 @@ EMSCRIPTEN_BINDINGS(wasmgeoda) {
   emscripten::function("boxBreaks", &geoda::box_breaks);
   emscripten::function("standardDeviationBreaks", &geoda::std_dev_breaks);
 
-  emscripten::function("deviationFromMean", &geoda::deviation_from_mean_wasm);
-  emscripten::function("standardizeMAD", &geoda::standardize_mad_wasm);
-  emscripten::function("rangeAdjust", &geoda::range_adjust_wasm);
-  emscripten::function("rangeStandardize", &geoda::range_standardize_wasm);
+  emscripten::function("deviationFromMean", &geoda::deviation_from_mean);
+  emscripten::function("standardizeMAD", &geoda::standardize_mad);
+  emscripten::function("rangeAdjust", &geoda::range_adjust);
+  emscripten::function("rangeStandardize", &geoda::range_standardize);
   emscripten::function("standardize", &geoda::standardize_data_wasm);
+
+  emscripten::function("rawRate", &geoda::raw_rate);
+  emscripten::function("excessRisk", &geoda::excess_risk);
+  emscripten::function("empiricalBayes", &geoda::empirical_bayes);
+  emscripten::function("spatialRate", &geoda::spatial_rate);
+  emscripten::function("rateStandardizeEmpiricalBayes", &geoda::rate_standardize_empirical_bayes);
+  emscripten::function("spatialEmpiricalBayes", &geoda::spatial_empirical_bayes);
 }
 #endif

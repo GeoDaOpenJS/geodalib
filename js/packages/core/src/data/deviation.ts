@@ -49,15 +49,15 @@ export async function deviationFromMean(data: number[] | Float32Array): Promise<
     return Array.from(data);
   }
 
-  wasm.deviationFromMean(wasmData, wasmUndefs);
-  const result = vecDoubleToNumber(wasmData);
+  const result = wasm.deviationFromMean(wasmData, wasmUndefs);
+  const resultArray = vecDoubleToNumber(result);
 
   // assign invalid result to original value
   for (let i = 0; i < n; ++i) {
     if (wasmUndefs.get(i) === 1) {
-      result[i] = data[i];
+      resultArray[i] = data[i];
     }
   }
 
-  return result;
+  return resultArray;
 }

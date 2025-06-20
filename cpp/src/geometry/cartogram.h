@@ -11,7 +11,6 @@
 
 #include "geometry/polygon.h"
 #include "utils/UTM.h"
-#include "utils/standardize.h"
 #include "weights/gal.h"
 #include "weights/weights.h"
 

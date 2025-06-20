@@ -4,7 +4,7 @@
 
 > **spatialRates**(`baseValues`, `eventValues`, `neighbors`): `number`[]
 
-Defined in: [core/src/mapping/rates.ts:297](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/rates.ts#L297)
+Defined in: [core/src/mapping/rates.ts:297](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/mapping/rates.ts#L297)
 
 Compute the spatial rates, which is the ratio of the events (number of lung cancer cases)
 over the population at risk (the county population) and its neighbors.

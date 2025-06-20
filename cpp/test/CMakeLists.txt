@@ -3,10 +3,6 @@ set(TEST_SOURCE_FILES
     ${CLAPACK_SRC}
     test-regression.cpp
     test-weights.cpp
-    test-mad.cpp
-    test_deviation.cpp
-    test_range_adjust.cpp
-    test_range_standardize.cpp
     test_thiessen_polygon.cpp
     test_cartogram.cpp)
 

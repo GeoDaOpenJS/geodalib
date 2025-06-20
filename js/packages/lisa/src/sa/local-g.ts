@@ -11,17 +11,52 @@ export type LocalGProps = {
   isGStar?: boolean;
 };
 
+/**
+ * Get local Getis-Ord G* statistics.
+ *
+ * ## Example
+ * ```ts
+ * import { localG } from '@geoda/lisa';
+ *
+ * const data = [1, 2, 3, 4, 5];
+ * const neighbors = [[1], [0, 2], [1, 3], [2, 4], [3]];
+ *
+ * const result = await localGStar({
+ *   data,
+ *   neighbors,
+ * });
+ *
+ * console.log(result);
+ * ```
+ */
 export async function localGStar({
   data,
   neighbors,
-  permutation,
+  permutation = 999,
   significanceCutoff = 0.05,
   seed = 1234567890,
 }: LocalGProps): Promise<LocalMoranResult> {
   return localG({ data, neighbors, permutation, significanceCutoff, seed, isGStar: true });
 }
 
-// Get local Getis-Ord statistics
+/**
+ * Get local Getis-Ord statistics.
+ *
+ * ## Example
+ * ```ts
+ * import { localG } from '@geoda/lisa';
+ *
+ * const data = [1, 2, 3, 4, 5];
+ * const neighbors = [[1], [0, 2], [1, 3], [2, 4], [3]];
+ *
+ * const result = await localG({
+ *   data,
+ *   neighbors,
+ * });
+ *
+ * console.log(result);
+ * ```
+ */
 export async function localG({
   data,
   neighbors,

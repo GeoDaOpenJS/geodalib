@@ -56,6 +56,7 @@
 - [excessRisk](functions/excessRisk.md)
 - [getArea](functions/getArea.md)
 - [getBuffers](functions/getBuffers.md)
+- [getCartogram](functions/getCartogram.md)
 - [getCentroids](functions/getCentroids.md)
 - [getContiguityNeighborsFromBinaryGeometries](functions/getContiguityNeighborsFromBinaryGeometries.md)
 - [getContiguityNeighborsFromGeomCollection](functions/getContiguityNeighborsFromGeomCollection.md)

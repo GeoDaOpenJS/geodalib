@@ -4,7 +4,7 @@
 
 > **equalIntervalBreaks**(`k`, `data`): `Promise`\<`number`[]\>
 
-Defined in: [core/src/mapping/equal-interval-breaks.ts:29](https://github.com/GeoDaCenter/geoda-lib/blob/dd0b55e88e7fa62fd12212664ac5233e391d8b71/js/packages/core/src/mapping/equal-interval-breaks.ts#L29)
+Defined in: [core/src/mapping/equal-interval-breaks.ts:29](https://github.com/GeoDaCenter/geoda-lib/blob/04471ecd75dbfe13a0a0fbff4b6e7d785ad0f8e7/js/packages/core/src/mapping/equal-interval-breaks.ts#L29)
 
 ## Description
 Divides the range of values into equal-sized intervals.
