@@ -29,7 +29,7 @@ export type QuantileLisaProps = {
  *   neighbors,
  * });
  * ```
- * 
+ *
  * @param k The number of classes/categories
  * @param quantile The quantile value
  * @param data The numeric values to be classified.
