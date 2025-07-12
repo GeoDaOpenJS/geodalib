@@ -1,6 +1,6 @@
-# GeoDa WASM
+# GeoDaLib 
 
-GeoDa WASM is a WebAssembly module that provides spatial data analysis capabilities from the GeoDa C++ library for use in web browsers and Node.js applications.
+GeoDaLib is a WebAssembly module that provides spatial data analysis capabilities from the GeoDa C++ library for use in web browsers and Node.js applications.
 
 ## ✨ Features
 
