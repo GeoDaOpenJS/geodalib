@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #include "regression/diagnostic-report.h"
 #include "regression/mix.h"
 

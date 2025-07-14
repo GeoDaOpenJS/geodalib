@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { Feature, Geometry, Position } from 'geojson';
 
 import {

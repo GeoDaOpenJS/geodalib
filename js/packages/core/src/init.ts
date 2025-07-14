@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { createWASMManager } from '@geoda/common';
 import { VERSION } from '@geoda/common';
 // @ts-expect-error wasm module is not typed by emscripten

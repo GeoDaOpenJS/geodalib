@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 
 #ifndef REG_UTILS_H
 #define REG_UTILS_H

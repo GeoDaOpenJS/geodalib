@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #include "lisa/UniG.h"
 #include "lisa/UniGstar.h"
 #include "sa/lisa-api.h"

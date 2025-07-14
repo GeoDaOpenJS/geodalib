@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { Feature } from 'geojson';
 import { initWASM } from '../init';
 import { getGeometryCollection, SpatialGeometry, polygonToFeature } from './utils';

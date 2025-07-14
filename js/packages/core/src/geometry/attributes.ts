@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { getGeometryCollection } from './utils';
 import { initWASM } from '../init';
 import { SpatialGeometry } from './utils';

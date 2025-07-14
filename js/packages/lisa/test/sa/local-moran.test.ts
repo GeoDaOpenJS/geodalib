@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { localMoran } from '../../src/sa/local-moran';
 import { initWASM } from '../../src/init';
 import { TEST_PO60, TEST_QUEEN_WEIGHTS } from '../data';

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { standardize } from '../../src/data/standardize';
 import { isValidNumber } from '../../src/utils/validation';
 import { expectArraysNearEqual } from '../utils';

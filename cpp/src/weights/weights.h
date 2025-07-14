@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #ifndef GEODA_DISTANCE_WEIGHTS_H
 #define GEODA_DISTANCE_WEIGHTS_H
 #include <vector>

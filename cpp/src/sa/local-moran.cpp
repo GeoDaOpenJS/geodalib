@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #include <boost/random.hpp>
 
 #include "lisa/UniLocalMoran.h"

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { excessRisk, empiricalBayes, spatialEmpiricalBayes } from '../../src/mapping/rates';
 
 describe('Rates Tests', () => {

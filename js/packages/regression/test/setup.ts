@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { setDeliveryWASM } from '../src/init';
 import path from 'path';
 

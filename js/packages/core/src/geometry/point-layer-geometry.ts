@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { GeoDaModule, GeometryCollection } from '@geoda/common';
 import { ArcLayerData, PointLayerData } from './utils';
 

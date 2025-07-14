@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 /**
  * Compute spatial lag of a list of values based on a list of neighbors and weights.
  *

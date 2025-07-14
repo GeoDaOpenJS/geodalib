@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { getBinaryGeometryTemplate } from '@loaders.gl/arrow';
 import { BinaryFeatureCollection } from '@loaders.gl/schema';
 

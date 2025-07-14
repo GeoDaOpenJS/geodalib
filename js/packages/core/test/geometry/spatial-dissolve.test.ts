@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { describe, it, expect } from '@jest/globals';
 import { spatialDissolve } from '../../src/geometry/spatial-dissolve';
 import { Feature, Polygon, MultiPolygon } from 'geojson';

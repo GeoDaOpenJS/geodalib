@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 /**
  * Reduces the precision of a number to the given number of decimal places.
  *

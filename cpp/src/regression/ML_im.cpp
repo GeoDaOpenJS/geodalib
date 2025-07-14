@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 /*
 Main module to solve a ML estimation problem with the characteristic polynomial method.
 test functionality for solving sparse polynomial problem

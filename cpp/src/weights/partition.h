@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #ifndef GEODA_GAL_PARTITION_H
 #define GEODA_GAL_PARTITION_H
 

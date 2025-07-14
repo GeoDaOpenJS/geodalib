@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import esbuild from 'esbuild';
 import fs from 'fs';
 

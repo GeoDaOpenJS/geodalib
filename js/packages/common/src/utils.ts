@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { VectorDouble, VectorInt, VectorString } from './wasm/index.d';
 
 export const earthRadius = 6371008.8;

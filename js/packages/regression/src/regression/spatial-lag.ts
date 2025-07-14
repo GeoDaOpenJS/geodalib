@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { LinearRegressionProps, printNumber, printVariableCoefficients } from './linear-regression';
 import { initWASM } from '../init';
 
