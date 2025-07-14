@@ -86,3 +86,19 @@ This project is licensed under the MIT License. Authors: Luc Anselin and Xun Li.
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Developer Certificate of Origin (DCO)
+
+This project requires all contributors to sign their commits with a Developer Certificate of Origin (DCO). This certifies that you have the right to submit your contribution to the project.
+
+**All commits must be signed with:**
+```
+Signed-off-by: Your Name <your.email@example.com>
+```
+
+You can sign commits using:
+```bash
+git commit -s -m "Your commit message"
+```
+
+For more information, see our [Contributing Guide](contributing/CONTRIBUTING.md) and [DCO Documentation](DCO.md).
