@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 /**
  * GeoDa TM, Copyright (C) 2011-2015 by Luc Anselin - all rights reserved
  *

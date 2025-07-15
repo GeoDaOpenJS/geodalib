@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { describe, it, expect } from '@jest/globals';
 import { getNearestNeighborsFromBinaryGeometries } from '../../src/weights/nearest-neighbors';
 import { POINT_BINARY_GEOMETRIES } from '../geometry-data';

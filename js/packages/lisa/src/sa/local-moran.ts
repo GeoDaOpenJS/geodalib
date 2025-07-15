@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { initWASM } from '../init';
 import { vecDoubleToNumber, vecIntToNumber, vecStringToArray } from '@geoda/common';
 

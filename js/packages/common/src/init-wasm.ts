@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import type { GeoDaModule } from './wasm';
 
 export type WasmModule = (

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #include "mapping/mapping.h"
 
 std::vector<double> geoda::raw_rate(const std::vector<double>& P, const std::vector<double>& E,

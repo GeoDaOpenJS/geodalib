@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #include "weights/vector-weight.h"
 
 #include <algorithm>

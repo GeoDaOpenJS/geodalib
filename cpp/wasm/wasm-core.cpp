@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 
 #ifdef __EMCC__
 #include <emscripten/bind.h>

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #ifndef GEODA_POLYGON_H
 #define GEODA_POLYGON_H
 

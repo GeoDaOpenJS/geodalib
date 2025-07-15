@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { describe, it, expect } from '@jest/globals';
 import { spatialJoin } from '../../src/geometry/spatial-join';
 import { POINT_BINARY_GEOMETRIES, POLYGON_BINARY_GEOMETRIES } from '../geometry-data';

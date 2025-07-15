@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { BinaryFeatureCollection } from '@loaders.gl/schema';
 import { Feature } from 'geojson';
 import { GeometryCollection, Line, Polygon } from '@geoda/common';

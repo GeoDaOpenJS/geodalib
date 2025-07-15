@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #include "data/data.h"
 
 std::vector<double> geoda::standardize_data_wasm(const std::vector<double>& data,

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { SpatialGeometry, getGeometryCollection } from '../geometry/utils';
 import { getContiguityNeighborsFromGeomCollection } from './contiguity-neighbors';
 import { getDistanceNeighborsFromGeomCollection } from './distance-neighbors';

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 export enum RatesOptions {
   RawRates = 'Raw Rates',
   ExcessRisk = 'Excess Risk',

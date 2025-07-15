@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { rangeAdjust } from '../../src/data/rangeAdjust';
 import { isValidNumber } from '../../src/utils/validation';
 import { expectArraysNearEqual } from '../utils';

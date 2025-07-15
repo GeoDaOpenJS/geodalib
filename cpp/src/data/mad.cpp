@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #include "data/data.h"
 
 std::vector<double> geoda::standardize_mad(const std::vector<double>& data, const std::vector<unsigned int>& undef) {

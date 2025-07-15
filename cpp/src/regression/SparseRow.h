@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #ifndef __GEODA_CENTER_SPARSE_ROW_H__
 #define __GEODA_CENTER_SPARSE_ROW_H__
 

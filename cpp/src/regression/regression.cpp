@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #include "regression/regression.h"
 
 #include <boost/property_tree/json_parser.hpp>

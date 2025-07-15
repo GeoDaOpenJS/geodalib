@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import './geometry/binary-geometry.test';
 import './geometry/spatial-join.test';
 import './geometry/spatial-dissolve.test';

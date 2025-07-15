@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { dtsPlugin } from 'esbuild-plugin-d.ts';
 import { copy as copyPlugin } from 'esbuild-plugin-copy';
 import { createBaseConfig, buildFormat } from '../../esbuild.config.mjs';

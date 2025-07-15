@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { describe, it, expect } from '@jest/globals';
 import { hinge15Breaks, hinge30Breaks } from '../../src/mapping/box-breaks';
 import { reducePrecision } from '../utils';

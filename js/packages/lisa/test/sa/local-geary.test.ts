@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { localGeary } from '../../src/sa/local-geary';
 
 describe('localGeary', () => {

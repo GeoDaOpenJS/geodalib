@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { localG } from '../../src/sa/local-g';
 
 describe('localG', () => {

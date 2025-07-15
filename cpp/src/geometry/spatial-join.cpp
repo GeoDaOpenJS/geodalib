@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #include <utility>
 
 #include <boost/geometry/geometries/box.hpp>

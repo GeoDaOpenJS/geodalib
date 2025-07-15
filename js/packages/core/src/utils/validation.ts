@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 /**
  * Check if a value is a valid number
  * @param val - The value to check

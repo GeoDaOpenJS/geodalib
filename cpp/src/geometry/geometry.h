@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #ifndef GEODA_GEOMETRY_COLLECTION_H
 #define GEODA_GEOMETRY_COLLECTION_H
 #include <boost/geometry.hpp>

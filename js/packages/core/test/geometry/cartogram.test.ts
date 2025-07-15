@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { describe, it, expect } from '@jest/globals';
 import { getCartogram } from '../../src/geometry/cartogram';
 import { Feature, Point, Polygon } from 'geojson';

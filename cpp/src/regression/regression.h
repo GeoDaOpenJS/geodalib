@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 #ifndef REGRESSION_H
 #define REGRESSION_H
 

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright contributors to the geoda-lib project
+
 import { initWASM } from '../../src/init';
 import { dotProduct, linearRegression } from '../../src/regression/linear-regression';
 import { TEST_HR60, TEST_PO60, TEST_UE60, TEST_QUEEN_WEIGHTS } from '../data';
