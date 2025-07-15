@@ -2,7 +2,7 @@
 
 The following license header is used in this project:
 // SPDX-License-Identifier: MIT
-// Copyright contributors to the geoda-lib project
+// Copyright contributors to the geodalib project
 
 # Usage
 

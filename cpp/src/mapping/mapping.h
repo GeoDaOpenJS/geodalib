@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Copyright contributors to the geoda-lib project
+// Copyright contributors to the geodalib project
 
 #ifndef GEODA_MAPPING_H
 #define GEODA_MAPPING_H

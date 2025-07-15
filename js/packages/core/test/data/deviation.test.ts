@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Copyright contributors to the geoda-lib project
+// Copyright contributors to the geodalib project
 
 import { deviationFromMean } from '../../src/data/deviation';
 import { isValidNumber } from '../../src/utils/validation';

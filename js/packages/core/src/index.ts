@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Copyright contributors to the geoda-lib project
+// Copyright contributors to the geodalib project
 
 export type { GeoDaModule as GeoDaInterface } from '@geoda/common';
 export type { GeometryCollection } from '@geoda/common';

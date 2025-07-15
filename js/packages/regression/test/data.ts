@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Copyright contributors to the geoda-lib project
+// Copyright contributors to the geodalib project
 
 export const TEST_PO60 = [
   4304, 3889, 17884, 25520, 6914, 5809, 12537, 32965, 11565, 7904, 2624, 18653, 6458, 5566, 5886,

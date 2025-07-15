@@ -8,7 +8,7 @@ set -e
 
 # License header to add
 LICENSE_HEADER="// SPDX-License-Identifier: MIT
-// Copyright contributors to the geoda-lib project"
+// Copyright contributors to the geodalib project"
 
 # Function to check if file already has the license header
 has_license_header() {
@@ -28,7 +28,7 @@ has_license_header() {
     fi
     
     # Check for other common license header patterns
-    if echo "$first_lines" | grep -q "Copyright contributors to the geoda-lib project"; then
+    if echo "$first_lines" | grep -q "Copyright contributors to the geodalib project"; then
         return 0  # Has license header
     fi
     

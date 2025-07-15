@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Copyright contributors to the geoda-lib project
+// Copyright contributors to the geodalib project
 
 import { describe, it, expect } from '@jest/globals';
 import { getMinimumSpanningTree } from '../../src/geometry/mst';

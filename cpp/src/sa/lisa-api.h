@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Copyright contributors to the geoda-lib project
+// Copyright contributors to the geodalib project
 
 #ifndef GEODA_LOCAL_STATISTICS_H
 #define GEODA_LOCAL_STATISTICS_H

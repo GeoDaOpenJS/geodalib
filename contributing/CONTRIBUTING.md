@@ -53,8 +53,8 @@ For more information about DCO, see the [DCO.md](../DCO.md) file in the root of 
 1. Fork the repository
 2. Clone your fork:
    ```bash
-   git clone https://github.com/your-username/geoda-lib.git
-   cd geoda-lib
+   git clone https://github.com/your-username/geodalib.git
+   cd geodalib
    ```
 3. Install dependencies:
    ```bash

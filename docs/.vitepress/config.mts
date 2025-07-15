@@ -5,7 +5,7 @@ import { generateApiReferences } from './buildApiOverview.mts';
 export default defineConfig({
   title: 'GeoDaLib',
   description: 'a modern Javascript library for spatial data analysis',
-  base: '/geoda-lib/',
+  base: '/geodalib/',
   markdown: {
     math: true,
   },
@@ -52,7 +52,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/geodacenter/geoda-lib' },
+      { icon: 'github', link: 'https://github.com/geodaopenjs/geodalib' },
       {
         icon: 'linkedin',
         link: 'https://www.linkedin.com/company/center-for-spatial-data-science',

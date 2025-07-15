@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Copyright contributors to the geoda-lib project
+// Copyright contributors to the geodalib project
 
 #ifndef __GEODA_CENTER_MIX_H__
 #define __GEODA_CENTER_MIX_H__

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Copyright contributors to the geoda-lib project
+// Copyright contributors to the geodalib project
 
 import { spatialLagRegression } from '../../src/regression/spatial-lag';
 import { TEST_HR60, TEST_PO60, TEST_QUEEN_WEIGHTS, TEST_UE60 } from '../data';
